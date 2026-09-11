@@ -58,11 +58,11 @@ UniProtKB entries annotated to `GO:0030016` or its `is_a`/`part_of` descendants
 
 ### Verification
 
-Each pool entry was fetched by `pipeline/verify_accessions.py` as entry JSON and FASTA.
+Each pool entry was fetched by `pipeline/fetch_sequences.py` as entry JSON and FASTA.
 The MD5 of the FASTA sequence was compared with the MD5 published in the entry JSON,
 the FASTA and JSON sequences were compared character-for-character, lengths were
 compared, and only the twenty standard letters were accepted; any failure stops the
-run. 303 entries passed (`data/uniprot_verification.ini`, header). The
+run. 303 entries passed (`data/uniprot_sequences.ini`, header). The
 entry JSON was saved unchanged to `data/uniprot_raw/`.
 
 ### Sequence and processing
@@ -104,7 +104,7 @@ decision is attached to these numbers; they bound what a different isoform or
 processing choice could do to the composition of any one entry before mass weighting.
 The per-isoform and per-entry values are in `outputs/isoform_deltas.tsv` and
 `outputs/processing_deltas.tsv`; the two isoform sequences UniProt did not serve
-(HTTP 404, recorded in `data/uniprot_verification.ini`) are absent from the isoform table.
+(HTTP 404, recorded in `data/uniprot_sequences.ini`) are absent from the isoform table.
 
 ### Limitation
 

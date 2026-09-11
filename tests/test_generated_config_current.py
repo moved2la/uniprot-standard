@@ -1,7 +1,7 @@
 """The generated config must equal a fresh build from the data on disk.
 
 Skipped when the network stages have not yet been run on this machine (no
-data/uniprot_verification.ini). Fails if config/accessions.ini or segments.ini
+data/uniprot_sequences.ini). Fails if config/accessions.ini or segments.ini
 was hand-edited or is stale, or if any flag is still open.
 """
 import pytest
@@ -11,7 +11,7 @@ from pipeline.flags import open_flags
 
 
 needs_data = pytest.mark.skipif(
-    not common.VERIFICATION_INI.exists() or not common.RESOLVED_TERMS_INI.exists(),
+    not common.SEQUENCES_INI.exists() or not common.RESOLVED_TERMS_INI.exists(),
     reason="network stages not run yet; no fetched data on disk")
 
 

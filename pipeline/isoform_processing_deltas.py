@@ -10,7 +10,7 @@ master range. This tool computes, from residue counts only (no masses):
 and the set-wide bound on each (the largest absolute delta seen for each amino acid,
 and where it occurs). The bound is what the methods section reports.
 
-Inputs   data/uniprot_verification.ini, config/segments.ini, config/accessions.ini
+Inputs   data/uniprot_sequences.ini, config/segments.ini, config/accessions.ini
 Outputs  outputs/isoform_deltas.tsv, outputs/isoform_bound.tsv,
          outputs/processing_deltas.tsv, outputs/processing_bound.tsv
 """
@@ -64,7 +64,7 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.parse_args(argv)
     log = common.make_logger(STAGE)
-    ver = common.read_ini(common.VERIFICATION_INI)
+    ver = common.read_ini(common.SEQUENCES_INI)
     seg = common.read_ini(common.SEGMENTS_INI)
     acc_cfg = common.read_ini(common.ACCESSIONS_INI)
 

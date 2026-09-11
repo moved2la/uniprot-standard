@@ -18,7 +18,7 @@ generator produces from the data on disk.
 | Folder | Meaning |
 |---|---|
 | `config/` | Decisions (hand-written) and the config generated from them. |
-| `data/` | What the public databases said, unchanged or minimally tabulated. `data/gene-ontology/` holds the ontology file and the resolved term tables; `data/uniprot_raw/` holds entry JSON as fetched; `data/uniprot_verification.ini` is the tabulated, verified form. |
+| `data/` | What the public databases said, unchanged or minimally tabulated. `data/gene-ontology/` holds the ontology file and the resolved term tables; `data/uniprot_raw/` holds entry JSON as fetched; `data/uniprot_sequences.ini` holds every canonical sequence in tabulated form, with its UniProt MD5, computed MD5, and captured features. |
 | `outputs/` | Everything computed here that is not config: flags, evidence summaries, delta tables. `outputs/logs/` holds one timestamped log per stage per run. |
 | `docs/` | Plan, decisions, methods, conventions, handoffs. |
 

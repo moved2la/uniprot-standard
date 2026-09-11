@@ -65,7 +65,7 @@ membership.
 - `PROVENANCE.md`, `README.md`, `requirements.txt`, `run.py`, `pipeline/`, `tests/`
 - `config/protein_set_decisions.ini` (hand-written; seeds and closures only)
 - Generated at run time: `data/gene-ontology/*`, `data/tier<N>_pool*.tsv`,
-  `data/pool_queries.ini`, `data/uniprot_raw/`, `data/uniprot_verification.ini`,
+  `data/pool_queries.ini`, `data/uniprot_raw/`, `data/uniprot_sequences.ini`,
   `config/accessions.ini`, `config/segments.ini`, `outputs/*.tsv`, `outputs/logs/`
 - `docs/conventions.md`, `docs/decisions.md` (D1–D23), `docs/methods.md` (placeholders
   filled after the run)
@@ -114,10 +114,10 @@ deltas (Step 2); collagen/ECM; literature of any kind.
 - `segments.ini`: 303 master runs (295 R2a, 1 R2b, 7 R2d); 93 runs with
   `in_master_molecule = false` (91 N-terminal, 2 C-terminal, 0 internal) across 92 entries.
 - Flags: none open, none raised in the final build.
-- **Sequences are already on disk, verified.** `data/uniprot_verification.ini` holds every
+- **Sequences are already on disk, verified.** `data/uniprot_sequences.ini` holds every
   canonical sequence with UniProt's MD5 and the computed MD5. Step 2's harvest is
   therefore already done for this set; the composition engine reads
-  `uniprot_verification.ini` + `segments.ini` and needs no fetcher of its own. Re-fetching
+  `uniprot_sequences.ini` + `segments.ini` and needs no fetcher of its own. Re-fetching
   is only required if the pool is regenerated at a new release.
-- Two isoform FASTAs returned HTTP 404 (recorded in the verification file); irrelevant to
+- Two isoform FASTAs returned HTTP 404 (recorded in `data/uniprot_sequences.ini`); irrelevant to
   Step 2 since only canonical sequences are used.

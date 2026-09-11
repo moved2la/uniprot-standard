@@ -20,7 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 
-NETWORK_STAGES = ["resolve_ontology_term", "enumerate_pool", "verify_accessions"]
+NETWORK_STAGES = ["resolve_ontology_term", "enumerate_pool", "fetch_sequences"]
 OFFLINE_STAGES = ["build_protein_set", "isoform_processing_deltas"]
 
 
