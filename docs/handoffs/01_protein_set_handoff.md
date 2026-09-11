@@ -5,7 +5,7 @@
 **Governing rule:** `PROVENANCE.md`
 **Depends on:** nothing (fresh repository `uniprot-standard`)
 **Feeds:** Step 2 (harvest and composition engine), Step 3 (mass fractions)
-**Status:** code and hand-written inputs delivered 2026-09-10; awaiting the first network run
+**Status:** COMPLETE 2026-09-11. Two runs: the first raised 7 multi-chain flags, closed by rule R2d (D24); the second rebuilt green with zero flags. Config regenerated independently on two machines was byte-identical.
 
 ---
 
@@ -107,5 +107,17 @@ deltas (Step 2); collagen/ECM; literature of any kind.
 
 ## Handoff to Step 2
 
-_(fill in at completion — pool sizes per tier, `in_master_molecule = false` count,
-R2b/R2c counts, anything flagged for the harvest)_
+- Pool sizes: Tier 1 = 242, Tier 2 = 87, both = 26, unique accessions = 303.
+- Gene Ontology release `releases/2026-07-26` (sha256 in `data/gene-ontology/source.ini`);
+  UniProt release 2026_03; fetched 2026-09-11.
+- Every accession uses its canonical sequence (R1). No isoform IDs anywhere.
+- `segments.ini`: 303 master runs (295 R2a, 1 R2b, 7 R2d); 93 runs with
+  `in_master_molecule = false` (91 N-terminal, 2 C-terminal, 0 internal) across 92 entries.
+- Flags: none open, none raised in the final build.
+- **Sequences are already on disk, verified.** `data/uniprot_verification.ini` holds every
+  canonical sequence with UniProt's MD5 and the computed MD5. Step 2's harvest is
+  therefore already done for this set; the composition engine reads
+  `uniprot_verification.ini` + `segments.ini` and needs no fetcher of its own. Re-fetching
+  is only required if the pool is regenerated at a new release.
+- Two isoform FASTAs returned HTTP 404 (recorded in the verification file); irrelevant to
+  Step 2 since only canonical sequences are used.

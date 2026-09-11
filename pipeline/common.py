@@ -64,7 +64,7 @@ def make_logger(stage: str, logs_dir: Path = LOGS_DIR) -> logging.Logger:
     logger.propagate = False
     fmt = logging.Formatter("%(asctime)sZ %(levelname)s %(message)s", "%Y-%m-%dT%H:%M:%S")
     fmt.converter = time.gmtime  # log lines and log filenames are both UTC
-    fh = logging.FileHandler(path, encoding="utf-8")
+    fh = logging.StreamHandler(open(path, "a", encoding="utf-8", newline="\n"))
     fh.setFormatter(fmt)
     sh = logging.StreamHandler(sys.stderr)
     sh.setFormatter(fmt)
