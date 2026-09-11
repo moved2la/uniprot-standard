@@ -39,7 +39,7 @@ the code raises a flag; it never defaults.
 | **R0a Subtree** | Ontology relations `is_a` and `part_of` | All descendants of the term; immediate parents and children recorded as neighbours. |
 | **R0b Pool** | UniProtKB search fields `organism_id`, `reviewed`, `go` | Union over one query per subtree term of `(organism_id:9606) AND (reviewed:true) AND (go:<id>)`. The term-level query is run as a check; a difference is flagged. |
 | **R1 Sequence** | The entry's canonical sequence (the sequence UniProt displays and publishes an MD5 for) | Always used. No isoform is ever selected. Isoform composition deltas are computed and disclosed, not acted on. |
-| **R2 Processing** | UniProt feature table, type `Chain` | R2a exactly one → its range is the master molecule. R2b none → whole sequence, logged. R2c several, or non-exact position → flag. |
+| **R2 Processing** | UniProt feature table, type `Chain` | R2a exactly one → its range is the master molecule. R2b none → whole sequence, logged. R2d several → the union of their ranges (D24), listed in `outputs/multi_chain_entries.tsv`. R2c any Chain with a non-exact position → flag. |
 | **R3 Evidence** | Gene Ontology cross-reference property `GoEvidenceType` | Recorded per annotation and summarised per tier. Never filters. |
 | **R4 Tier** | Membership of `data/tier<N>_pool.tsv` | An entry in more than one pool carries every tier it is in. |
 

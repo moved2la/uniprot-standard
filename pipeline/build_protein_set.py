@@ -13,14 +13,16 @@ Rules applied (each names the field it reads; see docs/conventions.md)
         R2a exactly one Chain feature -> its range is the master molecule; residues
             outside it are in_master_molecule = false.
         R2b no Chain feature          -> whole sequence is the master molecule; logged.
-        R2c more than one Chain, or a Chain with an uncertain position -> FLAG.
+        R2d several Chain features    -> union of their ranges (D24); listed in
+            outputs/multi_chain_entries.tsv.
+        R2c any Chain with a non-exact position -> FLAG.
   R3  Evidence   : Gene Ontology evidence codes are recorded per annotation and
         summarised; they never filter.
   R4  Tier       : membership of data/tier<N>_pool.tsv. An entry in several pools
         carries all its tiers.
 
 A flag is closed only by a [flag.<accession>] section in the decisions file:
-    rule = multiple_chain_features | chain_position_uncertain
+    rule = chain_position_uncertain
     decision = D<n>
     master_start = <int>
     master_end   = <int>
@@ -77,37 +79,61 @@ def _is_exact(pos: str) -> bool:
     return pos.isdigit()
 
 
-def chain_rule(acc: str, sec, decisions) -> tuple[str, int | None, int | None, str, dict | None]:
-    """Apply R2. Returns (rule_applied, master_start, master_end, note, flag_or_None).
+def _union(ranges: list[tuple[int, int]]) -> list[tuple[int, int]]:
+    """Merge overlapping/adjacent 1-indexed inclusive ranges into sorted disjoint runs."""
+    out: list[tuple[int, int]] = []
+    for a, b in sorted(ranges):
+        if out and a <= out[-1][1] + 1:
+            out[-1] = (out[-1][0], max(out[-1][1], b))
+        else:
+            out.append((a, b))
+    return out
 
-    When the feature table cannot settle the range, the flag dict is ALWAYS returned so
-    that it is recorded in outputs/flags.tsv; if the decisions file closes that flag,
-    the closure's range is applied and rule_applied is 'R2c-closed'. The caller decides
-    whether the flag is open by checking the closure.
+
+def chain_rule(acc: str, sec, decisions):
+    """Apply R2. Returns (rule_applied, master_ranges, note, flag_or_None, chains).
+
+    R2a one exact Chain           -> its range
+    R2b no Chain                  -> whole sequence
+    R2d several exact Chains      -> union of their ranges (D24); listed in
+                                     outputs/multi_chain_entries.tsv, not flagged
+    R2c any Chain with a non-exact position -> FLAG chain_position_uncertain; closable
+         with master_start/master_end in the decisions file (rule 'R2c-closed').
+    The flag dict is returned whenever the condition exists, closed or not, so it is
+    always recorded; the caller checks the closure to decide whether it is open.
     """
     length = int(sec["length"])
     chains = _features(sec, "Chain")
-    if len(chains) == 0:
-        return ("R2b", 1, length, "no Chain feature in UniProt feature table; whole sequence is the master molecule", None)
+    if not chains:
+        return ("R2b", [(1, length)],
+                "no Chain feature in UniProt feature table; whole sequence is the master molecule", None, chains)
+    inexact = [c for c in chains if not (_is_exact(c["start"]) and _is_exact(c["end"]))]
+    if inexact:
+        desc = "; ".join(f"{c['id']} '{c['description']}' {c['start']}-{c['end']}" for c in inexact)
+        flag = {"rule": "chain_position_uncertain", "detail": f"Chain feature(s) with non-exact position: {desc}"}
+        cl = closure(decisions, acc)
+        if cl is not None and cl.get("rule") == flag["rule"]:
+            s, e = int(cl["master_start"]), int(cl["master_end"])
+            return ("R2c-closed", [(s, e)], f"flag {flag['rule']} closed by {cl['decision']}: master = {s}-{e}", flag, chains)
+        return ("R2c", [], "", flag, chains)
+    ranges = [(int(c["start"]), int(c["end"])) for c in chains]
     if len(chains) == 1:
         c = chains[0]
-        if _is_exact(c["start"]) and _is_exact(c["end"]):
-            return ("R2a", int(c["start"]), int(c["end"]),
-                    f"Chain {c['id']} '{c['description']}' {c['start']}-{c['end']}", None)
-        flag = {"rule": "chain_position_uncertain",
-                "detail": f"Chain {c['id']} '{c['description']}' at {c['start']}-{c['end']} has a non-exact position"}
-    else:
-        desc = "; ".join(f"{c['id']} '{c['description']}' {c['start']}-{c['end']}" for c in chains)
-        flag = {"rule": "multiple_chain_features", "detail": f"{len(chains)} Chain features: {desc}"}
-    cl = closure(decisions, acc)
-    if cl is not None and cl.get("rule") == flag["rule"]:
-        s, e = int(cl["master_start"]), int(cl["master_end"])
-        return ("R2c-closed", s, e, f"flag {flag['rule']} closed by {cl['decision']}: master = {s}-{e}", flag)
-    return ("R2c", None, None, "", flag)
+        return ("R2a", ranges, f"Chain {c['id']} '{c['description']}' {c['start']}-{c['end']}", None, chains)
+    merged = _union(ranges)
+    desc = "; ".join(f"{c['id']} '{c['description']}' {c['start']}-{c['end']}" for c in chains)
+    return ("R2d", merged,
+            f"union of {len(chains)} Chain features = {_fmt_ranges(merged)} (D24); chains: {desc}", None, chains)
 
 
-def segments_for(acc: str, sec, s: int, e: int, rule: str, note: str) -> list[tuple[str, dict[str, str]]]:
-    """Segment sections for one accession: master range plus any residues outside it."""
+def _fmt_ranges(ranges: list[tuple[int, int]]) -> str:
+    return ",".join(f"{a}-{b}" for a, b in ranges)
+
+
+def segments_for(acc: str, sec, ranges: list[tuple[int, int]], rule: str, note: str) -> list[tuple[str, dict[str, str]]]:
+    """Segment sections for one accession: each master run plus every residue run outside them.
+    Section names: .master (first run), .master_2.. for further runs; .n_terminal_removed,
+    .internal_removed[_k], .c_terminal_removed for uncovered runs."""
     length = int(sec["length"])
     feats = _all_features(sec)
 
@@ -123,17 +149,25 @@ def segments_for(acc: str, sec, s: int, e: int, rule: str, note: str) -> list[tu
         return "; ".join(hits) if hits else "no captured feature covers this span"
 
     out = []
-    if s > 1:
-        out.append((f"{acc}.n_terminal_removed", {
-            "start": "1", "end": str(s - 1), "in_master_molecule": "false",
-            "note": f"outside the Chain range; UniProt features here: {covering(1, s - 1)}"}))
-    out.append((f"{acc}.master", {
-        "start": str(s), "end": str(e), "in_master_molecule": "true",
-        "rule": rule, "note": note}))
-    if e < length:
-        out.append((f"{acc}.c_terminal_removed", {
-            "start": str(e + 1), "end": str(length), "in_master_molecule": "false",
-            "note": f"outside the Chain range; UniProt features here: {covering(e + 1, length)}"}))
+    pos = 1
+    n_master = 0
+    n_internal = 0
+    for a, b in ranges:
+        if a > pos:
+            if pos == 1:
+                name = f"{acc}.n_terminal_removed"
+            else:
+                n_internal += 1
+                name = f"{acc}.internal_removed" + ("" if n_internal == 1 else f"_{n_internal}")
+            out.append((name, {"start": str(pos), "end": str(a - 1), "in_master_molecule": "false",
+                               "note": f"outside every Chain range; UniProt features here: {covering(pos, a - 1)}"}))
+        n_master += 1
+        name = f"{acc}.master" + ("" if n_master == 1 else f"_{n_master}")
+        out.append((name, {"start": str(a), "end": str(b), "in_master_molecule": "true", "rule": rule, "note": note}))
+        pos = b + 1
+    if pos <= length:
+        out.append((f"{acc}.c_terminal_removed", {"start": str(pos), "end": str(length), "in_master_molecule": "false",
+                    "note": f"outside every Chain range; UniProt features here: {covering(pos, length)}"}))
     return out
 
 
@@ -152,6 +186,7 @@ def build(decisions, resolved, verification, pools: dict[str, list[dict[str, str
     open_flags: list[str] = []
     evidence_counter: dict[str, Counter] = {t: Counter() for t in pools}
     acc_evidence_rows: list[list] = []
+    multi_chain_rows: list[list] = []
 
     for acc in sorted(tiers_of):
         if not verification.has_section(acc):
@@ -184,18 +219,20 @@ def build(decisions, resolved, verification, pools: dict[str, list[dict[str, str
                                       ";".join(codes)])
 
         # R2: processing
-        rule, s, e, note, flag = chain_rule(acc, sec, decisions)
+        rule, ranges, note, flag, chains = chain_rule(acc, sec, decisions)
         if flag is not None:
             append_flag(flags_path, stage=STAGE, subject=acc, rule=flag["rule"], detail=flag["detail"])
         if rule == "R2c":
             open_flags.append(acc)
             log.warning("%s: FLAG %s -- %s", acc, flag["rule"], flag["detail"])
         else:
-            if rule == "R2b":
+            if rule in ("R2b", "R2c-closed", "R2d"):
                 log.info("%s: %s", acc, note)
-            elif rule == "R2c-closed":
-                log.info("%s: %s", acc, note)
-            for name, body in segments_for(acc, sec, s, e, rule, note):
+            if rule == "R2d":
+                multi_chain_rows.append([acc, sec.get("gene", ""), ";".join(tiers), len(chains),
+                                         " | ".join(f"{c['id']} '{c['description']}' {c['start']}-{c['end']}" for c in chains),
+                                         _fmt_ranges(ranges), sec["length"]])
+            for name, body in segments_for(acc, sec, ranges, rule, note):
                 seg_cp[name] = body
 
         # accessions.ini section
@@ -241,7 +278,7 @@ def build(decisions, resolved, verification, pools: dict[str, list[dict[str, str
                       f"({r['lookup_decision']}) -> {r['term_id']} {r['term_name']} ; pool size {len(pools[t])}")
     evidence_rows = [[t, code, n] for t in sorted(evidence_counter)
                      for code, n in sorted(evidence_counter[t].items())]
-    return acc_cp, seg_cp, header, open_flags, evidence_rows, acc_evidence_rows
+    return acc_cp, seg_cp, header, open_flags, evidence_rows, acc_evidence_rows, multi_chain_rows
 
 
 def _ini_header(path) -> dict[str, str]:
@@ -288,7 +325,7 @@ def main(argv=None) -> int:
     if not args.check:
         reset_flags(common.FLAGS_TSV, STAGE)
 
-    acc_cp, seg_cp, header, open_flags, evidence_rows, acc_evidence_rows = build(
+    acc_cp, seg_cp, header, open_flags, evidence_rows, acc_evidence_rows, multi_chain_rows = build(
         decisions, resolved, verification, pools, subtrees, queries, log, flags_path)
     seg_header = [
         "GENERATED by build_protein_set.py. DO NOT EDIT BY HAND.",
@@ -309,11 +346,14 @@ def main(argv=None) -> int:
         log.info("check: %s", "generated config is current" if ok else "generated config is STALE")
         return 0 if ok else 1
 
-    common.ACCESSIONS_INI.write_text(acc_text, encoding="utf-8")
-    common.SEGMENTS_INI.write_text(seg_text, encoding="utf-8")
+    common.ACCESSIONS_INI.write_text(acc_text, encoding="utf-8", newline="\n")
+    common.SEGMENTS_INI.write_text(seg_text, encoding="utf-8", newline="\n")
     common.write_tsv(common.OUTPUTS_DIR / "evidence_summary.tsv", ["tier", "evidence_code", "n_accessions"], evidence_rows)
     common.write_tsv(common.OUTPUTS_DIR / "accession_evidence.tsv",
                      ["accession", "tier", "subtree_annotations", "evidence_codes"], acc_evidence_rows)
+    common.write_tsv(common.OUTPUTS_DIR / "multi_chain_entries.tsv",
+                     ["accession", "gene", "tier", "n_chain_features", "chain_features", "master_ranges_union", "length"],
+                     multi_chain_rows)
     log.info("wrote %s (%d accessions) and %s (%d segments)",
              common.ACCESSIONS_INI, len(acc_cp.sections()), common.SEGMENTS_INI, len(seg_cp.sections()))
     if open_flags:

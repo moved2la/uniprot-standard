@@ -14,6 +14,7 @@ import datetime as _dt
 import hashlib
 import logging
 import sys
+import time
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -61,7 +62,8 @@ def make_logger(stage: str, logs_dir: Path = LOGS_DIR) -> logging.Logger:
     logger = logging.getLogger(f"pipeline.{stage}.{timestamp()}")
     logger.setLevel(logging.INFO)
     logger.propagate = False
-    fmt = logging.Formatter("%(asctime)s %(levelname)s %(message)s", "%Y-%m-%dT%H:%M:%S")
+    fmt = logging.Formatter("%(asctime)sZ %(levelname)s %(message)s", "%Y-%m-%dT%H:%M:%S")
+    fmt.converter = time.gmtime  # log lines and log filenames are both UTC
     fh = logging.FileHandler(path, encoding="utf-8")
     fh.setFormatter(fmt)
     sh = logging.StreamHandler(sys.stderr)
@@ -103,7 +105,7 @@ def render_ini(cp: configparser.ConfigParser, header_lines: list[str]) -> str:
 
 def write_ini(cp: configparser.ConfigParser, path: Path, header_lines: list[str]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(render_ini(cp, header_lines), encoding="utf-8")
+    path.write_text(render_ini(cp, header_lines), encoding="utf-8", newline="\n")
 
 
 def sha256_file(path: Path) -> str:

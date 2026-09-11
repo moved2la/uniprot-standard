@@ -190,7 +190,7 @@ def main(argv=None) -> int:
     failures: dict[str, list[str]] = {}
     for n, acc in enumerate(sorted(pool), 1):
         entry = client.entry_json(acc)
-        (common.UNIPROT_RAW_DIR / f"{acc}.json").write_text(json.dumps(entry, indent=1), encoding="utf-8")
+        (common.UNIPROT_RAW_DIR / f"{acc}.json").write_text(json.dumps(entry, indent=1), encoding="utf-8", newline="\n")
         rec = extract(entry)
         if rec["accession"] != acc:
             failures[acc] = [f"primaryAccession {rec['accession']!r} != requested {acc!r} (merged/demerged entry?)"]
