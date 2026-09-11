@@ -1,0 +1,170 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "X99001",
+ "uniProtkbId": "FIX1_HUMAN",
+ "organism": {
+  "taxonId": 9606
+ },
+ "genes": [
+  {
+   "geneName": {
+    "value": "FIXA"
+   }
+  }
+ ],
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "value": "Fixture protein one"
+   }
+  }
+ },
+ "entryAudit": {
+  "sequenceVersion": 2,
+  "entryVersion": 150,
+  "lastSequenceUpdateDate": "2001-01-01"
+ },
+ "sequence": {
+  "value": "MGGGAAAKKKWWY",
+  "length": 13,
+  "md5": "B8BAB4B84AC5F378A79AC603BD2410F4"
+ },
+ "features": [
+  {
+   "type": "Initiator methionine",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 1,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Removed"
+  },
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 2,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 13,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Fixture protein one",
+   "featureId": "PRO_0000001"
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 3,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 5,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Not captured"
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 10,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 13,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "In isoform 2",
+   "featureId": "VSP_000001"
+  }
+ ],
+ "comments": [
+  {
+   "commentType": "ALTERNATIVE PRODUCTS",
+   "isoforms": [
+    {
+     "name": {
+      "value": "1"
+     },
+     "isoformIds": [
+      "X99001-1"
+     ],
+     "isoformSequenceStatus": "Displayed"
+    },
+    {
+     "name": {
+      "value": "2"
+     },
+     "isoformIds": [
+      "X99001-2"
+     ],
+     "isoformSequenceStatus": "Described",
+     "sequenceIds": [
+      "VSP_000001"
+     ],
+     "note": {
+      "texts": [
+       {
+        "value": "A free-text note that is recorded and never parsed."
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "commentType": "TISSUE SPECIFICITY",
+   "texts": [
+    {
+     "value": "Recorded, never parsed."
+    }
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "GO",
+   "id": "TEST:0000003",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:widget core"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "TEST:0000006",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:gadget"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "1ABC",
+   "properties": []
+  }
+ ]
+}

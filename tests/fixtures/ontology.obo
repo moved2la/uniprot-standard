@@ -1,0 +1,73 @@
+format-version: 1.2
+data-version: releases/2099-01-01
+date: 01:01:2099 00:00
+ontology: test
+
+[Term]
+id: TEST:0000001
+name: root compartment
+namespace: cellular_component
+def: "The root." [TEST:fixture]
+
+[Term]
+id: TEST:0000002
+name: widget
+namespace: cellular_component
+def: "A widget." [TEST:fixture]
+is_a: TEST:0000001 ! root compartment
+
+[Term]
+id: TEST:0000003
+name: widget core
+namespace: cellular_component
+def: "The core of a widget." [TEST:fixture]
+relationship: part_of TEST:0000002 ! widget
+
+[Term]
+id: TEST:0000004
+name: widget core band
+namespace: cellular_component
+def: "A band of the core." [TEST:fixture]
+is_a: TEST:0000003 ! widget core
+
+[Term]
+id: TEST:0000005
+name: widget shell
+namespace: cellular_component
+def: "The shell." [TEST:fixture]
+relationship: part_of TEST:0000002 ! widget
+relationship: has_part TEST:0000003 ! widget core
+
+[Term]
+id: TEST:0000006
+name: gadget
+namespace: cellular_component
+def: "A sibling of widget." [TEST:fixture]
+is_a: TEST:0000001 ! root compartment
+
+[Term]
+id: TEST:0000007
+name: duplicate name
+namespace: cellular_component
+def: "First of two." [TEST:fixture]
+is_a: TEST:0000001 ! root compartment
+
+[Term]
+id: TEST:0000008
+name: duplicate name
+namespace: biological_process
+def: "Second of two." [TEST:fixture]
+
+[Term]
+id: TEST:0000009
+name: retired thing
+namespace: cellular_component
+def: "Obsolete." [TEST:fixture]
+is_obsolete: true
+
+[Term]
+id: TEST:0000010
+name: regulator
+namespace: biological_process
+def: "Linked to widget by a relation we do not follow." [TEST:fixture]
+relationship: regulates TEST:0000002 ! widget
