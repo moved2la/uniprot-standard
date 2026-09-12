@@ -14,6 +14,8 @@ python run.py protein-set            # protein set (needs network for three stag
 python run.py protein-set --offline  # rebuild config from data/ on disk
 python run.py composition            # per-protein composition (needs network for two stages)
 python run.py composition --offline  # recompute from data/ on disk
+python run.py mass-fractions         # literature fetch, digest, inventory, mass fractions (needs network for one stage)
+python run.py mass-fractions --offline
 python run.py test
 ```
 
@@ -25,7 +27,7 @@ go to `outputs/flags.tsv` and are closed, with a D-number, in
 
 | Path | Meaning |
 |---|---|
-| `config/` | Hand-written decisions (`protein_set_decisions.ini`, `composition_decisions.ini`) and generated config |
+| `config/` | Hand-written decisions (`protein_set_decisions.ini`, `composition_decisions.ini`, `mass_fraction_decisions.ini`, `carroll_classical_fractionation.ini`) and generated config |
 | `data/` | What the public databases said |
 | `outputs/` | Everything computed here that is not config |
 | `logs/` | Stage and test logs, debugging only; not committed |

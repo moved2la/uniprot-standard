@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-fetch_literature.py — Step 3a networked stage.
+fetch_literature.py — networked stage: download and hash every literature file.
 
 Reads config/mass_fraction_decisions.ini, downloads every file listed under
 [source.*] file.<n>.url, stores it UNCHANGED under data/literature/<source_id>/<filename from the
@@ -58,7 +58,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "config" / "mass_fraction_decisions.ini"
 LIT_DIR = ROOT / "data" / "literature"
 LOG_DIR = ROOT / "logs"
-USER_AGENT = "uniprot-standard/step3a fetch_literature.py (provenance fetch; contact via repository)"
+USER_AGENT = "uniprot-standard fetch_literature.py (provenance fetch; contact via repository)"
 PLACEHOLDER = "___"
 
 
@@ -136,11 +136,11 @@ def fetch(url: str) -> tuple[bytes, str]:
         return resp.read(), resp.headers.get("Content-Type", "")
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", help="source id, e.g. murgia_2021")
     ap.add_argument("--dry-run", action="store_true")
-    args = ap.parse_args()
+    args = ap.parse_args(argv)
 
     cp = read_config()
     LIT_DIR.mkdir(parents=True, exist_ok=True)

@@ -10,6 +10,8 @@ generator produces from the data on disk.
 |---|---|
 | `config/protein_set_decisions.ini` | Seed word and exact lookup name per tier (with D-numbers); the ontology source URL; closures of flags raised by the code. Never a protein, accession, or term ID chosen by a person. |
 | `config/composition_decisions.ini` | The URL of the IUPAC-IUBMB table that defines the one-letter code, the PubChem endpoint, the chiral-prefix query rule, and the two extra compound names (water, hydrogen), each with its D-number (D26). Never an amino acid name, symbol, or mass — the code parses the names from the cited table and fetches every mass. |
+| `config/mass_fraction_decisions.ini` | Literature sources (citation, DOI, role with its D-number, download URLs), the column-to-fiber-type map for the primary file (each value the exact header string as it appears in the sheet, cited by sheet and row), and the in-silico digest rules with their citation. Never a protein, an accession, an abundance number, or a non-human data source — a test asserts the first three. |
+| `config/carroll_classical_fractionation.ini` | The measured values of Carroll, Carrithers & Trappe 2004, transcribed by the author with page and table per row (D50). Feed the classical cross-check only, never a weight. |
 | `docs/*.md` | Prose. Every sentence in `docs/methods.md` either carries a citation or describes a computation performed here (`PROVENANCE.md`). |
 | `tests/**` | Code and synthetic fixtures. Fixtures contain no real biology. |
 | `pipeline/**`, `run.py` | Code. Contains no gene name, accession, term ID, or category. |
@@ -20,14 +22,17 @@ generator produces from the data on disk.
 |---|---|
 | `config/` | Decisions (hand-written) and the config generated from them. |
 | `data/` | What the public databases said, unchanged or minimally tabulated. `data/gene-ontology/` holds the ontology file and the resolved term tables; `data/uniprot_raw/` holds entry JSON as fetched; `data/uniprot_sequences.ini` holds every canonical sequence in tabulated form, with its UniProt MD5, computed MD5, and captured features; `data/iupac/` holds the downloaded IUPAC-IUBMB Table 1 page, its hash, and `amino_acid_symbols.ini` parsed from it; `data/pubchem/` holds the PubChem responses as fetched and `amino_acid_masses.ini` tabulated from them; `data/uniprot_ptmlist/` holds UniProt's PTM vocabulary as fetched and its hash. |
-| `outputs/` | Everything computed here that is not config: flags, evidence summaries, delta tables. `outputs/composition/` holds `amino_acid_composition_per_protein.tsv` and the processing and PTM disclosures. |
+| `data/literature/` | Not committed (`.gitignore`). The literature files as downloaded or hand-obtained, unchanged, one folder per source id; `manifest.ini` (generated) records url, path, sha256, bytes, retrieval time, and whether the file was obtained by hand; `README.md` (generated) is the human-readable provenance. A reviewer re-creates the folder with `fetch_literature.py` plus the hand-obtained files named in the manifest. |
+| `outputs/` | Everything computed here that is not config: flags, evidence summaries, delta tables. `outputs/composition/` holds `amino_acid_composition_per_protein.tsv` and the processing and PTM disclosures. `outputs/digest/` holds the in-silico digest tables. `outputs/literature_inventory/` holds the structure of every literature file (members, sheets, header rows) read by code from the hashed files. `outputs/mass_fractions/` holds the join, weight, completeness, and cross-check tables. |
 | `logs/` | Debugging only: one timestamped log per stage per run, plus one per test run. Not committed; not part of the record. The record is the header of each generated file plus `outputs/flags.tsv`. |
 | `docs/` | Plan, decisions, methods, conventions, handoffs. |
 
 ## One command
 
 `python run.py protein-set` runs the protein-set stages in order and then the tests;
-`python run.py composition` runs the composition stages in order and then the tests.
+`python run.py composition` runs the composition stages in order and then the tests;
+`python run.py mass-fractions` runs the literature fetch, the digest, the literature
+inventory, and the mass-fraction stages in order and then the tests.
 `--offline` skips the stages that touch the network and rebuilds from `data/`.
 Nothing in the repository is named by a project-plan step number.
 
@@ -57,6 +62,49 @@ abundance) and does not appear in the protein set.
 | **C1 Masses** | PubChem `MolecularWeight`, `MolecularFormula`, `CID` for the query name (chiral prefix + trivial name; bare trivial name if PubChem has no such compound, recorded per row) | Exactly one compound → its served values, unchanged. Zero or several → stop. residue mass = free mass − water. |
 | **C2 Counts** | The canonical sequence and `config/segments.ini` | `master` = residues with `in_master_molecule = true`; `metabolic` = every residue. Counts per letter are the ground truth (D7); both mass vectors and both fraction vectors are arithmetic on them. A letter outside the twenty standard ones stops the run. |
 | **C3 PTM disclosure** | UniProt features of type `Modified residue`, `Lipidation`, `Glycosylation`, `Cross-link`, `Disulfide bond`; `ptmlist.txt` field `MA` | Description's first clause = vocabulary `ID` with an `MA` line → that average mass delta. Intrachain `Disulfide bond` → −H₂. Anything else → counted, no mass, listed. Sites outside the master molecule → recorded, excluded from sums. Nothing is decided (D28). |
+
+### Literature rules (`pipeline/fetch_literature.py`)
+
+| Rule | Reads | Result |
+|---|---|---|
+| **F1 Placeholder** | `file.<n>.url` | A url of `___` is a flag: recorded, skipped, non-zero exit at the end. |
+| **F2 Hash pinned** | `file.<n>.sha256` | Blank → the computed hash is written back into config (the only thing the fetcher writes there). Present → the bytes must hash to it; mismatch is a flag and nothing is written. |
+| **F3 Unchanged** | served bytes | Bytes on disk == bytes served. Nothing is converted or re-saved. |
+| **F4 HTTP failure** | response status | A flag, not a retry loop that hides the failure. |
+| **F5 Hand-obtained** | `file.<n>.obtained = manual` | The file must already be on disk under the URL's filename; it is hashed in place and recorded as hand-obtained; never downloaded. |
+| **F6 Blocked page** | served body | HTML where a document (pdf/xlsx/zip/rar/docx) was expected is a flag; nothing written. |
+| **F7 Stored name** | URL basename | Windows-illegal characters → `_`; the served name is kept in the manifest. |
+
+### Digest rules (`pipeline/digest.py`)
+
+| Rule | Reads | Result |
+|---|---|---|
+| **G1 Cited or stop** | `[digest]` in `mass_fraction_decisions.ini` | Every parameter filled and `source` non-empty, else stop. |
+| **G2 Cleavage** | `cleave_after`, `cleave_before_proline` | Cleave after each listed residue; `both` computes with and without cleavage before proline, primary = cleave-before-proline, difference per entry written. |
+| **G3 Window** | `min_length`, `max_length`, `missed_cleavages` | Distinct peptide sequences per entry inside the window, with up to the allowed missed cleavages. |
+| **G4 Sequence** | the full canonical sequence; composition table row `segment_set = metabolic` for MW | The digest runs on what a search engine digests, not the master molecule. |
+| **G5 Nothing named** | — | No accession in code; nothing filtered. |
+
+### Literature inventory rules (`pipeline/literature_inventory.py`)
+
+| Rule | Reads | Result |
+|---|---|---|
+| **I1 Hash** | `data/literature/manifest.ini` `sha256` | Every file re-hashed; mismatch or missing file stops the run (B0). |
+| **I2 In memory** | archive members | Nothing is written under `data/literature/`; member hashes go to the output table and the log. |
+| **I3 Extractor** | PATH, default Windows install folders, `--rar-tool` | A `.rar` with no extractor found is a stop, stated in the log. |
+| **I4 Preview** | sheet cells | Exact row and column counts; the first rows as text, truncated per cell; nothing interpreted. |
+| **I5 Nothing named** | — | Records only. |
+
+### Mass-fraction rules (`pipeline/mass_fractions.py`)
+
+| Rule | Reads | Result |
+|---|---|---|
+| **B0 Source** | `config/mass_fraction_decisions.ini` `[source.*]`; `data/literature/manifest.ini` | Every file read is first re-hashed and compared with the manifest; mismatch stops the run. |
+| **B1 Identity** | `identity_kind = gene_name`; the `gene` column of `config/accessions.ini` | Exact symbol match after stripping whitespace. Several dataset rows per gene → summed (D47). Multi-gene cells → split (D48). A pool gene with no row → w = 0, listed. A dataset gene with no pool entry → completeness list. |
+| **B2 Quantity** | the mapped median column; composition table `mw` on `segment_set = master` | w_i = v_i · MW_i / Σ_tier (v_j · MW_j), within tier (D31). |
+| **B3 Fiber type** | the dataset's own columns and purity threshold | Never re-derived. |
+| **B4 Missing** | the mapped valid-values column | `NaN` with valid values = 0 → 0, listed; never imputed. |
+| **B5 Spread** | the mapped SD column per fiber type | Carried per row for the aggregation step (D45); per-row low/high with the denominator held fixed. |
 
 ## Flags
 

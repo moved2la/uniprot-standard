@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-digest.py — Step 3 offline stage. Pure Layer A: reads sequences only.
+digest.py — offline stage: in-silico tryptic digest of every canonical sequence. Pure Layer A.
 
 For every accession in data/uniprot_sequences.ini, performs an in-silico
 tryptic digest under the rules in config/mass_fraction_decisions.ini [digest]
@@ -11,7 +11,7 @@ and writes:
   outputs/digest/density_ranked.tsv
       the same rows ranked by peptides_per_kDa, with robust z
       (x − median) / (1.4826·MAD). No threshold is applied: the table
-      discloses, Step 3b's C2/C3 check adjudicates.
+      discloses; the mass-fraction stage's checks read it.
   outputs/digest/shared_peptides.tsv
       peptide, n_accessions, accessions   (only peptides in ≥ 2 entries)
   outputs/digest/shared_pairs.tsv
@@ -23,7 +23,7 @@ and writes:
       (gene symbols come from the composition table, i.e. accessions.ini)
       (connected components of the "shares ≥ 1 in-window peptide" graph)
   outputs/digest/digest_summary.ini
-  outputs/logs/digest_<UTC>.log
+  logs/digest_<UTC>.log
 
 Why this exists
   iBAQ = summed intensity / N_theoretical.  iBAQ×MW and TPA differ exactly by
@@ -61,7 +61,7 @@ CONFIG = ROOT / "config" / "mass_fraction_decisions.ini"
 SEQ_FILE = ROOT / "data" / "uniprot_sequences.ini"
 COMP_TSV = ROOT / "outputs" / "composition" / "amino_acid_composition_per_protein.tsv"
 OUT_DIR = ROOT / "outputs" / "digest"
-LOG_DIR = ROOT / "outputs" / "logs"
+LOG_DIR = ROOT / "logs"
 PLACEHOLDER = "___"
 AA20 = set("ACDEFGHIKLMNPQRSTVWY")
 
@@ -150,7 +150,7 @@ def load_sequences() -> dict[str, str]:
 def load_composition() -> dict[str, dict]:
     """accession -> {tier, mw_full, gene} from the full-product row."""
     if not COMP_TSV.exists():
-        raise SystemExit(f"[STOP] composition table not found: {COMP_TSV.relative_to(ROOT).as_posix()} — run Step 2 first")
+        raise SystemExit(f"[STOP] composition table not found: {COMP_TSV.relative_to(ROOT).as_posix()} — run `python run.py composition` first")
     out: dict[str, dict] = {}
     with COMP_TSV.open(encoding="utf-8", newline="") as fh:
         rd = csv.DictReader(fh, delimiter="\t")
@@ -184,7 +184,7 @@ def connected_components(edges: dict[str, set[str]]) -> list[set[str]]:
 
 # ---------------------------------------------------------------- main
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     cp = configparser.ConfigParser(interpolation=None, inline_comment_prefixes=(";",))
     cp.optionxform = str
     with CONFIG.open(encoding="utf-8") as fh:
