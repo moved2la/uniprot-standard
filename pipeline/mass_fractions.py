@@ -29,7 +29,10 @@ Writes (outputs/mass_fractions/, every file with a header naming inputs and hash
                                        through that term's branch
   weighted_bounds.tsv                  isoform / processing / PTM bounds x w, largest per amino
                                        acid; sum of w over glycosylated entries
-  classical_check_carroll_2004.tsv     gel MHC:actin vs sum of w over the D52 band families
+  classical_check_carroll_2004.tsv     MHC:actin as measured by each method — Carroll 2004's gel,
+                                       iBAQ x MW (ours), and the intensity share in the second
+                                       mass-spec source that carries accessions — and their
+                                       quotients; no attribution (D54)
   band_families.tsv                    the entries each band family contains, at cutoffs 1 and 2,
                                        with their dataset values and weights per fiber type
   <source>_myh_fractions_ibaq_vs_lfq.tsv   per gene of the two tables, mean fraction per fiber under
@@ -67,6 +70,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from pipeline import common
+from pipeline.literature_inventory import find_rar_tool, read_archive_members
 
 DECISIONS_INI = common.CONFIG_DIR / "mass_fraction_decisions.ini"
 CARROLL_INI = common.CONFIG_DIR / "carroll_classical_fractionation.ini"
@@ -540,13 +544,87 @@ def carroll_check(measured, pool, log) -> tuple[list[list], list[list]]:
             wa = band_w[(cutoff, "actin", ft)]
             gel_ratio = m_val / a_val
             our_ratio = wm / wa if wa > 0 else float("nan")
-            check_rows.append([cutoff, ft, fnum(wm), fnum(wa), fnum(our_ratio),
+            check_rows.append([cutoff, ft, "ibaq_x_mw_within_tier1", fnum(wm), fnum(wa), fnum(our_ratio),
                                f"{m_val}±{m_sd}", f"{a_val}±{a_sd}", unit, fnum(gel_ratio),
-                               fnum(our_ratio / gel_ratio) if gel_ratio else "nan",
-                               fnum(m_val / 1000.0 / wm) if wm > 0 else "nan",
-                               fnum(a_val / 1000.0 / wa) if wa > 0 else "nan"])
-            log.info("Carroll cutoff %d type %s: MHC:actin ours %.4f gel %.4f", cutoff, ft, our_ratio, gel_ratio)
-    return fam_rows, check_rows
+                               fnum(our_ratio / gel_ratio) if gel_ratio else "nan"])
+            log.info("gel comparison cutoff %d type %s: MHC:actin iBAQxMW %.4f gel %.4f", cutoff, ft, our_ratio, gel_ratio)
+    families = {cutoff: {band: set() for band in bands} for cutoff in (1, 2)}
+    for cutoff in (1, 2):
+        fams = families_from_pairs(cutoff)
+        for band, anchors in bands.items():
+            for g in anchors:
+                a = gene_to_acc[g]
+                families[cutoff][band] |= fams.get(a, {a})
+    return fam_rows, check_rows, families, cp
+
+
+def pool_accessions_in_cell(cell: str, pool) -> list[str]:
+    """Pool accessions named in a ';'-separated accession cell; an isoform suffix (-N) is
+    the same entry. Sorted, unique."""
+    accs = {a.strip().split("-")[0] for a in cell.split(";") if a.strip()}
+    return sorted(a for a in accs if a in pool)
+
+
+def intensity_share_check(dec, manifest, families: dict, carroll_cp, pool, log) -> list[list]:
+    """MHC:actin from the intensity share in the mass-spec source whose [columns.<source>.<file>]
+    map declares identity_kind = accession_list (Deshmukh 2021, Supplementary Data 3). Rows are
+    joined to pool entries by accession: any accession in the row's identity cell, isoform suffix
+    dropped, equal to a pool accession. Several rows for one entry are summed. Band = sum of
+    the intensity over the D52 family. Nothing is named; the sheets, columns, and file come from
+    the config map."""
+    maps = [s for s in dec.sections() if s.startswith("columns.") and dec[s].get("identity_kind") == "accession_list"]
+    if len(maps) != 1:
+        raise SystemExit(f"[STOP] expected exactly one [columns.*] map with identity_kind = accession_list, found {maps}")
+    sec = dec[maps[0]]
+    _, source_id, file_key = maps[0].split(".", 2)
+    path, sha = verify_file(manifest, source_id, file_key, log)
+    rar_tool = find_rar_tool(None, log)
+    members = {name: data for name, _, data in read_archive_members(path, rar_tool)} if path.suffix.lower() in (".zip", ".rar") else {path.name: path.read_bytes()}
+    if sec["member"] not in members:
+        raise SystemExit(f"[STOP] member {sec['member']!r} not in {path.name}: {sorted(members)}")
+    from openpyxl import load_workbook
+    wb = load_workbook(io.BytesIO(members[sec["member"]]), read_only=True, data_only=True)
+    header_row = int(sec["header_row"])
+    out = []
+    for sheet_key, ft_label, gel_ft in (("sheet_slow", "slow", "I"), ("sheet_fast", "fast", "IIa")):
+        ws = wb[sec[sheet_key]]
+        it = ws.iter_rows(values_only=True)
+        for _ in range(header_row - 1):
+            next(it)
+        headers = [("" if v is None else str(v).strip()) for v in next(it)]
+        col = {}
+        for key in ("identity_column", "intensity_column", "gene_column"):
+            hits = [j for j, h in enumerate(headers) if h == sec[key].strip()]
+            if len(hits) != 1:
+                raise SystemExit(f"[STOP] header {sec[key]!r} matched {len(hits)} columns in sheet {sec[sheet_key]!r}")
+            col[key] = hits[0]
+        per_acc: dict[str, float] = defaultdict(float)
+        n_rows = n_matched = 0
+        for row in it:
+            ids = row[col["identity_column"]]
+            if ids is None:
+                continue
+            n_rows += 1
+            val = parse_value(row[col["intensity_column"]], "NaN")
+            if math.isnan(val):
+                continue
+            hit = pool_accessions_in_cell(str(ids), pool)
+            if hit:
+                n_matched += 1
+                for a in hit:
+                    per_acc[a] += val / len(hit)
+        log.info("%s %s sheet %r: %d rows, %d matched a pool entry by accession", source_id, file_key, sec[sheet_key], n_rows, n_matched)
+        for cutoff in (1, 2):
+            mhc = sum(per_acc.get(a, 0.0) for a in families[cutoff]["myosin_heavy_chain"])
+            act = sum(per_acc.get(a, 0.0) for a in families[cutoff]["actin"])
+            ratio = mhc / act if act > 0 else float("nan")
+            g = carroll_cp[f"myosin_heavy_chain.type_{gel_ft}"]; a_ = carroll_cp[f"actin.type_{gel_ft}"]
+            gel_ratio = float(g["value"]) / float(a_["value"])
+            out.append([cutoff, f"{ft_label} (vs gel type {gel_ft})", f"intensity_share_{source_id}", fnum(mhc), fnum(act), fnum(ratio),
+                        f"{g['value']}±{g['spread']}", f"{a_['value']}±{a_['spread']}", g["unit"], fnum(gel_ratio),
+                        fnum(ratio / gel_ratio) if gel_ratio else "nan"])
+    wb.close()
+    return out
 
 
 def ibaq_vs_lfq_table(manifest, source_id: str, log) -> list[list]:
@@ -761,15 +839,18 @@ def build(log) -> dict:
     files["weighted_bounds.tsv"] = tsv_text(header_common + ["bound x w: per-entry bound (isoform: largest |delta| over the entry's isoforms; processing: |delta| mature vs full; ptm: summed PTM mass / MW) multiplied by the entry's weight; largest per amino acid"],
                                             ["tier", "fiber_type", "bound", "amino_acid", "max_bound_times_w", "accession"], wb_rows)
 
-    # gel cross-check (D39, D50, D52)
-    fam_rows, check_rows = carroll_check(measured, pool, log)
+    # gel cross-check (D39, D50, D52) and the third measurement (D54)
+    fam_rows, check_rows, band_families, carroll_cp = carroll_check(measured, pool, log)
+    check_rows += intensity_share_check(dec, manifest, band_families, carroll_cp, pool, log)
     files["band_families.tsv"] = tsv_text(header_common + ["families from outputs/digest/shared_pairs.tsv at n_shared_peptides >= cutoff, anchored per config/carroll_classical_fractionation.ini (D52)"],
                                           ["cutoff", "band", "accession", "gene", "tier", "role", "match_rule"] + [f"v_{ft}" for ft in FIBER_TYPES] + [f"w_{ft}_tier1" for ft in FIBER_TYPES], fam_rows)
     files["classical_check_carroll_2004.tsv"] = tsv_text(
-        header_common + ["gel values: config/carroll_classical_fractionation.ini (D50); band = sum of Tier 1 w over the D52 family",
-                         "implied_tier1_fraction_of_total_protein = gel fraction / our within-tier weight, per band — the Tier 1 : total protein ratio the gel implies"],
-        ["cutoff", "fiber_type", "sum_w_mhc_band", "sum_w_actin_band", "mhc_to_actin_ours", "gel_mhc", "gel_actin", "gel_unit",
-         "mhc_to_actin_gel", "ours_over_gel", "implied_tier1_fraction_of_total_protein_from_mhc", "implied_tier1_fraction_of_total_protein_from_actin"],
+        header_common + ["gel values: config/carroll_classical_fractionation.ini (D50); band = the D52 family",
+                         "method = ibaq_x_mw_within_tier1: mhc and actin are sums of Tier 1 weights over the family;",
+                         "method = intensity_share_<source>: mhc and actin are sums of that file's intensity column over the family, per its sheet (slow / fast);",
+                         "quotient = mhc_to_actin_method / mhc_to_actin_gel. Reported per D54 without attribution of the difference to any method."],
+        ["cutoff", "fiber_type", "method", "mhc", "actin", "mhc_to_actin_method", "gel_mhc", "gel_actin", "gel_unit",
+         "mhc_to_actin_gel", "method_over_gel"],
         check_rows)
 
     # iBAQ vs MaxLFQ on the same fibers (the method comparison, D35)
@@ -819,9 +900,9 @@ def build(log) -> dict:
                 if best:
                     summ[sec][f"max_weighted_{kind}_bound"] = f"{best[4]} ({best[3]}, {best[5]})"
             summ[sec]["glycosylated_entries_sum_w"] = fnum(glyc[(tier, ft)])
-    summ.add_section("carroll_2004")
+    summ.add_section("mhc_to_actin")
     for r in check_rows:
-        summ["carroll_2004"][f"cutoff{r[0]}_type_{r[1]}_mhc_to_actin_ours_over_gel"] = r[9]
+        summ["mhc_to_actin"][f"cutoff{r[0]}_{r[1].split(' ')[0]}_{r[2]}_over_gel"] = r[10]
     files["mass_fractions_summary.ini"] = common.render_ini(summ, ["GENERATED by mass_fractions.py. DO NOT EDIT BY HAND."] + header_common)
     return files
 

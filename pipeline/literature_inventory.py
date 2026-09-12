@@ -172,8 +172,9 @@ def inspect_tabular_bytes(data: bytes, ctx: dict, opts) -> tuple[list[list], lis
     return inspect_text_table(data, ctx, opts)
 
 
-def inspect_archive(path: Path, ctx: dict, opts, rar_tool: str | None, log) -> tuple[list[list], list[list]]:
-    """List every member with size and sha256; inspect tabular members from memory."""
+def read_archive_members(path: Path, rar_tool: str | None) -> list[tuple[str, int, bytes]]:
+    """Every file member of a .zip or .rar as (name, size, bytes), read in memory (I2, I3).
+    Shared with mass_fractions.py, which reads archive members the same way."""
     ext = path.suffix.lower()
     members: list[tuple[str, int, bytes]] = []
     if ext == ".zip":
@@ -206,7 +207,12 @@ def inspect_archive(path: Path, ctx: dict, opts, rar_tool: str | None, log) -> t
                 members.append((info.filename, info.file_size, rf.read(info)))
     else:
         raise SystemExit(f"[STOP] not an archive: {path}")
+    return members
 
+
+def inspect_archive(path: Path, ctx: dict, opts, rar_tool: str | None, log) -> tuple[list[list], list[list]]:
+    """List every member with size and sha256; inspect tabular members from memory."""
+    members = read_archive_members(path, rar_tool)
     file_rows, header_rows = [], []
     for name, size, data in members:
         m_sha = sha256_bytes(data)

@@ -110,7 +110,7 @@ Layer B multiplies by.
 | 1 | `fetch_literature` | `config/mass_fraction_decisions.ini` (`[source.*]` URLs, roles, hashes) | Downloads every listed publisher file unchanged; hashes it; pins the hash into config on first fetch; records hand-obtained files in place (rules F1–F7) | `data/literature/<source>/<file>` (not committed), `data/literature/manifest.ini`, `README.md` | 3, 4 |
 | 2 | `digest` | sequences, composition table, `[digest]` rules in the decisions file | In-silico tryptic digest of every canonical sequence; theoretical peptide count and density per kDa; peptides shared between entries; pairs and families (rules G1–G5) | `outputs/digest/theoretical_peptides.tsv`, `density_ranked.tsv`, `shared_peptides.tsv`, `shared_pairs.tsv`, `families.tsv`, `digest_summary.ini` | 4 (gel-band families, D52) |
 | 3 | `literature_inventory` | manifest, the literature files | Re-hashes every file; lists archive members with their own hashes; sheet names, row and column counts, first rows of every workbook (rules I1–I5) | `outputs/literature_inventory/literature_files_and_members.tsv`, `literature_header_rows.tsv`, `literature_inventory_summary.ini` | a person, before writing any reader against a file |
-| 4 | `mass_fractions` | primary dataset (by role), its `[columns.*]` map, manifest, `accessions.ini`, composition `mw`, digest pairs, `carroll_classical_fractionation.ini`, the three bound tables, pool and subtree tables | Joins the dataset to the pool by gene name (B1, D47, D48); within-tier iBAQ × MW weights per fiber type with low/high (B2–B5); the checks below | see the next table | aggregation |
+| 4 | `mass_fractions` | primary dataset (by role) and its `[columns.*]` map; the accession-list source and its map (Deshmukh 2021 Supplementary Data 3, inside its `.rar`); the two iBAQ-vs-LFQ tables; manifest; `accessions.ini`; composition `mw`; digest pairs; `carroll_classical_fractionation.ini`; the three bound tables; pool and subtree tables | Joins the dataset to the pool by gene name (B1, D47, D48); within-tier iBAQ × MW weights per fiber type with low/high (B2–B5); the checks below | see the next table | aggregation |
 
 ### What `mass_fractions` writes, and which one to open
 
@@ -126,7 +126,7 @@ Layer B multiplies by.
 | `branch_exclusive_mass.tsv` | Per ontology term: Σ w over entries it returns, and over entries reached only through its branch | see whether any branch (e.g. cardiac) carries mass |
 | `weighted_bounds.tsv` | Isoform, processing, PTM bounds × w, largest per amino acid; Σ w glycosylated | state, as numbers, what the canonical/processing/PTM choices cost after weighting |
 | `band_families.tsv` | The shared-peptide family of each gel band's anchors, at cutoffs 1 and 2, with values and weights | see what "MHC" and "actin" mean as sums of entries (D52) |
-| `classical_check_carroll_2004.tsv` | Our MHC:actin vs the gel's, per fiber type, plus the Tier 1 : total ratio the gel would imply | the one non-mass-spec check of the weights |
+| `classical_check_carroll_2004.tsv` | MHC:actin as measured by each method — Carroll's gel, iBAQ × MW (ours), and the intensity share in Deshmukh 2021's slow/fast pools — and their quotients, per fiber type; no attribution (D54) | see how three methods compare on the two largest proteins |
 | `<source>_myh_fractions_ibaq_vs_lfq.tsv` | The method comparison: MYH fractions per fiber under iBAQ and MaxLFQ from the same fibers | the number behind "why not LFQ" in methods |
 
 ## Where things live

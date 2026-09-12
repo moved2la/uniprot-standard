@@ -87,3 +87,10 @@ def test_families_union_find_respects_cutoff(tmp_path):
     f2 = mf.families_from_pairs(2, p)
     assert f1["X00001"] == {"X00001", "X00002", "X00003"}
     assert f2["X00001"] == {"X00001", "X00002"} and "X00003" not in f2
+
+
+def test_accession_cell_matches_pool_with_isoform_suffix_dropped():
+    pool = _pool(("X00001", "GA", "1"), ("X00002", "GB", "1"))
+    assert mf.pool_accessions_in_cell("X00001-3;Z99999;X00001", pool) == ["X00001"]
+    assert mf.pool_accessions_in_cell("X00002;X00001-2", pool) == ["X00001", "X00002"]
+    assert mf.pool_accessions_in_cell("Z99999", pool) == []
