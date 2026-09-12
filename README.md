@@ -3,7 +3,7 @@
 An open, sequence-derived amino acid standard for human skeletal muscle protein,
 computed from UniProtKB sequences and literature-derived tissue mass fractions.
 
-Read `PROVENANCE.md` first. Every value in this repository is an author decision, a
+Read `PROVENANCE.md` first, then `docs/pipeline_map.md` for what runs in what order. Every value in this repository is an author decision, a
 citation, or a computation, and nothing else.
 
 ## Run

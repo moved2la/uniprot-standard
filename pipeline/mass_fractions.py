@@ -17,7 +17,10 @@ Reads
 Writes (outputs/mass_fractions/, every file with a header naming inputs and hashes)
   weights_per_pool_entry.tsv           one row per pool accession: what the dataset says about
                                        it, how the row was matched, and its weight per tier and
-                                       fiber type — the human-readable "Tier 1 as measured"
+                                       fiber type — the full table
+  tier<N>_entries_ranked.tsv           the entries of one tier, ordered by type-I weight, with
+                                       rank per fiber type and cumulative share down each order —
+                                       the table to read, quote, and plot
   pool_entries_without_dataset_row.tsv pool accessions with no Dataset 1 row (w = 0)
   dataset_rows_outside_pool.tsv        Dataset 1 genes matching no pool entry, ranked by median
                                        value — the completeness check and the Tier 2 evidence
@@ -27,10 +30,13 @@ Writes (outputs/mass_fractions/, every file with a header naming inputs and hash
   weighted_bounds.tsv                  isoform / processing / PTM bounds x w, largest per amino
                                        acid; sum of w over glycosylated entries
   classical_check_carroll_2004.tsv     gel MHC:actin vs sum of w over the D52 band families
-  band_families.tsv                    the entries each band family contains, at cutoffs 1 and 2
+  band_families.tsv                    the entries each band family contains, at cutoffs 1 and 2,
+                                       with their dataset values and weights per fiber type
   <source>_myh_fractions_ibaq_vs_lfq.tsv   per gene of the two tables, mean fraction per fiber under
                                        iBAQ and MaxLFQ, over the fibers present in both tables
-  mass_fractions_summary.ini
+  mass_fractions_summary.ini           counts per file; per tier and fiber type: entries with
+                                       mass, share of the ten largest, largest entry, maximum
+                                       weighted bound of each kind; the gel-check factors
   config/mass_fractions/{I,IIa,IIx}.ini            generated; one section per accession
   logs/mass_fractions_<UTC>.log
 
@@ -515,10 +521,11 @@ def carroll_check(measured, pool, log) -> tuple[list[list], list[list]]:
                     raise SystemExit(f"[STOP] anchor gene {g} of band {band} is not in the pool (D52)")
                 a = gene_to_acc[g]
                 accs |= fams.get(a, {a})
-            for a in sorted(accs):
+            for a in sorted(accs, key=lambda a: -(measured[a].get("w_I_tier1") or 0.0)):
                 m = measured[a]
                 fam_rows.append([cutoff, band, a, m["gene"], m["tier"], "anchor" if m["gene"] in anchors else "family",
-                                 fnum(m.get("w_I_tier1") or 0.0), fnum(m.get("w_IIa_tier1") or 0.0)])
+                                 m["match_rule"]] + [fnum(m[f"v_{ft}"]) for ft in FIBER_TYPES]
+                                + [fnum(m.get(f"w_{ft}_tier1") or 0.0) for ft in FIBER_TYPES])
             for ft in ("I", "IIa"):
                 band_w[(cutoff, band, ft)] = sum(measured[a].get(f"w_{ft}_tier1") or 0.0 for a in accs)
     # gel values
@@ -553,16 +560,26 @@ def ibaq_vs_lfq_table(manifest, source_id: str, log) -> list[list]:
         ws = wb.worksheets[0]
         it = ws.iter_rows(values_only=True)
         header = [("" if v is None else str(v).strip()) for v in next(it)]
-        fibers = header[1:]
+        cols = header[1:]
         data = {}
         for row in it:
             if row[0] is None:
                 continue
             data[str(row[0]).strip()] = {f: (float(v) if v is not None and str(v).strip() != "" else float("nan"))
-                                         for f, v in zip(fibers, row[1:])}
+                                         for f, v in zip(cols, row[1:])}
         wb.close()
-        tables[label] = (fibers, data)
-    fib_common = [f for f in tables["ibaq"][0] if f in set(tables["lfq"][0]) and f]
+        # a fraction column holds values in [0, 1]; a column that does not is a summary or
+        # another quantity, not a fiber, and is excluded and listed (rule in the file header)
+        fibers, excluded = [], []
+        for c in cols:
+            vals = [d[c] for d in data.values() if c in d and not math.isnan(d[c])]
+            if c == "" or not vals or max(vals) > 1.0000001 or min(vals) < 0:
+                excluded.append(c or "<blank header>")
+            else:
+                fibers.append(c)
+        log.info("%s %s: %d columns, %d kept as fiber fraction columns, excluded: %s", source_id, key, len(cols), len(fibers), excluded)
+        tables[label] = (fibers, data, excluded)
+    fib_common = [f for f in tables["ibaq"][0] if f in set(tables["lfq"][0])]
     genes = sorted(set(tables["ibaq"][1]) | set(tables["lfq"][1]))
     rows = []
 
@@ -577,9 +594,12 @@ def ibaq_vs_lfq_table(manifest, source_id: str, log) -> list[list]:
         ml_c = mean([lf.get(f, float("nan")) for f in fib_common])
         rows.append([g, len(fib_common), fnum(mi_c), fnum(ml_c),
                      fnum(ml_c / mi_c) if mi_c and mi_c > 0 else "nan",
-                     len(ib), fnum(mean(ib.values())), len(lf), fnum(mean(lf.values()))])
+                     len(tables["ibaq"][0]), fnum(mean([ib.get(f, float("nan")) for f in tables["ibaq"][0]])),
+                     len(tables["lfq"][0]), fnum(mean([lf.get(f, float("nan")) for f in tables["lfq"][0]]))])
     log.info("iBAQ-vs-LFQ tables: %d genes; %d fibers in both tables", len(genes), len(fib_common))
-    return rows
+    note = (f"fiber columns: values in [0,1] with a non-blank header; excluded from file.1: {tables['ibaq'][2]}; "
+            f"excluded from file.2: {tables['lfq'][2]}; fibers in both: {len(fib_common)}")
+    return rows, note
 
 
 # ----------------------------------------------------------------------------
@@ -686,6 +706,31 @@ def build(log) -> dict:
         body.append(row)
     files["weights_per_pool_entry.tsv"] = tsv_text(header_common, hdr, body)
 
+    # per-tier ranked tables: rank per fiber type, cumulative share down each fiber type's own order
+    for tier in tiers:
+        members = [m for m in measured.values() if tier in m["tiers"]]
+        rank, cum = {}, {}
+        for ft in FIBER_TYPES:
+            order = sorted(members, key=lambda m: (-(m[f"w_{ft}_tier{tier}"] or 0.0), m["accession"]))
+            running = 0.0
+            for i, m in enumerate(order, 1):
+                running += m[f"w_{ft}_tier{tier}"] or 0.0
+                rank[(m["accession"], ft)] = i
+                cum[(m["accession"], ft)] = running
+        hdr = ["rank_I", "accession", "gene", "tier", "match_rule"]
+        for ft in FIBER_TYPES:
+            hdr += [f"w_{ft}", f"rank_{ft}", f"cumulative_share_{ft}_in_{ft}_order", f"w_{ft}_low", f"w_{ft}_high", f"valid_{ft}"]
+        body = []
+        for m in sorted(members, key=lambda m: rank[(m["accession"], "I")]):
+            row = [rank[(m["accession"], "I")], m["accession"], m["gene"], m["tier"], m["match_rule"]]
+            for ft in FIBER_TYPES:
+                row += [fnum(m[f"w_{ft}_tier{tier}"]), rank[(m["accession"], ft)], fnum(cum[(m["accession"], ft)]),
+                        fnum(m[f"w_{ft}_tier{tier}_low"]), fnum(m[f"w_{ft}_tier{tier}_high"]), m[f"valid_{ft}"]]
+            body.append(row)
+        files[f"tier{tier}_entries_ranked.tsv"] = tsv_text(
+            header_common + [f"tier {tier}: {len(members)} entries, ordered by type-I weight; rank_<type> and cumulative_share_<type> follow that fiber type's own order"],
+            hdr, body)
+
     # pool entries without a row
     body = [[a, measured[a]["gene"], measured[a]["tier"]] for a in sorted(measured) if measured[a]["match_rule"] == "none"]
     files["pool_entries_without_dataset_row.tsv"] = tsv_text(header_common, ["accession", "gene", "tier"], body)
@@ -719,7 +764,7 @@ def build(log) -> dict:
     # gel cross-check (D39, D50, D52)
     fam_rows, check_rows = carroll_check(measured, pool, log)
     files["band_families.tsv"] = tsv_text(header_common + ["families from outputs/digest/shared_pairs.tsv at n_shared_peptides >= cutoff, anchored per config/carroll_classical_fractionation.ini (D52)"],
-                                          ["cutoff", "band", "accession", "gene", "tier", "role", "w_I_tier1", "w_IIa_tier1"], fam_rows)
+                                          ["cutoff", "band", "accession", "gene", "tier", "role", "match_rule"] + [f"v_{ft}" for ft in FIBER_TYPES] + [f"w_{ft}_tier1" for ft in FIBER_TYPES], fam_rows)
     files["classical_check_carroll_2004.tsv"] = tsv_text(
         header_common + ["gel values: config/carroll_classical_fractionation.ini (D50); band = sum of Tier 1 w over the D52 family",
                          "implied_tier1_fraction_of_total_protein = gel fraction / our within-tier weight, per band — the Tier 1 : total protein ratio the gel implies"],
@@ -728,11 +773,12 @@ def build(log) -> dict:
         check_rows)
 
     # iBAQ vs MaxLFQ on the same fibers (the method comparison, D35)
+    ibaq_rows, ibaq_note = ibaq_vs_lfq_table(manifest, method_with_tables[0], log)
     files[f"{method_with_tables[0]}_myh_fractions_ibaq_vs_lfq.tsv"] = tsv_text(
-        header_common + ["file.1 = iBAQ fractions (Table S2), file.2 = MaxLFQ fractions (Table S3); mean over fibers"],
+        header_common + ["file.1 = iBAQ fractions, file.2 = MaxLFQ fractions (as published); mean over fibers", ibaq_note],
         ["gene", "n_fibers_in_both", "mean_fraction_ibaq_common", "mean_fraction_lfq_common", "lfq_over_ibaq",
          "n_fibers_ibaq", "mean_fraction_ibaq_all", "n_fibers_lfq", "mean_fraction_lfq_all"],
-        ibaq_vs_lfq_table(manifest, method_with_tables[0], log))
+        ibaq_rows)
 
     # generated config per fiber type
     for ft in FIBER_TYPES:
@@ -758,6 +804,21 @@ def build(log) -> dict:
             summ["weights"][f"sum_w_{ft}_tier{t}"] = fnum(s)
             summ["weights"][f"shared_row_signal_share_{ft}_tier{t}"] = fnum(wres["shared_share"][(t, ft)])
             summ["weights"][f"glycosylated_entries_sum_w_{ft}_tier{t}"] = fnum(glyc[(t, ft)])
+    for tier in tiers:
+        members = [m for m in measured.values() if tier in m["tiers"]]
+        for ft in FIBER_TYPES:
+            sec = f"tier{tier}.type_{ft}"
+            summ.add_section(sec)
+            ws = sorted(((m[f"w_{ft}_tier{tier}"] or 0.0), m["gene"], m["accession"]) for m in members)[::-1]
+            summ[sec]["entries"] = str(len(members))
+            summ[sec]["entries_with_weight_above_zero"] = str(sum(1 for w, _, _ in ws if w > 0))
+            summ[sec]["share_of_ten_largest"] = fnum(sum(w for w, _, _ in ws[:10]))
+            summ[sec]["largest_entry"] = f"{ws[0][2]} {ws[0][1]} {fnum(ws[0][0])}" if ws else ""
+            for kind in ("isoform", "processing", "ptm_mass"):
+                best = max((r for r in wb_rows if r[0] == tier and r[1] == ft and r[2] == kind), key=lambda r: float(r[4]), default=None)
+                if best:
+                    summ[sec][f"max_weighted_{kind}_bound"] = f"{best[4]} ({best[3]}, {best[5]})"
+            summ[sec]["glycosylated_entries_sum_w"] = fnum(glyc[(tier, ft)])
     summ.add_section("carroll_2004")
     for r in check_rows:
         summ["carroll_2004"][f"cutoff{r[0]}_type_{r[1]}_mhc_to_actin_ours_over_gel"] = r[9]
