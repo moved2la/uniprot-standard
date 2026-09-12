@@ -7,7 +7,7 @@ tryptic digest under the rules in config/mass_fraction_decisions.ini [digest]
 and writes:
 
   outputs/digest/theoretical_peptides.tsv
-      accession, tier, length, mw_full, n_peptides, peptides_per_kDa
+      accession, gene, tier, length, mw_full, n_peptides, peptides_per_kDa
   outputs/digest/density_ranked.tsv
       the same rows ranked by peptides_per_kDa, with robust z
       (x − median) / (1.4826·MAD). No threshold is applied: the table
@@ -15,7 +15,8 @@ and writes:
   outputs/digest/shared_peptides.tsv
       peptide, n_accessions, accessions   (only peptides in ≥ 2 entries)
   outputs/digest/families.tsv
-      family_id, n_members, accessions, n_shared_peptides
+      family_id, n_members, accessions, genes, n_shared_peptides
+      (gene symbols come from the composition table, i.e. accessions.ini)
       (connected components of the "shares ≥ 1 in-window peptide" graph)
   outputs/digest/digest_summary.ini
   outputs/logs/digest_<UTC>.log
@@ -143,7 +144,7 @@ def load_sequences() -> dict[str, str]:
 
 
 def load_composition() -> dict[str, dict]:
-    """accession -> {tier, mw_full} from the full-product row."""
+    """accession -> {tier, mw_full, gene} from the full-product row."""
     if not COMP_TSV.exists():
         raise SystemExit(f"[STOP] composition table not found: {COMP_TSV.relative_to(ROOT).as_posix()} — run Step 2 first")
     out: dict[str, dict] = {}
@@ -154,7 +155,7 @@ def load_composition() -> dict[str, dict]:
             raise SystemExit(f"[STOP] composition table lacks columns {sorted(need - set(rd.fieldnames or []))}")
         for row in rd:
             if row["segment_set"] == "metabolic":
-                out[row["accession"]] = {"tier": row["tier"], "mw_full": float(row["mw"])}
+                out[row["accession"]] = {"tier": row["tier"], "mw_full": float(row["mw"]), "gene": row.get("gene", "")}
     return out
 
 
@@ -204,11 +205,11 @@ def main() -> int:
         c = comp.get(acc)
         if c is None:
             flags.append(f"{acc}: no full-product row in composition table (G4)")
-            tier, mw = "", float("nan")
+            tier, mw, gene = "", float("nan"), ""
         else:
-            tier, mw = c["tier"], c["mw_full"]
+            tier, mw, gene = c["tier"], c["mw_full"], c["gene"]
         density = len(peps) / (mw / 1000.0) if mw == mw and mw > 0 else float("nan")
-        row = {"accession": acc, "tier": tier, "length": len(seq), "mw_full": mw,
+        row = {"accession": acc, "gene": gene, "tier": tier, "length": len(seq), "mw_full": mw,
                "n_peptides": len(peps), "peptides_per_kDa": density}
         if both:
             row["n_peptides_trypsin_P"] = len(peps)          # cleaves before proline
@@ -217,7 +218,7 @@ def main() -> int:
         rows.append(row)
 
     # theoretical_peptides.tsv
-    hdr = ["accession", "tier", "length", "mw_full", "n_peptides", "peptides_per_kDa"]
+    hdr = ["accession", "gene", "tier", "length", "mw_full", "n_peptides", "peptides_per_kDa"]
     if both:
         hdr += ["n_peptides_trypsin_P", "n_peptides_trypsin", "proline_rule_rel_diff"]
     write_tsv(OUT_DIR / "theoretical_peptides.tsv", hdr, rows, rules)
@@ -253,8 +254,10 @@ def main() -> int:
     frows = []
     for i, c in enumerate(comps, 1):
         n_shared = sum(1 for p, a in shared.items() if a & c)
-        frows.append({"family_id": f"F{i:03d}", "n_members": len(c), "accessions": ";".join(sorted(c)), "n_shared_peptides": n_shared})
-    write_tsv(OUT_DIR / "families.tsv", ["family_id", "n_members", "accessions", "n_shared_peptides"], frows, rules)
+        members = sorted(c)
+        frows.append({"family_id": f"F{i:03d}", "n_members": len(c), "accessions": ";".join(members),
+                      "genes": ";".join(comp.get(a, {}).get("gene", "") or "?" for a in members), "n_shared_peptides": n_shared})
+    write_tsv(OUT_DIR / "families.tsv", ["family_id", "n_members", "accessions", "genes", "n_shared_peptides"], frows, rules)
 
     # summary
     summ = configparser.ConfigParser(interpolation=None)
