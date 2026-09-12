@@ -18,7 +18,7 @@ and writes:
       family_id, n_members, accessions, n_shared_peptides
       (connected components of the "shares ≥ 1 in-window peptide" graph)
   outputs/digest/digest_summary.ini
-  logs/digest_<UTC>.log
+  outputs/logs/digest_<UTC>.log
 
 Why this exists
   iBAQ = summed intensity / N_theoretical.  iBAQ×MW and TPA differ exactly by
@@ -30,7 +30,9 @@ Why this exists
 Rules
   G1  Every [digest] parameter must be filled and `source` non-empty, else stop.
   G2  Cleavage after each residue in `cleave_after`; if cleave_before_proline
-      is false, no cleavage when the next residue is P.
+      is false, no cleavage when the next residue is P. If it is `both`, the
+      count is computed under both settings; the primary is cleave-before-P
+      and the relative difference per entry is written and summarised.
   G3  Peptides of min_length ≤ L ≤ max_length are counted, with up to
       `missed_cleavages` joined fragments. Distinct sequences per entry.
   G4  Digest runs on the FULL canonical sequence (what a search engine
@@ -54,7 +56,7 @@ CONFIG = ROOT / "config" / "mass_fraction_decisions.ini"
 SEQ_FILE = ROOT / "data" / "uniprot_sequences.ini"
 COMP_TSV = ROOT / "outputs" / "composition" / "amino_acid_composition_per_protein.tsv"
 OUT_DIR = ROOT / "outputs" / "digest"
-LOG_DIR = ROOT / "logs"
+LOG_DIR = ROOT / "outputs" / "logs"
 PLACEHOLDER = "___"
 AA20 = set("ACDEFGHIKLMNPQRSTVWY")
 
@@ -71,10 +73,13 @@ def load_rules(cp: configparser.ConfigParser) -> dict:
                if d.get(k, "").strip() in ("", PLACEHOLDER)]
     if missing:
         raise SystemExit(f"[STOP] [digest] parameters unfilled or uncited: {', '.join(missing)} (G1)")
+    cbp = d["cleave_before_proline"].strip().lower()
+    if cbp not in ("true", "false", "both"):
+        raise SystemExit("[STOP] [digest] cleave_before_proline must be true, false, or both (G1)")
     return {
         "enzyme": d.get("enzyme", "trypsin").strip(),
         "cleave_after": set(d["cleave_after"].strip().upper()),
-        "cleave_before_proline": d["cleave_before_proline"].strip().lower() == "true",
+        "cleave_before_proline": cbp,
         "min_length": int(d["min_length"]),
         "max_length": int(d["max_length"]),
         "missed_cleavages": int(d["missed_cleavages"]),
@@ -98,8 +103,11 @@ def fragments(seq: str, cleave_after: set[str], cleave_before_proline: bool) -> 
     return [f for f in out if f]
 
 
-def theoretical_peptides(seq: str, r: dict) -> set[str]:
-    frags = fragments(seq, r["cleave_after"], r["cleave_before_proline"])
+def theoretical_peptides(seq: str, r: dict, cleave_before_proline: bool | None = None) -> set[str]:
+    cbp = r["cleave_before_proline"] if cleave_before_proline is None else cleave_before_proline
+    if cbp == "both":
+        raise ValueError("pass cleave_before_proline explicitly when rules say both")
+    frags = fragments(seq, r["cleave_after"], cbp is True or cbp == "true")
     peps: set[str] = set()
     for i in range(len(frags)):
         joined = ""
@@ -185,11 +193,14 @@ def main() -> int:
     log = [f"digest.py started {started}", f"rules: {rules}", f"sequences: {len(seqs)}", ""]
     flags: list[str] = []
 
+    both = rules["cleave_before_proline"] == "both"
+    primary_cbp = True if both else rules["cleave_before_proline"] == "true"
     per_acc: dict[str, set[str]] = {}
     rows = []
     for acc, seq in seqs.items():
-        peps = theoretical_peptides(seq, rules)
+        peps = theoretical_peptides(seq, rules, primary_cbp)
         per_acc[acc] = peps
+        n_alt = len(theoretical_peptides(seq, rules, not primary_cbp)) if both else None
         c = comp.get(acc)
         if c is None:
             flags.append(f"{acc}: no full-product row in composition table (G4)")
@@ -197,11 +208,18 @@ def main() -> int:
         else:
             tier, mw = c["tier"], c["mw_full"]
         density = len(peps) / (mw / 1000.0) if mw == mw and mw > 0 else float("nan")
-        rows.append({"accession": acc, "tier": tier, "length": len(seq), "mw_full": mw,
-                     "n_peptides": len(peps), "peptides_per_kDa": density})
+        row = {"accession": acc, "tier": tier, "length": len(seq), "mw_full": mw,
+               "n_peptides": len(peps), "peptides_per_kDa": density}
+        if both:
+            row["n_peptides_trypsin_P"] = len(peps)          # cleaves before proline
+            row["n_peptides_trypsin"] = n_alt                 # does not
+            row["proline_rule_rel_diff"] = (len(peps) - n_alt) / len(peps) if peps else float("nan")
+        rows.append(row)
 
     # theoretical_peptides.tsv
     hdr = ["accession", "tier", "length", "mw_full", "n_peptides", "peptides_per_kDa"]
+    if both:
+        hdr += ["n_peptides_trypsin_P", "n_peptides_trypsin", "proline_rule_rel_diff"]
     write_tsv(OUT_DIR / "theoretical_peptides.tsv", hdr, rows, rules)
 
     # density_ranked.tsv
@@ -255,6 +273,11 @@ def main() -> int:
         "density_max": f"{max(dens):.6g}" if dens else "nan",
         "flags": str(len(flags)),
     }
+    if both:
+        diffs = [r["proline_rule_rel_diff"] for r in rows if r["proline_rule_rel_diff"] == r["proline_rule_rel_diff"]]
+        summ["result"]["proline_rule"] = "both computed; primary = Trypsin/P (cleaves before P); n_peptides columns for both"
+        summ["result"]["proline_rule_rel_diff_median"] = f"{statistics.median(diffs):.6g}" if diffs else "nan"
+        summ["result"]["proline_rule_rel_diff_max"] = f"{max(diffs):.6g}" if diffs else "nan"
     with (OUT_DIR / "digest_summary.ini").open("w", encoding="utf-8") as fh:
         fh.write("# Generated by pipeline/digest.py — DO NOT EDIT BY HAND\n")
         summ.write(fh)
