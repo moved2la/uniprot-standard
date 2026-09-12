@@ -1,0 +1,283 @@
+#!/usr/bin/env python3
+"""
+digest.py — Step 3 offline stage. Pure Layer A: reads sequences only.
+
+For every accession in data/uniprot_sequences.ini, performs an in-silico
+tryptic digest under the rules in config/mass_fraction_decisions.ini [digest]
+and writes:
+
+  outputs/digest/theoretical_peptides.tsv
+      accession, tier, length, mw_full, n_peptides, peptides_per_kDa
+  outputs/digest/density_ranked.tsv
+      the same rows ranked by peptides_per_kDa, with robust z
+      (x − median) / (1.4826·MAD). No threshold is applied: the table
+      discloses, Step 3b's C2/C3 check adjudicates.
+  outputs/digest/shared_peptides.tsv
+      peptide, n_accessions, accessions   (only peptides in ≥ 2 entries)
+  outputs/digest/families.tsv
+      family_id, n_members, accessions, n_shared_peptides
+      (connected components of the "shares ≥ 1 in-window peptide" graph)
+  outputs/digest/digest_summary.ini
+  outputs/logs/digest_<UTC>.log
+
+Why this exists
+  iBAQ = summed intensity / N_theoretical.  iBAQ×MW and TPA differ exactly by
+  N_i versus MW_i, so peptides_per_kDa is the per-protein factor between the
+  two conventions — computable from sequence alone (methods §"Quantity used").
+  Shared peptides are where a razor-peptide assignment can move intensity
+  between entries; the families table names those groups by computation.
+
+Rules
+  G1  Every [digest] parameter must be filled and `source` non-empty, else stop.
+  G2  Cleavage after each residue in `cleave_after`; if cleave_before_proline
+      is false, no cleavage when the next residue is P.
+  G3  Peptides of min_length ≤ L ≤ max_length are counted, with up to
+      `missed_cleavages` joined fragments. Distinct sequences per entry.
+  G4  Digest runs on the FULL canonical sequence (what a search engine
+      digests), not the master molecule. MW is taken from the composition
+      table's full-product row (segment_set = metabolic).
+  G5  No accession is named in code. Nothing is filtered.
+"""
+
+from __future__ import annotations
+
+import configparser
+import csv
+import statistics
+import sys
+from collections import defaultdict
+from datetime import datetime, timezone
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+CONFIG = ROOT / "config" / "mass_fraction_decisions.ini"
+SEQ_FILE = ROOT / "data" / "uniprot_sequences.ini"
+COMP_TSV = ROOT / "outputs" / "composition" / "amino_acid_composition_per_protein.tsv"
+OUT_DIR = ROOT / "outputs" / "digest"
+LOG_DIR = ROOT / "outputs" / "logs"
+PLACEHOLDER = "___"
+AA20 = set("ACDEFGHIKLMNPQRSTVWY")
+
+
+def utc_now() -> str:
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+# ---------------------------------------------------------------- config
+
+def load_rules(cp: configparser.ConfigParser) -> dict:
+    d = cp["digest"]
+    missing = [k for k in ("cleave_after", "cleave_before_proline", "min_length", "max_length", "missed_cleavages", "source")
+               if d.get(k, "").strip() in ("", PLACEHOLDER)]
+    if missing:
+        raise SystemExit(f"[STOP] [digest] parameters unfilled or uncited: {', '.join(missing)} (G1)")
+    return {
+        "enzyme": d.get("enzyme", "trypsin").strip(),
+        "cleave_after": set(d["cleave_after"].strip().upper()),
+        "cleave_before_proline": d["cleave_before_proline"].strip().lower() == "true",
+        "min_length": int(d["min_length"]),
+        "max_length": int(d["max_length"]),
+        "missed_cleavages": int(d["missed_cleavages"]),
+        "source": d["source"].strip(),
+        "retrieved": d.get("retrieved", "").strip(),
+    }
+
+
+# ---------------------------------------------------------------- digest
+
+def fragments(seq: str, cleave_after: set[str], cleave_before_proline: bool) -> list[str]:
+    """Fully cleaved fragments (0 missed cleavages)."""
+    out, start = [], 0
+    for i, aa in enumerate(seq):
+        if aa in cleave_after and i + 1 < len(seq):
+            if not cleave_before_proline and seq[i + 1] == "P":
+                continue
+            out.append(seq[start:i + 1])
+            start = i + 1
+    out.append(seq[start:])
+    return [f for f in out if f]
+
+
+def theoretical_peptides(seq: str, r: dict) -> set[str]:
+    frags = fragments(seq, r["cleave_after"], r["cleave_before_proline"])
+    peps: set[str] = set()
+    for i in range(len(frags)):
+        joined = ""
+        for j in range(i, min(i + r["missed_cleavages"] + 1, len(frags))):
+            joined += frags[j]
+            if r["min_length"] <= len(joined) <= r["max_length"]:
+                peps.add(joined)
+            if len(joined) > r["max_length"]:
+                break
+    return peps
+
+
+# ---------------------------------------------------------------- inputs
+
+def load_sequences() -> dict[str, str]:
+    cp = configparser.ConfigParser(interpolation=None)
+    cp.optionxform = str
+    with SEQ_FILE.open(encoding="utf-8") as fh:
+        cp.read_file(fh)
+    seqs: dict[str, str] = {}
+    for sec in cp.sections():
+        s = cp[sec]
+        seq_key = next((k for k in ("sequence", "seq", "canonical_sequence") if k in s), None)
+        if seq_key is None:
+            raise SystemExit(f"[STOP] section [{sec}] in {SEQ_FILE.name} has no sequence key; keys present: {list(s.keys())}")
+        acc = s.get("accession", sec).strip()
+        seq = "".join(s[seq_key].split()).upper()
+        bad = set(seq) - AA20
+        if bad:
+            raise SystemExit(f"[STOP] {acc}: non-standard letters {sorted(bad)}")
+        seqs[acc] = seq
+    return seqs
+
+
+def load_composition() -> dict[str, dict]:
+    """accession -> {tier, mw_full} from the full-product row."""
+    if not COMP_TSV.exists():
+        raise SystemExit(f"[STOP] composition table not found: {COMP_TSV.relative_to(ROOT).as_posix()} — run Step 2 first")
+    out: dict[str, dict] = {}
+    with COMP_TSV.open(encoding="utf-8", newline="") as fh:
+        rd = csv.DictReader(fh, delimiter="\t")
+        need = {"accession", "tier", "segment_set", "mw"}
+        if not need <= set(rd.fieldnames or []):
+            raise SystemExit(f"[STOP] composition table lacks columns {sorted(need - set(rd.fieldnames or []))}")
+        for row in rd:
+            if row["segment_set"] == "metabolic":
+                out[row["accession"]] = {"tier": row["tier"], "mw_full": float(row["mw"])}
+    return out
+
+
+# ---------------------------------------------------------------- families
+
+def connected_components(edges: dict[str, set[str]]) -> list[set[str]]:
+    seen, comps = set(), []
+    for node in edges:
+        if node in seen:
+            continue
+        stack, comp = [node], set()
+        while stack:
+            n = stack.pop()
+            if n in seen:
+                continue
+            seen.add(n)
+            comp.add(n)
+            stack.extend(edges[n] - seen)
+        comps.append(comp)
+    return comps
+
+
+# ---------------------------------------------------------------- main
+
+def main() -> int:
+    cp = configparser.ConfigParser(interpolation=None, inline_comment_prefixes=(";",))
+    cp.optionxform = str
+    with CONFIG.open(encoding="utf-8") as fh:
+        cp.read_file(fh)
+    rules = load_rules(cp)
+    seqs = load_sequences()
+    comp = load_composition()
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    LOG_DIR.mkdir(parents=True, exist_ok=True)
+    started = utc_now()
+    log = [f"digest.py started {started}", f"rules: {rules}", f"sequences: {len(seqs)}", ""]
+    flags: list[str] = []
+
+    per_acc: dict[str, set[str]] = {}
+    rows = []
+    for acc, seq in seqs.items():
+        peps = theoretical_peptides(seq, rules)
+        per_acc[acc] = peps
+        c = comp.get(acc)
+        if c is None:
+            flags.append(f"{acc}: no full-product row in composition table (G4)")
+            tier, mw = "", float("nan")
+        else:
+            tier, mw = c["tier"], c["mw_full"]
+        density = len(peps) / (mw / 1000.0) if mw == mw and mw > 0 else float("nan")
+        rows.append({"accession": acc, "tier": tier, "length": len(seq), "mw_full": mw,
+                     "n_peptides": len(peps), "peptides_per_kDa": density})
+
+    # theoretical_peptides.tsv
+    hdr = ["accession", "tier", "length", "mw_full", "n_peptides", "peptides_per_kDa"]
+    write_tsv(OUT_DIR / "theoretical_peptides.tsv", hdr, rows, rules)
+
+    # density_ranked.tsv
+    dens = [r["peptides_per_kDa"] for r in rows if r["peptides_per_kDa"] == r["peptides_per_kDa"]]
+    med = statistics.median(dens) if dens else float("nan")
+    mad = statistics.median(abs(x - med) for x in dens) if dens else float("nan")
+    scale = 1.4826 * mad if mad and mad > 0 else float("nan")
+    ranked = sorted(rows, key=lambda r: (r["peptides_per_kDa"] != r["peptides_per_kDa"], r["peptides_per_kDa"]))
+    for i, r in enumerate(ranked, 1):
+        r["rank"] = i
+        r["robust_z"] = (r["peptides_per_kDa"] - med) / scale if scale == scale and r["peptides_per_kDa"] == r["peptides_per_kDa"] else float("nan")
+    write_tsv(OUT_DIR / "density_ranked.tsv", ["rank"] + hdr + ["robust_z"], ranked, rules)
+
+    # shared peptides
+    pep_to_acc: dict[str, set[str]] = defaultdict(set)
+    for acc, peps in per_acc.items():
+        for p in peps:
+            pep_to_acc[p].add(acc)
+    shared = {p: a for p, a in pep_to_acc.items() if len(a) >= 2}
+    srows = [{"peptide": p, "n_accessions": len(a), "accessions": ";".join(sorted(a))}
+             for p, a in sorted(shared.items(), key=lambda kv: (-len(kv[1]), kv[0]))]
+    write_tsv(OUT_DIR / "shared_peptides.tsv", ["peptide", "n_accessions", "accessions"], srows, rules)
+
+    # families
+    edges: dict[str, set[str]] = {acc: set() for acc in per_acc}
+    for p, accs in shared.items():
+        for a in accs:
+            edges[a] |= accs - {a}
+    comps = [c for c in connected_components(edges) if len(c) >= 2]
+    comps.sort(key=lambda c: (-len(c), sorted(c)[0]))
+    frows = []
+    for i, c in enumerate(comps, 1):
+        n_shared = sum(1 for p, a in shared.items() if a & c)
+        frows.append({"family_id": f"F{i:03d}", "n_members": len(c), "accessions": ";".join(sorted(c)), "n_shared_peptides": n_shared})
+    write_tsv(OUT_DIR / "families.tsv", ["family_id", "n_members", "accessions", "n_shared_peptides"], frows, rules)
+
+    # summary
+    summ = configparser.ConfigParser(interpolation=None)
+    summ.optionxform = str
+    summ["digest"] = {k: str(v) if not isinstance(v, set) else "".join(sorted(v)) for k, v in rules.items()}
+    summ["result"] = {
+        "generated": utc_now(),
+        "n_entries": str(len(rows)),
+        "n_peptides_total_distinct": str(len(pep_to_acc)),
+        "n_shared_peptides": str(len(shared)),
+        "n_families": str(len(comps)),
+        "largest_family": str(max((len(c) for c in comps), default=0)),
+        "density_median_peptides_per_kDa": f"{med:.6g}",
+        "density_mad": f"{mad:.6g}",
+        "density_min": f"{min(dens):.6g}" if dens else "nan",
+        "density_max": f"{max(dens):.6g}" if dens else "nan",
+        "flags": str(len(flags)),
+    }
+    with (OUT_DIR / "digest_summary.ini").open("w", encoding="utf-8") as fh:
+        fh.write("# Generated by pipeline/digest.py — DO NOT EDIT BY HAND\n")
+        summ.write(fh)
+
+    log += [f"entries {len(rows)}; distinct peptides {len(pep_to_acc)}; shared {len(shared)}; families {len(comps)}",
+            f"density median {med:.6g} MAD {mad:.6g}", "", f"flags: {len(flags)}"] + [f"  - {f}" for f in flags] + [f"finished {utc_now()}"]
+    (LOG_DIR / f"digest_{started.replace(':', '')}.log").write_text("\n".join(log) + "\n", encoding="utf-8")
+    print("\n".join(log))
+    return 1 if flags else 0
+
+
+def write_tsv(path: Path, header: list[str], rows: list[dict], rules: dict) -> None:
+    with path.open("w", encoding="utf-8", newline="") as fh:
+        fh.write(f"# Generated by pipeline/digest.py — DO NOT EDIT BY HAND\n")
+        fh.write(f"# generated = {utc_now()}\n")
+        fh.write(f"# digest = {rules['enzyme']}; cleave_after={''.join(sorted(rules['cleave_after']))}; "
+                 f"cleave_before_proline={rules['cleave_before_proline']}; length {rules['min_length']}-{rules['max_length']}; "
+                 f"missed_cleavages={rules['missed_cleavages']}; source={rules['source']}\n")
+        w = csv.DictWriter(fh, fieldnames=header, delimiter="\t", extrasaction="ignore", lineterminator="\n")
+        w.writeheader()
+        for r in rows:
+            w.writerow({k: (f"{v:.6g}" if isinstance(v, float) else v) for k, v in r.items()})
+
+
+if __name__ == "__main__":
+    sys.exit(main())
