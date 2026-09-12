@@ -14,6 +14,10 @@ and writes:
       discloses, Step 3b's C2/C3 check adjudicates.
   outputs/digest/shared_peptides.tsv
       peptide, n_accessions, accessions   (only peptides in ≥ 2 entries)
+  outputs/digest/shared_pairs.tsv
+      accession_a, gene_a, accession_b, gene_b, n_shared_peptides,
+      frac_of_a, frac_of_b   (edge weights; a family joined by one peptide
+      is visible here as n_shared_peptides = 1)
   outputs/digest/families.tsv
       family_id, n_members, accessions, genes, n_shared_peptides
       (gene symbols come from the composition table, i.e. accessions.ini)
@@ -244,6 +248,19 @@ def main() -> int:
              for p, a in sorted(shared.items(), key=lambda kv: (-len(kv[1]), kv[0]))]
     write_tsv(OUT_DIR / "shared_peptides.tsv", ["peptide", "n_accessions", "accessions"], srows, rules)
 
+    # shared_pairs.tsv — edge weights: how many in-window peptides each pair shares
+    pair_counts: dict[tuple[str, str], int] = defaultdict(int)
+    for p, accs in shared.items():
+        al = sorted(accs)
+        for i in range(len(al)):
+            for j in range(i + 1, len(al)):
+                pair_counts[(al[i], al[j])] += 1
+    prows = [{"accession_a": a, "gene_a": comp.get(a, {}).get("gene", ""), "accession_b": b, "gene_b": comp.get(b, {}).get("gene", ""),
+              "n_shared_peptides": n, "frac_of_a": n / len(per_acc[a]) if per_acc[a] else float("nan"),
+              "frac_of_b": n / len(per_acc[b]) if per_acc[b] else float("nan")}
+             for (a, b), n in sorted(pair_counts.items(), key=lambda kv: (-kv[1], kv[0]))]
+    write_tsv(OUT_DIR / "shared_pairs.tsv", ["accession_a", "gene_a", "accession_b", "gene_b", "n_shared_peptides", "frac_of_a", "frac_of_b"], prows, rules)
+
     # families
     edges: dict[str, set[str]] = {acc: set() for acc in per_acc}
     for p, accs in shared.items():
@@ -269,6 +286,7 @@ def main() -> int:
         "n_peptides_total_distinct": str(len(pep_to_acc)),
         "n_shared_peptides": str(len(shared)),
         "n_families": str(len(comps)),
+        "n_sharing_pairs": str(len(pair_counts)),
         "largest_family": str(max((len(c) for c in comps), default=0)),
         "density_median_peptides_per_kDa": f"{med:.6g}",
         "density_mad": f"{mad:.6g}",
