@@ -5,7 +5,7 @@
     python run.py protein-set --offline    skip the three network stages; rebuild from data/ on disk
     python run.py composition              fetch masses -> fetch ptmlist -> composition -> ptm disclosure -> tests
     python run.py composition --offline    skip the two network stages; recompute from data/ on disk
-    python run.py mass-fractions           fetch literature -> digest -> literature inventory -> tests
+    python run.py mass-fractions           fetch literature -> digest -> literature inventory -> mass fractions -> tests
     python run.py mass-fractions --offline skip the fetch; recompute from data/ on disk
     python run.py <command> --stop-after <stage>
     python run.py test                     tests only
@@ -31,7 +31,7 @@ COMMANDS = {
     "composition": (["fetch_amino_acid_masses", "fetch_ptmlist"],
                     ["composition", "ptm_disclosure"]),
     "mass-fractions": (["fetch_literature"],
-                       ["digest", "literature_inventory"]),
+                       ["digest", "literature_inventory", "mass_fractions"]),
 }
 
 

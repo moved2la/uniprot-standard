@@ -104,7 +104,8 @@ abundance) and does not appear in the protein set.
 | **B2 Quantity** | the mapped median column; composition table `mw` on `segment_set = master` | w_i = v_i · MW_i / Σ_tier (v_j · MW_j), within tier (D31). |
 | **B3 Fiber type** | the dataset's own columns and purity threshold | Never re-derived. |
 | **B4 Missing** | the mapped valid-values column | `NaN` with valid values = 0 → 0, listed; never imputed. |
-| **B5 Spread** | the mapped SD column per fiber type | Carried per row for the aggregation step (D45); per-row low/high with the denominator held fixed. |
+| **B5 Spread** | the mapped SD column per fiber type | Carried per row for the aggregation step (D45); w_low / w_high = (v ∓ SD) × MW over the unchanged denominator, clipped at zero; a shared row adds its whole value to each member's w_high (D48). Rows summed under D47 carry the root-sum-square of their SDs (D53). |
+| **B6 Bands** | `config/carroll_classical_fractionation.ini` `anchor_genes`; `outputs/digest/shared_pairs.tsv` | A gel band is the shared-peptide family of its anchor genes at the D52 cutoff; its weight is Σ w over the family. Families at cutoffs 1 and 2 are both written. |
 
 ## Flags
 

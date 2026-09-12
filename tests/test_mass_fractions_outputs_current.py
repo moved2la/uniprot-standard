@@ -1,0 +1,38 @@
+"""The mass-fraction outputs and generated config must equal a fresh build from the
+files on disk. Skipped where the literature has not been fetched on this machine.
+Also: the code names no accession, and every generated fiber-type file sums to one
+per tier."""
+import re
+
+import pytest
+
+from pipeline import common, mass_fractions as mf
+
+needs_data = pytest.mark.skipif(not mf.MANIFEST_INI.exists() or not (mf.OUT_DIR / "mass_fractions_summary.ini").exists(),
+                                reason="literature not fetched or mass_fractions not run on this machine")
+
+
+@needs_data
+def test_mass_fraction_outputs_are_current():
+    assert mf.main(["--check"]) == 0
+
+
+@needs_data
+def test_generated_config_sums_to_one_per_tier():
+    for ft in mf.FIBER_TYPES:
+        cp = common.read_ini(mf.MASS_FRACTIONS_CONFIG_DIR / f"{ft}.ini")
+        sums = {}
+        for acc in cp.sections():
+            for k, v in cp[acc].items():
+                if re.fullmatch(r"w_tier\d+", k):
+                    sums[k] = sums.get(k, 0.0) + float(v)
+        assert sums, ft
+        for k, s in sums.items():
+            assert abs(s - 1.0) < 1e-6, (ft, k, s)
+
+
+def test_code_names_no_accession():
+    acc = re.compile(r"\b(?:[OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9](?:[A-Z][A-Z0-9]{2}[0-9]){1,2})\b")
+    text = (common.REPO_ROOT / "pipeline" / "mass_fractions.py").read_text(encoding="utf-8")
+    hits = [ln for ln in text.splitlines() if acc.search(ln)]
+    assert hits == [], hits
