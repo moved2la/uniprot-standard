@@ -34,6 +34,17 @@ ACCESSIONS_INI = CONFIG_DIR / "accessions.ini"
 SEGMENTS_INI = CONFIG_DIR / "segments.ini"
 FLAGS_TSV = OUTPUTS_DIR / "flags.tsv"
 
+# Composition (Layer A): masses fetched from PubChem, PTM vocabulary from UniProt.
+COMPOSITION_DECISIONS_INI = CONFIG_DIR / "composition_decisions.ini"   # hand-written: two URLs and one rule
+IUPAC_DIR = DATA_DIR / "iupac"
+AMINO_ACID_SYMBOLS_INI = IUPAC_DIR / "amino_acid_symbols.ini"           # parsed from the IUPAC-IUBMB table
+PUBCHEM_DIR = DATA_DIR / "pubchem"
+AMINO_ACID_MASSES_INI = PUBCHEM_DIR / "amino_acid_masses.ini"           # fetched from PubChem
+PTMLIST_TXT = DATA_DIR / "uniprot_ptmlist" / "ptmlist.txt"               # fetched from UniProt
+COMPOSITION_DIR = OUTPUTS_DIR / "composition"
+COMPOSITION_TSV = COMPOSITION_DIR / "amino_acid_composition_per_protein.tsv"
+COMPOSITION_SUMMARY_INI = COMPOSITION_DIR / "composition_summary.ini"
+
 # The twenty standard amino acid letters, in the order used for every vector.
 AMINO_ACIDS = "ACDEFGHIKLMNPQRSTVWY"
 

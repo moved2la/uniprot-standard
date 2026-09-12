@@ -9,6 +9,7 @@ generator produces from the data on disk.
 | File | What it may contain |
 |---|---|
 | `config/protein_set_decisions.ini` | Seed word and exact lookup name per tier (with D-numbers); the ontology source URL; closures of flags raised by the code. Never a protein, accession, or term ID chosen by a person. |
+| `config/composition_decisions.ini` | The URL of the IUPAC-IUBMB table that defines the one-letter code, the PubChem endpoint, the chiral-prefix query rule, and the two extra compound names (water, hydrogen), each with its D-number (D26). Never an amino acid name, symbol, or mass — the code parses the names from the cited table and fetches every mass. |
 | `docs/*.md` | Prose. Every sentence in `docs/methods.md` either carries a citation or describes a computation performed here (`PROVENANCE.md`). |
 | `tests/**` | Code and synthetic fixtures. Fixtures contain no real biology. |
 | `pipeline/**`, `run.py` | Code. Contains no gene name, accession, term ID, or category. |
@@ -18,14 +19,15 @@ generator produces from the data on disk.
 | Folder | Meaning |
 |---|---|
 | `config/` | Decisions (hand-written) and the config generated from them. |
-| `data/` | What the public databases said, unchanged or minimally tabulated. `data/gene-ontology/` holds the ontology file and the resolved term tables; `data/uniprot_raw/` holds entry JSON as fetched; `data/uniprot_sequences.ini` holds every canonical sequence in tabulated form, with its UniProt MD5, computed MD5, and captured features. |
-| `outputs/` | Everything computed here that is not config: flags, evidence summaries, delta tables. `outputs/logs/` holds one timestamped log per stage per run. |
+| `data/` | What the public databases said, unchanged or minimally tabulated. `data/gene-ontology/` holds the ontology file and the resolved term tables; `data/uniprot_raw/` holds entry JSON as fetched; `data/uniprot_sequences.ini` holds every canonical sequence in tabulated form, with its UniProt MD5, computed MD5, and captured features; `data/iupac/` holds the downloaded IUPAC-IUBMB Table 1 page, its hash, and `amino_acid_symbols.ini` parsed from it; `data/pubchem/` holds the PubChem responses as fetched and `amino_acid_masses.ini` tabulated from them; `data/uniprot_ptmlist/` holds UniProt's PTM vocabulary as fetched and its hash. |
+| `outputs/` | Everything computed here that is not config: flags, evidence summaries, delta tables. `outputs/composition/` holds `amino_acid_composition_per_protein.tsv` and the processing and PTM disclosures. `outputs/logs/` holds one timestamped log per stage per run. |
 | `docs/` | Plan, decisions, methods, conventions, handoffs. |
 
 ## One command
 
-`python run.py protein-set` runs every stage in order and then the tests.
-`--offline` skips the three stages that touch the network and rebuilds from `data/`.
+`python run.py protein-set` runs the protein-set stages in order and then the tests;
+`python run.py composition` runs the composition stages in order and then the tests.
+`--offline` skips the stages that touch the network and rebuilds from `data/`.
 Nothing in the repository is named by a project-plan step number.
 
 ## Rules applied by the code
@@ -45,6 +47,15 @@ the code raises a flag; it never defaults.
 
 There is no fiber-type rule. Fiber type is a Layer B quantity (per-fiber-type
 abundance) and does not appear in the protein set.
+
+### Composition rules
+
+| Rule | Reads | Result |
+|---|---|---|
+| **C0 Symbols** | The IUPAC-IUBMB Table 1 page text: rows of the form `<trivial name> <three-letter symbol> <one-letter symbol>` | Exactly the twenty standard letters, each once → `data/iupac/amino_acid_symbols.ini`. Anything else → stop. No name is typed. |
+| **C1 Masses** | PubChem `MolecularWeight`, `MolecularFormula`, `CID` for the query name (chiral prefix + trivial name; bare trivial name if PubChem has no such compound, recorded per row) | Exactly one compound → its served values, unchanged. Zero or several → stop. residue mass = free mass − water. |
+| **C2 Counts** | The canonical sequence and `config/segments.ini` | `master` = residues with `in_master_molecule = true`; `metabolic` = every residue. Counts per letter are the ground truth (D7); both mass vectors and both fraction vectors are arithmetic on them. A letter outside the twenty standard ones stops the run. |
+| **C3 PTM disclosure** | UniProt features of type `Modified residue`, `Lipidation`, `Glycosylation`, `Cross-link`, `Disulfide bond`; `ptmlist.txt` field `MA` | Description's first clause = vocabulary `ID` with an `MA` line → that average mass delta. Intrachain `Disulfide bond` → −H₂. Anything else → counted, no mass, listed. Sites outside the master molecule → recorded, excluded from sums. Nothing is decided (D28). |
 
 ## Flags
 

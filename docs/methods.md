@@ -110,3 +110,107 @@ The per-isoform and per-entry values are in `outputs/isoform_deltas.tsv` and
 
 The pool is an annotation set. Its completeness relative to measurement is checked in
 Step 3 against the Layer B abundance ranking (D22).
+
+## Composition (Layer A)
+
+*Placeholders in ⟨angle brackets⟩ are filled from the run records after
+`python run.py composition` has been run; every other sentence describes a
+computation in this repository or carries its citation.*
+
+### Amino acid masses
+
+The masses are the only external constants in Layer A. The correspondence between
+one-letter symbol, three-letter symbol, and trivial name for the twenty ribosomally
+incorporated amino acids is defined in Table 1 of the IUPAC-IUB Joint Commission on
+Biochemical Nomenclature recommendations (*Nomenclature and Symbolism for Amino Acids
+and Peptides. Recommendations 1983.* Pure Appl. Chem. 1984, 56(5), 595–624). At every
+run, `pipeline/fetch_amino_acid_masses.py` downloads the IUBMB web copy of that table
+(`https://iupac.qmul.ac.uk/AminoAcid/tab1.html`, retrieved ⟨date⟩, SHA-256 ⟨sha256⟩;
+`data/iupac/source.ini`), parses each row of the form trivial name, three-letter
+symbol, one-letter symbol from its text, and stops unless exactly the twenty standard
+letters are found once each; the parsed rows are `data/iupac/amino_acid_symbols.ini`
+(D26). No name or symbol is typed anywhere in the repository.
+
+Table 1 footnote a states that for the chiral amino acids only the L form is used in
+protein biosynthesis, and section 3AA-14.5 that the symbols denote the L configuration.
+Each trivial name was therefore sent to PubChem PUG REST prefixed with "L-"
+(`https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/<name>/property/MolecularFormula,MolecularWeight,IUPACName/JSON`,
+retrieved ⟨date⟩), with the bare trivial name used where PubChem holds no compound
+under the prefixed name (⟨n_fallback⟩ of the twenty; the name that resolved is
+recorded per row). "Water" and "hydrogen" were sent the same way. A name that resolved
+to other than exactly one compound would have stopped the run; none did. The compound
+identifier, molecular formula, IUPAC name, and `MolecularWeight` are recorded as served
+in `data/pubchem/amino_acid_masses.ini`, with the responses unchanged in
+`data/pubchem/raw/`. PubChem serves `MolecularWeight` to ⟨served_decimals⟩ decimal
+places, so each free mass is known to ±0.005 g/mol. The in-chain residue mass of each
+amino acid is its free mass minus the molecular weight of water (⟨water⟩ g/mol,
+CID ⟨cid⟩).
+
+### Residue counts and the two mass conventions
+
+For every entry in `config/accessions.ini`, `pipeline/composition.py` counted the
+residues of each of the twenty amino acids in two segment sets: the master molecule
+(residues marked `in_master_molecule = true` in `config/segments.ini`; rule R2) and
+the full canonical sequence. The counts are the stored ground truth (D7). From them:
+
+- residue-mass vector: count × residue mass; its sum plus one water is the molecular
+  weight of the chain;
+- free-amino-acid-mass vector: count × free mass; its sum equals the molecular weight
+  plus (n − 1) × water, where n is the residue count.
+
+The second identity was evaluated for every row; the largest absolute discrepancy
+was ⟨water_identity_max_abs_error_g_per_mol⟩ g/mol (`outputs/composition/composition_summary.ini`).
+Each vector is normalised to fractions summing to one. The free-amino-acid
+convention is the one used by food composition tables and by laboratory amino acid
+analysis, and the one the Match Rate calculation consumes (D7); cysteine is reported
+as cysteine at its free mass, and cysteine and methionine are separate columns (D27).
+Hydrolysis-sensitive residues are reported at full sequence value (D30). The results
+are in `outputs/composition/amino_acid_composition_per_protein.tsv`: ⟨rows_all⟩ rows, one per entry per segment set
+(D29).
+
+### Processing disclosure
+
+For each entry, the difference between the free-amino-acid fraction of the master
+molecule and of the full canonical sequence was computed per amino acid, together with
+the mass removed by processing as a fraction of the full gene product's molecular
+weight (`outputs/composition/processing_mass_deltas.tsv`). ⟨entries_with_processing⟩
+entries have a master molecule shorter than the canonical sequence;
+⟨entries_master_equals_full⟩ do not. The largest single-amino-acid difference in the
+set is ⟨largest_processing_delta_free_frac⟩ (⟨amino acid⟩, ⟨accession⟩;
+`outputs/composition/processing_mass_bound.tsv`), and the largest fraction of mass
+removed from any one entry is ⟨largest_mass_removed_fraction_of_full⟩ (⟨accession⟩).
+No decision is attached to these numbers.
+
+### Post-translational modification disclosure
+
+The composition engine counts sequence letters; a residue that carries a
+post-translational modification is counted as its unmodified amino acid (D28). To
+state the size of what is thereby not modelled, `pipeline/ptm_disclosure.py` read every
+feature of type `Modified residue`, `Lipidation`, `Glycosylation`, `Cross-link`, and
+`Disulfide bond` from the entry JSON in `data/uniprot_raw/` and priced each site as
+follows. The first clause of the feature description (the text before any ";") was
+looked up as an identifier in UniProt's controlled vocabulary of post-translational
+modifications (`ptmlist.txt`,
+`https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/docs/ptmlist.txt`,
+release ⟨release⟩, retrieved ⟨date⟩, SHA-256 ⟨sha256⟩, ⟨records⟩ records of which
+⟨records_with_MA⟩ carry an average mass difference). The lookup is exact first; where
+no exact identifier exists, the vocabulary's own wildcard identifiers — those
+containing "...", such as `Glycyl lysine isopeptide (Lys-Gly) (interchain with G-...)`
+— are matched as patterns against the description, and the rule that matched is
+recorded per site. A leading "(Microbial infection)" qualifier is set aside for the
+lookup and recorded. Where the matched record gives an average mass difference (`MA`),
+that is the site's mass delta; the record's correction formula (`CF`) is recorded
+beside it, so that for an interchain cross-link the reader can see the delta is that of
+the linkage (loss of one water) and not of the partner molecule. An intrachain
+disulfide bond has no vocabulary record and was priced as minus the molecular weight of
+H₂ from PubChem (⟨h2_mass⟩ g/mol). Every other site — a vocabulary record without a
+mass (glycosylation records do not specify the glycan), an interchain disulfide, a
+description matching no identifier — was counted and not priced, and is listed by
+description in `outputs/composition/ptm_summary.ini`. Sites outside the master
+molecule were recorded and excluded from the sums.
+
+Across ⟨entries⟩ entries there are ⟨sites_total⟩ such sites (⟨sites_by_mass_status⟩).
+The summed mass delta of the priced sites, as a fraction of the master molecule's
+molecular weight, is largest for ⟨accession⟩ at ⟨largest_abs_ptm_mass_fraction_of_mw⟩
+(`outputs/composition/ptm_mass_deltas.tsv`); per-site rows are in
+`outputs/composition/ptm_sites.tsv`. No decision is attached to these numbers.
