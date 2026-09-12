@@ -10,7 +10,7 @@ generates:
     data/literature/manifest.ini   — one section per file: url, path, sha256,
                                       retrieved (UTC), bytes, content-type
     data/literature/README.md      — human-readable provenance, generated
-    outputs/logs/fetch_literature_<UTC>.log
+    logs/fetch_literature_<UTC>.log
 
 Rules
   F1  A url of `___` is a flag: recorded, skipped, exit non-zero at the end.
@@ -57,7 +57,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "config" / "mass_fraction_decisions.ini"
 LIT_DIR = ROOT / "data" / "literature"
-LOG_DIR = ROOT / "outputs" / "logs"
+LOG_DIR = ROOT / "logs"
 USER_AGENT = "uniprot-standard/step3a fetch_literature.py (provenance fetch; contact via repository)"
 PLACEHOLDER = "___"
 

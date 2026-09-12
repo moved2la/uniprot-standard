@@ -39,8 +39,11 @@ that cannot be is not admitted.
   from a database field, the code emits a flag. A flag is closed only by a logged
   decision (type 1) or a citation (type 2). Silent resolution — by code defaulting, or
   by a person quietly picking — is a defect.
-- **Every run leaves a record.** Each tool writes a timestamped log to `outputs/logs/`
-  containing what it was given, what it fetched, and what it flagged.
+- **Every generated file carries its own record.** A fetched or generated file states
+  in its header what produced it: source URL, database release, file hash, query
+  string, and retrieval time. What a rule could not settle is in `outputs/flags.tsv`.
+  Those committed files, not logs, are the record a reviewer works from. Stage logs
+  in `logs/` are for debugging only and are not committed.
 - **Prose is held to the same rule as numbers.** A sentence in `docs/methods.md` either
   carries its citation or describes a computation performed here. Sentences that do
   neither are removed, not softened.

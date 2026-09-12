@@ -71,7 +71,7 @@ Every entry is represented by its canonical sequence (D16). The mature-chain ran
 taken from the UniProt feature table, type `Chain`. Exactly one such feature gives the
 range (rule R2a; 295 entries); residues outside it are marked `in_master_molecule =
 false` in `config/segments.ini` (D19). One entry has no `Chain` feature and uses the
-whole sequence (rule R2b, build log). Seven entries have more than one `Chain` feature;
+whole sequence (rule R2b; `config/segments.ini`, key `rule`). Seven entries have more than one `Chain` feature;
 for these the master molecule is the union of the `Chain` ranges (rule R2d, D24), and
 they are listed with their chains in `outputs/multi_chain_entries.tsv`. No `Chain`
 feature had a non-exact position, so no flag was raised (`outputs/flags.tsv` is empty).

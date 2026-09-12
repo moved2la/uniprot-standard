@@ -20,7 +20,8 @@ generator produces from the data on disk.
 |---|---|
 | `config/` | Decisions (hand-written) and the config generated from them. |
 | `data/` | What the public databases said, unchanged or minimally tabulated. `data/gene-ontology/` holds the ontology file and the resolved term tables; `data/uniprot_raw/` holds entry JSON as fetched; `data/uniprot_sequences.ini` holds every canonical sequence in tabulated form, with its UniProt MD5, computed MD5, and captured features; `data/iupac/` holds the downloaded IUPAC-IUBMB Table 1 page, its hash, and `amino_acid_symbols.ini` parsed from it; `data/pubchem/` holds the PubChem responses as fetched and `amino_acid_masses.ini` tabulated from them; `data/uniprot_ptmlist/` holds UniProt's PTM vocabulary as fetched and its hash. |
-| `outputs/` | Everything computed here that is not config: flags, evidence summaries, delta tables. `outputs/composition/` holds `amino_acid_composition_per_protein.tsv` and the processing and PTM disclosures. `outputs/logs/` holds one timestamped log per stage per run. |
+| `outputs/` | Everything computed here that is not config: flags, evidence summaries, delta tables. `outputs/composition/` holds `amino_acid_composition_per_protein.tsv` and the processing and PTM disclosures. |
+| `logs/` | Debugging only: one timestamped log per stage per run, plus one per test run. Not committed; not part of the record. The record is the header of each generated file plus `outputs/flags.tsv`. |
 | `docs/` | Plan, decisions, methods, conventions, handoffs. |
 
 ## One command

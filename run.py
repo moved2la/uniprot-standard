@@ -8,7 +8,7 @@
     python run.py <command> --stop-after <stage>
     python run.py test                     tests only
 
-Every stage writes a timestamped log to outputs/logs/. A non-zero exit from any
+Every stage writes a timestamped log to logs/. A non-zero exit from any
 stage stops the run; the log says why.
 """
 
@@ -66,7 +66,7 @@ def main() -> int:
     for stage in stages:
         rc = run_stage(stage)
         if rc:
-            print(f"\nSTOPPED: {stage} exited {rc}. See outputs/logs/ and outputs/flags.tsv.", file=sys.stderr)
+            print(f"\nSTOPPED: {stage} exited {rc}. See logs/ and outputs/flags.tsv.", file=sys.stderr)
             return rc
         if args.stop_after == stage:
             return 0

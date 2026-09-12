@@ -66,7 +66,7 @@ membership.
 - `config/protein_set_decisions.ini` (hand-written; seeds and closures only)
 - Generated at run time: `data/gene-ontology/*`, `data/tier<N>_pool*.tsv`,
   `data/pool_queries.ini`, `data/uniprot_raw/`, `data/uniprot_sequences.ini`,
-  `config/accessions.ini`, `config/segments.ini`, `outputs/*.tsv`, `outputs/logs/`
+  `config/accessions.ini`, `config/segments.ini`, `outputs/*.tsv`, `logs/`
 - `docs/conventions.md`, `docs/decisions.md` (D1–D23), `docs/methods.md` (placeholders
   filled after the run)
 

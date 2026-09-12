@@ -18,7 +18,7 @@ and writes:
       family_id, n_members, accessions, n_shared_peptides
       (connected components of the "shares ≥ 1 in-window peptide" graph)
   outputs/digest/digest_summary.ini
-  outputs/logs/digest_<UTC>.log
+  logs/digest_<UTC>.log
 
 Why this exists
   iBAQ = summed intensity / N_theoretical.  iBAQ×MW and TPA differ exactly by
@@ -54,7 +54,7 @@ CONFIG = ROOT / "config" / "mass_fraction_decisions.ini"
 SEQ_FILE = ROOT / "data" / "uniprot_sequences.ini"
 COMP_TSV = ROOT / "outputs" / "composition" / "amino_acid_composition_per_protein.tsv"
 OUT_DIR = ROOT / "outputs" / "digest"
-LOG_DIR = ROOT / "outputs" / "logs"
+LOG_DIR = ROOT / "logs"
 PLACEHOLDER = "___"
 AA20 = set("ACDEFGHIKLMNPQRSTVWY")
 

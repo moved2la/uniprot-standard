@@ -17,7 +17,7 @@ python run.py composition --offline  # recompute from data/ on disk
 python run.py test
 ```
 
-Every stage writes a timestamped log to `outputs/logs/`. Cases the rules cannot settle
+Every stage writes a timestamped log to `logs/` (debugging only; not committed). Cases the rules cannot settle
 go to `outputs/flags.tsv` and are closed, with a D-number, in
 `config/protein_set_decisions.ini`.
 
@@ -27,7 +27,8 @@ go to `outputs/flags.tsv` and are closed, with a D-number, in
 |---|---|
 | `config/` | Hand-written decisions (`protein_set_decisions.ini`, `composition_decisions.ini`) and generated config |
 | `data/` | What the public databases said |
-| `outputs/` | Everything computed here that is not config; logs |
+| `outputs/` | Everything computed here that is not config |
+| `logs/` | Stage and test logs, debugging only; not committed |
 | `pipeline/` | Code, one module per stage |
 | `docs/` | Plan, decisions log, methods, conventions, handoffs |
 | `tests/` | Offline tests with synthetic fixtures |

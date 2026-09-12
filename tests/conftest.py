@@ -1,4 +1,4 @@
-"""pytest configuration: repository root on sys.path; every test run logged to outputs/logs/."""
+"""pytest configuration: repository root on sys.path; every test run logged to logs/."""
 import datetime as dt
 import sys
 from pathlib import Path
@@ -9,7 +9,7 @@ FIXTURES = Path(__file__).parent / "fixtures"
 
 
 def pytest_configure(config):
-    logs = ROOT / "outputs" / "logs"
+    logs = ROOT / "logs"
     logs.mkdir(parents=True, exist_ok=True)
     stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     config.option.log_file = str(logs / f"pytest_{stamp}.log")

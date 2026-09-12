@@ -2,7 +2,7 @@
 
 Nothing in this module knows anything about biology. It provides:
 - repository paths,
-- a timestamped file logger (every run leaves a record in outputs/logs/),
+- a timestamped file logger (every run leaves a record in logs/),
 - .ini reading/writing with a fixed style,
 - SHA-256 / MD5 helpers.
 """
@@ -23,7 +23,7 @@ DATA_DIR = REPO_ROOT / "data"
 ONTOLOGY_DIR = DATA_DIR / "gene-ontology"
 UNIPROT_RAW_DIR = DATA_DIR / "uniprot_raw"
 OUTPUTS_DIR = REPO_ROOT / "outputs"
-LOGS_DIR = OUTPUTS_DIR / "logs"
+LOGS_DIR = REPO_ROOT / "logs"
 DOCS_DIR = REPO_ROOT / "docs"
 
 DECISIONS_INI = CONFIG_DIR / "protein_set_decisions.ini"
@@ -67,7 +67,7 @@ def today() -> str:
 
 
 def make_logger(stage: str, logs_dir: Path = LOGS_DIR) -> logging.Logger:
-    """Logger that writes to outputs/logs/<stage>_<timestamp>.log and to stderr."""
+    """Logger that writes to logs/<stage>_<timestamp>.log and to stderr."""
     logs_dir.mkdir(parents=True, exist_ok=True)
     path = logs_dir / f"{stage}_{timestamp()}.log"
     logger = logging.getLogger(f"pipeline.{stage}.{timestamp()}")
