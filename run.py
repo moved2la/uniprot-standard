@@ -9,6 +9,8 @@
     python run.py mass-fractions --offline skip the fetch; recompute from data/ on disk
     python run.py <command> --stop-after <stage>
     python run.py test                     tests only
+    python run.py excerpt                  tooling: bounded excerpts of the large generated files
+                                           into excerpts/<stamp>/ and a tarball (no tests; not the record)
 
 Every stage writes its own timestamped log to logs/. In addition, logs/run_<command>_<stamp>.log
 is the MASTER LOG: sys.stdout and sys.stderr are tee'd into it for the whole run, so it holds
@@ -121,6 +123,7 @@ def main() -> int:
         cp.add_argument("--offline", action="store_true")
         cp.add_argument("--stop-after", choices=network + offline)
     sub.add_parser("test")
+    sub.add_parser("excerpt")
     args = ap.parse_args()
 
     import datetime as _dt
@@ -133,6 +136,8 @@ def main() -> int:
 
     if args.cmd == "test":
         return run_tests()
+    if args.cmd == "excerpt":
+        return run_stage("excerpt")
 
     network, offline = COMMANDS[args.cmd]
     stages = (offline if args.offline else network + offline)

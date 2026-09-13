@@ -70,7 +70,7 @@ flowchart TB
   bounds1 --> m4
   procd --> m4
   ptmd --> m4
-  m4 --> w[config/mass_fractions/I.ini, IIa.ini, IIx.ini]
+  m4 --> w[config/mass_fractions_per_entry.tsv]
   m4 --> mfo[outputs/mass_fractions/ ranked tables, checks, summary]
 
   w --> AGG[[aggregation — next]]
@@ -121,11 +121,10 @@ Layer B multiplies by.
 
 | File | What it is | Open it to |
 |---|---|---|
-| `config/mass_fractions/{I,IIa,IIx}.ini` | Generated. One section per pool accession: weight per tier, low, high, dataset values, match rule, row numbers, source line with file hash | feed the aggregation step; audit one entry |
+| `config/mass_fractions_per_entry.tsv` | Generated config (D61). One row per pool accession: per fiber type the dataset's median, SD, valid values, the within-tier weight (D31) and the combined weight (D58) with low / high, match rule, dataset row numbers; file hash, sheet, column names, and retrieval time once in the header | feed the aggregation step; trace any weight to its dataset rows |
 | `outputs/mass_fractions/combined_entries_ranked.tsv` | Every entry of every tier under one denominator per fiber type — the primary standard's weights (D58), ordered by type-I weight | the standard as measured; quote a top-N; plot |
 | `tier1_entries_ranked.tsv`, `tier2_entries_ranked.tsv` | One tier, ordered by type-I weight; rank and cumulative share per fiber type within the tier | see what each tier is made of |
 | `excluded_entries_mass_share.tsv` | The R5-excluded entries and the share each would have held (D59) | state what the alphabet rule cost |
-| `weights_per_pool_entry.tsv` | Every pool entry with everything the dataset said about it and every weight — the full table | trace any number in the ranked tables back to its row |
 | `mass_fractions_summary.ini` | Counts per file; per tier and fiber type: entries with mass, share of the ten largest, largest entry, maximum weighted bound per kind; `[combined]`: each tier's share of the combined standard per fiber type; gel-check factors | the one-screen view |
 | `pool_entries_without_dataset_row.tsv` | Pool accessions the dataset never quantified (w = 0) | see what the set contains that the fibers do not |
 | `dataset_rows_outside_pool.tsv` | Dataset genes not in the pool, ranked by median value, with each gene's mapping outcome (unmapped / ambiguous / contaminant) | the completeness check; why each gene is outside |
@@ -138,13 +137,20 @@ Layer B multiplies by.
 | `classical_check_carroll_2004.tsv` | MHC:actin as measured by each method — Carroll's gel, iBAQ × MW (ours), and the intensity share in Deshmukh 2021's slow/fast pools — and their quotients, per fiber type; plus each band's share of the combined standard against the gel's fraction of total fiber protein (D58); no attribution (D54) | see how three methods compare on the two largest proteins, in ratio and in absolute share |
 | `<source>_myh_fractions_ibaq_vs_lfq.tsv` | The method comparison: MYH fractions per fiber under iBAQ and MaxLFQ from the same fibers | the number behind "why not LFQ" in methods |
 
+## Tooling (not a stage, not the record)
+
+| Command | Reads | Writes | Use |
+|---|---|---|---|
+| `python run.py excerpt` | the files listed in `SPEC` in `pipeline/excerpt.py` (summaries, the weights table, the composition table, ranked tables, bounds, checks) | `excerpts/<stamp>/` — the small files whole, the large ones as labelled cuts (top-N by a column, first N of a ranked table, rows matching a filter, rows keyed to another cut), each keeping its source's `#` header plus one line naming the rule and the row counts; `INDEX.md`; `excerpts/excerpts_<stamp>.tar.gz` | review of a run in chat without uploading multi-megabyte tables. Not committed. |
+
 ## Where things live
 
 | Folder | Meaning |
 |---|---|
-| `config/` | Hand-written decisions (four files, listed in `docs/conventions.md`) and the config generated from them |
+| `config/` | Hand-written decisions (five files, listed in `docs/conventions.md`) and the config generated from them, including the Layer B weights table `mass_fractions_per_entry.tsv` (D61) |
 | `data/` | What the public databases and publishers said, unchanged or tabulated |
 | `outputs/` | Everything computed here that is not config |
+| `excerpts/` | Bounded cuts of the large generated files, for review in chat (`python run.py excerpt`); not committed, not the record |
 | `logs/` | One timestamped log per stage per run, plus `run_<command>_<stamp>.log` — everything run.py itself printed (banners, stop messages, crash tracebacks, the full test report) — and `pytest_report_<stamp>.log`; the screen and the logs never differ; not committed |
 | `docs/` | This map, the plan, `decisions.md` (every D-number), `methods.md` (the paper's Methods, written from run records), `conventions.md` (every rule and the field it reads), handoffs (not committed) |
 

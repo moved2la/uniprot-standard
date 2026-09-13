@@ -45,6 +45,10 @@ COMPOSITION_DIR = OUTPUTS_DIR / "composition"
 COMPOSITION_TSV = COMPOSITION_DIR / "amino_acid_composition_per_protein.tsv"
 COMPOSITION_SUMMARY_INI = COMPOSITION_DIR / "composition_summary.ini"
 
+# Mass fractions (Layer B): the generated weights table (D61) that aggregation reads.
+MASS_FRACTIONS_TSV = CONFIG_DIR / "mass_fractions_per_entry.tsv"
+MASS_FRACTIONS_DIR = OUTPUTS_DIR / "mass_fractions"
+
 # The twenty standard amino acid letters, in the order used for every vector.
 AMINO_ACIDS = "ACDEFGHIKLMNPQRSTVWY"
 

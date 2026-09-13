@@ -14,10 +14,13 @@ Reads
   outputs/digest/shared_pairs.tsv                                gel-band families (D52)
   config/carroll_classical_fractionation.ini                    gel values (D50)
 
-Writes (outputs/mass_fractions/, every file with a header naming inputs and hashes)
-  weights_per_pool_entry.tsv           one row per pool accession: what the dataset says about
-                                       it, how the row was matched, and its weight per tier and
-                                       fiber type — the full table
+Writes (outputs/mass_fractions/ unless stated; every file with a header naming inputs and hashes)
+  config/mass_fractions_per_entry.tsv  GENERATED CONFIG (D61): one row per pool accession — what the
+                                       dataset says about it, how the row was matched, its weight
+                                       within tier (D31) and in the combined standard (D58), each with
+                                       low / high (B5) — the Layer B input to aggregation. The
+                                       constant provenance (file, hash, sheet, columns, retrieval) is
+                                       in the header once, not repeated per row.
   combined_entries_ranked.tsv          D58: every entry of every tier under one denominator per
                                        fiber type — the combined (contractile + support) standard
   excluded_entries_mass_share.tsv      D59: the R5-excluded entries and the share they would have held
@@ -47,7 +50,6 @@ Writes (outputs/mass_fractions/, every file with a header naming inputs and hash
   mass_fractions_summary.ini           counts per file; per tier and fiber type: entries with
                                        mass, share of the ten largest, largest entry, maximum
                                        weighted bound of each kind; the gel-check factors
-  config/mass_fractions/{I,IIa,IIx}.ini            generated; one section per accession
   logs/mass_fractions_<UTC>.log
 
 Rules (docs/conventions.md, "Mass-fraction rules")
@@ -82,7 +84,10 @@ from pipeline.literature_inventory import find_rar_tool, read_archive_members
 DECISIONS_INI = common.CONFIG_DIR / "mass_fraction_decisions.ini"
 CARROLL_INI = common.CONFIG_DIR / "carroll_classical_fractionation.ini"
 MANIFEST_INI = common.DATA_DIR / "literature" / "manifest.ini"
-MASS_FRACTIONS_CONFIG_DIR = common.CONFIG_DIR / "mass_fractions"
+MASS_FRACTIONS_TSV = common.MASS_FRACTIONS_TSV                 # generated config (D61)
+SUPERSEDED = (common.CONFIG_DIR / "mass_fractions" / "I.ini", common.CONFIG_DIR / "mass_fractions" / "IIa.ini",
+              common.CONFIG_DIR / "mass_fractions" / "IIx.ini", common.OUTPUTS_DIR / "mass_fractions" / "weights_per_pool_entry.tsv")
+                                                               # written by earlier versions of this stage; removed on build (D61)
 OUT_DIR = common.OUTPUTS_DIR / "mass_fractions"
 DIGEST_DIR = common.OUTPUTS_DIR / "digest"
 ISOFORM_DELTAS_TSV = common.OUTPUTS_DIR / "isoform_deltas.tsv"
@@ -819,34 +824,50 @@ def ibaq_vs_lfq_table(manifest, source_id: str, log) -> list[list]:
 # generated config
 # ----------------------------------------------------------------------------
 
-def render_fiber_config(ft: str, measured, tiers, meta: dict, header_common: list[str]) -> str:
-    cp = common.new_ini()
+def per_entry_table(measured, tiers, meta: dict, header_common: list[str]) -> str:
+    """D61: the generated Layer B config — one row per pool accession, every weight, the
+    constant provenance once in the header. Replaces the per-fiber-type .ini files (one
+    section per accession repeated the same citation 3,788 times) and the outputs copy."""
+    hdr = ["accession", "gene", "tier", "mw_master", "match_rule", "n_rows", "rows"]
+    for ft in FIBER_TYPES:
+        hdr += [f"v_{ft}", f"sd_{ft}", f"valid_{ft}", f"minor_row_share_{ft}", f"shared_row_value_{ft}"]
+    for t in tiers:
+        for ft in FIBER_TYPES:
+            hdr += [f"w_{ft}_tier{t}", f"w_{ft}_tier{t}_low", f"w_{ft}_tier{t}_high"]
+    for ft in FIBER_TYPES:
+        hdr += [f"w_{ft}_combined", f"w_{ft}_combined_low", f"w_{ft}_combined_high"]
+    body = []
     for acc in sorted(measured):
         m = measured[acc]
-        cp.add_section(acc)
-        s = cp[acc]
-        s["gene"] = m["gene"]
-        s["tier"] = m["tier"]
+        row = [acc, m["gene"], m["tier"], f"{m['mw']:.4f}", m["match_rule"], m["n_rows"],
+               ";".join(str(i) for i in m["row_indices"]) if m["row_indices"] else "none"]
+        for ft in FIBER_TYPES:
+            row += [fnum(m[f"v_{ft}"]), fnum(m[f"sd_{ft}"]), m[f"valid_{ft}"], fnum(m[f"minor_share_{ft}"]), fnum(m[f"shared_whole_{ft}"])]
         for t in tiers:
-            w = m.get(f"w_{ft}_tier{t}")
-            if w is None:
-                continue
-            s[f"w_tier{t}"] = fnum(w)
-            s[f"w_tier{t}_low"] = fnum(m[f"w_{ft}_tier{t}_low"])
-            s[f"w_tier{t}_high"] = fnum(m[f"w_{ft}_tier{t}_high"])
-        s["unit"] = "mass_fraction_of_tier"
-        s["v"] = fnum(m[f"v_{ft}"])
-        s["sd"] = fnum(m[f"sd_{ft}"])
-        s["valid_values"] = str(m[f"valid_{ft}"])
-        s["mw_master"] = f"{m['mw']:.4f}"
-        s["match_rule"] = m["match_rule"]
-        s["rows"] = ";".join(str(i) for i in m["row_indices"]) if m["row_indices"] else "none"
-        s["source"] = meta["source_line"]
-        s["location"] = (f"sheet {meta['sheet']}, header row {meta['header_row']}, columns "
-                         f"{meta['columns'][f'median_{ft}']!r} / {meta['columns'][f'sd_{ft}']!r} / {meta['columns'][f'valid_{ft}']!r}, rows as listed")
-        s["retrieved"] = meta["retrieved"]
-    header = [f"GENERATED by mass_fractions.py. DO NOT EDIT BY HAND.", f"fiber_type = {ft} (the dataset's own column, B3)"] + header_common
-    return common.render_ini(cp, header)
+            for ft in FIBER_TYPES:
+                w = m.get(f"w_{ft}_tier{t}")
+                row += ["" if w is None else fnum(w), "" if w is None else fnum(m[f"w_{ft}_tier{t}_low"]),
+                        "" if w is None else fnum(m[f"w_{ft}_tier{t}_high"])]
+        for ft in FIBER_TYPES:
+            row += [fnum(m[f"w_{ft}_combined"]), fnum(m[f"w_{ft}_combined_low"]), fnum(m[f"w_{ft}_combined_high"])]
+        body.append(row)
+    provenance = [
+        "GENERATED CONFIG (D61): the Layer B weights, one row per pool accession. Rules B0-B8.",
+        f"source      = {meta['source_line']}",
+        f"retrieved   = {meta['retrieved']}",
+        f"location    = sheet {meta['sheet']}, header row {meta['header_row']}; column `rows` = the dataset row numbers each entry was read from",
+    ]
+    for ft in FIBER_TYPES:
+        provenance.append(f"columns_{ft} = median {meta['columns'][f'median_{ft}']!r} / sd {meta['columns'][f'sd_{ft}']!r} / valid values {meta['columns'][f'valid_{ft}']!r}  (the dataset's own fiber type, B3)")
+    provenance += [
+        "v = median value (summed over the entry's rows, D47; split shares of multi-gene rows, D48); sd = the published standard deviation (root-sum-square over summed rows, D53a);",
+        "  valid = the dataset's valid-value count; a NaN median with valid = 0 is v = 0 (B4). mw_master = Step-2 mature-chain molecular weight.",
+        "w_<type>_tier<N> = v x mw / sum over the tier (D31; unit: mass fraction of the tier). w_<type>_combined = v x mw / sum over every tier (D58; unit: mass fraction of the combined standard).",
+        "_low / _high = (v -/+ sd) x mw over the unchanged denominator, clipped at zero (B5, D45); _high also carries the whole value of every multi-gene row the entry shares (D48).",
+        "The sd is Dataset 1's spread BETWEEN FIBERS of one type (D45): the interval it gives is 'a random pure fiber of this type', not the uncertainty of the median.",
+        "match_rule: single | summed:n | shared_group | shared_split | via_mapping:<symbol> | none (no dataset row; w = 0).",
+    ]
+    return tsv_text(provenance + header_common, hdr, body)
 
 
 # ----------------------------------------------------------------------------
@@ -893,35 +914,12 @@ def build(log) -> dict:
                      f"dataset     = {hashes['dataset']}",
                      f"accessions  = {hashes['accessions']}",
                      f"composition = {hashes['composition']}",
-                     f"rules       = B0-B5, D31 (within-tier), D47 (summed rows), D48 (shared rows)",
+                     f"rules       = B0-B8, D31 (within-tier), D47 (summed rows), D48 (shared rows), D58 (combined)",
                      f"header_whitespace_stripped_for = {meta['header_whitespace_stripped_for']}"]
 
     files: dict[str, str] = {}   # relative path -> content
-    # weights_per_pool_entry.tsv
-    hdr = ["accession", "gene", "tier", "mw_master", "match_rule", "n_rows", "rows"]
-    for ft in FIBER_TYPES:
-        hdr += [f"v_{ft}", f"sd_{ft}", f"valid_{ft}", f"minor_row_share_{ft}", f"shared_row_value_{ft}"]
-    for t in tiers:
-        for ft in FIBER_TYPES:
-            hdr += [f"w_{ft}_tier{t}", f"w_{ft}_tier{t}_low", f"w_{ft}_tier{t}_high"]
-    for ft in FIBER_TYPES:
-        hdr += [f"w_{ft}_combined", f"w_{ft}_combined_low", f"w_{ft}_combined_high"]
-    body = []
-    for acc in sorted(measured):
-        m = measured[acc]
-        row = [acc, m["gene"], m["tier"], f"{m['mw']:.4f}", m["match_rule"], m["n_rows"],
-               ";".join(str(i) for i in m["row_indices"])]
-        for ft in FIBER_TYPES:
-            row += [fnum(m[f"v_{ft}"]), fnum(m[f"sd_{ft}"]), m[f"valid_{ft}"], fnum(m[f"minor_share_{ft}"]), fnum(m[f"shared_whole_{ft}"])]
-        for t in tiers:
-            for ft in FIBER_TYPES:
-                w = m.get(f"w_{ft}_tier{t}")
-                row += ["" if w is None else fnum(w), "" if w is None else fnum(m[f"w_{ft}_tier{t}_low"]),
-                        "" if w is None else fnum(m[f"w_{ft}_tier{t}_high"])]
-        for ft in FIBER_TYPES:
-            row += [fnum(m[f"w_{ft}_combined"]), fnum(m[f"w_{ft}_combined_low"]), fnum(m[f"w_{ft}_combined_high"])]
-        body.append(row)
-    files["weights_per_pool_entry.tsv"] = tsv_text(header_common, hdr, body)
+    # the generated Layer B config (D61)
+    files["config/mass_fractions_per_entry.tsv"] = per_entry_table(measured, tiers, meta, header_common)
 
     # combined ranked table (D58): every entry, one denominator, with its tier
     rank_c, cum_c = {}, {}
@@ -1071,10 +1069,6 @@ def build(log) -> dict:
          "n_fibers_ibaq", "mean_fraction_ibaq_all", "n_fibers_lfq", "mean_fraction_lfq_all"],
         ibaq_rows)
 
-    # generated config per fiber type
-    for ft in FIBER_TYPES:
-        files[f"config/mass_fractions/{ft}.ini"] = render_fiber_config(ft, measured, tiers, meta, header_common)
-
     # summary
     summ = common.new_ini()
     summ.add_section("dataset")
@@ -1173,6 +1167,13 @@ def main(argv: list[str] | None = None) -> int:
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(content, encoding="utf-8", newline="\n")
         log.info("wrote %s", p.relative_to(common.REPO_ROOT).as_posix())
+    for old in SUPERSEDED:               # D61: this stage owns its generated files; the old shape goes
+        if old.exists():
+            old.unlink()
+            log.info("removed superseded generated file %s (replaced by config/mass_fractions_per_entry.tsv, D61)",
+                     old.relative_to(common.REPO_ROOT).as_posix())
+            if old.parent.name == "mass_fractions" and old.parent.parent == common.CONFIG_DIR and not any(old.parent.iterdir()):
+                old.parent.rmdir()
     return 0
 
 
