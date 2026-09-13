@@ -10,9 +10,10 @@
     python run.py <command> --stop-after <stage>
     python run.py test                     tests only
 
-Every stage writes a timestamped log to logs/, and everything run.py itself prints —
-banners, stop messages, crash tracebacks, the full test report — goes to
-logs/run_<command>_<stamp>.log as well, so the screen and the logs never differ.
+Every stage writes its own timestamped log to logs/. In addition, logs/run_<command>_<stamp>.log
+is the MASTER LOG: sys.stdout and sys.stderr are tee'd into it for the whole run, so it holds
+everything that appeared on screen — stage log lines, banners, stop messages, crash tracebacks,
+the full test report — in the exact order it appeared. Look there first.
 A non-zero exit from any stage stops the run; the log says why. Tests at the end of a
 command skip the currency checks of later commands (their outputs are rebuilt next).
 """
@@ -42,12 +43,36 @@ RUN_LOG: Path | None = None
 COMMAND_ORDER = ["protein-set", "composition", "mass-fractions"]
 
 
+class _Tee:
+    """A stream that writes to the screen and appends the same bytes, in the same order, to the
+    master log. Installed over sys.stdout and sys.stderr for the whole run, so every stage's
+    log lines, every print, every traceback, and the test report land in one file exactly as
+    they appeared on screen."""
+
+    def __init__(self, screen, path: Path):
+        self.screen = screen
+        self.path = path
+
+    def write(self, s: str) -> int:
+        self.screen.write(s)
+        self.screen.flush()
+        with open(self.path, "a", encoding="utf-8", errors="replace") as fh:
+            fh.write(s)
+        return len(s)
+
+    def flush(self) -> None:
+        self.screen.flush()
+
+    def isatty(self) -> bool:
+        return False
+
+    def fileno(self):
+        return self.screen.fileno()
+
+
 def say(text: str, err: bool = False) -> None:
-    """Print AND append to the run log: nothing shown on screen is absent from logs/."""
+    """Print to the screen; the tee carries it into the master log."""
     print(text, file=sys.stderr if err else sys.stdout, flush=True)
-    if RUN_LOG is not None:
-        with open(RUN_LOG, "a", encoding="utf-8") as fh:
-            fh.write(text + "\n")
 
 
 def run_stage(name: str) -> int:
@@ -102,7 +127,9 @@ def main() -> int:
     STAMP = _dt.datetime.now(_dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     (ROOT / "logs").mkdir(parents=True, exist_ok=True)
     RUN_LOG = ROOT / "logs" / f"run_{args.cmd}_{STAMP}.log"
-    say(f"run {args.cmd} {STAMP}  (run log: {RUN_LOG.relative_to(ROOT).as_posix()})")
+    sys.stdout = _Tee(sys.stdout, RUN_LOG)     # from here on, screen and master log are the same stream
+    sys.stderr = _Tee(sys.stderr, RUN_LOG)
+    say(f"run {args.cmd} {STAMP}  (master log: {RUN_LOG.relative_to(ROOT).as_posix()})")
 
     if args.cmd == "test":
         return run_tests()
