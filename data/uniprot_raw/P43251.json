@@ -1,0 +1,3841 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "P43251",
+ "secondaryAccessions": [
+  "A6NHF2",
+  "B2R865",
+  "B4DFX1",
+  "B4DLJ9",
+  "B7Z7C9",
+  "F8W1Q3",
+  "Q96EM9"
+ ],
+ "uniProtkbId": "BTD_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "1995-11-01",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2026-01-28",
+  "entryVersion": 203,
+  "sequenceVersion": 3
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000305"
+     }
+    ],
+    "value": "Biotinidase"
+   },
+   "shortNames": [
+    {
+     "value": "Biotinase"
+    }
+   ],
+   "ecNumbers": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "9099842"
+      },
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "9654207"
+      }
+     ],
+     "value": "3.5.1.12"
+    }
+   ]
+  },
+  "flag": "Precursor"
+ },
+ "genes": [
+  {
+   "geneName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000312",
+      "source": "HGNC",
+      "id": "HGNC:1122"
+     }
+    ],
+    "value": "BTD"
+   }
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "9099842"
+      },
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "9654207"
+      }
+     ],
+     "value": "Catalytic release of biotin from biocytin, the product of biotin-dependent carboxylases degradation"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "biocytin + H2O = biotin + L-lysine",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:77171"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:32551"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57586"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:195545"
+     }
+    ],
+    "ecNumber": "3.5.1.12",
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000305",
+      "source": "PubMed",
+      "id": "9099842"
+     },
+     {
+      "evidenceCode": "ECO:0000305",
+      "source": "PubMed",
+      "id": "9654207"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "biotin amide + H2O = biotin + NH4(+)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:13081"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:16615"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:28938"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57586"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000305",
+      "source": "PubMed",
+      "id": "9099842"
+     },
+     {
+      "evidenceCode": "ECO:0000305",
+      "source": "PubMed",
+      "id": "9654207"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:13082"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "9099842"
+      },
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "9654207"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P43251",
+      "intActId": "EBI-2907478"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "O94832",
+      "geneName": "MYO1D",
+      "intActId": "EBI-355634"
+     },
+     "numberOfExperiments": 2,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000305",
+        "source": "PubMed",
+        "id": "9099842"
+       },
+       {
+        "evidenceCode": "ECO:0000305",
+        "source": "PubMed",
+        "id": "9654207"
+       }
+      ],
+      "value": "Secreted, extracellular space",
+      "id": "SL-0112"
+     }
+    }
+   ]
+  },
+  {
+   "commentType": "ALTERNATIVE PRODUCTS",
+   "events": [
+    "Alternative splicing"
+   ],
+   "isoforms": [
+    {
+     "name": {
+      "value": "4"
+     },
+     "isoformIds": [
+      "P43251-4"
+     ],
+     "isoformSequenceStatus": "Displayed"
+    },
+    {
+     "name": {
+      "value": "1"
+     },
+     "isoformIds": [
+      "P43251-1"
+     ],
+     "sequenceIds": [
+      "VSP_062634"
+     ],
+     "isoformSequenceStatus": "Described"
+    },
+    {
+     "name": {
+      "value": "2"
+     },
+     "isoformIds": [
+      "P43251-2"
+     ],
+     "sequenceIds": [
+      "VSP_062635"
+     ],
+     "isoformSequenceStatus": "Described"
+    },
+    {
+     "name": {
+      "value": "3"
+     },
+     "isoformIds": [
+      "P43251-3"
+     ],
+     "sequenceIds": [
+      "VSP_062636"
+     ],
+     "isoformSequenceStatus": "Described"
+    }
+   ]
+  },
+  {
+   "commentType": "DISEASE",
+   "disease": {
+    "diseaseId": "Biotinidase deficiency",
+    "diseaseAccession": "DI-00189",
+    "acronym": "BTD deficiency",
+    "description": "A juvenile form of multiple carboxylase deficiency, an autosomal recessive disorder of biotin metabolism, characterized by ketoacidosis, hyperammonemia, excretion of abnormal organic acid metabolites, and dermatitis. Biotinidase deficiency is characterized by seizures, hypotonia, skin rash, alopecia, ataxia, hearing loss, and optic atrophy. If untreated, symptoms usually become progressively worse, and coma and death may occur.",
+    "diseaseCrossReference": {
+     "database": "MIM",
+     "id": "253260"
+    },
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "10206677"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "9099842"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "9654207"
+     }
+    ]
+   },
+   "note": {
+    "texts": [
+     {
+      "value": "The disease is caused by variants affecting the gene represented in this entry"
+     }
+    ]
+   }
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the carbon-nitrogen hydrolase superfamily. BTD/VNN family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  }
+ ],
+ "features": [
+  {
+   "type": "Signal",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 21,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 22,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 523,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Biotinidase",
+   "featureId": "PRO_0000019707"
+  },
+  {
+   "type": "Domain",
+   "location": {
+    "start": {
+     "value": 52,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 331,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "CN hydrolase",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255",
+     "source": "PROSITE-ProRule",
+     "id": "PRU00054"
+    }
+   ]
+  },
+  {
+   "type": "Active site",
+   "location": {
+    "start": {
+     "value": 92,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 92,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Proton acceptor",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255",
+     "source": "PROSITE-ProRule",
+     "id": "PRU00054"
+    }
+   ]
+  },
+  {
+   "type": "Active site",
+   "location": {
+    "start": {
+     "value": 192,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 192,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Proton donor",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255",
+     "source": "PROSITE-ProRule",
+     "id": "PRU00054"
+    }
+   ]
+  },
+  {
+   "type": "Active site",
+   "location": {
+    "start": {
+     "value": 225,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 225,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Nucleophile",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255",
+     "source": "PROSITE-ProRule",
+     "id": "PRU00054"
+    }
+   ]
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 99,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 99,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "16335952"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "19159218"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 130,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 130,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) (complex) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "16335952"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "19139490"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "19159218"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 183,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 183,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "16335952"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 329,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 329,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "16335952"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "19159218"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 382,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 382,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "16335952"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "19159218"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 469,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 469,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 1,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 1",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "15489334"
+    },
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "7509806"
+    }
+   ],
+   "featureId": "VSP_062634",
+   "alternativeSequence": {
+    "originalSequence": "M",
+    "alternativeSequences": [
+     "MAHAHIQGGRRAKSRFVVCIM"
+    ]
+   }
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 1,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 2",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "14702039"
+    }
+   ],
+   "featureId": "VSP_062635",
+   "alternativeSequence": {
+    "originalSequence": "M",
+    "alternativeSequences": [
+     "MARKETQLIIKMNHLARFVVCIM"
+    ]
+   }
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 1,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 3",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "14702039"
+    }
+   ],
+   "featureId": "VSP_062636",
+   "alternativeSequence": {
+    "originalSequence": "M",
+    "alternativeSequences": [
+     "MPEGGGTSRRLLPMQSRFVVCIM"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 108,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 108,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in BTD deficiency; dbSNP:rs397514355",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs397514355"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "9654207"
+    }
+   ],
+   "featureId": "VAR_005113",
+   "alternativeSequence": {
+    "originalSequence": "F",
+    "alternativeSequences": [
+     "V"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 151,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 151,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in BTD deficiency; dbSNP:rs13073139",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs13073139"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "10206677"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "9654207"
+    }
+   ],
+   "featureId": "VAR_005114",
+   "alternativeSequence": {
+    "originalSequence": "A",
+    "alternativeSequences": [
+     "T"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 208,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 208,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in BTD deficiency; dbSNP:rs397514380",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs397514380"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "9654207"
+    }
+   ],
+   "featureId": "VAR_005115",
+   "alternativeSequence": {
+    "originalSequence": "D",
+    "alternativeSequences": [
+     "Y"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 303,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 303,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in BTD deficiency; partial; dbSNP:rs397507176",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs397507176"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "9654207"
+    }
+   ],
+   "featureId": "VAR_005116",
+   "alternativeSequence": {
+    "originalSequence": "H",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 371,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 371,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs35034250",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs35034250"
+    }
+   ],
+   "featureId": "VAR_056238",
+   "alternativeSequence": {
+    "originalSequence": "P",
+    "alternativeSequences": [
+     "S"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 424,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 424,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in BTD deficiency; profound and partial; 52% decrease in biotinyl-transferase activity; dbSNP:rs13078881",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs13078881"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "10206677"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "9654207"
+    }
+   ],
+   "featureId": "VAR_005117",
+   "alternativeSequence": {
+    "originalSequence": "D",
+    "alternativeSequences": [
+     "H"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 431,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 431,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in BTD deficiency; partial; dbSNP:rs397514419",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs397514419"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "9654207"
+    }
+   ],
+   "featureId": "VAR_005118",
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "D"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 436,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 436,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in BTD deficiency; dbSNP:rs80338685",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs80338685"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "9654207"
+    }
+   ],
+   "featureId": "VAR_005119",
+   "alternativeSequence": {
+    "originalSequence": "Q",
+    "alternativeSequences": [
+     "H"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 512,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 512,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in BTD deficiency; dbSNP:rs104893688",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs104893688"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "9654207"
+    }
+   ],
+   "featureId": "VAR_005120",
+   "alternativeSequence": {
+    "originalSequence": "T",
+    "alternativeSequences": [
+     "M"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 518,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 518,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in BTD deficiency; not detectable protein levels; loss of biotinyl-transferase activity; dbSNP:rs80338686",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs80338686"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "9099842"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "9654207"
+    }
+   ],
+   "featureId": "VAR_005121",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "C"
+    ]
+   }
+  },
+  {
+   "type": "Sequence conflict",
+   "location": {
+    "start": {
+     "value": 359,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 359,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in Ref. 3; BAH13565",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "H",
+    "alternativeSequences": [
+     "Y"
+    ]
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0025",
+   "category": "Coding sequence diversity",
+   "name": "Alternative splicing"
+  },
+  {
+   "id": "KW-0903",
+   "category": "Technical term",
+   "name": "Direct protein sequencing"
+  },
+  {
+   "id": "KW-0225",
+   "category": "Disease",
+   "name": "Disease variant"
+  },
+  {
+   "id": "KW-0325",
+   "category": "PTM",
+   "name": "Glycoprotein"
+  },
+  {
+   "id": "KW-0378",
+   "category": "Molecular function",
+   "name": "Hydrolase"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  },
+  {
+   "id": "KW-0964",
+   "category": "Cellular component",
+   "name": "Secreted"
+  },
+  {
+   "id": "KW-0732",
+   "category": "Domain",
+   "name": "Signal"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "7509806",
+    "citationType": "journal article",
+    "authors": [
+     "Cole H.",
+     "Reynolds T.R.",
+     "Lockyer J.M.",
+     "Buck G.A.",
+     "Denson T.",
+     "Spence J.E.",
+     "Hymes J.",
+     "Wolf B."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "7509806"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/s0021-9258(17)37409-4"
+     }
+    ],
+    "title": "Human serum biotinidase. cDNA cloning, sequence, and characterization.",
+    "publicationDate": "1994",
+    "journal": "J. Biol. Chem.",
+    "firstPage": "6566",
+    "lastPage": "6570",
+    "volume": "269"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA] (ISOFORM 1)",
+    "PARTIAL PROTEIN SEQUENCE"
+   ],
+   "referenceComments": [
+    {
+     "value": "Liver",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "9530634",
+    "citationType": "journal article",
+    "authors": [
+     "Knight H.C.",
+     "Reynolds T.R.",
+     "Meyers G.A.",
+     "Pomponio R.J.",
+     "Buck G.A.",
+     "Wolf B."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "9530634"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1007/s003359900760"
+     }
+    ],
+    "title": "Structure of the human biotinidase gene.",
+    "publicationDate": "1998",
+    "journal": "Mamm. Genome",
+    "firstPage": "327",
+    "lastPage": "330",
+    "volume": "9"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "14702039",
+    "citationType": "journal article",
+    "authors": [
+     "Ota T.",
+     "Suzuki Y.",
+     "Nishikawa T.",
+     "Otsuki T.",
+     "Sugiyama T.",
+     "Irie R.",
+     "Wakamatsu A.",
+     "Hayashi K.",
+     "Sato H.",
+     "Nagai K.",
+     "Kimura K.",
+     "Makita H.",
+     "Sekine M.",
+     "Obayashi M.",
+     "Nishi T.",
+     "Shibahara T.",
+     "Tanaka T.",
+     "Ishii S.",
+     "Yamamoto J.",
+     "Saito K.",
+     "Kawai Y.",
+     "Isono Y.",
+     "Nakamura Y.",
+     "Nagahari K.",
+     "Murakami K.",
+     "Yasuda T.",
+     "Iwayanagi T.",
+     "Wagatsuma M.",
+     "Shiratori A.",
+     "Sudo H.",
+     "Hosoiri T.",
+     "Kaku Y.",
+     "Kodaira H.",
+     "Kondo H.",
+     "Sugawara M.",
+     "Takahashi M.",
+     "Kanda K.",
+     "Yokoi T.",
+     "Furuya T.",
+     "Kikkawa E.",
+     "Omura Y.",
+     "Abe K.",
+     "Kamihara K.",
+     "Katsuta N.",
+     "Sato K.",
+     "Tanikawa M.",
+     "Yamazaki M.",
+     "Ninomiya K.",
+     "Ishibashi T.",
+     "Yamashita H.",
+     "Murakawa K.",
+     "Fujimori K.",
+     "Tanai H.",
+     "Kimata M.",
+     "Watanabe M.",
+     "Hiraoka S.",
+     "Chiba Y.",
+     "Ishida S.",
+     "Ono Y.",
+     "Takiguchi S.",
+     "Watanabe S.",
+     "Yosida M.",
+     "Hotuta T.",
+     "Kusano J.",
+     "Kanehori K.",
+     "Takahashi-Fujii A.",
+     "Hara H.",
+     "Tanase T.-O.",
+     "Nomura Y.",
+     "Togiya S.",
+     "Komai F.",
+     "Hara R.",
+     "Takeuchi K.",
+     "Arita M.",
+     "Imose N.",
+     "Musashino K.",
+     "Yuuki H.",
+     "Oshima A.",
+     "Sasaki N.",
+     "Aotsuka S.",
+     "Yoshikawa Y.",
+     "Matsunawa H.",
+     "Ichihara T.",
+     "Shiohata N.",
+     "Sano S.",
+     "Moriya S.",
+     "Momiyama H.",
+     "Satoh N.",
+     "Takami S.",
+     "Terashima Y.",
+     "Suzuki O.",
+     "Nakagawa S.",
+     "Senoh A.",
+     "Mizoguchi H.",
+     "Goto Y.",
+     "Shimizu F.",
+     "Wakebe H.",
+     "Hishigaki H.",
+     "Watanabe T.",
+     "Sugiyama A.",
+     "Takemoto M.",
+     "Kawakami B.",
+     "Yamazaki M.",
+     "Watanabe K.",
+     "Kumagai A.",
+     "Itakura S.",
+     "Fukuzumi Y.",
+     "Fujimori Y.",
+     "Komiyama M.",
+     "Tashiro H.",
+     "Tanigami A.",
+     "Fujiwara T.",
+     "Ono T.",
+     "Yamada K.",
+     "Fujii Y.",
+     "Ozaki K.",
+     "Hirao M.",
+     "Ohmori Y.",
+     "Kawabata A.",
+     "Hikiji T.",
+     "Kobatake N.",
+     "Inagaki H.",
+     "Ikema Y.",
+     "Okamoto S.",
+     "Okitani R.",
+     "Kawakami T.",
+     "Noguchi S.",
+     "Itoh T.",
+     "Shigeta K.",
+     "Senba T.",
+     "Matsumura K.",
+     "Nakajima Y.",
+     "Mizuno T.",
+     "Morinaga M.",
+     "Sasaki M.",
+     "Togashi T.",
+     "Oyama M.",
+     "Hata H.",
+     "Watanabe M.",
+     "Komatsu T.",
+     "Mizushima-Sugano J.",
+     "Satoh T.",
+     "Shirai Y.",
+     "Takahashi Y.",
+     "Nakagawa K.",
+     "Okumura K.",
+     "Nagase T.",
+     "Nomura N.",
+     "Kikuchi H.",
+     "Masuho Y.",
+     "Yamashita R.",
+     "Nakai K.",
+     "Yada T.",
+     "Nakamura Y.",
+     "Ohara O.",
+     "Isogai T.",
+     "Sugano S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "14702039"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/ng1285"
+     }
+    ],
+    "title": "Complete sequencing and characterization of 21,243 full-length human cDNAs.",
+    "publicationDate": "2004",
+    "journal": "Nat. Genet.",
+    "firstPage": "40",
+    "lastPage": "45",
+    "volume": "36"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORMS 1; 2; 3 AND 4)"
+   ],
+   "referenceComments": [
+    {
+     "value": "Amygdala",
+     "type": "TISSUE"
+    },
+    {
+     "value": "Pericardium",
+     "type": "TISSUE"
+    },
+    {
+     "value": "Umbilical cord blood",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "16641997",
+    "citationType": "journal article",
+    "authors": [
+     "Muzny D.M.",
+     "Scherer S.E.",
+     "Kaul R.",
+     "Wang J.",
+     "Yu J.",
+     "Sudbrak R.",
+     "Buhay C.J.",
+     "Chen R.",
+     "Cree A.",
+     "Ding Y.",
+     "Dugan-Rocha S.",
+     "Gill R.",
+     "Gunaratne P.",
+     "Harris R.A.",
+     "Hawes A.C.",
+     "Hernandez J.",
+     "Hodgson A.V.",
+     "Hume J.",
+     "Jackson A.",
+     "Khan Z.M.",
+     "Kovar-Smith C.",
+     "Lewis L.R.",
+     "Lozado R.J.",
+     "Metzker M.L.",
+     "Milosavljevic A.",
+     "Miner G.R.",
+     "Morgan M.B.",
+     "Nazareth L.V.",
+     "Scott G.",
+     "Sodergren E.",
+     "Song X.-Z.",
+     "Steffen D.",
+     "Wei S.",
+     "Wheeler D.A.",
+     "Wright M.W.",
+     "Worley K.C.",
+     "Yuan Y.",
+     "Zhang Z.",
+     "Adams C.Q.",
+     "Ansari-Lari M.A.",
+     "Ayele M.",
+     "Brown M.J.",
+     "Chen G.",
+     "Chen Z.",
+     "Clendenning J.",
+     "Clerc-Blankenburg K.P.",
+     "Chen R.",
+     "Chen Z.",
+     "Davis C.",
+     "Delgado O.",
+     "Dinh H.H.",
+     "Dong W.",
+     "Draper H.",
+     "Ernst S.",
+     "Fu G.",
+     "Gonzalez-Garay M.L.",
+     "Garcia D.K.",
+     "Gillett W.",
+     "Gu J.",
+     "Hao B.",
+     "Haugen E.",
+     "Havlak P.",
+     "He X.",
+     "Hennig S.",
+     "Hu S.",
+     "Huang W.",
+     "Jackson L.R.",
+     "Jacob L.S.",
+     "Kelly S.H.",
+     "Kube M.",
+     "Levy R.",
+     "Li Z.",
+     "Liu B.",
+     "Liu J.",
+     "Liu W.",
+     "Lu J.",
+     "Maheshwari M.",
+     "Nguyen B.-V.",
+     "Okwuonu G.O.",
+     "Palmeiri A.",
+     "Pasternak S.",
+     "Perez L.M.",
+     "Phelps K.A.",
+     "Plopper F.J.",
+     "Qiang B.",
+     "Raymond C.",
+     "Rodriguez R.",
+     "Saenphimmachak C.",
+     "Santibanez J.",
+     "Shen H.",
+     "Shen Y.",
+     "Subramanian S.",
+     "Tabor P.E.",
+     "Verduzco D.",
+     "Waldron L.",
+     "Wang J.",
+     "Wang J.",
+     "Wang Q.",
+     "Williams G.A.",
+     "Wong G.K.-S.",
+     "Yao Z.",
+     "Zhang J.",
+     "Zhang X.",
+     "Zhao G.",
+     "Zhou J.",
+     "Zhou Y.",
+     "Nelson D.",
+     "Lehrach H.",
+     "Reinhardt R.",
+     "Naylor S.L.",
+     "Yang H.",
+     "Olson M.",
+     "Weinstock G.",
+     "Gibbs R.A."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "16641997"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/nature04728"
+     }
+    ],
+    "title": "The DNA sequence, annotation and analysis of human chromosome 3.",
+    "publicationDate": "2006",
+    "journal": "Nature",
+    "firstPage": "1194",
+    "lastPage": "1198",
+    "volume": "440"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "CI-5GBDQ6B103N1E",
+    "citationType": "submission",
+    "authors": [
+     "Mural R.J.",
+     "Istrail S.",
+     "Sutton G.G.",
+     "Florea L.",
+     "Halpern A.L.",
+     "Mobarry C.M.",
+     "Lippert R.",
+     "Walenz B.",
+     "Shatkay H.",
+     "Dew I.",
+     "Miller J.R.",
+     "Flanigan M.J.",
+     "Edwards N.J.",
+     "Bolanos R.",
+     "Fasulo D.",
+     "Halldorsson B.V.",
+     "Hannenhalli S.",
+     "Turner R.",
+     "Yooseph S.",
+     "Lu F.",
+     "Nusskern D.R.",
+     "Shue B.C.",
+     "Zheng X.H.",
+     "Zhong F.",
+     "Delcher A.L.",
+     "Huson D.H.",
+     "Kravitz S.A.",
+     "Mouchard L.",
+     "Reinert K.",
+     "Remington K.A.",
+     "Clark A.G.",
+     "Waterman M.S.",
+     "Eichler E.E.",
+     "Adams M.D.",
+     "Hunkapiller M.W.",
+     "Myers E.W.",
+     "Venter J.C."
+    ],
+    "publicationDate": "JUL-2005",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 6,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 1)"
+   ],
+   "referenceComments": [
+    {
+     "value": "Kidney",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 7,
+   "citation": {
+    "id": "16335952",
+    "citationType": "journal article",
+    "authors": [
+     "Liu T.",
+     "Qian W.-J.",
+     "Gritsenko M.A.",
+     "Camp D.G. II",
+     "Monroe M.E.",
+     "Moore R.J.",
+     "Smith R.D."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "16335952"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1021/pr0502065"
+     }
+    ],
+    "title": "Human plasma N-glycoproteome analysis by immunoaffinity subtraction, hydrazide chemistry, and mass spectrometry.",
+    "publicationDate": "2005",
+    "journal": "J. Proteome Res.",
+    "firstPage": "2070",
+    "lastPage": "2080",
+    "volume": "4"
+   },
+   "referencePositions": [
+    "GLYCOSYLATION [LARGE SCALE ANALYSIS] AT ASN-99; ASN-130; ASN-183; ASN-329 AND ASN-382"
+   ],
+   "referenceComments": [
+    {
+     "value": "Plasma",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 8,
+   "citation": {
+    "id": "19159218",
+    "citationType": "journal article",
+    "authors": [
+     "Chen R.",
+     "Jiang X.",
+     "Sun D.",
+     "Han G.",
+     "Wang F.",
+     "Ye M.",
+     "Wang L.",
+     "Zou H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "19159218"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1021/pr8008012"
+     }
+    ],
+    "title": "Glycoproteomics analysis of human liver tissue by combination of multiple enzyme digestion and hydrazide chemistry.",
+    "publicationDate": "2009",
+    "journal": "J. Proteome Res.",
+    "firstPage": "651",
+    "lastPage": "661",
+    "volume": "8"
+   },
+   "referencePositions": [
+    "GLYCOSYLATION [LARGE SCALE ANALYSIS] AT ASN-99; ASN-130; ASN-329 AND ASN-382"
+   ],
+   "referenceComments": [
+    {
+     "value": "Liver",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 9,
+   "citation": {
+    "id": "19139490",
+    "citationType": "journal article",
+    "authors": [
+     "Jia W.",
+     "Lu Z.",
+     "Fu Y.",
+     "Wang H.P.",
+     "Wang L.H.",
+     "Chi H.",
+     "Yuan Z.F.",
+     "Zheng Z.B.",
+     "Song L.N.",
+     "Han H.H.",
+     "Liang Y.M.",
+     "Wang J.L.",
+     "Cai Y.",
+     "Zhang Y.K.",
+     "Deng Y.L.",
+     "Ying W.T.",
+     "He S.M.",
+     "Qian X.H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "19139490"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1074/mcp.m800504-mcp200"
+     }
+    ],
+    "title": "A strategy for precise and large scale identification of core fucosylated glycoproteins.",
+    "publicationDate": "2009",
+    "journal": "Mol. Cell. Proteomics",
+    "firstPage": "913",
+    "lastPage": "923",
+    "volume": "8"
+   },
+   "referencePositions": [
+    "GLYCOSYLATION AT ASN-130"
+   ]
+  },
+  {
+   "referenceNumber": 10,
+   "citation": {
+    "id": "9099842",
+    "citationType": "journal article",
+    "authors": [
+     "Pomponio R.J.",
+     "Norrgard K.J.",
+     "Hymes J.",
+     "Reynolds T.R.",
+     "Buck G.A.",
+     "Baumgartner R.",
+     "Suormala T.",
+     "Wolf B."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "9099842"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1007/s004390050397"
+     }
+    ],
+    "title": "Arg538 to Cys mutation in a CpG dinucleotide of the human biotinidase gene is the second most common cause of profound biotinidase deficiency in symptomatic children.",
+    "publicationDate": "1997",
+    "journal": "Hum. Genet.",
+    "firstPage": "506",
+    "lastPage": "512",
+    "volume": "99"
+   },
+   "referencePositions": [
+    "VARIANT BTD DEFICIENCY CYS-518",
+    "CHARACTERIZATION OF VARIANT BTD DEFICIENCY CYS-518",
+    "FUNCTION",
+    "SUBCELLULAR LOCATION"
+   ]
+  },
+  {
+   "referenceNumber": 11,
+   "citation": {
+    "id": "9654207",
+    "citationType": "journal article",
+    "authors": [
+     "Swango K.L.",
+     "Demirkol M.",
+     "Huener G.",
+     "Pronicka E.",
+     "Sykut-Cegielska J.",
+     "Schulze A.",
+     "Mayatepek E.",
+     "Wolf B."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "9654207"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1007/s004390050742"
+     }
+    ],
+    "title": "Partial biotinidase deficiency is usually due to the D444H mutation in the biotinidase gene.",
+    "publicationDate": "1998",
+    "journal": "Hum. Genet.",
+    "firstPage": "571",
+    "lastPage": "575",
+    "volume": "102"
+   },
+   "referencePositions": [
+    "VARIANTS BTD DEFICIENCY VAL-108; THR-151; TYR-208; ARG-303; HIS-424; ASP-431; HIS-436; MET-512 AND CYS-518",
+    "CHARACTERIZATION OF VARIANT BTD DEFICIENCY HIS-424",
+    "CATALYTIC ACTIVITY",
+    "FUNCTION",
+    "SUBCELLULAR LOCATION"
+   ]
+  },
+  {
+   "referenceNumber": 12,
+   "citation": {
+    "id": "10206677",
+    "citationType": "journal article",
+    "authors": [
+     "Norrgard K.J.",
+     "Pomponio R.J.",
+     "Swango K.L.",
+     "Hymes J.",
+     "Reynolds T.",
+     "Buck G.A.",
+     "Wolf B."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "10206677"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1002/(sici)1098-1004(1998)11:5<410::aid-humu10>3.0.co;2-8"
+     }
+    ],
+    "title": "Double mutation (A171T and D444H) is a common cause of profound biotinidase deficiency in children ascertained by newborn screening in the United States.",
+    "publicationDate": "1998",
+    "journal": "Hum. Mutat.",
+    "firstPage": "410",
+    "lastPage": "410",
+    "volume": "11"
+   },
+   "referencePositions": [
+    "VARIANTS BTD DEFICIENCY THR-151 AND HIS-424"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "U03274",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAC04318.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AF018631",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAC21679.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AF018630",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAC21679.1"
+    },
+    {
+     "key": "Status",
+     "value": "JOINED"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AK294301",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAG57582.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AK297033",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAG59561.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AK301838",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAH13565.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AK313252",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAG36062.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AC027129",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "CH471055",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "EAW64254.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC012099",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH12099.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS63565.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "PIR",
+   "id": "A54362",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "A54362"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001268652.2",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001281723.4"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001268653.2",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001281724.3"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001268654.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001281725.3"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001310511.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001323582.2"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001357587.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001370658.1"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001394293.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001407364.1"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001394294.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001407365.1"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001394295.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001407366.1"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001394296.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001407367.1"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001394297.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001407368.1"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001394298.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001407369.1"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001394299.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001407370.1"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001394300.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001407371.1"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001394301.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001407372.1"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001394302.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001407373.1"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001394303.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001407374.1"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001394304.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001407375.1"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001394305.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001407376.1"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001394306.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001407377.1"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001394307.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001407378.1"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "107151",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "40"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "267"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "18"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000500193",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BindingDB",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ChEMBL",
+   "id": "CHEMBL4802066",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GlyConnect",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "20 N-Linked glycans (5 sites)"
+    }
+   ]
+  },
+  {
+   "database": "GlyCosmos",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "6 sites, 21 glycans"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "7 sites, 62 N-linked glycans (5 sites), 1 O-linked glycan (1 site)"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SwissPalm",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "BTD",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "226693503",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CPTAC",
+   "id": "CPTAC-655",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CPTAC",
+   "id": "non-CPTAC-2634",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CPTAC",
+   "id": "non-CPTAC-2635",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000500193",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "1193",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "29669",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "4540",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "55605",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "P43251-1"
+  },
+  {
+   "database": "Pumba",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "26848",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "222 antibodies from 27 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "686",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000303498.10",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000306477.6"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000427382.2",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000397113.2"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000436193.6",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000394277.2"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000437172.6",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000400995.2"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000449107.7",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000388212.2"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000643237.3",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000495254.2"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000646371.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000495866.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000900224.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000570283.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000900225.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000570284.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000900226.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000570285.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000900227.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000570286.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000900228.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000570287.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000900229.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000570288.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000900230.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000570289.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000900231.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000570290.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000900232.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000570291.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000900233.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000570292.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000900234.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000570293.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000900235.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000570294.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000900236.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000570295.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000900237.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000570296.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000900238.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000570297.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000900239.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000570298.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000900240.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000570299.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000900241.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000570300.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000936763.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000606822.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000936764.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000606823.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000936765.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000606824.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000950873.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000620932.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000950874.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000620933.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000950875.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000620934.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000950876.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000620935.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000169814.19"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "GeneID",
+   "id": "686",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:686",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000643237.3",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000495254.2"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_001370658.1"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_001357587.1"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc003cah.5",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ],
+   "isoformId": "P43251-4"
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:1122",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA25443",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "686",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "686",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "BTD",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneReviews",
+   "id": "BTD",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:1122",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "BTD"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000169814",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Tissue enhanced (liver)"
+    }
+   ]
+  },
+  {
+   "database": "MalaCards",
+   "id": "BTD",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "253260",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "phenotype"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "609019",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000169814",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Orphanet",
+   "id": "79241",
+   "properties": [
+    {
+     "key": "Disease",
+     "value": "Biotinidase deficiency"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000169814",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "KOG0806",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00390000013823",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_033209_0_0_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "10250282at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "1 GO annotation based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BRENDA",
+   "id": "3.5.1.12",
+   "properties": [
+    {
+     "key": "OrganismId",
+     "value": "2681"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-196780",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Biotin transport and metabolism"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-3371598",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Defective BTD causes biotidinase deficiency"
+    }
+   ]
+  },
+  {
+   "database": "SABIO-RK",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000169814",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "686",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "13 hits in 1160 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "BTD",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "686",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tbio"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:P43251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 3"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000169814",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in islet of Langerhans and 187 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "P43251",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0070062",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:extracellular exosome"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "HDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007005",
+     "source": "PubMed",
+     "id": "23533145"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005576",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:extracellular region"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "HDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007005",
+     "source": "PubMed",
+     "id": "16502470"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005759",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrial matrix"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:Reactome"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0047708",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:biotinidase activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0006768",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:biotin metabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0007417",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:central nervous system development"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:ProtInc"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000304",
+     "source": "PubMed",
+     "id": "7550325"
+    }
+   ]
+  },
+  {
+   "database": "CDD",
+   "id": "cd07567",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "biotinidase_like"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.60.110.10:FF:000001",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "biotinidase isoform X1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.60.110.10",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Carbon-nitrogen hydrolase"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR012101",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Biotinidase-like_euk"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR040154",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Biotinidase/VNN"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR003010",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "C-N_Hydrolase"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR036526",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "C-N_Hydrolase_sf"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR043957",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Vanin_C"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR10609:SF14",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "BIOTINIDASE"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR10609",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "BIOTINIDASE-RELATED"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF00795",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "CN_hydrolase"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF19018",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Vanin_C"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PIRSF",
+   "id": "PIRSF011861",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Biotinidase"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF56317",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Carbon-nitrogen hydrolase"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS50263",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "CN_HYDROLASE"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MSGARSKLALFLCGCYVVALGAHTGEESVADHHEAEYYVAAVYEHPSILSLNPLALISRQEALELMNQNLDIYEQQVMTAAQKDVQIIVFPEDGIHGFNFTRTSIYPFLDFMPSPQVVRWNPCLEPHRFNDTEVLQRLSCMAIRGDMFLVANLGTKEPCHSSDPRCPKDGRYQFNTNVVFSNNGTLVDRYRKHNLYFEAAFDVPLKVDLITFDTPFAGRFGIFTCFDILFFDPAIRVLRDYKVKHVVYPTAWMNQLPLLAAIEIQKAFAVAFGINVLAANVHHPVLGMTGSGIHTPLESFWYHDMENPKSHLIIAQVAKNPVGLIGAENATGETDPSHSKFLKILSGDPYCEKDAQEVHCDEATKWNVNAPPTFHSEMMYDNFTLVPVWGKEGYLHVCSNGLCCYLLYERPTLSKELYALGVFDGLHTVHGTYYIQVCALVRCGGLGFDTCGQEITEATGIFEFHLWGNFSTSYIFPLFLTSGMTLEVPDQLGWENDHYFLRKSRLSSGLVTAALYGRLYERD",
+  "length": 523,
+  "molWeight": 58913,
+  "crc64": "62ED4E8FACA8020D",
+  "md5": "5E84DE3572F19B55CAE74FEBD55E11B6"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "CATALYTIC ACTIVITY": 2,
+   "INTERACTION": 1,
+   "SUBCELLULAR LOCATION": 1,
+   "ALTERNATIVE PRODUCTS": 4,
+   "DISEASE": 1,
+   "SIMILARITY": 1
+  },
+  "countByFeatureType": {
+   "Signal": 1,
+   "Chain": 1,
+   "Domain": 1,
+   "Active site": 3,
+   "Glycosylation": 6,
+   "Alternative sequence": 3,
+   "Natural variant": 10,
+   "Sequence conflict": 1
+  },
+  "uniParcId": "UPI0000126B09"
+ }
+}

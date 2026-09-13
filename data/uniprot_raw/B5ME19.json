@@ -1,0 +1,1973 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "B5ME19",
+ "uniProtkbId": "EIFCL_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "2013-06-26",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2008-10-14",
+  "entryVersion": 132,
+  "sequenceVersion": 1
+ },
+ "annotationScore": 3.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "value": "Eukaryotic translation initiation factor 3 subunit C-like protein"
+   }
+  }
+ },
+ "genes": [
+  {
+   "geneName": {
+    "value": "EIF3CL"
+   }
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250",
+       "source": "UniProtKB",
+       "id": "Q99613"
+      }
+     ],
+     "value": "Component of the eukaryotic translation initiation factor 3 (eIF-3) complex, which is required for several steps in the initiation of protein synthesis. The eIF-3 complex associates with the 40S ribosome and facilitates the recruitment of eIF-1, eIF-1A, eIF-2:GTP:methionyl-tRNAi and eIF-5 to form the 43S pre-initiation complex (43S PIC). The eIF-3 complex stimulates mRNA recruitment to the 43S PIC and scanning of the mRNA for AUG recognition. The eIF-3 complex is also required for disassembly and recycling of post-termination ribosomal complexes and subsequently prevents premature joining of the 40S and 60S ribosomal subunits prior to initiation. The eIF-3 complex specifically targets and initiates translation of a subset of mRNAs involved in cell proliferation, including cell cycling, differentiation and apoptosis, and uses different modes of RNA stem-loop binding to exert either translational activation or repression"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250",
+       "source": "UniProtKB",
+       "id": "Q99613"
+      }
+     ],
+     "value": "Component of the eukaryotic translation initiation factor 3 (eIF-3) complex, which is composed of 13 subunits: EIF3A, EIF3B, EIF3C, EIF3D, EIF3E, EIF3F, EIF3G, EIF3H, EIF3I, EIF3J, EIF3K, EIF3L and EIF3M. The eIF-3 complex appears to include 3 stable modules: module A is composed of EIF3A, EIF3B, EIF3G and EIF3I; module B is composed of EIF3F, EIF3H, and EIF3M; and module C is composed of EIF3C, EIF3D, EIF3E, EIF3K and EIF3L. EIF3C of module C binds EIF3B of module A and EIF3H of module B, thereby linking the three modules. EIF3J is a labile subunit that binds to the eIF-3 complex via EIF3B. The eIF-3 complex interacts with RPS6KB1 under conditions of nutrient depletion. Mitogenic stimulation leads to binding and activation of a complex composed of MTOR and RPTOR, leading to phosphorylation and release of RPS6KB1 and binding of EIF4B to eIF-3 (By similarity)"
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "B5ME19",
+      "intActId": "EBI-8456517"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "O15372",
+      "geneName": "EIF3H",
+      "intActId": "EBI-709735"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000250",
+        "source": "UniProtKB",
+        "id": "Q99613"
+       }
+      ],
+      "value": "Cytoplasm",
+      "id": "SL-0086"
+     }
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250",
+       "source": "UniProtKB",
+       "id": "Q99613"
+      }
+     ],
+     "value": "Phosphorylated. Phosphorylation is enhanced upon serum stimulation (By similarity)"
+    }
+   ],
+   "commentType": "PTM"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the eIF-3 subunit C family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  }
+ ],
+ "features": [
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 914,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Eukaryotic translation initiation factor 3 subunit C-like protein",
+   "featureId": "PRO_0000422825"
+  },
+  {
+   "type": "Domain",
+   "location": {
+    "start": {
+     "value": 674,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 850,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "PCI",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255",
+     "source": "PROSITE-ProRule",
+     "id": "PRU01185"
+    }
+   ]
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 44,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Disordered",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 157,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 302,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Disordered",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 523,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 543,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Disordered",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 886,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 914,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Disordered",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Compositional bias",
+   "location": {
+    "start": {
+     "value": 8,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 21,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Low complexity",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Compositional bias",
+   "location": {
+    "start": {
+     "value": 166,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 190,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Acidic residues",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Compositional bias",
+   "location": {
+    "start": {
+     "value": 199,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 216,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Basic and acidic residues",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Compositional bias",
+   "location": {
+    "start": {
+     "value": 217,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 232,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Acidic residues",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Compositional bias",
+   "location": {
+    "start": {
+     "value": 261,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 278,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Basic and acidic residues",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Compositional bias",
+   "location": {
+    "start": {
+     "value": 291,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 300,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Acidic residues",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Compositional bias",
+   "location": {
+    "start": {
+     "value": 523,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 532,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Polar residues",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Compositional bias",
+   "location": {
+    "start": {
+     "value": 887,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 900,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Basic and acidic residues",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 9,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 9,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q99613"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 11,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 11,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q99613"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 13,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 13,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q99613"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 15,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 15,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q99613"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 16,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 16,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q99613"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 18,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 18,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q99613"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 39,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 39,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q99613"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 99,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 99,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-acetyllysine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q8R1B4"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 166,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 166,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q99613"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 178,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 178,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q8R1B4"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 181,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 181,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q8R1B4"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 182,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 182,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q8R1B4"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 525,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 525,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphothreonine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q99613"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 644,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 644,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-acetyllysine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q8R1B4"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 910,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 910,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q99613"
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0007",
+   "category": "PTM",
+   "name": "Acetylation"
+  },
+  {
+   "id": "KW-0963",
+   "category": "Cellular component",
+   "name": "Cytoplasm"
+  },
+  {
+   "id": "KW-0396",
+   "category": "Molecular function",
+   "name": "Initiation factor"
+  },
+  {
+   "id": "KW-0597",
+   "category": "PTM",
+   "name": "Phosphoprotein"
+  },
+  {
+   "id": "KW-0648",
+   "category": "Biological process",
+   "name": "Protein biosynthesis"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "15616553",
+    "citationType": "journal article",
+    "authors": [
+     "Martin J.",
+     "Han C.",
+     "Gordon L.A.",
+     "Terry A.",
+     "Prabhakar S.",
+     "She X.",
+     "Xie G.",
+     "Hellsten U.",
+     "Chan Y.M.",
+     "Altherr M.",
+     "Couronne O.",
+     "Aerts A.",
+     "Bajorek E.",
+     "Black S.",
+     "Blumer H.",
+     "Branscomb E.",
+     "Brown N.C.",
+     "Bruno W.J.",
+     "Buckingham J.M.",
+     "Callen D.F.",
+     "Campbell C.S.",
+     "Campbell M.L.",
+     "Campbell E.W.",
+     "Caoile C.",
+     "Challacombe J.F.",
+     "Chasteen L.A.",
+     "Chertkov O.",
+     "Chi H.C.",
+     "Christensen M.",
+     "Clark L.M.",
+     "Cohn J.D.",
+     "Denys M.",
+     "Detter J.C.",
+     "Dickson M.",
+     "Dimitrijevic-Bussod M.",
+     "Escobar J.",
+     "Fawcett J.J.",
+     "Flowers D.",
+     "Fotopulos D.",
+     "Glavina T.",
+     "Gomez M.",
+     "Gonzales E.",
+     "Goodstein D.",
+     "Goodwin L.A.",
+     "Grady D.L.",
+     "Grigoriev I.",
+     "Groza M.",
+     "Hammon N.",
+     "Hawkins T.",
+     "Haydu L.",
+     "Hildebrand C.E.",
+     "Huang W.",
+     "Israni S.",
+     "Jett J.",
+     "Jewett P.B.",
+     "Kadner K.",
+     "Kimball H.",
+     "Kobayashi A.",
+     "Krawczyk M.-C.",
+     "Leyba T.",
+     "Longmire J.L.",
+     "Lopez F.",
+     "Lou Y.",
+     "Lowry S.",
+     "Ludeman T.",
+     "Manohar C.F.",
+     "Mark G.A.",
+     "McMurray K.L.",
+     "Meincke L.J.",
+     "Morgan J.",
+     "Moyzis R.K.",
+     "Mundt M.O.",
+     "Munk A.C.",
+     "Nandkeshwar R.D.",
+     "Pitluck S.",
+     "Pollard M.",
+     "Predki P.",
+     "Parson-Quintana B.",
+     "Ramirez L.",
+     "Rash S.",
+     "Retterer J.",
+     "Ricke D.O.",
+     "Robinson D.L.",
+     "Rodriguez A.",
+     "Salamov A.",
+     "Saunders E.H.",
+     "Scott D.",
+     "Shough T.",
+     "Stallings R.L.",
+     "Stalvey M.",
+     "Sutherland R.D.",
+     "Tapia R.",
+     "Tesmer J.G.",
+     "Thayer N.",
+     "Thompson L.S.",
+     "Tice H.",
+     "Torney D.C.",
+     "Tran-Gyamfi M.",
+     "Tsai M.",
+     "Ulanovsky L.E.",
+     "Ustaszewska A.",
+     "Vo N.",
+     "White P.S.",
+     "Williams A.L.",
+     "Wills P.L.",
+     "Wu J.-R.",
+     "Wu K.",
+     "Yang J.",
+     "DeJong P.",
+     "Bruce D.",
+     "Doggett N.A.",
+     "Deaven L.",
+     "Schmutz J.",
+     "Grimwood J.",
+     "Richardson P.",
+     "Rokhsar D.S.",
+     "Eichler E.E.",
+     "Gilna P.",
+     "Lucas S.M.",
+     "Myers R.M.",
+     "Rubin E.M.",
+     "Pennacchio L.A."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15616553"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/nature03187"
+     }
+    ],
+    "title": "The sequence and analysis of duplication-rich human chromosome 16.",
+    "publicationDate": "2004",
+    "journal": "Nature",
+    "firstPage": "988",
+    "lastPage": "994",
+    "volume": "432"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "AC138894",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS42136.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001093131.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001099661.2"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001304785.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001317856.1"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001304786.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001317857.2"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "XP_047290514.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "XM_047434558.1"
+    }
+   ]
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "B5ME19",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "B5ME19",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "609110",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "123"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "B5ME19",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "407"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "B5ME19",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "44"
+    }
+   ]
+  },
+  {
+   "database": "MINT",
+   "id": "B5ME19",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "NDEx",
+   "id": "MUSIC2-C5340-EIF3CL",
+   "properties": [
+    {
+     "key": "Evidences",
+     "value": "Osteosarcoma (U2OS) cell map - eIF3 complex 2 (5 proteins)"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000370258",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "B5ME19",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "1 site, 1 O-linked glycan (1 site)"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "B5ME19",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MetOSite",
+   "id": "B5ME19",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "B5ME19",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SwissPalm",
+   "id": "B5ME19",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "EIF3CL",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "B5ME19",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "B5ME19",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000370258",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "B5ME19",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "6205",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pumba",
+   "id": "B5ME19",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "67070",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "12 antibodies from 3 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "728689",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000380876.5",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000370258.5"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000205609.14"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000398944.7",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000381917.3"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000205609.14"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000864343.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000534402.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000205609.14"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000918077.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000588136.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000205609.14"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000962383.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000632442.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000205609.14"
+    }
+   ]
+  },
+  {
+   "database": "GeneID",
+   "id": "728689",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:728689",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000380876.5",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000370258.5"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_001317857.2"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_001304786.1"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc002dpi.6",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:26347",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA162384693",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "728689",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "728689",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "EIF3CL",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:26347",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "EIF3CL"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000205609",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Low tissue specificity"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000205609",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000205609",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "KOG1076",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00390000017900",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_004304_0_0_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "B5ME19",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "CQIEVLV",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "29647at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "B5ME19",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "4 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "B5ME19",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "B5ME19",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "B5ME19",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000205609",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "728689",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "687 hits in 1024 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "EIF3CL",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "728689",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "B5ME19",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tdark"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:B5ME19",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 16"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "B5ME19",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000205609",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in apex of heart and 97 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0016282",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:eukaryotic 43S preinitiation complex"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:UniProtKB-UniRule"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0033290",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:eukaryotic 48S preinitiation complex"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:UniProtKB-UniRule"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005852",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:eukaryotic translation initiation factor 3 complex"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0003723",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:RNA binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:InterPro"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0003743",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:translation initiation factor activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:UniProtKB-UniRule"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0031369",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:translation initiation factor binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0001732",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:formation of cytoplasmic translation initiation complex"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:UniProtKB-UniRule"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0006413",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:translational initiation"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "1.10.10.10:FF:000461",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Eukaryotic translation initiation factor 3 subunit C"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "1.10.10.10",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Winged helix-like DNA-binding domain superfamily/Winged helix DNA-binding domain"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "HAMAP",
+   "id": "MF_03002",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "eIF3c"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR027516",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "EIF3C"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR008905",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "EIF3C_N_dom"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR058999",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "EIF3CL_C"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR000717",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PCI_dom"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR036388",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "WH-like_DNA-bd_sf"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR036390",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "WH_DNA-bd_sf"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR13937",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "EUKARYOTIC TRANSLATION INITATION FACTOR 3, SUBUNIT 8 EIF3S8 -RELATED"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR13937:SF0",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "EUKARYOTIC TRANSLATION INITIATION FACTOR 3 SUBUNIT C-RELATED"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF05470",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "eIF-3c_N"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF26569",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "EIF3CL_C"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF01399",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PCI"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SMART",
+   "id": "SM00088",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PINT"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF46785",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Winged helix' DNA-binding domain"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS50250",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PCI"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MSRFFTTGSDSESESSLSGEELVTKPVGGNYGKQPLLLSEDEEDTKRVVRSAKDKRFEELTNLIRTIRNAMKIRDVTKCLEEFELLGKAYGKAKSIVDKEGVPRFYIRILADLEDYLNELWEDKEGKKKMNKNNAKALSTLRQKIRKYNRDFESHITSYKQNPEQSADEDAEKNEEDSEGSSDEDEDEDGVSAATFLKKKSEAPSGESRKFLKKMDDEDEDSEDSEDDEDWDTGSTSSDSDSEEEEGKQTALASRFLKKAPTTDEDKKAAEKKREDKAKKKHDRKSKRLDEEEEEDNEGGEWERVRGGVPLVKEKPKMFAKGTEITHAVVIKKLNEILQARGKKGTDRAAQIELLQLLVQIAAENNLGEGVIVKIKFNIIASLYDYNPNLATYMKPEMWGKCLDCINELMDILFANPNIFVGENILEESENLHNADQPLRVRGCILTLVERMDEEFTKIMQNTDPHSQEYVEHLKDEAQVCAIIERVQRYLEEKGTTEEVCRIYLLRILHTYYKFDYKAHQRQLTPPEGSSKSEQDQAENEGEDSAVLMERLCKYIYAKDRTDRIRTCAILCHIYHHALHSRWYQARDLMLMSHLQDNIQHADPPVQILYNRTMVQLGICAFRQGLTKDAHNALLDIQSSGRAKELLGQGLLLRSLQERNQEQEKVERRRQVPFHLHINLELLECVYLVSAMLLEIPYMAAHESDARRRMISKQFHHQLRVGERQPLLGPPESMREHVVAASKAMKMGDWKTCHSFIINEKMNGKVWDLFPEADKVRTMLVRKIQEESLRTYLFTYSSVYDSISMETLSDMFELDLPTVHSIISKMIINEELMASLDQPTQTVVMHRTEPTAQQNLALQLAEKLGSLVENNERVFDHKQGTYGGYFRDQKDGYRKNEGYMRRGGYRQQQSQTAY",
+  "length": 914,
+  "molWeight": 105473,
+  "crc64": "D2B4DA4A546F7915",
+  "md5": "32BB82E3E2B346700747E796AA67C432"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "SUBUNIT": 1,
+   "INTERACTION": 1,
+   "SUBCELLULAR LOCATION": 1,
+   "PTM": 1,
+   "SIMILARITY": 1
+  },
+  "countByFeatureType": {
+   "Chain": 1,
+   "Domain": 1,
+   "Region": 4,
+   "Compositional bias": 8,
+   "Modified residue": 15
+  },
+  "uniParcId": "UPI000047D9AF"
+ }
+}

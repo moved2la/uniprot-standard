@@ -1,0 +1,4102 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "P19404",
+ "secondaryAccessions": [
+  "Q9BV41"
+ ],
+ "uniProtkbId": "NDUV2_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "1990-11-01",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2002-05-02",
+  "entryVersion": 244,
+  "sequenceVersion": 2
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000303",
+      "source": "PubMed",
+      "id": "12754703"
+     }
+    ],
+    "value": "NADH dehydrogenase [ubiquinone] flavoprotein 2, mitochondrial"
+   },
+   "shortNames": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000303",
+       "source": "PubMed",
+       "id": "12754703"
+      }
+     ],
+     "value": "NDUFV2"
+    }
+   ],
+   "ecNumbers": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "28844695"
+      }
+     ],
+     "value": "7.1.1.2"
+    }
+   ]
+  },
+  "alternativeNames": [
+   {
+    "fullName": {
+     "value": "NADH-ubiquinone oxidoreductase 24 kDa subunit"
+    }
+   }
+  ],
+  "flag": "Precursor"
+ },
+ "genes": [
+  {
+   "geneName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000312",
+      "source": "HGNC",
+      "id": "HGNC:7717"
+     }
+    ],
+    "value": "NDUFV2"
+   }
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "28844695"
+      }
+     ],
+     "value": "Core subunit of the mitochondrial membrane respiratory chain NADH dehydrogenase (Complex I) which catalyzes electron transfer from NADH through the respiratory chain, using ubiquinone as an electron acceptor (Probable). Parts of the peripheral arm of the enzyme, where the electrons from NADH are accepted by flavin mononucleotide (FMN) and then passed along a chain of iron-sulfur clusters by electron tunnelling to the final acceptor ubiquinone (Probable). Contains one iron-sulfur cluster (Probable)"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "a ubiquinone + NADH + 5 H(+)(in) = a ubiquinol + NAD(+) + 4 H(+)(out)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:29091"
+     },
+     {
+      "database": "Rhea",
+      "id": "RHEA-COMP:9565"
+     },
+     {
+      "database": "Rhea",
+      "id": "RHEA-COMP:9566"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15378"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:16389"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:17976"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57540"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57945"
+     }
+    ],
+    "ecNumber": "7.1.1.2",
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000305",
+      "source": "PubMed",
+      "id": "28844695"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:29092"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "28844695"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "COFACTOR",
+   "cofactors": [
+    {
+     "name": "[2Fe-2S] cluster",
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "28844695"
+      }
+     ],
+     "cofactorCrossReference": {
+      "database": "ChEBI",
+      "id": "CHEBI:190135"
+     }
+    }
+   ],
+   "note": {
+    "texts": [
+     {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "28844695"
+       }
+      ],
+      "value": "Binds 1 [2Fe-2S] cluster."
+     }
+    ]
+   }
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "12611891"
+      }
+     ],
+     "value": "Core subunit of respiratory chain NADH dehydrogenase (Complex I) which is composed of 45 different subunits. This is a component of the flavoprotein-sulfur (FP) fragment of the enzyme"
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P63010-2",
+      "geneName": "AP2B1",
+      "intActId": "EBI-11529439"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9BZZ5-2",
+      "geneName": "API5",
+      "intActId": "EBI-10989614"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P05067",
+      "geneName": "APP",
+      "intActId": "EBI-77613"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9Y575-3",
+      "geneName": "ASB3",
+      "intActId": "EBI-14199987"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q96FT7-4",
+      "geneName": "ASIC4",
+      "intActId": "EBI-9089489"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q8WXF7",
+      "geneName": "ATL1",
+      "intActId": "EBI-2410266"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q8WUW1",
+      "geneName": "BRK1",
+      "intActId": "EBI-2837444"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P62158",
+      "geneName": "CALM3",
+      "intActId": "EBI-397435"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P24863",
+      "geneName": "CCNC",
+      "intActId": "EBI-395261"
+     },
+     "numberOfExperiments": 7,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9UNS2",
+      "geneName": "COPS3",
+      "intActId": "EBI-350590"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q96HD1-2",
+      "geneName": "CRELD1",
+      "intActId": "EBI-21536433"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q8IUI8",
+      "geneName": "CRLF3",
+      "intActId": "EBI-2872414"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P35222",
+      "geneName": "CTNNB1",
+      "intActId": "EBI-491549"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q96EY1-3",
+      "geneName": "DNAJA3",
+      "intActId": "EBI-11526226"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P20042",
+      "geneName": "EIF2S2",
+      "intActId": "EBI-711977"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9NRY5",
+      "geneName": "FAM114A2",
+      "intActId": "EBI-10973142"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "O15287",
+      "geneName": "FANCG",
+      "intActId": "EBI-81610"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9Y261-2",
+      "geneName": "FOXA2",
+      "intActId": "EBI-25830360"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P06241-3",
+      "geneName": "FYN",
+      "intActId": "EBI-10691738"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q8NBJ4",
+      "geneName": "GOLM1",
+      "intActId": "EBI-712073"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q7L7L0",
+      "geneName": "H2AC25",
+      "intActId": "EBI-5325551"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q71DI3",
+      "geneName": "H3C15",
+      "intActId": "EBI-750650"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P61978",
+      "geneName": "HNRNPK",
+      "intActId": "EBI-304185"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q8IWL3",
+      "geneName": "HSCB",
+      "intActId": "EBI-1805738"
+     },
+     "numberOfExperiments": 6,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q92613",
+      "geneName": "JADE3",
+      "intActId": "EBI-10278909"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9Y2M5",
+      "geneName": "KLHL20",
+      "intActId": "EBI-714379"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q14525",
+      "geneName": "KRT33B",
+      "intActId": "EBI-1049638"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q96PV6",
+      "geneName": "LENG8",
+      "intActId": "EBI-739546"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q6DKI2",
+      "geneName": "LGALS9C",
+      "intActId": "EBI-9088829"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q8TBB1",
+      "geneName": "LNX1",
+      "intActId": "EBI-739832"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P43356",
+      "geneName": "MAGEA2B",
+      "intActId": "EBI-5650739"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q8N6F8",
+      "geneName": "METTL27",
+      "intActId": "EBI-8487781"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9Y3D2",
+      "geneName": "MSRB2",
+      "intActId": "EBI-9092052"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q99457",
+      "geneName": "NAP1L3",
+      "intActId": "EBI-8645631"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q6X4W1-6",
+      "geneName": "NSMF",
+      "intActId": "EBI-25842707"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "O15381-5",
+      "geneName": "NVL",
+      "intActId": "EBI-18577082"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q16625",
+      "geneName": "OCLN",
+      "intActId": "EBI-2903088"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q96FW1",
+      "geneName": "OTUB1",
+      "intActId": "EBI-1058491"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q6GQQ9-2",
+      "geneName": "OTUD7B",
+      "intActId": "EBI-25830200"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P32242",
+      "geneName": "OTX1",
+      "intActId": "EBI-740446"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q8N7B6-2",
+      "geneName": "PACRGL",
+      "intActId": "EBI-10694433"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q16549",
+      "geneName": "PCSK7",
+      "intActId": "EBI-8059854"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q5T2W1",
+      "geneName": "PDZK1",
+      "intActId": "EBI-349819"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q5T6S3",
+      "geneName": "PHF19",
+      "intActId": "EBI-2339674"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "O75925",
+      "geneName": "PIAS1",
+      "intActId": "EBI-629434"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q6P1J6-2",
+      "geneName": "PLB1",
+      "intActId": "EBI-10694821"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q96I34",
+      "geneName": "PPP1R16A",
+      "intActId": "EBI-710402"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q6ZMI0-5",
+      "geneName": "PPP1R21",
+      "intActId": "EBI-25835994"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P57729",
+      "geneName": "RAB38",
+      "intActId": "EBI-6552718"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q96QF0-7",
+      "geneName": "RAB3IP",
+      "intActId": "EBI-11984839"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9NS23-4",
+      "geneName": "RASSF1",
+      "intActId": "EBI-438710"
+     },
+     "numberOfExperiments": 6,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q8WWW0-2",
+      "geneName": "RASSF5",
+      "intActId": "EBI-960502"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P57052",
+      "geneName": "RBM11",
+      "intActId": "EBI-741332"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9ULX5",
+      "geneName": "RNF112",
+      "intActId": "EBI-25829984"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q96D59",
+      "geneName": "RNF183",
+      "intActId": "EBI-743938"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q8N6K7-2",
+      "geneName": "SAMD3",
+      "intActId": "EBI-11528848"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q6AZY7-2",
+      "geneName": "SCARA3",
+      "intActId": "EBI-21598366"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9GZS3",
+      "geneName": "SKIC8",
+      "intActId": "EBI-358545"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "O95391",
+      "geneName": "SLU7",
+      "intActId": "EBI-750559"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q12824",
+      "geneName": "SMARCB1",
+      "intActId": "EBI-358419"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q96GM5",
+      "geneName": "SMARCD1",
+      "intActId": "EBI-358489"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q92673",
+      "geneName": "SORL1",
+      "intActId": "EBI-1171329"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q8NHS9",
+      "geneName": "SPATA22",
+      "intActId": "EBI-7067260"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q8IUW3",
+      "geneName": "SPATA2L",
+      "intActId": "EBI-2510414"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q7Z699",
+      "geneName": "SPRED1",
+      "intActId": "EBI-5235340"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q7Z698",
+      "geneName": "SPRED2",
+      "intActId": "EBI-7082156"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9BR01-2",
+      "geneName": "SULT4A1",
+      "intActId": "EBI-25831443"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9NVV9",
+      "geneName": "THAP1",
+      "intActId": "EBI-741515"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q86WT6-2",
+      "geneName": "TRIM69",
+      "intActId": "EBI-11525489"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q86UV6-2",
+      "geneName": "TRIM74",
+      "intActId": "EBI-10259086"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P07437",
+      "geneName": "TUBB",
+      "intActId": "EBI-350864"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q5VYS8-5",
+      "geneName": "TUT7",
+      "intActId": "EBI-9088812"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P10599",
+      "geneName": "TXN",
+      "intActId": "EBI-594644"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "O75436",
+      "geneName": "VPS26A",
+      "intActId": "EBI-1043891"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P58304",
+      "geneName": "VSX2",
+      "intActId": "EBI-6427899"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9BRX9",
+      "geneName": "WDR83",
+      "intActId": "EBI-7705033"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9NZC7-5",
+      "geneName": "WWOX",
+      "intActId": "EBI-12040603"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P17023",
+      "geneName": "ZNF19",
+      "intActId": "EBI-12884200"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9UNY5",
+      "geneName": "ZNF232",
+      "intActId": "EBI-749023"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q86VK4-3",
+      "geneName": "ZNF410",
+      "intActId": "EBI-11741890"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q8N0Y2-2",
+      "geneName": "ZNF444",
+      "intActId": "EBI-12010736"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P10073",
+      "geneName": "ZSCAN22",
+      "intActId": "EBI-10178224"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P19404",
+      "intActId": "EBI-713665"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q86V28",
+      "intActId": "EBI-10259496"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000250",
+        "source": "UniProtKB",
+        "id": "P04394"
+       }
+      ],
+      "value": "Mitochondrion inner membrane",
+      "id": "SL-0168"
+     },
+     "topology": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000250",
+        "source": "UniProtKB",
+        "id": "P04394"
+       }
+      ],
+      "value": "Peripheral membrane protein",
+      "id": "SL-9903"
+     },
+     "orientation": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000250",
+        "source": "UniProtKB",
+        "id": "P04394"
+       }
+      ],
+      "value": "Matrix side",
+      "id": "SL-9913"
+     }
+    }
+   ]
+  },
+  {
+   "commentType": "DISEASE",
+   "disease": {
+    "diseaseId": "Mitochondrial complex I deficiency, nuclear type 7",
+    "diseaseAccession": "DI-05406",
+    "acronym": "MC1DN7",
+    "description": "A form of mitochondrial complex I deficiency, the most common biochemical signature of mitochondrial disorders, a group of highly heterogeneous conditions characterized by defective oxidative phosphorylation, which collectively affects 1 in 5-10000 live births. Clinical disorders have variable severity, ranging from lethal neonatal disease to adult-onset neurodegenerative disorders. Phenotypes include macrocephaly with progressive leukodystrophy, non-specific encephalopathy, cardiomyopathy, myopathy, liver disease, Leigh syndrome, Leber hereditary optic neuropathy, and some forms of Parkinson disease. MC1DN7 transmission pattern is consistent with autosomal recessive inheritance.",
+    "diseaseCrossReference": {
+     "database": "MIM",
+     "id": "618229"
+    },
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "12754703"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "26008862"
+     }
+    ]
+   },
+   "note": {
+    "texts": [
+     {
+      "value": "The disease is caused by variants affecting the gene represented in this entry"
+     }
+    ]
+   }
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the complex I 24 kDa subunit family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  }
+ ],
+ "features": [
+  {
+   "type": "Transit peptide",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 32,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Mitochondrion",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "25944712"
+    }
+   ]
+  },
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 33,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 249,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "NADH dehydrogenase [ubiquinone] flavoprotein 2, mitochondrial",
+   "featureId": "PRO_0000020003"
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 213,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 249,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Disordered",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 135,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 135,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:190135"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P04394"
+    }
+   ],
+   "ligand": {
+    "name": "[2Fe-2S] cluster",
+    "id": "ChEBI:CHEBI:190135"
+   }
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 140,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 140,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:190135"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P04394"
+    }
+   ],
+   "ligand": {
+    "name": "[2Fe-2S] cluster",
+    "id": "ChEBI:CHEBI:190135"
+   }
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 176,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 176,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:190135"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "5XTB"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "5XTD"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "5XTH"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "5XTI"
+    }
+   ],
+   "ligand": {
+    "name": "[2Fe-2S] cluster",
+    "id": "ChEBI:CHEBI:190135"
+   }
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 180,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 180,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:190135"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "5XTB"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "5XTD"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "5XTH"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "5XTI"
+    }
+   ],
+   "ligand": {
+    "name": "[2Fe-2S] cluster",
+    "id": "ChEBI:CHEBI:190135"
+   }
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 61,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 61,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-acetyllysine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q9D6J6"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 193,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 193,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphotyrosine; by SRC",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22823520"
+    }
+   ]
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 29,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 29,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs906807",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs906807"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "2500970"
+    }
+   ],
+   "featureId": "VAR_016167",
+   "alternativeSequence": {
+    "originalSequence": "V",
+    "alternativeSequences": [
+     "A"
+    ]
+   }
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 48,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 50,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 57,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 69,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 75,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 78,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 79,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 88,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 95,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 104,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 109,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 118,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 120,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 122,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "9CWT"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 129,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 135,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "9CWT"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 138,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 141,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Turn",
+   "location": {
+    "start": {
+     "value": 142,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 144,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 145,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 156,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 167,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 175,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "9CWT"
+    }
+   ]
+  },
+  {
+   "type": "Turn",
+   "location": {
+    "start": {
+     "value": 180,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 182,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 188,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 190,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 198,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 208,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 217,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 221,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 228,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 230,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "9CWT"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 232,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 234,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "9CWT"
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0001",
+   "category": "Ligand",
+   "name": "2Fe-2S"
+  },
+  {
+   "id": "KW-0002",
+   "category": "Technical term",
+   "name": "3D-structure"
+  },
+  {
+   "id": "KW-0007",
+   "category": "PTM",
+   "name": "Acetylation"
+  },
+  {
+   "id": "KW-0249",
+   "category": "Biological process",
+   "name": "Electron transport"
+  },
+  {
+   "id": "KW-0408",
+   "category": "Ligand",
+   "name": "Iron"
+  },
+  {
+   "id": "KW-0411",
+   "category": "Ligand",
+   "name": "Iron-sulfur"
+  },
+  {
+   "id": "KW-0472",
+   "category": "Cellular component",
+   "name": "Membrane"
+  },
+  {
+   "id": "KW-0479",
+   "category": "Ligand",
+   "name": "Metal-binding"
+  },
+  {
+   "id": "KW-0496",
+   "category": "Cellular component",
+   "name": "Mitochondrion"
+  },
+  {
+   "id": "KW-0999",
+   "category": "Cellular component",
+   "name": "Mitochondrion inner membrane"
+  },
+  {
+   "id": "KW-0520",
+   "category": "Ligand",
+   "name": "NAD"
+  },
+  {
+   "id": "KW-0560",
+   "category": "Molecular function",
+   "name": "Oxidoreductase"
+  },
+  {
+   "id": "KW-0597",
+   "category": "PTM",
+   "name": "Phosphoprotein"
+  },
+  {
+   "id": "KW-1274",
+   "category": "Disease",
+   "name": "Primary mitochondrial disease"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  },
+  {
+   "id": "KW-0679",
+   "category": "Biological process",
+   "name": "Respiratory chain"
+  },
+  {
+   "id": "KW-0809",
+   "category": "Domain",
+   "name": "Transit peptide"
+  },
+  {
+   "id": "KW-1278",
+   "category": "Molecular function",
+   "name": "Translocase"
+  },
+  {
+   "id": "KW-0813",
+   "category": "Biological process",
+   "name": "Transport"
+  },
+  {
+   "id": "KW-0830",
+   "category": "Ligand",
+   "name": "Ubiquinone"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "2500970",
+    "citationType": "journal article",
+    "authors": [
+     "Pilkington S.J.",
+     "Walker J.E."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "2500970"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1021/bi00434a021"
+     }
+    ],
+    "title": "Mitochondrial NADH-ubiquinone reductase: complementary DNA sequences of import precursors of the bovine and human 24-kDa subunit.",
+    "publicationDate": "1989",
+    "journal": "Biochemistry",
+    "firstPage": "3257",
+    "lastPage": "3264",
+    "volume": "28"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA]",
+    "VARIANT ALA-29"
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Lung",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "12611891",
+    "citationType": "journal article",
+    "authors": [
+     "Murray J.",
+     "Zhang B.",
+     "Taylor S.W.",
+     "Oglesbee D.",
+     "Fahy E.",
+     "Marusich M.F.",
+     "Ghosh S.S.",
+     "Capaldi R.A."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "12611891"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1074/jbc.c300064200"
+     }
+    ],
+    "title": "The subunit composition of the human NADH dehydrogenase obtained by rapid one-step immunopurification.",
+    "publicationDate": "2003",
+    "journal": "J. Biol. Chem.",
+    "firstPage": "13619",
+    "lastPage": "13622",
+    "volume": "278"
+   },
+   "referencePositions": [
+    "IDENTIFICATION IN THE NADH-UBIQUINONE OXIDOREDUCTASE COMPLEX",
+    "IDENTIFICATION BY MASS SPECTROMETRY"
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "21269460",
+    "citationType": "journal article",
+    "authors": [
+     "Burkard T.R.",
+     "Planyavsky M.",
+     "Kaupe I.",
+     "Breitwieser F.P.",
+     "Buerckstuemmer T.",
+     "Bennett K.L.",
+     "Superti-Furga G.",
+     "Colinge J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "21269460"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1186/1752-0509-5-17"
+     }
+    ],
+    "title": "Initial characterization of the human central proteome.",
+    "publicationDate": "2011",
+    "journal": "BMC Syst. Biol.",
+    "firstPage": "17",
+    "lastPage": "17",
+    "volume": "5"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "22823520",
+    "citationType": "journal article",
+    "authors": [
+     "Ogura M.",
+     "Yamaki J.",
+     "Homma M.K.",
+     "Homma Y."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "22823520"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1042/bj20120509"
+     }
+    ],
+    "title": "Mitochondrial c-Src regulates cell survival through phosphorylation of respiratory chain components.",
+    "publicationDate": "2012",
+    "journal": "Biochem. J.",
+    "firstPage": "281",
+    "lastPage": "289",
+    "volume": "447"
+   },
+   "referencePositions": [
+    "PHOSPHORYLATION AT TYR-193"
+   ]
+  },
+  {
+   "referenceNumber": 6,
+   "citation": {
+    "id": "24275569",
+    "citationType": "journal article",
+    "authors": [
+     "Bian Y.",
+     "Song C.",
+     "Cheng K.",
+     "Dong M.",
+     "Wang F.",
+     "Huang J.",
+     "Sun D.",
+     "Wang L.",
+     "Ye M.",
+     "Zou H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "24275569"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.jprot.2013.11.014"
+     }
+    ],
+    "title": "An enzyme assisted RP-RPLC approach for in-depth analysis of human liver phosphoproteome.",
+    "publicationDate": "2014",
+    "journal": "J. Proteomics",
+    "firstPage": "253",
+    "lastPage": "262",
+    "volume": "96"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Liver",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 7,
+   "citation": {
+    "id": "25944712",
+    "citationType": "journal article",
+    "authors": [
+     "Vaca Jacome A.S.",
+     "Rabilloud T.",
+     "Schaeffer-Reiss C.",
+     "Rompais M.",
+     "Ayoub D.",
+     "Lane L.",
+     "Bairoch A.",
+     "Van Dorsselaer A.",
+     "Carapito C."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "25944712"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1002/pmic.201400617"
+     }
+    ],
+    "title": "N-terminome analysis of the human mitochondrial proteome.",
+    "publicationDate": "2015",
+    "journal": "Proteomics",
+    "firstPage": "2519",
+    "lastPage": "2524",
+    "volume": "15"
+   },
+   "referencePositions": [
+    "CLEAVAGE OF TRANSIT PEPTIDE [LARGE SCALE ANALYSIS] AFTER ASN-32",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 8,
+   "citation": {
+    "id": "12754703",
+    "citationType": "journal article",
+    "authors": [
+     "Benit P.",
+     "Beugnot R.",
+     "Chretien D.",
+     "Giurgea I.",
+     "De Lonlay-Debeney P.",
+     "Issartel J.P.",
+     "Corral-Debrinski M.",
+     "Kerscher S.",
+     "Rustin P.",
+     "Roetig A.",
+     "Munnich A."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "12754703"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1002/humu.10225"
+     }
+    ],
+    "title": "Mutant NDUFV2 subunit of mitochondrial complex I causes early onset hypertrophic cardiomyopathy and encephalopathy.",
+    "publicationDate": "2003",
+    "journal": "Hum. Mutat.",
+    "firstPage": "582",
+    "lastPage": "586",
+    "volume": "21"
+   },
+   "referencePositions": [
+    "INVOLVEMENT IN MC1DN7"
+   ]
+  },
+  {
+   "referenceNumber": 9,
+   "citation": {
+    "id": "26008862",
+    "citationType": "journal article",
+    "authors": [
+     "Cameron J.M.",
+     "MacKay N.",
+     "Feigenbaum A.",
+     "Tarnopolsky M.",
+     "Blaser S.",
+     "Robinson B.H.",
+     "Schulze A."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "26008862"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.ejpn.2015.05.002"
+     }
+    ],
+    "title": "Exome sequencing identifies complex I NDUFV2 mutations as a novel cause of Leigh syndrome.",
+    "publicationDate": "2015",
+    "journal": "Eur. J. Paediatr. Neurol.",
+    "firstPage": "525",
+    "lastPage": "532",
+    "volume": "19"
+   },
+   "referencePositions": [
+    "INVOLVEMENT IN MC1DN7"
+   ]
+  },
+  {
+   "referenceNumber": 10,
+   "citation": {
+    "id": "28844695",
+    "citationType": "journal article",
+    "authors": [
+     "Guo R.",
+     "Zong S.",
+     "Wu M.",
+     "Gu J.",
+     "Yang M."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "28844695"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.cell.2017.07.050"
+     }
+    ],
+    "title": "Architecture of human mitochondrial respiratory megacomplex I2III2IV2.",
+    "publicationDate": "2017",
+    "journal": "Cell",
+    "firstPage": "1247",
+    "lastPage": "1257",
+    "volume": "170"
+   },
+   "referencePositions": [
+    "STRUCTURE BY ELECTRON MICROSCOPY (3.40 ANGSTROMS) OF 36-247",
+    "FUNCTION",
+    "CATALYTIC ACTIVITY",
+    "COFACTOR"
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "5XTB"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "5XTD"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "5XTH"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "5XTI"
+    }
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "M22538",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAA75390.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC001632",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH01632.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC017487",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH17487.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS11842.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PIR",
+   "id": "A30113",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "A30113"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_066552.2",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_021074.5"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "5XTB",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "3.40 A"
+    },
+    {
+     "key": "Chains",
+     "value": "O=36-247"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "5XTD",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "3.70 A"
+    },
+    {
+     "key": "Chains",
+     "value": "O=36-247"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "5XTH",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "3.90 A"
+    },
+    {
+     "key": "Chains",
+     "value": "O=36-247"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "5XTI",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "17.40 A"
+    },
+    {
+     "key": "Chains",
+     "value": "BO/O=36-247"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "9CWT",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "3.44 A"
+    },
+    {
+     "key": "Chains",
+     "value": "O=1-249"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "9I4I",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "2.63 A"
+    },
+    {
+     "key": "Chains",
+     "value": "O=1-249"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "9TI4",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "2.66 A"
+    },
+    {
+     "key": "Chains",
+     "value": "O=36-247"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "5XTB",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "5XTD",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "5XTH",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "5XTI",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "9CWT",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "9I4I",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "9TI4",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-45974",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-52619",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "110807",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "231"
+    }
+   ]
+  },
+  {
+   "database": "ComplexPortal",
+   "id": "CPX-577",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Mitochondrial respiratory chain complex I"
+    }
+   ]
+  },
+  {
+   "database": "CORUM",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "1676"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "177"
+    }
+   ]
+  },
+  {
+   "database": "MINT",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "NDEx",
+   "id": "IQUERY-CP-NDUFV2",
+   "properties": [
+    {
+     "key": "Evidences",
+     "value": "5 NDEx IQuery Curated Pathways"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000327268",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BindingDB",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ChEMBL",
+   "id": "CHEMBL6066946",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB00157",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "NADH"
+    }
+   ]
+  },
+  {
+   "database": "DrugCentral",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "1 site, 1 O-linked glycan (1 site)"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SwissPalm",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "NDUFV2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "20455499",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000327268",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "53655",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pumba",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "TopDownProteomics",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "1273",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "288 antibodies from 35 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "4729",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000318388.11",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000327268.6"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000178127.14"
+    }
+   ]
+  },
+  {
+   "database": "GeneID",
+   "id": "4729",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:4729",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000318388.11",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000327268.6"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_021074.5"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_066552.2"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc002knu.3",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:7717",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA31527",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "4729",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "4729",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "NDUFV2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:7717",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "NDUFV2"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000178127",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Low tissue specificity"
+    }
+   ]
+  },
+  {
+   "database": "MalaCards",
+   "id": "NDUFV2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "600532",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "618229",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "phenotype"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000178127",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Orphanet",
+   "id": "2609",
+   "properties": [
+    {
+     "key": "Disease",
+     "value": "Isolated complex I deficiency"
+    }
+   ]
+  },
+  {
+   "database": "Orphanet",
+   "id": "139447",
+   "properties": [
+    {
+     "key": "Disease",
+     "value": "Progressive cavitating leukoencephalopathy"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000178127",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "KOG3196",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00390000017580",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_054362_1_0_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "IMSIYPE",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "10254187at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "3 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioCyc",
+   "id": "MetaCyc:HS11253-MONOMER",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-611105",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Respiratory electron transport"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-6799198",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Complex I biogenesis"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SIGNOR",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000178127",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "4729",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "135 hits in 1173 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "CD-CODE",
+   "id": "91857CE7",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Nucleolus"
+    }
+   ]
+  },
+  {
+   "database": "CD-CODE",
+   "id": "FB4E32DD",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Presynaptic clusters and postsynaptic densities"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "NDUFV2",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "GeneWiki",
+   "id": "NDUFV2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "4729",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tclin"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:P19404",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 18"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000178127",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in apex of heart and 100 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "P19404",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005743",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrial inner membrane"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:ComplexPortal"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "28844695"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005739",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrion"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "12754703"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0045271",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:respiratory chain complex I"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "12611891"
+    },
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "28844695"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0009055",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:electron transfer activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "NAS:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "7488192"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0008137",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:NADH dehydrogenase (ubiquinone) activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "28844695"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0009060",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:aerobic respiration"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "NAS:ComplexPortal"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "30030361"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0048738",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:cardiac muscle tissue development"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "12754703"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0006120",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:mitochondrial electron transport, NADH to ubiquinone"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "28844695"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0007399",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:nervous system development"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "9570948"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0042776",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:proton motive force-driven mitochondrial ATP synthesis"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "NAS:ComplexPortal"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "30030361"
+    }
+   ]
+  },
+  {
+   "database": "CDD",
+   "id": "cd03064",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "TRX_Fd_NuoE"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.40.30.10:FF:000022",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NADH dehydrogenase flavoprotein 2, mitochondrial"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "1.10.10.1590:FF:000001",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NADH-quinone oxidoreductase subunit E"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.40.30.10",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Glutaredoxin"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "1.10.10.1590",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NADH-quinone oxidoreductase subunit E"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR002023",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NuoE-like"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR042128",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NuoE_dom"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR041921",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NuoE_N"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR036249",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Thioredoxin-like_sf"
+    }
+   ]
+  },
+  {
+   "database": "NCBIfam",
+   "id": "TIGR01958",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "nuoE_fam"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "NCBIfam",
+   "id": "NF005722",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PRK07539.1-2"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "NCBIfam",
+   "id": "NF005725",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PRK07539.1-5"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR10371:SF3",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NADH DEHYDROGENASE [UBIQUINONE] FLAVOPROTEIN 2, MITOCHONDRIAL"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR10371",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NADH DEHYDROGENASE UBIQUINONE FLAVOPROTEIN 2, MITOCHONDRIAL"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF01257",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "2Fe-2S_thioredx"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PIRSF",
+   "id": "PIRSF000216",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NADH_DH_24kDa"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF52833",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Thioredoxin-like"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS01099",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "COMPLEX1_24K"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MFFSAALRARAAGLTAHWGRHVRNLHKTVMQNGAGGALFVHRDTPENNPDTPFDFTPENYKRIEAIVKNYPEGHKAAAVLPVLDLAQRQNGWLPISAMNKVAEVLQVPPMRVYEVATFYTMYNRKPVGKYHIQVCTTTPCMLRNSDSILEAIQKKLGIKVGETTPDKLFTLIEVECLGACVNAPMVQINDNYYEDLTAKDIEEIIDELKAGKIPKPGPRSGRFSCEPAGGLTSLTEPPKGPGFGVQAGL",
+  "length": 249,
+  "molWeight": 27392,
+  "crc64": "AAF46ABB0908B177",
+  "md5": "2BC6219143798906B4506BEB22FAE306"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "CATALYTIC ACTIVITY": 1,
+   "COFACTOR": 1,
+   "SUBUNIT": 1,
+   "INTERACTION": 83,
+   "SUBCELLULAR LOCATION": 1,
+   "DISEASE": 1,
+   "SIMILARITY": 1
+  },
+  "countByFeatureType": {
+   "Transit peptide": 1,
+   "Chain": 1,
+   "Region": 1,
+   "Binding site": 4,
+   "Modified residue": 2,
+   "Natural variant": 1,
+   "Beta strand": 8,
+   "Helix": 8,
+   "Turn": 2
+  },
+  "uniParcId": "UPI0000052A59"
+ }
+}

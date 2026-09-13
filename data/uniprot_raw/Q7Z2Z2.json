@@ -1,0 +1,3292 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "Q7Z2Z2",
+ "secondaryAccessions": [
+  "A6NKY5",
+  "B7Z6I0",
+  "Q9H8Z6"
+ ],
+ "uniProtkbId": "EFL1_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "2008-01-15",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2008-01-15",
+  "entryVersion": 175,
+  "sequenceVersion": 2
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "value": "Elongation factor-like GTPase 1"
+   },
+   "ecNumbers": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "21536732"
+      }
+     ],
+     "value": "3.6.5.-"
+    }
+   ]
+  },
+  "alternativeNames": [
+   {
+    "fullName": {
+     "value": "Elongation factor Tu GTP-binding domain-containing protein 1"
+    }
+   },
+   {
+    "fullName": {
+     "value": "Elongation factor-like 1"
+    }
+   },
+   {
+    "fullName": {
+     "value": "Protein FAM42A"
+    }
+   }
+  ]
+ },
+ "genes": [
+  {
+   "geneName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000312",
+      "source": "HGNC",
+      "id": "HGNC:25789"
+     }
+    ],
+    "value": "EFL1"
+   },
+   "synonyms": [
+    {
+     "value": "EFTUD1"
+    },
+    {
+     "value": "FAM42A"
+    }
+   ]
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "21536732"
+      }
+     ],
+     "value": "GTPase involved in the biogenesis of the 60S ribosomal subunit and translational activation of ribosomes. Together with SBDS, triggers the GTP-dependent release of EIF6 from 60S pre-ribosomes in the cytoplasm, thereby activating ribosomes for translation competence by allowing 80S ribosome assembly and facilitating EIF6 recycling to the nucleus, where it is required for 60S rRNA processing and nuclear export"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "GTP + H2O = GDP + phosphate + H(+)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:19669"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15378"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:37565"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:43474"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:58189"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "21536732"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:19670"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "21536732"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "21536732"
+      }
+     ],
+     "value": "GTPase activity is stimulated in the presence of 60S ribosome subunits"
+    }
+   ],
+   "commentType": "ACTIVITY REGULATION"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "21536732"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "25991726"
+      }
+     ],
+     "value": "Associates with the 60S ribosomal subunit (PubMed:21536732). Found in a complex consisting of the 60S ribosomal subunit, SBDS and EFL1 (PubMed:22814378). Interacts with SBDS and binds to GTP and GDP; the interaction with SBDS decreases EFL1 affinity for GDP and facilitates GDP release (PubMed:25991726)"
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "Q7Z2Z2",
+      "intActId": "EBI-2870376"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9Y3A5",
+      "geneName": "SBDS",
+      "intActId": "EBI-1046471"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "ALTERNATIVE PRODUCTS",
+   "events": [
+    "Alternative splicing"
+   ],
+   "isoforms": [
+    {
+     "name": {
+      "value": "1"
+     },
+     "isoformIds": [
+      "Q7Z2Z2-1"
+     ],
+     "isoformSequenceStatus": "Displayed"
+    },
+    {
+     "name": {
+      "value": "2"
+     },
+     "isoformIds": [
+      "Q7Z2Z2-2"
+     ],
+     "sequenceIds": [
+      "VSP_030152"
+     ],
+     "isoformSequenceStatus": "Described"
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "25015090"
+      }
+     ],
+     "value": "Expressed at low levels in brain. Expression is highly increased in glioma tissues"
+    }
+   ],
+   "commentType": "TISSUE SPECIFICITY"
+  },
+  {
+   "commentType": "DISEASE",
+   "disease": {
+    "diseaseId": "Shwachman-Diamond syndrome 2",
+    "diseaseAccession": "DI-05230",
+    "acronym": "SDS2",
+    "description": "A form of Shwachman-Diamond syndrome, a disorder characterized by hematopoietic abnormalities, exocrine pancreatic dysfunction, and skeletal dysplasia. Intermittent or chronic neutropenia is the most common hematological manifestation, followed by anemia and thrombocytopenia. Some patients progress to bone marrow failure, myelodysplastic syndrome and malignant transformation, with acute myelogenous leukemia being the most common. Exocrine pancreatic dysfunction is generally the first presenting symptom in infancy. Short stature and metaphyseal dysplasia are the most frequent skeletal manifestations. SDS2 inheritance is autosomal recessive.",
+    "diseaseCrossReference": {
+     "database": "MIM",
+     "id": "617941"
+    },
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "28331068"
+     }
+    ]
+   },
+   "note": {
+    "texts": [
+     {
+      "value": "The disease may be caused by variants affecting the gene represented in this entry"
+     }
+    ]
+   }
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000255",
+       "source": "PROSITE-ProRule",
+       "id": "PRU01059"
+      }
+     ],
+     "value": "Belongs to the TRAFAC class translation factor GTPase superfamily. Classic translation factor GTPase family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  },
+  {
+   "commentType": "SEQUENCE CAUTION",
+   "sequenceCautionType": "Erroneous initiation",
+   "sequence": "BAB14450.1",
+   "note": "Truncated N-terminus.",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ]
+  }
+ ],
+ "features": [
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 1120,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Elongation factor-like GTPase 1",
+   "featureId": "PRO_0000313805"
+  },
+  {
+   "type": "Domain",
+   "location": {
+    "start": {
+     "value": 17,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 272,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "tr-type G",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255",
+     "source": "PROSITE-ProRule",
+     "id": "PRU01059"
+    }
+   ]
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 430,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 496,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Disordered",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 907,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 930,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Disordered",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Compositional bias",
+   "location": {
+    "start": {
+     "value": 438,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 452,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Basic and acidic residues",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Compositional bias",
+   "location": {
+    "start": {
+     "value": 475,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 484,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Basic and acidic residues",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Compositional bias",
+   "location": {
+    "start": {
+     "value": 920,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 930,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Polar residues",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 26,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 33,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:37565"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250"
+    }
+   ],
+   "ligand": {
+    "name": "GTP",
+    "id": "ChEBI:CHEBI:37565"
+   }
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 92,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 96,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:37565"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250"
+    }
+   ],
+   "ligand": {
+    "name": "GTP",
+    "id": "ChEBI:CHEBI:37565"
+   }
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 146,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 149,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:37565"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250"
+    }
+   ],
+   "ligand": {
+    "name": "GTP",
+    "id": "ChEBI:CHEBI:37565"
+   }
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 528,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 528,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-acetyllysine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "19608861"
+    }
+   ]
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 32,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 82,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 2",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "17974005"
+    }
+   ],
+   "featureId": "VSP_030152",
+   "alternativeSequence": {}
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 478,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 478,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs2292189",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs2292189"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "14702039"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "17974005"
+    }
+   ],
+   "featureId": "VAR_037746",
+   "alternativeSequence": {
+    "originalSequence": "E",
+    "alternativeSequences": [
+     "D"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 617,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 617,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs1128431",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs1128431"
+    }
+   ],
+   "featureId": "VAR_037747",
+   "alternativeSequence": {
+    "originalSequence": "I",
+    "alternativeSequences": [
+     "V"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 711,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 711,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs2292071",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs2292071"
+    }
+   ],
+   "featureId": "VAR_037748",
+   "alternativeSequence": {
+    "originalSequence": "K",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 882,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 882,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in SDS2; uncertain significance; dbSNP:rs1316615934",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs1316615934"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "28331068"
+    }
+   ],
+   "featureId": "VAR_080513",
+   "alternativeSequence": {
+    "originalSequence": "M",
+    "alternativeSequences": [
+     "K"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 1095,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 1095,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in SDS2; uncertain significance; dbSNP:rs376095522",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs376095522"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "28331068"
+    }
+   ],
+   "featureId": "VAR_080514",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "Q"
+    ]
+   }
+  },
+  {
+   "type": "Mutagenesis",
+   "location": {
+    "start": {
+     "value": 33,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 33,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Loss of GTPase activity. Abolishes dissociation of EIF6 from 60S pre-ribosome subunits.",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "21536732"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "T",
+    "alternativeSequences": [
+     "A"
+    ]
+   }
+  },
+  {
+   "type": "Mutagenesis",
+   "location": {
+    "start": {
+     "value": 96,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 96,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Loss of GTPase activity. Abolishes dissociation of EIF6 from 60S pre-ribosome subunits.",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "21536732"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "H",
+    "alternativeSequences": [
+     "A"
+    ]
+   }
+  },
+  {
+   "type": "Sequence conflict",
+   "location": {
+    "start": {
+     "value": 456,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 456,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in Ref. 2; CAD98101",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "A",
+    "alternativeSequences": [
+     "V"
+    ]
+   }
+  },
+  {
+   "type": "Sequence conflict",
+   "location": {
+    "start": {
+     "value": 632,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 632,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in Ref. 1; BAB14450",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "Q",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Sequence conflict",
+   "location": {
+    "start": {
+     "value": 696,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 696,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in Ref. 2; CAD98101",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "I",
+    "alternativeSequences": [
+     "T"
+    ]
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0002",
+   "category": "Technical term",
+   "name": "3D-structure"
+  },
+  {
+   "id": "KW-0007",
+   "category": "PTM",
+   "name": "Acetylation"
+  },
+  {
+   "id": "KW-0025",
+   "category": "Coding sequence diversity",
+   "name": "Alternative splicing"
+  },
+  {
+   "id": "KW-0225",
+   "category": "Disease",
+   "name": "Disease variant"
+  },
+  {
+   "id": "KW-0251",
+   "category": "Molecular function",
+   "name": "Elongation factor"
+  },
+  {
+   "id": "KW-0342",
+   "category": "Ligand",
+   "name": "GTP-binding"
+  },
+  {
+   "id": "KW-0378",
+   "category": "Molecular function",
+   "name": "Hydrolase"
+  },
+  {
+   "id": "KW-0547",
+   "category": "Ligand",
+   "name": "Nucleotide-binding"
+  },
+  {
+   "id": "KW-0648",
+   "category": "Biological process",
+   "name": "Protein biosynthesis"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  },
+  {
+   "id": "KW-0690",
+   "category": "Biological process",
+   "name": "Ribosome biogenesis"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "14702039",
+    "citationType": "journal article",
+    "authors": [
+     "Ota T.",
+     "Suzuki Y.",
+     "Nishikawa T.",
+     "Otsuki T.",
+     "Sugiyama T.",
+     "Irie R.",
+     "Wakamatsu A.",
+     "Hayashi K.",
+     "Sato H.",
+     "Nagai K.",
+     "Kimura K.",
+     "Makita H.",
+     "Sekine M.",
+     "Obayashi M.",
+     "Nishi T.",
+     "Shibahara T.",
+     "Tanaka T.",
+     "Ishii S.",
+     "Yamamoto J.",
+     "Saito K.",
+     "Kawai Y.",
+     "Isono Y.",
+     "Nakamura Y.",
+     "Nagahari K.",
+     "Murakami K.",
+     "Yasuda T.",
+     "Iwayanagi T.",
+     "Wagatsuma M.",
+     "Shiratori A.",
+     "Sudo H.",
+     "Hosoiri T.",
+     "Kaku Y.",
+     "Kodaira H.",
+     "Kondo H.",
+     "Sugawara M.",
+     "Takahashi M.",
+     "Kanda K.",
+     "Yokoi T.",
+     "Furuya T.",
+     "Kikkawa E.",
+     "Omura Y.",
+     "Abe K.",
+     "Kamihara K.",
+     "Katsuta N.",
+     "Sato K.",
+     "Tanikawa M.",
+     "Yamazaki M.",
+     "Ninomiya K.",
+     "Ishibashi T.",
+     "Yamashita H.",
+     "Murakawa K.",
+     "Fujimori K.",
+     "Tanai H.",
+     "Kimata M.",
+     "Watanabe M.",
+     "Hiraoka S.",
+     "Chiba Y.",
+     "Ishida S.",
+     "Ono Y.",
+     "Takiguchi S.",
+     "Watanabe S.",
+     "Yosida M.",
+     "Hotuta T.",
+     "Kusano J.",
+     "Kanehori K.",
+     "Takahashi-Fujii A.",
+     "Hara H.",
+     "Tanase T.-O.",
+     "Nomura Y.",
+     "Togiya S.",
+     "Komai F.",
+     "Hara R.",
+     "Takeuchi K.",
+     "Arita M.",
+     "Imose N.",
+     "Musashino K.",
+     "Yuuki H.",
+     "Oshima A.",
+     "Sasaki N.",
+     "Aotsuka S.",
+     "Yoshikawa Y.",
+     "Matsunawa H.",
+     "Ichihara T.",
+     "Shiohata N.",
+     "Sano S.",
+     "Moriya S.",
+     "Momiyama H.",
+     "Satoh N.",
+     "Takami S.",
+     "Terashima Y.",
+     "Suzuki O.",
+     "Nakagawa S.",
+     "Senoh A.",
+     "Mizoguchi H.",
+     "Goto Y.",
+     "Shimizu F.",
+     "Wakebe H.",
+     "Hishigaki H.",
+     "Watanabe T.",
+     "Sugiyama A.",
+     "Takemoto M.",
+     "Kawakami B.",
+     "Yamazaki M.",
+     "Watanabe K.",
+     "Kumagai A.",
+     "Itakura S.",
+     "Fukuzumi Y.",
+     "Fujimori Y.",
+     "Komiyama M.",
+     "Tashiro H.",
+     "Tanigami A.",
+     "Fujiwara T.",
+     "Ono T.",
+     "Yamada K.",
+     "Fujii Y.",
+     "Ozaki K.",
+     "Hirao M.",
+     "Ohmori Y.",
+     "Kawabata A.",
+     "Hikiji T.",
+     "Kobatake N.",
+     "Inagaki H.",
+     "Ikema Y.",
+     "Okamoto S.",
+     "Okitani R.",
+     "Kawakami T.",
+     "Noguchi S.",
+     "Itoh T.",
+     "Shigeta K.",
+     "Senba T.",
+     "Matsumura K.",
+     "Nakajima Y.",
+     "Mizuno T.",
+     "Morinaga M.",
+     "Sasaki M.",
+     "Togashi T.",
+     "Oyama M.",
+     "Hata H.",
+     "Watanabe M.",
+     "Komatsu T.",
+     "Mizushima-Sugano J.",
+     "Satoh T.",
+     "Shirai Y.",
+     "Takahashi Y.",
+     "Nakagawa K.",
+     "Okumura K.",
+     "Nagase T.",
+     "Nomura N.",
+     "Kikuchi H.",
+     "Masuho Y.",
+     "Yamashita R.",
+     "Nakai K.",
+     "Yada T.",
+     "Nakamura Y.",
+     "Ohara O.",
+     "Isogai T.",
+     "Sugano S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "14702039"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/ng1285"
+     }
+    ],
+    "title": "Complete sequencing and characterization of 21,243 full-length human cDNAs.",
+    "publicationDate": "2004",
+    "journal": "Nat. Genet.",
+    "firstPage": "40",
+    "lastPage": "45",
+    "volume": "36"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 1)",
+    "VARIANT ASP-478"
+   ],
+   "referenceComments": [
+    {
+     "value": "Placenta",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "17974005",
+    "citationType": "journal article",
+    "authors": [
+     "Bechtel S.",
+     "Rosenfelder H.",
+     "Duda A.",
+     "Schmidt C.P.",
+     "Ernst U.",
+     "Wellenreuther R.",
+     "Mehrle A.",
+     "Schuster C.",
+     "Bahr A.",
+     "Bloecker H.",
+     "Heubner D.",
+     "Hoerlein A.",
+     "Michel G.",
+     "Wedler H.",
+     "Koehrer K.",
+     "Ottenwaelder B.",
+     "Poustka A.",
+     "Wiemann S.",
+     "Schupp I."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "17974005"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1186/1471-2164-8-399"
+     }
+    ],
+    "title": "The full-ORF clone resource of the German cDNA consortium.",
+    "publicationDate": "2007",
+    "journal": "BMC Genomics",
+    "firstPage": "399",
+    "lastPage": "399",
+    "volume": "8"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 2)",
+    "VARIANT ASP-478"
+   ],
+   "referenceComments": [
+    {
+     "value": "Fetal brain",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "16572171",
+    "citationType": "journal article",
+    "authors": [
+     "Zody M.C.",
+     "Garber M.",
+     "Sharpe T.",
+     "Young S.K.",
+     "Rowen L.",
+     "O'Neill K.",
+     "Whittaker C.A.",
+     "Kamal M.",
+     "Chang J.L.",
+     "Cuomo C.A.",
+     "Dewar K.",
+     "FitzGerald M.G.",
+     "Kodira C.D.",
+     "Madan A.",
+     "Qin S.",
+     "Yang X.",
+     "Abbasi N.",
+     "Abouelleil A.",
+     "Arachchi H.M.",
+     "Baradarani L.",
+     "Birditt B.",
+     "Bloom S.",
+     "Bloom T.",
+     "Borowsky M.L.",
+     "Burke J.",
+     "Butler J.",
+     "Cook A.",
+     "DeArellano K.",
+     "DeCaprio D.",
+     "Dorris L. III",
+     "Dors M.",
+     "Eichler E.E.",
+     "Engels R.",
+     "Fahey J.",
+     "Fleetwood P.",
+     "Friedman C.",
+     "Gearin G.",
+     "Hall J.L.",
+     "Hensley G.",
+     "Johnson E.",
+     "Jones C.",
+     "Kamat A.",
+     "Kaur A.",
+     "Locke D.P.",
+     "Madan A.",
+     "Munson G.",
+     "Jaffe D.B.",
+     "Lui A.",
+     "Macdonald P.",
+     "Mauceli E.",
+     "Naylor J.W.",
+     "Nesbitt R.",
+     "Nicol R.",
+     "O'Leary S.B.",
+     "Ratcliffe A.",
+     "Rounsley S.",
+     "She X.",
+     "Sneddon K.M.B.",
+     "Stewart S.",
+     "Sougnez C.",
+     "Stone S.M.",
+     "Topham K.",
+     "Vincent D.",
+     "Wang S.",
+     "Zimmer A.R.",
+     "Birren B.W.",
+     "Hood L.",
+     "Lander E.S.",
+     "Nusbaum C."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "16572171"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/nature04601"
+     }
+    ],
+    "title": "Analysis of the DNA sequence and duplication history of human chromosome 15.",
+    "publicationDate": "2006",
+    "journal": "Nature",
+    "firstPage": "671",
+    "lastPage": "675",
+    "volume": "440"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "19608861",
+    "citationType": "journal article",
+    "authors": [
+     "Choudhary C.",
+     "Kumar C.",
+     "Gnad F.",
+     "Nielsen M.L.",
+     "Rehman M.",
+     "Walther T.C.",
+     "Olsen J.V.",
+     "Mann M."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "19608861"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1126/science.1175371"
+     }
+    ],
+    "title": "Lysine acetylation targets protein complexes and co-regulates major cellular functions.",
+    "publicationDate": "2009",
+    "journal": "Science",
+    "firstPage": "834",
+    "lastPage": "840",
+    "volume": "325"
+   },
+   "referencePositions": [
+    "ACETYLATION [LARGE SCALE ANALYSIS] AT LYS-528",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "21269460",
+    "citationType": "journal article",
+    "authors": [
+     "Burkard T.R.",
+     "Planyavsky M.",
+     "Kaupe I.",
+     "Breitwieser F.P.",
+     "Buerckstuemmer T.",
+     "Bennett K.L.",
+     "Superti-Furga G.",
+     "Colinge J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "21269460"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1186/1752-0509-5-17"
+     }
+    ],
+    "title": "Initial characterization of the human central proteome.",
+    "publicationDate": "2011",
+    "journal": "BMC Syst. Biol.",
+    "firstPage": "17",
+    "lastPage": "17",
+    "volume": "5"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 6,
+   "citation": {
+    "id": "21536732",
+    "citationType": "journal article",
+    "authors": [
+     "Finch A.J.",
+     "Hilcenko C.",
+     "Basse N.",
+     "Drynan L.F.",
+     "Goyenechea B.",
+     "Menne T.F.",
+     "Gonzalez Fernandez A.",
+     "Simpson P.",
+     "D'Santos C.S.",
+     "Arends M.J.",
+     "Donadieu J.",
+     "Bellanne-Chantelot C.",
+     "Costanzo M.",
+     "Boone C.",
+     "McKenzie A.N.",
+     "Freund S.M.",
+     "Warren A.J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "21536732"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gad.623011"
+     }
+    ],
+    "title": "Uncoupling of GTP hydrolysis from eIF6 release on the ribosome causes Shwachman-Diamond syndrome.",
+    "publicationDate": "2011",
+    "journal": "Genes Dev.",
+    "firstPage": "917",
+    "lastPage": "929",
+    "volume": "25"
+   },
+   "referencePositions": [
+    "FUNCTION",
+    "CATALYTIC ACTIVITY",
+    "ACTIVITY REGULATION",
+    "SUBUNIT",
+    "MUTAGENESIS OF THR-33 AND HIS-96"
+   ]
+  },
+  {
+   "referenceNumber": 7,
+   "citation": {
+    "id": "22814378",
+    "citationType": "journal article",
+    "authors": [
+     "Van Damme P.",
+     "Lasa M.",
+     "Polevoda B.",
+     "Gazquez C.",
+     "Elosegui-Artola A.",
+     "Kim D.S.",
+     "De Juan-Pardo E.",
+     "Demeyer K.",
+     "Hole K.",
+     "Larrea E.",
+     "Timmerman E.",
+     "Prieto J.",
+     "Arnesen T.",
+     "Sherman F.",
+     "Gevaert K.",
+     "Aldabe R."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "22814378"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1073/pnas.1210303109"
+     }
+    ],
+    "title": "N-terminal acetylome analyses and functional insights of the N-terminal acetyltransferase NatB.",
+    "publicationDate": "2012",
+    "journal": "Proc. Natl. Acad. Sci. U.S.A.",
+    "firstPage": "12449",
+    "lastPage": "12454",
+    "volume": "109"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 8,
+   "citation": {
+    "id": "25015090",
+    "citationType": "journal article",
+    "authors": [
+     "Saito K.",
+     "Iizuka Y.",
+     "Ohta S.",
+     "Takahashi S.",
+     "Nakamura K.",
+     "Saya H.",
+     "Yoshida K.",
+     "Kawakami Y.",
+     "Toda M."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "25015090"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1093/neuonc/nou132"
+     }
+    ],
+    "title": "Functional analysis of a novel glioma antigen, EFTUD1.",
+    "publicationDate": "2014",
+    "journal": "Neuro-oncol.",
+    "firstPage": "1618",
+    "lastPage": "1629",
+    "volume": "16"
+   },
+   "referencePositions": [
+    "TISSUE SPECIFICITY"
+   ]
+  },
+  {
+   "referenceNumber": 9,
+   "citation": {
+    "id": "25991726",
+    "citationType": "journal article",
+    "authors": [
+     "Garcia-Marquez A.",
+     "Gijsbers A.",
+     "de la Mora E.",
+     "Sanchez-Puig N."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "25991726"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1074/jbc.m114.626275"
+     }
+    ],
+    "title": "Defective guanine nucleotide exchange in the elongation factor-like 1 (EFL1) GTPase by mutations in the Shwachman-Diamond syndrome protein.",
+    "publicationDate": "2015",
+    "journal": "J. Biol. Chem.",
+    "firstPage": "17669",
+    "lastPage": "17678",
+    "volume": "290"
+   },
+   "referencePositions": [
+    "INTERACTION WITH SBDS; GTP AND GDP"
+   ]
+  },
+  {
+   "referenceNumber": 10,
+   "citation": {
+    "id": "26479198",
+    "citationType": "journal article",
+    "authors": [
+     "Weis F.",
+     "Giudice E.",
+     "Churcher M.",
+     "Jin L.",
+     "Hilcenko C.",
+     "Wong C.C.",
+     "Traynor D.",
+     "Kay R.R.",
+     "Warren A.J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "26479198"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/nsmb.3112"
+     }
+    ],
+    "title": "Mechanism of eIF6 release from the nascent 60S ribosomal subunit.",
+    "publicationDate": "2015",
+    "journal": "Nat. Struct. Mol. Biol.",
+    "firstPage": "914",
+    "lastPage": "919",
+    "volume": "22"
+   },
+   "referencePositions": [
+    "STRUCTURE BY ELECTRON MICROSCOPY (4.10 ANGSTROMS)",
+    "IDENTIFICATION IN A COMPLEX WITH SBDS; 60S RIBOSOMAL SUBUNIT AND EFL1"
+   ]
+  },
+  {
+   "referenceNumber": 11,
+   "citation": {
+    "id": "28331068",
+    "citationType": "journal article",
+    "authors": [
+     "Stepensky P.",
+     "Chacon-Flores M.",
+     "Kim K.H.",
+     "Abuzaitoun O.",
+     "Bautista-Santos A.",
+     "Simanovsky N.",
+     "Siliqi D.",
+     "Altamura D.",
+     "Mendez-Godoy A.",
+     "Gijsbers A.",
+     "Naser Eddin A.",
+     "Dor T.",
+     "Charrow J.",
+     "Sanchez-Puig N.",
+     "Elpeleg O."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "28331068"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1136/jmedgenet-2016-104366"
+     }
+    ],
+    "title": "Mutations in EFL1, an SBDS partner, are associated with infantile pancytopenia, exocrine pancreatic insufficiency and skeletal anomalies in a Shwachman-Diamond like syndrome.",
+    "publicationDate": "2017",
+    "journal": "J. Med. Genet.",
+    "firstPage": "558",
+    "lastPage": "566",
+    "volume": "54"
+   },
+   "referencePositions": [
+    "INVOLVEMENT IN SDS2",
+    "VARIANTS SDS2 LYS-882 AND GLN-1095"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "AK023181",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAB14450.1"
+    },
+    {
+     "key": "Status",
+     "value": "ALT_INIT"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AK300348",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAH13266.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BX538332",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "CAD98101.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AC026624",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AC026956",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS42070.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q7Z2Z2-2"
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS42071.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q7Z2Z2-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001035700.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001040610.3"
+    }
+   ],
+   "isoformId": "Q7Z2Z2-2"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001309774.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001322845.2"
+    }
+   ],
+   "isoformId": "Q7Z2Z2-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_078856.4",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_024580.6"
+    }
+   ],
+   "isoformId": "Q7Z2Z2-1"
+  },
+  {
+   "database": "PDB",
+   "id": "5ANB",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "4.10 A"
+    },
+    {
+     "key": "Chains",
+     "value": "K=1-1120"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "5ANC",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "4.20 A"
+    },
+    {
+     "key": "Chains",
+     "value": "K=1-1120"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "5ANB",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "5ANC",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-3146",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-3147",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "122761",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "82"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "1812"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "29"
+    }
+   ]
+  },
+  {
+   "database": "MINT",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "NDEx",
+   "id": "IQUERY-CP-EFL1",
+   "properties": [
+    {
+     "key": "Evidences",
+     "value": "1 NDEx IQuery Curated Pathway"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000268206",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB03619",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Deoxycholic acid"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB04315",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Guanosine-5'-Diphosphate"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB02750",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "S-(Methylmercury)-L-Cysteine"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "1 site, 1 O-linked glycan (1 site)"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MetOSite",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SwissPalm",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "EFL1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "166232397",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000268206",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "68991",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q7Z2Z2-1"
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "68992",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q7Z2Z2-2"
+  },
+  {
+   "database": "Pumba",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "55408",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "91 antibodies from 18 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "79631",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000268206.12",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000268206.7"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000140598.17"
+    }
+   ],
+   "isoformId": "Q7Z2Z2-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000359445.8",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000352418.3"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000140598.17"
+    }
+   ],
+   "isoformId": "Q7Z2Z2-2"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000696330.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000512564.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000140598.17"
+    }
+   ],
+   "isoformId": "Q7Z2Z2-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000882433.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000552492.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000140598.17"
+    }
+   ],
+   "isoformId": "Q7Z2Z2-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000882434.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000552493.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000140598.17"
+    }
+   ],
+   "isoformId": "Q7Z2Z2-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000912651.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000582710.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000140598.17"
+    }
+   ],
+   "isoformId": "Q7Z2Z2-1"
+  },
+  {
+   "database": "GeneID",
+   "id": "79631",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:79631",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000268206.12",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000268206.7"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_024580.6"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_078856.4"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc002bgt.2",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ],
+   "isoformId": "Q7Z2Z2-1"
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:25789",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA134902221",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "79631",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "79631",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "EFL1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:25789",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "EFL1"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000140598",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Low tissue specificity"
+    }
+   ]
+  },
+  {
+   "database": "MalaCards",
+   "id": "EFL1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "617538",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "617941",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "phenotype"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000140598",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Orphanet",
+   "id": "811",
+   "properties": [
+    {
+     "key": "Disease",
+     "value": "Shwachman-Diamond syndrome"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000140598",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "KOG0467",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00550000074806",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_002794_3_1_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "FARCDIQ",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "364892at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "5 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BRENDA",
+   "id": "3.6.5.3",
+   "properties": [
+    {
+     "key": "OrganismId",
+     "value": "2681"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SIGNOR",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000140598",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "79631",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "711 hits in 1132 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "EFL1",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "EvolutionaryTrace",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "79631",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tbio"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:Q7Z2Z2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 15"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000140598",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in secondary oocyte and 165 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "Q7Z2Z2",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005829",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:cytosol"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:1990904",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:ribonucleoprotein complex"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005525",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:GTP binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:InterPro"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0003924",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:GTPase activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "21536732"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0043022",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:ribosome binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "21536732"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0042256",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:cytosolic ribosome assembly"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "21536732"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0046039",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:GTP metabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "21536732"
+    }
+   ]
+  },
+  {
+   "database": "CDD",
+   "id": "cd01681",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "aeEF2_snRNP_like_IV"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "CDD",
+   "id": "cd04096",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "eEF2_snRNP_like_C"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "CDD",
+   "id": "cd01885",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "EF2"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "CDD",
+   "id": "cd16268",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "EF2_II"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "CDD",
+   "id": "cd16261",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "EF2_snRNP_III"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.30.70.240:FF:000006",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Elongation factor like GTPase 1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.40.50.300:FF:000732",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Elongation factor like GTPase 1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.90.1430.10:FF:000002",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Elongation factor like GTPase 1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "2.40.30.10:FF:000066",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Elongation factor Tu GTP-binding domain-containing protein 1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.30.230.10:FF:000044",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "elongation factor-like GTPase 1 isoform X1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.30.70.870:FF:000002",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Translation elongation factor 2"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.30.230.10",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "-"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.30.70.240",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "-"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.30.70.870",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Elongation Factor G (Translational Gtpase), domain 3"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.40.50.300",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "P-loop containing nucleotide triphosphate hydrolases"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "2.40.30.10",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Translation factors"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.90.1430.10",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Yeast translation eEF2 (G' domain)"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR041095",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "EFG_II"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR035647",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "EFG_III/V"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR000640",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "EFG_V-like"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR056752",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "EFL1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR027417",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "P-loop_NTPase"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR020568",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Ribosomal_Su5_D2-typ_SF"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR014721",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Ribsml_uS5_D2-typ_fold_subgr"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR005225",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Small_GTP-bd"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR000795",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "T_Tr_GTP-bd_dom"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR009000",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Transl_B-barrel_sf"
+    }
+   ]
+  },
+  {
+   "database": "NCBIfam",
+   "id": "TIGR00231",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "small_GTP"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR42908:SF3",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "ELONGATION FACTOR-LIKE GTPASE 1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR42908",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "TRANSLATION ELONGATION FACTOR-RELATED"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF00679",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "EFG_C"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF14492",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "EFG_III"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF25118",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "EFL1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF00009",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GTP_EFTU"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PRINTS",
+   "id": "PR00315",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "ELONGATNFCT"
+    }
+   ]
+  },
+  {
+   "database": "SMART",
+   "id": "SM00838",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "EFG_C"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF54980",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "EF-G C-terminal domain-like"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "2"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF52540",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "P-loop containing nucleoside triphosphate hydrolases"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF54211",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Ribosomal protein S5 domain 2-like"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF50447",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Translation proteins"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS51722",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "G_TR_2"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MVLNSLDKMIQLQKNTANIRNICVLAHVDHGKTTLADCLISSNGIISSRLAGKLRYMDSREDEQIRGITMKSSAISLHYATGNEEYLINLIDSPGHVDFSSEVSTAVRICDGCIIVVDAVEGVCPQTQAVLRQAWLENIRPVLVINKIDRLIVELKFTPQEAYSHLKNILEQINALTGTLFTSKVLEERAERETESQVNPNSEQGEQVYDWSTGLEDTDDSHLYFSPEQGNVVFTSAIDGWGFGIEHFARIYSQKIGIKKEVLMKTLWGDYYINMKAKKIMKGDQAKGKKPLFVQLILENIWSLYDAVLKKDKDKIDKIVTSLGLKIGAREARHSDPKVQINAICSQWLPISHAVLAMVCQKLPSPLDITAERVERLMCTGSQTFDSFPPETQALKAAFMKCGSEDTAPVIIFVSKMFAVDAKALPQNKPRPLTQEEIAQRRERARQRHAEKLAAAQGQAPLEPTQDGSAIETCPKGEEPRGDEQQVESMTPKPVLQEENNQESFIAFARVFSGVARRGKKIFVLGPKYSPLEFLRRVPLGFSAPPDGLPQVPHMAYCALENLYLLMGRELEYLEEVPPGNVLGIGGLQDFVLKSATLCSLPSCPPFIPLNFEATPIVRVAVEPKHPSEMPQLVKGMKLLNQADPCVQILIQETGEHVLVTAGEVHLQRCLDDLKERFAKIHISVSEPIIPFRETITKPPKVDMVNEEIGKQQKVAVIHQMKEDQSKIPEGIQVDSDGLITITTPNKLATLSVRAMPLPEEVTQILEENSDLIRSMEQLTSSLNEGENTHMIHQKTQEKIWEFKGKLEQHLTGRRWRNIVDQIWSFGPRKCGPNILVNKSEDFQNSVWTGPADKASKEASRYRDLGNSIVSGFQLATLSGPMCEEPLMGVCFVLEKWDLSKFEEQGASDLAKEGQEENETCSGGNENQELQDGCSEAFEKRTSQKGESPLTDCYGPFSGQLIATMKEACRYALQVKPQRLMAAMYTCDIMATGDVLGRVYAVLSKREGRVLQEEMKEGTDMFIIKAVLPVAESFGFADEIRKRTSGLASPQLVFSHWEIIPSDPFWVPTTEEEYLHFGEKADSENQARKYMNAVRKRKGLYVEEKIVEHAEKQRTLSKNK",
+  "length": 1120,
+  "molWeight": 125430,
+  "crc64": "CCD765953015F109",
+  "md5": "6F20F6A9CF1EA22F568637A10E730FB8"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "CATALYTIC ACTIVITY": 1,
+   "ACTIVITY REGULATION": 1,
+   "SUBUNIT": 1,
+   "INTERACTION": 1,
+   "ALTERNATIVE PRODUCTS": 2,
+   "TISSUE SPECIFICITY": 1,
+   "DISEASE": 1,
+   "SIMILARITY": 1,
+   "SEQUENCE CAUTION": 1
+  },
+  "countByFeatureType": {
+   "Chain": 1,
+   "Domain": 1,
+   "Region": 2,
+   "Compositional bias": 3,
+   "Binding site": 3,
+   "Modified residue": 1,
+   "Alternative sequence": 1,
+   "Natural variant": 5,
+   "Mutagenesis": 2,
+   "Sequence conflict": 3
+  },
+  "uniParcId": "UPI00001FEA35"
+ }
+}

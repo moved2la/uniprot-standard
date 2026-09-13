@@ -1,0 +1,2118 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "Q3MHD2",
+ "secondaryAccessions": [
+  "Q86YB1",
+  "Q96NL5"
+ ],
+ "uniProtkbId": "LSM12_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "2007-10-02",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2007-10-02",
+  "entryVersion": 144,
+  "sequenceVersion": 2
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "value": "Protein LSM12"
+   }
+  }
+ },
+ "genes": [
+  {
+   "geneName": {
+    "value": "LSM12"
+   }
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "34362892"
+      }
+     ],
+     "value": "Nicotinic acid adenine dinucleotide phosphate (NAADP) binding protein (PubMed:34362892). Confers NAADP sensitivity to the two pore channel complex (TPCs) by acting as TPC accessory protein necessary for NAADP-evoked Ca(2+) release (PubMed:34362892)"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "34362892"
+      }
+     ],
+     "value": "Found in a complex with LSM12, TPCN1 and TPCN2 (PubMed:34362892). Interacts with TPCN2 (PubMed:34362892)"
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "Q3MHD2",
+      "intActId": "EBI-725133"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9Y333",
+      "geneName": "LSM2",
+      "intActId": "EBI-347416"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "Q3MHD2",
+      "intActId": "EBI-725133"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P62310",
+      "geneName": "LSM3",
+      "intActId": "EBI-348239"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "Q3MHD2",
+      "intActId": "EBI-725133"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q96HA8",
+      "geneName": "NTAQ1",
+      "intActId": "EBI-741158"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "note": {
+    "texts": [
+     {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "34362892"
+       }
+      ],
+      "value": "Colocalizes with TPCN2"
+     }
+    ]
+   },
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "34362892"
+       }
+      ],
+      "value": "Cytoplasm",
+      "id": "SL-0086"
+     }
+    }
+   ]
+  },
+  {
+   "commentType": "ALTERNATIVE PRODUCTS",
+   "events": [
+    "Alternative splicing"
+   ],
+   "isoforms": [
+    {
+     "name": {
+      "value": "1"
+     },
+     "isoformIds": [
+      "Q3MHD2-1"
+     ],
+     "isoformSequenceStatus": "Displayed"
+    },
+    {
+     "name": {
+      "value": "2"
+     },
+     "isoformIds": [
+      "Q3MHD2-2"
+     ],
+     "sequenceIds": [
+      "VSP_028241"
+     ],
+     "isoformSequenceStatus": "Described"
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the LSM12 family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  }
+ ],
+ "features": [
+  {
+   "type": "Initiator methionine",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 1,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Removed",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "Reference",
+     "id": "Ref.4"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "19413330"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "22814378"
+    }
+   ]
+  },
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 2,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 195,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Protein LSM12",
+   "featureId": "PRO_0000305126"
+  },
+  {
+   "type": "Domain",
+   "location": {
+    "start": {
+     "value": 2,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 72,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Sm",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255",
+     "source": "PROSITE-ProRule",
+     "id": "PRU01346"
+    }
+   ]
+  },
+  {
+   "type": "Domain",
+   "location": {
+    "start": {
+     "value": 80,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 174,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "AD",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255",
+     "source": "PROSITE-ProRule",
+     "id": "PRU01345"
+    }
+   ]
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 4,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 67,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Required for NAADP and TPCN2 binding",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "34362892"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 2,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 2,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-acetylalanine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "Reference",
+     "id": "Ref.4"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "19413330"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "22814378"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 75,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 75,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphothreonine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "19690332"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "23186163"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "24275569"
+    }
+   ]
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 42,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 42,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 2",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "15489334"
+    }
+   ],
+   "featureId": "VSP_028241",
+   "alternativeSequence": {
+    "originalSequence": "K",
+    "alternativeSequences": [
+     "ISPE"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 77,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 77,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs17854322",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs17854322"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "15489334"
+    }
+   ],
+   "featureId": "VAR_035166",
+   "alternativeSequence": {
+    "originalSequence": "P",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 173,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 173,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs59168537",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs59168537"
+    }
+   ],
+   "featureId": "VAR_062209",
+   "alternativeSequence": {
+    "originalSequence": "V",
+    "alternativeSequences": [
+     "L"
+    ]
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0007",
+   "category": "PTM",
+   "name": "Acetylation"
+  },
+  {
+   "id": "KW-0025",
+   "category": "Coding sequence diversity",
+   "name": "Alternative splicing"
+  },
+  {
+   "id": "KW-0963",
+   "category": "Cellular component",
+   "name": "Cytoplasm"
+  },
+  {
+   "id": "KW-0903",
+   "category": "Technical term",
+   "name": "Direct protein sequencing"
+  },
+  {
+   "id": "KW-0597",
+   "category": "PTM",
+   "name": "Phosphoprotein"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "14702039",
+    "citationType": "journal article",
+    "authors": [
+     "Ota T.",
+     "Suzuki Y.",
+     "Nishikawa T.",
+     "Otsuki T.",
+     "Sugiyama T.",
+     "Irie R.",
+     "Wakamatsu A.",
+     "Hayashi K.",
+     "Sato H.",
+     "Nagai K.",
+     "Kimura K.",
+     "Makita H.",
+     "Sekine M.",
+     "Obayashi M.",
+     "Nishi T.",
+     "Shibahara T.",
+     "Tanaka T.",
+     "Ishii S.",
+     "Yamamoto J.",
+     "Saito K.",
+     "Kawai Y.",
+     "Isono Y.",
+     "Nakamura Y.",
+     "Nagahari K.",
+     "Murakami K.",
+     "Yasuda T.",
+     "Iwayanagi T.",
+     "Wagatsuma M.",
+     "Shiratori A.",
+     "Sudo H.",
+     "Hosoiri T.",
+     "Kaku Y.",
+     "Kodaira H.",
+     "Kondo H.",
+     "Sugawara M.",
+     "Takahashi M.",
+     "Kanda K.",
+     "Yokoi T.",
+     "Furuya T.",
+     "Kikkawa E.",
+     "Omura Y.",
+     "Abe K.",
+     "Kamihara K.",
+     "Katsuta N.",
+     "Sato K.",
+     "Tanikawa M.",
+     "Yamazaki M.",
+     "Ninomiya K.",
+     "Ishibashi T.",
+     "Yamashita H.",
+     "Murakawa K.",
+     "Fujimori K.",
+     "Tanai H.",
+     "Kimata M.",
+     "Watanabe M.",
+     "Hiraoka S.",
+     "Chiba Y.",
+     "Ishida S.",
+     "Ono Y.",
+     "Takiguchi S.",
+     "Watanabe S.",
+     "Yosida M.",
+     "Hotuta T.",
+     "Kusano J.",
+     "Kanehori K.",
+     "Takahashi-Fujii A.",
+     "Hara H.",
+     "Tanase T.-O.",
+     "Nomura Y.",
+     "Togiya S.",
+     "Komai F.",
+     "Hara R.",
+     "Takeuchi K.",
+     "Arita M.",
+     "Imose N.",
+     "Musashino K.",
+     "Yuuki H.",
+     "Oshima A.",
+     "Sasaki N.",
+     "Aotsuka S.",
+     "Yoshikawa Y.",
+     "Matsunawa H.",
+     "Ichihara T.",
+     "Shiohata N.",
+     "Sano S.",
+     "Moriya S.",
+     "Momiyama H.",
+     "Satoh N.",
+     "Takami S.",
+     "Terashima Y.",
+     "Suzuki O.",
+     "Nakagawa S.",
+     "Senoh A.",
+     "Mizoguchi H.",
+     "Goto Y.",
+     "Shimizu F.",
+     "Wakebe H.",
+     "Hishigaki H.",
+     "Watanabe T.",
+     "Sugiyama A.",
+     "Takemoto M.",
+     "Kawakami B.",
+     "Yamazaki M.",
+     "Watanabe K.",
+     "Kumagai A.",
+     "Itakura S.",
+     "Fukuzumi Y.",
+     "Fujimori Y.",
+     "Komiyama M.",
+     "Tashiro H.",
+     "Tanigami A.",
+     "Fujiwara T.",
+     "Ono T.",
+     "Yamada K.",
+     "Fujii Y.",
+     "Ozaki K.",
+     "Hirao M.",
+     "Ohmori Y.",
+     "Kawabata A.",
+     "Hikiji T.",
+     "Kobatake N.",
+     "Inagaki H.",
+     "Ikema Y.",
+     "Okamoto S.",
+     "Okitani R.",
+     "Kawakami T.",
+     "Noguchi S.",
+     "Itoh T.",
+     "Shigeta K.",
+     "Senba T.",
+     "Matsumura K.",
+     "Nakajima Y.",
+     "Mizuno T.",
+     "Morinaga M.",
+     "Sasaki M.",
+     "Togashi T.",
+     "Oyama M.",
+     "Hata H.",
+     "Watanabe M.",
+     "Komatsu T.",
+     "Mizushima-Sugano J.",
+     "Satoh T.",
+     "Shirai Y.",
+     "Takahashi Y.",
+     "Nakagawa K.",
+     "Okumura K.",
+     "Nagase T.",
+     "Nomura N.",
+     "Kikuchi H.",
+     "Masuho Y.",
+     "Yamashita R.",
+     "Nakai K.",
+     "Yada T.",
+     "Nakamura Y.",
+     "Ohara O.",
+     "Isogai T.",
+     "Sugano S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "14702039"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/ng1285"
+     }
+    ],
+    "title": "Complete sequencing and characterization of 21,243 full-length human cDNAs.",
+    "publicationDate": "2004",
+    "journal": "Nat. Genet.",
+    "firstPage": "40",
+    "lastPage": "45",
+    "volume": "36"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 1)"
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "16625196",
+    "citationType": "journal article",
+    "authors": [
+     "Zody M.C.",
+     "Garber M.",
+     "Adams D.J.",
+     "Sharpe T.",
+     "Harrow J.",
+     "Lupski J.R.",
+     "Nicholson C.",
+     "Searle S.M.",
+     "Wilming L.",
+     "Young S.K.",
+     "Abouelleil A.",
+     "Allen N.R.",
+     "Bi W.",
+     "Bloom T.",
+     "Borowsky M.L.",
+     "Bugalter B.E.",
+     "Butler J.",
+     "Chang J.L.",
+     "Chen C.-K.",
+     "Cook A.",
+     "Corum B.",
+     "Cuomo C.A.",
+     "de Jong P.J.",
+     "DeCaprio D.",
+     "Dewar K.",
+     "FitzGerald M.",
+     "Gilbert J.",
+     "Gibson R.",
+     "Gnerre S.",
+     "Goldstein S.",
+     "Grafham D.V.",
+     "Grocock R.",
+     "Hafez N.",
+     "Hagopian D.S.",
+     "Hart E.",
+     "Norman C.H.",
+     "Humphray S.",
+     "Jaffe D.B.",
+     "Jones M.",
+     "Kamal M.",
+     "Khodiyar V.K.",
+     "LaButti K.",
+     "Laird G.",
+     "Lehoczky J.",
+     "Liu X.",
+     "Lokyitsang T.",
+     "Loveland J.",
+     "Lui A.",
+     "Macdonald P.",
+     "Major J.E.",
+     "Matthews L.",
+     "Mauceli E.",
+     "McCarroll S.A.",
+     "Mihalev A.H.",
+     "Mudge J.",
+     "Nguyen C.",
+     "Nicol R.",
+     "O'Leary S.B.",
+     "Osoegawa K.",
+     "Schwartz D.C.",
+     "Shaw-Smith C.",
+     "Stankiewicz P.",
+     "Steward C.",
+     "Swarbreck D.",
+     "Venkataraman V.",
+     "Whittaker C.A.",
+     "Yang X.",
+     "Zimmer A.R.",
+     "Bradley A.",
+     "Hubbard T.",
+     "Birren B.W.",
+     "Rogers J.",
+     "Lander E.S.",
+     "Nusbaum C."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "16625196"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/nature04689"
+     }
+    ],
+    "title": "DNA sequence of human chromosome 17 and analysis of rearrangement in the human lineage.",
+    "publicationDate": "2006",
+    "journal": "Nature",
+    "firstPage": "1045",
+    "lastPage": "1049",
+    "volume": "440"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 1)",
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] OF 1-128 (ISOFORM 2)",
+    "VARIANT ARG-77"
+   ],
+   "referenceComments": [
+    {
+     "value": "Brain",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "CI-F514K8AQPFKCP",
+    "citationType": "submission",
+    "authors": [
+     "Bienvenut W.V.",
+     "Waridel P.",
+     "Quadroni M."
+    ],
+    "publicationDate": "MAR-2009",
+    "submissionDatabase": "UniProtKB"
+   },
+   "referencePositions": [
+    "PROTEIN SEQUENCE OF 2-18; 25-37 AND 73-86",
+    "CLEAVAGE OF INITIATOR METHIONINE",
+    "ACETYLATION AT ALA-2",
+    "IDENTIFICATION BY MASS SPECTROMETRY"
+   ],
+   "referenceComments": [
+    {
+     "value": "Cervix carcinoma",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "19413330",
+    "citationType": "journal article",
+    "authors": [
+     "Gauci S.",
+     "Helbig A.O.",
+     "Slijper M.",
+     "Krijgsveld J.",
+     "Heck A.J.",
+     "Mohammed S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "19413330"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1021/ac9004309"
+     }
+    ],
+    "title": "Lys-N and trypsin cover complementary parts of the phosphoproteome in a refined SCX-based approach.",
+    "publicationDate": "2009",
+    "journal": "Anal. Chem.",
+    "firstPage": "4493",
+    "lastPage": "4501",
+    "volume": "81"
+   },
+   "referencePositions": [
+    "ACETYLATION [LARGE SCALE ANALYSIS] AT ALA-2",
+    "CLEAVAGE OF INITIATOR METHIONINE [LARGE SCALE ANALYSIS]",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 6,
+   "citation": {
+    "id": "19690332",
+    "citationType": "journal article",
+    "authors": [
+     "Mayya V.",
+     "Lundgren D.H.",
+     "Hwang S.-I.",
+     "Rezaul K.",
+     "Wu L.",
+     "Eng J.K.",
+     "Rodionov V.",
+     "Han D.K."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "19690332"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1126/scisignal.2000007"
+     }
+    ],
+    "title": "Quantitative phosphoproteomic analysis of T cell receptor signaling reveals system-wide modulation of protein-protein interactions.",
+    "publicationDate": "2009",
+    "journal": "Sci. Signal.",
+    "firstPage": "RA46",
+    "lastPage": "RA46",
+    "volume": "2"
+   },
+   "referencePositions": [
+    "PHOSPHORYLATION [LARGE SCALE ANALYSIS] AT THR-75",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Leukemic T-cell",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 7,
+   "citation": {
+    "id": "21269460",
+    "citationType": "journal article",
+    "authors": [
+     "Burkard T.R.",
+     "Planyavsky M.",
+     "Kaupe I.",
+     "Breitwieser F.P.",
+     "Buerckstuemmer T.",
+     "Bennett K.L.",
+     "Superti-Furga G.",
+     "Colinge J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "21269460"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1186/1752-0509-5-17"
+     }
+    ],
+    "title": "Initial characterization of the human central proteome.",
+    "publicationDate": "2011",
+    "journal": "BMC Syst. Biol.",
+    "firstPage": "17",
+    "lastPage": "17",
+    "volume": "5"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 8,
+   "citation": {
+    "id": "22814378",
+    "citationType": "journal article",
+    "authors": [
+     "Van Damme P.",
+     "Lasa M.",
+     "Polevoda B.",
+     "Gazquez C.",
+     "Elosegui-Artola A.",
+     "Kim D.S.",
+     "De Juan-Pardo E.",
+     "Demeyer K.",
+     "Hole K.",
+     "Larrea E.",
+     "Timmerman E.",
+     "Prieto J.",
+     "Arnesen T.",
+     "Sherman F.",
+     "Gevaert K.",
+     "Aldabe R."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "22814378"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1073/pnas.1210303109"
+     }
+    ],
+    "title": "N-terminal acetylome analyses and functional insights of the N-terminal acetyltransferase NatB.",
+    "publicationDate": "2012",
+    "journal": "Proc. Natl. Acad. Sci. U.S.A.",
+    "firstPage": "12449",
+    "lastPage": "12454",
+    "volume": "109"
+   },
+   "referencePositions": [
+    "ACETYLATION [LARGE SCALE ANALYSIS] AT ALA-2",
+    "CLEAVAGE OF INITIATOR METHIONINE [LARGE SCALE ANALYSIS]",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 9,
+   "citation": {
+    "id": "23186163",
+    "citationType": "journal article",
+    "authors": [
+     "Zhou H.",
+     "Di Palma S.",
+     "Preisinger C.",
+     "Peng M.",
+     "Polat A.N.",
+     "Heck A.J.",
+     "Mohammed S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "23186163"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1021/pr300630k"
+     }
+    ],
+    "title": "Toward a comprehensive characterization of a human cancer cell phosphoproteome.",
+    "publicationDate": "2013",
+    "journal": "J. Proteome Res.",
+    "firstPage": "260",
+    "lastPage": "271",
+    "volume": "12"
+   },
+   "referencePositions": [
+    "PHOSPHORYLATION [LARGE SCALE ANALYSIS] AT THR-75",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Cervix carcinoma",
+     "type": "TISSUE"
+    },
+    {
+     "value": "Erythroleukemia",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 10,
+   "citation": {
+    "id": "24275569",
+    "citationType": "journal article",
+    "authors": [
+     "Bian Y.",
+     "Song C.",
+     "Cheng K.",
+     "Dong M.",
+     "Wang F.",
+     "Huang J.",
+     "Sun D.",
+     "Wang L.",
+     "Ye M.",
+     "Zou H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "24275569"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.jprot.2013.11.014"
+     }
+    ],
+    "title": "An enzyme assisted RP-RPLC approach for in-depth analysis of human liver phosphoproteome.",
+    "publicationDate": "2014",
+    "journal": "J. Proteomics",
+    "firstPage": "253",
+    "lastPage": "262",
+    "volume": "96"
+   },
+   "referencePositions": [
+    "PHOSPHORYLATION [LARGE SCALE ANALYSIS] AT THR-75",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Liver",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 11,
+   "citation": {
+    "id": "34362892",
+    "citationType": "journal article",
+    "authors": [
+     "Zhang J.",
+     "Guan X.",
+     "Shah K.",
+     "Yan J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "34362892"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/s41467-021-24735-z"
+     }
+    ],
+    "title": "Lsm12 is an NAADP receptor and a two-pore channel regulatory protein required for calcium mobilization from acidic organelles.",
+    "publicationDate": "2021",
+    "journal": "Nat. Commun.",
+    "firstPage": "4739",
+    "lastPage": "4739",
+    "volume": "12"
+   },
+   "referencePositions": [
+    "FUNCTION",
+    "SUBCELLULAR LOCATION",
+    "SUBUNIT",
+    "MASS SPECTROMETRY",
+    "INTERACTION WITH TPCN2"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "AK055218",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAB70877.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AC023855",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "KF456277",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC044587",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH44587.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC105288",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAI05289.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS11475.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q3MHD2-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001358374.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001371445.1"
+    }
+   ],
+   "isoformId": "Q3MHD2-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_689557.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_152344.4"
+    }
+   ],
+   "isoformId": "Q3MHD2-1"
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "Q3MHD2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "125889",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "186"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "Q3MHD2",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "1496"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "Q3MHD2",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "66"
+    }
+   ]
+  },
+  {
+   "database": "MINT",
+   "id": "Q3MHD2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "NDEx",
+   "id": "IQUERY-CP-LSM12",
+   "properties": [
+    {
+     "key": "Evidences",
+     "value": "1 NDEx IQuery Curated Pathway"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000466718",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BindingDB",
+   "id": "Q3MHD2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ChEMBL",
+   "id": "CHEMBL4295839",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "TCDB",
+   "id": "8.A.243.1.1",
+   "properties": [
+    {
+     "key": "FamilyName",
+     "value": "the nppdp-binding protein, lsm12 (lsm12) family"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "Q3MHD2",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "1 site, 1 O-linked glycan (1 site)"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "Q3MHD2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "Q3MHD2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "LSM12",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "158705881",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "Q3MHD2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "Q3MHD2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000466718",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "Q3MHD2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "61781",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q3MHD2-1"
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "61782",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q3MHD2-2"
+  },
+  {
+   "database": "Pumba",
+   "id": "Q3MHD2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "29665",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "95 antibodies from 23 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "124801",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000293406.8",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000293406.3"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000161654.11"
+    }
+   ],
+   "isoformId": "Q3MHD2-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000591247.6",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000466718.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000161654.11"
+    }
+   ],
+   "isoformId": "Q3MHD2-1"
+  },
+  {
+   "database": "GeneID",
+   "id": "124801",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:124801",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000293406.8",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000293406.3"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_001371445.1"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_001358374.1"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc002iev.3",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ],
+   "isoformId": "Q3MHD2-1"
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:26407",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA142671502",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "124801",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "124801",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "LSM12",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:26407",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "LSM12"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000161654",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Low tissue specificity"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "611793",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000161654",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000161654",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "KOG4401",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00390000006956",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_073383_3_0_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "Q3MHD2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "FEGELYC",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "1057137at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "Q3MHD2",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "0 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "Q3MHD2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "Q3MHD2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "Q3MHD2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000161654",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "124801",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "250 hits in 1156 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "CD-CODE",
+   "id": "232F8A39",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "P-body"
+    }
+   ]
+  },
+  {
+   "database": "CD-CODE",
+   "id": "DEE660B4",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Stress granule"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "LSM12",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "124801",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "Q3MHD2",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tbio"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:Q3MHD2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 17"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "Q3MHD2",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000161654",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in gingival epithelium and 206 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "Q3MHD2",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005737",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:cytoplasm"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "34362892"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0003723",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:RNA binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:InterPro"
+    }
+   ]
+  },
+  {
+   "database": "CDD",
+   "id": "cd01735",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "LSm12_N"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR047574",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "AD"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR039683",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Lsm12-like"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR019181",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "LSM12_ABD"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR048478",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "LSM12_LSM"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR047575",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Sm"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR13542",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "LSM12 HOMOLOG"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF09793",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "AD"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF21166",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "LSM12_LSM"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SMART",
+   "id": "SM00995",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "AD"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS52001",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "AD"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS52002",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SM"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MAAPPGEYFSVGSQVSCRTCQEQRLQGEVVAFDYQSKMLALKCPSSSGKPNHADILLINLQYVSEVEIINDRTETPPPLASLNVSKLASKARTEKEEKLSQAYAISAGVSLEGQQLFQTIHKTIKDCKWQEKNIVVMEEVVITPPYQVENCKGKEGSALSHVRKIVEKHFRDVESQKILQRSQAQQPQKEAALSS",
+  "length": 195,
+  "molWeight": 21701,
+  "crc64": "BCEDE62DA43D86C7",
+  "md5": "AFE45F821945B991291997F7316A6920"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "SUBUNIT": 1,
+   "INTERACTION": 3,
+   "SUBCELLULAR LOCATION": 1,
+   "ALTERNATIVE PRODUCTS": 2,
+   "SIMILARITY": 1
+  },
+  "countByFeatureType": {
+   "Initiator methionine": 1,
+   "Chain": 1,
+   "Domain": 2,
+   "Region": 1,
+   "Modified residue": 2,
+   "Alternative sequence": 1,
+   "Natural variant": 2
+  },
+  "uniParcId": "UPI0000021A76"
+ }
+}

@@ -1,0 +1,1766 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "O95336",
+ "uniProtkbId": "6PGL_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "2000-05-30",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2000-05-30",
+  "entryVersion": 194,
+  "sequenceVersion": 2
+ },
+ "annotationScore": 4.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000305"
+     }
+    ],
+    "value": "6-phosphogluconolactonase"
+   },
+   "shortNames": [
+    {
+     "value": "6PGL"
+    }
+   ],
+   "ecNumbers": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "10518023"
+      }
+     ],
+     "value": "3.1.1.31"
+    }
+   ]
+  }
+ },
+ "genes": [
+  {
+   "geneName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000312",
+      "source": "HGNC",
+      "id": "HGNC:8903"
+     }
+    ],
+    "value": "PGLS"
+   }
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "10518023"
+      }
+     ],
+     "value": "Hydrolysis of 6-phosphogluconolactone to 6-phosphogluconate"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "6-phospho-D-glucono-1,5-lactone + H2O = 6-phospho-D-gluconate + H(+)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:12556"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15378"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57955"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:58759"
+     }
+    ],
+    "ecNumber": "3.1.1.31",
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "10518023"
+     }
+    ]
+   }
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "10518023"
+      }
+     ],
+     "value": "Carbohydrate degradation; pentose phosphate pathway; D-ribulose 5-phosphate from D-glucose 6-phosphate (oxidative stage): step 2/3"
+    }
+   ],
+   "commentType": "PATHWAY"
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "O95336",
+      "intActId": "EBI-11307753"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q13867",
+      "geneName": "BLMH",
+      "intActId": "EBI-718504"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "O95336",
+      "intActId": "EBI-11307753"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9NYB0",
+      "geneName": "TERF2IP",
+      "intActId": "EBI-750109"
+     },
+     "numberOfExperiments": 2,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000250"
+       }
+      ],
+      "value": "Cytoplasm",
+      "id": "SL-0086"
+     }
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the glucosamine/galactosamine-6-phosphate isomerase family. 6-phosphogluconolactonase subfamily"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  },
+  {
+   "commentType": "SEQUENCE CAUTION",
+   "sequenceCautionType": "Erroneous initiation",
+   "sequence": "AAC72960.1",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ]
+  }
+ ],
+ "features": [
+  {
+   "type": "Initiator methionine",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 1,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Removed",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "19413330"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "25944712"
+    }
+   ]
+  },
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 2,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 258,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "6-phosphogluconolactonase",
+   "featureId": "PRO_0000090078"
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 2,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 2,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-acetylalanine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "19413330"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "25944712"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 49,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 49,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "24275569"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 180,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 180,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-acetyllysine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "19608861"
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0007",
+   "category": "PTM",
+   "name": "Acetylation"
+  },
+  {
+   "id": "KW-0963",
+   "category": "Cellular component",
+   "name": "Cytoplasm"
+  },
+  {
+   "id": "KW-0903",
+   "category": "Technical term",
+   "name": "Direct protein sequencing"
+  },
+  {
+   "id": "KW-0378",
+   "category": "Molecular function",
+   "name": "Hydrolase"
+  },
+  {
+   "id": "KW-0597",
+   "category": "PTM",
+   "name": "Phosphoprotein"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "10518023",
+    "citationType": "journal article",
+    "authors": [
+     "Collard F.",
+     "Collet J.-F.",
+     "Gerin I.",
+     "Veiga-da-Cunha M.",
+     "van Schaftingen E."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "10518023"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/s0014-5793(99)01247-8"
+     }
+    ],
+    "title": "Identification of the cDNA encoding human 6-phosphogluconolactonase, the enzyme catalyzing the second step of the pentose phosphate pathway.",
+    "publicationDate": "1999",
+    "journal": "FEBS Lett.",
+    "firstPage": "223",
+    "lastPage": "226",
+    "volume": "459"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA]",
+    "CATALYTIC ACTIVITY",
+    "FUNCTION"
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Uterus",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "CI-5JLPE8IQ42OFK",
+    "citationType": "submission",
+    "authors": [
+     "Lubec G.",
+     "Vishwanath V.",
+     "Chen W.-Q.",
+     "Sun Y."
+    ],
+    "publicationDate": "DEC-2008",
+    "submissionDatabase": "UniProtKB"
+   },
+   "referencePositions": [
+    "PROTEIN SEQUENCE OF 41-72 AND 82-96",
+    "IDENTIFICATION BY MASS SPECTROMETRY"
+   ],
+   "referenceComments": [
+    {
+     "value": "Brain",
+     "type": "TISSUE"
+    },
+    {
+     "value": "Cajal-Retzius cell",
+     "type": "TISSUE"
+    },
+    {
+     "value": "Fetal brain cortex",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "CI-63F1QSMOCD1M0",
+    "citationType": "submission",
+    "authors": [
+     "Barrow I.K.-P.",
+     "Boguski M.S.",
+     "Touchman J.W.",
+     "Spencer F."
+    ],
+    "title": "Full-insert sequence of mapped XREF EST.",
+    "publicationDate": "AUG-1998",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] OF 97-242"
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "19413330",
+    "citationType": "journal article",
+    "authors": [
+     "Gauci S.",
+     "Helbig A.O.",
+     "Slijper M.",
+     "Krijgsveld J.",
+     "Heck A.J.",
+     "Mohammed S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "19413330"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1021/ac9004309"
+     }
+    ],
+    "title": "Lys-N and trypsin cover complementary parts of the phosphoproteome in a refined SCX-based approach.",
+    "publicationDate": "2009",
+    "journal": "Anal. Chem.",
+    "firstPage": "4493",
+    "lastPage": "4501",
+    "volume": "81"
+   },
+   "referencePositions": [
+    "ACETYLATION [LARGE SCALE ANALYSIS] AT ALA-2",
+    "CLEAVAGE OF INITIATOR METHIONINE [LARGE SCALE ANALYSIS]",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 6,
+   "citation": {
+    "id": "19608861",
+    "citationType": "journal article",
+    "authors": [
+     "Choudhary C.",
+     "Kumar C.",
+     "Gnad F.",
+     "Nielsen M.L.",
+     "Rehman M.",
+     "Walther T.C.",
+     "Olsen J.V.",
+     "Mann M."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "19608861"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1126/science.1175371"
+     }
+    ],
+    "title": "Lysine acetylation targets protein complexes and co-regulates major cellular functions.",
+    "publicationDate": "2009",
+    "journal": "Science",
+    "firstPage": "834",
+    "lastPage": "840",
+    "volume": "325"
+   },
+   "referencePositions": [
+    "ACETYLATION [LARGE SCALE ANALYSIS] AT LYS-180",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 7,
+   "citation": {
+    "id": "21269460",
+    "citationType": "journal article",
+    "authors": [
+     "Burkard T.R.",
+     "Planyavsky M.",
+     "Kaupe I.",
+     "Breitwieser F.P.",
+     "Buerckstuemmer T.",
+     "Bennett K.L.",
+     "Superti-Furga G.",
+     "Colinge J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "21269460"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1186/1752-0509-5-17"
+     }
+    ],
+    "title": "Initial characterization of the human central proteome.",
+    "publicationDate": "2011",
+    "journal": "BMC Syst. Biol.",
+    "firstPage": "17",
+    "lastPage": "17",
+    "volume": "5"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 8,
+   "citation": {
+    "id": "24275569",
+    "citationType": "journal article",
+    "authors": [
+     "Bian Y.",
+     "Song C.",
+     "Cheng K.",
+     "Dong M.",
+     "Wang F.",
+     "Huang J.",
+     "Sun D.",
+     "Wang L.",
+     "Ye M.",
+     "Zou H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "24275569"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.jprot.2013.11.014"
+     }
+    ],
+    "title": "An enzyme assisted RP-RPLC approach for in-depth analysis of human liver phosphoproteome.",
+    "publicationDate": "2014",
+    "journal": "J. Proteomics",
+    "firstPage": "253",
+    "lastPage": "262",
+    "volume": "96"
+   },
+   "referencePositions": [
+    "PHOSPHORYLATION [LARGE SCALE ANALYSIS] AT SER-49",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Liver",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 9,
+   "citation": {
+    "id": "25944712",
+    "citationType": "journal article",
+    "authors": [
+     "Vaca Jacome A.S.",
+     "Rabilloud T.",
+     "Schaeffer-Reiss C.",
+     "Rompais M.",
+     "Ayoub D.",
+     "Lane L.",
+     "Bairoch A.",
+     "Van Dorsselaer A.",
+     "Carapito C."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "25944712"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1002/pmic.201400617"
+     }
+    ],
+    "title": "N-terminome analysis of the human mitochondrial proteome.",
+    "publicationDate": "2015",
+    "journal": "Proteomics",
+    "firstPage": "2519",
+    "lastPage": "2524",
+    "volume": "15"
+   },
+   "referencePositions": [
+    "ACETYLATION [LARGE SCALE ANALYSIS] AT ALA-2",
+    "CLEAVAGE OF INITIATOR METHIONINE [LARGE SCALE ANALYSIS]",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "AJ243972",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "CAB57866.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC014006",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH14006.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AF091091",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAC72960.1"
+    },
+    {
+     "key": "Status",
+     "value": "ALT_INIT"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS12361.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_036220.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_012088.3"
+    }
+   ]
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "117328",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "84"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "1193"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "16"
+    }
+   ]
+  },
+  {
+   "database": "NDEx",
+   "id": "IQUERY-CP-PGLS",
+   "properties": [
+    {
+     "key": "Evidences",
+     "value": "2 NDEx IQuery Curated Pathways"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000252603",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BindingDB",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ChEMBL",
+   "id": "CHEMBL5724745",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GlyCosmos",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "1 site, 2 glycans"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "1 site, 2 O-linked glycans (1 site)"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SwissPalm",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "PGLS",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OGP",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "REPRODUCTION-2DPAGE",
+   "id": "IPI00029997",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CPTAC",
+   "id": "CPTAC-2712",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000252603",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "50807",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pumba",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "TopDownProteomics",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "27708",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "212 antibodies from 32 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "25796",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000252603.7",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000252603.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000130313.8"
+    }
+   ]
+  },
+  {
+   "database": "GeneID",
+   "id": "25796",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:25796",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000252603.7",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000252603.1"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_012088.3"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_036220.1"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc002ngw.4",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:8903",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA33240",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "25796",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "25796",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "PGLS",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:8903",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "PGLS"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000130313",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Low tissue specificity"
+    }
+   ]
+  },
+  {
+   "database": "MalaCards",
+   "id": "PGLS",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "604951",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000130313",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000130313",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "KOG3147",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00550000075110",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_053947_0_2_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "YQLFEFE",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "432544at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "3 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioCyc",
+   "id": "MetaCyc:HS05370-MONOMER",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BRENDA",
+   "id": "3.1.1.31",
+   "properties": [
+    {
+     "key": "OrganismId",
+     "value": "2681"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-71336",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Pentose phosphate pathway"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SIGNOR",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "UniPathway",
+   "id": "UPA00115",
+   "properties": [
+    {
+     "key": "RectionId",
+     "value": "UER00409"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000130313",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "Agora Nominated Target for Alzheimer's Disease"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "25796",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "76 hits in 1151 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "CD-CODE",
+   "id": "91857CE7",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Nucleolus"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "PGLS",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "25796",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tbio"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:O95336",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 19"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000130313",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in granulocyte and 194 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "O95336",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005829",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:cytosol"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:HPA"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0070062",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:extracellular exosome"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "HDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007005",
+     "source": "PubMed",
+     "id": "19056867"
+    },
+    {
+     "evidenceCode": "ECO:0007005",
+     "source": "PubMed",
+     "id": "23533145"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005654",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:nucleoplasm"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:HPA"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0017057",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:6-phosphogluconolactonase activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "10518023"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005975",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:carbohydrate metabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:InterPro"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0006098",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:pentose-phosphate shunt"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "10518023"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0009051",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:pentose-phosphate shunt, oxidative branch"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:MGI"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "31586547"
+    }
+   ]
+  },
+  {
+   "database": "CDD",
+   "id": "cd01400",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "6PGL"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.40.50.1360:FF:000005",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "6-phosphogluconolactonase"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.40.50.1360",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "-"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR005900",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "6-phosphogluconolactonase_DevB"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR039104",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "6PGL"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR006148",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Glc/Gal-6P_isomerase"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR037171",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NagB/RpiA_transferase-like"
+    }
+   ]
+  },
+  {
+   "database": "NCBIfam",
+   "id": "TIGR01198",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "pgl"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR11054",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "6-PHOSPHOGLUCONOLACTONASE"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR11054:SF0",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "6-PHOSPHOGLUCONOLACTONASE"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF01182",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Glucosamine_iso"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF100950",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NagB/RpiA/CoA transferase-like"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MAAPAPGLISVFSSSQELGAALAQLVAQRAACCLAGARARFALGLSGGSLVSMLARELPAAVAPAGPASLARWTLGFCDERLVPFDHAESTYGLYRTHLLSRLPIPESQVITINPELPVEEAAEDYAKKLRQAFQGDSIPVFDLLILGVGPDGHTCSLFPDHPLLQEREKIVAPISDSPKPPPQRVTLTLPVLNAARTVIFVATGEGKAAVLKRILEDQEENPLPAALVQPHTGKLCWFLDEAAARLLTVPFEKHSTL",
+  "length": 258,
+  "molWeight": 27547,
+  "crc64": "A753FB7E662116DD",
+  "md5": "0E2693072BBE5C67FD3A2772487F3900"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "CATALYTIC ACTIVITY": 1,
+   "PATHWAY": 1,
+   "INTERACTION": 2,
+   "SUBCELLULAR LOCATION": 1,
+   "SIMILARITY": 1,
+   "SEQUENCE CAUTION": 1
+  },
+  "countByFeatureType": {
+   "Initiator methionine": 1,
+   "Chain": 1,
+   "Modified residue": 3
+  },
+  "uniParcId": "UPI0000124F8A"
+ }
+}

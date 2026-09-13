@@ -1,0 +1,2121 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "Q00G26",
+ "secondaryAccessions": [
+  "A2RRC1",
+  "Q6ZS68"
+ ],
+ "uniProtkbId": "PLIN5_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "2008-06-10",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2010-03-23",
+  "entryVersion": 131,
+  "sequenceVersion": 2
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "value": "Perilipin-5"
+   }
+  },
+  "alternativeNames": [
+   {
+    "fullName": {
+     "value": "Lipid storage droplet protein 5"
+    }
+   }
+  ]
+ },
+ "genes": [
+  {
+   "geneName": {
+    "value": "PLIN5"
+   },
+   "synonyms": [
+    {
+     "value": "LSDP5"
+    },
+    {
+     "value": "OXPAT"
+    },
+    {
+     "value": "PAT-1"
+    }
+   ]
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "17234449"
+      }
+     ],
+     "value": "Lipid droplet-associated protein that maintains the balance between lipogenesis and lipolysis and also regulates fatty acid oxidation in oxidative tissues. Recruits mitochondria to the surface of lipid droplets and is involved in lipid droplet homeostasis by regulating both the storage of fatty acids in the form of triglycerides and the release of fatty acids for mitochondrial fatty acid oxidation. In lipid droplet triacylglycerol hydrolysis, plays a role as a scaffolding protein for three major key lipolytic players: ABHD5, PNPLA2 and LIPE. Reduces the triacylglycerol hydrolase activity of PNPLA2 by recruiting and sequestering PNPLA2 to lipid droplets. Phosphorylation by PKA enables lipolysis probably by promoting release of ABHD5 from the perilipin scaffold and by facilitating interaction of ABHD5 with PNPLA2. Also increases lipolysis through interaction with LIPE and upon PKA-mediated phosphorylation of LIPE (By similarity)"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250"
+      }
+     ],
+     "value": "Homooligomer. Interacts with PNPLA2; prevents interaction of PNPLA2 with ABHD5. Interacts with ABHD5; targets ABHD5 to lipid droplets and promotes interaction of ABHD5 with PNPLA2. Interacts with LIPE (By similarity)"
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "Q00G26",
+      "intActId": "EBI-21732470"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q8WTS1",
+      "geneName": "ABHD5",
+      "intActId": "EBI-2813554"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "note": {
+    "texts": [
+     {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000250",
+        "source": "UniProtKB",
+        "id": "Q8BVZ1"
+       }
+      ],
+      "value": "Lipid droplet surface-associated. Exchanges between lipid droplets and the cytoplasm"
+     }
+    ]
+   },
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "17234449"
+       }
+      ],
+      "value": "Lipid droplet",
+      "id": "SL-0154"
+     }
+    },
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000250",
+        "source": "UniProtKB",
+        "id": "Q8BVZ1"
+       }
+      ],
+      "value": "Cytoplasm",
+      "id": "SL-0086"
+     }
+    },
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000250",
+        "source": "UniProtKB",
+        "id": "M0R7Z9"
+       }
+      ],
+      "value": "Mitochondrion",
+      "id": "SL-0173"
+     }
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "17234449"
+      }
+     ],
+     "value": "Expressed in skeletal muscle, liver, heart and kidney"
+    }
+   ],
+   "commentType": "TISSUE SPECIFICITY"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "23129790"
+      }
+     ],
+     "value": "Increased by endurance and sprint interval training"
+    }
+   ],
+   "commentType": "INDUCTION"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250"
+      }
+     ],
+     "value": "Phosphorylated by PKA. Phosphorylated on serine in skeletal muscle at rest or upon lipolytic stimulation (By similarity)"
+    }
+   ],
+   "commentType": "PTM"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the perilipin family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  },
+  {
+   "commentType": "SEQUENCE CAUTION",
+   "sequenceCautionType": "Miscellaneous discrepancy",
+   "sequence": "BAC87086.1",
+   "note": "Probable cloning artifact.",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ]
+  }
+ ],
+ "features": [
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 463,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Perilipin-5",
+   "featureId": "PRO_0000338982"
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 173,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Essential for lipid droplet targeting",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250"
+    }
+   ]
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 108,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Interaction with LIPE",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250"
+    }
+   ]
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 185,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 463,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Interaction with PNPLA2 and ABHD5",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250"
+    }
+   ]
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 444,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 463,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Recruits mitochondria at the lipid droplet surface",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 2,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 2,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q8BVZ1"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 148,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 148,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q8BVZ1"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 322,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 322,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "24275569"
+    }
+   ]
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 6,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 6,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs10407239",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs10407239"
+    }
+   ],
+   "featureId": "VAR_043850",
+   "alternativeSequence": {
+    "originalSequence": "A",
+    "alternativeSequences": [
+     "V"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 255,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 255,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs1610090",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs1610090"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "15489334"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "17234449"
+    }
+   ],
+   "featureId": "VAR_043851",
+   "alternativeSequence": {
+    "originalSequence": "C",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 306,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 306,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs1062223",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs1062223"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "17234449"
+    }
+   ],
+   "featureId": "VAR_043852",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "W"
+    ]
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0963",
+   "category": "Cellular component",
+   "name": "Cytoplasm"
+  },
+  {
+   "id": "KW-0551",
+   "category": "Cellular component",
+   "name": "Lipid droplet"
+  },
+  {
+   "id": "KW-0496",
+   "category": "Cellular component",
+   "name": "Mitochondrion"
+  },
+  {
+   "id": "KW-0597",
+   "category": "PTM",
+   "name": "Phosphoprotein"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "17234449",
+    "citationType": "journal article",
+    "authors": [
+     "Dalen K.T.",
+     "Dahl T.",
+     "Holter E.",
+     "Arntsen B.",
+     "Londos C.",
+     "Sztalryd C.",
+     "Nebb H.I."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "17234449"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.bbalip.2006.11.011"
+     }
+    ],
+    "title": "LSDP5 is a PAT protein specifically expressed in fatty acid oxidizing tissues.",
+    "publicationDate": "2007",
+    "journal": "Biochim. Biophys. Acta",
+    "firstPage": "210",
+    "lastPage": "227",
+    "volume": "1771"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA]",
+    "FUNCTION",
+    "TISSUE SPECIFICITY",
+    "SUBCELLULAR LOCATION",
+    "VARIANTS ARG-255 AND TRP-306"
+   ],
+   "referenceComments": [
+    {
+     "value": "Heart",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "15057824",
+    "citationType": "journal article",
+    "authors": [
+     "Grimwood J.",
+     "Gordon L.A.",
+     "Olsen A.S.",
+     "Terry A.",
+     "Schmutz J.",
+     "Lamerdin J.E.",
+     "Hellsten U.",
+     "Goodstein D.",
+     "Couronne O.",
+     "Tran-Gyamfi M.",
+     "Aerts A.",
+     "Altherr M.",
+     "Ashworth L.",
+     "Bajorek E.",
+     "Black S.",
+     "Branscomb E.",
+     "Caenepeel S.",
+     "Carrano A.V.",
+     "Caoile C.",
+     "Chan Y.M.",
+     "Christensen M.",
+     "Cleland C.A.",
+     "Copeland A.",
+     "Dalin E.",
+     "Dehal P.",
+     "Denys M.",
+     "Detter J.C.",
+     "Escobar J.",
+     "Flowers D.",
+     "Fotopulos D.",
+     "Garcia C.",
+     "Georgescu A.M.",
+     "Glavina T.",
+     "Gomez M.",
+     "Gonzales E.",
+     "Groza M.",
+     "Hammon N.",
+     "Hawkins T.",
+     "Haydu L.",
+     "Ho I.",
+     "Huang W.",
+     "Israni S.",
+     "Jett J.",
+     "Kadner K.",
+     "Kimball H.",
+     "Kobayashi A.",
+     "Larionov V.",
+     "Leem S.-H.",
+     "Lopez F.",
+     "Lou Y.",
+     "Lowry S.",
+     "Malfatti S.",
+     "Martinez D.",
+     "McCready P.M.",
+     "Medina C.",
+     "Morgan J.",
+     "Nelson K.",
+     "Nolan M.",
+     "Ovcharenko I.",
+     "Pitluck S.",
+     "Pollard M.",
+     "Popkie A.P.",
+     "Predki P.",
+     "Quan G.",
+     "Ramirez L.",
+     "Rash S.",
+     "Retterer J.",
+     "Rodriguez A.",
+     "Rogers S.",
+     "Salamov A.",
+     "Salazar A.",
+     "She X.",
+     "Smith D.",
+     "Slezak T.",
+     "Solovyev V.",
+     "Thayer N.",
+     "Tice H.",
+     "Tsai M.",
+     "Ustaszewska A.",
+     "Vo N.",
+     "Wagner M.",
+     "Wheeler J.",
+     "Wu K.",
+     "Xie G.",
+     "Yang J.",
+     "Dubchak I.",
+     "Furey T.S.",
+     "DeJong P.",
+     "Dickson M.",
+     "Gordon D.",
+     "Eichler E.E.",
+     "Pennacchio L.A.",
+     "Richardson P.",
+     "Stubbs L.",
+     "Rokhsar D.S.",
+     "Myers R.M.",
+     "Rubin E.M.",
+     "Lucas S.M."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15057824"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/nature02399"
+     }
+    ],
+    "title": "The DNA sequence and biology of human chromosome 19.",
+    "publicationDate": "2004",
+    "journal": "Nature",
+    "firstPage": "529",
+    "lastPage": "535",
+    "volume": "428"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]",
+    "VARIANT ARG-255"
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "14702039",
+    "citationType": "journal article",
+    "authors": [
+     "Ota T.",
+     "Suzuki Y.",
+     "Nishikawa T.",
+     "Otsuki T.",
+     "Sugiyama T.",
+     "Irie R.",
+     "Wakamatsu A.",
+     "Hayashi K.",
+     "Sato H.",
+     "Nagai K.",
+     "Kimura K.",
+     "Makita H.",
+     "Sekine M.",
+     "Obayashi M.",
+     "Nishi T.",
+     "Shibahara T.",
+     "Tanaka T.",
+     "Ishii S.",
+     "Yamamoto J.",
+     "Saito K.",
+     "Kawai Y.",
+     "Isono Y.",
+     "Nakamura Y.",
+     "Nagahari K.",
+     "Murakami K.",
+     "Yasuda T.",
+     "Iwayanagi T.",
+     "Wagatsuma M.",
+     "Shiratori A.",
+     "Sudo H.",
+     "Hosoiri T.",
+     "Kaku Y.",
+     "Kodaira H.",
+     "Kondo H.",
+     "Sugawara M.",
+     "Takahashi M.",
+     "Kanda K.",
+     "Yokoi T.",
+     "Furuya T.",
+     "Kikkawa E.",
+     "Omura Y.",
+     "Abe K.",
+     "Kamihara K.",
+     "Katsuta N.",
+     "Sato K.",
+     "Tanikawa M.",
+     "Yamazaki M.",
+     "Ninomiya K.",
+     "Ishibashi T.",
+     "Yamashita H.",
+     "Murakawa K.",
+     "Fujimori K.",
+     "Tanai H.",
+     "Kimata M.",
+     "Watanabe M.",
+     "Hiraoka S.",
+     "Chiba Y.",
+     "Ishida S.",
+     "Ono Y.",
+     "Takiguchi S.",
+     "Watanabe S.",
+     "Yosida M.",
+     "Hotuta T.",
+     "Kusano J.",
+     "Kanehori K.",
+     "Takahashi-Fujii A.",
+     "Hara H.",
+     "Tanase T.-O.",
+     "Nomura Y.",
+     "Togiya S.",
+     "Komai F.",
+     "Hara R.",
+     "Takeuchi K.",
+     "Arita M.",
+     "Imose N.",
+     "Musashino K.",
+     "Yuuki H.",
+     "Oshima A.",
+     "Sasaki N.",
+     "Aotsuka S.",
+     "Yoshikawa Y.",
+     "Matsunawa H.",
+     "Ichihara T.",
+     "Shiohata N.",
+     "Sano S.",
+     "Moriya S.",
+     "Momiyama H.",
+     "Satoh N.",
+     "Takami S.",
+     "Terashima Y.",
+     "Suzuki O.",
+     "Nakagawa S.",
+     "Senoh A.",
+     "Mizoguchi H.",
+     "Goto Y.",
+     "Shimizu F.",
+     "Wakebe H.",
+     "Hishigaki H.",
+     "Watanabe T.",
+     "Sugiyama A.",
+     "Takemoto M.",
+     "Kawakami B.",
+     "Yamazaki M.",
+     "Watanabe K.",
+     "Kumagai A.",
+     "Itakura S.",
+     "Fukuzumi Y.",
+     "Fujimori Y.",
+     "Komiyama M.",
+     "Tashiro H.",
+     "Tanigami A.",
+     "Fujiwara T.",
+     "Ono T.",
+     "Yamada K.",
+     "Fujii Y.",
+     "Ozaki K.",
+     "Hirao M.",
+     "Ohmori Y.",
+     "Kawabata A.",
+     "Hikiji T.",
+     "Kobatake N.",
+     "Inagaki H.",
+     "Ikema Y.",
+     "Okamoto S.",
+     "Okitani R.",
+     "Kawakami T.",
+     "Noguchi S.",
+     "Itoh T.",
+     "Shigeta K.",
+     "Senba T.",
+     "Matsumura K.",
+     "Nakajima Y.",
+     "Mizuno T.",
+     "Morinaga M.",
+     "Sasaki M.",
+     "Togashi T.",
+     "Oyama M.",
+     "Hata H.",
+     "Watanabe M.",
+     "Komatsu T.",
+     "Mizushima-Sugano J.",
+     "Satoh T.",
+     "Shirai Y.",
+     "Takahashi Y.",
+     "Nakagawa K.",
+     "Okumura K.",
+     "Nagase T.",
+     "Nomura N.",
+     "Kikuchi H.",
+     "Masuho Y.",
+     "Yamashita R.",
+     "Nakai K.",
+     "Yada T.",
+     "Nakamura Y.",
+     "Ohara O.",
+     "Isogai T.",
+     "Sugano S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "14702039"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/ng1285"
+     }
+    ],
+    "title": "Complete sequencing and characterization of 21,243 full-length human cDNAs.",
+    "publicationDate": "2004",
+    "journal": "Nat. Genet.",
+    "firstPage": "40",
+    "lastPage": "45",
+    "volume": "36"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] OF 1-114"
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "23129790",
+    "citationType": "journal article",
+    "authors": [
+     "Shepherd S.O.",
+     "Cocks M.",
+     "Tipton K.D.",
+     "Ranasinghe A.M.",
+     "Barker T.A.",
+     "Burniston J.G.",
+     "Wagenmakers A.J.",
+     "Shaw C.S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "23129790"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1113/jphysiol.2012.240952"
+     }
+    ],
+    "title": "Sprint interval and traditional endurance training increase net intramuscular triglyceride breakdown and expression of perilipin 2 and 5.",
+    "publicationDate": "2013",
+    "journal": "J. Physiol. (Lond.)",
+    "firstPage": "657",
+    "lastPage": "675",
+    "volume": "591"
+   },
+   "referencePositions": [
+    "INDUCTION"
+   ]
+  },
+  {
+   "referenceNumber": 6,
+   "citation": {
+    "id": "24275569",
+    "citationType": "journal article",
+    "authors": [
+     "Bian Y.",
+     "Song C.",
+     "Cheng K.",
+     "Dong M.",
+     "Wang F.",
+     "Huang J.",
+     "Sun D.",
+     "Wang L.",
+     "Ye M.",
+     "Zou H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "24275569"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.jprot.2013.11.014"
+     }
+    ],
+    "title": "An enzyme assisted RP-RPLC approach for in-depth analysis of human liver phosphoproteome.",
+    "publicationDate": "2014",
+    "journal": "J. Proteomics",
+    "firstPage": "253",
+    "lastPage": "262",
+    "volume": "96"
+   },
+   "referencePositions": [
+    "PHOSPHORYLATION [LARGE SCALE ANALYSIS] AT SER-322",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Liver",
+     "type": "TISSUE"
+    }
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "DQ839131",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ABH07519.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AC011498",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC131524",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAI31525.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AK127689",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAC87086.1"
+    },
+    {
+     "key": "Status",
+     "value": "ALT_SEQ"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS42473.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001013728.2",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001013706.3"
+    }
+   ]
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "Q00G26",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "Q00G26",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "136635",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "13"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "Q00G26",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "618"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "Q00G26",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "7"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000371272",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BindingDB",
+   "id": "Q00G26",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "Q00G26",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "2 sites, 1 O-linked glycan (1 site)"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "Q00G26",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "Q00G26",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "PLIN5",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "292495026",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "Q00G26",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "Q00G26",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000371272",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "Q00G26",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "57901",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "23670",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "179 antibodies from 17 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "440503",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000381848.7",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000371272.2"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000214456.9"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000905191.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000575250.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000214456.9"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000905194.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000575253.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000214456.9"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000905195.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000575254.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000214456.9"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942355.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612414.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000214456.9"
+    }
+   ]
+  },
+  {
+   "database": "GeneID",
+   "id": "440503",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:440503",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000381848.7",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000371272.2"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_001013706.3"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_001013728.2"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc002mas.5",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:33196",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA165394043",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "440503",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "440503",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "PLIN5",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:33196",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "PLIN5"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000214456",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Tissue enhanced (liver, skeletal muscle)"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "613248",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000214456",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000214456",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "KOG4790",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00950000182920",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_035133_1_0_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "Q00G26",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "GQCNPKT",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "376826at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "Q00G26",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "4 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "Q00G26",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "Q00G26",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "Q00G26",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000214456",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "440503",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "12 hits in 1150 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "PLIN5",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "440503",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "Q00G26",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tbio"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:Q00G26",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 19"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "Q00G26",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000214456",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in right lobe of liver and 171 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "Q00G26",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005737",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:cytoplasm"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005829",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:cytosol"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005811",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:lipid droplet"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:HPA"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005739",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrion"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0042802",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:identical protein binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0035473",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:lipase binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0034389",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:lipid droplet organization"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0019915",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:lipid storage"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0051646",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:mitochondrion localization"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0031999",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:negative regulation of fatty acid beta-oxidation"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0060192",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:negative regulation of lipase activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0035359",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:negative regulation of peroxisome proliferator activated receptor signaling pathway"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:2000378",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:negative regulation of reactive oxygen species metabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0010897",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:negative regulation of triglyceride catabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0032000",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:positive regulation of fatty acid beta-oxidation"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0060193",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:positive regulation of lipase activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0010884",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:positive regulation of lipid storage"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0010867",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:positive regulation of triglyceride biosynthetic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0010890",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:positive regulation of triglyceride storage"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "1.20.120.340:FF:000004",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Perilipin"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "1.20.120.340",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Flagellar protein FliS"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.30.720.170",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Perilipin, alpha-beta domain"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR004279",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Perilipin"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR14024",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PERILIPIN"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR14024:SF9",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PERILIPIN-5"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF03036",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Perilipin"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PIRSF",
+   "id": "PIRSF036881",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PAT"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF109775",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Mannose-6-phosphate receptor binding protein 1 (Tip47), C-terminal domain"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MSEEEAAQIPRSSVWEQDQQNVVQRVVALPLVRATCTAVCDVYSAAKDRHPLLGSACRLAENCVCGLTTRALDHAQPLLEHLQPQLATMNSLACRGLDKLEEKLPFLQQPSETVVTSAKDVVASSVTGVVDLARRGRRWSVELKRSVSHAVDVVLEKSEELVDHFLPMTEEELAALAAEAEGPEVGSVEDQRRQQGYFVRLGSLSARIRHLAYEHSVGKLRQSKHRAQDTLAQLQETLELIDHMQCGVTPTAPACPGKVHELWGEWGQRPPESRRRSQAELETLVLSRSLTQELQGTVEALESSVRGLPAGAQEKVAEVRRSVDALQTAFADARCFRDVPAAALAEGRGRVAHAHACVDELLELVVQAVPLPWLVGPFAPILVERPEPLPDLADLVDEVIGGPDPRWAHLDWPAQQRAWEAEHRDGSGNGDGDRMGVAGDICEQEPETPSCPVKHTLMPELDF",
+  "length": 463,
+  "molWeight": 50791,
+  "crc64": "B9747E905DFB56E2",
+  "md5": "09980A292E09E5BA3DF5BF359BBB5B83"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "SUBUNIT": 1,
+   "INTERACTION": 1,
+   "SUBCELLULAR LOCATION": 1,
+   "TISSUE SPECIFICITY": 1,
+   "INDUCTION": 1,
+   "PTM": 1,
+   "SIMILARITY": 1,
+   "SEQUENCE CAUTION": 1
+  },
+  "countByFeatureType": {
+   "Chain": 1,
+   "Region": 4,
+   "Modified residue": 3,
+   "Natural variant": 3
+  },
+  "uniParcId": "UPI00001D821D"
+ }
+}

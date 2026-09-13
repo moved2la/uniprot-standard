@@ -1,0 +1,2437 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "P48507",
+ "secondaryAccessions": [
+  "A8K334",
+  "D3DT45",
+  "M5A959",
+  "Q6FHC1",
+  "Q9NPX9",
+  "Q9NU74"
+ ],
+ "uniProtkbId": "GSH0_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "1996-02-01",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "1996-02-01",
+  "entryVersion": 208,
+  "sequenceVersion": 1
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "value": "Glutamate--cysteine ligase regulatory subunit"
+   }
+  },
+  "alternativeNames": [
+   {
+    "fullName": {
+     "value": "GCS light chain"
+    }
+   },
+   {
+    "fullName": {
+     "value": "Gamma-ECS regulatory subunit"
+    }
+   },
+   {
+    "fullName": {
+     "value": "Gamma-glutamylcysteine synthetase regulatory subunit"
+    }
+   },
+   {
+    "fullName": {
+     "value": "Glutamate--cysteine ligase modifier subunit"
+    }
+   }
+  ]
+ },
+ "genes": [
+  {
+   "geneName": {
+    "value": "GCLM"
+   },
+   "synonyms": [
+    {
+     "value": "GLCLR"
+    }
+   ]
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "value": "Sulfur metabolism; glutathione biosynthesis; glutathione from L-cysteine and L-glutamate: step 1/2"
+    }
+   ],
+   "commentType": "PATHWAY"
+  },
+  {
+   "texts": [
+    {
+     "value": "Heterodimer of a catalytic heavy chain and a regulatory light chain"
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P48507",
+      "intActId": "EBI-1051387"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P48506",
+      "geneName": "GCLC",
+      "intActId": "EBI-2832840"
+     },
+     "numberOfExperiments": 5,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P48507",
+      "intActId": "EBI-1051387"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9UJX0",
+      "geneName": "OSGIN1",
+      "intActId": "EBI-9057006"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "ALTERNATIVE PRODUCTS",
+   "events": [
+    "Alternative splicing"
+   ],
+   "isoforms": [
+    {
+     "name": {
+      "value": "1"
+     },
+     "isoformIds": [
+      "P48507-1"
+     ],
+     "isoformSequenceStatus": "Displayed"
+    },
+    {
+     "name": {
+      "value": "2"
+     },
+     "isoformIds": [
+      "P48507-2"
+     ],
+     "sequenceIds": [
+      "VSP_057008"
+     ],
+     "isoformSequenceStatus": "Described"
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "value": "In all tissues examined. Highest levels in skeletal muscle"
+    }
+   ],
+   "commentType": "TISSUE SPECIFICITY"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the aldo/keto reductase family. Glutamate--cysteine ligase light chain subfamily"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  }
+ ],
+ "features": [
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 274,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Glutamate--cysteine ligase regulatory subunit",
+   "featureId": "PRO_0000192573"
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 263,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 263,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-acetyllysine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "19608861"
+    }
+   ]
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 43,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 64,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 2",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "Reference",
+     "id": "Ref.2"
+    }
+   ],
+   "featureId": "VSP_057008",
+   "alternativeSequence": {}
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 209,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 209,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs17880087",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs17880087"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "Reference",
+     "id": "Ref.4"
+    }
+   ],
+   "featureId": "VAR_021063",
+   "alternativeSequence": {
+    "originalSequence": "I",
+    "alternativeSequences": [
+     "M"
+    ]
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0007",
+   "category": "PTM",
+   "name": "Acetylation"
+  },
+  {
+   "id": "KW-0025",
+   "category": "Coding sequence diversity",
+   "name": "Alternative splicing"
+  },
+  {
+   "id": "KW-0317",
+   "category": "Biological process",
+   "name": "Glutathione biosynthesis"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "7826375",
+    "citationType": "journal article",
+    "authors": [
+     "Gipp J.J.",
+     "Bailey H.H.",
+     "Mulcahy R.T."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "7826375"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1006/bbrc.1995.1083"
+     }
+    ],
+    "title": "Cloning and sequencing of the cDNA for the light subunit of human liver gamma-glutamylcysteine synthetase and relative mRNA levels for heavy and light subunits in human normal tissues.",
+    "publicationDate": "1995",
+    "journal": "Biochem. Biophys. Res. Commun.",
+    "firstPage": "584",
+    "lastPage": "589",
+    "volume": "206"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA] (ISOFORM 1)"
+   ],
+   "referenceComments": [
+    {
+     "value": "Liver",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "CI-EHLCD1FV43T80",
+    "citationType": "submission",
+    "authors": [
+     "Sawada Y.",
+     "Sudo M.",
+     "Fujii A.",
+     "Mizuochi A.",
+     "Hisatomi H."
+    ],
+    "title": "Homo sapiens GCLM mRNA for glutamate-cysteine ligase, modifier subunit delta2 alternative splicing variant, complete cds.",
+    "publicationDate": "MAR-2013",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA] (ISOFORM 2)",
+    "ALTERNATIVE SPLICING"
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "CI-D49P6QQO8F5LU",
+    "citationType": "submission",
+    "authors": [
+     "Ebert L.",
+     "Schick M.",
+     "Neubert P.",
+     "Schatten R.",
+     "Henze S.",
+     "Korn B."
+    ],
+    "title": "Cloning of human full open reading frames in Gateway(TM) system entry vector (pDONR201).",
+    "publicationDate": "JUN-2004",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 1)"
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "CI-86ALKN8DBLD8L",
+    "citationType": "submission",
+    "authoringGroup": [
+     "NIEHS SNPs program"
+    ],
+    "publicationDate": "OCT-2004",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [GENOMIC DNA]",
+    "VARIANT MET-209"
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "14702039",
+    "citationType": "journal article",
+    "authors": [
+     "Ota T.",
+     "Suzuki Y.",
+     "Nishikawa T.",
+     "Otsuki T.",
+     "Sugiyama T.",
+     "Irie R.",
+     "Wakamatsu A.",
+     "Hayashi K.",
+     "Sato H.",
+     "Nagai K.",
+     "Kimura K.",
+     "Makita H.",
+     "Sekine M.",
+     "Obayashi M.",
+     "Nishi T.",
+     "Shibahara T.",
+     "Tanaka T.",
+     "Ishii S.",
+     "Yamamoto J.",
+     "Saito K.",
+     "Kawai Y.",
+     "Isono Y.",
+     "Nakamura Y.",
+     "Nagahari K.",
+     "Murakami K.",
+     "Yasuda T.",
+     "Iwayanagi T.",
+     "Wagatsuma M.",
+     "Shiratori A.",
+     "Sudo H.",
+     "Hosoiri T.",
+     "Kaku Y.",
+     "Kodaira H.",
+     "Kondo H.",
+     "Sugawara M.",
+     "Takahashi M.",
+     "Kanda K.",
+     "Yokoi T.",
+     "Furuya T.",
+     "Kikkawa E.",
+     "Omura Y.",
+     "Abe K.",
+     "Kamihara K.",
+     "Katsuta N.",
+     "Sato K.",
+     "Tanikawa M.",
+     "Yamazaki M.",
+     "Ninomiya K.",
+     "Ishibashi T.",
+     "Yamashita H.",
+     "Murakawa K.",
+     "Fujimori K.",
+     "Tanai H.",
+     "Kimata M.",
+     "Watanabe M.",
+     "Hiraoka S.",
+     "Chiba Y.",
+     "Ishida S.",
+     "Ono Y.",
+     "Takiguchi S.",
+     "Watanabe S.",
+     "Yosida M.",
+     "Hotuta T.",
+     "Kusano J.",
+     "Kanehori K.",
+     "Takahashi-Fujii A.",
+     "Hara H.",
+     "Tanase T.-O.",
+     "Nomura Y.",
+     "Togiya S.",
+     "Komai F.",
+     "Hara R.",
+     "Takeuchi K.",
+     "Arita M.",
+     "Imose N.",
+     "Musashino K.",
+     "Yuuki H.",
+     "Oshima A.",
+     "Sasaki N.",
+     "Aotsuka S.",
+     "Yoshikawa Y.",
+     "Matsunawa H.",
+     "Ichihara T.",
+     "Shiohata N.",
+     "Sano S.",
+     "Moriya S.",
+     "Momiyama H.",
+     "Satoh N.",
+     "Takami S.",
+     "Terashima Y.",
+     "Suzuki O.",
+     "Nakagawa S.",
+     "Senoh A.",
+     "Mizoguchi H.",
+     "Goto Y.",
+     "Shimizu F.",
+     "Wakebe H.",
+     "Hishigaki H.",
+     "Watanabe T.",
+     "Sugiyama A.",
+     "Takemoto M.",
+     "Kawakami B.",
+     "Yamazaki M.",
+     "Watanabe K.",
+     "Kumagai A.",
+     "Itakura S.",
+     "Fukuzumi Y.",
+     "Fujimori Y.",
+     "Komiyama M.",
+     "Tashiro H.",
+     "Tanigami A.",
+     "Fujiwara T.",
+     "Ono T.",
+     "Yamada K.",
+     "Fujii Y.",
+     "Ozaki K.",
+     "Hirao M.",
+     "Ohmori Y.",
+     "Kawabata A.",
+     "Hikiji T.",
+     "Kobatake N.",
+     "Inagaki H.",
+     "Ikema Y.",
+     "Okamoto S.",
+     "Okitani R.",
+     "Kawakami T.",
+     "Noguchi S.",
+     "Itoh T.",
+     "Shigeta K.",
+     "Senba T.",
+     "Matsumura K.",
+     "Nakajima Y.",
+     "Mizuno T.",
+     "Morinaga M.",
+     "Sasaki M.",
+     "Togashi T.",
+     "Oyama M.",
+     "Hata H.",
+     "Watanabe M.",
+     "Komatsu T.",
+     "Mizushima-Sugano J.",
+     "Satoh T.",
+     "Shirai Y.",
+     "Takahashi Y.",
+     "Nakagawa K.",
+     "Okumura K.",
+     "Nagase T.",
+     "Nomura N.",
+     "Kikuchi H.",
+     "Masuho Y.",
+     "Yamashita R.",
+     "Nakai K.",
+     "Yada T.",
+     "Nakamura Y.",
+     "Ohara O.",
+     "Isogai T.",
+     "Sugano S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "14702039"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/ng1285"
+     }
+    ],
+    "title": "Complete sequencing and characterization of 21,243 full-length human cDNAs.",
+    "publicationDate": "2004",
+    "journal": "Nat. Genet.",
+    "firstPage": "40",
+    "lastPage": "45",
+    "volume": "36"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 1)"
+   ],
+   "referenceComments": [
+    {
+     "value": "Brain",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 6,
+   "citation": {
+    "id": "16710414",
+    "citationType": "journal article",
+    "authors": [
+     "Gregory S.G.",
+     "Barlow K.F.",
+     "McLay K.E.",
+     "Kaul R.",
+     "Swarbreck D.",
+     "Dunham A.",
+     "Scott C.E.",
+     "Howe K.L.",
+     "Woodfine K.",
+     "Spencer C.C.A.",
+     "Jones M.C.",
+     "Gillson C.",
+     "Searle S.",
+     "Zhou Y.",
+     "Kokocinski F.",
+     "McDonald L.",
+     "Evans R.",
+     "Phillips K.",
+     "Atkinson A.",
+     "Cooper R.",
+     "Jones C.",
+     "Hall R.E.",
+     "Andrews T.D.",
+     "Lloyd C.",
+     "Ainscough R.",
+     "Almeida J.P.",
+     "Ambrose K.D.",
+     "Anderson F.",
+     "Andrew R.W.",
+     "Ashwell R.I.S.",
+     "Aubin K.",
+     "Babbage A.K.",
+     "Bagguley C.L.",
+     "Bailey J.",
+     "Beasley H.",
+     "Bethel G.",
+     "Bird C.P.",
+     "Bray-Allen S.",
+     "Brown J.Y.",
+     "Brown A.J.",
+     "Buckley D.",
+     "Burton J.",
+     "Bye J.",
+     "Carder C.",
+     "Chapman J.C.",
+     "Clark S.Y.",
+     "Clarke G.",
+     "Clee C.",
+     "Cobley V.",
+     "Collier R.E.",
+     "Corby N.",
+     "Coville G.J.",
+     "Davies J.",
+     "Deadman R.",
+     "Dunn M.",
+     "Earthrowl M.",
+     "Ellington A.G.",
+     "Errington H.",
+     "Frankish A.",
+     "Frankland J.",
+     "French L.",
+     "Garner P.",
+     "Garnett J.",
+     "Gay L.",
+     "Ghori M.R.J.",
+     "Gibson R.",
+     "Gilby L.M.",
+     "Gillett W.",
+     "Glithero R.J.",
+     "Grafham D.V.",
+     "Griffiths C.",
+     "Griffiths-Jones S.",
+     "Grocock R.",
+     "Hammond S.",
+     "Harrison E.S.I.",
+     "Hart E.",
+     "Haugen E.",
+     "Heath P.D.",
+     "Holmes S.",
+     "Holt K.",
+     "Howden P.J.",
+     "Hunt A.R.",
+     "Hunt S.E.",
+     "Hunter G.",
+     "Isherwood J.",
+     "James R.",
+     "Johnson C.",
+     "Johnson D.",
+     "Joy A.",
+     "Kay M.",
+     "Kershaw J.K.",
+     "Kibukawa M.",
+     "Kimberley A.M.",
+     "King A.",
+     "Knights A.J.",
+     "Lad H.",
+     "Laird G.",
+     "Lawlor S.",
+     "Leongamornlert D.A.",
+     "Lloyd D.M.",
+     "Loveland J.",
+     "Lovell J.",
+     "Lush M.J.",
+     "Lyne R.",
+     "Martin S.",
+     "Mashreghi-Mohammadi M.",
+     "Matthews L.",
+     "Matthews N.S.W.",
+     "McLaren S.",
+     "Milne S.",
+     "Mistry S.",
+     "Moore M.J.F.",
+     "Nickerson T.",
+     "O'Dell C.N.",
+     "Oliver K.",
+     "Palmeiri A.",
+     "Palmer S.A.",
+     "Parker A.",
+     "Patel D.",
+     "Pearce A.V.",
+     "Peck A.I.",
+     "Pelan S.",
+     "Phelps K.",
+     "Phillimore B.J.",
+     "Plumb R.",
+     "Rajan J.",
+     "Raymond C.",
+     "Rouse G.",
+     "Saenphimmachak C.",
+     "Sehra H.K.",
+     "Sheridan E.",
+     "Shownkeen R.",
+     "Sims S.",
+     "Skuce C.D.",
+     "Smith M.",
+     "Steward C.",
+     "Subramanian S.",
+     "Sycamore N.",
+     "Tracey A.",
+     "Tromans A.",
+     "Van Helmond Z.",
+     "Wall M.",
+     "Wallis J.M.",
+     "White S.",
+     "Whitehead S.L.",
+     "Wilkinson J.E.",
+     "Willey D.L.",
+     "Williams H.",
+     "Wilming L.",
+     "Wray P.W.",
+     "Wu Z.",
+     "Coulson A.",
+     "Vaudin M.",
+     "Sulston J.E.",
+     "Durbin R.M.",
+     "Hubbard T.",
+     "Wooster R.",
+     "Dunham I.",
+     "Carter N.P.",
+     "McVean G.",
+     "Ross M.T.",
+     "Harrow J.",
+     "Olson M.V.",
+     "Beck S.",
+     "Rogers J.",
+     "Bentley D.R."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "16710414"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/nature04727"
+     }
+    ],
+    "title": "The DNA sequence and biological annotation of human chromosome 1.",
+    "publicationDate": "2006",
+    "journal": "Nature",
+    "firstPage": "315",
+    "lastPage": "321",
+    "volume": "441"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 7,
+   "citation": {
+    "id": "CI-5GBD0VIIJ7C63",
+    "citationType": "submission",
+    "authors": [
+     "Mural R.J.",
+     "Istrail S.",
+     "Sutton G.G.",
+     "Florea L.",
+     "Halpern A.L.",
+     "Mobarry C.M.",
+     "Lippert R.",
+     "Walenz B.",
+     "Shatkay H.",
+     "Dew I.",
+     "Miller J.R.",
+     "Flanigan M.J.",
+     "Edwards N.J.",
+     "Bolanos R.",
+     "Fasulo D.",
+     "Halldorsson B.V.",
+     "Hannenhalli S.",
+     "Turner R.",
+     "Yooseph S.",
+     "Lu F.",
+     "Nusskern D.R.",
+     "Shue B.C.",
+     "Zheng X.H.",
+     "Zhong F.",
+     "Delcher A.L.",
+     "Huson D.H.",
+     "Kravitz S.A.",
+     "Mouchard L.",
+     "Reinert K.",
+     "Remington K.A.",
+     "Clark A.G.",
+     "Waterman M.S.",
+     "Eichler E.E.",
+     "Adams M.D.",
+     "Hunkapiller M.W.",
+     "Myers E.W.",
+     "Venter J.C."
+    ],
+    "publicationDate": "SEP-2005",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 8,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 1)"
+   ],
+   "referenceComments": [
+    {
+     "value": "Brain",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 9,
+   "citation": {
+    "id": "19608861",
+    "citationType": "journal article",
+    "authors": [
+     "Choudhary C.",
+     "Kumar C.",
+     "Gnad F.",
+     "Nielsen M.L.",
+     "Rehman M.",
+     "Walther T.C.",
+     "Olsen J.V.",
+     "Mann M."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "19608861"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1126/science.1175371"
+     }
+    ],
+    "title": "Lysine acetylation targets protein complexes and co-regulates major cellular functions.",
+    "publicationDate": "2009",
+    "journal": "Science",
+    "firstPage": "834",
+    "lastPage": "840",
+    "volume": "325"
+   },
+   "referencePositions": [
+    "ACETYLATION [LARGE SCALE ANALYSIS] AT LYS-263",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 10,
+   "citation": {
+    "id": "21269460",
+    "citationType": "journal article",
+    "authors": [
+     "Burkard T.R.",
+     "Planyavsky M.",
+     "Kaupe I.",
+     "Breitwieser F.P.",
+     "Buerckstuemmer T.",
+     "Bennett K.L.",
+     "Superti-Furga G.",
+     "Colinge J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "21269460"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1186/1752-0509-5-17"
+     }
+    ],
+    "title": "Initial characterization of the human central proteome.",
+    "publicationDate": "2011",
+    "journal": "BMC Syst. Biol.",
+    "firstPage": "17",
+    "lastPage": "17",
+    "volume": "5"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "L35546",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAA65028.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AB809606",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAN05309.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "CR541833",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "CAG46632.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AY773965",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAV28733.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AK290449",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAF83138.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AL049796",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AL117351",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "CH471097",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "EAW73060.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "CH471097",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "EAW73061.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC041809",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH41809.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS746.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "P48507-1"
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS81352.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "P48507-2"
+  },
+  {
+   "database": "PIR",
+   "id": "JC2474",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "JC2474"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001295182.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001308253.2"
+    }
+   ],
+   "isoformId": "P48507-2"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_002052.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_002061.4"
+    }
+   ],
+   "isoformId": "P48507-1"
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "108992",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "68"
+    }
+   ]
+  },
+  {
+   "database": "ComplexPortal",
+   "id": "CPX-2865",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Glutamate-cysteine ligase complex"
+    }
+   ]
+  },
+  {
+   "database": "CORUM",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "1439"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "38"
+    }
+   ]
+  },
+  {
+   "database": "MINT",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "NDEx",
+   "id": "IQUERY-CP-GCLM",
+   "properties": [
+    {
+     "key": "Evidences",
+     "value": "13 NDEx IQuery Curated Pathways"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000359258",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ChEMBL",
+   "id": "CHEMBL4295765",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB00151",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Cysteine"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB00142",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Glutamic acid"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "1 site, 1 O-linked glycan (1 site)"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "GCLM",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "1346188",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OGP",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000359258",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "55897",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "P48507-1"
+  },
+  {
+   "database": "Pumba",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "4034",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "475 antibodies from 40 providers"
+    }
+   ]
+  },
+  {
+   "database": "CPTC",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "3 antibodies"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "2730",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000370238.8",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000359258.3"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000023909.11"
+    }
+   ],
+   "isoformId": "P48507-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000615724.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000484507.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000023909.11"
+    }
+   ],
+   "isoformId": "P48507-2"
+  },
+  {
+   "database": "GeneID",
+   "id": "2730",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:2730",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000370238.8",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000359258.3"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_002061.4"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_002052.1"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc001dqg.2",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ],
+   "isoformId": "P48507-1"
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:4312",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA28613",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "2730",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "2730",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "GCLM",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:4312",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "GCLM"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000023909",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Tissue enhanced (liver)"
+    }
+   ]
+  },
+  {
+   "database": "MalaCards",
+   "id": "GCLM",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "601176",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene+phenotype"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000023909",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000023909",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "KOG3023",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00510000047658",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_055657_1_0_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "AHEWIPL",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "5596051at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "4 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioCyc",
+   "id": "MetaCyc:ENSG00000023909-MONOMER",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BRENDA",
+   "id": "6.3.2.2",
+   "properties": [
+    {
+     "key": "OrganismId",
+     "value": "2681"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-174403",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Glutathione synthesis and recycling"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-5578999",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Defective GCLC causes HAGGSD"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-9818027",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "NFE2L2 regulating anti-oxidant/detoxification enzymes"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SIGNOR",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "UniPathway",
+   "id": "UPA00142",
+   "properties": [
+    {
+     "key": "RectionId",
+     "value": "UER00209"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000023909",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "2730",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "13 hits in 1160 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "GCLM",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "GeneWiki",
+   "id": "GCLM",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "2730",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tbio"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:P48507",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 1"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "P48507",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000023909",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in bronchial epithelial cell and 204 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005829",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:cytosol"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:Reactome"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0017109",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:glutamate-cysteine ligase complex"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "9675072"
+    },
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "9841880"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0004357",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:glutamate-cysteine ligase activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0035226",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:glutamate-cysteine ligase catalytic subunit binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IPI:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000353",
+     "source": "PubMed",
+     "id": "9675072"
+    },
+    {
+     "evidenceCode": "ECO:0000353",
+     "source": "PubMed",
+     "id": "9841880"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:1990609",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:glutamate-cysteine ligase regulator activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0046982",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:protein heterodimerization activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0097746",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:blood vessel diameter maintenance"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "12975258"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0044344",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:cellular response to fibroblast growth factor stimulus"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0071372",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:cellular response to follicle-stimulating hormone stimulus"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0071333",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:cellular response to glucose stimulus"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0035729",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:cellular response to hepatocyte growth factor stimulus"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0097069",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:cellular response to thyroxine stimulus"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0006536",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:glutamate metabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "9841880"
+    },
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "9895302"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0006750",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:glutathione biosynthetic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "10395918"
+    },
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "9675072"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0035733",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:hepatic stellate cell activation"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0043524",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:negative regulation of neuron apoptotic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0014823",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:response to activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0044752",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:response to human chorionic gonadotropin"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0051409",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:response to nitrosative stress"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0007584",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:response to nutrient"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0006979",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:response to oxidative stress"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "10395918"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0009410",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:response to xenobiotic stimulus"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "9895302"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.20.20.100:FF:000012",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Glutamate--cysteine ligase regulatory subunit"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.20.20.100",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NADP-dependent oxidoreductase domain"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR032963",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Gclm"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR036812",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NAD(P)_OxRdtase_dom_sf"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR023210",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NADP_OxRdtase_dom"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR13295",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GLUTAMATE CYSTEINE LIGASE REGULATORY SUBUNIT"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR13295:SF4",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GLUTAMATE--CYSTEINE LIGASE REGULATORY SUBUNIT"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF00248",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Aldo_ket_red"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF51430",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NAD(P)-linked oxidoreductase"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MGTDSRAAKALLARARTLHLQTGNLLNWGRLRKKCPSTHSEELHDCIQKTLNEWSSQINPDLVREFPDVLECTVSHAVEKINPDEREEMKVSAKLFIVESNSSSSTRSAVDMACSVLGVAQLDSVIIASPPIEDGVNLSLEHLQPYWEELENLVQSKKIVAIGTSDLDKTQLEQLYQWAQVKPNSNQVNLASCCVMPPDLTAFAKQFDIQLLTHNDPKELLSEASFQEALQESIPDIQAHEWVPLWLLRYSVIVKSRGIIKSKGYILQAKRRGS",
+  "length": 274,
+  "molWeight": 30727,
+  "crc64": "88F73E22322E40B2",
+  "md5": "914A0715D70541BDF146B4D1BAA1E6C1"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "PATHWAY": 1,
+   "SUBUNIT": 1,
+   "INTERACTION": 2,
+   "ALTERNATIVE PRODUCTS": 2,
+   "TISSUE SPECIFICITY": 1,
+   "SIMILARITY": 1
+  },
+  "countByFeatureType": {
+   "Chain": 1,
+   "Modified residue": 1,
+   "Alternative sequence": 1,
+   "Natural variant": 1
+  },
+  "uniParcId": "UPI000000D9B9"
+ }
+}

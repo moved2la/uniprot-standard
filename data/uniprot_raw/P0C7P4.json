@@ -1,0 +1,1463 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "P0C7P4",
+ "uniProtkbId": "UCRIL_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "2008-07-01",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2008-07-01",
+  "entryVersion": 106,
+  "sequenceVersion": 1
+ },
+ "annotationScore": 3.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "5: Uncertain",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "value": "Putative cytochrome b-c1 complex subunit Rieske-like protein 1"
+   }
+  },
+  "alternativeNames": [
+   {
+    "fullName": {
+     "value": "Ubiquinol-cytochrome c reductase Rieske iron-sulfur subunit pseudogene 1"
+    }
+   }
+  ]
+ },
+ "genes": [
+  {
+   "geneName": {
+    "value": "UQCRFS1P1"
+   },
+   "synonyms": [
+    {
+     "value": "UQCRFSL1"
+    }
+   ]
+  }
+ ],
+ "comments": [
+  {
+   "commentType": "COFACTOR",
+   "cofactors": [
+    {
+     "name": "[2Fe-2S] cluster",
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000255",
+       "source": "PROSITE-ProRule",
+       "id": "PRU00628"
+      }
+     ],
+     "cofactorCrossReference": {
+      "database": "ChEBI",
+      "id": "CHEBI:190135"
+     }
+    }
+   ],
+   "note": {
+    "texts": [
+     {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000255",
+        "source": "PROSITE-ProRule",
+        "id": "PRU00628"
+       }
+      ],
+      "value": "Binds 1 [2Fe-2S] cluster per subunit."
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000255"
+       }
+      ],
+      "value": "Membrane",
+      "id": "SL-0162"
+     },
+     "topology": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000255"
+       }
+      ],
+      "value": "Single-pass membrane protein",
+      "id": "SL-9904"
+     }
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the Rieske iron-sulfur protein family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Could be the product of a pseudogene"
+    }
+   ],
+   "commentType": "CAUTION"
+  }
+ ],
+ "features": [
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 283,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Putative cytochrome b-c1 complex subunit Rieske-like protein 1",
+   "featureId": "PRO_0000342402"
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 116,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 149,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P13272"
+    }
+   ]
+  },
+  {
+   "type": "Domain",
+   "location": {
+    "start": {
+     "value": 196,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 281,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Rieske",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255",
+     "source": "PROSITE-ProRule",
+     "id": "PRU00628"
+    }
+   ]
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 226,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 226,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:190135"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255",
+     "source": "PROSITE-ProRule",
+     "id": "PRU00628"
+    }
+   ],
+   "ligand": {
+    "name": "[2Fe-2S] cluster",
+    "id": "ChEBI:CHEBI:190135"
+   }
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 228,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 228,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:190135"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255",
+     "source": "PROSITE-ProRule",
+     "id": "PRU00628"
+    }
+   ],
+   "ligand": {
+    "name": "[2Fe-2S] cluster",
+    "id": "ChEBI:CHEBI:190135"
+   }
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 245,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 245,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:190135"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255",
+     "source": "PROSITE-ProRule",
+     "id": "PRU00628"
+    }
+   ],
+   "ligand": {
+    "name": "[2Fe-2S] cluster",
+    "id": "ChEBI:CHEBI:190135"
+   }
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 248,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 248,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:190135"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255",
+     "source": "PROSITE-ProRule",
+     "id": "PRU00628"
+    }
+   ],
+   "ligand": {
+    "name": "[2Fe-2S] cluster",
+    "id": "ChEBI:CHEBI:190135"
+   }
+  },
+  {
+   "type": "Disulfide bond",
+   "location": {
+    "start": {
+     "value": 231,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 247,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255",
+     "source": "PROSITE-ProRule",
+     "id": "PRU00628"
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0001",
+   "category": "Ligand",
+   "name": "2Fe-2S"
+  },
+  {
+   "id": "KW-1015",
+   "category": "PTM",
+   "name": "Disulfide bond"
+  },
+  {
+   "id": "KW-0408",
+   "category": "Ligand",
+   "name": "Iron"
+  },
+  {
+   "id": "KW-0411",
+   "category": "Ligand",
+   "name": "Iron-sulfur"
+  },
+  {
+   "id": "KW-0472",
+   "category": "Cellular component",
+   "name": "Membrane"
+  },
+  {
+   "id": "KW-0479",
+   "category": "Ligand",
+   "name": "Metal-binding"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  },
+  {
+   "id": "KW-0812",
+   "category": "Domain",
+   "name": "Transmembrane"
+  },
+  {
+   "id": "KW-1133",
+   "category": "Domain",
+   "name": "Transmembrane helix"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "10591208",
+    "citationType": "journal article",
+    "authors": [
+     "Dunham I.",
+     "Hunt A.R.",
+     "Collins J.E.",
+     "Bruskiewich R.",
+     "Beare D.M.",
+     "Clamp M.",
+     "Smink L.J.",
+     "Ainscough R.",
+     "Almeida J.P.",
+     "Babbage A.K.",
+     "Bagguley C.",
+     "Bailey J.",
+     "Barlow K.F.",
+     "Bates K.N.",
+     "Beasley O.P.",
+     "Bird C.P.",
+     "Blakey S.E.",
+     "Bridgeman A.M.",
+     "Buck D.",
+     "Burgess J.",
+     "Burrill W.D.",
+     "Burton J.",
+     "Carder C.",
+     "Carter N.P.",
+     "Chen Y.",
+     "Clark G.",
+     "Clegg S.M.",
+     "Cobley V.E.",
+     "Cole C.G.",
+     "Collier R.E.",
+     "Connor R.",
+     "Conroy D.",
+     "Corby N.R.",
+     "Coville G.J.",
+     "Cox A.V.",
+     "Davis J.",
+     "Dawson E.",
+     "Dhami P.D.",
+     "Dockree C.",
+     "Dodsworth S.J.",
+     "Durbin R.M.",
+     "Ellington A.G.",
+     "Evans K.L.",
+     "Fey J.M.",
+     "Fleming K.",
+     "French L.",
+     "Garner A.A.",
+     "Gilbert J.G.R.",
+     "Goward M.E.",
+     "Grafham D.V.",
+     "Griffiths M.N.D.",
+     "Hall C.",
+     "Hall R.E.",
+     "Hall-Tamlyn G.",
+     "Heathcott R.W.",
+     "Ho S.",
+     "Holmes S.",
+     "Hunt S.E.",
+     "Jones M.C.",
+     "Kershaw J.",
+     "Kimberley A.M.",
+     "King A.",
+     "Laird G.K.",
+     "Langford C.F.",
+     "Leversha M.A.",
+     "Lloyd C.",
+     "Lloyd D.M.",
+     "Martyn I.D.",
+     "Mashreghi-Mohammadi M.",
+     "Matthews L.H.",
+     "Mccann O.T.",
+     "Mcclay J.",
+     "Mclaren S.",
+     "McMurray A.A.",
+     "Milne S.A.",
+     "Mortimore B.J.",
+     "Odell C.N.",
+     "Pavitt R.",
+     "Pearce A.V.",
+     "Pearson D.",
+     "Phillimore B.J.C.T.",
+     "Phillips S.H.",
+     "Plumb R.W.",
+     "Ramsay H.",
+     "Ramsey Y.",
+     "Rogers L.",
+     "Ross M.T.",
+     "Scott C.E.",
+     "Sehra H.K.",
+     "Skuce C.D.",
+     "Smalley S.",
+     "Smith M.L.",
+     "Soderlund C.",
+     "Spragon L.",
+     "Steward C.A.",
+     "Sulston J.E.",
+     "Swann R.M.",
+     "Vaudin M.",
+     "Wall M.",
+     "Wallis J.M.",
+     "Whiteley M.N.",
+     "Willey D.L.",
+     "Williams L.",
+     "Williams S.A.",
+     "Williamson H.",
+     "Wilmer T.E.",
+     "Wilming L.",
+     "Wright C.L.",
+     "Hubbard T.",
+     "Bentley D.R.",
+     "Beck S.",
+     "Rogers J.",
+     "Shimizu N.",
+     "Minoshima S.",
+     "Kawasaki K.",
+     "Sasaki T.",
+     "Asakawa S.",
+     "Kudoh J.",
+     "Shintani A.",
+     "Shibuya K.",
+     "Yoshizaki Y.",
+     "Aoki N.",
+     "Mitsuyama S.",
+     "Roe B.A.",
+     "Chen F.",
+     "Chu L.",
+     "Crabtree J.",
+     "Deschamps S.",
+     "Do A.",
+     "Do T.",
+     "Dorman A.",
+     "Fang F.",
+     "Fu Y.",
+     "Hu P.",
+     "Hua A.",
+     "Kenton S.",
+     "Lai H.",
+     "Lao H.I.",
+     "Lewis J.",
+     "Lewis S.",
+     "Lin S.-P.",
+     "Loh P.",
+     "Malaj E.",
+     "Nguyen T.",
+     "Pan H.",
+     "Phan S.",
+     "Qi S.",
+     "Qian Y.",
+     "Ray L.",
+     "Ren Q.",
+     "Shaull S.",
+     "Sloan D.",
+     "Song L.",
+     "Wang Q.",
+     "Wang Y.",
+     "Wang Z.",
+     "White J.",
+     "Willingham D.",
+     "Wu H.",
+     "Yao Z.",
+     "Zhan M.",
+     "Zhang G.",
+     "Chissoe S.",
+     "Murray J.",
+     "Miller N.",
+     "Minx P.",
+     "Fulton R.",
+     "Johnson D.",
+     "Bemis G.",
+     "Bentley D.",
+     "Bradshaw H.",
+     "Bourne S.",
+     "Cordes M.",
+     "Du Z.",
+     "Fulton L.",
+     "Goela D.",
+     "Graves T.",
+     "Hawkins J.",
+     "Hinds K.",
+     "Kemp K.",
+     "Latreille P.",
+     "Layman D.",
+     "Ozersky P.",
+     "Rohlfing T.",
+     "Scheet P.",
+     "Walker C.",
+     "Wamsley A.",
+     "Wohldmann P.",
+     "Pepin K.",
+     "Nelson J.",
+     "Korf I.",
+     "Bedell J.A.",
+     "Hillier L.W.",
+     "Mardis E.",
+     "Waterston R.",
+     "Wilson R.",
+     "Emanuel B.S.",
+     "Shaikh T.",
+     "Kurahashi H.",
+     "Saitta S.",
+     "Budarf M.L.",
+     "McDermid H.E.",
+     "Johnson A.",
+     "Wong A.C.C.",
+     "Morrow B.E.",
+     "Edelmann L.",
+     "Kim U.J.",
+     "Shizuya H.",
+     "Simon M.I.",
+     "Dumanski J.P.",
+     "Peyrard M.",
+     "Kedra D.",
+     "Seroussi E.",
+     "Fransson I.",
+     "Tapia I.",
+     "Bruder C.E.",
+     "O'Brien K.P.",
+     "Wilkinson P.",
+     "Bodenteich A.",
+     "Hartman K.",
+     "Hu X.",
+     "Khan A.S.",
+     "Lane L.",
+     "Tilahun Y.",
+     "Wright H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "10591208"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/990031"
+     }
+    ],
+    "title": "The DNA sequence of human chromosome 22.",
+    "publicationDate": "1999",
+    "journal": "Nature",
+    "firstPage": "489",
+    "lastPage": "495",
+    "volume": "402"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "CI-9E6MU046DFCD3",
+    "citationType": "submission",
+    "authors": [
+     "Li W.B.",
+     "Gruber C.",
+     "Jessee J.",
+     "Polayes D."
+    ],
+    "title": "Full-length cDNA libraries and normalization.",
+    "publicationDate": "JUL-2004",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] OF 94-283"
+   ],
+   "referenceComments": [
+    {
+     "value": "Neuroblastoma",
+     "type": "TISSUE"
+    }
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "Z82206",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "CR592425",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "P0C7P4",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "P0C7P4",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "P0C7P4",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "331"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "P0C7P4",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "7"
+    }
+   ]
+  },
+  {
+   "database": "MINT",
+   "id": "P0C7P4",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "P0C7P4",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "2 sites, 1 O-linked glycan (2 sites)"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "P0C7P4",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MetOSite",
+   "id": "P0C7P4",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "P0C7P4",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SwissPalm",
+   "id": "P0C7P4",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "HGNC:12588",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "193806571",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "P0C7P4",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "P0C7P4",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "52357",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pumba",
+   "id": "P0C7P4",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:12588",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "UQCRFS1P1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:12588",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "UQCRFS1P1"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "P0C7P4",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "P0C7P4",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "3 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "P0C7P4",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "P0C7P4",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "P0C7P4",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "UQCRFS1P1",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "P0C7P4",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tdark"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:P0C7P4",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Unplaced"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "P0C7P4",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0031966",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrial membrane"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:UniProtKB-ARBA"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005739",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrion"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "HTP:FlyBase"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0006056",
+     "source": "PubMed",
+     "id": "34800366"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0045275",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:respiratory chain complex III"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:UniProtKB-ARBA"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0051537",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:2 iron, 2 sulfur cluster binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:InterPro"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0016491",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:oxidoreductase activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0008121",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:quinol-cytochrome-c reductase activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:InterPro"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0006122",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:mitochondrial electron transport, ubiquinol to cytochrome c"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "CDD",
+   "id": "cd03470",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Rieske_cytochrome_bc1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "1.20.5.270:FF:000001",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Cytochrome b-c1 complex subunit Rieske, mitochondrial"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "2.10.210.10:FF:000001",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Cytochrome b-c1 complex subunit Rieske, mitochondrial"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "2.102.10.10:FF:000001",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Cytochrome b-c1 complex subunit Rieske, mitochondrial"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "2.10.210.10",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Cytochrome Bc1 Complex, Chain I"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "2.102.10.10",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Rieske [2Fe-2S] iron-sulphur domain"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "1.20.5.270",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Ubiquinol cytochrome reductase, transmembrane domain"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR037008",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "bc1_Rieske_TM_sf"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR011070",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Globular_prot_asu/bsu"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR017941",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Rieske_2Fe-2S"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR036922",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Rieske_2Fe-2S_sf"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR014349",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Rieske_Fe-S_prot"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR005805",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Rieske_Fe-S_prot_C"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR004192",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Rieske_TM"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR006317",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Ubiquinol_cyt_c_Rdtase_Fe-S-su"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR015248",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "UQCRFS1_N"
+    }
+   ]
+  },
+  {
+   "database": "NCBIfam",
+   "id": "TIGR01416",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Rieske_proteo"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR10134",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "CYTOCHROME B-C1 COMPLEX SUBUNIT RIESKE, MITOCHONDRIAL"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF00355",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Rieske"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF09165",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Ubiq-Cytc-red_N"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF02921",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "UCR_TM"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PRINTS",
+   "id": "PR00162",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "RIESKE"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF50022",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "ISP domain"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF81502",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "ISP transmembrane anchor"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF56568",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Non-globular alpha+beta subunits of globular proteins"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS51296",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "RIESKE"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MQQIYTVKEIRSVAARSGPFAPVLSATSRGVAGALRPLVQATVPATPEQPVLDLKRPFLSRESLSGQAVRRPLVASVGLNVPASVCYSHTDIKVPDFSEYRRLEVLDSTKSSRESTEARKGFSYLVTGVTTVGVAYAAKNAVTQFVSSMSASADVLALAKIEIKLSDIPEGKNMAFKWRGKPLFVRHRTQKEIKQEAAVELSQLRDPQHDLDRVKKPEWVILIGVCTHLGCVPIANAGDFGGYYCPCHGSHYDASGRIRLGPATLNLEVPTYEFTSDDMVIVG",
+  "length": 283,
+  "molWeight": 30815,
+  "crc64": "00B1D0656BE89054",
+  "md5": "22D9F7F3A8A094AC30AD7B112BC75149"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "COFACTOR": 1,
+   "SUBCELLULAR LOCATION": 1,
+   "SIMILARITY": 1,
+   "CAUTION": 1
+  },
+  "countByFeatureType": {
+   "Chain": 1,
+   "Transmembrane": 1,
+   "Domain": 1,
+   "Binding site": 4,
+   "Disulfide bond": 1
+  },
+  "uniParcId": "UPI00017616E4"
+ }
+}

@@ -1,0 +1,2000 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "Q96CT7",
+ "uniProtkbId": "CC124_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "2006-12-12",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2001-12-01",
+  "entryVersion": 163,
+  "sequenceVersion": 1
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000305"
+     }
+    ],
+    "value": "Coiled-coil domain-containing protein 124"
+   }
+  }
+ },
+ "genes": [
+  {
+   "geneName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000303",
+      "source": "PubMed",
+      "id": "23894443"
+     },
+     {
+      "evidenceCode": "ECO:0000312",
+      "source": "HGNC",
+      "id": "HGNC:25171"
+     }
+    ],
+    "value": "CCDC124"
+   }
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "23894443"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "32687489"
+      }
+     ],
+     "value": "Ribosome-binding protein involved in ribosome hibernation: associates with translationally inactive ribosomes and stabilizes the nonrotated conformation of the 80S ribosome, thereby promoting ribosome preservation and storage (PubMed:32687489). Also required for proper progression of late cytokinetic stages (PubMed:23894443)"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "23894443"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "32687489"
+      }
+     ],
+     "value": "Associates with translationally inactive ribosomes in the nonrotated state (PubMed:32687489). Interacts with RASGEF1B (PubMed:23894443)"
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "Q96CT7",
+      "intActId": "EBI-5461329"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P06748",
+      "geneName": "NPM1",
+      "intActId": "EBI-78579"
+     },
+     "numberOfExperiments": 8,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "note": {
+    "texts": [
+     {
+      "value": "Colocalizes with gamma-tubulin at interphase, prophase, metaphase, and anaphase. Relocates from centrosome to midbody at telophase"
+     }
+    ]
+   },
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "23894443"
+       }
+      ],
+      "value": "Cytoplasm, cytoskeleton, microtubule organizing center, centrosome",
+      "id": "SL-0048"
+     }
+    },
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "23894443"
+       }
+      ],
+      "value": "Midbody",
+      "id": "SL-0469"
+     }
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "23894443"
+      }
+     ],
+     "value": "Ubiquitously expressed"
+    }
+   ],
+   "commentType": "TISSUE SPECIFICITY"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the CCDC124 family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  }
+ ],
+ "features": [
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 223,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Coiled-coil domain-containing protein 124",
+   "featureId": "PRO_0000263735"
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 126,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Disordered",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 204,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 223,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Disordered",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Coiled coil",
+   "location": {
+    "start": {
+     "value": 15,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 82,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Compositional bias",
+   "location": {
+    "start": {
+     "value": 18,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 74,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Basic and acidic residues",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Compositional bias",
+   "location": {
+    "start": {
+     "value": 99,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 126,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Basic and acidic residues",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 141,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 141,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "23894443"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "23186163"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 194,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 194,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "23186163"
+    }
+   ]
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 138,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 138,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs8104153",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs8104153"
+    }
+   ],
+   "featureId": "VAR_053809",
+   "alternativeSequence": {
+    "originalSequence": "E",
+    "alternativeSequences": [
+     "Q"
+    ]
+   }
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 10,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 38,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8K2C"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 44,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 80,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8K2C"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 169,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 187,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "6ZM7"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 193,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 205,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "6ZM7"
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0002",
+   "category": "Technical term",
+   "name": "3D-structure"
+  },
+  {
+   "id": "KW-0131",
+   "category": "Biological process",
+   "name": "Cell cycle"
+  },
+  {
+   "id": "KW-0132",
+   "category": "Biological process",
+   "name": "Cell division"
+  },
+  {
+   "id": "KW-0175",
+   "category": "Domain",
+   "name": "Coiled coil"
+  },
+  {
+   "id": "KW-0963",
+   "category": "Cellular component",
+   "name": "Cytoplasm"
+  },
+  {
+   "id": "KW-0206",
+   "category": "Cellular component",
+   "name": "Cytoskeleton"
+  },
+  {
+   "id": "KW-0597",
+   "category": "PTM",
+   "name": "Phosphoprotein"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Lung",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "21269460",
+    "citationType": "journal article",
+    "authors": [
+     "Burkard T.R.",
+     "Planyavsky M.",
+     "Kaupe I.",
+     "Breitwieser F.P.",
+     "Buerckstuemmer T.",
+     "Bennett K.L.",
+     "Superti-Furga G.",
+     "Colinge J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "21269460"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1186/1752-0509-5-17"
+     }
+    ],
+    "title": "Initial characterization of the human central proteome.",
+    "publicationDate": "2011",
+    "journal": "BMC Syst. Biol.",
+    "firstPage": "17",
+    "lastPage": "17",
+    "volume": "5"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "22814378",
+    "citationType": "journal article",
+    "authors": [
+     "Van Damme P.",
+     "Lasa M.",
+     "Polevoda B.",
+     "Gazquez C.",
+     "Elosegui-Artola A.",
+     "Kim D.S.",
+     "De Juan-Pardo E.",
+     "Demeyer K.",
+     "Hole K.",
+     "Larrea E.",
+     "Timmerman E.",
+     "Prieto J.",
+     "Arnesen T.",
+     "Sherman F.",
+     "Gevaert K.",
+     "Aldabe R."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "22814378"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1073/pnas.1210303109"
+     }
+    ],
+    "title": "N-terminal acetylome analyses and functional insights of the N-terminal acetyltransferase NatB.",
+    "publicationDate": "2012",
+    "journal": "Proc. Natl. Acad. Sci. U.S.A.",
+    "firstPage": "12449",
+    "lastPage": "12454",
+    "volume": "109"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "23186163",
+    "citationType": "journal article",
+    "authors": [
+     "Zhou H.",
+     "Di Palma S.",
+     "Preisinger C.",
+     "Peng M.",
+     "Polat A.N.",
+     "Heck A.J.",
+     "Mohammed S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "23186163"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1021/pr300630k"
+     }
+    ],
+    "title": "Toward a comprehensive characterization of a human cancer cell phosphoproteome.",
+    "publicationDate": "2013",
+    "journal": "J. Proteome Res.",
+    "firstPage": "260",
+    "lastPage": "271",
+    "volume": "12"
+   },
+   "referencePositions": [
+    "PHOSPHORYLATION [LARGE SCALE ANALYSIS] AT SER-141 AND SER-194",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Cervix carcinoma",
+     "type": "TISSUE"
+    },
+    {
+     "value": "Erythroleukemia",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "23894443",
+    "citationType": "journal article",
+    "authors": [
+     "Telkoparan P.",
+     "Erkek S.",
+     "Yaman E.",
+     "Alotaibi H.",
+     "Bayik D.",
+     "Tazebay U.H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "23894443"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1371/journal.pone.0069289"
+     }
+    ],
+    "title": "Coiled-coil domain containing protein 124 is a novel centrosome and midbody protein that interacts with the ras-guanine nucleotide exchange factor 1B and is involved in cytokinesis.",
+    "publicationDate": "2013",
+    "journal": "PLoS ONE",
+    "firstPage": "E69289",
+    "lastPage": "E69289",
+    "volume": "8"
+   },
+   "referencePositions": [
+    "FUNCTION",
+    "SUBCELLULAR LOCATION",
+    "INTERACTION WITH RASGEF1B",
+    "TISSUE SPECIFICITY",
+    "PHOSPHORYLATION AT SER-141"
+   ]
+  },
+  {
+   "referenceNumber": 6,
+   "citation": {
+    "id": "32687489",
+    "citationType": "journal article",
+    "authors": [
+     "Wells J.N.",
+     "Buschauer R.",
+     "Mackens-Kiani T.",
+     "Best K.",
+     "Kratzat H.",
+     "Berninghausen O.",
+     "Becker T.",
+     "Gilbert W.",
+     "Cheng J.",
+     "Beckmann R."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "32687489"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1371/journal.pbio.3000780"
+     }
+    ],
+    "title": "Structure and function of yeast Lso2 and human CCDC124 bound to hibernating ribosomes.",
+    "publicationDate": "2020",
+    "journal": "PLoS Biol.",
+    "firstPage": "e3000780",
+    "lastPage": "e3000780",
+    "volume": "18"
+   },
+   "referencePositions": [
+    "STRUCTURE BY ELECTRON MICROSCOPY (3.00 ANGSTROMS) IN COMPLEX WITH RIBOSOME",
+    "FUNCTION",
+    "RIBOSOME-BINDING"
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "6Z6L"
+    }
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "BC013949",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH13949.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS12369.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001129675.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001136203.2"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_612451.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_138442.4"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "6Z6L",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "3.00 A"
+    },
+    {
+     "key": "Chains",
+     "value": "CE=1-223"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "6ZM7",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "2.70 A"
+    },
+    {
+     "key": "Chains",
+     "value": "CE=1-223"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "6ZME",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "3.00 A"
+    },
+    {
+     "key": "Chains",
+     "value": "CE=1-223"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "8K2C",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "2.40 A"
+    },
+    {
+     "key": "Chains",
+     "value": "CE=1-223"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "8XSY",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "3.00 A"
+    },
+    {
+     "key": "Chains",
+     "value": "CE=1-223"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "9P9H",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "2.84 A"
+    },
+    {
+     "key": "Chains",
+     "value": "CE=9-81"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "6Z6L",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "6ZM7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "6ZME",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "8K2C",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "8XSY",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "9P9H",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "Q96CT7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-11098",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-11288",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-11289",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-36838",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-38630",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-71411",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "Q96CT7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "125411",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "139"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "Q96CT7",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "1647"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "Q96CT7",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "94"
+    }
+   ]
+  },
+  {
+   "database": "MINT",
+   "id": "Q96CT7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "NDEx",
+   "id": "IQUERY-CP-CCDC124",
+   "properties": [
+    {
+     "key": "Evidences",
+     "value": "2 NDEx IQuery Curated Pathways"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000471455",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "Q96CT7",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "1 site, 1 O-linked glycan (1 site)"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "Q96CT7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "Q96CT7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "CCDC124",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "74731379",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "Q96CT7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "Q96CT7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000471455",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "Q96CT7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "76221",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pumba",
+   "id": "Q96CT7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "27882",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "83 antibodies from 16 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "115098",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000445755.7",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000408730.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000007080.12"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000597436.5",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000471455.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000007080.12"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000873323.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000543382.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000007080.12"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000873324.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000543383.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000007080.12"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000873325.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000543384.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000007080.12"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000873326.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000543385.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000007080.12"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000873327.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000543386.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000007080.12"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000926055.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000596114.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000007080.12"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000926058.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000596117.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000007080.12"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000926065.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000596124.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000007080.12"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000944720.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000614779.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000007080.12"
+    }
+   ]
+  },
+  {
+   "database": "GeneID",
+   "id": "115098",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:115098",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000445755.7",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000408730.1"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_001136203.2"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_001129675.1"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc002nhs.4",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:25171",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA147358292",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "115098",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "115098",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "CCDC124",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:25171",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "CCDC124"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000007080",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Low tissue specificity"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "621286",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000007080",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000007080",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "KOG3223",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00390000012482",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_069723_0_1_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "Q96CT7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "FEERMMP",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "76412at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "Q96CT7",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "3 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "Q96CT7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "Q96CT7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "Q96CT7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000007080",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "115098",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "21 hits in 1158 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "CD-CODE",
+   "id": "8C2F96ED",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Centrosome"
+    }
+   ]
+  },
+  {
+   "database": "CD-CODE",
+   "id": "DEE660B4",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Stress granule"
+    }
+   ]
+  },
+  {
+   "database": "CD-CODE",
+   "id": "FB4E32DD",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Presynaptic clusters and postsynaptic densities"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "CCDC124",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "115098",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "Q96CT7",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tbio"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:Q96CT7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 19"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "Q96CT7",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000007080",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in cingulate cortex and 148 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "Q96CT7",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005813",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:centrosome"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:UniProtKB-SubCell"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005829",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:cytosol"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:HPA"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0030496",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:midbody"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "EXP:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "23894443"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005634",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:nucleus"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005886",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:plasma membrane"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:HPA"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0003723",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:RNA binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "HDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007005",
+     "source": "PubMed",
+     "id": "22658674"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0003713",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:transcription coactivator activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0006366",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:transcription by RNA polymerase II"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR010422",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Ccdc124/Oxs1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR054414",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Ccdc124/Oxs1_C"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR21680",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "COILED-COIL DOMAIN-CONTAINING PROTEIN 124"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR21680:SF0",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "COILED-COIL DOMAIN-CONTAINING PROTEIN 124"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF06244",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Ccdc124"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MPKKFQGENTKSAAARARRAEAKAAADAKKQKELEDAYWKDDDKHVMRKEQRKEEKEKRRLDQLERKKETQRLLEEEDSKLKGGKAPRVATSSKVTRAQIEDTLRRDHQLREAPDTAEKAKSHLEVPLEENVNRRVLEEGSVEARTIEDAIAVLSVAEEAADRHPERRMRAAFTAFEEAQLPRLKQENPNMRLSQLKQLLKKEWLRSPDNPMNQRAVPFNAPK",
+  "length": 223,
+  "molWeight": 25835,
+  "crc64": "DFC65D526057DE27",
+  "md5": "5F80AA42DD303CE333E936725309EACB"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "SUBUNIT": 1,
+   "INTERACTION": 1,
+   "SUBCELLULAR LOCATION": 1,
+   "TISSUE SPECIFICITY": 1,
+   "SIMILARITY": 1
+  },
+  "countByFeatureType": {
+   "Chain": 1,
+   "Region": 2,
+   "Coiled coil": 1,
+   "Compositional bias": 2,
+   "Modified residue": 2,
+   "Natural variant": 1,
+   "Helix": 4
+  },
+  "uniParcId": "UPI000006D46F"
+ }
+}

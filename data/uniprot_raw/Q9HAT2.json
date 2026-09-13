@@ -1,0 +1,3072 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "Q9HAT2",
+ "secondaryAccessions": [
+  "B3KPB0",
+  "Q8IUT9",
+  "Q9HAU7",
+  "Q9NT71"
+ ],
+ "uniProtkbId": "SIAE_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "2005-10-11",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2001-03-01",
+  "entryVersion": 168,
+  "sequenceVersion": 1
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000303",
+      "source": "PubMed",
+      "id": "21803834"
+     }
+    ],
+    "value": "Sialate O-acetylesterase"
+   },
+   "shortNames": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000303",
+       "source": "PubMed",
+       "id": "21803834"
+      }
+     ],
+     "value": "SIAE"
+    }
+   ],
+   "ecNumbers": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "20555325"
+      },
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "21803834"
+      }
+     ],
+     "value": "3.1.1.53"
+    }
+   ]
+  },
+  "alternativeNames": [
+   {
+    "fullName": {
+     "value": "H-Lse"
+    }
+   },
+   {
+    "fullName": {
+     "value": "Sialic acid-specific 9-O-acetylesterase"
+    }
+   }
+  ],
+  "flag": "Precursor"
+ },
+ "genes": [
+  {
+   "geneName": {
+    "value": "SIAE"
+   },
+   "synonyms": [
+    {
+     "value": "YSG2"
+    }
+   ]
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "21803834"
+      },
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "20555325"
+      },
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "21803834"
+      }
+     ],
+     "value": "Catalyzes the removal of O-acetyl ester groups from position 9 of the free diacetylated sialate N-acetyl-9-O-acetylneuraminate (Neu5,9Ac2) in the cytosol and of the diacetylated sialate residues of sialylglycoconjugates in the lysosomes (Probable). Together with the sialate-O-acetyltransferase they regulate the balance of acetylated sialoglycoconjugates, key players in various processes such as cell-cell interactions, host-pathogen recognition, and tumor antigenicity (PubMed:21803834)"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "molecule": "Isoform 2",
+   "reaction": {
+    "name": "N-acetyl-9-O-acetylneuraminate + H2O = N-acetylneuraminate + acetate + H(+)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:22600"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15378"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:28999"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:30089"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:35418"
+     }
+    ],
+    "ecNumber": "3.1.1.53",
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000305",
+      "source": "PubMed",
+      "id": "20555325"
+     },
+     {
+      "evidenceCode": "ECO:0000305",
+      "source": "PubMed",
+      "id": "21803834"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:22601"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "20555325"
+      },
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "21803834"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "molecule": "Isoform 1",
+   "reaction": {
+    "name": "an Ac-O-9-sialoglycoconjugate + H2O = a sialoglycoconjugate + acetate + H(+)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:80763"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15378"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:30089"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:231691"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:231692"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000305",
+      "source": "PubMed",
+      "id": "21803834"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:80764"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "21803834"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "Q9HAT2",
+      "intActId": "EBI-2908303"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9UK22",
+      "geneName": "FBXO2",
+      "intActId": "EBI-4287196"
+     },
+     "numberOfExperiments": 2,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "molecule": "Isoform 1",
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "15292578"
+       },
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "21803834"
+       }
+      ],
+      "value": "Lysosome",
+      "id": "SL-0158"
+     }
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "molecule": "Isoform 2",
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "21803834"
+       }
+      ],
+      "value": "Cytoplasm",
+      "id": "SL-0086"
+     }
+    }
+   ]
+  },
+  {
+   "commentType": "ALTERNATIVE PRODUCTS",
+   "events": [
+    "Alternative splicing"
+   ],
+   "isoforms": [
+    {
+     "name": {
+      "value": "1"
+     },
+     "isoformIds": [
+      "Q9HAT2-1"
+     ],
+     "isoformSequenceStatus": "Displayed"
+    },
+    {
+     "name": {
+      "value": "2"
+     },
+     "isoformIds": [
+      "Q9HAT2-2"
+     ],
+     "sequenceIds": [
+      "VSP_018993"
+     ],
+     "isoformSequenceStatus": "Described"
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "15292578"
+      }
+     ],
+     "value": "Widely expressed with high expression in the testis, prostate, and colon"
+    }
+   ],
+   "commentType": "TISSUE SPECIFICITY"
+  },
+  {
+   "commentType": "DISEASE",
+   "disease": {
+    "diseaseId": "Autoimmune disease 6",
+    "diseaseAccession": "DI-02927",
+    "acronym": "AIS6",
+    "description": "Individuals manifesting susceptibility to autoimmune disease type 6 can suffer from juvenile idiopathic arthritis, rheumatoid arthritis, multiple sclerosis, Sjogren syndrome, systemic lupus erythematosus, type 1 diabetes, ulcerative colitis, and Crohn disease.",
+    "diseaseCrossReference": {
+     "database": "MIM",
+     "id": "613551"
+    },
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "20555325"
+     }
+    ]
+   },
+   "note": {
+    "texts": [
+     {
+      "value": "Disease susceptibility is associated with variants affecting the gene represented in this entry"
+     }
+    ]
+   }
+  }
+ ],
+ "features": [
+  {
+   "type": "Signal",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 23,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 24,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 523,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Sialate O-acetylesterase",
+   "featureId": "PRO_0000042241"
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 107,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 107,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 138,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 138,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 267,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 267,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 290,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 290,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 401,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 401,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "19159218"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 422,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 422,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "19159218"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 35,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 2",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "15292578"
+    }
+   ],
+   "featureId": "VSP_018993",
+   "alternativeSequence": {}
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 3,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 3,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "rare variant found in a patient with Crohn disease; probably not involved in disease susceptibility; the mutant enzyme has normal activity and is normally secreted; dbSNP:rs144571829",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs144571829"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_064438",
+   "alternativeSequence": {
+    "originalSequence": "A",
+    "alternativeSequences": [
+     "G"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 33,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 33,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "rare variant found in a patient with rheumatoid arthritis; probably not involved in disease susceptibility; the mutant enzyme has normal activity and is normally secreted; dbSNP:rs762824510",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs762824510"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_064439",
+   "alternativeSequence": {
+    "originalSequence": "N",
+    "alternativeSequences": [
+     "S"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 62,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 62,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "the mutant enzyme has normal activity and is normally secreted; dbSNP:rs377634657",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs377634657"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_064440",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "H"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 64,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 64,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "the mutant enzyme has normal activity and is normally secreted; dbSNP:rs76655561",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs76655561"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_064441",
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "S"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 71,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 71,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs12282107",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs12282107"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_051356",
+   "alternativeSequence": {
+    "originalSequence": "K",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 89,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 89,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "at homozygosity may predispose to autoimmunity; normal enzyme activity; dbSNP:rs78778622",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs78778622"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_064442",
+   "alternativeSequence": {
+    "originalSequence": "M",
+    "alternativeSequences": [
+     "V"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 161,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 161,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "the mutant enzyme has normal activity and is normally secreted; dbSNP:rs200739060",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs200739060"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_064443",
+   "alternativeSequence": {
+    "originalSequence": "Q",
+    "alternativeSequences": [
+     "K"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 196,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 196,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in AIS6; defective enzyme secretion and activity; dbSNP:rs143070599",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs143070599"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_064444",
+   "alternativeSequence": {
+    "originalSequence": "C",
+    "alternativeSequences": [
+     "F"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 212,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 212,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in AIS6; defective enzyme secretion and activity; dbSNP:rs149466359",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs149466359"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_064445",
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 230,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 230,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in AIS6; defective enzyme secretion and activity; dbSNP:rs200862001",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs200862001"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_064446",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "W"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 266,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 266,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in AIS6; defective enzyme secretion and activity; dbSNP:rs746914032",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs746914032"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_064447",
+   "alternativeSequence": {
+    "originalSequence": "C",
+    "alternativeSequences": [
+     "G"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 309,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 309,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in AIS6; defective enzyme secretion and activity; dbSNP:rs757586703",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs757586703"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_064448",
+   "alternativeSequence": {
+    "originalSequence": "Q",
+    "alternativeSequences": [
+     "P"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 312,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 312,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "may predispose to autoimmunity; defective enzyme secretion and activity; dbSNP:rs144510878",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs144510878"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_064449",
+   "alternativeSequence": {
+    "originalSequence": "T",
+    "alternativeSequences": [
+     "M"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 314,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 314,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "defective enzyme secretion and activity; dbSNP:rs147649509",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs147649509"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_064450",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "H"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 349,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 349,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in AIS6; defective enzyme secretion and activity; dbSNP:rs749579541",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs749579541"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_064451",
+   "alternativeSequence": {
+    "originalSequence": "Y",
+    "alternativeSequences": [
+     "C"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 393,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 393,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in AIS6; defective enzyme secretion and activity; dbSNP:rs552372846",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs552372846"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_064452",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "H"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 400,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 400,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "rare variant found in a patient with Crohn disease; probably not involved in disease susceptibility; the mutant protein has normal activity; dbSNP:rs766047951",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs766047951"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_064453",
+   "alternativeSequence": {
+    "originalSequence": "K",
+    "alternativeSequences": [
+     "N"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 404,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 404,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in AIS6; defective enzyme secretion and activity; dbSNP:rs201877149",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs201877149"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_064454",
+   "alternativeSequence": {
+    "originalSequence": "F",
+    "alternativeSequences": [
+     "S"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 447,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 447,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "the mutant enzyme has normal activity and is normally secreted; dbSNP:rs147161431",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs147161431"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_064455",
+   "alternativeSequence": {
+    "originalSequence": "H",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 456,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 456,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "the mutant enzyme has normal activity and is normally secreted; dbSNP:rs1942761601",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs1942761601"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_064456",
+   "alternativeSequence": {
+    "originalSequence": "M",
+    "alternativeSequences": [
+     "I"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 462,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 462,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "the mutant enzyme has normal activity and is normally secreted; dbSNP:rs143668140",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs143668140"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_064457",
+   "alternativeSequence": {
+    "originalSequence": "Q",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 467,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 467,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs7941523",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs7941523"
+    }
+   ],
+   "featureId": "VAR_051357",
+   "alternativeSequence": {
+    "originalSequence": "A",
+    "alternativeSequences": [
+     "V"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 479,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 479,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in AIS6; defective enzyme secretion and activity; dbSNP:rs376857712",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs376857712"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ],
+   "featureId": "VAR_064458",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "C"
+    ]
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0025",
+   "category": "Coding sequence diversity",
+   "name": "Alternative splicing"
+  },
+  {
+   "id": "KW-0963",
+   "category": "Cellular component",
+   "name": "Cytoplasm"
+  },
+  {
+   "id": "KW-0225",
+   "category": "Disease",
+   "name": "Disease variant"
+  },
+  {
+   "id": "KW-0325",
+   "category": "PTM",
+   "name": "Glycoprotein"
+  },
+  {
+   "id": "KW-0378",
+   "category": "Molecular function",
+   "name": "Hydrolase"
+  },
+  {
+   "id": "KW-0458",
+   "category": "Cellular component",
+   "name": "Lysosome"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  },
+  {
+   "id": "KW-0719",
+   "category": "Molecular function",
+   "name": "Serine esterase"
+  },
+  {
+   "id": "KW-0732",
+   "category": "Domain",
+   "name": "Signal"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "15292578",
+    "citationType": "journal article",
+    "authors": [
+     "Zhu H.",
+     "Chan H.C.",
+     "Zhou Z.",
+     "Li J.M.",
+     "Zhu H.",
+     "Yin L.",
+     "Xu M.",
+     "Cheng L.",
+     "Sha J.H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15292578"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1155/s1110724304307084"
+     }
+    ],
+    "title": "A gene encoding sialic-acid-specific 9-O-acetylesterase found in human adult testis.",
+    "publicationDate": "2004",
+    "journal": "J. Biomed. Biotechnol.",
+    "firstPage": "130",
+    "lastPage": "136",
+    "volume": "2004"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA] (ISOFORMS 1 AND 2)",
+    "SUBCELLULAR LOCATION (ISOFORM 1)",
+    "TISSUE SPECIFICITY"
+   ],
+   "referenceComments": [
+    {
+     "value": "Testis",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "14702039",
+    "citationType": "journal article",
+    "authors": [
+     "Ota T.",
+     "Suzuki Y.",
+     "Nishikawa T.",
+     "Otsuki T.",
+     "Sugiyama T.",
+     "Irie R.",
+     "Wakamatsu A.",
+     "Hayashi K.",
+     "Sato H.",
+     "Nagai K.",
+     "Kimura K.",
+     "Makita H.",
+     "Sekine M.",
+     "Obayashi M.",
+     "Nishi T.",
+     "Shibahara T.",
+     "Tanaka T.",
+     "Ishii S.",
+     "Yamamoto J.",
+     "Saito K.",
+     "Kawai Y.",
+     "Isono Y.",
+     "Nakamura Y.",
+     "Nagahari K.",
+     "Murakami K.",
+     "Yasuda T.",
+     "Iwayanagi T.",
+     "Wagatsuma M.",
+     "Shiratori A.",
+     "Sudo H.",
+     "Hosoiri T.",
+     "Kaku Y.",
+     "Kodaira H.",
+     "Kondo H.",
+     "Sugawara M.",
+     "Takahashi M.",
+     "Kanda K.",
+     "Yokoi T.",
+     "Furuya T.",
+     "Kikkawa E.",
+     "Omura Y.",
+     "Abe K.",
+     "Kamihara K.",
+     "Katsuta N.",
+     "Sato K.",
+     "Tanikawa M.",
+     "Yamazaki M.",
+     "Ninomiya K.",
+     "Ishibashi T.",
+     "Yamashita H.",
+     "Murakawa K.",
+     "Fujimori K.",
+     "Tanai H.",
+     "Kimata M.",
+     "Watanabe M.",
+     "Hiraoka S.",
+     "Chiba Y.",
+     "Ishida S.",
+     "Ono Y.",
+     "Takiguchi S.",
+     "Watanabe S.",
+     "Yosida M.",
+     "Hotuta T.",
+     "Kusano J.",
+     "Kanehori K.",
+     "Takahashi-Fujii A.",
+     "Hara H.",
+     "Tanase T.-O.",
+     "Nomura Y.",
+     "Togiya S.",
+     "Komai F.",
+     "Hara R.",
+     "Takeuchi K.",
+     "Arita M.",
+     "Imose N.",
+     "Musashino K.",
+     "Yuuki H.",
+     "Oshima A.",
+     "Sasaki N.",
+     "Aotsuka S.",
+     "Yoshikawa Y.",
+     "Matsunawa H.",
+     "Ichihara T.",
+     "Shiohata N.",
+     "Sano S.",
+     "Moriya S.",
+     "Momiyama H.",
+     "Satoh N.",
+     "Takami S.",
+     "Terashima Y.",
+     "Suzuki O.",
+     "Nakagawa S.",
+     "Senoh A.",
+     "Mizoguchi H.",
+     "Goto Y.",
+     "Shimizu F.",
+     "Wakebe H.",
+     "Hishigaki H.",
+     "Watanabe T.",
+     "Sugiyama A.",
+     "Takemoto M.",
+     "Kawakami B.",
+     "Yamazaki M.",
+     "Watanabe K.",
+     "Kumagai A.",
+     "Itakura S.",
+     "Fukuzumi Y.",
+     "Fujimori Y.",
+     "Komiyama M.",
+     "Tashiro H.",
+     "Tanigami A.",
+     "Fujiwara T.",
+     "Ono T.",
+     "Yamada K.",
+     "Fujii Y.",
+     "Ozaki K.",
+     "Hirao M.",
+     "Ohmori Y.",
+     "Kawabata A.",
+     "Hikiji T.",
+     "Kobatake N.",
+     "Inagaki H.",
+     "Ikema Y.",
+     "Okamoto S.",
+     "Okitani R.",
+     "Kawakami T.",
+     "Noguchi S.",
+     "Itoh T.",
+     "Shigeta K.",
+     "Senba T.",
+     "Matsumura K.",
+     "Nakajima Y.",
+     "Mizuno T.",
+     "Morinaga M.",
+     "Sasaki M.",
+     "Togashi T.",
+     "Oyama M.",
+     "Hata H.",
+     "Watanabe M.",
+     "Komatsu T.",
+     "Mizushima-Sugano J.",
+     "Satoh T.",
+     "Shirai Y.",
+     "Takahashi Y.",
+     "Nakagawa K.",
+     "Okumura K.",
+     "Nagase T.",
+     "Nomura N.",
+     "Kikuchi H.",
+     "Masuho Y.",
+     "Yamashita R.",
+     "Nakai K.",
+     "Yada T.",
+     "Nakamura Y.",
+     "Ohara O.",
+     "Isogai T.",
+     "Sugano S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "14702039"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/ng1285"
+     }
+    ],
+    "title": "Complete sequencing and characterization of 21,243 full-length human cDNAs.",
+    "publicationDate": "2004",
+    "journal": "Nat. Genet.",
+    "firstPage": "40",
+    "lastPage": "45",
+    "volume": "36"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 1)"
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "CI-5GBDQ6B103N1E",
+    "citationType": "submission",
+    "authors": [
+     "Mural R.J.",
+     "Istrail S.",
+     "Sutton G.G.",
+     "Florea L.",
+     "Halpern A.L.",
+     "Mobarry C.M.",
+     "Lippert R.",
+     "Walenz B.",
+     "Shatkay H.",
+     "Dew I.",
+     "Miller J.R.",
+     "Flanigan M.J.",
+     "Edwards N.J.",
+     "Bolanos R.",
+     "Fasulo D.",
+     "Halldorsson B.V.",
+     "Hannenhalli S.",
+     "Turner R.",
+     "Yooseph S.",
+     "Lu F.",
+     "Nusskern D.R.",
+     "Shue B.C.",
+     "Zheng X.H.",
+     "Zhong F.",
+     "Delcher A.L.",
+     "Huson D.H.",
+     "Kravitz S.A.",
+     "Mouchard L.",
+     "Reinert K.",
+     "Remington K.A.",
+     "Clark A.G.",
+     "Waterman M.S.",
+     "Eichler E.E.",
+     "Adams M.D.",
+     "Hunkapiller M.W.",
+     "Myers E.W.",
+     "Venter J.C."
+    ],
+    "publicationDate": "JUL-2005",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 1)"
+   ],
+   "referenceComments": [
+    {
+     "value": "Hypothalamus",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "17974005",
+    "citationType": "journal article",
+    "authors": [
+     "Bechtel S.",
+     "Rosenfelder H.",
+     "Duda A.",
+     "Schmidt C.P.",
+     "Ernst U.",
+     "Wellenreuther R.",
+     "Mehrle A.",
+     "Schuster C.",
+     "Bahr A.",
+     "Bloecker H.",
+     "Heubner D.",
+     "Hoerlein A.",
+     "Michel G.",
+     "Wedler H.",
+     "Koehrer K.",
+     "Ottenwaelder B.",
+     "Poustka A.",
+     "Wiemann S.",
+     "Schupp I."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "17974005"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1186/1471-2164-8-399"
+     }
+    ],
+    "title": "The full-ORF clone resource of the German cDNA consortium.",
+    "publicationDate": "2007",
+    "journal": "BMC Genomics",
+    "firstPage": "399",
+    "lastPage": "399",
+    "volume": "8"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] OF 3-523 (ISOFORM 1)"
+   ],
+   "referenceComments": [
+    {
+     "value": "Amygdala",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 6,
+   "citation": {
+    "id": "21803834",
+    "citationType": "journal article",
+    "authors": [
+     "Mandal C.",
+     "Mandal C.",
+     "Chandra S.",
+     "Schauer R.",
+     "Mandal C."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "21803834"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1093/glycob/cwr106"
+     }
+    ],
+    "title": "Regulation of O-acetylation of sialic acids by sialate-O-acetyltransferase and sialate-O-acetylesterase activities in childhood acute lymphoblastic leukemia.",
+    "publicationDate": "2012",
+    "journal": "Glycobiology",
+    "firstPage": "70",
+    "lastPage": "83",
+    "volume": "22"
+   },
+   "referencePositions": [
+    "FUNCTION",
+    "CATALYTIC ACTIVITY",
+    "SUBCELLULAR LOCATION (ISOFORM 1 AND ISOFORM 2)"
+   ]
+  },
+  {
+   "referenceNumber": 7,
+   "citation": {
+    "id": "19159218",
+    "citationType": "journal article",
+    "authors": [
+     "Chen R.",
+     "Jiang X.",
+     "Sun D.",
+     "Han G.",
+     "Wang F.",
+     "Ye M.",
+     "Wang L.",
+     "Zou H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "19159218"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1021/pr8008012"
+     }
+    ],
+    "title": "Glycoproteomics analysis of human liver tissue by combination of multiple enzyme digestion and hydrazide chemistry.",
+    "publicationDate": "2009",
+    "journal": "J. Proteome Res.",
+    "firstPage": "651",
+    "lastPage": "661",
+    "volume": "8"
+   },
+   "referencePositions": [
+    "GLYCOSYLATION [LARGE SCALE ANALYSIS] AT ASN-401 AND ASN-422"
+   ],
+   "referenceComments": [
+    {
+     "value": "Liver",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 8,
+   "citation": {
+    "id": "20555325",
+    "citationType": "journal article",
+    "authors": [
+     "Surolia I.",
+     "Pirnie S.P.",
+     "Chellappa V.",
+     "Taylor K.N.",
+     "Cariappa A.",
+     "Moya J.",
+     "Liu H.",
+     "Bell D.W.",
+     "Driscoll D.R.",
+     "Diederichs S.",
+     "Haider K.",
+     "Netravali I.",
+     "Le S.",
+     "Elia R.",
+     "Dow E.",
+     "Lee A.",
+     "Freudenberg J.",
+     "De Jager P.L.",
+     "Chretien Y.",
+     "Varki A.",
+     "Macdonald M.E.",
+     "Gillis T.",
+     "Behrens T.W.",
+     "Bloch D.",
+     "Collier D.",
+     "Korzenik J.",
+     "Podolsky D.K.",
+     "Hafler D.",
+     "Murali M.",
+     "Sands B.",
+     "Stone J.H.",
+     "Gregersen P.K.",
+     "Pillai S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "20555325"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/nature09115"
+     }
+    ],
+    "title": "Functionally defective germline variants of sialic acid acetylesterase in autoimmunity.",
+    "publicationDate": "2010",
+    "journal": "Nature",
+    "firstPage": "243",
+    "lastPage": "247",
+    "volume": "466"
+   },
+   "referencePositions": [
+    "SUBCELLULAR LOCATION",
+    "FUNCTION",
+    "CATALYTIC ACTIVITY",
+    "VARIANTS AIS6 PHE-196; ARG-212; TRP-230; GLY-266; PRO-309; CYS-349; HIS-393; SER-404 AND CYS-479",
+    "VARIANTS GLY-3; SER-33; HIS-62; SER-64; ARG-71; VAL-89; LYS-161; MET-312; HIS-314; ASN-400; ARG-447; ILE-456 AND ARG-462",
+    "CHARACTERIZATION OF VARIANTS AIS6 PHE-196; ARG-212; TRP-230; GLY-266; PRO-309; CYS-349; HIS-393; SER-404 AND CYS-479",
+    "CHARACTERIZATION OF VARIANTS GLY-3; SER-33; HIS-62; SER-64; VAL-89; LYS-161; MET-312; HIS-314; ASN-400; ARG-447; ILE-456 AND ARG-462"
+   ]
+  },
+  {
+   "referenceNumber": 9,
+   "citation": {
+    "id": "24275569",
+    "citationType": "journal article",
+    "authors": [
+     "Bian Y.",
+     "Song C.",
+     "Cheng K.",
+     "Dong M.",
+     "Wang F.",
+     "Huang J.",
+     "Sun D.",
+     "Wang L.",
+     "Ye M.",
+     "Zou H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "24275569"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.jprot.2013.11.014"
+     }
+    ],
+    "title": "An enzyme assisted RP-RPLC approach for in-depth analysis of human liver phosphoproteome.",
+    "publicationDate": "2014",
+    "journal": "J. Proteomics",
+    "firstPage": "253",
+    "lastPage": "262",
+    "volume": "96"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Liver",
+     "type": "TISSUE"
+    }
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "AF300796",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAG15386.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AF303378",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAG14897.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AK056093",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAG51622.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "CH471065",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "EAW67591.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC068450",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH68450.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AL137496",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "CAB70771.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS55795.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q9HAT2-2"
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS8449.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q9HAT2-1"
+  },
+  {
+   "database": "PIR",
+   "id": "T46250",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "T46250"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001186851.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001199922.2"
+    }
+   ],
+   "isoformId": "Q9HAT2-2"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_733746.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_170601.5"
+    }
+   ],
+   "isoformId": "Q9HAT2-1"
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "Q9HAT2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "Q9HAT2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "119945",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "71"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "Q9HAT2",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "185"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "Q9HAT2",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "40"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000263593",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ChEMBL",
+   "id": "CHEMBL4523459",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GlyConnect",
+   "id": "Q9HAT2",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "4 N-Linked glycans (2 sites)"
+    }
+   ]
+  },
+  {
+   "database": "GlyCosmos",
+   "id": "Q9HAT2",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "7 sites, 5 glycans"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "Q9HAT2",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "7 sites, 46 N-linked glycans (6 sites), 1 O-linked glycan (1 site)"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "Q9HAT2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "Q9HAT2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "SIAE",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "74734243",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "Q9HAT2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "Q9HAT2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000263593",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "Q9HAT2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "81429",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q9HAT2-1"
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "81430",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q9HAT2-2"
+  },
+  {
+   "database": "Pumba",
+   "id": "Q9HAT2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "32895",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "64 antibodies from 18 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "54414",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000263593.8",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000263593.3"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000110013.14"
+    }
+   ],
+   "isoformId": "Q9HAT2-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000545756.5",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000437877.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000110013.14"
+    }
+   ],
+   "isoformId": "Q9HAT2-2"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000618733.4",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000478211.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000110013.14"
+    }
+   ],
+   "isoformId": "Q9HAT2-2"
+  },
+  {
+   "database": "GeneID",
+   "id": "54414",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:54414",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000263593.8",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000263593.3"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_170601.5"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_733746.1"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc001qan.4",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ],
+   "isoformId": "Q9HAT2-1"
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:18187",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA142670922",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "54414",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "54414",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "SIAE",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:18187",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "SIAE"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000110013",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Tissue enhanced (intestine)"
+    }
+   ]
+  },
+  {
+   "database": "MalaCards",
+   "id": "SIAE",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "610079",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "613551",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "phenotype"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000110013",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000110013",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "ENOG502QUKD",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00390000010608",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_015150_1_0_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "Q9HAT2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "PCEFKAC",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "42638at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "Q9HAT2",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "2 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "Q9HAT2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BRENDA",
+   "id": "3.1.1.53",
+   "properties": [
+    {
+     "key": "OrganismId",
+     "value": "2681"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "Q9HAT2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "Q9HAT2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000110013",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "54414",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "12 hits in 1161 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "SIAE",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "54414",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "Q9HAT2",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tbio"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:Q9HAT2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 11"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "Q9HAT2",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "Protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000110013",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in mucosa of sigmoid colon and 179 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0070062",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:extracellular exosome"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "HDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007005",
+     "source": "PubMed",
+     "id": "19056867"
+    },
+    {
+     "evidenceCode": "ECO:0007005",
+     "source": "PubMed",
+     "id": "23533145"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005576",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:extracellular region"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "HDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007005",
+     "source": "PubMed",
+     "id": "16502470"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005764",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:lysosome"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:UniProtKB-SubCell"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0106330",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:sialate 9-O-acetylesterase activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:RHEA"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0001681",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:sialate O-acetylesterase activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "23308225"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005975",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:carbohydrate metabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "23308225"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0002682",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:regulation of immune system process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "20555325"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.40.50.1110:FF:000008",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Sialate O-acetylesterase"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.40.50.1110",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SGNH hydrolase"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR005181",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SASA"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR036514",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SGNH_hydro_sf"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR039329",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SIAE"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR060589",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SIAE_C"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR22901",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SIALATE O-ACETYLESTERASE"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR22901:SF0",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SIALATE O-ACETYLESTERASE"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF03629",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SASA"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF28112",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SIAE_C"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF52266",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SGNH hydrolase"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MVAPGLVLGLVLPLILWADRSAGIGFRFASYINNDMVLQKEPAGAVIWGFGTPGATVTVTLRQGQETIMKKVTSVKAHSDTWMVVLDPMKPGGPFEVMAQQTLEKINFTLRVHDVLFGDVWLCSGQSNMQMTVLQIFNATRELSNTAAYQSVRILSVSPIQAEQELEDLVAVDLQWSKPTSENLGHGYFKYMSAVCWLFGRHLYDTLQYPIGLIASSWGGTPIEAWSSGRSLKACGVPKQGSIPYDSVTGPSKHSVLWNAMIHPLCNMTLKGVVWYQGESNINYNTDLYNCTFPALIEDWRETFHRGSQGQTERFFPFGLVQLSSDLSKKSSDDGFPQIRWHQTADFGYVPNPKMPNTFMAVAMDLCDRDSPFGSIHPRDKQTVAYRLHLGARALAYGEKNLTFEGPLPEKIELLAHKGLLNLTYYQQIQVQKKDNKIFEISCCSDHRCKWLPASMNTVSTQSLTLAIDSCHGTVVALRYAWTTWPCEYKQCPLYHPSSALPAPPFIAFITDQGPGHQSNVAK",
+  "length": 523,
+  "molWeight": 58315,
+  "crc64": "B72CF69636DBFED8",
+  "md5": "5A6E38CFA1BCC8B7275ABDBA282AE802"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "CATALYTIC ACTIVITY": 2,
+   "INTERACTION": 1,
+   "SUBCELLULAR LOCATION": 2,
+   "ALTERNATIVE PRODUCTS": 2,
+   "TISSUE SPECIFICITY": 1,
+   "DISEASE": 1
+  },
+  "countByFeatureType": {
+   "Signal": 1,
+   "Chain": 1,
+   "Glycosylation": 6,
+   "Alternative sequence": 1,
+   "Natural variant": 23
+  },
+  "uniParcId": "UPI0000073B2D"
+ }
+}

@@ -1,0 +1,2359 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "Q9H9S3",
+ "secondaryAccessions": [
+  "A8K8D0",
+  "B4DX72",
+  "F8W773"
+ ],
+ "uniProtkbId": "S61A2_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "2004-06-07",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2007-01-23",
+  "entryVersion": 175,
+  "sequenceVersion": 3
+ },
+ "annotationScore": 3.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "value": "Protein transport protein Sec61 subunit alpha isoform 2"
+   },
+   "shortNames": [
+    {
+     "value": "Sec61 alpha-2"
+    }
+   ]
+  }
+ },
+ "genes": [
+  {
+   "geneName": {
+    "value": "SEC61A2"
+   }
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250",
+       "source": "UniProtKB",
+       "id": "P61619"
+      }
+     ],
+     "value": "Component of SEC61 channel-forming translocon complex that mediates transport of signal peptide-containing precursor polypeptides across the endoplasmic reticulum (ER). Forms a ribosome receptor and a gated pore in the ER membrane, both functions required for cotranslational translocation of nascent polypeptides"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250",
+       "source": "UniProtKB",
+       "id": "P38377"
+      }
+     ],
+     "value": "The SEC61 channel-forming translocon complex consists of channel-forming core components SEC61A1, SEC61B and SEC61G and different auxiliary components such as SEC62 and SEC63"
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "Q9H9S3",
+      "intActId": "EBI-1172006"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P60468",
+      "geneName": "SEC61B",
+      "intActId": "EBI-1788819"
+     },
+     "numberOfExperiments": 2,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000250",
+        "source": "UniProtKB",
+        "id": "P61619"
+       }
+      ],
+      "value": "Endoplasmic reticulum membrane",
+      "id": "SL-0097"
+     },
+     "topology": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000255"
+       }
+      ],
+      "value": "Multi-pass membrane protein",
+      "id": "SL-9909"
+     }
+    }
+   ]
+  },
+  {
+   "commentType": "ALTERNATIVE PRODUCTS",
+   "events": [
+    "Alternative splicing"
+   ],
+   "isoforms": [
+    {
+     "name": {
+      "value": "1"
+     },
+     "isoformIds": [
+      "Q9H9S3-1"
+     ],
+     "isoformSequenceStatus": "Displayed"
+    },
+    {
+     "name": {
+      "value": "2"
+     },
+     "isoformIds": [
+      "Q9H9S3-2"
+     ],
+     "sequenceIds": [
+      "VSP_010472"
+     ],
+     "isoformSequenceStatus": "Described"
+    },
+    {
+     "name": {
+      "value": "3"
+     },
+     "isoformIds": [
+      "Q9H9S3-3"
+     ],
+     "sequenceIds": [
+      "VSP_046380"
+     ],
+     "isoformSequenceStatus": "Described"
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the SecY/SEC61-alpha family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  }
+ ],
+ "features": [
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 476,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Protein transport protein Sec61 subunit alpha isoform 2",
+   "featureId": "PRO_0000131795"
+  },
+  {
+   "type": "Topological domain",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 33,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Cytoplasmic",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 34,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 53,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Topological domain",
+   "location": {
+    "start": {
+     "value": 54,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 76,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Lumenal",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 77,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 96,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Topological domain",
+   "location": {
+    "start": {
+     "value": 97,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 117,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Cytoplasmic",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 118,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 138,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Topological domain",
+   "location": {
+    "start": {
+     "value": 139,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 144,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Lumenal",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 145,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 165,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Topological domain",
+   "location": {
+    "start": {
+     "value": 166,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 172,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Cytoplasmic",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 173,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 193,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Topological domain",
+   "location": {
+    "start": {
+     "value": 194,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 240,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Lumenal",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 241,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 261,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Topological domain",
+   "location": {
+    "start": {
+     "value": 262,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 288,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Cytoplasmic",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 289,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 309,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Topological domain",
+   "location": {
+    "start": {
+     "value": 310,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 354,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Lumenal",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 355,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 375,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Topological domain",
+   "location": {
+    "start": {
+     "value": 376,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 420,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Cytoplasmic",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 421,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 441,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Topological domain",
+   "location": {
+    "start": {
+     "value": 442,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 445,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Lumenal",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 446,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 462,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Topological domain",
+   "location": {
+    "start": {
+     "value": 463,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 476,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Cytoplasmic",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 26,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 47,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 3",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "14702039"
+    }
+   ],
+   "featureId": "VSP_046380",
+   "alternativeSequence": {}
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 416,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 476,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 2",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "14702039"
+    }
+   ],
+   "featureId": "VSP_010472",
+   "alternativeSequence": {
+    "originalSequence": "YIPTAAAFGGLCIGALSVLADFLGAIGSGTGILLAVTIIYQYFEIFVKEQAEVGGMGALFF",
+    "alternativeSequences": [
+     "PKVKLRRWKGEGRHFTKRILFY"
+    ]
+   }
+  },
+  {
+   "type": "Sequence conflict",
+   "location": {
+    "start": {
+     "value": 16,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 16,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in Ref. 2; BAB14148",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "L",
+    "alternativeSequences": [
+     "P"
+    ]
+   }
+  },
+  {
+   "type": "Sequence conflict",
+   "location": {
+    "start": {
+     "value": 133,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 133,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in Ref. 2; BAB14148",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "M",
+    "alternativeSequences": [
+     "I"
+    ]
+   }
+  },
+  {
+   "type": "Sequence conflict",
+   "location": {
+    "start": {
+     "value": 370,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 370,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in Ref. 2; BAG63284",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "E"
+    ]
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0025",
+   "category": "Coding sequence diversity",
+   "name": "Alternative splicing"
+  },
+  {
+   "id": "KW-0256",
+   "category": "Cellular component",
+   "name": "Endoplasmic reticulum"
+  },
+  {
+   "id": "KW-0472",
+   "category": "Cellular component",
+   "name": "Membrane"
+  },
+  {
+   "id": "KW-0653",
+   "category": "Biological process",
+   "name": "Protein transport"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  },
+  {
+   "id": "KW-0811",
+   "category": "Biological process",
+   "name": "Translocation"
+  },
+  {
+   "id": "KW-0812",
+   "category": "Domain",
+   "name": "Transmembrane"
+  },
+  {
+   "id": "KW-1133",
+   "category": "Domain",
+   "name": "Transmembrane helix"
+  },
+  {
+   "id": "KW-0813",
+   "category": "Biological process",
+   "name": "Transport"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "CI-DIS6C85SE9A3G",
+    "citationType": "submission",
+    "authors": [
+     "Finke K.",
+     "Prehn S.",
+     "Hartmann E."
+    ],
+    "title": "Sec61 alpha isoforms.",
+    "publicationDate": "FEB-2001",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA] (ISOFORM 1)"
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "14702039",
+    "citationType": "journal article",
+    "authors": [
+     "Ota T.",
+     "Suzuki Y.",
+     "Nishikawa T.",
+     "Otsuki T.",
+     "Sugiyama T.",
+     "Irie R.",
+     "Wakamatsu A.",
+     "Hayashi K.",
+     "Sato H.",
+     "Nagai K.",
+     "Kimura K.",
+     "Makita H.",
+     "Sekine M.",
+     "Obayashi M.",
+     "Nishi T.",
+     "Shibahara T.",
+     "Tanaka T.",
+     "Ishii S.",
+     "Yamamoto J.",
+     "Saito K.",
+     "Kawai Y.",
+     "Isono Y.",
+     "Nakamura Y.",
+     "Nagahari K.",
+     "Murakami K.",
+     "Yasuda T.",
+     "Iwayanagi T.",
+     "Wagatsuma M.",
+     "Shiratori A.",
+     "Sudo H.",
+     "Hosoiri T.",
+     "Kaku Y.",
+     "Kodaira H.",
+     "Kondo H.",
+     "Sugawara M.",
+     "Takahashi M.",
+     "Kanda K.",
+     "Yokoi T.",
+     "Furuya T.",
+     "Kikkawa E.",
+     "Omura Y.",
+     "Abe K.",
+     "Kamihara K.",
+     "Katsuta N.",
+     "Sato K.",
+     "Tanikawa M.",
+     "Yamazaki M.",
+     "Ninomiya K.",
+     "Ishibashi T.",
+     "Yamashita H.",
+     "Murakawa K.",
+     "Fujimori K.",
+     "Tanai H.",
+     "Kimata M.",
+     "Watanabe M.",
+     "Hiraoka S.",
+     "Chiba Y.",
+     "Ishida S.",
+     "Ono Y.",
+     "Takiguchi S.",
+     "Watanabe S.",
+     "Yosida M.",
+     "Hotuta T.",
+     "Kusano J.",
+     "Kanehori K.",
+     "Takahashi-Fujii A.",
+     "Hara H.",
+     "Tanase T.-O.",
+     "Nomura Y.",
+     "Togiya S.",
+     "Komai F.",
+     "Hara R.",
+     "Takeuchi K.",
+     "Arita M.",
+     "Imose N.",
+     "Musashino K.",
+     "Yuuki H.",
+     "Oshima A.",
+     "Sasaki N.",
+     "Aotsuka S.",
+     "Yoshikawa Y.",
+     "Matsunawa H.",
+     "Ichihara T.",
+     "Shiohata N.",
+     "Sano S.",
+     "Moriya S.",
+     "Momiyama H.",
+     "Satoh N.",
+     "Takami S.",
+     "Terashima Y.",
+     "Suzuki O.",
+     "Nakagawa S.",
+     "Senoh A.",
+     "Mizoguchi H.",
+     "Goto Y.",
+     "Shimizu F.",
+     "Wakebe H.",
+     "Hishigaki H.",
+     "Watanabe T.",
+     "Sugiyama A.",
+     "Takemoto M.",
+     "Kawakami B.",
+     "Yamazaki M.",
+     "Watanabe K.",
+     "Kumagai A.",
+     "Itakura S.",
+     "Fukuzumi Y.",
+     "Fujimori Y.",
+     "Komiyama M.",
+     "Tashiro H.",
+     "Tanigami A.",
+     "Fujiwara T.",
+     "Ono T.",
+     "Yamada K.",
+     "Fujii Y.",
+     "Ozaki K.",
+     "Hirao M.",
+     "Ohmori Y.",
+     "Kawabata A.",
+     "Hikiji T.",
+     "Kobatake N.",
+     "Inagaki H.",
+     "Ikema Y.",
+     "Okamoto S.",
+     "Okitani R.",
+     "Kawakami T.",
+     "Noguchi S.",
+     "Itoh T.",
+     "Shigeta K.",
+     "Senba T.",
+     "Matsumura K.",
+     "Nakajima Y.",
+     "Mizuno T.",
+     "Morinaga M.",
+     "Sasaki M.",
+     "Togashi T.",
+     "Oyama M.",
+     "Hata H.",
+     "Watanabe M.",
+     "Komatsu T.",
+     "Mizushima-Sugano J.",
+     "Satoh T.",
+     "Shirai Y.",
+     "Takahashi Y.",
+     "Nakagawa K.",
+     "Okumura K.",
+     "Nagase T.",
+     "Nomura N.",
+     "Kikuchi H.",
+     "Masuho Y.",
+     "Yamashita R.",
+     "Nakai K.",
+     "Yada T.",
+     "Nakamura Y.",
+     "Ohara O.",
+     "Isogai T.",
+     "Sugano S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "14702039"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/ng1285"
+     }
+    ],
+    "title": "Complete sequencing and characterization of 21,243 full-length human cDNAs.",
+    "publicationDate": "2004",
+    "journal": "Nat. Genet.",
+    "firstPage": "40",
+    "lastPage": "45",
+    "volume": "36"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORMS 1; 2 AND 3)"
+   ],
+   "referenceComments": [
+    {
+     "value": "Testis",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "15164054",
+    "citationType": "journal article",
+    "authors": [
+     "Deloukas P.",
+     "Earthrowl M.E.",
+     "Grafham D.V.",
+     "Rubenfield M.",
+     "French L.",
+     "Steward C.A.",
+     "Sims S.K.",
+     "Jones M.C.",
+     "Searle S.",
+     "Scott C.",
+     "Howe K.",
+     "Hunt S.E.",
+     "Andrews T.D.",
+     "Gilbert J.G.R.",
+     "Swarbreck D.",
+     "Ashurst J.L.",
+     "Taylor A.",
+     "Battles J.",
+     "Bird C.P.",
+     "Ainscough R.",
+     "Almeida J.P.",
+     "Ashwell R.I.S.",
+     "Ambrose K.D.",
+     "Babbage A.K.",
+     "Bagguley C.L.",
+     "Bailey J.",
+     "Banerjee R.",
+     "Bates K.",
+     "Beasley H.",
+     "Bray-Allen S.",
+     "Brown A.J.",
+     "Brown J.Y.",
+     "Burford D.C.",
+     "Burrill W.",
+     "Burton J.",
+     "Cahill P.",
+     "Camire D.",
+     "Carter N.P.",
+     "Chapman J.C.",
+     "Clark S.Y.",
+     "Clarke G.",
+     "Clee C.M.",
+     "Clegg S.",
+     "Corby N.",
+     "Coulson A.",
+     "Dhami P.",
+     "Dutta I.",
+     "Dunn M.",
+     "Faulkner L.",
+     "Frankish A.",
+     "Frankland J.A.",
+     "Garner P.",
+     "Garnett J.",
+     "Gribble S.",
+     "Griffiths C.",
+     "Grocock R.",
+     "Gustafson E.",
+     "Hammond S.",
+     "Harley J.L.",
+     "Hart E.",
+     "Heath P.D.",
+     "Ho T.P.",
+     "Hopkins B.",
+     "Horne J.",
+     "Howden P.J.",
+     "Huckle E.",
+     "Hynds C.",
+     "Johnson C.",
+     "Johnson D.",
+     "Kana A.",
+     "Kay M.",
+     "Kimberley A.M.",
+     "Kershaw J.K.",
+     "Kokkinaki M.",
+     "Laird G.K.",
+     "Lawlor S.",
+     "Lee H.M.",
+     "Leongamornlert D.A.",
+     "Laird G.",
+     "Lloyd C.",
+     "Lloyd D.M.",
+     "Loveland J.",
+     "Lovell J.",
+     "McLaren S.",
+     "McLay K.E.",
+     "McMurray A.",
+     "Mashreghi-Mohammadi M.",
+     "Matthews L.",
+     "Milne S.",
+     "Nickerson T.",
+     "Nguyen M.",
+     "Overton-Larty E.",
+     "Palmer S.A.",
+     "Pearce A.V.",
+     "Peck A.I.",
+     "Pelan S.",
+     "Phillimore B.",
+     "Porter K.",
+     "Rice C.M.",
+     "Rogosin A.",
+     "Ross M.T.",
+     "Sarafidou T.",
+     "Sehra H.K.",
+     "Shownkeen R.",
+     "Skuce C.D.",
+     "Smith M.",
+     "Standring L.",
+     "Sycamore N.",
+     "Tester J.",
+     "Thorpe A.",
+     "Torcasso W.",
+     "Tracey A.",
+     "Tromans A.",
+     "Tsolas J.",
+     "Wall M.",
+     "Walsh J.",
+     "Wang H.",
+     "Weinstock K.",
+     "West A.P.",
+     "Willey D.L.",
+     "Whitehead S.L.",
+     "Wilming L.",
+     "Wray P.W.",
+     "Young L.",
+     "Chen Y.",
+     "Lovering R.C.",
+     "Moschonas N.K.",
+     "Siebert R.",
+     "Fechtel K.",
+     "Bentley D.",
+     "Durbin R.M.",
+     "Hubbard T.",
+     "Doucette-Stamm L.",
+     "Beck S.",
+     "Smith D.R.",
+     "Rogers J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15164054"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/nature02462"
+     }
+    ],
+    "title": "The DNA sequence and comparative analysis of human chromosome 10.",
+    "publicationDate": "2004",
+    "journal": "Nature",
+    "firstPage": "375",
+    "lastPage": "381",
+    "volume": "429"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "CI-5GBD0VIIJ7C63",
+    "citationType": "submission",
+    "authors": [
+     "Mural R.J.",
+     "Istrail S.",
+     "Sutton G.G.",
+     "Florea L.",
+     "Halpern A.L.",
+     "Mobarry C.M.",
+     "Lippert R.",
+     "Walenz B.",
+     "Shatkay H.",
+     "Dew I.",
+     "Miller J.R.",
+     "Flanigan M.J.",
+     "Edwards N.J.",
+     "Bolanos R.",
+     "Fasulo D.",
+     "Halldorsson B.V.",
+     "Hannenhalli S.",
+     "Turner R.",
+     "Yooseph S.",
+     "Lu F.",
+     "Nusskern D.R.",
+     "Shue B.C.",
+     "Zheng X.H.",
+     "Zhong F.",
+     "Delcher A.L.",
+     "Huson D.H.",
+     "Kravitz S.A.",
+     "Mouchard L.",
+     "Reinert K.",
+     "Remington K.A.",
+     "Clark A.G.",
+     "Waterman M.S.",
+     "Eichler E.E.",
+     "Adams M.D.",
+     "Hunkapiller M.W.",
+     "Myers E.W.",
+     "Venter J.C."
+    ],
+    "publicationDate": "SEP-2005",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "AF346603",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAK29084.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AK022640",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAB14148.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AK292295",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAF84984.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AK301841",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAG63284.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AC073160",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "CH471072",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "EAW86324.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS44358.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q9H9S3-2"
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS44359.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q9H9S3-3"
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS7088.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q9H9S3-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001136099.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001142627.3"
+    }
+   ],
+   "isoformId": "Q9H9S3-2"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001136100.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001142628.1"
+    }
+   ],
+   "isoformId": "Q9H9S3-3"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_060614.2",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_018144.4"
+    }
+   ],
+   "isoformId": "Q9H9S3-1"
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "Q9H9S3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "Q9H9S3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "120475",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "57"
+    }
+   ]
+  },
+  {
+   "database": "ComplexPortal",
+   "id": "CPX-8169",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SEC61 protein-conducting channel complex, SEC1A2 variant"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "Q9H9S3",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "1124"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "Q9H9S3",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "29"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000298428",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "TCDB",
+   "id": "3.A.5.9.1",
+   "properties": [
+    {
+     "key": "FamilyName",
+     "value": "the general secretory pathway (sec) family"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "Q9H9S3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "Q9H9S3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SwissPalm",
+   "id": "Q9H9S3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "SEC61A2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "48477069",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "Q9H9S3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "Q9H9S3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000298428",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "Q9H9S3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "29899",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "81357",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q9H9S3-1"
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "81358",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q9H9S3-2"
+  },
+  {
+   "database": "Pumba",
+   "id": "Q9H9S3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "71451",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "18 antibodies from 11 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "55176",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000298428.14",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000298428.9"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000065665.22"
+    }
+   ],
+   "isoformId": "Q9H9S3-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000304267.12",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000302048.8"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000065665.22"
+    }
+   ],
+   "isoformId": "Q9H9S3-2"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000379033.7",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000368319.3"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000065665.22"
+    }
+   ],
+   "isoformId": "Q9H9S3-3"
+  },
+  {
+   "database": "GeneID",
+   "id": "55176",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:55176",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000298428.14",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000298428.9"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_018144.4"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_060614.2"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc001ile.3",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ],
+   "isoformId": "Q9H9S3-1"
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:17702",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA134861382",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "55176",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "55176",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "SEC61A2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:17702",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "SEC61A2"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000065665",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Tissue enhanced (brain)"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "618271",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000065665",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000065665",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "KOG1373",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00390000003721",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_031763_2_0_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "Q9H9S3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "XLFVAGL",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "420669at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "Q9H9S3",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "6 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "Q9H9S3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "Q9H9S3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-1236974",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "ER-Phagosome pathway"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-1799339",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "SRP-dependent cotranslational protein targeting to membrane"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "Q9H9S3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SIGNOR",
+   "id": "Q9H9S3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000065665",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "55176",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "13 hits in 1156 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "SEC61A2",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "55176",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "Q9H9S3",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tdark"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:Q9H9S3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 10"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "Q9H9S3",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000065665",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in cortical plate and 136 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "Q9H9S3",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005789",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:endoplasmic reticulum membrane"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005784",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:Sec61 translocon complex"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0043022",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:ribosome binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005048",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:signal sequence binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0008320",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:transmembrane protein transporter activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0031204",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:post-translational protein targeting to membrane, translocation"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0006616",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:SRP-dependent cotranslational protein targeting to membrane, translocation"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "1.10.3370.10:FF:000002",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Transport Sec61 subunit alpha isoform 2"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "1.10.3370.10",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SecY subunit domain"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR002208",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SecY/SEC61-alpha"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR030659",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SecY_CS"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR023201",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SecY_dom_sf"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR019561",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Translocon_Sec61/SecY_plug_dom"
+    }
+   ]
+  },
+  {
+   "database": "NCBIfam",
+   "id": "TIGR00967",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "3a0501s007"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "NCBIfam",
+   "id": "NF006341",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PRK08568.1-5"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR10906",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SECY/SEC61-ALPHA FAMILY MEMBER"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF10559",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Plug_translocon"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF00344",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SecY"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PIRSF",
+   "id": "PIRSF004557",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SecY"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF103491",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Preprotein translocase SecY subunit"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS00755",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SECY_1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS00756",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SECY_2"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MGIKFLEVIKPFCAVLPEIQKPERKIQFREKVLWTAITLFIFLVCCQIPLFGIMSSDSADPFYWMRVILASNRGTLMELGISPIVTSGLIMQLLAGAKIIEVGDTPKDRALFNGAQKLFGMIITIGQAIVYVMTGMYGDPAEMGAGICLLIIIQLFVAGLIVLLLDELLQKGYGLGSGISLFIATNICETIVWKAFSPTTINTGRGTEFEGAVIALFHLLATRTDKVRALREAFYRQNLPNLMNLIATVFVFAVVIYFQGFRVDLPIKSARYRGQYSSYPIKLFYTSNIPIILQSALVSNLYVISQMLSVRFSGNFLVNLLGQWADVSGGGPARSYPVGGLCYYLSPPESMGAIFEDPVHVVVYIIFMLGSCAFFSKTWIEVSGSSAKDVAKQLKEQQMVMRGHRDTSMVHELNRYIPTAAAFGGLCIGALSVLADFLGAIGSGTGILLAVTIIYQYFEIFVKEQAEVGGMGALFF",
+  "length": 476,
+  "molWeight": 52248,
+  "crc64": "87CC8E7D366C2C37",
+  "md5": "C53D382E39F67BA7FAAE4D1794178EF4"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "SUBUNIT": 1,
+   "INTERACTION": 1,
+   "SUBCELLULAR LOCATION": 1,
+   "ALTERNATIVE PRODUCTS": 3,
+   "SIMILARITY": 1
+  },
+  "countByFeatureType": {
+   "Chain": 1,
+   "Topological domain": 11,
+   "Transmembrane": 10,
+   "Alternative sequence": 2,
+   "Sequence conflict": 3
+  },
+  "uniParcId": "UPI0000000B0A"
+ }
+}

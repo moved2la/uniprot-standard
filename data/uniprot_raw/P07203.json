@@ -1,0 +1,4762 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "P07203",
+ "secondaryAccessions": [
+  "E9PAS1",
+  "Q7Z5H1",
+  "Q9BW12"
+ ],
+ "uniProtkbId": "GPX1_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "1988-04-01",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2010-11-02",
+  "entryVersion": 250,
+  "sequenceVersion": 4
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000305"
+     }
+    ],
+    "value": "Glutathione peroxidase 1"
+   },
+   "shortNames": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000303",
+       "source": "PubMed",
+       "id": "11115402"
+      }
+     ],
+     "value": "GPx-1"
+    },
+    {
+     "value": "GSHPx-1"
+    }
+   ],
+   "ecNumbers": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "11115402"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "36608588"
+      }
+     ],
+     "value": "1.11.1.9"
+    }
+   ]
+  },
+  "alternativeNames": [
+   {
+    "fullName": {
+     "value": "Cellular glutathione peroxidase"
+    }
+   },
+   {
+    "fullName": {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000303",
+       "source": "PubMed",
+       "id": "36608588"
+      }
+     ],
+     "value": "Phospholipid-hydroperoxide glutathione peroxidase GPX1"
+    },
+    "ecNumbers": [
+     {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "11115402"
+       },
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "36608588"
+       }
+      ],
+      "value": "1.11.1.12"
+     }
+    ]
+   }
+  ]
+ },
+ "genes": [
+  {
+   "geneName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000312",
+      "source": "HGNC",
+      "id": "HGNC:4553"
+     }
+    ],
+    "value": "GPX1"
+   }
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "11115402"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "36608588"
+      }
+     ],
+     "value": "Catalyzes the reduction of hydroperoxides in a glutathione-dependent manner thus regulating cellular redox homeostasis (PubMed:11115402, PubMed:36608588). Can reduce small soluble hydroperoxides such as H2O2, cumene hydroperoxide and tert-butyl hydroperoxide, as well as several fatty acid-derived hydroperoxides (PubMed:11115402, PubMed:36608588). In platelets catalyzes the reduction of 12-hydroperoxyeicosatetraenoic acid, the primary product of the arachidonate 12-lipoxygenase pathway (PubMed:11115402)"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "2 glutathione + H2O2 = glutathione disulfide + 2 H2O",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:16833"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:16240"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57925"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:58297"
+     }
+    ],
+    "ecNumber": "1.11.1.9",
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "11115402"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "36608588"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:16834"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "11115402"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "a hydroperoxy polyunsaturated fatty acid + 2 glutathione = a hydroxy polyunsaturated fatty acid + glutathione disulfide + H2O",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:19057"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57925"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:58297"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:131871"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:134019"
+     }
+    ],
+    "ecNumber": "1.11.1.12",
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "11115402"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "36608588"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:19058"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "36608588"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "tert-butyl hydroperoxide + 2 glutathione = tert-butanol + glutathione disulfide + H2O",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:69412"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:45895"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57925"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:58297"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:64090"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "36608588"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:69413"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "36608588"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "cumene hydroperoxide + 2 glutathione = 2-phenylpropan-2-ol + glutathione disulfide + H2O",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:69651"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57925"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:58297"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:78673"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:131607"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "36608588"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:69652"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "36608588"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "(13S)-hydroperoxy-(9Z,11E)-octadecadienoate + 2 glutathione = (13S)-hydroxy-(9Z,11E)-octadecadienoate + glutathione disulfide + H2O",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:48888"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57466"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57925"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:58297"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:90850"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "36608588"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:48889"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "36608588"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "(9S)-hydroperoxy-(10E,12Z)-octadecadienoate + 2 glutathione = (9S)-hydroxy-(10E,12Z)-octadecadienoate + glutathione disulfide + H2O",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:76687"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57925"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:58297"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:60955"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:77852"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "36608588"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:76688"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "36608588"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "(5S)-hydroperoxy-(6E,8Z,11Z,14Z)-eicosatetraenoate + 2 glutathione = (5S)-hydroxy-(6E,8Z,11Z,14Z)-eicosatetraenoate + glutathione disulfide + H2O",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:48620"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57450"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57925"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:58297"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:90632"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "36608588"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:48621"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "36608588"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "(12S)-hydroperoxy-(5Z,8Z,10E,14Z)-eicosatetraenoate + 2 glutathione = (12S)-hydroxy-(5Z,8Z,10E,14Z)-eicosatetraenoate + glutathione disulfide + H2O",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:50708"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57444"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57925"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:58297"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:90680"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "11115402"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "36608588"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:50709"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "11115402"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "(12R)-hydroperoxy-(5Z,8Z,10E,14Z)-eicosatetraenoate + 2 glutathione = (12R)-hydroxy-(5Z,8Z,10E,14Z)-eicosatetraenoate + glutathione disulfide + H2O",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:76691"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57925"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:58297"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:75230"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:83343"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "36608588"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:76692"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "36608588"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "(15S)-hydroperoxy-(5Z,8Z,11Z,13E)-eicosatetraenoate + 2 glutathione = (15S)-hydroxy-(5Z,8Z,11Z,13E)-eicosatetraenoate + glutathione disulfide + H2O",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:76695"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57409"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57446"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57925"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:58297"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "36608588"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:76696"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "36608588"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "(5S)-hydroperoxy-(6E,8Z,11Z,14Z,17Z)-eicosapentaenoate + 2 glutathione = (5S)-hydroxy-(6E,8Z,11Z,14Z,17Z)-eicosapentaenoate + glutathione disulfide + H2O",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:76699"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57925"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:58297"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:195399"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:195400"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "36608588"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:76700"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "36608588"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "(12S)-hydroperoxy-(5Z,8Z,10E,14Z,17Z)-eicosapentaenoate + 2 glutathione = (12S)-hydroxy-(5Z,8Z,10E,14Z,17Z)-eicosapentaenoate + glutathione disulfide + H2O",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:76703"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57925"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:58297"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:90772"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:195401"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "36608588"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:76704"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "36608588"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "(15S)-hydroperoxy-(5Z,8Z,11Z,13E,17Z)-eicosapentaenoate + 2 glutathione = (15S)-hydroxy-(5Z,8Z,11Z,13E,17Z)-eicosapentaenoate + glutathione disulfide + H2O",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:76707"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57925"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:58297"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:132087"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:194369"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "36608588"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:76708"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "36608588"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "(15S)-hydroperoxy-(11Z,13E)-eicosadienoate + 2 glutathione = (15S)-hydroxy-(11Z,13E)-eicosadienoate + glutathione disulfide + H2O",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:76711"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57925"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:58297"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:144832"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:195402"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "36608588"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:76712"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "36608588"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "(17S)-hydroperoxy-(4Z,7Z,10Z,13Z,15E,19Z)-docosahexaenoate + 2 glutathione = (17S)-hydroxy-(4Z,7Z,10Z,13Z,15E,19Z)-docosahexaenoate + glutathione disulfide + H2O",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:76715"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57925"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:58297"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:133795"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:195403"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "36608588"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:76716"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "36608588"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250",
+       "source": "UniProtKB",
+       "id": "P11352"
+      }
+     ],
+     "value": "Homotetramer. Interacts with MIEN1"
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P07203",
+      "intActId": "EBI-7209024"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P13569",
+      "geneName": "CFTR",
+      "intActId": "EBI-349854"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P07203",
+      "intActId": "EBI-7209024"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P0DTD1",
+      "geneName": "rep",
+      "chainId": "PRO_0000449623",
+      "intActId": "EBI-25475864"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": true
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000250",
+        "source": "UniProtKB",
+        "id": "P11352"
+       }
+      ],
+      "value": "Cytoplasm",
+      "id": "SL-0086"
+     }
+    },
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000250",
+        "source": "UniProtKB",
+        "id": "P11352"
+       }
+      ],
+      "value": "Mitochondrion",
+      "id": "SL-0173"
+     }
+    }
+   ]
+  },
+  {
+   "commentType": "ALTERNATIVE PRODUCTS",
+   "events": [
+    "Alternative splicing"
+   ],
+   "isoforms": [
+    {
+     "name": {
+      "value": "1"
+     },
+     "isoformIds": [
+      "P07203-1"
+     ],
+     "isoformSequenceStatus": "Displayed"
+    },
+    {
+     "name": {
+      "value": "2"
+     },
+     "isoformIds": [
+      "P07203-2"
+     ],
+     "sequenceIds": [
+      "VSP_047369",
+      "VSP_047370"
+     ],
+     "isoformSequenceStatus": "Described"
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "11115402"
+      }
+     ],
+     "value": "Expressed in platelets (at protein level)"
+    }
+   ],
+   "commentType": "TISSUE SPECIFICITY"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250",
+       "source": "UniProtKB",
+       "id": "P11352"
+      }
+     ],
+     "value": "During periods of oxidative stress, Sec-49 may react with a superoxide radical, irreversibly lose hydroselenide and be converted to dehydroalanine"
+    }
+   ],
+   "commentType": "PTM"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the glutathione peroxidase family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  },
+  {
+   "commentType": "WEB RESOURCE",
+   "resourceName": "Wikipedia",
+   "resourceUrl": "https://en.wikipedia.org/wiki/Glutathione_peroxidase",
+   "ftp": false,
+   "note": "Glutathione peroxidase entry"
+  }
+ ],
+ "features": [
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 203,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Glutathione peroxidase 1",
+   "featureId": "PRO_0000066610"
+  },
+  {
+   "type": "Active site",
+   "location": {
+    "start": {
+     "value": 49,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 49,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "O70325"
+    }
+   ]
+  },
+  {
+   "type": "Site",
+   "location": {
+    "start": {
+     "value": 49,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 49,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Subject to oxidation and hydroselenide loss to dehydroalanine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250"
+    }
+   ]
+  },
+  {
+   "type": "Non-standard residue",
+   "location": {
+    "start": {
+     "value": 49,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 49,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Selenocysteine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P11352"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 34,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 34,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P04041"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 88,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 88,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-acetyllysine; alternate",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P11352"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 88,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 88,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-succinyllysine; alternate",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P11352"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 114,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 114,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-acetyllysine; alternate",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P11352"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 114,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 114,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-succinyllysine; alternate",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P11352"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 148,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 148,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-acetyllysine; alternate",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P11352"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 148,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 148,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-succinyllysine; alternate",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P11352"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 197,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 197,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P04041"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 201,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 201,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "24275569"
+    }
+   ]
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 85,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 98,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 2",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "featureId": "VSP_047369",
+   "alternativeSequence": {
+    "originalSequence": "ENAKNEEILNSLKY",
+    "alternativeSequences": [
+     "VRRAERGGAGADVQ"
+    ]
+   }
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 99,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 203,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 2",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "featureId": "VSP_047370",
+   "alternativeSequence": {}
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 5,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 5,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs8179169",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs8179169"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "Reference",
+     "id": "Ref.6"
+    }
+   ],
+   "featureId": "VAR_020912",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "P"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 7,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 8,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs17838762",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs17838762"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "12496980"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "2307470"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "2955287"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "3658677"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "3697069"
+    }
+   ],
+   "featureId": "VAR_020913",
+   "alternativeSequence": {}
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 8,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 8,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "12496980"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "15331559"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "1556108"
+    }
+   ],
+   "featureId": "VAR_020914",
+   "alternativeSequence": {}
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 194,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 194,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs6446261",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs6446261"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "Reference",
+     "id": "Ref.6"
+    }
+   ],
+   "featureId": "VAR_020915",
+   "alternativeSequence": {
+    "originalSequence": "A",
+    "alternativeSequences": [
+     "T"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 200,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 200,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs1050450",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs1050450"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "10220143"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "15247771"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "15331559"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "Reference",
+     "id": "Ref.6"
+    }
+   ],
+   "featureId": "VAR_007904",
+   "alternativeSequence": {
+    "originalSequence": "P",
+    "alternativeSequences": [
+     "L"
+    ]
+   }
+  },
+  {
+   "type": "Sequence conflict",
+   "location": {
+    "start": {
+     "value": 93,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 93,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in Ref. 3; CAA31992",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "L",
+    "alternativeSequences": [
+     "Q"
+    ]
+   }
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 16,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 18,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "2F8A"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 32,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 35,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "2F8A"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 38,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 45,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "2F8A"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 47,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 49,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "2F8A"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 52,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 66,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "2F8A"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 67,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 69,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "2F8A"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 71,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 77,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "2F8A"
+    }
+   ]
+  },
+  {
+   "type": "Turn",
+   "location": {
+    "start": {
+     "value": 82,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 85,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "2F8A"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 89,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 98,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "2F8A"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 108,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 112,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "2F8A"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 124,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 132,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "2F8A"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 147,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 149,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "2F8A"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 152,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 154,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "2F8A"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 166,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 169,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "2F8A"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 175,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 179,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "2F8A"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 185,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 188,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "2F8A"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 189,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 196,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "2F8A"
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0002",
+   "category": "Technical term",
+   "name": "3D-structure"
+  },
+  {
+   "id": "KW-0007",
+   "category": "PTM",
+   "name": "Acetylation"
+  },
+  {
+   "id": "KW-0025",
+   "category": "Coding sequence diversity",
+   "name": "Alternative splicing"
+  },
+  {
+   "id": "KW-0963",
+   "category": "Cellular component",
+   "name": "Cytoplasm"
+  },
+  {
+   "id": "KW-0443",
+   "category": "Biological process",
+   "name": "Lipid metabolism"
+  },
+  {
+   "id": "KW-0496",
+   "category": "Cellular component",
+   "name": "Mitochondrion"
+  },
+  {
+   "id": "KW-0560",
+   "category": "Molecular function",
+   "name": "Oxidoreductase"
+  },
+  {
+   "id": "KW-0575",
+   "category": "Molecular function",
+   "name": "Peroxidase"
+  },
+  {
+   "id": "KW-0597",
+   "category": "PTM",
+   "name": "Phosphoprotein"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  },
+  {
+   "id": "KW-0712",
+   "category": "Coding sequence diversity",
+   "name": "Selenocysteine"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "3658677",
+    "citationType": "journal article",
+    "authors": [
+     "Sukenaga Y.",
+     "Ishida K.",
+     "Takeda T.",
+     "Takagi K."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "3658677"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1093/nar/15.17.7178"
+     }
+    ],
+    "title": "cDNA sequence coding for human glutathione peroxidase.",
+    "publicationDate": "1987",
+    "journal": "Nucleic Acids Res.",
+    "firstPage": "7178",
+    "lastPage": "7178",
+    "volume": "15"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA] (ISOFORM 1)",
+    "VARIANT 7-ALA-ALA-8 DEL"
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "3697069",
+    "citationType": "journal article",
+    "authors": [
+     "Ishida K.",
+     "Morino T.",
+     "Takagi K.",
+     "Sukenaga Y."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "3697069"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1093/nar/15.23.10051"
+     }
+    ],
+    "title": "Nucleotide sequence of a human gene for glutathione peroxidase.",
+    "publicationDate": "1987",
+    "journal": "Nucleic Acids Res.",
+    "firstPage": "10051",
+    "lastPage": "10051",
+    "volume": "15"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [GENOMIC DNA] (ISOFORM 1)",
+    "VARIANT 7-ALA-ALA-8 DEL"
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "2955287",
+    "citationType": "journal article",
+    "authors": [
+     "Mullenbach G.T.",
+     "Tabrizi A.",
+     "Irvine B.D.",
+     "Bell G.I.",
+     "Hallewell R.A."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "2955287"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1093/nar/15.13.5484"
+     }
+    ],
+    "title": "Sequence of a cDNA coding for human glutathione peroxidase confirms TGA encodes active site selenocysteine.",
+    "publicationDate": "1987",
+    "journal": "Nucleic Acids Res.",
+    "firstPage": "5484",
+    "lastPage": "5484",
+    "volume": "15"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA] (ISOFORM 1)",
+    "VARIANT 7-ALA-ALA-8 DEL"
+   ],
+   "referenceComments": [
+    {
+     "value": "Kidney",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "2307470",
+    "citationType": "journal article",
+    "authors": [
+     "Chada S.",
+     "le Beau M.M.",
+     "Casey L.",
+     "Newburger P.E."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "2307470"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/0888-7543(90)90566-d"
+     }
+    ],
+    "title": "Isolation and chromosomal localization of the human glutathione peroxidase gene.",
+    "publicationDate": "1990",
+    "journal": "Genomics",
+    "firstPage": "268",
+    "lastPage": "271",
+    "volume": "6"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA] (ISOFORM 1)",
+    "VARIANT 7-ALA-ALA-8 DEL"
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "1556108",
+    "citationType": "journal article",
+    "authors": [
+     "Moscow J.A.",
+     "Morrow C.S.",
+     "He R.",
+     "Mullenbach G.T.",
+     "Cowan K.H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "1556108"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/s0021-9258(18)42647-6"
+     }
+    ],
+    "title": "Structure and function of the 5'-flanking sequence of the human cytosolic selenium-dependent glutathione peroxidase gene (hgpx1).",
+    "publicationDate": "1992",
+    "journal": "J. Biol. Chem.",
+    "firstPage": "5949",
+    "lastPage": "5958",
+    "volume": "267"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [GENOMIC DNA] (ISOFORM 1)",
+    "VARIANT ALA-8 DEL"
+   ]
+  },
+  {
+   "referenceNumber": 6,
+   "citation": {
+    "id": "CI-9GAL9IGFBF6OH",
+    "citationType": "submission",
+    "authoringGroup": [
+     "NIEHS SNPs program"
+    ],
+    "publicationDate": "JUN-2003",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [GENOMIC DNA] (ISOFORM 1)",
+    "VARIANTS PRO-5; THR-194 AND LEU-200"
+   ]
+  },
+  {
+   "referenceNumber": 7,
+   "citation": {
+    "id": "16641997",
+    "citationType": "journal article",
+    "authors": [
+     "Muzny D.M.",
+     "Scherer S.E.",
+     "Kaul R.",
+     "Wang J.",
+     "Yu J.",
+     "Sudbrak R.",
+     "Buhay C.J.",
+     "Chen R.",
+     "Cree A.",
+     "Ding Y.",
+     "Dugan-Rocha S.",
+     "Gill R.",
+     "Gunaratne P.",
+     "Harris R.A.",
+     "Hawes A.C.",
+     "Hernandez J.",
+     "Hodgson A.V.",
+     "Hume J.",
+     "Jackson A.",
+     "Khan Z.M.",
+     "Kovar-Smith C.",
+     "Lewis L.R.",
+     "Lozado R.J.",
+     "Metzker M.L.",
+     "Milosavljevic A.",
+     "Miner G.R.",
+     "Morgan M.B.",
+     "Nazareth L.V.",
+     "Scott G.",
+     "Sodergren E.",
+     "Song X.-Z.",
+     "Steffen D.",
+     "Wei S.",
+     "Wheeler D.A.",
+     "Wright M.W.",
+     "Worley K.C.",
+     "Yuan Y.",
+     "Zhang Z.",
+     "Adams C.Q.",
+     "Ansari-Lari M.A.",
+     "Ayele M.",
+     "Brown M.J.",
+     "Chen G.",
+     "Chen Z.",
+     "Clendenning J.",
+     "Clerc-Blankenburg K.P.",
+     "Chen R.",
+     "Chen Z.",
+     "Davis C.",
+     "Delgado O.",
+     "Dinh H.H.",
+     "Dong W.",
+     "Draper H.",
+     "Ernst S.",
+     "Fu G.",
+     "Gonzalez-Garay M.L.",
+     "Garcia D.K.",
+     "Gillett W.",
+     "Gu J.",
+     "Hao B.",
+     "Haugen E.",
+     "Havlak P.",
+     "He X.",
+     "Hennig S.",
+     "Hu S.",
+     "Huang W.",
+     "Jackson L.R.",
+     "Jacob L.S.",
+     "Kelly S.H.",
+     "Kube M.",
+     "Levy R.",
+     "Li Z.",
+     "Liu B.",
+     "Liu J.",
+     "Liu W.",
+     "Lu J.",
+     "Maheshwari M.",
+     "Nguyen B.-V.",
+     "Okwuonu G.O.",
+     "Palmeiri A.",
+     "Pasternak S.",
+     "Perez L.M.",
+     "Phelps K.A.",
+     "Plopper F.J.",
+     "Qiang B.",
+     "Raymond C.",
+     "Rodriguez R.",
+     "Saenphimmachak C.",
+     "Santibanez J.",
+     "Shen H.",
+     "Shen Y.",
+     "Subramanian S.",
+     "Tabor P.E.",
+     "Verduzco D.",
+     "Waldron L.",
+     "Wang J.",
+     "Wang J.",
+     "Wang Q.",
+     "Williams G.A.",
+     "Wong G.K.-S.",
+     "Yao Z.",
+     "Zhang J.",
+     "Zhang X.",
+     "Zhao G.",
+     "Zhou J.",
+     "Zhou Y.",
+     "Nelson D.",
+     "Lehrach H.",
+     "Reinhardt R.",
+     "Naylor S.L.",
+     "Yang H.",
+     "Olson M.",
+     "Weinstock G.",
+     "Gibbs R.A."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "16641997"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/nature04728"
+     }
+    ],
+    "title": "The DNA sequence, annotation and analysis of human chromosome 3.",
+    "publicationDate": "2006",
+    "journal": "Nature",
+    "firstPage": "1194",
+    "lastPage": "1198",
+    "volume": "440"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 8,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 1)"
+   ],
+   "referenceComments": [
+    {
+     "value": "Placenta",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 9,
+   "citation": {
+    "id": "11115402",
+    "citationType": "journal article",
+    "authors": [
+     "Sutherland M.",
+     "Shankaranarayanan P.",
+     "Schewe T.",
+     "Nigam S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "11115402"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1042/bj3530091"
+     }
+    ],
+    "title": "Evidence for the presence of phospholipid hydroperoxide glutathione peroxidase in human platelets: implications for its involvement in the regulatory network of the 12-lipoxygenase pathway of arachidonic acid metabolism.",
+    "publicationDate": "2001",
+    "journal": "Biochem. J.",
+    "firstPage": "91",
+    "lastPage": "100",
+    "volume": "353"
+   },
+   "referencePositions": [
+    "FUNCTION",
+    "CATALYTIC ACTIVITY",
+    "TISSUE SPECIFICITY"
+   ]
+  },
+  {
+   "referenceNumber": 10,
+   "citation": {
+    "id": "21269460",
+    "citationType": "journal article",
+    "authors": [
+     "Burkard T.R.",
+     "Planyavsky M.",
+     "Kaupe I.",
+     "Breitwieser F.P.",
+     "Buerckstuemmer T.",
+     "Bennett K.L.",
+     "Superti-Furga G.",
+     "Colinge J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "21269460"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1186/1752-0509-5-17"
+     }
+    ],
+    "title": "Initial characterization of the human central proteome.",
+    "publicationDate": "2011",
+    "journal": "BMC Syst. Biol.",
+    "firstPage": "17",
+    "lastPage": "17",
+    "volume": "5"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 11,
+   "citation": {
+    "id": "24275569",
+    "citationType": "journal article",
+    "authors": [
+     "Bian Y.",
+     "Song C.",
+     "Cheng K.",
+     "Dong M.",
+     "Wang F.",
+     "Huang J.",
+     "Sun D.",
+     "Wang L.",
+     "Ye M.",
+     "Zou H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "24275569"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.jprot.2013.11.014"
+     }
+    ],
+    "title": "An enzyme assisted RP-RPLC approach for in-depth analysis of human liver phosphoproteome.",
+    "publicationDate": "2014",
+    "journal": "J. Proteomics",
+    "firstPage": "253",
+    "lastPage": "262",
+    "volume": "96"
+   },
+   "referencePositions": [
+    "PHOSPHORYLATION [LARGE SCALE ANALYSIS] AT SER-201",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Liver",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 12,
+   "citation": {
+    "id": "25944712",
+    "citationType": "journal article",
+    "authors": [
+     "Vaca Jacome A.S.",
+     "Rabilloud T.",
+     "Schaeffer-Reiss C.",
+     "Rompais M.",
+     "Ayoub D.",
+     "Lane L.",
+     "Bairoch A.",
+     "Van Dorsselaer A.",
+     "Carapito C."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "25944712"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1002/pmic.201400617"
+     }
+    ],
+    "title": "N-terminome analysis of the human mitochondrial proteome.",
+    "publicationDate": "2015",
+    "journal": "Proteomics",
+    "firstPage": "2519",
+    "lastPage": "2524",
+    "volume": "15"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 13,
+   "citation": {
+    "id": "36608588",
+    "citationType": "journal article",
+    "authors": [
+     "Schwarz M.",
+     "Loeser A.",
+     "Cheng Q.",
+     "Wichmann-Costaganna M.",
+     "Schaedel P.",
+     "Werz O.",
+     "Arner E.S.",
+     "Kipp A.P."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "36608588"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.redox.2022.102593"
+     }
+    ],
+    "title": "Side-by-side comparison of recombinant human glutathione peroxidases identifies overlapping substrate specificities for soluble hydroperoxides.",
+    "publicationDate": "2023",
+    "journal": "Redox Biol.",
+    "firstPage": "102593",
+    "lastPage": "102593",
+    "volume": "59"
+   },
+   "referencePositions": [
+    "FUNCTION",
+    "CATALYTIC ACTIVITY"
+   ]
+  },
+  {
+   "referenceNumber": 14,
+   "citation": {
+    "id": "CI-1FG03V3HLV3K7",
+    "citationType": "submission",
+    "authoringGroup": [
+     "Structural genomics consortium (SGC)"
+    ],
+    "title": "Crystal structure of the selenocysteine to glycine mutant of human glutathione peroxidase 1.",
+    "publicationDate": "FEB-2009",
+    "submissionDatabase": "PDB data bank"
+   },
+   "referencePositions": [
+    "X-RAY CRYSTALLOGRAPHY (1.5 ANGSTROMS) OF 14-198"
+   ]
+  },
+  {
+   "referenceNumber": 15,
+   "citation": {
+    "id": "10220143",
+    "citationType": "journal article",
+    "authors": [
+     "Forsberg L.",
+     "de Faire U.",
+     "Morgenstern R."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "10220143"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1002/(sici)1098-1004(1999)13:4<294::aid-humu6>3.0.co;2-5"
+     }
+    ],
+    "title": "Low yield of polymorphisms from EST blast searching: analysis of genes related to oxidative stress and verification of the P197L polymorphism in GPX1.",
+    "publicationDate": "1999",
+    "journal": "Hum. Mutat.",
+    "firstPage": "294",
+    "lastPage": "300",
+    "volume": "13"
+   },
+   "referencePositions": [
+    "VARIANT LEU-200"
+   ]
+  },
+  {
+   "referenceNumber": 16,
+   "citation": {
+    "id": "12496980",
+    "citationType": "journal article",
+    "authors": [
+     "Kote-Jarai Z.",
+     "Durocher F.",
+     "Edwards S.M.",
+     "Hamoudi R.",
+     "Jackson R.A.",
+     "Ardern-Jones A.",
+     "Murkin A.",
+     "Dearnaley D.P.",
+     "Kirby R.",
+     "Houlston R.",
+     "Easton D.F.",
+     "Eeles R."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "12496980"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/sj.pcan.4500569"
+     }
+    ],
+    "title": "Association between the GCG polymorphism of the selenium dependent GPX1 gene and the risk of young onset prostate cancer.",
+    "publicationDate": "2002",
+    "journal": "Prostate Cancer Prostatic Dis.",
+    "firstPage": "189",
+    "lastPage": "192",
+    "volume": "5"
+   },
+   "referencePositions": [
+    "VARIANTS ALA-8 DEL AND 7-ALA-ALA-8 DEL"
+   ]
+  },
+  {
+   "referenceNumber": 17,
+   "citation": {
+    "id": "15331559",
+    "citationType": "journal article",
+    "authors": [
+     "Hamanishi T.",
+     "Furuta H.",
+     "Kato H.",
+     "Doi A.",
+     "Tamai M.",
+     "Shimomura H.",
+     "Sakagashira S.",
+     "Nishi M.",
+     "Sasaki H.",
+     "Sanke T.",
+     "Nanjo K."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15331559"
+     },
+     {
+      "database": "DOI",
+      "id": "10.2337/diabetes.53.9.2455"
+     }
+    ],
+    "title": "Functional variants in the glutathione peroxidase-1 (GPx-1) gene are associated with increased intima-media thickness of carotid arteries and risk of macrovascular diseases in Japanese type 2 diabetic patients.",
+    "publicationDate": "2004",
+    "journal": "Diabetes",
+    "firstPage": "2455",
+    "lastPage": "2460",
+    "volume": "53"
+   },
+   "referencePositions": [
+    "VARIANTS ALA-8 DEL AND LEU-200"
+   ]
+  },
+  {
+   "referenceNumber": 18,
+   "citation": {
+    "id": "15247771",
+    "citationType": "journal article",
+    "authors": [
+     "Ichimura Y.",
+     "Habuchi T.",
+     "Tsuchiya N.",
+     "Wang L.",
+     "Oyama C.",
+     "Sato K.",
+     "Nishiyama H.",
+     "Ogawa O.",
+     "Kato T."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15247771"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1097/01.ju.0000130942.40597.9d"
+     }
+    ],
+    "title": "Increased risk of bladder cancer associated with a glutathione peroxidase 1 codon 198 variant.",
+    "publicationDate": "2004",
+    "journal": "J. Urol.",
+    "firstPage": "728",
+    "lastPage": "732",
+    "volume": "172"
+   },
+   "referencePositions": [
+    "VARIANT LEU-200"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "Y00433",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "CAA68491.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "Y00483",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "CAB37833.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "X13709",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "CAA31992.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "X13710",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "CAA31993.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "M21304",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAA75389.2"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "M83094",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAA67540.2"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AY327818",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAP80181.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AC121247",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC000742",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH00742.3"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS43091.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "P07203-1"
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS54582.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "P07203-2"
+  },
+  {
+   "database": "PIR",
+   "id": "A42152",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "OPHUE"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_000572.2",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_000581.4"
+    }
+   ],
+   "isoformId": "P07203-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_958799.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_201397.3"
+    }
+   ],
+   "isoformId": "P07203-2"
+  },
+  {
+   "database": "PDB",
+   "id": "2F8A",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "X-ray"
+    },
+    {
+     "key": "Resolution",
+     "value": "1.50 A"
+    },
+    {
+     "key": "Chains",
+     "value": "A/B=14-198"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "2F8A",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "109134",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "113"
+    }
+   ]
+  },
+  {
+   "database": "CORUM",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "748"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "51"
+    }
+   ]
+  },
+  {
+   "database": "MINT",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "NDEx",
+   "id": "IQUERY-CP-GPX1",
+   "properties": [
+    {
+     "key": "Evidences",
+     "value": "16 NDEx IQuery Curated Pathways"
+    }
+   ]
+  },
+  {
+   "database": "BindingDB",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ChEMBL",
+   "id": "CHEMBL2163186",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB09096",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Benzoyl peroxide"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB09061",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Cannabidiol"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB00143",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Glutathione"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB03310",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Glutathione disulfide"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB11091",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Hydrogen peroxide"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB14009",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Medical Cannabis"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB14011",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Nabiximols"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB09221",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Polaprezinc"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB11127",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Selenious acid"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB11590",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Thimerosal"
+    }
+   ]
+  },
+  {
+   "database": "SwissLipids",
+   "id": "SLP:000001632",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeroxiBase",
+   "id": "3600",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "HsGPx01-A"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "1 site, 1 O-linked glycan (1 site)"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MetOSite",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SwissPalm",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "GPX1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "311033481",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OGP",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "19069",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "51972",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "P07203-1"
+  },
+  {
+   "database": "Pumba",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "39716",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "552 antibodies from 42 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "2876",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000419349.3",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000391316.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000233276.9"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000419783.3",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000407375.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000233276.9"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000703797.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000515482.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000233276.9"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000704375.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000515880.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000233276.9"
+    }
+   ]
+  },
+  {
+   "database": "GeneID",
+   "id": "2876",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:2876",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000419783.3",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000407375.1"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_000581.4"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_000572.2"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc021wxw.2",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ],
+   "isoformId": "P07203-1"
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:4553",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA28949",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "2876",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "2876",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "GPX1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:4553",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "GPX1"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000233276",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Low tissue specificity"
+    }
+   ]
+  },
+  {
+   "database": "MalaCards",
+   "id": "GPX1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "138320",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene+phenotype"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000233276",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000233276",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "KOG1651",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00940000156150",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_029507_2_0_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "RDYTEMN",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "446890at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "8 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioCyc",
+   "id": "MetaCyc:HS00019-MONOMER",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BRENDA",
+   "id": "1.11.1.9",
+   "properties": [
+    {
+     "key": "OrganismId",
+     "value": "2681"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-2142688",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Synthesis of 5-eicosatetraenoic acids"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-2142712",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Synthesis of 12-eicosatetraenoic acid derivatives"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-2142770",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Synthesis of 15-eicosatetraenoic acid derivatives"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-3299685",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Detoxification of Reactive Oxygen Species"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SIGNOR",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000233276",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "2876",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "14 hits in 1159 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "GPX1",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "EvolutionaryTrace",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneWiki",
+   "id": "GPX1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "2876",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tbio"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:P07203",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 3"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000233276",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in monocyte and 96 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "P07203",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005737",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:cytoplasm"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:BHF-UCL"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "10833429"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005829",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:cytosol"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:HPA"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005759",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrial matrix"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:Reactome"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005739",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrion"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:BHF-UCL"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "10833429"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0004602",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:glutathione peroxidase activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "36608588"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0047066",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:phospholipid-hydroperoxide glutathione peroxidase activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "11115402"
+    },
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "36608588"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:1990782",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:protein tyrosine kinase binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IPI:BHF-UCL"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000353",
+     "source": "PubMed",
+     "id": "12893824"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0017124",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:SH3 domain binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IPI:BHF-UCL"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000353",
+     "source": "PubMed",
+     "id": "12893824"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0019369",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:arachidonate metabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "11115402"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0045454",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:cell redox homeostasis"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:BHF-UCL"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "12829378"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0071333",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:cellular response to glucose stimulus"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0034599",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:cellular response to oxidative stress"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:BHF-UCL"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "12893824"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0040029",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:epigenetic regulation of gene expression"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:BHF-UCL"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "16132718"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0006749",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:glutathione metabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:BHF-UCL"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "12829378"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0060047",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:heart contraction"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:BHF-UCL"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "14573732"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0042744",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:hydrogen peroxide catabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:BHF-UCL"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "15203190"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0019372",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:lipoxygenase pathway"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "11115402"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:1902042",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:negative regulation of extrinsic apoptotic signaling pathway via death domain receptors"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:BHF-UCL"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "12221075"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0090201",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:negative regulation of release of cytochrome c from mitochondria"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:BHF-UCL"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "12221075"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:1902905",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:positive regulation of supramolecular fiber organization"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:ParkinsonsUK-UCL"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0033599",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:regulation of mammary gland epithelial cell proliferation"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:BHF-UCL"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "16945136"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0061136",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:regulation of proteasomal protein catabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:BHF-UCL"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "12751788"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0032355",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:response to estradiol"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0051593",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:response to folic acid"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0009725",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:response to hormone"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0042542",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:response to hydrogen peroxide"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:BHF-UCL"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "12829378"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0035094",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:response to nicotine"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0010269",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:response to selenium ion"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:BHF-UCL"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "12810669"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0033197",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:response to vitamin E"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0009650",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:UV protection"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:BHF-UCL"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "17097614"
+    }
+   ]
+  },
+  {
+   "database": "CDD",
+   "id": "cd00340",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GSH_Peroxidase"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.40.30.10:FF:000153",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Glutathione peroxidase"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.40.30.10",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Glutaredoxin"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR000889",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Glutathione_peroxidase"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR029759",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GPX_AS"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR029760",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GPX_CS"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR036249",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Thioredoxin-like_sf"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR11592",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GLUTATHIONE PEROXIDASE"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR11592:SF41",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GLUTATHIONE PEROXIDASE 1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF00255",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GSHPx"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PIRSF",
+   "id": "PIRSF000303",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Glutathion_perox"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PRINTS",
+   "id": "PR01011",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GLUTPROXDASE"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF52833",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Thioredoxin-like"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS00460",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GLUTATHIONE_PEROXID_1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS00763",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GLUTATHIONE_PEROXID_2"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS51355",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GLUTATHIONE_PEROXID_3"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MCAARLAAAAAAAQSVYAFSARPLAGGEPVSLGSLRGKVLLIENVASLUGTTVRDYTQMNELQRRLGPRGLVVLGFPCNQFGHQENAKNEEILNSLKYVRPGGGFEPNFMLFEKCEVNGAGAHPLFAFLREALPAPSDDATALMTDPKLITWSPVCRNDVAWNFEKFLVGPDGVPLRRYSRRFQTIDIEPDIEALLSQGPSCA",
+  "length": 203,
+  "molWeight": 22088,
+  "crc64": "5DB11579C66FE8E5",
+  "md5": "B3AC19C6ABD503AC0CC8C151701EB02A"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "CATALYTIC ACTIVITY": 15,
+   "SUBUNIT": 1,
+   "INTERACTION": 2,
+   "SUBCELLULAR LOCATION": 1,
+   "ALTERNATIVE PRODUCTS": 2,
+   "TISSUE SPECIFICITY": 1,
+   "PTM": 1,
+   "SIMILARITY": 1,
+   "WEB RESOURCE": 1
+  },
+  "countByFeatureType": {
+   "Chain": 1,
+   "Active site": 1,
+   "Site": 1,
+   "Non-standard residue": 1,
+   "Modified residue": 9,
+   "Alternative sequence": 2,
+   "Natural variant": 5,
+   "Sequence conflict": 1,
+   "Helix": 9,
+   "Beta strand": 7,
+   "Turn": 1
+  },
+  "uniParcId": "UPI00001B07C3"
+ }
+}

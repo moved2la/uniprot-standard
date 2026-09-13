@@ -1,0 +1,3417 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "O75251",
+ "secondaryAccessions": [
+  "B3KRI2",
+  "Q2T9H7",
+  "Q9BV17"
+ ],
+ "uniProtkbId": "NDUS7_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "1999-07-15",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2006-03-21",
+  "entryVersion": 226,
+  "sequenceVersion": 3
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "value": "NADH dehydrogenase [ubiquinone] iron-sulfur protein 7, mitochondrial"
+   },
+   "ecNumbers": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "17275378"
+      }
+     ],
+     "value": "7.1.1.2"
+    }
+   ]
+  },
+  "alternativeNames": [
+   {
+    "fullName": {
+     "value": "Complex I-20kD"
+    },
+    "shortNames": [
+     {
+      "value": "CI-20kD"
+     }
+    ]
+   },
+   {
+    "fullName": {
+     "value": "NADH-ubiquinone oxidoreductase 20 kDa subunit"
+    }
+   },
+   {
+    "fullName": {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000303",
+       "source": "PubMed",
+       "id": "8938450"
+      }
+     ],
+     "value": "PSST subunit"
+    }
+   }
+  ],
+  "flag": "Precursor"
+ },
+ "genes": [
+  {
+   "geneName": {
+    "value": "NDUFS7"
+   }
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "17275378"
+      }
+     ],
+     "value": "Core subunit of the mitochondrial membrane respiratory chain NADH dehydrogenase (Complex I) which catalyzes electron transfer from NADH through the respiratory chain, using ubiquinone as an electron acceptor (PubMed:17275378). Essential for the catalytic activity of complex I (PubMed:17275378)"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "a ubiquinone + NADH + 5 H(+)(in) = a ubiquinol + NAD(+) + 4 H(+)(out)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:29091"
+     },
+     {
+      "database": "Rhea",
+      "id": "RHEA-COMP:9565"
+     },
+     {
+      "database": "Rhea",
+      "id": "RHEA-COMP:9566"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15378"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:16389"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:17976"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57540"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57945"
+     }
+    ],
+    "ecNumber": "7.1.1.2",
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "17275378"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "COFACTOR",
+   "cofactors": [
+    {
+     "name": "[4Fe-4S] cluster",
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "cofactorCrossReference": {
+      "database": "ChEBI",
+      "id": "CHEBI:49883"
+     }
+    }
+   ],
+   "note": {
+    "texts": [
+     {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000305"
+       }
+      ],
+      "value": "Binds 1 [4Fe-4S] cluster."
+     }
+    ]
+   }
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250",
+       "source": "UniProtKB",
+       "id": "P42026"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "12611891"
+      }
+     ],
+     "value": "Core subunit of respiratory chain NADH dehydrogenase (Complex I) which is composed of 45 different subunits (PubMed:12611891). This is a component of the iron-sulfur (IP) fragment of the enzyme (By similarity)"
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "O75251",
+      "intActId": "EBI-719652"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q8WXH2",
+      "geneName": "JPH3",
+      "intActId": "EBI-1055254"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000305",
+        "source": "PubMed",
+        "id": "12611891"
+       }
+      ],
+      "value": "Mitochondrion inner membrane",
+      "id": "SL-0168"
+     },
+     "topology": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000250",
+        "source": "UniProtKB",
+        "id": "P42026"
+       }
+      ],
+      "value": "Peripheral membrane protein",
+      "id": "SL-9903"
+     },
+     "orientation": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000250",
+        "source": "UniProtKB",
+        "id": "P42026"
+       }
+      ],
+      "value": "Matrix side",
+      "id": "SL-9913"
+     }
+    }
+   ]
+  },
+  {
+   "commentType": "ALTERNATIVE PRODUCTS",
+   "events": [
+    "Alternative splicing"
+   ],
+   "isoforms": [
+    {
+     "name": {
+      "value": "1"
+     },
+     "isoformIds": [
+      "O75251-1"
+     ],
+     "isoformSequenceStatus": "Displayed"
+    },
+    {
+     "name": {
+      "value": "2"
+     },
+     "isoformIds": [
+      "O75251-2"
+     ],
+     "sequenceIds": [
+      "VSP_057067"
+     ],
+     "isoformSequenceStatus": "Described"
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "27226634"
+      }
+     ],
+     "value": "Hydroxylated at Arg-111 by NDUFAF5 early in the pathway of assembly of complex I, before the formation of the juncture between peripheral and membrane arms"
+    }
+   ],
+   "commentType": "PTM"
+  },
+  {
+   "commentType": "DISEASE",
+   "disease": {
+    "diseaseId": "Mitochondrial complex I deficiency, nuclear type 3",
+    "diseaseAccession": "DI-05402",
+    "acronym": "MC1DN3",
+    "description": "A form of mitochondrial complex I deficiency, the most common biochemical signature of mitochondrial disorders, a group of highly heterogeneous conditions characterized by defective oxidative phosphorylation, which collectively affects 1 in 5-10000 live births. Clinical disorders have variable severity, ranging from lethal neonatal disease to adult-onset neurodegenerative disorders. Phenotypes include macrocephaly with progressive leukodystrophy, non-specific encephalopathy, cardiomyopathy, myopathy, liver disease, Leigh syndrome, Leber hereditary optic neuropathy, and some forms of Parkinson disease. MC1DN3 transmission pattern is consistent with autosomal recessive inheritance.",
+    "diseaseCrossReference": {
+     "database": "MIM",
+     "id": "618224"
+    },
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "10330338"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "10360771"
+     }
+    ]
+   },
+   "note": {
+    "texts": [
+     {
+      "value": "The disease is caused by variants affecting the gene represented in this entry"
+     }
+    ]
+   }
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the complex I 20 kDa subunit family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  },
+  {
+   "commentType": "SEQUENCE CAUTION",
+   "sequenceCautionType": "Erroneous gene model prediction",
+   "sequence": "AAC27669.1",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ]
+  }
+ ],
+ "features": [
+  {
+   "type": "Transit peptide",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 38,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Mitochondrion",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P42026"
+    }
+   ]
+  },
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 39,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 213,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "NADH dehydrogenase [ubiquinone] iron-sulfur protein 7, mitochondrial",
+   "featureId": "PRO_0000020027"
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 31,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 53,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Disordered",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Compositional bias",
+   "location": {
+    "start": {
+     "value": 33,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 44,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Polar residues",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 88,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 88,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:49883"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ],
+   "ligand": {
+    "name": "[4Fe-4S] cluster",
+    "id": "ChEBI:CHEBI:49883"
+   }
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 89,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 89,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:49883"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ],
+   "ligand": {
+    "name": "[4Fe-4S] cluster",
+    "id": "ChEBI:CHEBI:49883"
+   }
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 153,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 153,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:49883"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ],
+   "ligand": {
+    "name": "[4Fe-4S] cluster",
+    "id": "ChEBI:CHEBI:49883"
+   }
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 183,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 183,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:49883"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ],
+   "ligand": {
+    "name": "[4Fe-4S] cluster",
+    "id": "ChEBI:CHEBI:49883"
+   }
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 111,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 111,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Hydroxyarginine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27226634"
+    }
+   ]
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 183,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 213,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 2",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "14702039"
+    }
+   ],
+   "featureId": "VSP_057067",
+   "alternativeSequence": {
+    "originalSequence": "CPPTAEALLYGILQLQRKIKRERRLQIWYRR",
+    "alternativeSequences": [
+     "RAGTAPPTRELETGPAPHGARRPL"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 23,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 23,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs1142530",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs1142530"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "15489334"
+    }
+   ],
+   "featureId": "VAR_014482",
+   "alternativeSequence": {
+    "originalSequence": "P",
+    "alternativeSequences": [
+     "L"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 122,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 122,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MC1DN3; dbSNP:rs104894705",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs104894705"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "10330338"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "10360771"
+    }
+   ],
+   "featureId": "VAR_008848",
+   "alternativeSequence": {
+    "originalSequence": "V",
+    "alternativeSequences": [
+     "M"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 145,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 145,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "found in a patient with Leigh syndrome; uncertain significance; decrease in enzyme activity; dbSNP:rs121434479",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs121434479"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "17275378"
+    }
+   ],
+   "featureId": "VAR_084360",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "H"
+    ]
+   }
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 60,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 76,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 81,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 85,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "9CWT"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 90,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 96,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Turn",
+   "location": {
+    "start": {
+     "value": 99,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 101,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 103,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 106,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Turn",
+   "location": {
+    "start": {
+     "value": 114,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 116,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 119,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 121,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Turn",
+   "location": {
+    "start": {
+     "value": 128,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 130,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 131,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 140,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 151,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 156,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 158,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 160,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 162,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 166,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 170,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 172,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 177,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 180,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "9CWT"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 187,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 202,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 206,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 211,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "5XTB"
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0002",
+   "category": "Technical term",
+   "name": "3D-structure"
+  },
+  {
+   "id": "KW-0004",
+   "category": "Ligand",
+   "name": "4Fe-4S"
+  },
+  {
+   "id": "KW-0025",
+   "category": "Coding sequence diversity",
+   "name": "Alternative splicing"
+  },
+  {
+   "id": "KW-0225",
+   "category": "Disease",
+   "name": "Disease variant"
+  },
+  {
+   "id": "KW-0249",
+   "category": "Biological process",
+   "name": "Electron transport"
+  },
+  {
+   "id": "KW-0379",
+   "category": "PTM",
+   "name": "Hydroxylation"
+  },
+  {
+   "id": "KW-0408",
+   "category": "Ligand",
+   "name": "Iron"
+  },
+  {
+   "id": "KW-0411",
+   "category": "Ligand",
+   "name": "Iron-sulfur"
+  },
+  {
+   "id": "KW-0431",
+   "category": "Disease",
+   "name": "Leigh syndrome"
+  },
+  {
+   "id": "KW-0472",
+   "category": "Cellular component",
+   "name": "Membrane"
+  },
+  {
+   "id": "KW-0479",
+   "category": "Ligand",
+   "name": "Metal-binding"
+  },
+  {
+   "id": "KW-0496",
+   "category": "Cellular component",
+   "name": "Mitochondrion"
+  },
+  {
+   "id": "KW-0999",
+   "category": "Cellular component",
+   "name": "Mitochondrion inner membrane"
+  },
+  {
+   "id": "KW-0520",
+   "category": "Ligand",
+   "name": "NAD"
+  },
+  {
+   "id": "KW-0560",
+   "category": "Molecular function",
+   "name": "Oxidoreductase"
+  },
+  {
+   "id": "KW-1274",
+   "category": "Disease",
+   "name": "Primary mitochondrial disease"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  },
+  {
+   "id": "KW-0679",
+   "category": "Biological process",
+   "name": "Respiratory chain"
+  },
+  {
+   "id": "KW-0809",
+   "category": "Domain",
+   "name": "Transit peptide"
+  },
+  {
+   "id": "KW-1278",
+   "category": "Molecular function",
+   "name": "Translocase"
+  },
+  {
+   "id": "KW-0813",
+   "category": "Biological process",
+   "name": "Transport"
+  },
+  {
+   "id": "KW-0830",
+   "category": "Ligand",
+   "name": "Ubiquinone"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "8938450",
+    "citationType": "journal article",
+    "authors": [
+     "Hyslop S.J.",
+     "Duncan A.M.V.",
+     "Pitkanen S.",
+     "Robinson B.H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "8938450"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1006/geno.1996.0572"
+     }
+    ],
+    "title": "Assignment of the PSST subunit gene of human mitochondrial complex I to chromosome 19p13.",
+    "publicationDate": "1996",
+    "journal": "Genomics",
+    "firstPage": "375",
+    "lastPage": "380",
+    "volume": "37"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA] (ISOFORM 1)"
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "14702039",
+    "citationType": "journal article",
+    "authors": [
+     "Ota T.",
+     "Suzuki Y.",
+     "Nishikawa T.",
+     "Otsuki T.",
+     "Sugiyama T.",
+     "Irie R.",
+     "Wakamatsu A.",
+     "Hayashi K.",
+     "Sato H.",
+     "Nagai K.",
+     "Kimura K.",
+     "Makita H.",
+     "Sekine M.",
+     "Obayashi M.",
+     "Nishi T.",
+     "Shibahara T.",
+     "Tanaka T.",
+     "Ishii S.",
+     "Yamamoto J.",
+     "Saito K.",
+     "Kawai Y.",
+     "Isono Y.",
+     "Nakamura Y.",
+     "Nagahari K.",
+     "Murakami K.",
+     "Yasuda T.",
+     "Iwayanagi T.",
+     "Wagatsuma M.",
+     "Shiratori A.",
+     "Sudo H.",
+     "Hosoiri T.",
+     "Kaku Y.",
+     "Kodaira H.",
+     "Kondo H.",
+     "Sugawara M.",
+     "Takahashi M.",
+     "Kanda K.",
+     "Yokoi T.",
+     "Furuya T.",
+     "Kikkawa E.",
+     "Omura Y.",
+     "Abe K.",
+     "Kamihara K.",
+     "Katsuta N.",
+     "Sato K.",
+     "Tanikawa M.",
+     "Yamazaki M.",
+     "Ninomiya K.",
+     "Ishibashi T.",
+     "Yamashita H.",
+     "Murakawa K.",
+     "Fujimori K.",
+     "Tanai H.",
+     "Kimata M.",
+     "Watanabe M.",
+     "Hiraoka S.",
+     "Chiba Y.",
+     "Ishida S.",
+     "Ono Y.",
+     "Takiguchi S.",
+     "Watanabe S.",
+     "Yosida M.",
+     "Hotuta T.",
+     "Kusano J.",
+     "Kanehori K.",
+     "Takahashi-Fujii A.",
+     "Hara H.",
+     "Tanase T.-O.",
+     "Nomura Y.",
+     "Togiya S.",
+     "Komai F.",
+     "Hara R.",
+     "Takeuchi K.",
+     "Arita M.",
+     "Imose N.",
+     "Musashino K.",
+     "Yuuki H.",
+     "Oshima A.",
+     "Sasaki N.",
+     "Aotsuka S.",
+     "Yoshikawa Y.",
+     "Matsunawa H.",
+     "Ichihara T.",
+     "Shiohata N.",
+     "Sano S.",
+     "Moriya S.",
+     "Momiyama H.",
+     "Satoh N.",
+     "Takami S.",
+     "Terashima Y.",
+     "Suzuki O.",
+     "Nakagawa S.",
+     "Senoh A.",
+     "Mizoguchi H.",
+     "Goto Y.",
+     "Shimizu F.",
+     "Wakebe H.",
+     "Hishigaki H.",
+     "Watanabe T.",
+     "Sugiyama A.",
+     "Takemoto M.",
+     "Kawakami B.",
+     "Yamazaki M.",
+     "Watanabe K.",
+     "Kumagai A.",
+     "Itakura S.",
+     "Fukuzumi Y.",
+     "Fujimori Y.",
+     "Komiyama M.",
+     "Tashiro H.",
+     "Tanigami A.",
+     "Fujiwara T.",
+     "Ono T.",
+     "Yamada K.",
+     "Fujii Y.",
+     "Ozaki K.",
+     "Hirao M.",
+     "Ohmori Y.",
+     "Kawabata A.",
+     "Hikiji T.",
+     "Kobatake N.",
+     "Inagaki H.",
+     "Ikema Y.",
+     "Okamoto S.",
+     "Okitani R.",
+     "Kawakami T.",
+     "Noguchi S.",
+     "Itoh T.",
+     "Shigeta K.",
+     "Senba T.",
+     "Matsumura K.",
+     "Nakajima Y.",
+     "Mizuno T.",
+     "Morinaga M.",
+     "Sasaki M.",
+     "Togashi T.",
+     "Oyama M.",
+     "Hata H.",
+     "Watanabe M.",
+     "Komatsu T.",
+     "Mizushima-Sugano J.",
+     "Satoh T.",
+     "Shirai Y.",
+     "Takahashi Y.",
+     "Nakagawa K.",
+     "Okumura K.",
+     "Nagase T.",
+     "Nomura N.",
+     "Kikuchi H.",
+     "Masuho Y.",
+     "Yamashita R.",
+     "Nakai K.",
+     "Yada T.",
+     "Nakamura Y.",
+     "Ohara O.",
+     "Isogai T.",
+     "Sugano S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "14702039"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/ng1285"
+     }
+    ],
+    "title": "Complete sequencing and characterization of 21,243 full-length human cDNAs.",
+    "publicationDate": "2004",
+    "journal": "Nat. Genet.",
+    "firstPage": "40",
+    "lastPage": "45",
+    "volume": "36"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 2)"
+   ],
+   "referenceComments": [
+    {
+     "value": "Brain",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "15057824",
+    "citationType": "journal article",
+    "authors": [
+     "Grimwood J.",
+     "Gordon L.A.",
+     "Olsen A.S.",
+     "Terry A.",
+     "Schmutz J.",
+     "Lamerdin J.E.",
+     "Hellsten U.",
+     "Goodstein D.",
+     "Couronne O.",
+     "Tran-Gyamfi M.",
+     "Aerts A.",
+     "Altherr M.",
+     "Ashworth L.",
+     "Bajorek E.",
+     "Black S.",
+     "Branscomb E.",
+     "Caenepeel S.",
+     "Carrano A.V.",
+     "Caoile C.",
+     "Chan Y.M.",
+     "Christensen M.",
+     "Cleland C.A.",
+     "Copeland A.",
+     "Dalin E.",
+     "Dehal P.",
+     "Denys M.",
+     "Detter J.C.",
+     "Escobar J.",
+     "Flowers D.",
+     "Fotopulos D.",
+     "Garcia C.",
+     "Georgescu A.M.",
+     "Glavina T.",
+     "Gomez M.",
+     "Gonzales E.",
+     "Groza M.",
+     "Hammon N.",
+     "Hawkins T.",
+     "Haydu L.",
+     "Ho I.",
+     "Huang W.",
+     "Israni S.",
+     "Jett J.",
+     "Kadner K.",
+     "Kimball H.",
+     "Kobayashi A.",
+     "Larionov V.",
+     "Leem S.-H.",
+     "Lopez F.",
+     "Lou Y.",
+     "Lowry S.",
+     "Malfatti S.",
+     "Martinez D.",
+     "McCready P.M.",
+     "Medina C.",
+     "Morgan J.",
+     "Nelson K.",
+     "Nolan M.",
+     "Ovcharenko I.",
+     "Pitluck S.",
+     "Pollard M.",
+     "Popkie A.P.",
+     "Predki P.",
+     "Quan G.",
+     "Ramirez L.",
+     "Rash S.",
+     "Retterer J.",
+     "Rodriguez A.",
+     "Rogers S.",
+     "Salamov A.",
+     "Salazar A.",
+     "She X.",
+     "Smith D.",
+     "Slezak T.",
+     "Solovyev V.",
+     "Thayer N.",
+     "Tice H.",
+     "Tsai M.",
+     "Ustaszewska A.",
+     "Vo N.",
+     "Wagner M.",
+     "Wheeler J.",
+     "Wu K.",
+     "Xie G.",
+     "Yang J.",
+     "Dubchak I.",
+     "Furey T.S.",
+     "DeJong P.",
+     "Dickson M.",
+     "Gordon D.",
+     "Eichler E.E.",
+     "Pennacchio L.A.",
+     "Richardson P.",
+     "Stubbs L.",
+     "Rokhsar D.S.",
+     "Myers R.M.",
+     "Rubin E.M.",
+     "Lucas S.M."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15057824"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/nature02399"
+     }
+    ],
+    "title": "The DNA sequence and biology of human chromosome 19.",
+    "publicationDate": "2004",
+    "journal": "Nature",
+    "firstPage": "529",
+    "lastPage": "535",
+    "volume": "428"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 1)",
+    "VARIANT LEU-23"
+   ],
+   "referenceComments": [
+    {
+     "value": "Brain",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "12611891",
+    "citationType": "journal article",
+    "authors": [
+     "Murray J.",
+     "Zhang B.",
+     "Taylor S.W.",
+     "Oglesbee D.",
+     "Fahy E.",
+     "Marusich M.F.",
+     "Ghosh S.S.",
+     "Capaldi R.A."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "12611891"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1074/jbc.c300064200"
+     }
+    ],
+    "title": "The subunit composition of the human NADH dehydrogenase obtained by rapid one-step immunopurification.",
+    "publicationDate": "2003",
+    "journal": "J. Biol. Chem.",
+    "firstPage": "13619",
+    "lastPage": "13622",
+    "volume": "278"
+   },
+   "referencePositions": [
+    "IDENTIFICATION IN THE NADH-UBIQUINONE OXIDOREDUCTASE COMPLEX",
+    "IDENTIFICATION BY MASS SPECTROMETRY",
+    "SUBCELLULAR LOCATION"
+   ]
+  },
+  {
+   "referenceNumber": 6,
+   "citation": {
+    "id": "21269460",
+    "citationType": "journal article",
+    "authors": [
+     "Burkard T.R.",
+     "Planyavsky M.",
+     "Kaupe I.",
+     "Breitwieser F.P.",
+     "Buerckstuemmer T.",
+     "Bennett K.L.",
+     "Superti-Furga G.",
+     "Colinge J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "21269460"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1186/1752-0509-5-17"
+     }
+    ],
+    "title": "Initial characterization of the human central proteome.",
+    "publicationDate": "2011",
+    "journal": "BMC Syst. Biol.",
+    "firstPage": "17",
+    "lastPage": "17",
+    "volume": "5"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 7,
+   "citation": {
+    "id": "25944712",
+    "citationType": "journal article",
+    "authors": [
+     "Vaca Jacome A.S.",
+     "Rabilloud T.",
+     "Schaeffer-Reiss C.",
+     "Rompais M.",
+     "Ayoub D.",
+     "Lane L.",
+     "Bairoch A.",
+     "Van Dorsselaer A.",
+     "Carapito C."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "25944712"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1002/pmic.201400617"
+     }
+    ],
+    "title": "N-terminome analysis of the human mitochondrial proteome.",
+    "publicationDate": "2015",
+    "journal": "Proteomics",
+    "firstPage": "2519",
+    "lastPage": "2524",
+    "volume": "15"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 8,
+   "citation": {
+    "id": "27226634",
+    "citationType": "journal article",
+    "authors": [
+     "Rhein V.F.",
+     "Carroll J.",
+     "Ding S.",
+     "Fearnley I.M.",
+     "Walker J.E."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "27226634"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1074/jbc.m116.734970"
+     }
+    ],
+    "title": "NDUFAF5 hydroxylates NDUFS7 at an early stage in the assembly of human complex I.",
+    "publicationDate": "2016",
+    "journal": "J. Biol. Chem.",
+    "firstPage": "14851",
+    "lastPage": "14860",
+    "volume": "291"
+   },
+   "referencePositions": [
+    "HYDROXYLATION AT ARG-111",
+    "IDENTIFICATION BY MASS SPECTROMETRY"
+   ]
+  },
+  {
+   "referenceNumber": 9,
+   "citation": {
+    "id": "10360771",
+    "citationType": "journal article",
+    "authors": [
+     "Triepels R.H.",
+     "van den Heuvel L.",
+     "Loeffen J.L.C.M.",
+     "Buskens C.A.F.",
+     "Smeets R.J.P.",
+     "Rubio Gozalbo M.E.",
+     "Budde S.M.",
+     "Mariman E.C.M.",
+     "Wijburg F.A.",
+     "Barth P.G.",
+     "Trijbels J.M.F.",
+     "Smeitink J.A.M."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "10360771"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1002/1531-8249(199906)45:6<787::aid-ana13>3.0.co;2-6"
+     }
+    ],
+    "title": "Leigh syndrome associated with a mutation in the NDUFS7 (PSST) nuclear encoded subunit of complex I.",
+    "publicationDate": "1999",
+    "journal": "Ann. Neurol.",
+    "firstPage": "787",
+    "lastPage": "790",
+    "volume": "45"
+   },
+   "referencePositions": [
+    "INVOLVEMENT IN MC1DN3",
+    "VARIANT MC1DN3 MET-122"
+   ]
+  },
+  {
+   "referenceNumber": 10,
+   "citation": {
+    "id": "10330338",
+    "citationType": "journal article",
+    "authors": [
+     "Smeitink J.",
+     "van den Heuvel L."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "10330338"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1086/302432"
+     }
+    ],
+    "title": "Human mitochondrial complex I in health and disease.",
+    "publicationDate": "1999",
+    "journal": "Am. J. Hum. Genet.",
+    "firstPage": "1505",
+    "lastPage": "1510",
+    "volume": "64"
+   },
+   "referencePositions": [
+    "INVOLVEMENT IN MC1DN3",
+    "VARIANT MC1DN3 MET-122"
+   ]
+  },
+  {
+   "referenceNumber": 11,
+   "citation": {
+    "id": "17275378",
+    "citationType": "journal article",
+    "authors": [
+     "Lebon S.",
+     "Rodriguez D.",
+     "Bridoux D.",
+     "Zerrad A.",
+     "Roetig A.",
+     "Munnich A.",
+     "Legrand A.",
+     "Slama A."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "17275378"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.ymgme.2006.12.007"
+     }
+    ],
+    "title": "A novel mutation in the human complex I NDUFS7 subunit associated with Leigh syndrome.",
+    "publicationDate": "2007",
+    "journal": "Mol. Genet. Metab.",
+    "firstPage": "379",
+    "lastPage": "382",
+    "volume": "90"
+   },
+   "referencePositions": [
+    "VARIANT HIS-145",
+    "CHARACTERIZATION OF VARIANT HIS-145",
+    "FUNCTION",
+    "CATALYTIC ACTIVITY"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "AK091623",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAG52394.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AC005329",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAC27669.1"
+    },
+    {
+     "key": "Status",
+     "value": "ALT_SEQ"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC001715",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH01715.2"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC005954",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH05954.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC111517",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAI11518.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS12063.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "O75251-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_077718.3",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_024407.5"
+    }
+   ],
+   "isoformId": "O75251-1"
+  },
+  {
+   "database": "PDB",
+   "id": "5XTB",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "3.40 A"
+    },
+    {
+     "key": "Chains",
+     "value": "C=58-213"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "5XTD",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "3.70 A"
+    },
+    {
+     "key": "Chains",
+     "value": "C=58-213"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "5XTH",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "3.90 A"
+    },
+    {
+     "key": "Chains",
+     "value": "C=58-213"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "5XTI",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "17.40 A"
+    },
+    {
+     "key": "Chains",
+     "value": "BC/C=58-213"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "9CWT",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "3.44 A"
+    },
+    {
+     "key": "Chains",
+     "value": "C=1-213"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "9I4I",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "2.63 A"
+    },
+    {
+     "key": "Chains",
+     "value": "E=1-213"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "9TI4",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "2.66 A"
+    },
+    {
+     "key": "Chains",
+     "value": "E=53-213"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "5XTB",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "5XTD",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "5XTH",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "5XTI",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "9CWT",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "9I4I",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "9TI4",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-45974",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-52619",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "131889",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "328"
+    }
+   ]
+  },
+  {
+   "database": "ComplexPortal",
+   "id": "CPX-577",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Mitochondrial respiratory chain complex I"
+    }
+   ]
+  },
+  {
+   "database": "CORUM",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "968"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "142"
+    }
+   ]
+  },
+  {
+   "database": "MINT",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "NDEx",
+   "id": "IQUERY-CP-NDUFS7",
+   "properties": [
+    {
+     "key": "Evidences",
+     "value": "4 NDEx IQuery Curated Pathways"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000233627",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BindingDB",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ChEMBL",
+   "id": "CHEMBL6067015",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB00997",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Doxorubicin"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB00157",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "NADH"
+    }
+   ]
+  },
+  {
+   "database": "DrugCentral",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "1 site, 1 O-linked glycan (1 site)"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MetOSite",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SwissPalm",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "NDUFS7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000233627",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "3604",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "49873",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "O75251-1"
+  },
+  {
+   "database": "Pumba",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "TopDownProteomics",
+   "id": "O75251-1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "O75251-1"
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "22663",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "159 antibodies from 32 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "374291",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000233627.14",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000233627.9"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000115286.22"
+    }
+   ],
+   "isoformId": "O75251-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000313408.11",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000364262.5"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000115286.22"
+    }
+   ],
+   "isoformId": "O75251-2"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000546283.5",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000440348.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000115286.22"
+    }
+   ],
+   "isoformId": "O75251-2"
+  },
+  {
+   "database": "GeneID",
+   "id": "374291",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:374291",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000233627.14",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000233627.9"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_024407.5"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_077718.3"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc060qzv.1",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ],
+   "isoformId": "O75251-1"
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:7714",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA31524",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "374291",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "374291",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "NDUFS7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneReviews",
+   "id": "NDUFS7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:7714",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "NDUFS7"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000115286",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Tissue enhanced (skeletal)"
+    }
+   ]
+  },
+  {
+   "database": "MalaCards",
+   "id": "NDUFS7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "601825",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "618224",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "phenotype"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000115286",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Orphanet",
+   "id": "2609",
+   "properties": [
+    {
+     "key": "Disease",
+     "value": "Isolated complex I deficiency"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000115286",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "KOG1687",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00390000006565",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_055737_1_2_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "GCGGIEM",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "268400at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "5 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioCyc",
+   "id": "MetaCyc:HS03864-MONOMER",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-611105",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Respiratory electron transport"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-6799198",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Complex I biogenesis"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SIGNOR",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000115286",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "Agora Nominated Target for Alzheimer's Disease"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "374291",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "174 hits in 1162 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "NDUFS7",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "GeneWiki",
+   "id": "NDUFS7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "374291",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tclin"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:O75251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 19"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000115286",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in hindlimb stylopod muscle and 192 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "O75251",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005743",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrial inner membrane"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:ComplexPortal"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "28844695"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005759",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrial matrix"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:Reactome"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005739",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrion"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "HTP:FlyBase"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0006056",
+     "source": "PubMed",
+     "id": "34800366"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0043025",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:neuronal cell body"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0045271",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:respiratory chain complex I"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "12611891"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0097060",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:synaptic membrane"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0051539",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:4 iron, 4 sulfur cluster binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:InterPro"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0008137",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:NADH dehydrogenase (ubiquinone) activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "17275378"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0016655",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:oxidoreductase activity, acting on NAD(P)H, quinone or similar compound as acceptor"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "NAS:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "8938450"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0002020",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:protease binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0048038",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:quinone binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:InterPro"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0009060",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:aerobic respiration"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0015990",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:electron transport coupled proton transport"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0006120",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:mitochondrial electron transport, NADH to ubiquinone"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "17275378"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0032981",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:mitochondrial respiratory chain complex I assembly"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "11112787"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0042776",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:proton motive force-driven mitochondrial ATP synthesis"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "NAS:ComplexPortal"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "30030361"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.40.50.12280:FF:000001",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NADH-quinone oxidoreductase subunit B 2"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.40.50.12280",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "-"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "HAMAP",
+   "id": "MF_01356",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NDH1_NuoB"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR006137",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NADH_UbQ_OxRdtase-like_20kDa"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR006138",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NADH_UQ_OxRdtase_20Kd_su"
+    }
+   ]
+  },
+  {
+   "database": "NCBIfam",
+   "id": "TIGR01957",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "nuoB_fam"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "NCBIfam",
+   "id": "NF005012",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PRK06411.1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR11995",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NADH DEHYDROGENASE"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR11995:SF22",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NADH DEHYDROGENASE [UBIQUINONE] IRON-SULFUR PROTEIN 7, MITOCHONDRIAL"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF01058",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Oxidored_q6"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF56770",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "HydA/Nqo6-like"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS01150",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "COMPLEX1_20K"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MAVLSAPGLRGFRILGLRSSVGPAVQARGVHQSVATDGPSSTQPALPKARAVAPKPSSRGEYVVAKLDDLVNWARRSSLWPMTFGLACCAVEMMHMAAPRYDMDRFGVVFRASPRQSDVMIVAGTLTNKMAPALRKVYDQMPEPRYVVSMGSCANGGGYYHYSYSVVRGCDRIVPVDIYIPGCPPTAEALLYGILQLQRKIKRERRLQIWYRR",
+  "length": 213,
+  "molWeight": 23564,
+  "crc64": "B3547EA24643C1B0",
+  "md5": "4C2C0912BB105CD96200363ED8803DB4"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "CATALYTIC ACTIVITY": 1,
+   "COFACTOR": 1,
+   "SUBUNIT": 1,
+   "INTERACTION": 1,
+   "SUBCELLULAR LOCATION": 1,
+   "ALTERNATIVE PRODUCTS": 2,
+   "PTM": 1,
+   "DISEASE": 1,
+   "SIMILARITY": 1,
+   "SEQUENCE CAUTION": 1
+  },
+  "countByFeatureType": {
+   "Transit peptide": 1,
+   "Chain": 1,
+   "Region": 1,
+   "Compositional bias": 1,
+   "Binding site": 4,
+   "Modified residue": 1,
+   "Alternative sequence": 1,
+   "Natural variant": 3,
+   "Helix": 9,
+   "Beta strand": 4,
+   "Turn": 3
+  },
+  "uniParcId": "UPI000006ED2D"
+ }
+}

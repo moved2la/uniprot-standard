@@ -1,0 +1,2805 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "Q53FT3",
+ "secondaryAccessions": [
+  "Q8WVE8",
+  "Q9NVQ2",
+  "Q9NZZ1",
+  "Q9P022",
+  "Q9P0N1"
+ ],
+ "uniProtkbId": "HIKES_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "2006-07-11",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2006-07-11",
+  "entryVersion": 142,
+  "sequenceVersion": 2
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000305"
+     }
+    ],
+    "value": "Protein Hikeshi"
+   }
+  }
+ },
+ "genes": [
+  {
+   "geneName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000312",
+      "source": "HGNC",
+      "id": "HGNC:26938"
+     }
+    ],
+    "value": "HIKESHI"
+   },
+   "synonyms": [
+    {
+     "value": "C11orf73"
+    }
+   ],
+   "orfNames": [
+    {
+     "value": "HSPC138"
+    },
+    {
+     "value": "HSPC179"
+    },
+    {
+     "value": "HSPC248"
+    }
+   ]
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "22541429"
+      }
+     ],
+     "value": "Acts as a specific nuclear import carrier for HSP70 proteins following heat-shock stress: acts by mediating the nucleoporin-dependent translocation of ATP-bound HSP70 proteins into the nucleus. HSP70 proteins import is required to protect cells from heat shock damages. Does not translocate ADP-bound HSP70 proteins into the nucleus"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "22541429"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "25760597"
+      }
+     ],
+     "value": "Forms an asymmetric homodimer; required for binding and nuclear import of HSP70 proteins (PubMed:25760597). Interacts with ATP-bound HSP70 proteins (PubMed:22541429). Interacts with NUP62 and NUP153 (via F-X-F-G repeats) (PubMed:22541429). Interacts with HSPA8 (PubMed:25760597)"
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "Q53FT3",
+      "intActId": "EBI-6137602"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "O94929-2",
+      "geneName": "ABLIM3",
+      "intActId": "EBI-11961672"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "Q53FT3",
+      "intActId": "EBI-6137602"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P32243-2",
+      "geneName": "OTX2",
+      "intActId": "EBI-9087860"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000250",
+        "source": "UniProtKB",
+        "id": "Q9DD02"
+       }
+      ],
+      "value": "Cytoplasm",
+      "id": "SL-0086"
+     }
+    },
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "22541429"
+       }
+      ],
+      "value": "Cytoplasm, cytosol",
+      "id": "SL-0091"
+     }
+    },
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "22541429"
+       }
+      ],
+      "value": "Nucleus",
+      "id": "SL-0191"
+     }
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "22541429"
+      }
+     ],
+     "value": "Following heat-shock treatment"
+    }
+   ],
+   "commentType": "INDUCTION"
+  },
+  {
+   "commentType": "DISEASE",
+   "disease": {
+    "diseaseId": "Leukodystrophy, hypomyelinating, 13",
+    "diseaseAccession": "DI-04695",
+    "acronym": "HLD13",
+    "description": "An autosomal recessive neurodegenerative disorder with infantile onset, affecting mainly the central white matter. Clinical features include early feeding difficulties, global developmental delay, postnatal progressive microcephaly, truncal hypotonia, spasticity, and variable neurologic deficits, such as visual impairment.",
+    "diseaseCrossReference": {
+     "database": "MIM",
+     "id": "616881"
+    },
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "26545878"
+     }
+    ]
+   },
+   "note": {
+    "texts": [
+     {
+      "value": "The disease is caused by variants affecting the gene represented in this entry"
+     }
+    ]
+   }
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "22541429"
+      }
+     ],
+     "value": "'Hikeshi' is a traditional Japanese compound word used for a firefighter, smokejumper, or troubleshooter"
+    }
+   ],
+   "commentType": "MISCELLANEOUS"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the OPI10 family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  },
+  {
+   "commentType": "SEQUENCE CAUTION",
+   "sequenceCautionType": "Frameshift",
+   "sequence": "AAF29102.1",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ]
+  },
+  {
+   "commentType": "SEQUENCE CAUTION",
+   "sequenceCautionType": "Frameshift",
+   "sequence": "AAF29142.1",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ]
+  },
+  {
+   "commentType": "SEQUENCE CAUTION",
+   "sequenceCautionType": "Frameshift",
+   "sequence": "AAF36168.1",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ]
+  }
+ ],
+ "features": [
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 197,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Protein Hikeshi",
+   "featureId": "PRO_0000245262"
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 18,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 55,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Required for F-X-F-G repeats-nucleoporins recognition and nuclear import",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22541429"
+    }
+   ]
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 124,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 134,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Flexible linker region involved in nuclear import of HSP70 proteins",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22541429"
+    }
+   ]
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 47,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 47,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs11539213",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs11539213"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "15489334"
+    }
+   ],
+   "featureId": "VAR_026968",
+   "alternativeSequence": {
+    "originalSequence": "P",
+    "alternativeSequences": [
+     "A"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 54,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 54,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in HLD13; dbSNP:rs202003795",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs202003795"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "26545878"
+    }
+   ],
+   "featureId": "VAR_076411",
+   "alternativeSequence": {
+    "originalSequence": "V",
+    "alternativeSequences": [
+     "L"
+    ]
+   }
+  },
+  {
+   "type": "Mutagenesis",
+   "location": {
+    "start": {
+     "value": 18,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 18,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Impairs the nuclear migrating activity.",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "25760597"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "V",
+    "alternativeSequences": [
+     "A"
+    ]
+   }
+  },
+  {
+   "type": "Mutagenesis",
+   "location": {
+    "start": {
+     "value": 24,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 24,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Reduces the nuclear migrating activity.",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "25760597"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "V",
+    "alternativeSequences": [
+     "A"
+    ]
+   }
+  },
+  {
+   "type": "Mutagenesis",
+   "location": {
+    "start": {
+     "value": 55,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 55,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Reduces the nuclear migrating activity.",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "25760597"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "Y",
+    "alternativeSequences": [
+     "A"
+    ]
+   }
+  },
+  {
+   "type": "Mutagenesis",
+   "location": {
+    "start": {
+     "value": 77,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 77,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Decreases nuclear import activity of HSPA8. Does not affect the dimer formation. Impairs binding to HSPA8.",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "25760597"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "K",
+    "alternativeSequences": [
+     "A"
+    ]
+   }
+  },
+  {
+   "type": "Mutagenesis",
+   "location": {
+    "start": {
+     "value": 97,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 97,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Increases the nuclear migrating activity.",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "25760597"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "F",
+    "alternativeSequences": [
+     "A"
+    ]
+   }
+  },
+  {
+   "type": "Mutagenesis",
+   "location": {
+    "start": {
+     "value": 132,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 135,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Decreases nuclear import activity of HSPA8. Does not affect the dimer formation. Markedly decreases binding to HSPA8.",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "25760597"
+    }
+   ],
+   "alternativeSequence": {}
+  },
+  {
+   "type": "Mutagenesis",
+   "location": {
+    "start": {
+     "value": 141,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 141,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Decreases nuclear import activity of HSPA8. Does not affect the dimer formation. Decreases binding to HSPA8.",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "25760597"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "F",
+    "alternativeSequences": [
+     "A"
+    ]
+   }
+  },
+  {
+   "type": "Sequence conflict",
+   "location": {
+    "start": {
+     "value": 82,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 82,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in Ref. 1; AAF29102 and 3; BAD96918",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "F",
+    "alternativeSequences": [
+     "L"
+    ]
+   }
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 2,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 6,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "3WVZ"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 16,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 19,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "3WVZ"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 22,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 29,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "3WVZ"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 30,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 32,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "3WVZ"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 34,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 40,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "3WVZ"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 42,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 44,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "3WVZ"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 45,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 47,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "3WVZ"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 50,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 57,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "3WVZ"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 68,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 73,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "3WVZ"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 75,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 77,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "3WVZ"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 79,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 83,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "3WVZ"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 108,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 117,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "3WVZ"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 118,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 121,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "3WVZ"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 137,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 154,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "3WVZ"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 160,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 162,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "3WVZ"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 163,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 165,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "3WVZ"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 171,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 173,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "3WVZ"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 174,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 188,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "3WVZ"
+    }
+   ]
+  },
+  {
+   "type": "Turn",
+   "location": {
+    "start": {
+     "value": 192,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 195,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "3WW0"
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0002",
+   "category": "Technical term",
+   "name": "3D-structure"
+  },
+  {
+   "id": "KW-0963",
+   "category": "Cellular component",
+   "name": "Cytoplasm"
+  },
+  {
+   "id": "KW-0225",
+   "category": "Disease",
+   "name": "Disease variant"
+  },
+  {
+   "id": "KW-1026",
+   "category": "Disease",
+   "name": "Leukodystrophy"
+  },
+  {
+   "id": "KW-0539",
+   "category": "Cellular component",
+   "name": "Nucleus"
+  },
+  {
+   "id": "KW-0653",
+   "category": "Biological process",
+   "name": "Protein transport"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  },
+  {
+   "id": "KW-0813",
+   "category": "Biological process",
+   "name": "Transport"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "11042152",
+    "citationType": "journal article",
+    "authors": [
+     "Zhang Q.-H.",
+     "Ye M.",
+     "Wu X.-Y.",
+     "Ren S.-X.",
+     "Zhao M.",
+     "Zhao C.-J.",
+     "Fu G.",
+     "Shen Y.",
+     "Fan H.-Y.",
+     "Lu G.",
+     "Zhong M.",
+     "Xu X.-R.",
+     "Han Z.-G.",
+     "Zhang J.-W.",
+     "Tao J.",
+     "Huang Q.-H.",
+     "Zhou J.",
+     "Hu G.-X.",
+     "Gu J.",
+     "Chen S.-J.",
+     "Chen Z."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "11042152"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.140200"
+     }
+    ],
+    "title": "Cloning and functional analysis of cDNAs with open reading frames for 300 previously undefined genes expressed in CD34+ hematopoietic stem/progenitor cells.",
+    "publicationDate": "2000",
+    "journal": "Genome Res.",
+    "firstPage": "1546",
+    "lastPage": "1560",
+    "volume": "10"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Umbilical cord blood",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "14702039",
+    "citationType": "journal article",
+    "authors": [
+     "Ota T.",
+     "Suzuki Y.",
+     "Nishikawa T.",
+     "Otsuki T.",
+     "Sugiyama T.",
+     "Irie R.",
+     "Wakamatsu A.",
+     "Hayashi K.",
+     "Sato H.",
+     "Nagai K.",
+     "Kimura K.",
+     "Makita H.",
+     "Sekine M.",
+     "Obayashi M.",
+     "Nishi T.",
+     "Shibahara T.",
+     "Tanaka T.",
+     "Ishii S.",
+     "Yamamoto J.",
+     "Saito K.",
+     "Kawai Y.",
+     "Isono Y.",
+     "Nakamura Y.",
+     "Nagahari K.",
+     "Murakami K.",
+     "Yasuda T.",
+     "Iwayanagi T.",
+     "Wagatsuma M.",
+     "Shiratori A.",
+     "Sudo H.",
+     "Hosoiri T.",
+     "Kaku Y.",
+     "Kodaira H.",
+     "Kondo H.",
+     "Sugawara M.",
+     "Takahashi M.",
+     "Kanda K.",
+     "Yokoi T.",
+     "Furuya T.",
+     "Kikkawa E.",
+     "Omura Y.",
+     "Abe K.",
+     "Kamihara K.",
+     "Katsuta N.",
+     "Sato K.",
+     "Tanikawa M.",
+     "Yamazaki M.",
+     "Ninomiya K.",
+     "Ishibashi T.",
+     "Yamashita H.",
+     "Murakawa K.",
+     "Fujimori K.",
+     "Tanai H.",
+     "Kimata M.",
+     "Watanabe M.",
+     "Hiraoka S.",
+     "Chiba Y.",
+     "Ishida S.",
+     "Ono Y.",
+     "Takiguchi S.",
+     "Watanabe S.",
+     "Yosida M.",
+     "Hotuta T.",
+     "Kusano J.",
+     "Kanehori K.",
+     "Takahashi-Fujii A.",
+     "Hara H.",
+     "Tanase T.-O.",
+     "Nomura Y.",
+     "Togiya S.",
+     "Komai F.",
+     "Hara R.",
+     "Takeuchi K.",
+     "Arita M.",
+     "Imose N.",
+     "Musashino K.",
+     "Yuuki H.",
+     "Oshima A.",
+     "Sasaki N.",
+     "Aotsuka S.",
+     "Yoshikawa Y.",
+     "Matsunawa H.",
+     "Ichihara T.",
+     "Shiohata N.",
+     "Sano S.",
+     "Moriya S.",
+     "Momiyama H.",
+     "Satoh N.",
+     "Takami S.",
+     "Terashima Y.",
+     "Suzuki O.",
+     "Nakagawa S.",
+     "Senoh A.",
+     "Mizoguchi H.",
+     "Goto Y.",
+     "Shimizu F.",
+     "Wakebe H.",
+     "Hishigaki H.",
+     "Watanabe T.",
+     "Sugiyama A.",
+     "Takemoto M.",
+     "Kawakami B.",
+     "Yamazaki M.",
+     "Watanabe K.",
+     "Kumagai A.",
+     "Itakura S.",
+     "Fukuzumi Y.",
+     "Fujimori Y.",
+     "Komiyama M.",
+     "Tashiro H.",
+     "Tanigami A.",
+     "Fujiwara T.",
+     "Ono T.",
+     "Yamada K.",
+     "Fujii Y.",
+     "Ozaki K.",
+     "Hirao M.",
+     "Ohmori Y.",
+     "Kawabata A.",
+     "Hikiji T.",
+     "Kobatake N.",
+     "Inagaki H.",
+     "Ikema Y.",
+     "Okamoto S.",
+     "Okitani R.",
+     "Kawakami T.",
+     "Noguchi S.",
+     "Itoh T.",
+     "Shigeta K.",
+     "Senba T.",
+     "Matsumura K.",
+     "Nakajima Y.",
+     "Mizuno T.",
+     "Morinaga M.",
+     "Sasaki M.",
+     "Togashi T.",
+     "Oyama M.",
+     "Hata H.",
+     "Watanabe M.",
+     "Komatsu T.",
+     "Mizushima-Sugano J.",
+     "Satoh T.",
+     "Shirai Y.",
+     "Takahashi Y.",
+     "Nakagawa K.",
+     "Okumura K.",
+     "Nagase T.",
+     "Nomura N.",
+     "Kikuchi H.",
+     "Masuho Y.",
+     "Yamashita R.",
+     "Nakai K.",
+     "Yada T.",
+     "Nakamura Y.",
+     "Ohara O.",
+     "Isogai T.",
+     "Sugano S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "14702039"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/ng1285"
+     }
+    ],
+    "title": "Complete sequencing and characterization of 21,243 full-length human cDNAs.",
+    "publicationDate": "2004",
+    "journal": "Nat. Genet.",
+    "firstPage": "40",
+    "lastPage": "45",
+    "volume": "36"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Teratocarcinoma",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "CI-5AVBODINQ93DF",
+    "citationType": "submission",
+    "authors": [
+     "Suzuki Y.",
+     "Sugano S.",
+     "Totoki Y.",
+     "Toyoda A.",
+     "Takeda T.",
+     "Sakaki Y.",
+     "Tanaka A.",
+     "Yokoyama S."
+    ],
+    "publicationDate": "APR-2005",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Kidney proximal tubule",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]",
+    "VARIANT ALA-47"
+   ],
+   "referenceComments": [
+    {
+     "value": "Brain",
+     "type": "TISSUE"
+    },
+    {
+     "value": "Lung",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "21269460",
+    "citationType": "journal article",
+    "authors": [
+     "Burkard T.R.",
+     "Planyavsky M.",
+     "Kaupe I.",
+     "Breitwieser F.P.",
+     "Buerckstuemmer T.",
+     "Bennett K.L.",
+     "Superti-Furga G.",
+     "Colinge J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "21269460"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1186/1752-0509-5-17"
+     }
+    ],
+    "title": "Initial characterization of the human central proteome.",
+    "publicationDate": "2011",
+    "journal": "BMC Syst. Biol.",
+    "firstPage": "17",
+    "lastPage": "17",
+    "volume": "5"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 6,
+   "citation": {
+    "id": "22541429",
+    "citationType": "journal article",
+    "authors": [
+     "Kose S.",
+     "Furuta M.",
+     "Imamoto N."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "22541429"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.cell.2012.02.058"
+     }
+    ],
+    "title": "Hikeshi, a nuclear import carrier for hsp70s, protects cells from heat shock-induced nuclear damage.",
+    "publicationDate": "2012",
+    "journal": "Cell",
+    "firstPage": "578",
+    "lastPage": "589",
+    "volume": "149"
+   },
+   "referencePositions": [
+    "FUNCTION",
+    "IDENTIFICATION BY MASS SPECTROMETRY",
+    "SUBCELLULAR LOCATION",
+    "INTERACTION WITH NUP62; NUP153 AND HSP70 PROTEINS",
+    "INDUCTION"
+   ]
+  },
+  {
+   "referenceNumber": 7,
+   "citation": {
+    "id": "22814378",
+    "citationType": "journal article",
+    "authors": [
+     "Van Damme P.",
+     "Lasa M.",
+     "Polevoda B.",
+     "Gazquez C.",
+     "Elosegui-Artola A.",
+     "Kim D.S.",
+     "De Juan-Pardo E.",
+     "Demeyer K.",
+     "Hole K.",
+     "Larrea E.",
+     "Timmerman E.",
+     "Prieto J.",
+     "Arnesen T.",
+     "Sherman F.",
+     "Gevaert K.",
+     "Aldabe R."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "22814378"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1073/pnas.1210303109"
+     }
+    ],
+    "title": "N-terminal acetylome analyses and functional insights of the N-terminal acetyltransferase NatB.",
+    "publicationDate": "2012",
+    "journal": "Proc. Natl. Acad. Sci. U.S.A.",
+    "firstPage": "12449",
+    "lastPage": "12454",
+    "volume": "109"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 8,
+   "citation": {
+    "id": "25760597",
+    "citationType": "journal article",
+    "authors": [
+     "Song J.",
+     "Kose S.",
+     "Watanabe A.",
+     "Son S.Y.",
+     "Choi S.",
+     "Hong H.",
+     "Yamashita E.",
+     "Park I.Y.",
+     "Imamoto N.",
+     "Lee S.J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "25760597"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1107/s1399004714026881"
+     }
+    ],
+    "title": "Structural and functional analysis of Hikeshi, a new nuclear transport receptor of Hsp70s.",
+    "publicationDate": "2015",
+    "journal": "Acta Crystallogr. D",
+    "firstPage": "473",
+    "lastPage": "483",
+    "volume": "71"
+   },
+   "referencePositions": [
+    "X-RAY CRYSTALLOGRAPHY (1.88 ANGSTROMS) OF HOMODIMER",
+    "FUNCTION",
+    "MUTAGENESIS OF VAL-18; VAL-24; TYR-55; LYS-77; PHE-97; 132-VAL--VAL-135 AND PHE-141",
+    "INTERACTION WITH HSPA8",
+    "REGION",
+    "SUBUNIT"
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "3WVZ"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "3WW0"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 9,
+   "citation": {
+    "id": "26545878",
+    "citationType": "journal article",
+    "authors": [
+     "Edvardson S.",
+     "Kose S.",
+     "Jalas C.",
+     "Fattal-Valevski A.",
+     "Watanabe A.",
+     "Ogawa Y.",
+     "Mamada H.",
+     "Fedick A.M.",
+     "Ben-Shachar S.",
+     "Treff N.R.",
+     "Shaag A.",
+     "Bale S.",
+     "Gaertner J.",
+     "Imamoto N.",
+     "Elpeleg O."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "26545878"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1136/jmedgenet-2015-103232"
+     }
+    ],
+    "title": "Leukoencephalopathy and early death associated with an Ashkenazi-Jewish founder mutation in the Hikeshi gene.",
+    "publicationDate": "2016",
+    "journal": "J. Med. Genet.",
+    "firstPage": "132",
+    "lastPage": "137",
+    "volume": "53"
+   },
+   "referencePositions": [
+    "INVOLVEMENT IN HLD13",
+    "VARIANT HLD13 LEU-54"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "AF151082",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAF36168.1"
+    },
+    {
+     "key": "Status",
+     "value": "ALT_FRAME"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AF161487",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAF29102.1"
+    },
+    {
+     "key": "Status",
+     "value": "ALT_FRAME"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AF161527",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAF29142.1"
+    },
+    {
+     "key": "Status",
+     "value": "ALT_FRAME"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AK001447",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAA91698.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AK223198",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAD96918.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC001677",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH01677.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC006476",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH06476.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC015991",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH15991.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC018080",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH18080.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC021621",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH21621.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS8275.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_057485.2",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_016401.4"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "3WVZ",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "X-ray"
+    },
+    {
+     "key": "Resolution",
+     "value": "1.88 A"
+    },
+    {
+     "key": "Chains",
+     "value": "A/B=1-197"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "3WW0",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "X-ray"
+    },
+    {
+     "key": "Resolution",
+     "value": "2.50 A"
+    },
+    {
+     "key": "Chains",
+     "value": "A/B=1-197"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "3WVZ",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "3WW0",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "Q53FT3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "Q53FT3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "119574",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "22"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "Q53FT3",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "3805"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "Q53FT3",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "26"
+    }
+   ]
+  },
+  {
+   "database": "MINT",
+   "id": "Q53FT3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "NDEx",
+   "id": "MUSIC2-C5411-HIKESHI",
+   "properties": [
+    {
+     "key": "Evidences",
+     "value": "Osteosarcoma (U2OS) cell map - Stress response complex (4 proteins)"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000278483",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "Q53FT3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "Q53FT3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "HIKESHI",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "110278911",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "Q53FT3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "Q53FT3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000278483",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "Q53FT3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "62468",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pumba",
+   "id": "Q53FT3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "TopDownProteomics",
+   "id": "Q53FT3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "31443",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "168 antibodies from 26 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "51501",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000278483.8",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000278483.3"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000149196.18"
+    }
+   ]
+  },
+  {
+   "database": "GeneID",
+   "id": "51501",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:51501",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000278483.8",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000278483.3"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_016401.4"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_057485.2"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc001pbu.4",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:26938",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA144596492",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "51501",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "51501",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "HIKESHI",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:26938",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "HIKESHI"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000149196",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Low tissue specificity"
+    }
+   ]
+  },
+  {
+   "database": "MalaCards",
+   "id": "HIKESHI",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "614908",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "616881",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "phenotype"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000149196",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Orphanet",
+   "id": "495844",
+   "properties": [
+    {
+     "key": "Disease",
+     "value": "C11ORF73-related autosomal recessive hypomyelinating leukodystrophy"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000149196",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "KOG4067",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00390000004056",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_084839_2_0_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "Q53FT3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "WWAKFER",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "10248398at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "Q53FT3",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "5 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "Q53FT3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "Q53FT3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-3371453",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Regulation of HSF1-mediated heat shock response"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "Q53FT3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000149196",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "51501",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "130 hits in 1112 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "HIKESHI",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "EvolutionaryTrace",
+   "id": "Q53FT3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneWiki",
+   "id": "C11orf73",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "51501",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "Q53FT3",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tbio"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:Q53FT3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 11"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "Q53FT3",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000149196",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in left ventricle myocardium and 185 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "Q53FT3",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005737",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:cytoplasm"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005829",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:cytosol"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "22541429"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005654",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:nucleoplasm"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:Reactome"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005634",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:nucleus"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "22541429"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0030544",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:Hsp70 protein binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "22541429"
+    },
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "25760597"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0061608",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:nuclear import signal receptor activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:GO_Central"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "22541429"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0034605",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:cellular response to heat"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "22541429"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0006606",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:protein import into nucleus"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "22541429"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0015031",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:protein transport"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "22541429"
+    }
+   ]
+  },
+  {
+   "database": "DisProt",
+   "id": "DP02719",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR048364",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Hikeshi-like_C"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR008493",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Hikeshi-like_N"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR031318",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "OPI10"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR12925",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "HIKESHI FAMILY MEMBER"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR12925:SF0",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PROTEIN HIKESHI"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF21057",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Hikeshi-like_C"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF05603",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Hikeshi-like_N"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MFGCLVAGRLVQTAAQQVAEDKFVFDLPDYESINHVVVFMLGTIPFPEGMGGSVYFSYPDSNGMPVWQLLGFVTNGKPSAIFKISGLKSGEGSQHPFGAMNIVRTPSVAQIGISVELLDSMAQQTPVGNAAVSSVDSFTQFTQKMLDNFYNFASSFAVSQAQMTPSPSEMFIPANVVLKWYENFQRRLAQNPLFWKT",
+  "length": 197,
+  "molWeight": 21628,
+  "crc64": "4FA524439B630511",
+  "md5": "36A2C7D228D71877ADFD2AA7B6D3E198"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "SUBUNIT": 1,
+   "INTERACTION": 2,
+   "SUBCELLULAR LOCATION": 1,
+   "INDUCTION": 1,
+   "DISEASE": 1,
+   "MISCELLANEOUS": 1,
+   "SIMILARITY": 1,
+   "SEQUENCE CAUTION": 3
+  },
+  "countByFeatureType": {
+   "Chain": 1,
+   "Region": 2,
+   "Natural variant": 2,
+   "Mutagenesis": 7,
+   "Sequence conflict": 1,
+   "Beta strand": 11,
+   "Helix": 7,
+   "Turn": 1
+  },
+  "uniParcId": "UPI000006CF46"
+ }
+}

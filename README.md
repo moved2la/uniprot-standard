@@ -10,7 +10,7 @@ citation, or a computation, and nothing else.
 
 ```
 pip install -r requirements.txt
-python run.py protein-set            # protein set (needs network for three stages)
+python run.py protein-set            # protein set (needs network for four stages, incl. the literature fetch)
 python run.py protein-set --offline  # rebuild config from data/ on disk
 python run.py composition            # per-protein composition (needs network for two stages)
 python run.py composition --offline  # recompute from data/ on disk

@@ -1,0 +1,5153 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "Q96S66",
+ "secondaryAccessions": [
+  "O94861",
+  "Q8WYP8",
+  "Q8WYP9",
+  "Q9BU25"
+ ],
+ "uniProtkbId": "CLCC1_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "2007-08-21",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2001-12-01",
+  "entryVersion": 162,
+  "sequenceVersion": 1
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "value": "Chloride channel CLIC-like protein 1"
+   }
+  },
+  "alternativeNames": [
+   {
+    "fullName": {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000303",
+       "source": "PubMed",
+       "id": "37142673"
+      }
+     ],
+     "value": "ER anion channel 1"
+    },
+    "shortNames": [
+     {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000303",
+        "source": "PubMed",
+        "id": "37142673"
+       }
+      ],
+      "value": "ERAC1"
+     }
+    ]
+   },
+   {
+    "fullName": {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000303",
+       "source": "PubMed",
+       "id": "11279057"
+      }
+     ],
+     "value": "Mid-1-related chloride channel protein"
+    }
+   }
+  ],
+  "flag": "Precursor"
+ },
+ "genes": [
+  {
+   "geneName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000303",
+      "source": "PubMed",
+      "id": "37142673"
+     },
+     {
+      "evidenceCode": "ECO:0000312",
+      "source": "HGNC",
+      "id": "HGNC:29675"
+     }
+    ],
+    "value": "CLCC1"
+   },
+   "synonyms": [
+    {
+     "value": "KIAA0761"
+    },
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000303",
+       "source": "PubMed",
+       "id": "11279057"
+      }
+     ],
+     "value": "MCLC"
+    }
+   ]
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250",
+       "source": "UniProtKB",
+       "id": "Q99LI2"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "25698737"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "30157172"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "37142673"
+      }
+     ],
+     "value": "Anion-selective channel with Ca(2+)-dependent and voltage-independent gating. Permeable to small monovalent anions with selectivity for bromide > chloride > nitrate > fluoride (By similarity). Operates in the endoplasmic reticulum (ER) membrane where it mediates chloride efflux to compensate for the loss of positive charges from the ER lumen upon Ca(2+) release. Contributes to the maintenance of ER Ca(2+) pools and activation of unfolded protein response to prevent accumulation of misfolded proteins in the ER lumen. Particularly involved in ER homeostasis mechanisms underlying motor neurons and retinal photoreceptors survival (By similarity) (PubMed:25698737, PubMed:30157172, PubMed:37142673)"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "chloride(in) = chloride(out)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:29823"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:17996"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "30157172"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "37142673"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "bromide(in) = bromide(out)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:75383"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15858"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000250",
+      "source": "UniProtKB",
+      "id": "Q99LI2"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "nitrate(in) = nitrate(out)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:34923"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:17632"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000250",
+      "source": "UniProtKB",
+      "id": "Q99LI2"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "fluoride(in) = fluoride(out)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:76159"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:17051"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000250",
+      "source": "UniProtKB",
+      "id": "Q99LI2"
+     }
+    ]
+   }
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "37142673"
+      }
+     ],
+     "value": "Inhibited by ER lumenal Ca(2+)"
+    }
+   ],
+   "commentType": "ACTIVITY REGULATION"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "30157172"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "31653868"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "37142673"
+      }
+     ],
+     "value": "Homomultimers (PubMed:37142673). Interacts with mitochondrial protein PIGBOS1 (via C-terminus); the interaction occurs at the mitochondria-associated endoplasmic reticulum (ER) membrane, a zone of contact between the ER and mitochondrial membranes, but does not appear to play a role in ER-mitochondria tethering and is not affected by ER stress (PubMed:31653868). Interacts with CALR (PubMed:30157172)"
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "Q96S66",
+      "intActId": "EBI-2836109"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "A0A0B4J2F0",
+      "geneName": "PIGBOS1",
+      "intActId": "EBI-26657479"
+     },
+     "numberOfExperiments": 11,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "Q96S66",
+      "intActId": "EBI-2836109"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q6ZMD2",
+      "geneName": "SPNS3",
+      "intActId": "EBI-53898658"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "note": {
+    "texts": [
+     {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000250",
+        "source": "UniProtKB",
+        "id": "Q99LI2"
+       },
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "31653868"
+       }
+      ],
+      "value": "Within the endoplasmic reticulum (ER), localizes to the mitochondria-associated ER membrane, a zone of contact between the ER and mitochondrial membranes. Enriched in the rough ER"
+     }
+    ]
+   },
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "25698737"
+       },
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "30157172"
+       },
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "31653868"
+       },
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "37142673"
+       }
+      ],
+      "value": "Endoplasmic reticulum membrane",
+      "id": "SL-0097"
+     },
+     "topology": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000255"
+       }
+      ],
+      "value": "Multi-pass membrane protein",
+      "id": "SL-9909"
+     }
+    }
+   ]
+  },
+  {
+   "commentType": "ALTERNATIVE PRODUCTS",
+   "events": [
+    "Alternative splicing"
+   ],
+   "isoforms": [
+    {
+     "name": {
+      "value": "1"
+     },
+     "synonyms": [
+      {
+       "value": "hMCLC-1"
+      }
+     ],
+     "isoformIds": [
+      "Q96S66-1"
+     ],
+     "isoformSequenceStatus": "Displayed"
+    },
+    {
+     "name": {
+      "value": "2"
+     },
+     "synonyms": [
+      {
+       "value": "hMCLC-2"
+      }
+     ],
+     "isoformIds": [
+      "Q96S66-2"
+     ],
+     "sequenceIds": [
+      "VSP_027349"
+     ],
+     "isoformSequenceStatus": "Described"
+    },
+    {
+     "name": {
+      "value": "3"
+     },
+     "synonyms": [
+      {
+       "value": "hMCLC-3"
+      }
+     ],
+     "isoformIds": [
+      "Q96S66-3"
+     ],
+     "sequenceIds": [
+      "VSP_027348"
+     ],
+     "isoformSequenceStatus": "Described"
+    },
+    {
+     "name": {
+      "value": "4"
+     },
+     "synonyms": [
+      {
+       "value": "hMCLC-4"
+      }
+     ],
+     "isoformIds": [
+      "Q96S66-4"
+     ],
+     "sequenceIds": [
+      "VSP_027347"
+     ],
+     "isoformSequenceStatus": "Described"
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "30157172"
+      }
+     ],
+     "value": "Expressed in the retina of the eye, with extensive expression in the lamina cribrosa, optic nerve, ganglion cell layer, inner nuclear layer, outer nuclear layer and retinal pigment epithelium"
+    }
+   ],
+   "commentType": "TISSUE SPECIFICITY"
+  },
+  {
+   "commentType": "DISEASE",
+   "disease": {
+    "diseaseId": "Retinitis pigmentosa 32",
+    "diseaseAccession": "DI-05880",
+    "acronym": "RP32",
+    "description": "A form of retinitis pigmentosa, a retinal dystrophy belonging to the group of pigmentary retinopathies. Retinitis pigmentosa is characterized by retinal pigment deposits visible on fundus examination and primary loss of rod photoreceptor cells followed by secondary loss of cone photoreceptors. Patients typically have night vision blindness and loss of midperipheral visual field. RP32 inheritance is autosomal recessive.",
+    "diseaseCrossReference": {
+     "database": "MIM",
+     "id": "609913"
+    },
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "16189710"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "30157172"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "37142673"
+     }
+    ]
+   },
+   "note": {
+    "texts": [
+     {
+      "value": "The disease is caused by variants affecting the gene represented in this entry"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "DISEASE",
+   "note": {
+    "texts": [
+     {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "37142673"
+       }
+      ],
+      "value": "Rare variants in CLCC1 may be associated with amyotrophic lateral sclerosis"
+     }
+    ]
+   }
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the chloride channel MCLC family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  }
+ ],
+ "features": [
+  {
+   "type": "Signal",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 18,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 19,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 551,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Chloride channel CLIC-like protein 1",
+   "featureId": "PRO_0000297682"
+  },
+  {
+   "type": "Topological domain",
+   "location": {
+    "start": {
+     "value": 19,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 184,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Lumenal",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q99LI2"
+    }
+   ]
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 185,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 205,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Topological domain",
+   "location": {
+    "start": {
+     "value": 206,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 216,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Cytoplasmic",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q99LI2"
+    }
+   ]
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 217,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 237,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Topological domain",
+   "location": {
+    "start": {
+     "value": 238,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 329,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Lumenal",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q99LI2"
+    }
+   ]
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 330,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 350,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Topological domain",
+   "location": {
+    "start": {
+     "value": 351,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 551,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Cytoplasmic",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q99LI2"
+    }
+   ]
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 363,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 415,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Disordered",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 447,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 551,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Disordered",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Compositional bias",
+   "location": {
+    "start": {
+     "value": 380,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 389,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Basic and acidic residues",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Compositional bias",
+   "location": {
+    "start": {
+     "value": 488,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 508,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Polar residues",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Site",
+   "location": {
+    "start": {
+     "value": 25,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 25,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Ca(2+)-mediated inhibition of channel activity",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "37142673"
+    }
+   ]
+  },
+  {
+   "type": "Site",
+   "location": {
+    "start": {
+     "value": 181,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 181,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Ca(2+)-mediated inhibition of channel activity",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "37142673"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 438,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 438,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "17081983"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "17924679"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "18669648"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "23186163"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "24275569"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 464,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 464,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "18669648"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 482,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 482,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphothreonine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "20068231"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "23186163"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 509,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 509,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "18669648"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "21406692"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "23186163"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 524,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 524,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "18669648"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "20068231"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "23186163"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 532,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 532,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "18669648"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "20068231"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "23186163"
+    }
+   ]
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 114,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 298,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 4",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "11279057"
+    }
+   ],
+   "featureId": "VSP_027347",
+   "alternativeSequence": {}
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 114,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 234,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 3",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "11279057"
+    }
+   ],
+   "featureId": "VSP_027348",
+   "alternativeSequence": {}
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 114,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 163,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 2",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "11279057"
+    },
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "15489334"
+    }
+   ],
+   "featureId": "VSP_027349",
+   "alternativeSequence": {}
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 10,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 10,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "found in a patient with sporadic ALS; dbSNP:rs372449194",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs372449194"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "37142673"
+    }
+   ],
+   "featureId": "VAR_089498",
+   "alternativeSequence": {
+    "originalSequence": "C",
+    "alternativeSequences": [
+     "Y"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 25,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 25,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in RP32; reduces ion channel activity; no impact on interaction with CALR; no impact on ER localization; impairs Ca(2+) binding relieving Ca(2+)-dependent inhibition of channel activity; when associated with R-181; dbSNP:rs750180668",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs750180668"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "30157172"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "37142673"
+    }
+   ],
+   "featureId": "VAR_083125",
+   "alternativeSequence": {
+    "originalSequence": "D",
+    "alternativeSequences": [
+     "E"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 29,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 29,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "found in a patient with sporadic ALS; does not affect chloride steady state in the ER",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "37142673"
+    }
+   ],
+   "featureId": "VAR_089499",
+   "alternativeSequence": {
+    "originalSequence": "M",
+    "alternativeSequences": [
+     "T"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 239,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 551,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "found in a patient with sporadic ALS; dbSNP:rs770795683",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs770795683"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "37142673"
+    }
+   ],
+   "featureId": "VAR_089500",
+   "alternativeSequence": {}
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 263,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 263,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "found in two patients with sporadic ALS; decreases protein stability and expression; decreases single channel activity; increases chloride retention in the ER while decreasing ATP-induced Ca(2+) release; in a knockin mouse model causes enhanced ER stress and motor neuron degeneration in compound heterozygosity with a hypomorphic allele; leads to embryonic lethality with a KO allele",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "37142673"
+    }
+   ],
+   "featureId": "VAR_089501",
+   "alternativeSequence": {
+    "originalSequence": "S",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 267,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 267,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "found in a patient with sporadic ALS; decreases protein stability and expression; decreases protein stability and expression; decreases single channel activity; increases chloride retention in the ER while decreasing ATP-induced Ca(2+) release; in a knockin mouse model causes enhanced ER stress and motor neuron degeneration in compound heterozygosity with a hypomorphic allele; leads to embryonic lethality with a KO allele; dbSNP:rs1458236736",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs1458236736"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "37142673"
+    }
+   ],
+   "featureId": "VAR_089502",
+   "alternativeSequence": {
+    "originalSequence": "W",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 368,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 368,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "found in a patient with sporadic ALS",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "37142673"
+    }
+   ],
+   "featureId": "VAR_089503",
+   "alternativeSequence": {
+    "originalSequence": "S",
+    "alternativeSequences": [
+     "G"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 368,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 368,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs168107",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs168107"
+    }
+   ],
+   "featureId": "VAR_034673",
+   "alternativeSequence": {
+    "originalSequence": "S",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 515,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 515,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "found in a patient with sporadic ALS; dbSNP:rs202199249",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs202199249"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "37142673"
+    }
+   ],
+   "featureId": "VAR_089504",
+   "alternativeSequence": {
+    "originalSequence": "A",
+    "alternativeSequences": [
+     "S"
+    ]
+   }
+  },
+  {
+   "type": "Mutagenesis",
+   "location": {
+    "start": {
+     "value": 152,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 152,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Does not affect Ca(2+) binding; when associated with R-153.",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "37142673"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "D",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Mutagenesis",
+   "location": {
+    "start": {
+     "value": 153,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 153,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Does not affect Ca(2+) binding; when associated with R-152.",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "37142673"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "D",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Mutagenesis",
+   "location": {
+    "start": {
+     "value": 175,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 175,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Decreases the affinity for Ca(2+); when associated with R-176.",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "37142673"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "E",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Mutagenesis",
+   "location": {
+    "start": {
+     "value": 176,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 176,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Decreases the affinity for Ca(2+); when associated with R-175.",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "37142673"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "D",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Mutagenesis",
+   "location": {
+    "start": {
+     "value": 181,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 181,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Impairs Ca(2+) binding relieving Ca(2+)-dependent inhibition of channel activity; when associated with R-25.",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "37142673"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "D",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0025",
+   "category": "Coding sequence diversity",
+   "name": "Alternative splicing"
+  },
+  {
+   "id": "KW-0868",
+   "category": "Ligand",
+   "name": "Chloride"
+  },
+  {
+   "id": "KW-0869",
+   "category": "Molecular function",
+   "name": "Chloride channel"
+  },
+  {
+   "id": "KW-0256",
+   "category": "Cellular component",
+   "name": "Endoplasmic reticulum"
+  },
+  {
+   "id": "KW-0407",
+   "category": "Molecular function",
+   "name": "Ion channel"
+  },
+  {
+   "id": "KW-0406",
+   "category": "Biological process",
+   "name": "Ion transport"
+  },
+  {
+   "id": "KW-0472",
+   "category": "Cellular component",
+   "name": "Membrane"
+  },
+  {
+   "id": "KW-0597",
+   "category": "PTM",
+   "name": "Phosphoprotein"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  },
+  {
+   "id": "KW-0682",
+   "category": "Disease",
+   "name": "Retinitis pigmentosa"
+  },
+  {
+   "id": "KW-0732",
+   "category": "Domain",
+   "name": "Signal"
+  },
+  {
+   "id": "KW-0812",
+   "category": "Domain",
+   "name": "Transmembrane"
+  },
+  {
+   "id": "KW-1133",
+   "category": "Domain",
+   "name": "Transmembrane helix"
+  },
+  {
+   "id": "KW-0813",
+   "category": "Biological process",
+   "name": "Transport"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "11279057",
+    "citationType": "journal article",
+    "authors": [
+     "Nagasawa M.",
+     "Kanzaki M.",
+     "Iino Y.",
+     "Morishita Y.",
+     "Kojima I."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "11279057"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1074/jbc.m100366200"
+     }
+    ],
+    "title": "Identification of a novel chloride channel expressed in the endoplasmic reticulum, Golgi apparatus, and nucleus.",
+    "publicationDate": "2001",
+    "journal": "J. Biol. Chem.",
+    "firstPage": "20413",
+    "lastPage": "20418",
+    "volume": "276"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA] (ISOFORMS 1; 2; 3 AND 4)"
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "9872452",
+    "citationType": "journal article",
+    "authors": [
+     "Nagase T.",
+     "Ishikawa K.",
+     "Suyama M.",
+     "Kikuno R.",
+     "Miyajima N.",
+     "Tanaka A.",
+     "Kotani H.",
+     "Nomura N.",
+     "Ohara O."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "9872452"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1093/dnares/5.5.277"
+     }
+    ],
+    "title": "Prediction of the coding sequences of unidentified human genes. XI. The complete sequences of 100 new cDNA clones from brain which code for large proteins in vitro.",
+    "publicationDate": "1998",
+    "journal": "DNA Res.",
+    "firstPage": "277",
+    "lastPage": "286",
+    "volume": "5"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 1)"
+   ],
+   "referenceComments": [
+    {
+     "value": "Brain",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "16710414",
+    "citationType": "journal article",
+    "authors": [
+     "Gregory S.G.",
+     "Barlow K.F.",
+     "McLay K.E.",
+     "Kaul R.",
+     "Swarbreck D.",
+     "Dunham A.",
+     "Scott C.E.",
+     "Howe K.L.",
+     "Woodfine K.",
+     "Spencer C.C.A.",
+     "Jones M.C.",
+     "Gillson C.",
+     "Searle S.",
+     "Zhou Y.",
+     "Kokocinski F.",
+     "McDonald L.",
+     "Evans R.",
+     "Phillips K.",
+     "Atkinson A.",
+     "Cooper R.",
+     "Jones C.",
+     "Hall R.E.",
+     "Andrews T.D.",
+     "Lloyd C.",
+     "Ainscough R.",
+     "Almeida J.P.",
+     "Ambrose K.D.",
+     "Anderson F.",
+     "Andrew R.W.",
+     "Ashwell R.I.S.",
+     "Aubin K.",
+     "Babbage A.K.",
+     "Bagguley C.L.",
+     "Bailey J.",
+     "Beasley H.",
+     "Bethel G.",
+     "Bird C.P.",
+     "Bray-Allen S.",
+     "Brown J.Y.",
+     "Brown A.J.",
+     "Buckley D.",
+     "Burton J.",
+     "Bye J.",
+     "Carder C.",
+     "Chapman J.C.",
+     "Clark S.Y.",
+     "Clarke G.",
+     "Clee C.",
+     "Cobley V.",
+     "Collier R.E.",
+     "Corby N.",
+     "Coville G.J.",
+     "Davies J.",
+     "Deadman R.",
+     "Dunn M.",
+     "Earthrowl M.",
+     "Ellington A.G.",
+     "Errington H.",
+     "Frankish A.",
+     "Frankland J.",
+     "French L.",
+     "Garner P.",
+     "Garnett J.",
+     "Gay L.",
+     "Ghori M.R.J.",
+     "Gibson R.",
+     "Gilby L.M.",
+     "Gillett W.",
+     "Glithero R.J.",
+     "Grafham D.V.",
+     "Griffiths C.",
+     "Griffiths-Jones S.",
+     "Grocock R.",
+     "Hammond S.",
+     "Harrison E.S.I.",
+     "Hart E.",
+     "Haugen E.",
+     "Heath P.D.",
+     "Holmes S.",
+     "Holt K.",
+     "Howden P.J.",
+     "Hunt A.R.",
+     "Hunt S.E.",
+     "Hunter G.",
+     "Isherwood J.",
+     "James R.",
+     "Johnson C.",
+     "Johnson D.",
+     "Joy A.",
+     "Kay M.",
+     "Kershaw J.K.",
+     "Kibukawa M.",
+     "Kimberley A.M.",
+     "King A.",
+     "Knights A.J.",
+     "Lad H.",
+     "Laird G.",
+     "Lawlor S.",
+     "Leongamornlert D.A.",
+     "Lloyd D.M.",
+     "Loveland J.",
+     "Lovell J.",
+     "Lush M.J.",
+     "Lyne R.",
+     "Martin S.",
+     "Mashreghi-Mohammadi M.",
+     "Matthews L.",
+     "Matthews N.S.W.",
+     "McLaren S.",
+     "Milne S.",
+     "Mistry S.",
+     "Moore M.J.F.",
+     "Nickerson T.",
+     "O'Dell C.N.",
+     "Oliver K.",
+     "Palmeiri A.",
+     "Palmer S.A.",
+     "Parker A.",
+     "Patel D.",
+     "Pearce A.V.",
+     "Peck A.I.",
+     "Pelan S.",
+     "Phelps K.",
+     "Phillimore B.J.",
+     "Plumb R.",
+     "Rajan J.",
+     "Raymond C.",
+     "Rouse G.",
+     "Saenphimmachak C.",
+     "Sehra H.K.",
+     "Sheridan E.",
+     "Shownkeen R.",
+     "Sims S.",
+     "Skuce C.D.",
+     "Smith M.",
+     "Steward C.",
+     "Subramanian S.",
+     "Sycamore N.",
+     "Tracey A.",
+     "Tromans A.",
+     "Van Helmond Z.",
+     "Wall M.",
+     "Wallis J.M.",
+     "White S.",
+     "Whitehead S.L.",
+     "Wilkinson J.E.",
+     "Willey D.L.",
+     "Williams H.",
+     "Wilming L.",
+     "Wray P.W.",
+     "Wu Z.",
+     "Coulson A.",
+     "Vaudin M.",
+     "Sulston J.E.",
+     "Durbin R.M.",
+     "Hubbard T.",
+     "Wooster R.",
+     "Dunham I.",
+     "Carter N.P.",
+     "McVean G.",
+     "Ross M.T.",
+     "Harrow J.",
+     "Olson M.V.",
+     "Beck S.",
+     "Rogers J.",
+     "Bentley D.R."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "16710414"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/nature04727"
+     }
+    ],
+    "title": "The DNA sequence and biological annotation of human chromosome 1.",
+    "publicationDate": "2006",
+    "journal": "Nature",
+    "firstPage": "315",
+    "lastPage": "321",
+    "volume": "441"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "CI-5GBD0VIIJ7C63",
+    "citationType": "submission",
+    "authors": [
+     "Mural R.J.",
+     "Istrail S.",
+     "Sutton G.G.",
+     "Florea L.",
+     "Halpern A.L.",
+     "Mobarry C.M.",
+     "Lippert R.",
+     "Walenz B.",
+     "Shatkay H.",
+     "Dew I.",
+     "Miller J.R.",
+     "Flanigan M.J.",
+     "Edwards N.J.",
+     "Bolanos R.",
+     "Fasulo D.",
+     "Halldorsson B.V.",
+     "Hannenhalli S.",
+     "Turner R.",
+     "Yooseph S.",
+     "Lu F.",
+     "Nusskern D.R.",
+     "Shue B.C.",
+     "Zheng X.H.",
+     "Zhong F.",
+     "Delcher A.L.",
+     "Huson D.H.",
+     "Kravitz S.A.",
+     "Mouchard L.",
+     "Reinert K.",
+     "Remington K.A.",
+     "Clark A.G.",
+     "Waterman M.S.",
+     "Eichler E.E.",
+     "Adams M.D.",
+     "Hunkapiller M.W.",
+     "Myers E.W.",
+     "Venter J.C."
+    ],
+    "publicationDate": "SEP-2005",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 2)"
+   ],
+   "referenceComments": [
+    {
+     "value": "Skin",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 6,
+   "citation": {
+    "id": "17081983",
+    "citationType": "journal article",
+    "authors": [
+     "Olsen J.V.",
+     "Blagoev B.",
+     "Gnad F.",
+     "Macek B.",
+     "Kumar C.",
+     "Mortensen P.",
+     "Mann M."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "17081983"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.cell.2006.09.026"
+     }
+    ],
+    "title": "Global, in vivo, and site-specific phosphorylation dynamics in signaling networks.",
+    "publicationDate": "2006",
+    "journal": "Cell",
+    "firstPage": "635",
+    "lastPage": "648",
+    "volume": "127"
+   },
+   "referencePositions": [
+    "PHOSPHORYLATION [LARGE SCALE ANALYSIS] AT SER-438",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Cervix carcinoma",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 7,
+   "citation": {
+    "id": "17924679",
+    "citationType": "journal article",
+    "authors": [
+     "Yu L.R.",
+     "Zhu Z.",
+     "Chan K.C.",
+     "Issaq H.J.",
+     "Dimitrov D.S.",
+     "Veenstra T.D."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "17924679"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1021/pr070152u"
+     }
+    ],
+    "title": "Improved titanium dioxide enrichment of phosphopeptides from HeLa cells and high confident phosphopeptide identification by cross-validation of MS/MS and MS/MS/MS spectra.",
+    "publicationDate": "2007",
+    "journal": "J. Proteome Res.",
+    "firstPage": "4150",
+    "lastPage": "4162",
+    "volume": "6"
+   },
+   "referencePositions": [
+    "PHOSPHORYLATION [LARGE SCALE ANALYSIS] AT SER-438",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Cervix carcinoma",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 8,
+   "citation": {
+    "id": "18669648",
+    "citationType": "journal article",
+    "authors": [
+     "Dephoure N.",
+     "Zhou C.",
+     "Villen J.",
+     "Beausoleil S.A.",
+     "Bakalarski C.E.",
+     "Elledge S.J.",
+     "Gygi S.P."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "18669648"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1073/pnas.0805139105"
+     }
+    ],
+    "title": "A quantitative atlas of mitotic phosphorylation.",
+    "publicationDate": "2008",
+    "journal": "Proc. Natl. Acad. Sci. U.S.A.",
+    "firstPage": "10762",
+    "lastPage": "10767",
+    "volume": "105"
+   },
+   "referencePositions": [
+    "PHOSPHORYLATION [LARGE SCALE ANALYSIS] AT SER-438; SER-464; SER-509; SER-524 AND SER-532",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Cervix carcinoma",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 9,
+   "citation": {
+    "id": "19413330",
+    "citationType": "journal article",
+    "authors": [
+     "Gauci S.",
+     "Helbig A.O.",
+     "Slijper M.",
+     "Krijgsveld J.",
+     "Heck A.J.",
+     "Mohammed S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "19413330"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1021/ac9004309"
+     }
+    ],
+    "title": "Lys-N and trypsin cover complementary parts of the phosphoproteome in a refined SCX-based approach.",
+    "publicationDate": "2009",
+    "journal": "Anal. Chem.",
+    "firstPage": "4493",
+    "lastPage": "4501",
+    "volume": "81"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 10,
+   "citation": {
+    "id": "20068231",
+    "citationType": "journal article",
+    "authors": [
+     "Olsen J.V.",
+     "Vermeulen M.",
+     "Santamaria A.",
+     "Kumar C.",
+     "Miller M.L.",
+     "Jensen L.J.",
+     "Gnad F.",
+     "Cox J.",
+     "Jensen T.S.",
+     "Nigg E.A.",
+     "Brunak S.",
+     "Mann M."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "20068231"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1126/scisignal.2000475"
+     }
+    ],
+    "title": "Quantitative phosphoproteomics reveals widespread full phosphorylation site occupancy during mitosis.",
+    "publicationDate": "2010",
+    "journal": "Sci. Signal.",
+    "firstPage": "RA3",
+    "lastPage": "RA3",
+    "volume": "3"
+   },
+   "referencePositions": [
+    "PHOSPHORYLATION [LARGE SCALE ANALYSIS] AT THR-482; SER-524 AND SER-532",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Cervix carcinoma",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 11,
+   "citation": {
+    "id": "21269460",
+    "citationType": "journal article",
+    "authors": [
+     "Burkard T.R.",
+     "Planyavsky M.",
+     "Kaupe I.",
+     "Breitwieser F.P.",
+     "Buerckstuemmer T.",
+     "Bennett K.L.",
+     "Superti-Furga G.",
+     "Colinge J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "21269460"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1186/1752-0509-5-17"
+     }
+    ],
+    "title": "Initial characterization of the human central proteome.",
+    "publicationDate": "2011",
+    "journal": "BMC Syst. Biol.",
+    "firstPage": "17",
+    "lastPage": "17",
+    "volume": "5"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 12,
+   "citation": {
+    "id": "21406692",
+    "citationType": "journal article",
+    "authors": [
+     "Rigbolt K.T.",
+     "Prokhorova T.A.",
+     "Akimov V.",
+     "Henningsen J.",
+     "Johansen P.T.",
+     "Kratchmarova I.",
+     "Kassem M.",
+     "Mann M.",
+     "Olsen J.V.",
+     "Blagoev B."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "21406692"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1126/scisignal.2001570"
+     }
+    ],
+    "title": "System-wide temporal characterization of the proteome and phosphoproteome of human embryonic stem cell differentiation.",
+    "publicationDate": "2011",
+    "journal": "Sci. Signal.",
+    "firstPage": "RS3",
+    "lastPage": "RS3",
+    "volume": "4"
+   },
+   "referencePositions": [
+    "PHOSPHORYLATION [LARGE SCALE ANALYSIS] AT SER-509",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 13,
+   "citation": {
+    "id": "23186163",
+    "citationType": "journal article",
+    "authors": [
+     "Zhou H.",
+     "Di Palma S.",
+     "Preisinger C.",
+     "Peng M.",
+     "Polat A.N.",
+     "Heck A.J.",
+     "Mohammed S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "23186163"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1021/pr300630k"
+     }
+    ],
+    "title": "Toward a comprehensive characterization of a human cancer cell phosphoproteome.",
+    "publicationDate": "2013",
+    "journal": "J. Proteome Res.",
+    "firstPage": "260",
+    "lastPage": "271",
+    "volume": "12"
+   },
+   "referencePositions": [
+    "PHOSPHORYLATION [LARGE SCALE ANALYSIS] AT SER-438; THR-482; SER-509; SER-524 AND SER-532",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Cervix carcinoma",
+     "type": "TISSUE"
+    },
+    {
+     "value": "Erythroleukemia",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 14,
+   "citation": {
+    "id": "24275569",
+    "citationType": "journal article",
+    "authors": [
+     "Bian Y.",
+     "Song C.",
+     "Cheng K.",
+     "Dong M.",
+     "Wang F.",
+     "Huang J.",
+     "Sun D.",
+     "Wang L.",
+     "Ye M.",
+     "Zou H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "24275569"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.jprot.2013.11.014"
+     }
+    ],
+    "title": "An enzyme assisted RP-RPLC approach for in-depth analysis of human liver phosphoproteome.",
+    "publicationDate": "2014",
+    "journal": "J. Proteomics",
+    "firstPage": "253",
+    "lastPage": "262",
+    "volume": "96"
+   },
+   "referencePositions": [
+    "PHOSPHORYLATION [LARGE SCALE ANALYSIS] AT SER-438",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Liver",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 15,
+   "citation": {
+    "id": "25698737",
+    "citationType": "journal article",
+    "authors": [
+     "Jia Y.",
+     "Jucius T.J.",
+     "Cook S.A.",
+     "Ackerman S.L."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "25698737"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1523/jneurosci.3678-14.2015"
+     }
+    ],
+    "title": "Loss of Clcc1 results in ER stress, misfolded protein accumulation, and neurodegeneration.",
+    "publicationDate": "2015",
+    "journal": "J. Neurosci.",
+    "firstPage": "3001",
+    "lastPage": "3009",
+    "volume": "35"
+   },
+   "referencePositions": [
+    "FUNCTION",
+    "SUBCELLULAR LOCATION"
+   ]
+  },
+  {
+   "referenceNumber": 16,
+   "citation": {
+    "id": "31653868",
+    "citationType": "journal article",
+    "authors": [
+     "Chu Q.",
+     "Martinez T.F.",
+     "Novak S.W.",
+     "Donaldson C.J.",
+     "Tan D.",
+     "Vaughan J.M.",
+     "Chang T.",
+     "Diedrich J.K.",
+     "Andrade L.",
+     "Kim A.",
+     "Zhang T.",
+     "Manor U.",
+     "Saghatelian A."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "31653868"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/s41467-019-12816-z"
+     }
+    ],
+    "title": "Regulation of the ER stress response by a mitochondrial microprotein.",
+    "publicationDate": "2019",
+    "journal": "Nat. Commun.",
+    "firstPage": "4883",
+    "lastPage": "4883",
+    "volume": "10"
+   },
+   "referencePositions": [
+    "SUBCELLULAR LOCATION",
+    "INTERACTION WITH PIGBOS1"
+   ]
+  },
+  {
+   "referenceNumber": 17,
+   "citation": {
+    "id": "37142673",
+    "citationType": "journal article",
+    "authors": [
+     "Guo L.",
+     "Mao Q.",
+     "He J.",
+     "Liu X.",
+     "Piao X.",
+     "Luo L.",
+     "Hao X.",
+     "Yu H.",
+     "Song Q.",
+     "Xiao B.",
+     "Fan D.",
+     "Gao Z.",
+     "Jia Y."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "37142673"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/s41422-023-00798-z"
+     }
+    ],
+    "title": "Disruption of ER ion homeostasis maintained by an ER anion channel CLCC1 contributes to ALS-like pathologies.",
+    "publicationDate": "2023",
+    "journal": "Cell Res.",
+    "firstPage": "497",
+    "lastPage": "515",
+    "volume": "33"
+   },
+   "referencePositions": [
+    "FUNCTION",
+    "TRANSPORTER ACTIVITY",
+    "ACTIVITY REGULATION",
+    "SUBCELLULAR LOCATION",
+    "SUBUNIT",
+    "SITE",
+    "CHARACTERIZATION OF VARIANT RP32 GLU-25",
+    "MUTAGENESIS OF ASP-152; ASP-153; GLU-175; ASP-176 AND ASP-181",
+    "ASSOCIATION WITH AMYOTROPHIC LATERAL SCLEROSIS",
+    "CHARACTERIZATION OF VARIANTS TYR-10; THR-29; 239-GLN--GLY-551 DEL; ARG-263; ARG-267; GLY-368 AND SER-515"
+   ]
+  },
+  {
+   "referenceNumber": 18,
+   "citation": {
+    "id": "16189710",
+    "citationType": "journal article",
+    "authors": [
+     "Zhang Q.",
+     "Zulfiqar F.",
+     "Xiao X.",
+     "Riazuddin S.A.",
+     "Ayyagari R.",
+     "Sabar F.",
+     "Caruso R.",
+     "Sieving P.A.",
+     "Riazuddin S.",
+     "Hejtmancik J.F."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "16189710"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1007/s00439-005-0054-4"
+     }
+    ],
+    "title": "Severe autosomal recessive retinitis pigmentosa maps to chromosome 1p13.3-p21.2 between D1S2896 and D1S457 but outside ABCA4.",
+    "publicationDate": "2005",
+    "journal": "Hum. Genet.",
+    "firstPage": "356",
+    "lastPage": "365",
+    "volume": "118"
+   },
+   "referencePositions": [
+    "INVOLVEMENT IN RP32"
+   ]
+  },
+  {
+   "referenceNumber": 19,
+   "citation": {
+    "id": "30157172",
+    "citationType": "journal article",
+    "authors": [
+     "Li L.",
+     "Jiao X.",
+     "D'Atri I.",
+     "Ono F.",
+     "Nelson R.",
+     "Chan C.C.",
+     "Nakaya N.",
+     "Ma Z.",
+     "Ma Y.",
+     "Cai X.",
+     "Zhang L.",
+     "Lin S.",
+     "Hameed A.",
+     "Chioza B.A.",
+     "Hardy H.",
+     "Arno G.",
+     "Hull S.",
+     "Khan M.I.",
+     "Fasham J.",
+     "Harlalka G.V.",
+     "Michaelides M.",
+     "Moore A.T.",
+     "Coban Akdemir Z.H.",
+     "Jhangiani S.",
+     "Lupski J.R.",
+     "Cremers F.P.M.",
+     "Qamar R.",
+     "Salman A.",
+     "Chilton J.",
+     "Self J.",
+     "Ayyagari R.",
+     "Kabir F.",
+     "Naeem M.A.",
+     "Ali M.",
+     "Akram J.",
+     "Sieving P.A.",
+     "Riazuddin S.",
+     "Baple E.L.",
+     "Riazuddin S.A.",
+     "Crosby A.H.",
+     "Hejtmancik J.F."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "30157172"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1371/journal.pgen.1007504"
+     }
+    ],
+    "title": "Mutation in the intracellular chloride channel CLCC1 associated with autosomal recessive retinitis pigmentosa.",
+    "publicationDate": "2018",
+    "journal": "PLoS Genet.",
+    "firstPage": "E1007504",
+    "lastPage": "E1007504",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "INVOLVEMENT IN RP32",
+    "VARIANT RP32 GLU-25",
+    "FUNCTION",
+    "TRANSPORTER ACTIVITY",
+    "INTERACTION WITH CALR",
+    "SUBCELLULAR LOCATION",
+    "TISSUE SPECIFICITY",
+    "CHARACTERIZATION OF VARIANT RP32 GLU-25"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "AB052915",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAB59018.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AB052916",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAB79261.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AB052917",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAB79262.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AB052918",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAB79263.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AB018304",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAA34481.2"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AL449266",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "CH471122",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "EAW56345.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "CH471122",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "EAW56346.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC002939",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH02939.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS41362.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS60214.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q96S66-4"
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS60215.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q96S66-3"
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS793.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q96S66-2"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001041675.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001048210.3"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001265131.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001278202.2"
+    }
+   ],
+   "isoformId": "Q96S66-3"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001265132.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001278203.1"
+    }
+   ],
+   "isoformId": "Q96S66-4"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001364387.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001377458.1"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001364388.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001377459.1"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001364389.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001377460.1"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001364390.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001377461.1"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001364391.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001377462.1"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001364392.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001377463.1"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001364393.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001377464.1"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001364394.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001377465.1"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001364395.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001377466.1"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001364396.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001377467.1"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001364397.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001377468.1"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_055942.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_015127.5"
+    }
+   ],
+   "isoformId": "Q96S66-2"
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "116769",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "238"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "2185"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "109"
+    }
+   ]
+  },
+  {
+   "database": "MINT",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "NDEx",
+   "id": "IQUERY-CP-CLCC1",
+   "properties": [
+    {
+     "key": "Evidences",
+     "value": "3 NDEx IQuery Curated Pathways"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000349456",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "TCDB",
+   "id": "1.A.36.1.1",
+   "properties": [
+    {
+     "key": "FamilyName",
+     "value": "the intracellular chloride channel (icc) family"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "5 sites, 2 O-linked glycans (5 sites)"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MetOSite",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SwissPalm",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "CLCC1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "74752121",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000349456",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "78077",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "78078",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q96S66-2"
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "78079",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q96S66-3"
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "78080",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q96S66-4"
+  },
+  {
+   "database": "Pumba",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "2391",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "152 antibodies from 31 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "23155",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000302500.5",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000306552.4"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-3"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000348264.6",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000337243.2"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-4"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000356970.6",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000349456.2"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000369969.7",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000358986.3"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000369970.8",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000358987.3"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-2"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000674849.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000502251.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000675508.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000502836.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000675654.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000502648.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000675956.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000502457.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000685014.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000510582.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000685104.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000508473.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000685497.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000509420.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000685540.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000510352.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000685628.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000509075.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-2"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000686078.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000510291.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000686434.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000508570.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-2"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000686776.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000509013.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000686821.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000508563.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000687226.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000509162.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-2"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000687328.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000508816.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000687449.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000508982.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000687591.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000509036.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000687734.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000510543.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-2"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000687865.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000509218.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000688285.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000509990.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000688610.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000510524.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-3"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000688778.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000510715.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000689189.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000510675.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000689351.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000508607.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000689359.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000508884.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000689991.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000508952.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000690509.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000510142.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000690756.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000509544.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000690781.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000510137.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000690874.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000510602.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000691513.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000509584.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000691556.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000509451.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000691731.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000509533.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000692342.2",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000509495.2"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000692404.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000510666.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000692511.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000510067.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000692795.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000509960.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000693089.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000509330.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000693336.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000509936.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000693673.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000509782.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000877074.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000547133.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000877075.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000547134.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000877076.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000547135.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000877077.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000547136.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-3"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000877078.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000547137.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-2"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000877079.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000547138.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-3"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000877080.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000547139.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-2"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000877082.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000547141.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000877084.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000547143.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-3"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000877085.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000547144.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000877087.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000547146.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000877090.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000547149.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000877091.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000547150.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-2"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000877092.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000547151.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000877093.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000547152.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-2"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000877095.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000547154.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000877096.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000547155.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000877097.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000547156.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000877098.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000547157.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-3"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000919821.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000589880.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-2"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000919823.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000589882.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000919825.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000589884.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-3"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000919828.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000589887.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-2"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942010.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612069.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942011.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612070.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-3"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942012.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612071.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942013.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612072.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-2"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942014.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612073.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-3"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942016.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612075.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942017.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612076.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942020.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612079.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-2"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942021.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612080.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-3"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942022.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612081.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942023.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612082.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942024.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612083.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942025.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612084.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942027.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612086.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-2"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942028.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612087.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-2"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942029.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612088.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942031.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612090.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-3"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942034.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612093.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942035.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612094.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942036.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612095.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942037.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612096.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000942038.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000612097.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000121940.18"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "GeneID",
+   "id": "23155",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:23155",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000369969.7",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000358986.3"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_001377458.1"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_001364387.1"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc009wes.2",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ],
+   "isoformId": "Q96S66-1"
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:29675",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA142672105",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "23155",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "23155",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "CLCC1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:29675",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "CLCC1"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000121940",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Low tissue specificity"
+    }
+   ]
+  },
+  {
+   "database": "MalaCards",
+   "id": "CLCC1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "609913",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "phenotype"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "617539",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000121940",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000121940",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "ENOG502QSP7",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00390000016611",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_034552_1_1_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "VQDDEWI",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "10037397at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "3 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SIGNOR",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000121940",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "23155",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "105 hits in 1160 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "CLCC1",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "GeneWiki",
+   "id": "CLCC1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "23155",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tbio"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:Q96S66",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 1"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000121940",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in tendon of biceps brachii and 202 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "Q96S66",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005783",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:endoplasmic reticulum"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:HPA"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005789",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:endoplasmic reticulum membrane"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "37142673"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0016020",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:membrane"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "HDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007005",
+     "source": "PubMed",
+     "id": "19946888"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0044233",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondria-associated endoplasmic reticulum membrane contact site"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "31653868"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005254",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:chloride channel activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "37142673"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0042802",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:identical protein binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0032469",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:endoplasmic reticulum calcium ion homeostasis"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "37142673"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR009231",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Chloride_chnl_CLIC-like"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR34093",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "CHLORIDE CHANNEL CLIC-LIKE PROTEIN 1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR34093:SF1",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "CHLORIDE CHANNEL CLIC-LIKE PROTEIN 1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF05934",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "MCLC"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MLCSLLLCECLLLVAGYAHDDDWIDPTDMLNYDAASGTMRKSQAKYGISGEKDVSPDLSCADEISECYHKLDSLTYKIDECEKKKREDYESQSNPVFRRYLNKILIEAGKLGLPDENKGDMHYDAEIILKRETLLEIQKFLNGEDWKPGALDDALSDILINFKFHDFETWKWRFEDSFGVDPYNVLMVLLCLLCIVVLVATELWTYVRWYTQLRRVLIISFLFSLGWNWMYLYKLAFAQHQAEVAKMEPLNNVCAKKMDWTGSIWEWFRSSWTYKDDPCQKYYELLLVNPIWLVPPTKALAVTFTTFVTEPLKHIGKGTGEFIKALMKEIPALLHLPVLIIMALAILSFCYGAGKSVHVLRHIGGPESEPPQALRPRDRRRQEEIDYRPDGGAGDADFHYRGQMGPTEQGPYAKTYEGRREILRERDVDLRFQTGNKSPEVLRAFDVPDAEAREHPTVVPSHKSPVLDTKPKETGGILGEGTPKESSTESSQSAKPVSGQDTSGNTEGSPAAEKAQLKSEAAGSPDQGSTYSPARGVAGPRGQDPVSSPCG",
+  "length": 551,
+  "molWeight": 62023,
+  "crc64": "08709A80E99F2E15",
+  "md5": "225B5AE71C125971CB445DF193A76391"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "CATALYTIC ACTIVITY": 4,
+   "ACTIVITY REGULATION": 1,
+   "SUBUNIT": 1,
+   "INTERACTION": 2,
+   "SUBCELLULAR LOCATION": 1,
+   "ALTERNATIVE PRODUCTS": 4,
+   "TISSUE SPECIFICITY": 1,
+   "DISEASE": 2,
+   "SIMILARITY": 1
+  },
+  "countByFeatureType": {
+   "Signal": 1,
+   "Chain": 1,
+   "Topological domain": 4,
+   "Transmembrane": 3,
+   "Region": 2,
+   "Compositional bias": 2,
+   "Site": 2,
+   "Modified residue": 6,
+   "Alternative sequence": 3,
+   "Natural variant": 9,
+   "Mutagenesis": 5
+  },
+  "uniParcId": "UPI0000073C42"
+ }
+}

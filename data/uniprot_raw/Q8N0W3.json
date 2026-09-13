@@ -1,0 +1,2331 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "Q8N0W3",
+ "secondaryAccessions": [
+  "Q5PSM3",
+  "Q5XKL6",
+  "Q6ZRA0",
+  "Q96MT9"
+ ],
+ "uniProtkbId": "FCSK_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "2002-11-28",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2005-08-30",
+  "entryVersion": 176,
+  "sequenceVersion": 2
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000305"
+     }
+    ],
+    "value": "L-fucose kinase"
+   },
+   "shortNames": [
+    {
+     "value": "Fucokinase"
+    }
+   ],
+   "ecNumbers": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "30503518"
+      }
+     ],
+     "value": "2.7.1.52"
+    }
+   ]
+  }
+ },
+ "genes": [
+  {
+   "geneName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000312",
+      "source": "HGNC",
+      "id": "HGNC:29500"
+     }
+    ],
+    "value": "FCSK"
+   },
+   "synonyms": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000312",
+       "source": "HGNC",
+       "id": "HGNC:29500"
+      }
+     ],
+     "value": "FUK"
+    }
+   ]
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "30503518"
+      }
+     ],
+     "value": "Takes part in the salvage pathway for reutilization of fucose from the degradation of oligosaccharides"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "beta-L-fucose + ATP = beta-L-fucose 1-phosphate + ADP + H(+)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:13241"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15378"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:30616"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:42589"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57268"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:456216"
+     }
+    ],
+    "ecNumber": "2.7.1.52",
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "30503518"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "Q8N0W3",
+      "intActId": "EBI-4291312"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q7Z3K3",
+      "geneName": "POGZ",
+      "intActId": "EBI-1389308"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "Q8N0W3",
+      "intActId": "EBI-4291312"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "O43711",
+      "geneName": "TLX3",
+      "intActId": "EBI-3939165"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "ALTERNATIVE PRODUCTS",
+   "events": [
+    "Alternative splicing"
+   ],
+   "isoforms": [
+    {
+     "name": {
+      "value": "1"
+     },
+     "isoformIds": [
+      "Q8N0W3-1"
+     ],
+     "isoformSequenceStatus": "Displayed"
+    },
+    {
+     "name": {
+      "value": "2"
+     },
+     "isoformIds": [
+      "Q8N0W3-2"
+     ],
+     "sequenceIds": [
+      "VSP_015422",
+      "VSP_015423"
+     ],
+     "isoformSequenceStatus": "Described"
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "30503518"
+      }
+     ],
+     "value": "Expressed in fibroblasts"
+    }
+   ],
+   "commentType": "TISSUE SPECIFICITY"
+  },
+  {
+   "commentType": "DISEASE",
+   "disease": {
+    "diseaseId": "Congenital disorder of glycosylation with defective fucosylation 2",
+    "diseaseAccession": "DI-05480",
+    "acronym": "CDGF2",
+    "description": "A form of congenital disorder of glycosylation, a genetically heterogeneous group of multisystem disorders caused by a defect in glycoprotein biosynthesis and characterized by under-glycosylated serum glycoproteins. Congenital disorders of glycosylation result in a wide variety of clinical features, such as defects in the nervous system development, psychomotor retardation, dysmorphic features, hypotonia, coagulation disorders, and immunodeficiency. CDGF2 is an autosomal recessive disorder, apparent from birth, characterized by hypotonia, poor feeding, severely impaired intellectual and psychomotor development, seizures with epileptic encephalopathy, visual impairment and other ocular features, respiratory difficulty with frequent infections, as well as contractures. Brain imaging shows cerebellar and brainstem atrophy, hypoplasia or agenesis of the corpus callosum, and white matter abnormalities including periventricular leukomalacia.",
+    "diseaseCrossReference": {
+     "database": "MIM",
+     "id": "618324"
+    },
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "30503518"
+     }
+    ]
+   },
+   "note": {
+    "texts": [
+     {
+      "value": "The disease is caused by variants affecting the gene represented in this entry"
+     }
+    ]
+   }
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the GHMP kinase family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  },
+  {
+   "commentType": "SEQUENCE CAUTION",
+   "sequenceCautionType": "Frameshift",
+   "sequence": "BAB71190.1",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ]
+  },
+  {
+   "commentType": "SEQUENCE CAUTION",
+   "sequenceCautionType": "Frameshift",
+   "sequence": "CAD29647.1",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ]
+  }
+ ],
+ "features": [
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 1084,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "L-fucose kinase",
+   "featureId": "PRO_0000156672"
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 834,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 845,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:30616"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ],
+   "ligand": {
+    "name": "ATP",
+    "id": "ChEBI:CHEBI:30616"
+   }
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 78,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 78,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 2",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "14702039"
+    }
+   ],
+   "featureId": "VSP_015422",
+   "alternativeSequence": {
+    "originalSequence": "T",
+    "alternativeSequences": [
+     "TWICVGVSLWIRGCHPPGRLPEASVHRAFPLLQ"
+    ]
+   }
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 816,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 841,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 2",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "14702039"
+    }
+   ],
+   "featureId": "VSP_015423",
+   "alternativeSequence": {}
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 146,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 146,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs17881323",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs17881323"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "Reference",
+     "id": "Ref.3"
+    }
+   ],
+   "featureId": "VAR_021327",
+   "alternativeSequence": {
+    "originalSequence": "V",
+    "alternativeSequences": [
+     "M"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 223,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 223,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in CDGF2; uncertain significance; dbSNP:rs769009456",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs769009456"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "30503518"
+    }
+   ],
+   "featureId": "VAR_081646",
+   "alternativeSequence": {
+    "originalSequence": "S",
+    "alternativeSequences": [
+     "P"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 521,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 521,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs17881069",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs17881069"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "Reference",
+     "id": "Ref.3"
+    }
+   ],
+   "featureId": "VAR_021328",
+   "alternativeSequence": {
+    "originalSequence": "A",
+    "alternativeSequences": [
+     "T"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 571,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 571,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs17886171",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs17886171"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "Reference",
+     "id": "Ref.3"
+    }
+   ],
+   "featureId": "VAR_021329",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "H"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 683,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 683,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in CDGF2; uncertain significance; dbSNP:rs755169246",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs755169246"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "30503518"
+    }
+   ],
+   "featureId": "VAR_081647",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "C"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 701,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 701,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs17883716",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs17883716"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "Reference",
+     "id": "Ref.3"
+    }
+   ],
+   "featureId": "VAR_021330",
+   "alternativeSequence": {
+    "originalSequence": "P",
+    "alternativeSequences": [
+     "L"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 858,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 858,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs17884050",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs17884050"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "Reference",
+     "id": "Ref.3"
+    }
+   ],
+   "featureId": "VAR_021331",
+   "alternativeSequence": {
+    "originalSequence": "A",
+    "alternativeSequences": [
+     "T"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 861,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 861,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs17878599",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs17878599"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "Reference",
+     "id": "Ref.3"
+    }
+   ],
+   "featureId": "VAR_021332",
+   "alternativeSequence": {
+    "originalSequence": "V",
+    "alternativeSequences": [
+     "M"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 901,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 901,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs17881635",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs17881635"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "Reference",
+     "id": "Ref.3"
+    }
+   ],
+   "featureId": "VAR_021333",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "W"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 939,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 939,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs17886060",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs17886060"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "Reference",
+     "id": "Ref.3"
+    }
+   ],
+   "featureId": "VAR_021334",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "Q"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 939,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 939,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs17883248",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs17883248"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "Reference",
+     "id": "Ref.3"
+    }
+   ],
+   "featureId": "VAR_021335",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "W"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 994,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 994,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in CDGF2; uncertain significance; dbSNP:rs199515460",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs199515460"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "30503518"
+    }
+   ],
+   "featureId": "VAR_081648",
+   "alternativeSequence": {
+    "originalSequence": "K",
+    "alternativeSequences": [
+     "Q"
+    ]
+   }
+  },
+  {
+   "type": "Sequence conflict",
+   "location": {
+    "start": {
+     "value": 400,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 400,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in Ref. 2; BAB71190",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "L",
+    "alternativeSequences": [
+     "S"
+    ]
+   }
+  },
+  {
+   "type": "Sequence conflict",
+   "location": {
+    "start": {
+     "value": 609,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 609,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in Ref. 2; BAB71190",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "C",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0025",
+   "category": "Coding sequence diversity",
+   "name": "Alternative splicing"
+  },
+  {
+   "id": "KW-0067",
+   "category": "Ligand",
+   "name": "ATP-binding"
+  },
+  {
+   "id": "KW-0900",
+   "category": "Disease",
+   "name": "Congenital disorder of glycosylation"
+  },
+  {
+   "id": "KW-0225",
+   "category": "Disease",
+   "name": "Disease variant"
+  },
+  {
+   "id": "KW-0418",
+   "category": "Molecular function",
+   "name": "Kinase"
+  },
+  {
+   "id": "KW-0547",
+   "category": "Ligand",
+   "name": "Nucleotide-binding"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  },
+  {
+   "id": "KW-0808",
+   "category": "Molecular function",
+   "name": "Transferase"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "12056818",
+    "citationType": "journal article",
+    "authors": [
+     "Hinderlich S.",
+     "Berger M.",
+     "Blume A.",
+     "Chen H.",
+     "Ghaderi D.",
+     "Bauer C."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "12056818"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/s0006-291x(02)00541-7"
+     }
+    ],
+    "title": "Identification of human L-fucose kinase amino acid sequence.",
+    "publicationDate": "2002",
+    "journal": "Biochem. Biophys. Res. Commun.",
+    "firstPage": "650",
+    "lastPage": "654",
+    "volume": "294"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA] (ISOFORM 1)"
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "14702039",
+    "citationType": "journal article",
+    "authors": [
+     "Ota T.",
+     "Suzuki Y.",
+     "Nishikawa T.",
+     "Otsuki T.",
+     "Sugiyama T.",
+     "Irie R.",
+     "Wakamatsu A.",
+     "Hayashi K.",
+     "Sato H.",
+     "Nagai K.",
+     "Kimura K.",
+     "Makita H.",
+     "Sekine M.",
+     "Obayashi M.",
+     "Nishi T.",
+     "Shibahara T.",
+     "Tanaka T.",
+     "Ishii S.",
+     "Yamamoto J.",
+     "Saito K.",
+     "Kawai Y.",
+     "Isono Y.",
+     "Nakamura Y.",
+     "Nagahari K.",
+     "Murakami K.",
+     "Yasuda T.",
+     "Iwayanagi T.",
+     "Wagatsuma M.",
+     "Shiratori A.",
+     "Sudo H.",
+     "Hosoiri T.",
+     "Kaku Y.",
+     "Kodaira H.",
+     "Kondo H.",
+     "Sugawara M.",
+     "Takahashi M.",
+     "Kanda K.",
+     "Yokoi T.",
+     "Furuya T.",
+     "Kikkawa E.",
+     "Omura Y.",
+     "Abe K.",
+     "Kamihara K.",
+     "Katsuta N.",
+     "Sato K.",
+     "Tanikawa M.",
+     "Yamazaki M.",
+     "Ninomiya K.",
+     "Ishibashi T.",
+     "Yamashita H.",
+     "Murakawa K.",
+     "Fujimori K.",
+     "Tanai H.",
+     "Kimata M.",
+     "Watanabe M.",
+     "Hiraoka S.",
+     "Chiba Y.",
+     "Ishida S.",
+     "Ono Y.",
+     "Takiguchi S.",
+     "Watanabe S.",
+     "Yosida M.",
+     "Hotuta T.",
+     "Kusano J.",
+     "Kanehori K.",
+     "Takahashi-Fujii A.",
+     "Hara H.",
+     "Tanase T.-O.",
+     "Nomura Y.",
+     "Togiya S.",
+     "Komai F.",
+     "Hara R.",
+     "Takeuchi K.",
+     "Arita M.",
+     "Imose N.",
+     "Musashino K.",
+     "Yuuki H.",
+     "Oshima A.",
+     "Sasaki N.",
+     "Aotsuka S.",
+     "Yoshikawa Y.",
+     "Matsunawa H.",
+     "Ichihara T.",
+     "Shiohata N.",
+     "Sano S.",
+     "Moriya S.",
+     "Momiyama H.",
+     "Satoh N.",
+     "Takami S.",
+     "Terashima Y.",
+     "Suzuki O.",
+     "Nakagawa S.",
+     "Senoh A.",
+     "Mizoguchi H.",
+     "Goto Y.",
+     "Shimizu F.",
+     "Wakebe H.",
+     "Hishigaki H.",
+     "Watanabe T.",
+     "Sugiyama A.",
+     "Takemoto M.",
+     "Kawakami B.",
+     "Yamazaki M.",
+     "Watanabe K.",
+     "Kumagai A.",
+     "Itakura S.",
+     "Fukuzumi Y.",
+     "Fujimori Y.",
+     "Komiyama M.",
+     "Tashiro H.",
+     "Tanigami A.",
+     "Fujiwara T.",
+     "Ono T.",
+     "Yamada K.",
+     "Fujii Y.",
+     "Ozaki K.",
+     "Hirao M.",
+     "Ohmori Y.",
+     "Kawabata A.",
+     "Hikiji T.",
+     "Kobatake N.",
+     "Inagaki H.",
+     "Ikema Y.",
+     "Okamoto S.",
+     "Okitani R.",
+     "Kawakami T.",
+     "Noguchi S.",
+     "Itoh T.",
+     "Shigeta K.",
+     "Senba T.",
+     "Matsumura K.",
+     "Nakajima Y.",
+     "Mizuno T.",
+     "Morinaga M.",
+     "Sasaki M.",
+     "Togashi T.",
+     "Oyama M.",
+     "Hata H.",
+     "Watanabe M.",
+     "Komatsu T.",
+     "Mizushima-Sugano J.",
+     "Satoh T.",
+     "Shirai Y.",
+     "Takahashi Y.",
+     "Nakagawa K.",
+     "Okumura K.",
+     "Nagase T.",
+     "Nomura N.",
+     "Kikuchi H.",
+     "Masuho Y.",
+     "Yamashita R.",
+     "Nakai K.",
+     "Yada T.",
+     "Nakamura Y.",
+     "Ohara O.",
+     "Isogai T.",
+     "Sugano S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "14702039"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/ng1285"
+     }
+    ],
+    "title": "Complete sequencing and characterization of 21,243 full-length human cDNAs.",
+    "publicationDate": "2004",
+    "journal": "Nat. Genet.",
+    "firstPage": "40",
+    "lastPage": "45",
+    "volume": "36"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORMS 1 AND 2)"
+   ],
+   "referenceComments": [
+    {
+     "value": "Neuron",
+     "type": "TISSUE"
+    },
+    {
+     "value": "Thymus",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "CI-2Q51O0FGUC3G8",
+    "citationType": "submission",
+    "authoringGroup": [
+     "SeattleSNPs variation discovery resource"
+    ],
+    "publicationDate": "NOV-2004",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [GENOMIC DNA]",
+    "VARIANTS MET-146; THR-521; HIS-571; LEU-701; THR-858; MET-861; TRP-901; GLN-939 AND TRP-939"
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 1)"
+   ],
+   "referenceComments": [
+    {
+     "value": "Brain",
+     "type": "TISSUE"
+    },
+    {
+     "value": "Uterus",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "30503518",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "Undiagnosed Diseases Network"
+    ],
+    "authors": [
+     "Ng B.G.",
+     "Rosenfeld J.A.",
+     "Emrick L.",
+     "Jain M.",
+     "Burrage L.C.",
+     "Lee B.",
+     "Craigen W.J.",
+     "Bearden D.R.",
+     "Graham B.H.",
+     "Freeze H.H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "30503518"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.ajhg.2018.10.021"
+     }
+    ],
+    "title": "Pathogenic Variants in Fucokinase Cause a Congenital Disorder of Glycosylation.",
+    "publicationDate": "2018",
+    "journal": "Am. J. Hum. Genet.",
+    "firstPage": "1030",
+    "lastPage": "1037",
+    "volume": "103"
+   },
+   "referencePositions": [
+    "INVOLVEMENT IN CDGF2",
+    "FUNCTION",
+    "CATALYTIC ACTIVITY",
+    "VARIANTS CDGF2 PRO-223; CYS-683 AND GLN-994",
+    "TISSUE SPECIFICITY"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "AJ441184",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "CAD29647.1"
+    },
+    {
+     "key": "Status",
+     "value": "ALT_FRAME"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AK056456",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAB71190.1"
+    },
+    {
+     "key": "Status",
+     "value": "ALT_FRAME"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AK128387",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAC87413.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AY829643",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAV67949.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC013735",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH13735.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC032542",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH32542.2"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS10891.2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q8N0W3-1"
+  },
+  {
+   "database": "PIR",
+   "id": "JC7878",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "JC7878"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_659496.2",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_145059.3"
+    }
+   ],
+   "isoformId": "Q8N0W3-1"
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "Q8N0W3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "Q8N0W3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "128243",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "94"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "Q8N0W3",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "1149"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "Q8N0W3",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "33"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000288078",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "Q8N0W3",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "1 site"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "Q8N0W3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "Q8N0W3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SwissPalm",
+   "id": "Q8N0W3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "FUK",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "73915340",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "Q8N0W3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "Q8N0W3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000288078",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "Q8N0W3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "71470",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q8N0W3-1"
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "71471",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q8N0W3-2"
+  },
+  {
+   "database": "Pumba",
+   "id": "Q8N0W3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "29979",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "154 antibodies from 28 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "197258",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000288078.11",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000288078.6"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000157353.18"
+    }
+   ],
+   "isoformId": "Q8N0W3-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000378912.6",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000368192.2"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000157353.18"
+    }
+   ],
+   "isoformId": "Q8N0W3-2"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000864954.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000535013.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000157353.18"
+    }
+   ],
+   "isoformId": "Q8N0W3-1"
+  },
+  {
+   "database": "GeneID",
+   "id": "197258",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:197258",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000288078.11",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000288078.6"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_145059.3"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_659496.2"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc002eyy.4",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ],
+   "isoformId": "Q8N0W3-1"
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:29500",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA134863646",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "197258",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "197258",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "FCSK",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:29500",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "FCSK"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000157353",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Low tissue specificity"
+    }
+   ]
+  },
+  {
+   "database": "MalaCards",
+   "id": "FCSK",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "608675",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "618324",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "phenotype"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000157353",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000157353",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "KOG4644",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00390000002251",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_006983_0_0_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "Q8N0W3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "QRWREAW",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "271303at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "Q8N0W3",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "2 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "Q8N0W3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BRENDA",
+   "id": "2.7.1.52",
+   "properties": [
+    {
+     "key": "OrganismId",
+     "value": "2681"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "Q8N0W3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-6787639",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "GDP-fucose biosynthesis"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "Q8N0W3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000157353",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "197258",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "14 hits in 1157 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "FUK",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "197258",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "Q8N0W3",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tbio"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:Q8N0W3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 16"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "Q8N0W3",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000157353",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in right hemisphere of cerebellum and 147 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "Q8N0W3",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005829",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:cytosol"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:Reactome"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005524",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:ATP binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:InterPro"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0050201",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:fucokinase activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "30503518"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0046835",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:carbohydrate phosphorylation"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0042350",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:GDP-L-fucose biosynthetic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:Reactome"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0042352",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:GDP-L-fucose salvage"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "30503518"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.30.230.120:FF:000001",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "L-fucose kinase"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.30.230.120",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "-"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR012887",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GDP_fucose_pyrophosphorylase"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR052203",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GHMP_Kinase-Related"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR013750",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GHMP_kinase_C_dom"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR036554",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GHMP_kinase_C_sf"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR006204",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GHMP_kinase_N_dom"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR020568",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Ribosomal_Su5_D2-typ_SF"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR32463",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "L-FUCOSE KINASE"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR32463:SF0",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "L-FUCOSE KINASE"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF07959",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Fucose_pyrophosphorylase"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF08544",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GHMP_kinases_C"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF00288",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GHMP_kinases_N"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PRINTS",
+   "id": "PR00959",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "MEVGALKINASE"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF55060",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GHMP Kinase, C-terminal domain"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF54211",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Ribosomal protein S5 domain 2-like"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MEQPKGVDWTVIILTCQYKDSVQVFQRELEVRQKREQIPAGTLLLAVEDPEKRVGSGGATLNALLVAAEHLSARAGFTVVTSDVLHSAWILILHMGRDFPFDDCGRAFTCLPVENPEAPVEALVCNLDCLLDIMTYRLGPGSPPGVWVCSTDMLLSVPANPGISWDSFRGARVIALPGSPAYAQNHGVYLTDPQGLVLDIYYQGTEAEIQRCVRPDGRVPLVSGVVFFSVETAERLLATHVSPPLDACTYLGLDSGARPVQLSLFFDILHCMAENVTREDFLVGRPPELGQGDADVAGYLQSARAQLWRELRDQPLTMAYVSSGSYSYMTSSASEFLLSLTLPGAPGAQIVHSQVEEQQLLAAGSSVVSCLLEGPVQLGPGSVLQHCHLQGPIHIGAGCLVTGLDTAHSKALHGRELRDLVLQGHHTRLHGSPGHAFTLVGRLDSWERQGAGTYLNVPWSEFFKRTGVRAWDLWDPETLPAEYCLPSARLFPVLHPSRELGPQDLLWMLDHQEDGGEALRAWRASWRLSWEQLQPCLDRAATLASRRDLFFRQALHKARHVLEARQDLSLRPLIWAAVREGCPGPLLATLDQVAAGAGDPGVAARALACVADVLGCMAEGRGGLRSGPAANPEWMRPFSYLECGDLAAGVEALAQERDKWLSRPALLVRAARHYEGAGQILIRQAVMSAQHFVSTEQVELPGPGQWVVAECPARVDFSGGWSDTPPLAYELGGAVLGLAVRVDGRRPIGARARRIPEPELWLAVGPRQDEMTVKIVCRCLADLRDYCQPHAPGALLKAAFICAGIVHVHSELQLSEQLLRTFGGGFELHTWSELPHGSGLGTSSILAGTALAALQRAAGRVVGTEALIHAVLHLEQVLTTGGGWQDQVGGLMPGIKVGRSRAQLPLKVEVEEVTVPEGFVQKLNDHLLLVYTGKTRLARNLLQDVLRSWYARLPAVVQNAHSLVRQTEECAEGFRQGSLPLLGQCLTSYWEQKKLMAPGCEPLTVRRMMDVLAPHVHGQSLAGAGGGGFLYLLTKEPQQKEALEAVLAKTEGLGNYSIHLVEVDTQGLSLKLLGTEASTCCPFP",
+  "length": 1084,
+  "molWeight": 117623,
+  "crc64": "153F91882F4B143C",
+  "md5": "74384CDAEB1DBDA86636659CEBCDB4C6"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "CATALYTIC ACTIVITY": 1,
+   "INTERACTION": 2,
+   "ALTERNATIVE PRODUCTS": 2,
+   "TISSUE SPECIFICITY": 1,
+   "DISEASE": 1,
+   "SIMILARITY": 1,
+   "SEQUENCE CAUTION": 2
+  },
+  "countByFeatureType": {
+   "Chain": 1,
+   "Binding site": 1,
+   "Alternative sequence": 2,
+   "Natural variant": 12,
+   "Sequence conflict": 2
+  },
+  "uniParcId": "UPI000013DEF1"
+ }
+}

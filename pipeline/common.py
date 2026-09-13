@@ -159,3 +159,17 @@ def tiers_from_decisions(cp: configparser.ConfigParser) -> list[str]:
     if not tiers:
         raise ValueError("no [tier.N] sections in protein_set_decisions.ini")
     return tiers
+
+
+def tier_definition(cp: configparser.ConfigParser, tier: str) -> str:
+    """'ontology' (lookup_name present) or the value of `definition` (e.g. 'measured_remainder')."""
+    sec = cp[f"tier.{tier}"]
+    return sec.get("definition", "ontology") if not sec.get("lookup_name") else "ontology"
+
+
+def ontology_tiers(cp: configparser.ConfigParser) -> list[str]:
+    return [t for t in tiers_from_decisions(cp) if tier_definition(cp, t) == "ontology"]
+
+
+def measured_tiers(cp: configparser.ConfigParser) -> list[str]:
+    return [t for t in tiers_from_decisions(cp) if tier_definition(cp, t) == "measured_remainder"]

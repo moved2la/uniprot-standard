@@ -1,0 +1,1222 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "Q9BYX7",
+ "secondaryAccessions": [
+  "Q562N5"
+ ],
+ "uniProtkbId": "ACTBM_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "2007-10-23",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2001-06-01",
+  "entryVersion": 144,
+  "sequenceVersion": 1
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "5: Uncertain",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "value": "Putative beta-actin-like protein 3"
+   }
+  },
+  "alternativeNames": [
+   {
+    "fullName": {
+     "value": "Kappa-actin"
+    }
+   },
+   {
+    "fullName": {
+     "value": "POTE ankyrin domain family member K"
+    }
+   }
+  ]
+ },
+ "genes": [
+  {
+   "geneName": {
+    "value": "POTEKP"
+   },
+   "synonyms": [
+    {
+     "value": "ACTBL3"
+    }
+   ],
+   "orfNames": [
+    {
+     "value": "FKSG30"
+    }
+   ]
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "16824795"
+      }
+     ],
+     "value": "Interacts with PFN1 and PFDN1. Does not interact with PFN2"
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000250"
+       }
+      ],
+      "value": "Cytoplasm, cytoskeleton",
+      "id": "SL-0090"
+     }
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "16824795"
+      }
+     ],
+     "value": "Expressed in some hepatocellular carcinomas"
+    }
+   ],
+   "commentType": "TISSUE SPECIFICITY"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250"
+      }
+     ],
+     "value": "Oxidation of Met-44 and Met-47 by MICALs (MICAL1, MICAL2 or MICAL3) to form methionine sulfoxide promotes actin filament depolymerization. MICAL1 and MICAL2 produce the (R)-S-oxide form. The (R)-S-oxide form is reverted by MSRB1 and MSRB2, which promote actin repolymerization (By similarity)"
+    }
+   ],
+   "commentType": "PTM"
+  },
+  {
+   "texts": [
+    {
+     "value": "Monomethylation at Lys-84 (K84me1) regulates actin-myosin interaction and actomyosin-dependent processes. Demethylation by ALKBH4 is required for maintaining actomyosin dynamics supporting normal cleavage furrow ingression during cytokinesis and cell migration"
+    }
+   ],
+   "commentType": "PTM"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the actin family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Could be the product of a pseudogene"
+    }
+   ],
+   "commentType": "CAUTION"
+  }
+ ],
+ "features": [
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 375,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Putative beta-actin-like protein 3",
+   "featureId": "PRO_0000307865"
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 44,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 44,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Methionine (R)-sulfoxide",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 47,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 47,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Methionine (R)-sulfoxide",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 84,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 84,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-methyllysine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "23673617"
+    }
+   ]
+  },
+  {
+   "type": "Sequence conflict",
+   "location": {
+    "start": {
+     "value": 159,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 159,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in Ref. 2; AAX82286",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "F",
+    "alternativeSequences": [
+     "V"
+    ]
+   }
+  },
+  {
+   "type": "Sequence conflict",
+   "location": {
+    "start": {
+     "value": 177,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 177,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in Ref. 2; AAX82286",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "P"
+    ]
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0067",
+   "category": "Ligand",
+   "name": "ATP-binding"
+  },
+  {
+   "id": "KW-0963",
+   "category": "Cellular component",
+   "name": "Cytoplasm"
+  },
+  {
+   "id": "KW-0206",
+   "category": "Cellular component",
+   "name": "Cytoskeleton"
+  },
+  {
+   "id": "KW-0488",
+   "category": "PTM",
+   "name": "Methylation"
+  },
+  {
+   "id": "KW-0547",
+   "category": "Ligand",
+   "name": "Nucleotide-binding"
+  },
+  {
+   "id": "KW-0558",
+   "category": "PTM",
+   "name": "Oxidation"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "CI-TO4LNB8FT2ND",
+    "citationType": "submission",
+    "authors": [
+     "Wang Y.-G.",
+     "Gong L."
+    ],
+    "title": "Cloning and characterization of FKSG30, a novel gene encoding a protein similar to ACTG1.",
+    "publicationDate": "NOV-2000",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA]"
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "16824795",
+    "citationType": "journal article",
+    "authors": [
+     "Chang K.-W.",
+     "Yang P.-Y.",
+     "Lai H.-Y.",
+     "Yeh T.-S.",
+     "Chen T.-C.",
+     "Yeh C.-T."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "16824795"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.hepres.2006.05.003"
+     }
+    ],
+    "title": "Identification of a novel actin isoform in hepatocellular carcinoma.",
+    "publicationDate": "2006",
+    "journal": "Hepatol. Res.",
+    "firstPage": "33",
+    "lastPage": "39",
+    "volume": "36"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [GENOMIC DNA] OF 84-186",
+    "INTERACTION WITH PFN1 AND PFDN1",
+    "TISSUE SPECIFICITY"
+   ],
+   "referenceComments": [
+    {
+     "value": "Liver",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "23673617",
+    "citationType": "journal article",
+    "authors": [
+     "Li M.M.",
+     "Nilsen A.",
+     "Shi Y.",
+     "Fusser M.",
+     "Ding Y.H.",
+     "Fu Y.",
+     "Liu B.",
+     "Niu Y.",
+     "Wu Y.S.",
+     "Huang C.M.",
+     "Olofsson M.",
+     "Jin K.X.",
+     "Lv Y.",
+     "Xu X.Z.",
+     "He C.",
+     "Dong M.Q.",
+     "Rendtlew Danielsen J.M.",
+     "Klungland A.",
+     "Yang Y.G."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "23673617"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/ncomms2863"
+     }
+    ],
+    "title": "ALKBH4-dependent demethylation of actin regulates actomyosin dynamics.",
+    "publicationDate": "2013",
+    "journal": "Nat. Commun.",
+    "firstPage": "1832",
+    "lastPage": "1832",
+    "volume": "4"
+   },
+   "referencePositions": [
+    "METHYLATION AT LYS-84",
+    "DEMETHYLATION BY ALKBH4"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "AY014272",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAG50355.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AY970480",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAX82286.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "Q9BYX7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "Q9BYX7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "Q9BYX7",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "346"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "Q9BYX7",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "43"
+    }
+   ]
+  },
+  {
+   "database": "MINT",
+   "id": "Q9BYX7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "Q9BYX7",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "2 sites, 1 N-linked glycan (1 site), 1 O-linked glycan (1 site)"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "Q9BYX7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "Q9BYX7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SwissPalm",
+   "id": "Q9BYX7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "HGNC:30182",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "74739412",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "Q9BYX7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "Q9BYX7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "79742",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "TopDownProteomics",
+   "id": "Q9BYX7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:30182",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "POTEKP",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:30182",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "POTEKP"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "611266",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "Q9BYX7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "Q9BYX7",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "11 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "Q9BYX7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-114608",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Platelet degranulation"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "Q9BYX7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "Q9BYX7",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tdark"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:Q9BYX7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Unplaced"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "Q9BYX7",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0015629",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:actin cytoskeleton"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005884",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:actin filament"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0030424",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:axon"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005737",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:cytoplasm"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005829",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:cytosol"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:Reactome"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0070062",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:extracellular exosome"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "HDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007005",
+     "source": "PubMed",
+     "id": "23533145"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005576",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:extracellular region"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:Reactome"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0016020",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:membrane"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0035267",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:NuA4 histone acetyltransferase complex"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0045202",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:synapse"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0019901",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:protein kinase binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0098973",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:structural constituent of postsynaptic actin cytoskeleton"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0007409",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:axonogenesis"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0048870",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:cell motility"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "CDD",
+   "id": "cd10224",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "ASKHA_NBD_actin"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.30.420.40:FF:000291",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Actin, alpha skeletal muscle"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.90.640.10:FF:000047",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Actin, alpha skeletal muscle"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.30.420.40:FF:000404",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Major actin"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.30.420.40:FF:000058",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Putative actin-related protein 5"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.30.420.40",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "-"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "2"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.90.640.10",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Actin, Chain A, domain 4"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR004000",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Actin"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR020902",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Actin/actin-like_CS"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR004001",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Actin_CS"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR043129",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "ATPase_NBD"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR11937",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "ACTIN"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF00022",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Actin"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PRINTS",
+   "id": "PR00190",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "ACTIN"
+    }
+   ]
+  },
+  {
+   "database": "SMART",
+   "id": "SM00268",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "ACTIN"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF53067",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Actin-like ATPase domain"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "2"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS00432",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "ACTINS_2"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS01132",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "ACTINS_ACT_LIKE"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MDDDTAVLVIDNGSGMCKAGFAGDDAPQAVFPSIVGRPRHQGMMEGMHQKESYVGKEAQSKRGMLTLKYPMEHGIITNWDDMEKIWHHTFYNELRVAPEEHPILLTEAPLNPKANREKMTQIMFETFNTPAMYVAIQAVLSLYTSGRTTGIVMDSGDGFTHTVPIYEGNALPHATLRLDLAGRELTDYLMKILTERGYRFTTTAEQEIVRDIKEKLCYVALDSEQEMAMAASSSSVEKSYELPDGQVITIGNERFRCPEALFQPCFLGMESCGIHKTTFNSIVKSDVDIRKDLYTNTVLSGGTTMYPGIAHRMQKEITALAPSIMKIKIIAPPKRKYSVWVGGSILASLSTFQQMWISKQEYDESGPSIVHRKCF",
+  "length": 375,
+  "molWeight": 42016,
+  "crc64": "98127B88A9983B7D",
+  "md5": "C11537EB92BCADD5AF46E10E324F11E4"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "SUBUNIT": 1,
+   "SUBCELLULAR LOCATION": 1,
+   "TISSUE SPECIFICITY": 1,
+   "PTM": 2,
+   "SIMILARITY": 1,
+   "CAUTION": 1
+  },
+  "countByFeatureType": {
+   "Chain": 1,
+   "Modified residue": 3,
+   "Sequence conflict": 2
+  },
+  "uniParcId": "UPI00000700D9"
+ }
+}

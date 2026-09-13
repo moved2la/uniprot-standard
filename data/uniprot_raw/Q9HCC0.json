@@ -1,0 +1,6981 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "Q9HCC0",
+ "secondaryAccessions": [
+  "A6NIY9",
+  "Q96C27",
+  "Q9Y4L7"
+ ],
+ "uniProtkbId": "MCCB_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "2002-03-05",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2001-03-01",
+  "entryVersion": 215,
+  "sequenceVersion": 1
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "value": "Methylcrotonoyl-CoA carboxylase beta chain, mitochondrial"
+   },
+   "shortNames": [
+    {
+     "value": "MCCase subunit beta"
+    }
+   ],
+   "ecNumbers": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "17360195"
+      }
+     ],
+     "value": "6.4.1.4"
+    }
+   ]
+  },
+  "alternativeNames": [
+   {
+    "fullName": {
+     "value": "3-methylcrotonyl-CoA carboxylase 2"
+    }
+   },
+   {
+    "fullName": {
+     "value": "3-methylcrotonyl-CoA carboxylase non-biotin-containing subunit"
+    }
+   },
+   {
+    "fullName": {
+     "value": "3-methylcrotonyl-CoA:carbon dioxide ligase subunit beta"
+    }
+   }
+  ],
+  "flag": "Precursor"
+ },
+ "genes": [
+  {
+   "geneName": {
+    "value": "MCCC2"
+   },
+   "synonyms": [
+    {
+     "value": "MCCB"
+    }
+   ]
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "17360195"
+      }
+     ],
+     "value": "Carboxyltransferase subunit of the 3-methylcrotonyl-CoA carboxylase, an enzyme that catalyzes the conversion of 3-methylcrotonyl-CoA to 3-methylglutaconyl-CoA, a critical step for leucine and isovaleric acid catabolism"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "3-methylbut-2-enoyl-CoA + hydrogencarbonate + ATP = 3-methyl-(2E)-glutaconyl-CoA + ADP + phosphate + H(+)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:13589"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15378"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:17544"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:30616"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:43474"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57344"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57346"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:456216"
+     }
+    ],
+    "ecNumber": "6.4.1.4",
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "17360195"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "BIOPHYSICOCHEMICAL PROPERTIES",
+   "kineticParameters": {
+    "michaelisConstants": [
+     {
+      "constant": 45.0,
+      "unit": "uM",
+      "substrate": "ATP",
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "17360195"
+       }
+      ]
+     },
+     {
+      "constant": 74.0,
+      "unit": "uM",
+      "substrate": "3-methylcrotonyl-CoA",
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "17360195"
+       }
+      ]
+     }
+    ],
+    "note": {
+     "texts": [
+      {
+       "value": "kcat is 4.0 sec(-1)."
+      }
+     ]
+    }
+   }
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "17360195"
+      }
+     ],
+     "value": "Amino-acid degradation; L-leucine degradation; (S)-3-hydroxy-3-methylglutaryl-CoA from 3-isovaleryl-CoA: step 2/3"
+    }
+   ],
+   "commentType": "PATHWAY"
+  },
+  {
+   "texts": [
+    {
+     "value": "Probably a dodecamer composed of six biotin-containing alpha subunits (MCCC1) and six beta (MCCC2) subunits"
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "Q9HCC0",
+      "intActId": "EBI-2211296"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P13569",
+      "geneName": "CFTR",
+      "intActId": "EBI-349854"
+     },
+     "numberOfExperiments": 5,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "Q9HCC0",
+      "intActId": "EBI-2211296"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q96RQ3",
+      "geneName": "MCCC1",
+      "intActId": "EBI-2211703"
+     },
+     "numberOfExperiments": 8,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "11170888"
+       },
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "16023992"
+       }
+      ],
+      "value": "Mitochondrion matrix",
+      "id": "SL-0170"
+     }
+    }
+   ]
+  },
+  {
+   "commentType": "ALTERNATIVE PRODUCTS",
+   "events": [
+    "Alternative splicing"
+   ],
+   "isoforms": [
+    {
+     "name": {
+      "value": "1"
+     },
+     "isoformIds": [
+      "Q9HCC0-1"
+     ],
+     "isoformSequenceStatus": "Displayed"
+    },
+    {
+     "name": {
+      "value": "2"
+     },
+     "isoformIds": [
+      "Q9HCC0-2"
+     ],
+     "sequenceIds": [
+      "VSP_000069"
+     ],
+     "isoformSequenceStatus": "Described"
+    }
+   ]
+  },
+  {
+   "commentType": "DISEASE",
+   "disease": {
+    "diseaseId": "3-methylcrotonoyl-CoA carboxylase 2 deficiency",
+    "diseaseAccession": "DI-00743",
+    "acronym": "MCC2D",
+    "description": "An autosomal recessive disorder of leucine catabolism. The phenotype is variable, ranging from neonatal onset with severe neurological involvement to asymptomatic adults. There is a characteristic organic aciduria with massive excretion of 3-hydroxyisovaleric acid and 3-methylcrotonylglycine, usually in combination with a severe secondary carnitine deficiency.",
+    "diseaseCrossReference": {
+     "database": "MIM",
+     "id": "210210"
+    },
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "11170888"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "11181649"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "11406611"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "14680978"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "16010683"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "17968484"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "21071250"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "22150417"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "22264772"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "22642865"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "25382614"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "27601257"
+     }
+    ]
+   },
+   "note": {
+    "texts": [
+     {
+      "value": "The disease is caused by variants affecting the gene represented in this entry"
+     }
+    ]
+   }
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the AccD/PCCB family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  },
+  {
+   "commentType": "SEQUENCE CAUTION",
+   "sequenceCautionType": "Frameshift",
+   "sequence": "AAH14897.1",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ]
+  }
+ ],
+ "features": [
+  {
+   "type": "Transit peptide",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 22,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Mitochondrion",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "16023992"
+    }
+   ]
+  },
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 23,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 563,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Methylcrotonoyl-CoA carboxylase beta chain, mitochondrial",
+   "featureId": "PRO_0000000291"
+  },
+  {
+   "type": "Domain",
+   "location": {
+    "start": {
+     "value": 49,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 306,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "CoA carboxyltransferase N-terminal",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255",
+     "source": "PROSITE-ProRule",
+     "id": "PRU01136"
+    }
+   ]
+  },
+  {
+   "type": "Domain",
+   "location": {
+    "start": {
+     "value": 309,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 555,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "CoA carboxyltransferase C-terminal",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255",
+     "source": "PROSITE-ProRule",
+     "id": "PRU01137"
+    }
+   ]
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 49,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 555,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Carboxyltransferase",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255",
+     "source": "PROSITE-ProRule",
+     "id": "PRU01138"
+    }
+   ]
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 343,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 372,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Acyl-CoA binding",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 70,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 70,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-acetyllysine; alternate",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q3ULD5"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 70,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 70,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-succinyllysine; alternate",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q3ULD5"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 141,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 141,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-succinyllysine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q3ULD5"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 495,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 495,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-acetyllysine; alternate",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q3ULD5"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 495,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 495,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-succinyllysine; alternate",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q3ULD5"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 511,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 511,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-acetyllysine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q3ULD5"
+    }
+   ]
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 209,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 246,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 2",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "15489334"
+    }
+   ],
+   "featureId": "VSP_000069",
+   "alternativeSequence": {}
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 39,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 39,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; has some wild-type residual activity; dbSNP:rs398124371",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs398124371"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072507",
+   "alternativeSequence": {
+    "originalSequence": "S",
+    "alternativeSequences": [
+     "F"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 68,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 68,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; uncertain significance; dbSNP:rs1187203558",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs1187203558"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27601257"
+    }
+   ],
+   "featureId": "VAR_077291",
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "V"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 99,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 99,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; severe and mild form; dbSNP:rs119103219",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs119103219"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "11181649"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "16010683"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_012792",
+   "alternativeSequence": {
+    "originalSequence": "E",
+    "alternativeSequences": [
+     "Q"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 101,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 101,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs748028684",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs748028684"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072508",
+   "alternativeSequence": {
+    "originalSequence": "S",
+    "alternativeSequences": [
+     "F"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 105,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 105,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; uncertain significance",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27601257"
+    }
+   ],
+   "featureId": "VAR_077292",
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 118,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 118,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; has some wild-type residual activity",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072509",
+   "alternativeSequence": {}
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 131,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 131,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072510",
+   "alternativeSequence": {
+    "originalSequence": "C",
+    "alternativeSequences": [
+     "F"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 139,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 139,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "25382614"
+    }
+   ],
+   "featureId": "VAR_077293",
+   "alternativeSequence": {
+    "originalSequence": "T",
+    "alternativeSequences": [
+     "I"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 146,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 146,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; has some wild-type residual activity",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072511",
+   "alternativeSequence": {
+    "originalSequence": "Y",
+    "alternativeSequences": [
+     "N"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 152,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 152,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs1554134065",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs1554134065"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072512",
+   "alternativeSequence": {
+    "originalSequence": "K",
+    "alternativeSequences": [
+     "T"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 155,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 155,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; mild form; dbSNP:rs119103220",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs119103220"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "11181649"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "16010683"
+    }
+   ],
+   "featureId": "VAR_012793",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "Q"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 155,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 155,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs141030969",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs141030969"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "16010683"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27601257"
+    }
+   ],
+   "featureId": "VAR_072513",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "W"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 163,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 163,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; uncertain significance",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27601257"
+    }
+   ],
+   "featureId": "VAR_077294",
+   "alternativeSequence": {
+    "originalSequence": "N",
+    "alternativeSequences": [
+     "D"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 167,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 167,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs119103222",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs119103222"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "11170888"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_012794",
+   "alternativeSequence": {
+    "originalSequence": "C",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 169,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 169,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072514",
+   "alternativeSequence": {
+    "originalSequence": "Y",
+    "alternativeSequences": [
+     "D"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 173,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 173,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; severe form; dbSNP:rs752866557",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs752866557"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "11181649"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_012795",
+   "alternativeSequence": {
+    "originalSequence": "S",
+    "alternativeSequences": [
+     "L"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 190,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 190,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs119103225",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs119103225"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "17968484"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072515",
+   "alternativeSequence": {
+    "originalSequence": "H",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 190,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 190,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; produces severely decreased wild-type residual activity; dbSNP:rs773774134",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs773774134"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "16010683"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072516",
+   "alternativeSequence": {
+    "originalSequence": "H",
+    "alternativeSequences": [
+     "Y"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 193,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 193,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; mild form; dbSNP:rs547662164",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs547662164"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "11181649"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_012796",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "C"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 193,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 193,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs535519604",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs535519604"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072517",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "H"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 200,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 200,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; uncertain significance; dbSNP:rs140806722",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs140806722"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27601257"
+    }
+   ],
+   "featureId": "VAR_072518",
+   "alternativeSequence": {
+    "originalSequence": "I",
+    "alternativeSequences": [
+     "N"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 214,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 214,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs277995",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs277995"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27601257"
+    }
+   ],
+   "featureId": "VAR_077295",
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "A"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 216,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 216,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27601257"
+    }
+   ],
+   "featureId": "VAR_077296",
+   "alternativeSequence": {
+    "originalSequence": "C",
+    "alternativeSequences": [
+     "W"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 218,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 218,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs886043524",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs886043524"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "11170888"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27601257"
+    }
+   ],
+   "featureId": "VAR_012797",
+   "alternativeSequence": {
+    "originalSequence": "A",
+    "alternativeSequences": [
+     "T"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 218,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 218,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs760420191",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs760420191"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "17968484"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22264772"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072519",
+   "alternativeSequence": {
+    "originalSequence": "A",
+    "alternativeSequences": [
+     "V"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 220,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 220,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs1254750166",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs1254750166"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072520",
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "E"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 224,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 224,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs1195601465",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs1195601465"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072521",
+   "alternativeSequence": {
+    "originalSequence": "P",
+    "alternativeSequences": [
+     "L"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 230,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 230,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs766753795",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs766753795"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27601257"
+    }
+   ],
+   "featureId": "VAR_077297",
+   "alternativeSequence": {
+    "originalSequence": "N",
+    "alternativeSequences": [
+     "D"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 237,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 237,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072522",
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "D"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 266,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 266,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072523",
+   "alternativeSequence": {
+    "originalSequence": "H",
+    "alternativeSequences": [
+     "L"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 268,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 268,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; asymptomatic form; dbSNP:rs119103223",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs119103223"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "11406611"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "16010683"
+    }
+   ],
+   "featureId": "VAR_012798",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "T"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 268,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 268,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "16010683"
+    }
+   ],
+   "featureId": "VAR_072524",
+   "alternativeSequence": {}
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 280,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 280,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs119103226",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs119103226"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "17968484"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22150417"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_067199",
+   "alternativeSequence": {
+    "originalSequence": "D",
+    "alternativeSequences": [
+     "Y"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 282,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 282,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; has some wild-type residual activity",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "16010683"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072525",
+   "alternativeSequence": {
+    "originalSequence": "H",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 310,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 310,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; mild form; dbSNP:rs119103221",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs119103221"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "11181649"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "16010683"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_012799",
+   "alternativeSequence": {
+    "originalSequence": "P",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 318,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 318,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs773115035",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs773115035"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27601257"
+    }
+   ],
+   "featureId": "VAR_077298",
+   "alternativeSequence": {
+    "originalSequence": "Y",
+    "alternativeSequences": [
+     "C"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 319,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 319,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs1443551700",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs1443551700"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "25382614"
+    }
+   ],
+   "featureId": "VAR_077299",
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 339,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 339,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; severe form; dbSNP:rs150591260",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs150591260"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "11181649"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22264772"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27601257"
+    }
+   ],
+   "featureId": "VAR_012800",
+   "alternativeSequence": {
+    "originalSequence": "V",
+    "alternativeSequences": [
+     "M"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 340,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 340,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs398124370",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs398124370"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072526",
+   "alternativeSequence": {
+    "originalSequence": "D",
+    "alternativeSequences": [
+     "V"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 352,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 352,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; produces severely decreased wild-type residual activity; dbSNP:rs765438239",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs765438239"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072527",
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 355,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 355,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs757052602",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs757052602"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "21071250"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072528",
+   "alternativeSequence": {
+    "originalSequence": "L",
+    "alternativeSequences": [
+     "F"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 375,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 375,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "16010683"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072529",
+   "alternativeSequence": {
+    "originalSequence": "V",
+    "alternativeSequences": [
+     "F"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 387,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 387,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; uncertain significance; dbSNP:rs1450515408",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs1450515408"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27601257"
+    }
+   ],
+   "featureId": "VAR_077300",
+   "alternativeSequence": {
+    "originalSequence": "F",
+    "alternativeSequences": [
+     "V"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 393,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 393,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs750782118",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs750782118"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27601257"
+    }
+   ],
+   "featureId": "VAR_077301",
+   "alternativeSequence": {
+    "originalSequence": "Q",
+    "alternativeSequences": [
+     "P"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 403,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 403,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs142887940",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs142887940"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072530",
+   "alternativeSequence": {
+    "originalSequence": "N",
+    "alternativeSequences": [
+     "T"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 410,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 410,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs771440617",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs771440617"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27601257"
+    }
+   ],
+   "featureId": "VAR_077302",
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "D"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 410,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 410,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27601257"
+    }
+   ],
+   "featureId": "VAR_077303",
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 434,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 434,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; has some wild-type residual activity; dbSNP:rs758506791",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs758506791"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072531",
+   "alternativeSequence": {
+    "originalSequence": "V",
+    "alternativeSequences": [
+     "L"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 437,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 437,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; mild form; dbSNP:rs119103224",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs119103224"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "14680978"
+    }
+   ],
+   "featureId": "VAR_012801",
+   "alternativeSequence": {
+    "originalSequence": "I",
+    "alternativeSequences": [
+     "V"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 441,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 441,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; uncertain significance; dbSNP:rs139852818",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs139852818"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27601257"
+    }
+   ],
+   "featureId": "VAR_077304",
+   "alternativeSequence": {
+    "originalSequence": "I",
+    "alternativeSequences": [
+     "T"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 456,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 456,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; shows virtually no enzyme activity; dbSNP:rs727504011",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs727504011"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "16010683"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072532",
+   "alternativeSequence": {
+    "originalSequence": "A",
+    "alternativeSequences": [
+     "V"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 459,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 459,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs754741111",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs754741111"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22150417"
+    }
+   ],
+   "featureId": "VAR_067200",
+   "alternativeSequence": {
+    "originalSequence": "P",
+    "alternativeSequences": [
+     "S"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 461,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 461,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs1747390697",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs1747390697"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27601257"
+    }
+   ],
+   "featureId": "VAR_077305",
+   "alternativeSequence": {
+    "originalSequence": "F",
+    "alternativeSequences": [
+     "V"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 475,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 475,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; has some wild-type residual activity; dbSNP:rs148773718",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs148773718"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27601257"
+    }
+   ],
+   "featureId": "VAR_072533",
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 477,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 477,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs769558016",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs769558016"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "21071250"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072534",
+   "alternativeSequence": {
+    "originalSequence": "Q",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 478,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 478,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs35068278",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs35068278"
+    }
+   ],
+   "featureId": "VAR_038630",
+   "alternativeSequence": {
+    "originalSequence": "A",
+    "alternativeSequences": [
+     "G"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 517,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 517,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs979584886",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs979584886"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "21071250"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072535",
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 520,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 520,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs150327768",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs150327768"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "21071250"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072536",
+   "alternativeSequence": {
+    "originalSequence": "Y",
+    "alternativeSequences": [
+     "S"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 523,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 523,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; has some wild-type residual activity; dbSNP:rs1459143051",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs1459143051"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22264772"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072537",
+   "alternativeSequence": {
+    "originalSequence": "S",
+    "alternativeSequences": [
+     "G"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 524,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 524,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs774241918",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs774241918"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27601257"
+    }
+   ],
+   "featureId": "VAR_077306",
+   "alternativeSequence": {
+    "originalSequence": "A",
+    "alternativeSequences": [
+     "T"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 555,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 555,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MCC2D; dbSNP:rs1257849672",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs1257849672"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "22642865"
+    }
+   ],
+   "featureId": "VAR_072538",
+   "alternativeSequence": {
+    "originalSequence": "K",
+    "alternativeSequences": [
+     "E"
+    ]
+   }
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 40,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 65,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 69,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 76,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Turn",
+   "location": {
+    "start": {
+     "value": 77,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 79,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 80,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 82,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 83,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 90,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 98,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 100,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Turn",
+   "location": {
+    "start": {
+     "value": 102,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 107,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 109,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 111,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 115,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 118,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 119,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 126,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 129,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 136,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Turn",
+   "location": {
+    "start": {
+     "value": 138,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 140,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8JXN"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 141,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 143,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 147,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 163,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 167,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 171,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 178,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 180,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL8"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 181,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 184,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 185,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 187,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 193,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 202,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Turn",
+   "location": {
+    "start": {
+     "value": 203,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 205,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 208,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 212,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 214,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 217,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Turn",
+   "location": {
+    "start": {
+     "value": 218,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 221,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 222,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 225,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 228,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 233,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Turn",
+   "location": {
+    "start": {
+     "value": 234,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 236,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 238,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 242,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 244,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 250,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 258,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 261,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 263,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 265,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 266,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 270,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 274,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 279,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 280,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 292,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 315,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 321,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 325,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 327,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 332,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 338,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 340,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 342,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 345,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 348,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Turn",
+   "location": {
+    "start": {
+     "value": 351,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 354,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 355,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 362,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 365,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 372,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 374,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 376,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8JAW"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 378,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 393,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 398,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 402,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 404,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 406,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8J99"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 411,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 416,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 418,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 430,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 436,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 440,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 442,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 445,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 448,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 451,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 455,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 457,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 460,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 464,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 469,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 473,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 475,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 493,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 495,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 498,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8JXM"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 499,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 515,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 519,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 524,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 527,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 529,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Turn",
+   "location": {
+    "start": {
+     "value": 534,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 536,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 537,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 548,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 552,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 556,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "8XL6"
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0002",
+   "category": "Technical term",
+   "name": "3D-structure"
+  },
+  {
+   "id": "KW-0007",
+   "category": "PTM",
+   "name": "Acetylation"
+  },
+  {
+   "id": "KW-0025",
+   "category": "Coding sequence diversity",
+   "name": "Alternative splicing"
+  },
+  {
+   "id": "KW-0067",
+   "category": "Ligand",
+   "name": "ATP-binding"
+  },
+  {
+   "id": "KW-0903",
+   "category": "Technical term",
+   "name": "Direct protein sequencing"
+  },
+  {
+   "id": "KW-0225",
+   "category": "Disease",
+   "name": "Disease variant"
+  },
+  {
+   "id": "KW-0436",
+   "category": "Molecular function",
+   "name": "Ligase"
+  },
+  {
+   "id": "KW-0496",
+   "category": "Cellular component",
+   "name": "Mitochondrion"
+  },
+  {
+   "id": "KW-0547",
+   "category": "Ligand",
+   "name": "Nucleotide-binding"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  },
+  {
+   "id": "KW-0809",
+   "category": "Domain",
+   "name": "Transit peptide"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "CI-EK597KGDV7AVV",
+    "citationType": "submission",
+    "authors": [
+     "Fukuda T.",
+     "Otsuka H.",
+     "Morishita R.",
+     "Takemoto Y.",
+     "Sone M.",
+     "Nakao M.",
+     "Abe S.",
+     "Kondo I."
+    ],
+    "title": "Human non-biotin containing subunit gene of 3-methylcrotonyl-CoA carboxylase (MCCB).",
+    "publicationDate": "OCT-2000",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [GENOMIC DNA / MRNA] (ISOFORM 1)"
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "11170888",
+    "citationType": "journal article",
+    "authors": [
+     "Gallardo M.E.",
+     "Desviat L.R.",
+     "Rodriguez J.M.",
+     "Esparza-Gordillo J.",
+     "Perez-Cerda C.",
+     "Perez B.",
+     "Rodriguez-Pombo P.",
+     "Criado O.",
+     "Sanz R.",
+     "Morton D.H.",
+     "Gibson K.M.",
+     "Le T.P.",
+     "Ribes A.",
+     "Rodriguez de Cordoba S.",
+     "Ugarte M.",
+     "Penalva M.A."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "11170888"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1086/318202"
+     }
+    ],
+    "title": "The molecular basis of 3-methylcrotonylglycinuria, a disorder of leucine catabolism.",
+    "publicationDate": "2001",
+    "journal": "Am. J. Hum. Genet.",
+    "firstPage": "334",
+    "lastPage": "346",
+    "volume": "68"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA] (ISOFORM 1)",
+    "SUBCELLULAR LOCATION",
+    "VARIANTS MCC2D ARG-167 AND THR-218"
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "11181649",
+    "citationType": "journal article",
+    "authors": [
+     "Baumgartner M.R.",
+     "Almashanu S.",
+     "Suormala T.",
+     "Obie C.",
+     "Cole R.N.",
+     "Packman S.",
+     "Baumgartner E.R.",
+     "Valle D."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "11181649"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1172/jci11948"
+     }
+    ],
+    "title": "The molecular basis of human 3-methylcrotonyl-CoA carboxylase deficiency.",
+    "publicationDate": "2001",
+    "journal": "J. Clin. Invest.",
+    "firstPage": "495",
+    "lastPage": "504",
+    "volume": "107"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA] (ISOFORM 1)",
+    "VARIANTS MCC2D GLN-99; GLN-155; LEU-173; CYS-193; ARG-310 AND MET-339"
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "11406611",
+    "citationType": "journal article",
+    "authors": [
+     "Holzinger A.",
+     "Roeschinger W.",
+     "Lagler F.",
+     "Mayerhofer P.U.",
+     "Lichtner P.",
+     "Kattenfeld T.",
+     "Thuy L.P.",
+     "Nyhan W.L.",
+     "Koch H.G.",
+     "Muntau A.C.",
+     "Roscher A.A."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "11406611"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1093/hmg/10.12.1299"
+     }
+    ],
+    "title": "Cloning of the human MCCA and MCCB genes and mutations therein reveal the molecular cause of 3-methylcrotonyl-CoA: carboxylase deficiency.",
+    "publicationDate": "2001",
+    "journal": "Hum. Mol. Genet.",
+    "firstPage": "1299",
+    "lastPage": "1306",
+    "volume": "10"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA] (ISOFORM 1)",
+    "VARIANT MCC2D THR-268"
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "15372022",
+    "citationType": "journal article",
+    "authors": [
+     "Schmutz J.",
+     "Martin J.",
+     "Terry A.",
+     "Couronne O.",
+     "Grimwood J.",
+     "Lowry S.",
+     "Gordon L.A.",
+     "Scott D.",
+     "Xie G.",
+     "Huang W.",
+     "Hellsten U.",
+     "Tran-Gyamfi M.",
+     "She X.",
+     "Prabhakar S.",
+     "Aerts A.",
+     "Altherr M.",
+     "Bajorek E.",
+     "Black S.",
+     "Branscomb E.",
+     "Caoile C.",
+     "Challacombe J.F.",
+     "Chan Y.M.",
+     "Denys M.",
+     "Detter J.C.",
+     "Escobar J.",
+     "Flowers D.",
+     "Fotopulos D.",
+     "Glavina T.",
+     "Gomez M.",
+     "Gonzales E.",
+     "Goodstein D.",
+     "Grigoriev I.",
+     "Groza M.",
+     "Hammon N.",
+     "Hawkins T.",
+     "Haydu L.",
+     "Israni S.",
+     "Jett J.",
+     "Kadner K.",
+     "Kimball H.",
+     "Kobayashi A.",
+     "Lopez F.",
+     "Lou Y.",
+     "Martinez D.",
+     "Medina C.",
+     "Morgan J.",
+     "Nandkeshwar R.",
+     "Noonan J.P.",
+     "Pitluck S.",
+     "Pollard M.",
+     "Predki P.",
+     "Priest J.",
+     "Ramirez L.",
+     "Retterer J.",
+     "Rodriguez A.",
+     "Rogers S.",
+     "Salamov A.",
+     "Salazar A.",
+     "Thayer N.",
+     "Tice H.",
+     "Tsai M.",
+     "Ustaszewska A.",
+     "Vo N.",
+     "Wheeler J.",
+     "Wu K.",
+     "Yang J.",
+     "Dickson M.",
+     "Cheng J.-F.",
+     "Eichler E.E.",
+     "Olsen A.",
+     "Pennacchio L.A.",
+     "Rokhsar D.S.",
+     "Richardson P.",
+     "Lucas S.M.",
+     "Myers R.M.",
+     "Rubin E.M."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15372022"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/nature02919"
+     }
+    ],
+    "title": "The DNA sequence and comparative analysis of human chromosome 5.",
+    "publicationDate": "2004",
+    "journal": "Nature",
+    "firstPage": "268",
+    "lastPage": "274",
+    "volume": "431"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 6,
+   "citation": {
+    "id": "CI-5GBDQ6B103N1E",
+    "citationType": "submission",
+    "authors": [
+     "Mural R.J.",
+     "Istrail S.",
+     "Sutton G.G.",
+     "Florea L.",
+     "Halpern A.L.",
+     "Mobarry C.M.",
+     "Lippert R.",
+     "Walenz B.",
+     "Shatkay H.",
+     "Dew I.",
+     "Miller J.R.",
+     "Flanigan M.J.",
+     "Edwards N.J.",
+     "Bolanos R.",
+     "Fasulo D.",
+     "Halldorsson B.V.",
+     "Hannenhalli S.",
+     "Turner R.",
+     "Yooseph S.",
+     "Lu F.",
+     "Nusskern D.R.",
+     "Shue B.C.",
+     "Zheng X.H.",
+     "Zhong F.",
+     "Delcher A.L.",
+     "Huson D.H.",
+     "Kravitz S.A.",
+     "Mouchard L.",
+     "Reinert K.",
+     "Remington K.A.",
+     "Clark A.G.",
+     "Waterman M.S.",
+     "Eichler E.E.",
+     "Adams M.D.",
+     "Hunkapiller M.W.",
+     "Myers E.W.",
+     "Venter J.C."
+    ],
+    "publicationDate": "JUL-2005",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 7,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORMS 1 AND 2)"
+   ],
+   "referenceComments": [
+    {
+     "value": "Testis",
+     "type": "TISSUE"
+    },
+    {
+     "value": "Uterus",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 8,
+   "citation": {
+    "id": "16023992",
+    "citationType": "journal article",
+    "authors": [
+     "Stadler S.C.",
+     "Polanetz R.",
+     "Meier S.",
+     "Mayerhofer P.U.",
+     "Herrmann J.M.",
+     "Anslinger K.",
+     "Roscher A.A.",
+     "Roschinger W.",
+     "Holzinger A."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "16023992"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.bbrc.2005.06.190"
+     }
+    ],
+    "title": "Mitochondrial targeting signals and mature peptides of 3-methylcrotonyl-CoA carboxylase.",
+    "publicationDate": "2005",
+    "journal": "Biochem. Biophys. Res. Commun.",
+    "firstPage": "939",
+    "lastPage": "946",
+    "volume": "334"
+   },
+   "referencePositions": [
+    "PROTEIN SEQUENCE OF 23-28",
+    "SUBCELLULAR LOCATION"
+   ],
+   "referenceComments": [
+    {
+     "value": "Kidney",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 9,
+   "citation": {
+    "id": "17360195",
+    "citationType": "journal article",
+    "authors": [
+     "Chu C.H.",
+     "Cheng D."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "17360195"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.pep.2007.01.012"
+     }
+    ],
+    "title": "Expression, purification, characterization of human 3-methylcrotonyl-CoA carboxylase (MCCC).",
+    "publicationDate": "2007",
+    "journal": "Protein Expr. Purif.",
+    "firstPage": "421",
+    "lastPage": "427",
+    "volume": "53"
+   },
+   "referencePositions": [
+    "FUNCTION",
+    "CATALYTIC ACTIVITY",
+    "BIOPHYSICOCHEMICAL PROPERTIES",
+    "PATHWAY"
+   ]
+  },
+  {
+   "referenceNumber": 10,
+   "citation": {
+    "id": "CI-5LO3EPKQ5D83S",
+    "citationType": "submission",
+    "authoringGroup": [
+     "The European IMAGE consortium"
+    ],
+    "publicationDate": "JUN-1999",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] OF 469-563"
+   ]
+  },
+  {
+   "referenceNumber": 11,
+   "citation": {
+    "id": "21269460",
+    "citationType": "journal article",
+    "authors": [
+     "Burkard T.R.",
+     "Planyavsky M.",
+     "Kaupe I.",
+     "Breitwieser F.P.",
+     "Buerckstuemmer T.",
+     "Bennett K.L.",
+     "Superti-Furga G.",
+     "Colinge J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "21269460"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1186/1752-0509-5-17"
+     }
+    ],
+    "title": "Initial characterization of the human central proteome.",
+    "publicationDate": "2011",
+    "journal": "BMC Syst. Biol.",
+    "firstPage": "17",
+    "lastPage": "17",
+    "volume": "5"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 12,
+   "citation": {
+    "id": "24275569",
+    "citationType": "journal article",
+    "authors": [
+     "Bian Y.",
+     "Song C.",
+     "Cheng K.",
+     "Dong M.",
+     "Wang F.",
+     "Huang J.",
+     "Sun D.",
+     "Wang L.",
+     "Ye M.",
+     "Zou H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "24275569"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.jprot.2013.11.014"
+     }
+    ],
+    "title": "An enzyme assisted RP-RPLC approach for in-depth analysis of human liver phosphoproteome.",
+    "publicationDate": "2014",
+    "journal": "J. Proteomics",
+    "firstPage": "253",
+    "lastPage": "262",
+    "volume": "96"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Liver",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 13,
+   "citation": {
+    "id": "25944712",
+    "citationType": "journal article",
+    "authors": [
+     "Vaca Jacome A.S.",
+     "Rabilloud T.",
+     "Schaeffer-Reiss C.",
+     "Rompais M.",
+     "Ayoub D.",
+     "Lane L.",
+     "Bairoch A.",
+     "Van Dorsselaer A.",
+     "Carapito C."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "25944712"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1002/pmic.201400617"
+     }
+    ],
+    "title": "N-terminome analysis of the human mitochondrial proteome.",
+    "publicationDate": "2015",
+    "journal": "Proteomics",
+    "firstPage": "2519",
+    "lastPage": "2524",
+    "volume": "15"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 14,
+   "citation": {
+    "id": "14680978",
+    "citationType": "journal article",
+    "authors": [
+     "Desviat L.R.",
+     "Perez-Cerda C.",
+     "Perez B.",
+     "Esparza-Gordillo J.",
+     "Rodriguez-Pombo P.",
+     "Penalva M.A.",
+     "Rodriguez De Cordoba S.",
+     "Ugarte M."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "14680978"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/s1096-7192(03)00130-6"
+     }
+    ],
+    "title": "Functional analysis of MCCA and MCCB mutations causing methylcrotonylglycinuria.",
+    "publicationDate": "2003",
+    "journal": "Mol. Genet. Metab.",
+    "firstPage": "315",
+    "lastPage": "320",
+    "volume": "80"
+   },
+   "referencePositions": [
+    "VARIANT MCC2D VAL-437"
+   ]
+  },
+  {
+   "referenceNumber": 15,
+   "citation": {
+    "id": "17968484",
+    "citationType": "journal article",
+    "authors": [
+     "Uematsu M.",
+     "Sakamoto O.",
+     "Sugawara N.",
+     "Kumagai N.",
+     "Morimoto T.",
+     "Yamaguchi S.",
+     "Hasegawa Y.",
+     "Kobayashi H.",
+     "Ihara K.",
+     "Yoshino M.",
+     "Watanabe Y.",
+     "Inokuchi T.",
+     "Yokoyama T.",
+     "Kiwaki K.",
+     "Nakamura K.",
+     "Endo F.",
+     "Tsuchiya S.",
+     "Ohura T."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "17968484"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1007/s10038-007-0211-9"
+     }
+    ],
+    "title": "Novel mutations in five Japanese patients with 3-methylcrotonyl-CoA carboxylase deficiency.",
+    "publicationDate": "2007",
+    "journal": "J. Hum. Genet.",
+    "firstPage": "1040",
+    "lastPage": "1043",
+    "volume": "52"
+   },
+   "referencePositions": [
+    "VARIANTS MCC2D ARG-190; VAL-218 AND TYR-280"
+   ]
+  },
+  {
+   "referenceNumber": 16,
+   "citation": {
+    "id": "16010683",
+    "citationType": "journal article",
+    "authors": [
+     "Dantas M.F.",
+     "Suormala T.",
+     "Randolph A.",
+     "Coelho D.",
+     "Fowler B.",
+     "Valle D.",
+     "Baumgartner M.R."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "16010683"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1002/humu.9352"
+     }
+    ],
+    "title": "3-Methylcrotonyl-CoA carboxylase deficiency: mutation analysis in 28 probands, 9 symptomatic and 19 detected by newborn screening.",
+    "publicationDate": "2005",
+    "journal": "Hum. Mutat.",
+    "firstPage": "164",
+    "lastPage": "174",
+    "volume": "26"
+   },
+   "referencePositions": [
+    "VARIANTS MCC2D GLN-99; TRP-155; GLN-155; TYR-190; THR-268; ARG-282; ARG-310; PHE-375 AND VAL-456",
+    "CHARACTERIZATION OF VARIANTS TYR-190 AND ARG-352"
+   ]
+  },
+  {
+   "referenceNumber": 17,
+   "citation": {
+    "id": "21071250",
+    "citationType": "journal article",
+    "authors": [
+     "Nguyen K.V.",
+     "Naviaux R.K.",
+     "Patra S.",
+     "Barshop B.A.",
+     "Nyhan W.L."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "21071250"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.ymgme.2010.10.008"
+     }
+    ],
+    "title": "Novel mutations in the human MCCA and MCCB gene causing methylcrotonylglycinuria.",
+    "publicationDate": "2011",
+    "journal": "Mol. Genet. Metab.",
+    "firstPage": "218",
+    "lastPage": "221",
+    "volume": "102"
+   },
+   "referencePositions": [
+    "VARIANTS MCC2D PHE-355; ARG-477; ARG-517 AND SER-520"
+   ]
+  },
+  {
+   "referenceNumber": 18,
+   "citation": {
+    "id": "22150417",
+    "citationType": "journal article",
+    "authors": [
+     "Cho S.Y.",
+     "Park H.D.",
+     "Lee Y.W.",
+     "Ki C.S.",
+     "Lee S.Y.",
+     "Sohn Y.B.",
+     "Park S.W.",
+     "Kim S.H.",
+     "Ji S.",
+     "Kim S.J.",
+     "Choi E.W.",
+     "Kim C.H.",
+     "Ko A.R.",
+     "Paik K.H.",
+     "Lee D.H.",
+     "Jin D.K."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "22150417"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1111/j.1399-0004.2011.01704.x"
+     }
+    ],
+    "title": "Mutational spectrum in eight Korean patients with 3-methylcrotonyl-CoA carboxylase deficiency.",
+    "publicationDate": "2012",
+    "journal": "Clin. Genet.",
+    "firstPage": "96",
+    "lastPage": "98",
+    "volume": "81"
+   },
+   "referencePositions": [
+    "VARIANTS MCC2D TYR-280 AND SER-459"
+   ]
+  },
+  {
+   "referenceNumber": 19,
+   "citation": {
+    "id": "22264772",
+    "citationType": "journal article",
+    "authors": [
+     "Morscher R.J.",
+     "Grunert S.C.",
+     "Burer C.",
+     "Burda P.",
+     "Suormala T.",
+     "Fowler B.",
+     "Baumgartner M.R."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "22264772"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.ymgme.2011.12.018"
+     }
+    ],
+    "title": "A single mutation in MCCC1 or MCCC2 as a potential cause of positive screening for 3-methylcrotonyl-CoA carboxylase deficiency.",
+    "publicationDate": "2012",
+    "journal": "Mol. Genet. Metab.",
+    "firstPage": "602",
+    "lastPage": "606",
+    "volume": "105"
+   },
+   "referencePositions": [
+    "VARIANTS MCC2D VAL-218; MET-339 AND GLY-523"
+   ]
+  },
+  {
+   "referenceNumber": 20,
+   "citation": {
+    "id": "22642865",
+    "citationType": "journal article",
+    "authors": [
+     "Gruenert S.C.",
+     "Stucki M.",
+     "Morscher R.J.",
+     "Suormala T.",
+     "Buerer C.",
+     "Burda P.",
+     "Christensen E.",
+     "Ficicioglu C.",
+     "Herwig J.",
+     "Koelker S.",
+     "Moeslinger D.",
+     "Pasquini E.",
+     "Santer R.",
+     "Schwab K.O.",
+     "Wilcken B.",
+     "Fowler B.",
+     "Yue W.W.",
+     "Baumgartner M.R."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "22642865"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1186/1750-1172-7-31"
+     }
+    ],
+    "title": "3-methylcrotonyl-CoA carboxylase deficiency: clinical, biochemical, enzymatic and molecular studies in 88 individuals.",
+    "publicationDate": "2012",
+    "journal": "Orphanet J. Rare Dis.",
+    "firstPage": "31",
+    "lastPage": "54",
+    "volume": "7"
+   },
+   "referencePositions": [
+    "VARIANTS MCC2D PHE-39; GLN-99; PHE-101; GLY-118 DEL; PHE-131; ASN-146; THR-152; TRP-155; ARG-167; ASP-169; LEU-173; ARG-190; TYR-190; CYS-193; HIS-193; ASN-200; THR-218; VAL-218; GLU-220; LEU-224; ASP-237; LEU-266; TYR-280; ARG-282; ARG-310; MET-339; VAL-340; ARG-352; PHE-355; PHE-375; THR-403; LEU-434; VAL-456; ARG-475; ARG-477; ARG-517; SER-520; GLY-523 AND GLU-555",
+    "CHARACTERIZATION OF VARIANTS MCC2D PHE-39; GLY-118 DEL; ASN-146; ARG-282; LEU-434; VAL-456; ARG-475 AND GLY-523"
+   ]
+  },
+  {
+   "referenceNumber": 21,
+   "citation": {
+    "id": "25382614",
+    "citationType": "journal article",
+    "authors": [
+     "Yang L.",
+     "Yang J.",
+     "Zhang T.",
+     "Weng C.",
+     "Hong F.",
+     "Tong F.",
+     "Yang R.",
+     "Yin X.",
+     "Yu P.",
+     "Huang X.",
+     "Qi M."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "25382614"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1111/cge.12535"
+     }
+    ],
+    "title": "Identification of eight novel mutations and transcript analysis of two splicing mutations in Chinese newborns with MCC deficiency.",
+    "publicationDate": "2015",
+    "journal": "Clin. Genet.",
+    "firstPage": "484",
+    "lastPage": "488",
+    "volume": "88"
+   },
+   "referencePositions": [
+    "VARIANTS MCC2D ILE-139 AND ARG-319"
+   ]
+  },
+  {
+   "referenceNumber": 22,
+   "citation": {
+    "id": "27601257",
+    "citationType": "journal article",
+    "authors": [
+     "Fonseca H.",
+     "Azevedo L.",
+     "Serrano C.",
+     "Sousa C.",
+     "Marcao A.",
+     "Vilarinho L."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "27601257"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.gene.2016.09.003"
+     }
+    ],
+    "title": "3-Methylcrotonyl-CoA carboxylase deficiency: Mutational spectrum derived from comprehensive newborn screening.",
+    "publicationDate": "2016",
+    "journal": "Gene",
+    "firstPage": "203",
+    "lastPage": "210",
+    "volume": "594"
+   },
+   "referencePositions": [
+    "VARIANTS MCC2D VAL-68; ARG-105; TRP-155; ASP-163; ASN-200; ALA-214; TRP-216; THR-218; ASP-230; CYS-318; MET-339; VAL-387; PRO-393; ARG-410; ASP-410; THR-441; VAL-461; ARG-475 AND THR-524"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "AB050049",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAB16880.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AB050050",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAB41121.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AF310971",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAG53094.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AF301000",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAK16404.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AF261884",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAK49409.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AC138832",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "CH471084",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "EAW95693.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC014897",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH14897.1"
+    },
+    {
+     "key": "Status",
+     "value": "ALT_FRAME"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC065027",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH65027.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AL079298",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "CAB45194.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS34184.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q9HCC0-1"
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS93731.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q9HCC0-2"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001350076.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001363147.1"
+    }
+   ],
+   "isoformId": "Q9HCC0-2"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_071415.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_022132.5"
+    }
+   ],
+   "isoformId": "Q9HCC0-1"
+  },
+  {
+   "database": "PDB",
+   "id": "8J4Z",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "2.73 A"
+    },
+    {
+     "key": "Chains",
+     "value": "A/C/F/H/J/K=1-563"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "8J73",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "4.16 A"
+    },
+    {
+     "key": "Chains",
+     "value": "G/H/I/J/K/L/M/N/O/P/Q/R=1-563"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "8J78",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "3.88 A"
+    },
+    {
+     "key": "Chains",
+     "value": "A/D/F/H/J/L=1-563"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "8J7D",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "2.70 A"
+    },
+    {
+     "key": "Chains",
+     "value": "B/C/E/G/J/K=1-563"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "8J99",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "2.87 A"
+    },
+    {
+     "key": "Chains",
+     "value": "B/D/G/H/J/L=1-563"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "8JAK",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "2.52 A"
+    },
+    {
+     "key": "Chains",
+     "value": "B/D/E/H/J/L=1-563"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "8JAW",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "2.51 A"
+    },
+    {
+     "key": "Chains",
+     "value": "B/D/G/I/J/L=1-563"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "8JXL",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "2.98 A"
+    },
+    {
+     "key": "Chains",
+     "value": "A/B/D/G/I/K=1-563"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "8JXM",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "3.49 A"
+    },
+    {
+     "key": "Chains",
+     "value": "A/C/E/H/J/K=1-563"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "8JXN",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "3.20 A"
+    },
+    {
+     "key": "Chains",
+     "value": "A/B/D/G/I/K=1-563"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "8K2V",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "3.52 A"
+    },
+    {
+     "key": "Chains",
+     "value": "G/H/I/J/K/L=1-563"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "8XL6",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "2.29 A"
+    },
+    {
+     "key": "Chains",
+     "value": "B/D/F/H/J/L=1-563"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "8XL7",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "2.85 A"
+    },
+    {
+     "key": "Chains",
+     "value": "B/D/F/H/J/L=1-563"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "8XL8",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "EM"
+    },
+    {
+     "key": "Resolution",
+     "value": "2.36 A"
+    },
+    {
+     "key": "Chains",
+     "value": "B/D/F/H/J/L=1-563"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "8J4Z",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "8J73",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "8J78",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "8J7D",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "8J99",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "8JAK",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "8JAW",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "8JXL",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "8JXM",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "8JXN",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "8K2V",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "8XL6",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "8XL7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "8XL8",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-35980",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-36024",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-36034",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-36038",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-36092",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-36128",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-36136",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-36704",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-36705",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-36706",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-36840",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-38439",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-38440",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "EMDB",
+   "id": "EMD-38441",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "122050",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "183"
+    }
+   ]
+  },
+  {
+   "database": "ComplexPortal",
+   "id": "CPX-6236",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Methylcrotonyl-CoA carboxylase complex"
+    }
+   ]
+  },
+  {
+   "database": "CORUM",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "1419"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "81"
+    }
+   ]
+  },
+  {
+   "database": "MINT",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "NDEx",
+   "id": "IQUERY-CP-MCCC2",
+   "properties": [
+    {
+     "key": "Evidences",
+     "value": "1 NDEx IQuery Curated Pathway"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000343657",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BindingDB",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ChEMBL",
+   "id": "CHEMBL6067224",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB00121",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Biotin"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "1 site, 1 O-linked glycan (1 site)"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SwissPalm",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "MCCC2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "20138731",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "REPRODUCTION-2DPAGE",
+   "id": "IPI00784044",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CPTAC",
+   "id": "CPTAC-405",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CPTAC",
+   "id": "CPTAC-406",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000343657",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "81665",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q9HCC0-1"
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "81666",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "Q9HCC0-2"
+  },
+  {
+   "database": "Pumba",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "24162",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "274 antibodies from 30 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "64087",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000340941.11",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000343657.6"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000131844.18"
+    }
+   ],
+   "isoformId": "Q9HCC0-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000683789.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000507012.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000131844.18"
+    }
+   ],
+   "isoformId": "Q9HCC0-2"
+  },
+  {
+   "database": "GeneID",
+   "id": "64087",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:64087",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000340941.11",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000343657.6"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_022132.5"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_071415.1"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc003kbs.5",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ],
+   "isoformId": "Q9HCC0-1"
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:6937",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA30681",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "64087",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "64087",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "MCCC2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:6937",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "MCCC2"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000131844",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Tissue enhanced (liver)"
+    }
+   ]
+  },
+  {
+   "database": "MalaCards",
+   "id": "MCCC2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "210210",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "phenotype"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "609014",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000131844",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Orphanet",
+   "id": "6",
+   "properties": [
+    {
+     "key": "Disease",
+     "value": "3-methylcrotonyl-CoA carboxylase deficiency"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000131844",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "KOG0540",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00940000155949",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_018822_0_1_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "GATTHCE",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "439921at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "4 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioCyc",
+   "id": "MetaCyc:ENSG00000131844-MONOMER",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BRENDA",
+   "id": "6.4.1.4",
+   "properties": [
+    {
+     "key": "OrganismId",
+     "value": "2681"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-196780",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Biotin transport and metabolism"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-3371599",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Defective HLCS causes multiple carboxylase deficiency"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-70895",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Branched-chain amino acid catabolism"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-9909438",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "3-Methylcrotonyl-CoA carboxylase deficiency"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "UniPathway",
+   "id": "UPA00363",
+   "properties": [
+    {
+     "key": "RectionId",
+     "value": "UER00861"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000131844",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "64087",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "13 hits in 1170 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "CD-CODE",
+   "id": "DEE660B4",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Stress granule"
+    }
+   ]
+  },
+  {
+   "database": "CD-CODE",
+   "id": "FB4E32DD",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Presynaptic clusters and postsynaptic densities"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "MCCC2",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "64087",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tbio"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:Q9HCC0",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 5"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000131844",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in left ventricle myocardium and 181 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "Q9HCC0",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005829",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:cytosol"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:Reactome"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:1905202",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:methylcrotonoyl-CoA carboxylase complex"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:ParkinsonsUK-UCL"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "17360195"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005759",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrial matrix"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:ParkinsonsUK-UCL"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "16023992"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005739",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrion"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:ParkinsonsUK-UCL"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "11170888"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0004485",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:methylcrotonoyl-CoA carboxylase activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:UniProtKB-EC"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0009083",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:branched-chain amino acid catabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "NAS:ComplexPortal"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "17360195"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0015936",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:coenzyme A metabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0006552",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:L-leucine catabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:FlyBase"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "9544913"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.90.226.10:FF:000004",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Methylcrotonoyl-CoA carboxylase beta chain"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.90.226.10:FF:000007",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Methylcrotonoyl-CoA carboxylase subunit beta"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.90.226.10",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "2-enoyl-CoA Hydratase, Chain A, domain 1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "2"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR034733",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "AcCoA_carboxyl_beta"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR029045",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "ClpP/crotonase-like_dom_sf"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR011763",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "COA_CT_C"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR011762",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "COA_CT_N"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR045190",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "MCCB/AccD1-like"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR22855",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "ACETYL, PROPIONYL, PYRUVATE, AND GLUTACONYL CARBOXYLASE-RELATED"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR22855:SF13",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "METHYLCROTONOYL-COA CARBOXYLASE BETA CHAIN, MITOCHONDRIAL"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF01039",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Carboxyl_trans"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF52096",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "ClpP/crotonase"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "2"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS50989",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "COA_CT_CTER"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS50980",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "COA_CT_NTER"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MWAVLRLALRPCARASPAGPRAYHGDSVASLGTQPDLGSALYQENYKQMKALVNQLHERVEHIKLGGGEKARALHISRGKLLPRERIDNLIDPGSPFLELSQFAGYQLYDNEEVPGGGIITGIGRVSGVECMIIANDATVKGGAYYPVTVKKQLRAQEIAMQNRLPCIYLVDSGGAYLPRQADVFPDRDHFGRTFYNQAIMSSKNIAQIAVVMGSCTAGGAYVPAMADENIIVRKQGTIFLAGPPLVKAATGEEVSAEDLGGADLHCRKSGVSDHWALDDHHALHLTRKVVRNLNYQKKLDVTIEPSEEPLFPADELYGIVGANLKRSFDVREVIARIVDGSRFTEFKAFYGDTLVTGFARIFGYPVGIVGNNGVLFSESAKKGTHFVQLCCQRNIPLLFLQNITGFMVGREYEAEGIAKDGAKMVAAVACAQVPKITLIIGGSYGAGNYGMCGRAYSPRFLYIWPNARISVMGGEQAANVLATITKDQRAREGKQFSSADEAALKEPIIKKFEEEGNPYYSSARVWDDGIIDPADTRLVLGLSFSAALNAPIEKTDFGIFRM",
+  "length": 563,
+  "molWeight": 61333,
+  "crc64": "8E3D401AF52DC7D2",
+  "md5": "E1658D5269780CF79D8FECB29E533D57"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "CATALYTIC ACTIVITY": 1,
+   "BIOPHYSICOCHEMICAL PROPERTIES": 1,
+   "PATHWAY": 1,
+   "SUBUNIT": 1,
+   "INTERACTION": 2,
+   "SUBCELLULAR LOCATION": 1,
+   "ALTERNATIVE PRODUCTS": 2,
+   "DISEASE": 1,
+   "SIMILARITY": 1,
+   "SEQUENCE CAUTION": 1
+  },
+  "countByFeatureType": {
+   "Transit peptide": 1,
+   "Chain": 1,
+   "Domain": 2,
+   "Region": 2,
+   "Modified residue": 6,
+   "Alternative sequence": 1,
+   "Natural variant": 61,
+   "Helix": 31,
+   "Turn": 8,
+   "Beta strand": 22
+  },
+  "uniParcId": "UPI000012ED69"
+ }
+}

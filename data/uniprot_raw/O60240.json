@@ -1,0 +1,2331 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "O60240",
+ "secondaryAccessions": [
+  "Q8N5Y6"
+ ],
+ "uniProtkbId": "PLIN1_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "2000-05-30",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2009-05-05",
+  "entryVersion": 189,
+  "sequenceVersion": 2
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "value": "Perilipin-1"
+   }
+  },
+  "alternativeNames": [
+   {
+    "fullName": {
+     "value": "Lipid droplet-associated protein"
+    }
+   }
+  ]
+ },
+ "genes": [
+  {
+   "geneName": {
+    "value": "PLIN1"
+   },
+   "synonyms": [
+    {
+     "value": "PERI"
+    },
+    {
+     "value": "PLIN"
+    }
+   ]
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "23399566"
+      }
+     ],
+     "value": "Modulator of adipocyte lipid metabolism. Coats lipid storage droplets to protect them from breakdown by hormone-sensitive lipase (HSL). Its absence may result in leanness. Plays a role in unilocular lipid droplet formation by activating CIDEC. Their interaction promotes lipid droplet enlargement and directional net neutral lipid transfer. May modulate lipolysis and triglyceride levels"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250",
+       "source": "UniProtKB",
+       "id": "Q8CGN5"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "23399566"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "27832861"
+      }
+     ],
+     "value": "Interacts with ABHD5 (By similarity). Interacts with CIDEC (PubMed:23399566). Interacts with AQP7 (PubMed:27832861)"
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "O60240",
+      "intActId": "EBI-26906001"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "O14520",
+      "geneName": "AQP7",
+      "intActId": "EBI-20765950"
+     },
+     "numberOfExperiments": 4,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "note": {
+    "texts": [
+     {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "23399566"
+       }
+      ],
+      "value": "Lipid droplet surface-associated"
+     }
+    ]
+   },
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "23399566"
+       }
+      ],
+      "value": "Endoplasmic reticulum",
+      "id": "SL-0095"
+     }
+    },
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "23399566"
+       },
+       {
+        "evidenceCode": "ECO:0000305",
+        "source": "PubMed",
+        "id": "26357594"
+       }
+      ],
+      "value": "Lipid droplet",
+      "id": "SL-0154"
+     }
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "27832861"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "9521880"
+      }
+     ],
+     "value": "Detected in adipocytes from white adipose tissue (at protein level) (PubMed:27832861). Detected in visceral adipose tissue and mammary gland (PubMed:9521880)"
+    }
+   ],
+   "commentType": "TISSUE SPECIFICITY"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250"
+      }
+     ],
+     "value": "Major cAMP-dependent protein kinase-substrate in adipocytes, also dephosphorylated by PP1. When phosphorylated, may be maximally sensitive to HSL and when unphosphorylated, may play a role in the inhibition of lipolysis, by acting as a barrier in lipid droplet (By similarity)"
+    }
+   ],
+   "commentType": "PTM"
+  },
+  {
+   "commentType": "DISEASE",
+   "disease": {
+    "diseaseId": "Lipodystrophy, familial partial, 4",
+    "diseaseAccession": "DI-03072",
+    "acronym": "FPLD4",
+    "description": "An autosomal dominant form of lipodystrophy characterized by loss of subcutaneous adipose tissue primarily affecting the lower limbs, insulin-resistant diabetes mellitus, hypertriglyceridemia, and hypertension.",
+    "diseaseCrossReference": {
+     "database": "MIM",
+     "id": "613877"
+    },
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "21345103"
+     }
+    ]
+   },
+   "note": {
+    "texts": [
+     {
+      "value": "The disease is caused by variants affecting the gene represented in this entry"
+     }
+    ]
+   }
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the perilipin family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  },
+  {
+   "commentType": "WEB RESOURCE",
+   "resourceName": "Protein Spotlight",
+   "resourceUrl": "https://www.proteinspotlight.org/back_issues/010",
+   "ftp": false,
+   "note": "Fat, wonderful fat - Issue 10 of May 2001"
+  }
+ ],
+ "features": [
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 522,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Perilipin-1",
+   "featureId": "PRO_0000099884"
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 195,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 217,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Disordered",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 287,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 318,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Disordered",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 291,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 319,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Required for interaction with CIDEC",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250"
+    }
+   ]
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 413,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 522,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Disordered",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Compositional bias",
+   "location": {
+    "start": {
+     "value": 291,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 314,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Acidic residues",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Compositional bias",
+   "location": {
+    "start": {
+     "value": 414,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 435,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Basic and acidic residues",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 81,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 81,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "24275569"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 85,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 85,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphothreonine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q8CGN5"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 126,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 126,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q8CGN5"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 130,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 130,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "24275569"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 132,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 132,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q8CGN5"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 137,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 137,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q8CGN5"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 174,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 174,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "24275569"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 299,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 299,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphothreonine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P43884"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 301,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 301,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphothreonine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P43884"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 382,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 382,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "24275569"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 384,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 384,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P43884"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 408,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 408,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q8CGN5"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 436,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 436,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "24275569"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 497,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 497,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "24275569"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 499,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 499,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q8CGN5"
+    }
+   ]
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 194,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 194,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs6496589",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs6496589"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "15489334"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "9521880"
+    }
+   ],
+   "featureId": "VAR_055046",
+   "alternativeSequence": {
+    "originalSequence": "P",
+    "alternativeSequences": [
+     "A"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 210,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 210,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs17852910",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs17852910"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "15489334"
+    }
+   ],
+   "featureId": "VAR_055047",
+   "alternativeSequence": {
+    "originalSequence": "K",
+    "alternativeSequences": [
+     "E"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 271,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 271,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs58361219",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs58361219"
+    }
+   ],
+   "featureId": "VAR_061505",
+   "alternativeSequence": {
+    "originalSequence": "A",
+    "alternativeSequences": [
+     "V"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 348,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 348,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs8179071",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs8179071"
+    }
+   ],
+   "featureId": "VAR_055048",
+   "alternativeSequence": {
+    "originalSequence": "S",
+    "alternativeSequences": [
+     "L"
+    ]
+   }
+  },
+  {
+   "type": "Sequence conflict",
+   "location": {
+    "start": {
+     "value": 510,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 510,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in Ref. 1; BAA25420",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "L",
+    "alternativeSequences": [
+     "V"
+    ]
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0256",
+   "category": "Cellular component",
+   "name": "Endoplasmic reticulum"
+  },
+  {
+   "id": "KW-0551",
+   "category": "Cellular component",
+   "name": "Lipid droplet"
+  },
+  {
+   "id": "KW-0443",
+   "category": "Biological process",
+   "name": "Lipid metabolism"
+  },
+  {
+   "id": "KW-0597",
+   "category": "PTM",
+   "name": "Phosphoprotein"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "9521880",
+    "citationType": "journal article",
+    "authors": [
+     "Nishiu J.",
+     "Tanaka T.",
+     "Nakamura Y."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "9521880"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1006/geno.1997.5179"
+     }
+    ],
+    "title": "Isolation and chromosomal mapping of the human homolog of perilipin (PLIN), a rat adipose tissue-specific gene, by differential display method.",
+    "publicationDate": "1998",
+    "journal": "Genomics",
+    "firstPage": "254",
+    "lastPage": "257",
+    "volume": "48"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA]",
+    "TISSUE SPECIFICITY",
+    "VARIANT ALA-194"
+   ],
+   "referenceComments": [
+    {
+     "value": "Adipocyte",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "16572171",
+    "citationType": "journal article",
+    "authors": [
+     "Zody M.C.",
+     "Garber M.",
+     "Sharpe T.",
+     "Young S.K.",
+     "Rowen L.",
+     "O'Neill K.",
+     "Whittaker C.A.",
+     "Kamal M.",
+     "Chang J.L.",
+     "Cuomo C.A.",
+     "Dewar K.",
+     "FitzGerald M.G.",
+     "Kodira C.D.",
+     "Madan A.",
+     "Qin S.",
+     "Yang X.",
+     "Abbasi N.",
+     "Abouelleil A.",
+     "Arachchi H.M.",
+     "Baradarani L.",
+     "Birditt B.",
+     "Bloom S.",
+     "Bloom T.",
+     "Borowsky M.L.",
+     "Burke J.",
+     "Butler J.",
+     "Cook A.",
+     "DeArellano K.",
+     "DeCaprio D.",
+     "Dorris L. III",
+     "Dors M.",
+     "Eichler E.E.",
+     "Engels R.",
+     "Fahey J.",
+     "Fleetwood P.",
+     "Friedman C.",
+     "Gearin G.",
+     "Hall J.L.",
+     "Hensley G.",
+     "Johnson E.",
+     "Jones C.",
+     "Kamat A.",
+     "Kaur A.",
+     "Locke D.P.",
+     "Madan A.",
+     "Munson G.",
+     "Jaffe D.B.",
+     "Lui A.",
+     "Macdonald P.",
+     "Mauceli E.",
+     "Naylor J.W.",
+     "Nesbitt R.",
+     "Nicol R.",
+     "O'Leary S.B.",
+     "Ratcliffe A.",
+     "Rounsley S.",
+     "She X.",
+     "Sneddon K.M.B.",
+     "Stewart S.",
+     "Sougnez C.",
+     "Stone S.M.",
+     "Topham K.",
+     "Vincent D.",
+     "Wang S.",
+     "Zimmer A.R.",
+     "Birren B.W.",
+     "Hood L.",
+     "Lander E.S.",
+     "Nusbaum C."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "16572171"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/nature04601"
+     }
+    ],
+    "title": "Analysis of the DNA sequence and duplication history of human chromosome 15.",
+    "publicationDate": "2006",
+    "journal": "Nature",
+    "firstPage": "671",
+    "lastPage": "675",
+    "volume": "440"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]",
+    "VARIANTS ALA-194 AND GLU-210"
+   ],
+   "referenceComments": [
+    {
+     "value": "Brain",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "21345103",
+    "citationType": "journal article",
+    "authors": [
+     "Gandotra S.",
+     "Le Dour C.",
+     "Bottomley W.",
+     "Cervera P.",
+     "Giral P.",
+     "Reznik Y.",
+     "Charpentier G.",
+     "Auclair M.",
+     "Delepine M.",
+     "Barroso I.",
+     "Semple R.K.",
+     "Lathrop M.",
+     "Lascols O.",
+     "Capeau J.",
+     "O'Rahilly S.",
+     "Magre J.",
+     "Savage D.B.",
+     "Vigouroux C."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "21345103"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1056/nejmoa1007487"
+     }
+    ],
+    "title": "Perilipin deficiency and autosomal dominant partial lipodystrophy.",
+    "publicationDate": "2011",
+    "journal": "N. Engl. J. Med.",
+    "firstPage": "740",
+    "lastPage": "748",
+    "volume": "364"
+   },
+   "referencePositions": [
+    "INVOLVEMENT IN FPLD4"
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "23399566",
+    "citationType": "journal article",
+    "authors": [
+     "Grahn T.H.",
+     "Zhang Y.",
+     "Lee M.J.",
+     "Sommer A.G.",
+     "Mostoslavsky G.",
+     "Fried S.K.",
+     "Greenberg A.S.",
+     "Puri V."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "23399566"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.bbrc.2013.01.113"
+     }
+    ],
+    "title": "FSP27 and PLIN1 interaction promotes the formation of large lipid droplets in human adipocytes.",
+    "publicationDate": "2013",
+    "journal": "Biochem. Biophys. Res. Commun.",
+    "firstPage": "296",
+    "lastPage": "301",
+    "volume": "432"
+   },
+   "referencePositions": [
+    "FUNCTION IN UNILOCULAR LIPID DROPLET FORMATION AND LIPOLYSIS",
+    "INTERACTION WITH CIDEC",
+    "SUBCELLULAR LOCATION"
+   ]
+  },
+  {
+   "referenceNumber": 6,
+   "citation": {
+    "id": "24275569",
+    "citationType": "journal article",
+    "authors": [
+     "Bian Y.",
+     "Song C.",
+     "Cheng K.",
+     "Dong M.",
+     "Wang F.",
+     "Huang J.",
+     "Sun D.",
+     "Wang L.",
+     "Ye M.",
+     "Zou H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "24275569"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.jprot.2013.11.014"
+     }
+    ],
+    "title": "An enzyme assisted RP-RPLC approach for in-depth analysis of human liver phosphoproteome.",
+    "publicationDate": "2014",
+    "journal": "J. Proteomics",
+    "firstPage": "253",
+    "lastPage": "262",
+    "volume": "96"
+   },
+   "referencePositions": [
+    "PHOSPHORYLATION [LARGE SCALE ANALYSIS] AT SER-81; SER-130; SER-174; SER-382; SER-436 AND SER-497",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Liver",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 7,
+   "citation": {
+    "id": "26357594",
+    "citationType": "journal article",
+    "authors": [
+     "Chughtai A.A.",
+     "Kassak F.",
+     "Kostrouchova M.",
+     "Novotny J.P.",
+     "Krause M.W.",
+     "Saudek V.",
+     "Kostrouch Z.",
+     "Kostrouchova M."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "26357594"
+     },
+     {
+      "database": "DOI",
+      "id": "10.7717/peerj.1213"
+     }
+    ],
+    "title": "Perilipin-related protein regulates lipid metabolism in C. elegans.",
+    "publicationDate": "2015",
+    "journal": "PeerJ",
+    "firstPage": "E1213",
+    "lastPage": "E1213",
+    "volume": "3"
+   },
+   "referencePositions": [
+    "SUBCELLULAR LOCATION"
+   ]
+  },
+  {
+   "referenceNumber": 8,
+   "citation": {
+    "id": "27832861",
+    "citationType": "journal article",
+    "authors": [
+     "Hansen J.S.",
+     "Krintel C.",
+     "Hernebring M.",
+     "Haataja T.J.",
+     "de Mare S.",
+     "Wasserstrom S.",
+     "Kosinska-Eriksson U.",
+     "Palmgren M.",
+     "Holm C.",
+     "Stenkula K.G.",
+     "Jones H.A.",
+     "Lindkvist-Petersson K."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "27832861"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.metabol.2016.09.004"
+     }
+    ],
+    "title": "Perilipin 1 binds to aquaporin 7 in human adipocytes and controls its mobility via protein kinase A mediated phosphorylation.",
+    "publicationDate": "2016",
+    "journal": "Metabolism",
+    "firstPage": "1731",
+    "lastPage": "1742",
+    "volume": "65"
+   },
+   "referencePositions": [
+    "INTERACTION WITH AQP7",
+    "IDENTIFICATION BY MASS SPECTROMETRY",
+    "TISSUE SPECIFICITY"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "AB005293",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAA25420.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AC013787",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC031084",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH31084.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS10353.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001138783.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001145311.2"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_002657.3",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_002666.5"
+    }
+   ]
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "O60240",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "111361",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "13"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "O60240",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "223"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "O60240",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "NDEx",
+   "id": "IQUERY-CP-PLIN1",
+   "properties": [
+    {
+     "key": "Evidences",
+     "value": "4 NDEx IQuery Curated Pathways"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000300055",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BindingDB",
+   "id": "O60240",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ChEMBL",
+   "id": "CHEMBL1741164",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GlyCosmos",
+   "id": "O60240",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "1 site, 1 glycan"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "O60240",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "1 site, 1 O-linked glycan (1 site)"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "O60240",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "O60240",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "PLIN1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "O60240",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "O60240",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000300055",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "O60240",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "49270",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "15811",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "393 antibodies from 40 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "5346",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000300055.10",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000300055.5"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000166819.13"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000430628.2",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000402167.2"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000166819.13"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000896669.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000566728.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000166819.13"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000957093.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000627152.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000166819.13"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000957094.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000627153.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000166819.13"
+    }
+   ]
+  },
+  {
+   "database": "GeneID",
+   "id": "5346",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:5346",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000300055.10",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000300055.5"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_002666.5"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_002657.3"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc002boh.4",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:9076",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA33409",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "5346",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "5346",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "PLIN1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:9076",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "PLIN1"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000166819",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Group enriched (adipose tissue, breast)"
+    }
+   ]
+  },
+  {
+   "database": "MalaCards",
+   "id": "PLIN1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "170290",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "613877",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "phenotype"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000166819",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Orphanet",
+   "id": "280356",
+   "properties": [
+    {
+     "key": "Disease",
+     "value": "PLIN1-related familial partial lipodystrophy"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000166819",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "ENOG502RY3Q",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00950000182920",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_037212_1_0_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "O60240",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "LAMWSVE",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "376826at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "O60240",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "2 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "O60240",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "O60240",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-163560",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Triglyceride catabolism"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-381340",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Transcriptional regulation of white adipocyte differentiation"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-9031528",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "NR1H2 & NR1H3 regulate gene expression linked to triglyceride lipolysis in adipose"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-9841922",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "MLL4 and MLL3 complexes regulate expression of PPARG target genes in adipogenesis and hepatic steatosis"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "O60240",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SIGNOR",
+   "id": "O60240",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000166819",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "5346",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "14 hits in 1146 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "PLIN1",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "GeneWiki",
+   "id": "Perilipin",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "5346",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "O60240",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tbio"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:O60240",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 15"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "O60240",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000166819",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in subcutaneous adipose tissue and 116 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "O60240",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005829",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:cytosol"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005783",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:endoplasmic reticulum"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "EXP:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "23399566"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005811",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:lipid droplet"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "EXP:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "23399566"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0008289",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:lipid binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "NAS:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "9521880"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0140311",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:protein sequestering activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0030674",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:protein-macromolecule adaptor activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0016042",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:lipid catabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0006629",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:lipid metabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "NAS:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "9521880"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0010897",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:negative regulation of triglyceride catabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR004279",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Perilipin"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR042998",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PLIN1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR47138",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PERILIPIN-1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR47138:SF1",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PERILIPIN-1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF03036",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Perilipin"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PIRSF",
+   "id": "PIRSF036881",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PAT"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MAVNKGLTLLDGDLPEQENVLQRVLQLPVVSGTCECFQKTYTSTKEAHPLVASVCNAYEKGVQSASSLAAWSMEPVVRRLSTQFTAANELACRGLDHLEEKIPALQYPPEKIASELKDTISTRLRSARNSISVPIASTSDKVLGAALAGCELAWGVARDTAEFAANTRAGRLASGGADLALGSIEKVVEYLLPPDKEESAPAPGHQQAQKSPKAKPSLLSRVGALTNTLSRYTVQTMARALEQGHTVAMWIPGVVPLSSLAQWGASVAMQAVSRRRSEVRVPWLHSLAAAQEEDHEDQTDTEGEDTEEEEELETEENKFSEVAALPGPRGLLGGVAHTLQKTLQTTISAVTWAPAAVLGMAGRVLHLTPAPAVSSTKGRAMSLSDALKGVTDNVVDTVVHYVPLPRLSLMEPESEFRDIDNPPAEVERREAERRASGAPSAGPEPAPRLAQPRRSLRSAQSPGAPPGPGLEDEVATPAAPRPGFPAVPREKPKRRVSDSFFRPSVMEPILGRTHYSQLRKKS",
+  "length": 522,
+  "molWeight": 55990,
+  "crc64": "394FC14388EB5DCC",
+  "md5": "698EB44CA3EA7CF3851B6B6D5D14D39A"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "SUBUNIT": 1,
+   "INTERACTION": 1,
+   "SUBCELLULAR LOCATION": 1,
+   "TISSUE SPECIFICITY": 1,
+   "PTM": 1,
+   "DISEASE": 1,
+   "SIMILARITY": 1,
+   "WEB RESOURCE": 1
+  },
+  "countByFeatureType": {
+   "Chain": 1,
+   "Region": 4,
+   "Compositional bias": 2,
+   "Modified residue": 15,
+   "Natural variant": 4,
+   "Sequence conflict": 1
+  },
+  "uniParcId": "UPI000013E61C"
+ }
+}

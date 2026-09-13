@@ -1,0 +1,3746 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "P53007",
+ "secondaryAccessions": [
+  "A8K8E8",
+  "Q9BSK6"
+ ],
+ "uniProtkbId": "TXTP_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "1996-10-01",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2002-02-11",
+  "entryVersion": 220,
+  "sequenceVersion": 2
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "value": "Tricarboxylate transport protein, mitochondrial"
+   }
+  },
+  "alternativeNames": [
+   {
+    "fullName": {
+     "value": "Citrate transport protein"
+    },
+    "shortNames": [
+     {
+      "value": "CTP"
+     }
+    ]
+   },
+   {
+    "fullName": {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000303",
+       "source": "PubMed",
+       "id": "29238895"
+      }
+     ],
+     "value": "Mitochondrial citrate carrier"
+    },
+    "shortNames": [
+     {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000303",
+        "source": "PubMed",
+        "id": "29238895"
+       }
+      ],
+      "value": "CIC"
+     }
+    ]
+   },
+   {
+    "fullName": {
+     "value": "Solute carrier family 25 member 1"
+    }
+   },
+   {
+    "fullName": {
+     "value": "Tricarboxylate carrier protein"
+    }
+   }
+  ],
+  "flag": "Precursor"
+ },
+ "genes": [
+  {
+   "geneName": {
+    "value": "SLC25A1"
+   },
+   "synonyms": [
+    {
+     "value": "SLC20A3"
+    }
+   ]
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "26870663"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "29031613"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "29238895"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "38937634"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "39881208"
+      }
+     ],
+     "value": "Mitochondrial electroneutral antiporter that exports citrate from the mitochondria into the cytosol in exchange for malate (PubMed:26870663, PubMed:29031613, PubMed:29238895, PubMed:39881208, PubMed:38937634). Also able to mediate the exchange of citrate for isocitrate, phosphoenolpyruvate, cis-aconitate and to a lesser extent trans-aconitate, maleate and succinate (PubMed:29031613). Substrate exchange across the membrane occurs consecutively with one substrate being transported first, then dissociating from the substrate binding site before the second substrate binds for transport in the opposite direction (PubMed:38937634). In the cytoplasm, citrate plays important roles in fatty acid and sterol synthesis, regulation of glycolysis, protein acetylation, and other physiopathological processes (PubMed:29031613, PubMed:29238895, PubMed:39881208)"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "(S)-malate(in) + citrate(out) = (S)-malate(out) + citrate(in)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:72483"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15589"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:16947"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "29031613"
+     },
+     {
+      "evidenceCode": "ECO:0000305",
+      "source": "PubMed",
+      "id": "29238895"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "D-threo-isocitrate(in) + citrate(out) = D-threo-isocitrate(out) + citrate(in)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:72471"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15562"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:16947"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "29031613"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "citrate(out) + succinate(in) = citrate(in) + succinate(out)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:28835"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:16947"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:30031"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "29031613"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "cis-aconitate(in) + citrate(out) = cis-aconitate(out) + citrate(in)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:72475"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:16383"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:16947"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "29031613"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "trans-aconitate(in) + citrate(out) = trans-aconitate(out) + citrate(in)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:72479"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15708"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:16947"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "29031613"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "phosphoenolpyruvate(in) + citrate(out) = phosphoenolpyruvate(out) + citrate(in)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:72487"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:16947"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:58702"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "29031613"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "maleate(in) + citrate(out) = maleate(out) + citrate(in)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:72491"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:16947"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:30780"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "29031613"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "BIOPHYSICOCHEMICAL PROPERTIES",
+   "kineticParameters": {
+    "michaelisConstants": [
+     {
+      "constant": 7.5,
+      "unit": "uM",
+      "substrate": "citrate",
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "29031613"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "38937634"
+      }
+     ],
+     "value": "Monomer"
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000250",
+        "source": "UniProtKB",
+        "id": "Q8JZU2"
+       }
+      ],
+      "value": "Mitochondrion inner membrane",
+      "id": "SL-0168"
+     },
+     "topology": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000255"
+       }
+      ],
+      "value": "Multi-pass membrane protein",
+      "id": "SL-9909"
+     }
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250",
+       "source": "UniProtKB",
+       "id": "P32089"
+      }
+     ],
+     "value": "Possesses a short cleavable presequence, which, however, is found to be dispensable both for targeting to mitochondria and insertion into the inner membrane. However, the presequence is required to keep SLC25A1 in a soluble state and thus in an import-competent state. Mature SLC25A1 lacking the presequence is prone to aggregation"
+    }
+   ],
+   "commentType": "PTM"
+  },
+  {
+   "commentType": "DISEASE",
+   "disease": {
+    "diseaseId": "Combined D-2- and L-2-hydroxyglutaric aciduria",
+    "diseaseAccession": "DI-03710",
+    "acronym": "D2L2AD",
+    "description": "An autosomal recessive neurometabolic disorder characterized by neonatal-onset encephalopathy with severe muscular weakness, intractable seizures, respiratory distress, and lack of psychomotor development resulting in early death. Brain imaging shows abnormalities including enlarged ventricles, delayed myelination, and germinal layer cysts.",
+    "diseaseCrossReference": {
+     "database": "MIM",
+     "id": "615182"
+    },
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "23393310"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "23561848"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "25614306"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "27306203"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "29031613"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "29226520"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "29238895"
+     }
+    ]
+   },
+   "note": {
+    "texts": [
+     {
+      "value": "The disease is caused by variants affecting the gene represented in this entry"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "DISEASE",
+   "disease": {
+    "diseaseId": "Myasthenic syndrome, congenital, 23, presynaptic",
+    "diseaseAccession": "DI-05393",
+    "acronym": "CMS23",
+    "description": "A form of congenital myasthenic syndrome, a group of disorders characterized by failure of neuromuscular transmission, including pre-synaptic, synaptic, and post-synaptic disorders that are not of autoimmune origin. Clinical features include easy fatigability and muscle weakness. CMS23 inheritance is autosomal recessive.",
+    "diseaseCrossReference": {
+     "database": "MIM",
+     "id": "618197"
+    },
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "26870663"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "29031613"
+     }
+    ]
+   },
+   "note": {
+    "texts": [
+     {
+      "value": "The disease is caused by variants affecting the gene represented in this entry"
+     }
+    ]
+   }
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the mitochondrial carrier (TC 2.A.29) family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  }
+ ],
+ "features": [
+  {
+   "type": "Propeptide",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 13,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Removed in mature form",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P32089"
+    }
+   ],
+   "featureId": "PRO_0000456575"
+  },
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 14,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 311,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Tricarboxylate transport protein, mitochondrial",
+   "featureId": "PRO_0000019262"
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 29,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 46,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical; Name=1",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 86,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 105,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical; Name=2",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 129,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 143,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical; Name=3",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 183,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 202,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical; Name=4",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 224,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 241,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical; Name=5",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 278,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 297,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical; Name=6",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Repeat",
+   "location": {
+    "start": {
+     "value": 23,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 111,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Solcar 1",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255",
+     "source": "PROSITE-ProRule",
+     "id": "PRU00282"
+    }
+   ]
+  },
+  {
+   "type": "Repeat",
+   "location": {
+    "start": {
+     "value": 122,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 208,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Solcar 2",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255",
+     "source": "PROSITE-ProRule",
+     "id": "PRU00282"
+    }
+   ]
+  },
+  {
+   "type": "Repeat",
+   "location": {
+    "start": {
+     "value": 218,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 303,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Solcar 3",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255",
+     "source": "PROSITE-ProRule",
+     "id": "PRU00282"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 156,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 156,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "23186163"
+    }
+   ]
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 28,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 28,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in D2L2AD; uncertain significance; very mild decrease of citrate transport rates",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "29238895"
+    }
+   ],
+   "featureId": "VAR_081661",
+   "alternativeSequence": {
+    "originalSequence": "A",
+    "alternativeSequences": [
+     "T"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 40,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 40,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in D2L2AD; reduced rates of citrate transport",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "29238895"
+    }
+   ],
+   "featureId": "VAR_081662",
+   "alternativeSequence": {
+    "originalSequence": "I",
+    "alternativeSequences": [
+     "N"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 45,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 45,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in D2L2AD; severely reduced rates of citrate transport",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "23561848"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "25614306"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "29031613"
+    }
+   ],
+   "featureId": "VAR_069490",
+   "alternativeSequence": {
+    "originalSequence": "P",
+    "alternativeSequences": [
+     "L"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 47,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 47,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in D2L2AD; severely reduced rates of citrate transport; dbSNP:rs1555923307",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs1555923307"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "29238895"
+    }
+   ],
+   "featureId": "VAR_081663",
+   "alternativeSequence": {
+    "originalSequence": "E",
+    "alternativeSequences": [
+     "K"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 93,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 93,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in D2L2AD; severely reduced rates of citrate transport",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "29238895"
+    }
+   ],
+   "featureId": "VAR_081664",
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "D"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 130,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 130,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in D2L2AD; severely reduced rates of citrate transport; dbSNP:rs368647424",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs368647424"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "23393310"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "29031613"
+    }
+   ],
+   "featureId": "VAR_081665",
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "D"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 144,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 144,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in D2L2AD; abolishes citrate transport",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "23561848"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "29031613"
+    }
+   ],
+   "featureId": "VAR_069491",
+   "alternativeSequence": {
+    "originalSequence": "E",
+    "alternativeSequences": [
+     "Q"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 167,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 167,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in D2L2AD; dbSNP:rs2146144018",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs2146144018"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "23561848"
+    }
+   ],
+   "featureId": "VAR_069492",
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 193,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 193,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in D2L2AD; reduced rates of citrate transport; dbSNP:rs781925968",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs781925968"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "23561848"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "29031613"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "29238895"
+    }
+   ],
+   "featureId": "VAR_069493",
+   "alternativeSequence": {
+    "originalSequence": "S",
+    "alternativeSequences": [
+     "W"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 198,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 198,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in D2L2AD; severely reduced rates of citrate transport; dbSNP:rs1331417017",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs1331417017"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27306203"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "29031613"
+    }
+   ],
+   "featureId": "VAR_077511",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "H"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 202,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 202,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in D2L2AD; reduced rates of citrate transport; dbSNP:rs782335811",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs782335811"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "23561848"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "29031613"
+    }
+   ],
+   "featureId": "VAR_069494",
+   "alternativeSequence": {
+    "originalSequence": "M",
+    "alternativeSequences": [
+     "T"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 238,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 238,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in D2L2AD; disease phenotype may include decreased activity of mitochondrial respiratory chain complex V",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "29226520"
+    }
+   ],
+   "featureId": "VAR_081666",
+   "alternativeSequence": {
+    "originalSequence": "N",
+    "alternativeSequences": [
+     "S"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 247,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 247,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in CMS23; reduced rates of citrate transport; dbSNP:rs781908532",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs781908532"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "26870663"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "29031613"
+    }
+   ],
+   "featureId": "VAR_081667",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "Q"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 256,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 311,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in D2L2AD; no protein detected by Western blot in patient fibroblasts; severely reduced rates of citrate transport",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "23561848"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "29238895"
+    }
+   ],
+   "featureId": "VAR_081668",
+   "alternativeSequence": {}
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 262,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 262,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in D2L2AD; reduced rates of citrate transport; dbSNP:rs2083960955",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs2083960955"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "29238895"
+    }
+   ],
+   "featureId": "VAR_081669",
+   "alternativeSequence": {
+    "originalSequence": "C",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 282,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 282,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in D2L2AD; abolishes citrate transport; dbSNP:rs431905509",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs431905509"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "23561848"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "29031613"
+    }
+   ],
+   "featureId": "VAR_069495",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "C"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 282,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 282,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in D2L2AD; abolishes citrate transport; dbSNP:rs431905509",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs431905509"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "23561848"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "29031613"
+    }
+   ],
+   "featureId": "VAR_069496",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "G"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 282,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 282,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in D2L2AD; abolishes citrate transport; dbSNP:rs431905510",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs431905510"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "23393310"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "29031613"
+    }
+   ],
+   "featureId": "VAR_081670",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "H"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 297,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 297,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in D2L2AD; reduced rates of citrate transport",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "23561848"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "29031613"
+    }
+   ],
+   "featureId": "VAR_069497",
+   "alternativeSequence": {
+    "originalSequence": "Y",
+    "alternativeSequences": [
+     "C"
+    ]
+   }
+  },
+  {
+   "type": "Sequence conflict",
+   "location": {
+    "start": {
+     "value": 26,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 26,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in Ref. 1; AAB08515",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "E"
+    ]
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0050",
+   "category": "Biological process",
+   "name": "Antiport"
+  },
+  {
+   "id": "KW-1004",
+   "category": "Disease",
+   "name": "Congenital myasthenic syndrome"
+  },
+  {
+   "id": "KW-0225",
+   "category": "Disease",
+   "name": "Disease variant"
+  },
+  {
+   "id": "KW-0472",
+   "category": "Cellular component",
+   "name": "Membrane"
+  },
+  {
+   "id": "KW-0496",
+   "category": "Cellular component",
+   "name": "Mitochondrion"
+  },
+  {
+   "id": "KW-0999",
+   "category": "Cellular component",
+   "name": "Mitochondrion inner membrane"
+  },
+  {
+   "id": "KW-0597",
+   "category": "PTM",
+   "name": "Phosphoprotein"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  },
+  {
+   "id": "KW-0677",
+   "category": "Domain",
+   "name": "Repeat"
+  },
+  {
+   "id": "KW-0812",
+   "category": "Domain",
+   "name": "Transmembrane"
+  },
+  {
+   "id": "KW-1133",
+   "category": "Domain",
+   "name": "Transmembrane helix"
+  },
+  {
+   "id": "KW-0813",
+   "category": "Biological process",
+   "name": "Transport"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "8666394",
+    "citationType": "journal article",
+    "authors": [
+     "Heisterkamp N.",
+     "Mulder M.P.",
+     "Langeveld A.",
+     "ten Hoeve J.",
+     "Wang Z.",
+     "Roe B.",
+     "Groffen J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "8666394"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1006/geno.1995.9982"
+     }
+    ],
+    "title": "Localization of the human mitochondrial citrate transporter protein gene to chromosome 22q11 in the DiGeorge syndrome critical region.",
+    "publicationDate": "1995",
+    "journal": "Genomics",
+    "firstPage": "451",
+    "lastPage": "456",
+    "volume": "29"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA]"
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "8660975",
+    "citationType": "journal article",
+    "authors": [
+     "Goldmuntz E.",
+     "Wang Z.",
+     "Roe B.A.",
+     "Budarf M.L."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "8660975"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1006/geno.1996.0191"
+     }
+    ],
+    "title": "Cloning, genomic organization, and chromosomal localization of human citrate transport protein to the DiGeorge/velocardiofacial syndrome minimal critical region.",
+    "publicationDate": "1996",
+    "journal": "Genomics",
+    "firstPage": "271",
+    "lastPage": "276",
+    "volume": "33"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [GENOMIC DNA / MRNA]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Brain",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "14702039",
+    "citationType": "journal article",
+    "authors": [
+     "Ota T.",
+     "Suzuki Y.",
+     "Nishikawa T.",
+     "Otsuki T.",
+     "Sugiyama T.",
+     "Irie R.",
+     "Wakamatsu A.",
+     "Hayashi K.",
+     "Sato H.",
+     "Nagai K.",
+     "Kimura K.",
+     "Makita H.",
+     "Sekine M.",
+     "Obayashi M.",
+     "Nishi T.",
+     "Shibahara T.",
+     "Tanaka T.",
+     "Ishii S.",
+     "Yamamoto J.",
+     "Saito K.",
+     "Kawai Y.",
+     "Isono Y.",
+     "Nakamura Y.",
+     "Nagahari K.",
+     "Murakami K.",
+     "Yasuda T.",
+     "Iwayanagi T.",
+     "Wagatsuma M.",
+     "Shiratori A.",
+     "Sudo H.",
+     "Hosoiri T.",
+     "Kaku Y.",
+     "Kodaira H.",
+     "Kondo H.",
+     "Sugawara M.",
+     "Takahashi M.",
+     "Kanda K.",
+     "Yokoi T.",
+     "Furuya T.",
+     "Kikkawa E.",
+     "Omura Y.",
+     "Abe K.",
+     "Kamihara K.",
+     "Katsuta N.",
+     "Sato K.",
+     "Tanikawa M.",
+     "Yamazaki M.",
+     "Ninomiya K.",
+     "Ishibashi T.",
+     "Yamashita H.",
+     "Murakawa K.",
+     "Fujimori K.",
+     "Tanai H.",
+     "Kimata M.",
+     "Watanabe M.",
+     "Hiraoka S.",
+     "Chiba Y.",
+     "Ishida S.",
+     "Ono Y.",
+     "Takiguchi S.",
+     "Watanabe S.",
+     "Yosida M.",
+     "Hotuta T.",
+     "Kusano J.",
+     "Kanehori K.",
+     "Takahashi-Fujii A.",
+     "Hara H.",
+     "Tanase T.-O.",
+     "Nomura Y.",
+     "Togiya S.",
+     "Komai F.",
+     "Hara R.",
+     "Takeuchi K.",
+     "Arita M.",
+     "Imose N.",
+     "Musashino K.",
+     "Yuuki H.",
+     "Oshima A.",
+     "Sasaki N.",
+     "Aotsuka S.",
+     "Yoshikawa Y.",
+     "Matsunawa H.",
+     "Ichihara T.",
+     "Shiohata N.",
+     "Sano S.",
+     "Moriya S.",
+     "Momiyama H.",
+     "Satoh N.",
+     "Takami S.",
+     "Terashima Y.",
+     "Suzuki O.",
+     "Nakagawa S.",
+     "Senoh A.",
+     "Mizoguchi H.",
+     "Goto Y.",
+     "Shimizu F.",
+     "Wakebe H.",
+     "Hishigaki H.",
+     "Watanabe T.",
+     "Sugiyama A.",
+     "Takemoto M.",
+     "Kawakami B.",
+     "Yamazaki M.",
+     "Watanabe K.",
+     "Kumagai A.",
+     "Itakura S.",
+     "Fukuzumi Y.",
+     "Fujimori Y.",
+     "Komiyama M.",
+     "Tashiro H.",
+     "Tanigami A.",
+     "Fujiwara T.",
+     "Ono T.",
+     "Yamada K.",
+     "Fujii Y.",
+     "Ozaki K.",
+     "Hirao M.",
+     "Ohmori Y.",
+     "Kawabata A.",
+     "Hikiji T.",
+     "Kobatake N.",
+     "Inagaki H.",
+     "Ikema Y.",
+     "Okamoto S.",
+     "Okitani R.",
+     "Kawakami T.",
+     "Noguchi S.",
+     "Itoh T.",
+     "Shigeta K.",
+     "Senba T.",
+     "Matsumura K.",
+     "Nakajima Y.",
+     "Mizuno T.",
+     "Morinaga M.",
+     "Sasaki M.",
+     "Togashi T.",
+     "Oyama M.",
+     "Hata H.",
+     "Watanabe M.",
+     "Komatsu T.",
+     "Mizushima-Sugano J.",
+     "Satoh T.",
+     "Shirai Y.",
+     "Takahashi Y.",
+     "Nakagawa K.",
+     "Okumura K.",
+     "Nagase T.",
+     "Nomura N.",
+     "Kikuchi H.",
+     "Masuho Y.",
+     "Yamashita R.",
+     "Nakai K.",
+     "Yada T.",
+     "Nakamura Y.",
+     "Ohara O.",
+     "Isogai T.",
+     "Sugano S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "14702039"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/ng1285"
+     }
+    ],
+    "title": "Complete sequencing and characterization of 21,243 full-length human cDNAs.",
+    "publicationDate": "2004",
+    "journal": "Nat. Genet.",
+    "firstPage": "40",
+    "lastPage": "45",
+    "volume": "36"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Testis",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Kidney",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "19608861",
+    "citationType": "journal article",
+    "authors": [
+     "Choudhary C.",
+     "Kumar C.",
+     "Gnad F.",
+     "Nielsen M.L.",
+     "Rehman M.",
+     "Walther T.C.",
+     "Olsen J.V.",
+     "Mann M."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "19608861"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1126/science.1175371"
+     }
+    ],
+    "title": "Lysine acetylation targets protein complexes and co-regulates major cellular functions.",
+    "publicationDate": "2009",
+    "journal": "Science",
+    "firstPage": "834",
+    "lastPage": "840",
+    "volume": "325"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 6,
+   "citation": {
+    "id": "21269460",
+    "citationType": "journal article",
+    "authors": [
+     "Burkard T.R.",
+     "Planyavsky M.",
+     "Kaupe I.",
+     "Breitwieser F.P.",
+     "Buerckstuemmer T.",
+     "Bennett K.L.",
+     "Superti-Furga G.",
+     "Colinge J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "21269460"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1186/1752-0509-5-17"
+     }
+    ],
+    "title": "Initial characterization of the human central proteome.",
+    "publicationDate": "2011",
+    "journal": "BMC Syst. Biol.",
+    "firstPage": "17",
+    "lastPage": "17",
+    "volume": "5"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 7,
+   "citation": {
+    "id": "23186163",
+    "citationType": "journal article",
+    "authors": [
+     "Zhou H.",
+     "Di Palma S.",
+     "Preisinger C.",
+     "Peng M.",
+     "Polat A.N.",
+     "Heck A.J.",
+     "Mohammed S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "23186163"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1021/pr300630k"
+     }
+    ],
+    "title": "Toward a comprehensive characterization of a human cancer cell phosphoproteome.",
+    "publicationDate": "2013",
+    "journal": "J. Proteome Res.",
+    "firstPage": "260",
+    "lastPage": "271",
+    "volume": "12"
+   },
+   "referencePositions": [
+    "PHOSPHORYLATION [LARGE SCALE ANALYSIS] AT SER-156",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Erythroleukemia",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 8,
+   "citation": {
+    "id": "26870663",
+    "citationType": "journal article",
+    "authors": [
+     "Chaouch A.",
+     "Porcelli V.",
+     "Cox D.",
+     "Edvardson S.",
+     "Scarcia P.",
+     "De Grassi A.",
+     "Pierri C.L.",
+     "Cossins J.",
+     "Laval S.H.",
+     "Griffin H.",
+     "Mueller J.S.",
+     "Evangelista T.",
+     "Toepf A.",
+     "Abicht A.",
+     "Huebner A.",
+     "von der Hagen M.",
+     "Bushby K.",
+     "Straub V.",
+     "Horvath R.",
+     "Elpeleg O.",
+     "Palace J.",
+     "Senderek J.",
+     "Beeson D.",
+     "Palmieri L.",
+     "Lochmueller H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "26870663"
+     },
+     {
+      "database": "DOI",
+      "id": "10.3233/jnd-140021"
+     }
+    ],
+    "title": "Mutations in the mitochondrial citrate carrier SLC25A1 are associated with impaired neuromuscular transmission.",
+    "publicationDate": "2014",
+    "journal": "J. Neuromuscul. Dis.",
+    "firstPage": "75",
+    "lastPage": "90",
+    "volume": "1"
+   },
+   "referencePositions": [
+    "FUNCTION",
+    "INVOLVEMENT IN CMS23",
+    "VARIANT CMS23 GLN-247"
+   ]
+  },
+  {
+   "referenceNumber": 9,
+   "citation": {
+    "id": "24275569",
+    "citationType": "journal article",
+    "authors": [
+     "Bian Y.",
+     "Song C.",
+     "Cheng K.",
+     "Dong M.",
+     "Wang F.",
+     "Huang J.",
+     "Sun D.",
+     "Wang L.",
+     "Ye M.",
+     "Zou H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "24275569"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.jprot.2013.11.014"
+     }
+    ],
+    "title": "An enzyme assisted RP-RPLC approach for in-depth analysis of human liver phosphoproteome.",
+    "publicationDate": "2014",
+    "journal": "J. Proteomics",
+    "firstPage": "253",
+    "lastPage": "262",
+    "volume": "96"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Liver",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 10,
+   "citation": {
+    "id": "25944712",
+    "citationType": "journal article",
+    "authors": [
+     "Vaca Jacome A.S.",
+     "Rabilloud T.",
+     "Schaeffer-Reiss C.",
+     "Rompais M.",
+     "Ayoub D.",
+     "Lane L.",
+     "Bairoch A.",
+     "Van Dorsselaer A.",
+     "Carapito C."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "25944712"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1002/pmic.201400617"
+     }
+    ],
+    "title": "N-terminome analysis of the human mitochondrial proteome.",
+    "publicationDate": "2015",
+    "journal": "Proteomics",
+    "firstPage": "2519",
+    "lastPage": "2524",
+    "volume": "15"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 11,
+   "citation": {
+    "id": "29031613",
+    "citationType": "journal article",
+    "authors": [
+     "Majd H.",
+     "King M.S.",
+     "Smith A.C.",
+     "Kunji E.R.S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "29031613"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.bbabio.2017.10.002"
+     }
+    ],
+    "title": "Pathogenic mutations of the human mitochondrial citrate carrier SLC25A1 lead to impaired citrate export required for lipid, dolichol, ubiquinone and sterol synthesis.",
+    "publicationDate": "2018",
+    "journal": "Biochim. Biophys. Acta",
+    "firstPage": "1",
+    "lastPage": "7",
+    "volume": "1859"
+   },
+   "referencePositions": [
+    "FUNCTION",
+    "TRANSPORTER ACTIVITY",
+    "BIOPHYSICOCHEMICAL PROPERTIES",
+    "CHARACTERIZATION OF VARIANTS D2L2AD LEU-45; ASP-130; GLN-144; TRP-193; HIS-198; THR-202; CYS-282; GLY-282; HIS-282 AND CYS-297",
+    "CHARACTERIZATION OF VARIANT CMS23 GLN-247"
+   ]
+  },
+  {
+   "referenceNumber": 12,
+   "citation": {
+    "id": "29238895",
+    "citationType": "journal article",
+    "authors": [
+     "Pop A.",
+     "Williams M.",
+     "Struys E.A.",
+     "Monne M.",
+     "Jansen E.E.W.",
+     "De Grassi A.",
+     "Kanhai W.A.",
+     "Scarcia P.",
+     "Ojeda M.R.F.",
+     "Porcelli V.",
+     "van Dooren S.J.M.",
+     "Lennertz P.",
+     "Nota B.",
+     "Abdenur J.E.",
+     "Coman D.",
+     "Das A.M.",
+     "El-Gharbawy A.",
+     "Nuoffer J.M.",
+     "Polic B.",
+     "Santer R.",
+     "Weinhold N.",
+     "Zuccarelli B.",
+     "Palmieri F.",
+     "Palmieri L.",
+     "Salomons G.S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "29238895"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1007/s10545-017-0106-7"
+     }
+    ],
+    "title": "An overview of combined D-2- and L-2-hydroxyglutaric aciduria: functional analysis of CIC variants.",
+    "publicationDate": "2018",
+    "journal": "J. Inherit. Metab. Dis.",
+    "firstPage": "169",
+    "lastPage": "180",
+    "volume": "41"
+   },
+   "referencePositions": [
+    "FUNCTION",
+    "TRANSPORTER ACTIVITY",
+    "VARIANTS D2L2AD THR-28; ASN-40; LYS-47; ASP-93; TRP-193 AND ARG-262",
+    "CHARACTERIZATION OF VARIANTS D2L2AD THR-28; ASN-40; LYS-47; ASP-93; TRP-193; 256-TYR--ASP-311 DEL AND ARG-262"
+   ]
+  },
+  {
+   "referenceNumber": 13,
+   "citation": {
+    "id": "38937634",
+    "citationType": "journal article",
+    "authors": [
+     "Cimadamore-Werthein C.",
+     "King M.S.",
+     "Lacabanne D.",
+     "Pyrihova E.",
+     "Jaiquel Baron S.",
+     "Kunji E.R."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "38937634"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/s44318-024-00150-0"
+     }
+    ],
+    "title": "Human mitochondrial carriers of the SLC25 family function as monomers exchanging substrates with a ping-pong kinetic mechanism.",
+    "publicationDate": "2024",
+    "journal": "EMBO J.",
+    "firstPage": "3450",
+    "lastPage": "3465",
+    "volume": "43"
+   },
+   "referencePositions": [
+    "FUNCTION",
+    "SUBUNIT"
+   ]
+  },
+  {
+   "referenceNumber": 14,
+   "citation": {
+    "id": "39881208",
+    "citationType": "journal article",
+    "authors": [
+     "Li W.",
+     "Han J.",
+     "Huang B.",
+     "Xu T.",
+     "Wan Y.",
+     "Luo D.",
+     "Kong W.",
+     "Yu Y.",
+     "Zhang L.",
+     "Nian Y.",
+     "Chu B.",
+     "Yin C."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "39881208"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/s44318-025-00369-5"
+     }
+    ],
+    "title": "SLC25A1 and ACLY maintain cytosolic acetyl-CoA and regulate ferroptosis susceptibility via FSP1 acetylation.",
+    "publicationDate": "2025",
+    "journal": "EMBO J.",
+    "firstPage": "0",
+    "lastPage": "0",
+    "volume": "0"
+   },
+   "referencePositions": [
+    "FUNCTION"
+   ]
+  },
+  {
+   "referenceNumber": 15,
+   "citation": {
+    "id": "23561848",
+    "citationType": "journal article",
+    "authors": [
+     "Nota B.",
+     "Struys E.A.",
+     "Pop A.",
+     "Jansen E.E.",
+     "Fernandez Ojeda M.R.",
+     "Kanhai W.A.",
+     "Kranendijk M.",
+     "van Dooren S.J.",
+     "Bevova M.R.",
+     "Sistermans E.A.",
+     "Nieuwint A.W.",
+     "Barth M.",
+     "Ben-Omran T.",
+     "Hoffmann G.F.",
+     "de Lonlay P.",
+     "McDonald M.T.",
+     "Meberg A.",
+     "Muntau A.C.",
+     "Nuoffer J.M.",
+     "Parini R.",
+     "Read M.H.",
+     "Renneberg A.",
+     "Santer R.",
+     "Strahleck T.",
+     "van Schaftingen E.",
+     "van der Knaap M.S.",
+     "Jakobs C.",
+     "Salomons G.S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "23561848"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.ajhg.2013.03.009"
+     }
+    ],
+    "title": "Deficiency in SLC25A1, encoding the mitochondrial citrate carrier, causes combined D-2- and L-2-hydroxyglutaric aciduria.",
+    "publicationDate": "2013",
+    "journal": "Am. J. Hum. Genet.",
+    "firstPage": "627",
+    "lastPage": "631",
+    "volume": "92"
+   },
+   "referencePositions": [
+    "VARIANTS D2L2AD LEU-45; GLN-144; ARG-167; TRP-193; THR-202; 256-TYR--ASP-311 DEL; CYS-282; GLY-282 AND CYS-297",
+    "CHARACTERIZATION OF VARIANT D2L2AD 256-TYR--ASP-311 DEL"
+   ]
+  },
+  {
+   "referenceNumber": 16,
+   "citation": {
+    "id": "23393310",
+    "citationType": "journal article",
+    "authors": [
+     "Edvardson S.",
+     "Porcelli V.",
+     "Jalas C.",
+     "Soiferman D.",
+     "Kellner Y.",
+     "Shaag A.",
+     "Korman S.H.",
+     "Pierri C.L.",
+     "Scarcia P.",
+     "Fraenkel N.D.",
+     "Segel R.",
+     "Schechter A.",
+     "Frumkin A.",
+     "Pines O.",
+     "Saada A.",
+     "Palmieri L.",
+     "Elpeleg O."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "23393310"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1136/jmedgenet-2012-101485"
+     }
+    ],
+    "title": "Agenesis of corpus callosum and optic nerve hypoplasia due to mutations in SLC25A1 encoding the mitochondrial citrate transporter.",
+    "publicationDate": "2013",
+    "journal": "J. Med. Genet.",
+    "firstPage": "240",
+    "lastPage": "245",
+    "volume": "50"
+   },
+   "referencePositions": [
+    "VARIANTS D2L2AD ASP-130 AND HIS-282"
+   ]
+  },
+  {
+   "referenceNumber": 17,
+   "citation": {
+    "id": "25614306",
+    "citationType": "journal article",
+    "authors": [
+     "Prasun P.",
+     "Young S.",
+     "Salomons G.",
+     "Werneke A.",
+     "Jiang Y.H.",
+     "Struys E.",
+     "Paige M.",
+     "Avantaggiati M.L.",
+     "McDonald M."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "25614306"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1007/8904_2014_378"
+     }
+    ],
+    "title": "Expanding the clinical spectrum of mitochondrial citrate carrier (SLC25A1) deficiency: Facial dysmorphism in siblings with epileptic encephalopathy and combined D,L-2-hydroxyglutaric aciduria.",
+    "publicationDate": "2015",
+    "journal": "JIMD Rep.",
+    "firstPage": "111",
+    "lastPage": "115",
+    "volume": "19"
+   },
+   "referencePositions": [
+    "VARIANT D2L2AD LEU-45"
+   ]
+  },
+  {
+   "referenceNumber": 18,
+   "citation": {
+    "id": "27306203",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "FORGE Canada Consortium"
+    ],
+    "authors": [
+     "Smith A.",
+     "McBride S.",
+     "Marcadier J.L.",
+     "Michaud J.",
+     "Al-Dirbashi O.Y.",
+     "Schwartzentruber J.",
+     "Beaulieu C.L.",
+     "Katz S.L.",
+     "Majewski J.",
+     "Bulman D.E.",
+     "Geraghty M.T.",
+     "Harper M.E.",
+     "Chakraborty P.",
+     "Lines M.A."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "27306203"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1007/8904_2016_536"
+     }
+    ],
+    "title": "Severe neonatal presentation of mitochondrial citrate carrier (SLC25A1) deficiency.",
+    "publicationDate": "2016",
+    "journal": "JIMD Rep.",
+    "firstPage": "73",
+    "lastPage": "79",
+    "volume": "30"
+   },
+   "referencePositions": [
+    "VARIANT D2L2AD HIS-198"
+   ]
+  },
+  {
+   "referenceNumber": 19,
+   "citation": {
+    "id": "29226520",
+    "citationType": "journal article",
+    "authors": [
+     "Cohen I.",
+     "Staretz-Chacham O.",
+     "Wormser O.",
+     "Perez Y.",
+     "Saada A.",
+     "Kadir R.",
+     "Birk O.S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "29226520"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1002/ajmg.a.38574"
+     }
+    ],
+    "title": "A novel homozygous SLC25A1 mutation with impaired mitochondrial complex V: Possible phenotypic expansion.",
+    "publicationDate": "2018",
+    "journal": "Am. J. Med. Genet. A",
+    "firstPage": "330",
+    "lastPage": "336",
+    "volume": "176"
+   },
+   "referencePositions": [
+    "VARIANT D2L2AD SER-238"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "U25147",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAB08515.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "L76134",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAL40091.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "L75823",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAL40090.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AK292313",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAF85002.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC004980",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH04980.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC008061",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH08061.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS13758.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PIR",
+   "id": "G01789",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "G01789"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_005975.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_005984.5"
+    }
+   ]
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "112464",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "320"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "2094"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "142"
+    }
+   ]
+  },
+  {
+   "database": "MINT",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "NDEx",
+   "id": "IQUERY-CP-SLC25A1",
+   "properties": [
+    {
+     "key": "Evidences",
+     "value": "7 NDEx IQuery Curated Pathways"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000215882",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BindingDB",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ChEMBL",
+   "id": "CHEMBL5465271",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB09154",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Sodium citrate"
+    }
+   ]
+  },
+  {
+   "database": "GuidetoPHARMACOLOGY",
+   "id": "1051",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "TCDB",
+   "id": "2.A.29.7.2",
+   "properties": [
+    {
+     "key": "FamilyName",
+     "value": "the mitochondrial carrier (mc) family"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "1 site, 1 O-linked glycan (1 site)"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SwissPalm",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "SLC25A1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "20141931",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CPTAC",
+   "id": "CPTAC-586",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CPTAC",
+   "id": "CPTAC-587",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000215882",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "56567",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pumba",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "TopDownProteomics",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "22859",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "146 antibodies from 24 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "6576",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000215882.10",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000215882.5"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000100075.11"
+    }
+   ]
+  },
+  {
+   "database": "GeneID",
+   "id": "6576",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:6576",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000215882.10",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000215882.5"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_005984.5"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_005975.1"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc002zoz.6",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:10979",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA35855",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "6576",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "6576",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "SLC25A1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneReviews",
+   "id": "SLC25A1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:10979",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "SLC25A1"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000100075",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Tissue enhanced (liver)"
+    }
+   ]
+  },
+  {
+   "database": "MalaCards",
+   "id": "SLC25A1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "190315",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "615182",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "phenotype"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "618197",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "phenotype"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000100075",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Orphanet",
+   "id": "716917",
+   "properties": [
+    {
+     "key": "Disease",
+     "value": "Congenital myasthenic syndrome with mitochondrial defect"
+    }
+   ]
+  },
+  {
+   "database": "Orphanet",
+   "id": "356978",
+   "properties": [
+    {
+     "key": "Disease",
+     "value": "D,L-2-hydroxyglutaric aciduria"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000100075",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "KOG0756",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00550000074856",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_015166_5_1_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "AWYAGCT",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "44467at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "3 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-428643",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Organic anion transport by SLC5/17/25 transporters"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SIGNOR",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000100075",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "6576",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "81 hits in 1160 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "CD-CODE",
+   "id": "FB4E32DD",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Presynaptic clusters and postsynaptic densities"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "SLC25A1",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "GeneWiki",
+   "id": "SLC25A1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "6576",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tbio"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:P53007",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 22"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000100075",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in endometrium epithelium and 194 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "P53007",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0070062",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:extracellular exosome"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "HDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007005",
+     "source": "PubMed",
+     "id": "19056867"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005743",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrial inner membrane"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0031966",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrial membrane"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:UniProt"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "39881208"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005739",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrion"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "HTP:FlyBase"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0006056",
+     "source": "PubMed",
+     "id": "34800366"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005634",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:nucleus"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "HDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007005",
+     "source": "PubMed",
+     "id": "21630459"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0071913",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:citrate secondary active transmembrane transporter activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "29031613"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0015137",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:citrate transmembrane transporter activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000304",
+     "source": "PubMed",
+     "id": "8666394"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0015515",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:citrate:succinate antiporter activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "EXP:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "29031613"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0015142",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:tricarboxylic acid transmembrane transporter activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "29031613"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0006843",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:mitochondrial citrate transmembrane transport"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "29031613"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0110076",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:negative regulation of ferroptosis"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:UniProt"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "39881208"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "1.50.40.10:FF:000007",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Mitochondrial tricarboxylate transport protein-like"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "1.50.40.10",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Mitochondrial carrier domain"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR002067",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "MCP"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR023395",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "MCP_dom_sf"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR018108",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "MCP_transmembrane"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR049563",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "TXTP-like"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR45788",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SUCCINATE/FUMARATE MITOCHONDRIAL TRANSPORTER-RELATED"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR45788:SF4",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "TRICARBOXYLATE TRANSPORT PROTEIN, MITOCHONDRIAL"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF00153",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Mito_carr"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "3"
+    }
+   ]
+  },
+  {
+   "database": "PRINTS",
+   "id": "PR00926",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "MITOCARRIER"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF103506",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Mitochondrial carrier"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS50920",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SOLCAR"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "3"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MPAPRAPRALAAAAPASGKAKLTHPGKAILAGGLAGGIEICITFPTEYVKTQLQLDERSHPPRYRGIGDCVRQTVRSHGVLGLYRGLSSLLYGSIPKAAVRFGMFEFLSNHMRDAQGRLDSTRGLLCGLGAGVAEAVVVVCPMETIKVKFIHDQTSPNPKYRGFFHGVREIVREQGLKGTYQGLTATVLKQGSNQAIRFFVMTSLRNWYRGDNPNKPMNPLITGVFGAIAGAASVFGNTPLDVIKTRMQGLEAHKYRNTWDCGLQILKKEGLKAFYKGTVPRLGRVCLDVAIVFVIYDEVVKLLNKVWKTD",
+  "length": 311,
+  "molWeight": 34013,
+  "crc64": "F1341629924953D6",
+  "md5": "C3ABE27B9B0095A44084E01E39F08763"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "CATALYTIC ACTIVITY": 7,
+   "BIOPHYSICOCHEMICAL PROPERTIES": 1,
+   "SUBUNIT": 1,
+   "SUBCELLULAR LOCATION": 1,
+   "PTM": 1,
+   "DISEASE": 2,
+   "SIMILARITY": 1
+  },
+  "countByFeatureType": {
+   "Propeptide": 1,
+   "Chain": 1,
+   "Transmembrane": 6,
+   "Repeat": 3,
+   "Modified residue": 1,
+   "Natural variant": 19,
+   "Sequence conflict": 1
+  },
+  "uniParcId": "UPI0000137851"
+ }
+}

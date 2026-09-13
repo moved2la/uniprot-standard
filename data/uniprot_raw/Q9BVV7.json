@@ -1,0 +1,1599 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "Q9BVV7",
+ "secondaryAccessions": [
+  "Q9P010"
+ ],
+ "uniProtkbId": "TIM21_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "2005-08-30",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2001-06-01",
+  "entryVersion": 165,
+  "sequenceVersion": 1
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "value": "Mitochondrial import inner membrane translocase subunit Tim21"
+   }
+  },
+  "alternativeNames": [
+   {
+    "fullName": {
+     "value": "TIM21-like protein, mitochondrial"
+    }
+   }
+  ],
+  "flag": "Precursor"
+ },
+ "genes": [
+  {
+   "geneName": {
+    "value": "TIMM21"
+   },
+   "synonyms": [
+    {
+     "value": "C18orf55"
+    },
+    {
+     "value": "TIM21"
+    }
+   ],
+   "orfNames": [
+    {
+     "value": "HSPC154"
+    }
+   ]
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "23260140"
+      }
+     ],
+     "value": "Participates in the translocation of transit peptide-containing proteins across the mitochondrial inner membrane. Also required for assembly of mitochondrial respiratory chain complex I and complex IV as component of the MITRAC (mitochondrial translation regulation assembly intermediate of cytochrome c oxidase complex) complex. Probably shuttles between the presequence translocase and respiratory-chain assembly intermediates in a process that promotes incorporation of early nuclear-encoded subunits into these complexes"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "23260140"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "26321642"
+      },
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "26321642"
+      }
+     ],
+     "value": "Component of the TIM23 complex. Component of the MITRAC (mitochondrial translation regulation assembly intermediate of cytochrome c oxidase complex) complex, the core components of this complex being COA3/MITRAC12 and COX14 (Probable) (PubMed:23260140). Interacts with COA3 and MT-CO1/COX1 (PubMed:26321642)"
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "Q9BVV7",
+      "intActId": "EBI-6570759"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P00395",
+      "geneName": "MT-CO1",
+      "intActId": "EBI-2117234"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "Q9BVV7",
+      "intActId": "EBI-6570759"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "O14925",
+      "geneName": "TIMM23",
+      "intActId": "EBI-1047996"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "Q9BVV7",
+      "intActId": "EBI-6570759"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9UHD9",
+      "geneName": "UBQLN2",
+      "intActId": "EBI-947187"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000305"
+       }
+      ],
+      "value": "Mitochondrion membrane",
+      "id": "SL-0171"
+     },
+     "topology": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000305"
+       }
+      ],
+      "value": "Single-pass membrane protein",
+      "id": "SL-9904"
+     }
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the TIM21 family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  }
+ ],
+ "features": [
+  {
+   "type": "Transit peptide",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 18,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Mitochondrion",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 19,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 248,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Mitochondrial import inner membrane translocase subunit Tim21",
+   "featureId": "PRO_0000043228"
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 108,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 128,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 67,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 98,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Disordered",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 79,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 79,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs3737512",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs3737512"
+    }
+   ],
+   "featureId": "VAR_052306",
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "S"
+    ]
+   }
+  },
+  {
+   "type": "Sequence conflict",
+   "location": {
+    "start": {
+     "value": 34,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 34,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in Ref. 1; AAF29118",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "C",
+    "alternativeSequences": [
+     "Y"
+    ]
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0472",
+   "category": "Cellular component",
+   "name": "Membrane"
+  },
+  {
+   "id": "KW-0496",
+   "category": "Cellular component",
+   "name": "Mitochondrion"
+  },
+  {
+   "id": "KW-0653",
+   "category": "Biological process",
+   "name": "Protein transport"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  },
+  {
+   "id": "KW-0809",
+   "category": "Domain",
+   "name": "Transit peptide"
+  },
+  {
+   "id": "KW-0811",
+   "category": "Biological process",
+   "name": "Translocation"
+  },
+  {
+   "id": "KW-0812",
+   "category": "Domain",
+   "name": "Transmembrane"
+  },
+  {
+   "id": "KW-1133",
+   "category": "Domain",
+   "name": "Transmembrane helix"
+  },
+  {
+   "id": "KW-0813",
+   "category": "Biological process",
+   "name": "Transport"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "11042152",
+    "citationType": "journal article",
+    "authors": [
+     "Zhang Q.-H.",
+     "Ye M.",
+     "Wu X.-Y.",
+     "Ren S.-X.",
+     "Zhao M.",
+     "Zhao C.-J.",
+     "Fu G.",
+     "Shen Y.",
+     "Fan H.-Y.",
+     "Lu G.",
+     "Zhong M.",
+     "Xu X.-R.",
+     "Han Z.-G.",
+     "Zhang J.-W.",
+     "Tao J.",
+     "Huang Q.-H.",
+     "Zhou J.",
+     "Hu G.-X.",
+     "Gu J.",
+     "Chen S.-J.",
+     "Chen Z."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "11042152"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.140200"
+     }
+    ],
+    "title": "Cloning and functional analysis of cDNAs with open reading frames for 300 previously undefined genes expressed in CD34+ hematopoietic stem/progenitor cells.",
+    "publicationDate": "2000",
+    "journal": "Genome Res.",
+    "firstPage": "1546",
+    "lastPage": "1560",
+    "volume": "10"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Umbilical cord blood",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Cervix carcinoma",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "21269460",
+    "citationType": "journal article",
+    "authors": [
+     "Burkard T.R.",
+     "Planyavsky M.",
+     "Kaupe I.",
+     "Breitwieser F.P.",
+     "Buerckstuemmer T.",
+     "Bennett K.L.",
+     "Superti-Furga G.",
+     "Colinge J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "21269460"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1186/1752-0509-5-17"
+     }
+    ],
+    "title": "Initial characterization of the human central proteome.",
+    "publicationDate": "2011",
+    "journal": "BMC Syst. Biol.",
+    "firstPage": "17",
+    "lastPage": "17",
+    "volume": "5"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "23260140",
+    "citationType": "journal article",
+    "authors": [
+     "Mick D.U.",
+     "Dennerlein S.",
+     "Wiese H.",
+     "Reinhold R.",
+     "Pacheu-Grau D.",
+     "Lorenzi I.",
+     "Sasarman F.",
+     "Weraarpachai W.",
+     "Shoubridge E.A.",
+     "Warscheid B.",
+     "Rehling P."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "23260140"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.cell.2012.11.053"
+     }
+    ],
+    "title": "MITRAC links mitochondrial protein translocation to respiratory-chain assembly and translational regulation.",
+    "publicationDate": "2012",
+    "journal": "Cell",
+    "firstPage": "1528",
+    "lastPage": "1541",
+    "volume": "151"
+   },
+   "referencePositions": [
+    "FUNCTION",
+    "IDENTIFICATION IN THE TIM23 COMPLEX",
+    "IDENTIFICATION IN MITRAC COMPLEX"
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "26321642",
+    "citationType": "journal article",
+    "authors": [
+     "Dennerlein S.",
+     "Oeljeklaus S.",
+     "Jans D.",
+     "Hellwig C.",
+     "Bareth B.",
+     "Jakobs S.",
+     "Deckers M.",
+     "Warscheid B.",
+     "Rehling P."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "26321642"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.celrep.2015.08.009"
+     }
+    ],
+    "title": "MITRAC7 acts as a COX1-specific chaperone and reveals a checkpoint during cytochrome c oxidase assembly.",
+    "publicationDate": "2015",
+    "journal": "Cell Rep.",
+    "firstPage": "1644",
+    "lastPage": "1655",
+    "volume": "12"
+   },
+   "referencePositions": [
+    "INTERACTION WITH COA3 AND MT-CO1"
+   ]
+  },
+  {
+   "referenceNumber": 6,
+   "citation": {
+    "id": "25944712",
+    "citationType": "journal article",
+    "authors": [
+     "Vaca Jacome A.S.",
+     "Rabilloud T.",
+     "Schaeffer-Reiss C.",
+     "Rompais M.",
+     "Ayoub D.",
+     "Lane L.",
+     "Bairoch A.",
+     "Van Dorsselaer A.",
+     "Carapito C."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "25944712"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1002/pmic.201400617"
+     }
+    ],
+    "title": "N-terminome analysis of the human mitochondrial proteome.",
+    "publicationDate": "2015",
+    "journal": "Proteomics",
+    "firstPage": "2519",
+    "lastPage": "2524",
+    "volume": "15"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "AF161503",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAF29118.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC000892",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH00892.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS12003.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_054896.2",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_014177.3"
+    }
+   ]
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "118859",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "63"
+    }
+   ]
+  },
+  {
+   "database": "ComplexPortal",
+   "id": "CPX-6129",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "TIM23 mitochondrial inner membrane pre-sequence translocase complex, TIM17A variant"
+    }
+   ]
+  },
+  {
+   "database": "ComplexPortal",
+   "id": "CPX-6130",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "TIM23 mitochondrial inner membrane pre-sequence translocase complex, TIM17B variant"
+    }
+   ]
+  },
+  {
+   "database": "CORUM",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "772"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "42"
+    }
+   ]
+  },
+  {
+   "database": "MINT",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000169551",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GlyCosmos",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "1 site, 1 glycan"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "2 sites, 1 O-linked glycan (2 sites)"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SwissPalm",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "TIMM21",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "73918912",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000169551",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "79238",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pumba",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "TopDownProteomics",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "2242",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "46 antibodies from 17 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "29090",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000169551.11",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000169551.6"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000075336.13"
+    }
+   ]
+  },
+  {
+   "database": "GeneID",
+   "id": "29090",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:29090",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000169551.11",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000169551.6"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_014177.3"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_054896.2"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc010dqr.2",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:25010",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA134897360",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "29090",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "29090",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "TIMM21",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:25010",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "TIMM21"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000075336",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Low tissue specificity"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "615180",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000075336",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000075336",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "KOG4836",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00390000011552",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_099476_0_0_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "HFHVEGP",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "436405at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "2 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-1268020",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Mitochondrial protein import"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-9864848",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Complex IV assembly"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SIGNOR",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000075336",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "29090",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "11 hits in 1164 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "TIMM21",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "29090",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tbio"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:Q9BVV7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 18"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000075336",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in left ventricle myocardium and 188 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "Q9BVV7",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005743",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrial inner membrane"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:Reactome"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005758",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrial intermembrane space"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:Reactome"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005739",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrion"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "HTP:FlyBase"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0006056",
+     "source": "PubMed",
+     "id": "34800366"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005744",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:TIM23 mitochondrial import inner membrane translocase complex"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "23260140"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0006886",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:intracellular protein transport"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "NAS:ComplexPortal"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "10339406"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0032981",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:mitochondrial respiratory chain complex I assembly"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "23260140"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0033617",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:mitochondrial respiratory chain complex IV assembly"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "23260140"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0030150",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:protein import into mitochondrial matrix"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "23260140"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.10.450.320:FF:000001",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Mitochondrial import inner membrane translocase subunit Tim21"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.10.450.320",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Mitochondrial import inner membrane translocase subunit Tim21"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR013261",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Tim21"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR038552",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Tim21_IMS_sf"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR13032",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "MITOCHONDRIAL IMPORT INNER MEMBRANE TRANSLOCASE SUBUNIT TIM21"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR13032:SF6",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "MITOCHONDRIAL IMPORT INNER MEMBRANE TRANSLOCASE SUBUNIT TIM21"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF08294",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "TIM21"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MICTFLRAVQYTEKLHRSSAKRLLLPYIVLNKACLKTEPSLRCGLQYQKKTLRPRCILGVTQKTIWTQGPSPRKAKEDGSKQVSVHRSQRGGTAVPTSQKVKEAGRDFTYLIVVLFGISITGGLFYTIFKELFSSSSPSKIYGRALEKCRSHPEVIGVFGESVKGYGEVTRRGRRQHVRFTEYVKDGLKHTCVKFYIEGSEPGKQGTVYAQVKENPGSGEYDFRYIFVEIESYPRRTIIIEDNRSQDD",
+  "length": 248,
+  "molWeight": 28202,
+  "crc64": "7BA2694A9DCD9024",
+  "md5": "827477FA9A5A212B0DF0E5271D164D80"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "SUBUNIT": 1,
+   "INTERACTION": 3,
+   "SUBCELLULAR LOCATION": 1,
+   "SIMILARITY": 1
+  },
+  "countByFeatureType": {
+   "Transit peptide": 1,
+   "Chain": 1,
+   "Transmembrane": 1,
+   "Region": 1,
+   "Natural variant": 1,
+   "Sequence conflict": 1
+  },
+  "uniParcId": "UPI0000073827"
+ }
+}

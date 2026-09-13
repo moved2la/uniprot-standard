@@ -1,0 +1,3280 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "P15586",
+ "secondaryAccessions": [
+  "B4DYH8",
+  "Q53F05"
+ ],
+ "uniProtkbId": "GNS_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "1990-04-01",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "1993-04-01",
+  "entryVersion": 215,
+  "sequenceVersion": 3
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "value": "N-acetylglucosamine-6-sulfatase"
+   },
+   "ecNumbers": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "1463457"
+      }
+     ],
+     "value": "3.1.6.14"
+    }
+   ]
+  },
+  "alternativeNames": [
+   {
+    "fullName": {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000303",
+       "source": "PubMed",
+       "id": "1463457"
+      }
+     ],
+     "value": "Glucosamine-6-sulfatase"
+    },
+    "shortNames": [
+     {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000303",
+        "source": "PubMed",
+        "id": "1463457"
+       }
+      ],
+      "value": "G6S"
+     }
+    ]
+   }
+  ],
+  "flag": "Precursor"
+ },
+ "genes": [
+  {
+   "geneName": {
+    "value": "GNS"
+   }
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "1463457"
+      }
+     ],
+     "value": "Hydrolyzes 6-sulfate groups in N-acetyl-d-glucosaminide units of heparin sulfate and keratan sulfate"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "Hydrolysis of the 6-sulfate groups of the N-acetyl-D-glucosamine 6-sulfate units of heparan sulfate and keratan sulfate.",
+    "ecNumber": "3.1.6.14",
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "1463457"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "COFACTOR",
+   "cofactors": [
+    {
+     "name": "Ca(2+)",
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250",
+       "source": "UniProtKB",
+       "id": "P15289"
+      }
+     ],
+     "cofactorCrossReference": {
+      "database": "ChEBI",
+      "id": "CHEBI:29108"
+     }
+    }
+   ],
+   "note": {
+    "texts": [
+     {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000250",
+        "source": "UniProtKB",
+        "id": "P15289"
+       }
+      ],
+      "value": "Binds 1 Ca(2+) ion per subunit."
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "BIOPHYSICOCHEMICAL PROPERTIES",
+   "kineticParameters": {
+    "michaelisConstants": [
+     {
+      "constant": 0.76,
+      "unit": "uM",
+      "substrate": "alpha-N-acetylglucosamine-6-sulfate-(1-4)-L-O-(alpha-iduronic acid 2-sulfate)-(1-4)-D-O-2,5-anhydrol[1-3H]mannitol 6-sulfate",
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "1463457"
+       }
+      ]
+     }
+    ]
+   },
+   "phDependence": {
+    "texts": [
+     {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "1463457"
+       }
+      ],
+      "value": "Optimum pH is 4.8."
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P15586",
+      "intActId": "EBI-1752200"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P16333",
+      "geneName": "NCK1",
+      "intActId": "EBI-389883"
+     },
+     "numberOfExperiments": 2,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "subcellularLocations": [
+    {
+     "location": {
+      "value": "Lysosome",
+      "id": "SL-0158"
+     }
+    }
+   ]
+  },
+  {
+   "commentType": "ALTERNATIVE PRODUCTS",
+   "events": [
+    "Alternative splicing"
+   ],
+   "isoforms": [
+    {
+     "name": {
+      "value": "1"
+     },
+     "isoformIds": [
+      "P15586-1"
+     ],
+     "isoformSequenceStatus": "Displayed"
+    },
+    {
+     "name": {
+      "value": "2"
+     },
+     "isoformIds": [
+      "P15586-2"
+     ],
+     "sequenceIds": [
+      "VSP_056486"
+     ],
+     "isoformSequenceStatus": "Described"
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "value": "The form A (78 kDa) is processed by internal peptidase cleavage to a 32 kDa N-terminal species (form B) and a 48 kDa C-terminal species"
+    }
+   ],
+   "commentType": "PTM"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250"
+      }
+     ],
+     "value": "The conversion to 3-oxoalanine (also known as C-formylglycine, FGly), of a serine or cysteine residue in prokaryotes and of a cysteine residue in eukaryotes, is critical for catalytic activity"
+    }
+   ],
+   "commentType": "PTM"
+  },
+  {
+   "commentType": "DISEASE",
+   "disease": {
+    "diseaseId": "Mucopolysaccharidosis 3D",
+    "diseaseAccession": "DI-00777",
+    "acronym": "MPS3D",
+    "description": "A form of mucopolysaccharidosis type 3, an autosomal recessive lysosomal storage disease due to impaired degradation of heparan sulfate. MPS3 is characterized by severe central nervous system degeneration, but only mild somatic disease. Onset of clinical features usually occurs between 2 and 6 years; severe neurologic degeneration occurs in most patients between 6 and 10 years of age, and death occurs typically during the second or third decade of life.",
+    "diseaseCrossReference": {
+     "database": "MIM",
+     "id": "252940"
+    },
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "12573255"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "20232353"
+     }
+    ]
+   },
+   "note": {
+    "texts": [
+     {
+      "value": "The disease is caused by variants affecting the gene represented in this entry"
+     }
+    ]
+   }
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the sulfatase family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  }
+ ],
+ "features": [
+  {
+   "type": "Signal",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 36,
+     "modifier": "EXACT"
+    }
+   },
+   "description": ""
+  },
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 37,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 552,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-acetylglucosamine-6-sulfatase",
+   "featureId": "PRO_0000033413"
+  },
+  {
+   "type": "Active site",
+   "location": {
+    "start": {
+     "value": 91,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 91,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Nucleophile",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P15289"
+    }
+   ]
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 55,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 55,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:29108"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P15289"
+    }
+   ],
+   "ligand": {
+    "name": "Ca(2+)",
+    "id": "ChEBI:CHEBI:29108"
+   }
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 56,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 56,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:29108"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P15289"
+    }
+   ],
+   "ligand": {
+    "name": "Ca(2+)",
+    "id": "ChEBI:CHEBI:29108"
+   }
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 91,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 91,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "via 3-oxoalanine",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:29108"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P15289"
+    }
+   ],
+   "ligand": {
+    "name": "Ca(2+)",
+    "id": "ChEBI:CHEBI:29108"
+   }
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 326,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 326,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:29108"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P15289"
+    }
+   ],
+   "ligand": {
+    "name": "Ca(2+)",
+    "id": "ChEBI:CHEBI:29108"
+   }
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 327,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 327,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:29108"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P15289"
+    }
+   ],
+   "ligand": {
+    "name": "Ca(2+)",
+    "id": "ChEBI:CHEBI:29108"
+   }
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 91,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 91,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "3-oxoalanine (Cys)",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P15289"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 541,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 541,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "23186163"
+    }
+   ]
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 111,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 111,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 117,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 117,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 183,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 183,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "12754519"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "19159218"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 198,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 198,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 210,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 210,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 279,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 279,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "12754519"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 317,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 317,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "19159218"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 362,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 362,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 387,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 387,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "19159218"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 405,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 405,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 422,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 422,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "1463457"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "19159218"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 449,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 449,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 480,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 480,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 65,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 84,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 2",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "14702039"
+    }
+   ],
+   "featureId": "VSP_056486",
+   "alternativeSequence": {}
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 94,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 94,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MPS3D",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20232353"
+    }
+   ],
+   "featureId": "VAR_064070",
+   "alternativeSequence": {
+    "originalSequence": "S",
+    "alternativeSequences": [
+     "I"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 304,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 306,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MPS3D",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20232353"
+    }
+   ],
+   "featureId": "VAR_064071",
+   "alternativeSequence": {}
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 340,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 340,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MPS3D",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20232353"
+    }
+   ],
+   "featureId": "VAR_064072",
+   "alternativeSequence": {
+    "originalSequence": "K",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 418,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 418,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in MPS3D",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "20232353"
+    }
+   ],
+   "featureId": "VAR_064073",
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "E"
+    ]
+   }
+  },
+  {
+   "type": "Sequence conflict",
+   "location": {
+    "start": {
+     "value": 252,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 252,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in Ref. 3; BAD97204",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "F",
+    "alternativeSequences": [
+     "C"
+    ]
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0025",
+   "category": "Coding sequence diversity",
+   "name": "Alternative splicing"
+  },
+  {
+   "id": "KW-0106",
+   "category": "Ligand",
+   "name": "Calcium"
+  },
+  {
+   "id": "KW-0903",
+   "category": "Technical term",
+   "name": "Direct protein sequencing"
+  },
+  {
+   "id": "KW-0225",
+   "category": "Disease",
+   "name": "Disease variant"
+  },
+  {
+   "id": "KW-0325",
+   "category": "PTM",
+   "name": "Glycoprotein"
+  },
+  {
+   "id": "KW-0378",
+   "category": "Molecular function",
+   "name": "Hydrolase"
+  },
+  {
+   "id": "KW-0458",
+   "category": "Cellular component",
+   "name": "Lysosome"
+  },
+  {
+   "id": "KW-0479",
+   "category": "Ligand",
+   "name": "Metal-binding"
+  },
+  {
+   "id": "KW-0510",
+   "category": "Disease",
+   "name": "Mucopolysaccharidosis"
+  },
+  {
+   "id": "KW-0597",
+   "category": "PTM",
+   "name": "Phosphoprotein"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  },
+  {
+   "id": "KW-0732",
+   "category": "Domain",
+   "name": "Signal"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "1463457",
+    "citationType": "journal article",
+    "authors": [
+     "Robertson D.A.",
+     "Freeman C.",
+     "Morris C.P.",
+     "Hopwood J.J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "1463457"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1042/bj2880539"
+     }
+    ],
+    "title": "A cDNA clone for human glucosamine-6-sulphatase reveals differences between arylsulphatases and non-arylsulphatases.",
+    "publicationDate": "1992",
+    "journal": "Biochem. J.",
+    "firstPage": "539",
+    "lastPage": "544",
+    "volume": "288"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA] (ISOFORM 1)",
+    "PARTIAL PROTEIN SEQUENCE",
+    "FUNCTION",
+    "CATALYTIC ACTIVITY",
+    "BIOPHYSICOCHEMICAL PROPERTIES",
+    "GLYCOSYLATION AT ASN-422"
+   ],
+   "referenceComments": [
+    {
+     "value": "Endothelial cell",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "14702039",
+    "citationType": "journal article",
+    "authors": [
+     "Ota T.",
+     "Suzuki Y.",
+     "Nishikawa T.",
+     "Otsuki T.",
+     "Sugiyama T.",
+     "Irie R.",
+     "Wakamatsu A.",
+     "Hayashi K.",
+     "Sato H.",
+     "Nagai K.",
+     "Kimura K.",
+     "Makita H.",
+     "Sekine M.",
+     "Obayashi M.",
+     "Nishi T.",
+     "Shibahara T.",
+     "Tanaka T.",
+     "Ishii S.",
+     "Yamamoto J.",
+     "Saito K.",
+     "Kawai Y.",
+     "Isono Y.",
+     "Nakamura Y.",
+     "Nagahari K.",
+     "Murakami K.",
+     "Yasuda T.",
+     "Iwayanagi T.",
+     "Wagatsuma M.",
+     "Shiratori A.",
+     "Sudo H.",
+     "Hosoiri T.",
+     "Kaku Y.",
+     "Kodaira H.",
+     "Kondo H.",
+     "Sugawara M.",
+     "Takahashi M.",
+     "Kanda K.",
+     "Yokoi T.",
+     "Furuya T.",
+     "Kikkawa E.",
+     "Omura Y.",
+     "Abe K.",
+     "Kamihara K.",
+     "Katsuta N.",
+     "Sato K.",
+     "Tanikawa M.",
+     "Yamazaki M.",
+     "Ninomiya K.",
+     "Ishibashi T.",
+     "Yamashita H.",
+     "Murakawa K.",
+     "Fujimori K.",
+     "Tanai H.",
+     "Kimata M.",
+     "Watanabe M.",
+     "Hiraoka S.",
+     "Chiba Y.",
+     "Ishida S.",
+     "Ono Y.",
+     "Takiguchi S.",
+     "Watanabe S.",
+     "Yosida M.",
+     "Hotuta T.",
+     "Kusano J.",
+     "Kanehori K.",
+     "Takahashi-Fujii A.",
+     "Hara H.",
+     "Tanase T.-O.",
+     "Nomura Y.",
+     "Togiya S.",
+     "Komai F.",
+     "Hara R.",
+     "Takeuchi K.",
+     "Arita M.",
+     "Imose N.",
+     "Musashino K.",
+     "Yuuki H.",
+     "Oshima A.",
+     "Sasaki N.",
+     "Aotsuka S.",
+     "Yoshikawa Y.",
+     "Matsunawa H.",
+     "Ichihara T.",
+     "Shiohata N.",
+     "Sano S.",
+     "Moriya S.",
+     "Momiyama H.",
+     "Satoh N.",
+     "Takami S.",
+     "Terashima Y.",
+     "Suzuki O.",
+     "Nakagawa S.",
+     "Senoh A.",
+     "Mizoguchi H.",
+     "Goto Y.",
+     "Shimizu F.",
+     "Wakebe H.",
+     "Hishigaki H.",
+     "Watanabe T.",
+     "Sugiyama A.",
+     "Takemoto M.",
+     "Kawakami B.",
+     "Yamazaki M.",
+     "Watanabe K.",
+     "Kumagai A.",
+     "Itakura S.",
+     "Fukuzumi Y.",
+     "Fujimori Y.",
+     "Komiyama M.",
+     "Tashiro H.",
+     "Tanigami A.",
+     "Fujiwara T.",
+     "Ono T.",
+     "Yamada K.",
+     "Fujii Y.",
+     "Ozaki K.",
+     "Hirao M.",
+     "Ohmori Y.",
+     "Kawabata A.",
+     "Hikiji T.",
+     "Kobatake N.",
+     "Inagaki H.",
+     "Ikema Y.",
+     "Okamoto S.",
+     "Okitani R.",
+     "Kawakami T.",
+     "Noguchi S.",
+     "Itoh T.",
+     "Shigeta K.",
+     "Senba T.",
+     "Matsumura K.",
+     "Nakajima Y.",
+     "Mizuno T.",
+     "Morinaga M.",
+     "Sasaki M.",
+     "Togashi T.",
+     "Oyama M.",
+     "Hata H.",
+     "Watanabe M.",
+     "Komatsu T.",
+     "Mizushima-Sugano J.",
+     "Satoh T.",
+     "Shirai Y.",
+     "Takahashi Y.",
+     "Nakagawa K.",
+     "Okumura K.",
+     "Nagase T.",
+     "Nomura N.",
+     "Kikuchi H.",
+     "Masuho Y.",
+     "Yamashita R.",
+     "Nakai K.",
+     "Yada T.",
+     "Nakamura Y.",
+     "Ohara O.",
+     "Isogai T.",
+     "Sugano S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "14702039"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/ng1285"
+     }
+    ],
+    "title": "Complete sequencing and characterization of 21,243 full-length human cDNAs.",
+    "publicationDate": "2004",
+    "journal": "Nat. Genet.",
+    "firstPage": "40",
+    "lastPage": "45",
+    "volume": "36"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 2)"
+   ],
+   "referenceComments": [
+    {
+     "value": "Testis",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "CI-58UKVFP8TE70J",
+    "citationType": "submission",
+    "authors": [
+     "Totoki Y.",
+     "Toyoda A.",
+     "Takeda T.",
+     "Sakaki Y.",
+     "Tanaka A.",
+     "Yokoyama S."
+    ],
+    "publicationDate": "APR-2005",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 1)"
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "16541075",
+    "citationType": "journal article",
+    "authors": [
+     "Scherer S.E.",
+     "Muzny D.M.",
+     "Buhay C.J.",
+     "Chen R.",
+     "Cree A.",
+     "Ding Y.",
+     "Dugan-Rocha S.",
+     "Gill R.",
+     "Gunaratne P.",
+     "Harris R.A.",
+     "Hawes A.C.",
+     "Hernandez J.",
+     "Hodgson A.V.",
+     "Hume J.",
+     "Jackson A.",
+     "Khan Z.M.",
+     "Kovar-Smith C.",
+     "Lewis L.R.",
+     "Lozado R.J.",
+     "Metzker M.L.",
+     "Milosavljevic A.",
+     "Miner G.R.",
+     "Montgomery K.T.",
+     "Morgan M.B.",
+     "Nazareth L.V.",
+     "Scott G.",
+     "Sodergren E.",
+     "Song X.-Z.",
+     "Steffen D.",
+     "Lovering R.C.",
+     "Wheeler D.A.",
+     "Worley K.C.",
+     "Yuan Y.",
+     "Zhang Z.",
+     "Adams C.Q.",
+     "Ansari-Lari M.A.",
+     "Ayele M.",
+     "Brown M.J.",
+     "Chen G.",
+     "Chen Z.",
+     "Clerc-Blankenburg K.P.",
+     "Davis C.",
+     "Delgado O.",
+     "Dinh H.H.",
+     "Draper H.",
+     "Gonzalez-Garay M.L.",
+     "Havlak P.",
+     "Jackson L.R.",
+     "Jacob L.S.",
+     "Kelly S.H.",
+     "Li L.",
+     "Li Z.",
+     "Liu J.",
+     "Liu W.",
+     "Lu J.",
+     "Maheshwari M.",
+     "Nguyen B.-V.",
+     "Okwuonu G.O.",
+     "Pasternak S.",
+     "Perez L.M.",
+     "Plopper F.J.H.",
+     "Santibanez J.",
+     "Shen H.",
+     "Tabor P.E.",
+     "Verduzco D.",
+     "Waldron L.",
+     "Wang Q.",
+     "Williams G.A.",
+     "Zhang J.",
+     "Zhou J.",
+     "Allen C.C.",
+     "Amin A.G.",
+     "Anyalebechi V.",
+     "Bailey M.",
+     "Barbaria J.A.",
+     "Bimage K.E.",
+     "Bryant N.P.",
+     "Burch P.E.",
+     "Burkett C.E.",
+     "Burrell K.L.",
+     "Calderon E.",
+     "Cardenas V.",
+     "Carter K.",
+     "Casias K.",
+     "Cavazos I.",
+     "Cavazos S.R.",
+     "Ceasar H.",
+     "Chacko J.",
+     "Chan S.N.",
+     "Chavez D.",
+     "Christopoulos C.",
+     "Chu J.",
+     "Cockrell R.",
+     "Cox C.D.",
+     "Dang M.",
+     "Dathorne S.R.",
+     "David R.",
+     "Davis C.M.",
+     "Davy-Carroll L.",
+     "Deshazo D.R.",
+     "Donlin J.E.",
+     "D'Souza L.",
+     "Eaves K.A.",
+     "Egan A.",
+     "Emery-Cohen A.J.",
+     "Escotto M.",
+     "Flagg N.",
+     "Forbes L.D.",
+     "Gabisi A.M.",
+     "Garza M.",
+     "Hamilton C.",
+     "Henderson N.",
+     "Hernandez O.",
+     "Hines S.",
+     "Hogues M.E.",
+     "Huang M.",
+     "Idlebird D.G.",
+     "Johnson R.",
+     "Jolivet A.",
+     "Jones S.",
+     "Kagan R.",
+     "King L.M.",
+     "Leal B.",
+     "Lebow H.",
+     "Lee S.",
+     "LeVan J.M.",
+     "Lewis L.C.",
+     "London P.",
+     "Lorensuhewa L.M.",
+     "Loulseged H.",
+     "Lovett D.A.",
+     "Lucier A.",
+     "Lucier R.L.",
+     "Ma J.",
+     "Madu R.C.",
+     "Mapua P.",
+     "Martindale A.D.",
+     "Martinez E.",
+     "Massey E.",
+     "Mawhiney S.",
+     "Meador M.G.",
+     "Mendez S.",
+     "Mercado C.",
+     "Mercado I.C.",
+     "Merritt C.E.",
+     "Miner Z.L.",
+     "Minja E.",
+     "Mitchell T.",
+     "Mohabbat F.",
+     "Mohabbat K.",
+     "Montgomery B.",
+     "Moore N.",
+     "Morris S.",
+     "Munidasa M.",
+     "Ngo R.N.",
+     "Nguyen N.B.",
+     "Nickerson E.",
+     "Nwaokelemeh O.O.",
+     "Nwokenkwo S.",
+     "Obregon M.",
+     "Oguh M.",
+     "Oragunye N.",
+     "Oviedo R.J.",
+     "Parish B.J.",
+     "Parker D.N.",
+     "Parrish J.",
+     "Parks K.L.",
+     "Paul H.A.",
+     "Payton B.A.",
+     "Perez A.",
+     "Perrin W.",
+     "Pickens A.",
+     "Primus E.L.",
+     "Pu L.-L.",
+     "Puazo M.",
+     "Quiles M.M.",
+     "Quiroz J.B.",
+     "Rabata D.",
+     "Reeves K.",
+     "Ruiz S.J.",
+     "Shao H.",
+     "Sisson I.",
+     "Sonaike T.",
+     "Sorelle R.P.",
+     "Sutton A.E.",
+     "Svatek A.F.",
+     "Svetz L.A.",
+     "Tamerisa K.S.",
+     "Taylor T.R.",
+     "Teague B.",
+     "Thomas N.",
+     "Thorn R.D.",
+     "Trejos Z.Y.",
+     "Trevino B.K.",
+     "Ukegbu O.N.",
+     "Urban J.B.",
+     "Vasquez L.I.",
+     "Vera V.A.",
+     "Villasana D.M.",
+     "Wang L.",
+     "Ward-Moore S.",
+     "Warren J.T.",
+     "Wei X.",
+     "White F.",
+     "Williamson A.L.",
+     "Wleczyk R.",
+     "Wooden H.S.",
+     "Wooden S.H.",
+     "Yen J.",
+     "Yoon L.",
+     "Yoon V.",
+     "Zorrilla S.E.",
+     "Nelson D.",
+     "Kucherlapati R.",
+     "Weinstock G.",
+     "Gibbs R.A."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "16541075"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/nature04569"
+     }
+    ],
+    "title": "The finished DNA sequence of human chromosome 12.",
+    "publicationDate": "2006",
+    "journal": "Nature",
+    "firstPage": "346",
+    "lastPage": "351",
+    "volume": "440"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 1)"
+   ],
+   "referenceComments": [
+    {
+     "value": "Urinary bladder",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 6,
+   "citation": {
+    "id": "3196333",
+    "citationType": "journal article",
+    "authors": [
+     "Robertson D.A.",
+     "Freeman C.",
+     "Nelson P.V.",
+     "Morris C.P.",
+     "Hopwood J.J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "3196333"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/s0006-291x(88)80035-4"
+     }
+    ],
+    "title": "Human glucosamine-6-sulfatase cDNA reveals homology with steroid sulfatase.",
+    "publicationDate": "1988",
+    "journal": "Biochem. Biophys. Res. Commun.",
+    "firstPage": "218",
+    "lastPage": "224",
+    "volume": "157"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA] OF 178-552 (ISOFORM 1)",
+    "PARTIAL PROTEIN SEQUENCE"
+   ]
+  },
+  {
+   "referenceNumber": 7,
+   "citation": {
+    "id": "12754519",
+    "citationType": "journal article",
+    "authors": [
+     "Zhang H.",
+     "Li X.-J.",
+     "Martin D.B.",
+     "Aebersold R."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "12754519"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/nbt827"
+     }
+    ],
+    "title": "Identification and quantification of N-linked glycoproteins using hydrazide chemistry, stable isotope labeling and mass spectrometry.",
+    "publicationDate": "2003",
+    "journal": "Nat. Biotechnol.",
+    "firstPage": "660",
+    "lastPage": "666",
+    "volume": "21"
+   },
+   "referencePositions": [
+    "GLYCOSYLATION AT ASN-183 AND ASN-279"
+   ]
+  },
+  {
+   "referenceNumber": 8,
+   "citation": {
+    "id": "19159218",
+    "citationType": "journal article",
+    "authors": [
+     "Chen R.",
+     "Jiang X.",
+     "Sun D.",
+     "Han G.",
+     "Wang F.",
+     "Ye M.",
+     "Wang L.",
+     "Zou H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "19159218"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1021/pr8008012"
+     }
+    ],
+    "title": "Glycoproteomics analysis of human liver tissue by combination of multiple enzyme digestion and hydrazide chemistry.",
+    "publicationDate": "2009",
+    "journal": "J. Proteome Res.",
+    "firstPage": "651",
+    "lastPage": "661",
+    "volume": "8"
+   },
+   "referencePositions": [
+    "GLYCOSYLATION [LARGE SCALE ANALYSIS] AT ASN-183; ASN-317; ASN-387 AND ASN-422"
+   ],
+   "referenceComments": [
+    {
+     "value": "Liver",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 9,
+   "citation": {
+    "id": "12573255",
+    "citationType": "journal article",
+    "authors": [
+     "Mok A.",
+     "Cao H.",
+     "Hegele R.A."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "12573255"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/s0888-7543(02)00014-9"
+     }
+    ],
+    "title": "Genomic basis of mucopolysaccharidosis type IIID (MIM 252940) revealed by sequencing of GNS encoding N-acetylglucosamine-6-sulfatase.",
+    "publicationDate": "2003",
+    "journal": "Genomics",
+    "firstPage": "1",
+    "lastPage": "5",
+    "volume": "81"
+   },
+   "referencePositions": [
+    "INVOLVEMENT IN MPS3D"
+   ]
+  },
+  {
+   "referenceNumber": 10,
+   "citation": {
+    "id": "21269460",
+    "citationType": "journal article",
+    "authors": [
+     "Burkard T.R.",
+     "Planyavsky M.",
+     "Kaupe I.",
+     "Breitwieser F.P.",
+     "Buerckstuemmer T.",
+     "Bennett K.L.",
+     "Superti-Furga G.",
+     "Colinge J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "21269460"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1186/1752-0509-5-17"
+     }
+    ],
+    "title": "Initial characterization of the human central proteome.",
+    "publicationDate": "2011",
+    "journal": "BMC Syst. Biol.",
+    "firstPage": "17",
+    "lastPage": "17",
+    "volume": "5"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 11,
+   "citation": {
+    "id": "23186163",
+    "citationType": "journal article",
+    "authors": [
+     "Zhou H.",
+     "Di Palma S.",
+     "Preisinger C.",
+     "Peng M.",
+     "Polat A.N.",
+     "Heck A.J.",
+     "Mohammed S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "23186163"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1021/pr300630k"
+     }
+    ],
+    "title": "Toward a comprehensive characterization of a human cancer cell phosphoproteome.",
+    "publicationDate": "2013",
+    "journal": "J. Proteome Res.",
+    "firstPage": "260",
+    "lastPage": "271",
+    "volume": "12"
+   },
+   "referencePositions": [
+    "PHOSPHORYLATION [LARGE SCALE ANALYSIS] AT SER-541",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Cervix carcinoma",
+     "type": "TISSUE"
+    },
+    {
+     "value": "Erythroleukemia",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 12,
+   "citation": {
+    "id": "24275569",
+    "citationType": "journal article",
+    "authors": [
+     "Bian Y.",
+     "Song C.",
+     "Cheng K.",
+     "Dong M.",
+     "Wang F.",
+     "Huang J.",
+     "Sun D.",
+     "Wang L.",
+     "Ye M.",
+     "Zou H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "24275569"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.jprot.2013.11.014"
+     }
+    ],
+    "title": "An enzyme assisted RP-RPLC approach for in-depth analysis of human liver phosphoproteome.",
+    "publicationDate": "2014",
+    "journal": "J. Proteomics",
+    "firstPage": "253",
+    "lastPage": "262",
+    "volume": "96"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Liver",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 13,
+   "citation": {
+    "id": "25944712",
+    "citationType": "journal article",
+    "authors": [
+     "Vaca Jacome A.S.",
+     "Rabilloud T.",
+     "Schaeffer-Reiss C.",
+     "Rompais M.",
+     "Ayoub D.",
+     "Lane L.",
+     "Bairoch A.",
+     "Van Dorsselaer A.",
+     "Carapito C."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "25944712"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1002/pmic.201400617"
+     }
+    ],
+    "title": "N-terminome analysis of the human mitochondrial proteome.",
+    "publicationDate": "2015",
+    "journal": "Proteomics",
+    "firstPage": "2519",
+    "lastPage": "2524",
+    "volume": "15"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ]
+  },
+  {
+   "referenceNumber": 14,
+   "citation": {
+    "id": "20232353",
+    "citationType": "journal article",
+    "authors": [
+     "Valstar M.J.",
+     "Bertoli-Avella A.M.",
+     "Wessels M.W.",
+     "Ruijter G.J.G.",
+     "de Graaf B.",
+     "Olmer R.",
+     "Elfferich P.",
+     "Neijs S.",
+     "Kariminejad R.",
+     "Suheyl Ezgue F.",
+     "Tokatli A.",
+     "Czartoryska B.",
+     "Bosschaart A.N.",
+     "van den Bos-Terpstra F.",
+     "Puissant H.",
+     "Buerger F.",
+     "Omran H.",
+     "Eckert D.",
+     "Filocamo M.",
+     "Simeonov E.",
+     "Willems P.J.",
+     "Wevers R.A.",
+     "Niermeijer M.F.",
+     "Halley D.J.J.",
+     "Poorthuis B.J.H.M.",
+     "van Diggelen O.P."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "20232353"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1002/humu.21234"
+     }
+    ],
+    "title": "Mucopolysaccharidosis type IIID: 12 new patients and 15 novel mutations.",
+    "publicationDate": "2010",
+    "journal": "Hum. Mutat.",
+    "firstPage": "E1348",
+    "lastPage": "E1360",
+    "volume": "31"
+   },
+   "referencePositions": [
+    "VARIANTS MPS3D ILE-94; 304-GLU--LEU-306 DEL; ARG-340 AND GLU-418"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "Z12173",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "CAA78164.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AK302443",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAG63740.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AK223484",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAD97204.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AC025262",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC012482",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH12482.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS8970.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "P15586-1"
+  },
+  {
+   "database": "PIR",
+   "id": "S27164",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "KJHUGU"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_002067.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_002076.4"
+    }
+   ],
+   "isoformId": "P15586-1"
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "109061",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "138"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "455"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "32"
+    }
+   ]
+  },
+  {
+   "database": "MINT",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "NDEx",
+   "id": "IQUERY-CP-GNS",
+   "properties": [
+    {
+     "key": "Evidences",
+     "value": "1 NDEx IQuery Curated Pathway"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000258145",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GlyConnect",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "25 N-Linked glycans (8 sites)"
+    }
+   ]
+  },
+  {
+   "database": "GlyCosmos",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "16 sites, 28 glycans"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "22 sites, 115 N-linked glycans (12 sites), 2 N-linked;o-linked glycans (4 sites), 1 O-linked glycan (5 sites)"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SwissPalm",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "GNS",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "232126",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000258145",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "53189",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "P15586-1"
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "5526",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pumba",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "2462",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "236 antibodies from 34 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "2799",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000258145.8",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000258145.3"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000135677.12"
+    }
+   ],
+   "isoformId": "P15586-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000542058.5",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000444819.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000135677.12"
+    }
+   ],
+   "isoformId": "P15586-2"
+  },
+  {
+   "database": "GeneID",
+   "id": "2799",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:2799",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000258145.8",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000258145.3"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_002076.4"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_002067.1"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc001ssg.5",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ],
+   "isoformId": "P15586-1"
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:4422",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA28802",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "2799",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "2799",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "GNS",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneReviews",
+   "id": "GNS",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:4422",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "GNS"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000135677",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Low tissue specificity"
+    }
+   ]
+  },
+  {
+   "database": "MalaCards",
+   "id": "GNS",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "252940",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "phenotype"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "607664",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000135677",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Orphanet",
+   "id": "79272",
+   "properties": [
+    {
+     "key": "Disease",
+     "value": "Sanfilippo syndrome type D"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000135677",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "KOG3731",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00940000158420",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "WCHGEHE",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "96314at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "3 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioCyc",
+   "id": "MetaCyc:HS06046-MONOMER",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BRENDA",
+   "id": "3.1.6.1",
+   "properties": [
+    {
+     "key": "OrganismId",
+     "value": "2681"
+    }
+   ]
+  },
+  {
+   "database": "BRENDA",
+   "id": "3.1.6.14",
+   "properties": [
+    {
+     "key": "OrganismId",
+     "value": "2681"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-2022857",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Keratan sulfate degradation"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-2206305",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "MPS IIID - Sanfilippo syndrome D"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-432720",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Lysosome Vesicle Biogenesis"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-6798695",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Neutrophil degranulation"
+    }
+   ]
+  },
+  {
+   "database": "SABIO-RK",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SIGNOR",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000135677",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "2799",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "16 hits in 1157 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "GNS",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "2799",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tbio"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:P15586",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 12"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000135677",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in adrenal tissue and 205 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "P15586",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0042582",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:azurophil granule"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:FlyBase"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "15595925"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0035578",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:azurophil granule lumen"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:Reactome"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0070062",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:extracellular exosome"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "HDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007005",
+     "source": "PubMed",
+     "id": "23533145"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005576",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:extracellular region"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:Reactome"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:1904813",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:ficolin-1-rich granule lumen"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:Reactome"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0043202",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:lysosomal lumen"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:Reactome"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005764",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:lysosome"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005539",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:glycosaminoglycan binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0008449",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:N-acetylglucosamine-6-sulfatase activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:FlyBase"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "15595925"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0043199",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:sulfate binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0008484",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:sulfuric ester hydrolase activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:MGI"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "15962010"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0006027",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:glycosaminoglycan catabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:ProtInc"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000304",
+     "source": "PubMed",
+     "id": "3689315"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0030200",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:heparan sulfate proteoglycan catabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:FlyBase"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "15595925"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0042340",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:keratan sulfate proteoglycan catabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:Ensembl"
+    }
+   ]
+  },
+  {
+   "database": "CDD",
+   "id": "cd16147",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "G6S"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.40.720.10:FF:000012",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "N-acetylglucosamine-6-sulfatase"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.40.720.10",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Alkaline Phosphatase, subunit A"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR017850",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Alkaline_phosphatase_core_sf"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR012251",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GlcNAc_6-SO4ase"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR024607",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Sulfatase_CS"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR000917",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Sulfatase_N"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR43108:SF5",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "N-ACETYLGLUCOSAMINE-6-SULFATASE"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR43108",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "N-ACETYLGLUCOSAMINE-6-SULFATASE FAMILY MEMBER"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF00884",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Sulfatase"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PIRSF",
+   "id": "PIRSF036666",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "G6S"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF53649",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Alkaline phosphatase-like"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS00523",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SULFATASE_1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS00149",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SULFATASE_2"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MRLLPLAPGRLRRGSPRHLPSCSPALLLLVLGGCLGVFGVAAGTRRPNVVLLLTDDQDEVLGGMTPLKKTKALIGEMGMTFSSAYVPSALCCPSRASILTGKYPHNHHVVNNTLEGNCSSKSWQKIQEPNTFPAILRSMCGYQTFFAGKYLNEYGAPDAGGLEHVPLGWSYWYALEKNSKYYNYTLSINGKARKHGENYSVDYLTDVLANVSLDFLDYKSNFEPFFMMIATPAPHSPWTAAPQYQKAFQNVFAPRNKNFNIHGTNKHWLIRQAKTPMTNSSIQFLDNAFRKRWQTLLSVDDLVEKLVKRLEFTGELNNTYIFYTSDNGYHTGQFSLPIDKRQLYEFDIKVPLLVRGPGIKPNQTSKMLVANIDLGPTILDIAGYDLNKTQMDGMSLLPILRGASNLTWRSDVLVEYQGEGRNVTDPTCPSLSPGVSQCFPDCVCEDAYNNTYACVRTMSALWNLQYCEFDDQEVFVEVYNLTADPDQITNIAKTIDPELLGKMNYRLMMLQSCSGPTCRTPGVFDPGYRFDPRLMFSNRGSVRTRRFSKHLL",
+  "length": 552,
+  "molWeight": 62082,
+  "crc64": "85094043F6E64468",
+  "md5": "59A2EDF37715C8B6938DE3071CD146E1"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "CATALYTIC ACTIVITY": 1,
+   "COFACTOR": 1,
+   "BIOPHYSICOCHEMICAL PROPERTIES": 1,
+   "INTERACTION": 1,
+   "SUBCELLULAR LOCATION": 1,
+   "ALTERNATIVE PRODUCTS": 2,
+   "PTM": 2,
+   "DISEASE": 1,
+   "SIMILARITY": 1
+  },
+  "countByFeatureType": {
+   "Signal": 1,
+   "Chain": 1,
+   "Active site": 1,
+   "Binding site": 5,
+   "Modified residue": 2,
+   "Glycosylation": 13,
+   "Alternative sequence": 1,
+   "Natural variant": 4,
+   "Sequence conflict": 1
+  },
+  "uniParcId": "UPI0000000CC8"
+ }
+}

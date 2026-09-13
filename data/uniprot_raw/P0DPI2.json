@@ -1,0 +1,1781 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "P0DPI2",
+ "secondaryAccessions": [
+  "A6NFJ6",
+  "A6NJY7",
+  "O00650",
+  "O00660",
+  "O15011",
+  "O15012",
+  "P30042",
+  "P55346",
+  "P78474",
+  "Q92505",
+  "Q92507"
+ ],
+ "uniProtkbId": "GAL3A_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "2018-07-18",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2018-07-18",
+  "entryVersion": 42,
+  "sequenceVersion": 1
+ },
+ "annotationScore": 4.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000305"
+     }
+    ],
+    "value": "Glutamine amidotransferase-like class 1 domain-containing protein 3, mitochondrial"
+   }
+  },
+  "flag": "Precursor"
+ },
+ "genes": [
+  {
+   "geneName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000312",
+      "source": "HGNC",
+      "id": "HGNC:1273"
+     }
+    ],
+    "value": "GATD3"
+   },
+   "synonyms": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000312",
+       "source": "HGNC",
+       "id": "HGNC:1273"
+      }
+     ],
+     "value": "C21orf33"
+    },
+    {
+     "value": "GATD3A"
+    }
+   ]
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "35307029"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "39738099"
+      }
+     ],
+     "value": "Acts as a mitochondrial deglycase involved in the removal of early non-enzymatic glycation adducts from amino acids and nucleotides, thereby restricting the formation of advanced glycation end products (AGEs) within mitochondria (PubMed:35307029). Required to maintain low levels of glycation on mitochondrial ribosomal RNA and proteins, supporting efficient mitochondrial gene expression. Contributes to mitochondrial homeostasis, normal respiratory capacity, and proper mitochondrial network organization. Acts also as a mitochondrial regulator of malate dehydrogenase MDH2 by competitively limiting the association of MDH2 with the mitochondrial deacetylase SIRT3, thereby preserving MDH2 acetylation and enzymatic activity. Through this mechanism, supports efficient conversion of malate to oxaloacetate, sustaining TCA cycle continuity and oxidative phosphorylation (PubMed:39738099)"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "39738099"
+      }
+     ],
+     "value": "Interacts with MDH2"
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P0DPI2",
+      "intActId": "EBI-61079469"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q96EL3",
+      "geneName": "MRPL53",
+      "intActId": "EBI-2513715"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "35307029"
+       }
+      ],
+      "value": "Mitochondrion matrix",
+      "id": "SL-0170"
+     }
+    }
+   ]
+  },
+  {
+   "commentType": "ALTERNATIVE PRODUCTS",
+   "events": [
+    "Alternative splicing"
+   ],
+   "isoforms": [
+    {
+     "name": {
+      "value": "1"
+     },
+     "synonyms": [
+      {
+       "value": "Long"
+      }
+     ],
+     "isoformIds": [
+      "P0DPI2-1",
+      "P30042-1"
+     ],
+     "isoformSequenceStatus": "Displayed"
+    },
+    {
+     "name": {
+      "value": "2"
+     },
+     "synonyms": [
+      {
+       "value": "Short"
+      }
+     ],
+     "isoformIds": [
+      "P0DPI2-2",
+      "P30042-2"
+     ],
+     "sequenceIds": [
+      "VSP_001454"
+     ],
+     "isoformSequenceStatus": "Described"
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the GATD3 family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  }
+ ],
+ "features": [
+  {
+   "type": "Transit peptide",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 41,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Mitochondrion",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "1286669"
+    }
+   ]
+  },
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 42,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 268,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Glutamine amidotransferase-like class 1 domain-containing protein 3, mitochondrial",
+   "featureId": "PRO_0000008544"
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 151,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 151,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-acetyllysine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q9D172"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 157,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 157,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-acetyllysine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q9D172"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 164,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 164,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-acetyllysine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q9D172"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 203,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 203,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-acetyllysine; alternate",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q9D172"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 203,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 203,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-succinyllysine; alternate",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q9D172"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 219,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 219,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-acetyllysine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q9D172"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 223,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 223,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-acetyllysine; alternate",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q9D172"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 223,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 223,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-succinyllysine; alternate",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q9D172"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 233,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 233,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-acetyllysine; alternate",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q9D172"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 233,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 233,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N6-succinyllysine; alternate",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "Q9D172"
+    }
+   ]
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 144,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 174,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 2",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "9205129"
+    }
+   ],
+   "featureId": "VSP_001454",
+   "alternativeSequence": {}
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 148,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 148,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs17264865",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs17264865"
+    }
+   ],
+   "featureId": "VAR_027921",
+   "alternativeSequence": {
+    "originalSequence": "V",
+    "alternativeSequences": [
+     "M"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 248,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 248,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs2838497",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs2838497"
+    }
+   ],
+   "featureId": "VAR_020441",
+   "alternativeSequence": {
+    "originalSequence": "L",
+    "alternativeSequences": [
+     "V"
+    ]
+   }
+  },
+  {
+   "type": "Mutagenesis",
+   "location": {
+    "start": {
+     "value": 176,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 176,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Strongly diminished amidolytic activity.",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "35307029"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "C",
+    "alternativeSequences": [
+     "A"
+    ]
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0007",
+   "category": "PTM",
+   "name": "Acetylation"
+  },
+  {
+   "id": "KW-0025",
+   "category": "Coding sequence diversity",
+   "name": "Alternative splicing"
+  },
+  {
+   "id": "KW-0903",
+   "category": "Technical term",
+   "name": "Direct protein sequencing"
+  },
+  {
+   "id": "KW-0496",
+   "category": "Cellular component",
+   "name": "Mitochondrion"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  },
+  {
+   "id": "KW-0809",
+   "category": "Domain",
+   "name": "Transit peptide"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "9205129",
+    "citationType": "journal article",
+    "authors": [
+     "Nagamine K.",
+     "Kudoh J.",
+     "Minoshima S.",
+     "Kawasaki K.",
+     "Asakawa S.",
+     "Ito F.",
+     "Shimizu N."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "9205129"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1006/geno.1997.4761"
+     }
+    ],
+    "title": "Genomic organization and complete nucleotide sequence of the human PWP2 gene on chromosome 21.",
+    "publicationDate": "1997",
+    "journal": "Genomics",
+    "firstPage": "528",
+    "lastPage": "531",
+    "volume": "42"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [GENOMIC DNA] (ISOFORM 1)",
+    "NUCLEOTIDE SEQUENCE [GENOMIC DNA] OF 1-226 (ISOFORM 2)"
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "10830953",
+    "citationType": "journal article",
+    "authors": [
+     "Hattori M.",
+     "Fujiyama A.",
+     "Taylor T.D.",
+     "Watanabe H.",
+     "Yada T.",
+     "Park H.-S.",
+     "Toyoda A.",
+     "Ishii K.",
+     "Totoki Y.",
+     "Choi D.-K.",
+     "Groner Y.",
+     "Soeda E.",
+     "Ohki M.",
+     "Takagi T.",
+     "Sakaki Y.",
+     "Taudien S.",
+     "Blechschmidt K.",
+     "Polley A.",
+     "Menzel U.",
+     "Delabar J.",
+     "Kumpf K.",
+     "Lehmann R.",
+     "Patterson D.",
+     "Reichwald K.",
+     "Rump A.",
+     "Schillhabel M.",
+     "Schudy A.",
+     "Zimmermann W.",
+     "Rosenthal A.",
+     "Kudoh J.",
+     "Shibuya K.",
+     "Kawasaki K.",
+     "Asakawa S.",
+     "Shintani A.",
+     "Sasaki T.",
+     "Nagamine K.",
+     "Mitsuyama S.",
+     "Antonarakis S.E.",
+     "Minoshima S.",
+     "Shimizu N.",
+     "Nordsiek G.",
+     "Hornischer K.",
+     "Brandt P.",
+     "Scharfe M.",
+     "Schoen O.",
+     "Desario A.",
+     "Reichelt J.",
+     "Kauer G.",
+     "Bloecker H.",
+     "Ramser J.",
+     "Beck A.",
+     "Klages S.",
+     "Hennig S.",
+     "Riesselmann L.",
+     "Dagand E.",
+     "Wehrmeyer S.",
+     "Borzym K.",
+     "Gardiner K.",
+     "Nizetic D.",
+     "Francis F.",
+     "Lehrach H.",
+     "Reinhardt R.",
+     "Yaspo M.-L."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "10830953"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/35012518"
+     }
+    ],
+    "title": "The DNA sequence of human chromosome 21.",
+    "publicationDate": "2000",
+    "journal": "Nature",
+    "firstPage": "311",
+    "lastPage": "319",
+    "volume": "405"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "CI-2PBF0JF5JFFMO",
+    "citationType": "submission",
+    "authors": [
+     "Lubec G.",
+     "Vishwanath V."
+    ],
+    "publicationDate": "MAR-2007",
+    "submissionDatabase": "UniProtKB"
+   },
+   "referencePositions": [
+    "PROTEIN SEQUENCE OF 117-141",
+    "IDENTIFICATION BY MASS SPECTROMETRY"
+   ],
+   "referenceComments": [
+    {
+     "value": "Brain",
+     "type": "TISSUE"
+    },
+    {
+     "value": "Cajal-Retzius cell",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "CI-F2CTFSPCACFSP",
+    "citationType": "submission",
+    "authors": [
+     "Shimizu N."
+    ],
+    "publicationDate": "JUN-1996",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [GENOMIC DNA] OF 144-174"
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "1286669",
+    "citationType": "journal article",
+    "authors": [
+     "Hochstrasser D.F.",
+     "Frutiger S.",
+     "Paquet N.",
+     "Bairoch A.",
+     "Ravier F.",
+     "Pasquali C.",
+     "Sanchez J.-C.",
+     "Tissot J.-D.",
+     "Bjellqvist B.",
+     "Vargas R.",
+     "Appel R.D.",
+     "Hughes G.J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "1286669"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1002/elps.11501301201"
+     }
+    ],
+    "title": "Human liver protein map: a reference database established by microsequencing and gel comparison.",
+    "publicationDate": "1992",
+    "journal": "Electrophoresis",
+    "firstPage": "992",
+    "lastPage": "1001",
+    "volume": "13"
+   },
+   "referencePositions": [
+    "PROTEIN SEQUENCE OF 42-54"
+   ],
+   "referenceComments": [
+    {
+     "value": "Liver",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 6,
+   "citation": {
+    "id": "24275569",
+    "citationType": "journal article",
+    "authors": [
+     "Bian Y.",
+     "Song C.",
+     "Cheng K.",
+     "Dong M.",
+     "Wang F.",
+     "Huang J.",
+     "Sun D.",
+     "Wang L.",
+     "Ye M.",
+     "Zou H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "24275569"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.jprot.2013.11.014"
+     }
+    ],
+    "title": "An enzyme assisted RP-RPLC approach for in-depth analysis of human liver phosphoproteome.",
+    "publicationDate": "2014",
+    "journal": "J. Proteomics",
+    "firstPage": "253",
+    "lastPage": "262",
+    "volume": "96"
+   },
+   "referencePositions": [
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Liver",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 7,
+   "citation": {
+    "id": "35307029",
+    "citationType": "journal article",
+    "authors": [
+     "Smith A.J.",
+     "Advani J.",
+     "Brock D.C.",
+     "Nellissery J.",
+     "Gumerson J.",
+     "Dong L.",
+     "Aravind L.",
+     "Kennedy B.",
+     "Swaroop A."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "35307029"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1186/s12915-022-01267-6"
+     }
+    ],
+    "title": "GATD3A, a mitochondrial deglycase with evolutionary origins from gammaproteobacteria, restricts the formation of advanced glycation end products.",
+    "publicationDate": "2022",
+    "journal": "BMC Biol.",
+    "firstPage": "68",
+    "lastPage": "68",
+    "volume": "20"
+   },
+   "referencePositions": [
+    "FUNCTION",
+    "SUBCELLULAR LOCATION",
+    "MUTAGENESIS OF CYS-176"
+   ]
+  },
+  {
+   "referenceNumber": 8,
+   "citation": {
+    "id": "39738099",
+    "citationType": "journal article",
+    "authors": [
+     "Shen K.",
+     "Zhou H.",
+     "Zuo Q.",
+     "Gu Y.",
+     "Cheng J.",
+     "Yan K.",
+     "Zhang H.",
+     "Song H.",
+     "Liang W.",
+     "Zhou J.",
+     "Liu J.",
+     "Liu F.",
+     "Zhai C.",
+     "Fan W."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "39738099"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/s41467-024-55335-2"
+     }
+    ],
+    "title": "GATD3A-deficiency-induced mitochondrial dysfunction facilitates senescence of fibroblast-like synoviocytes and osteoarthritis progression.",
+    "publicationDate": "2024",
+    "journal": "Nat. Commun.",
+    "firstPage": "10923",
+    "lastPage": "10923",
+    "volume": "15"
+   },
+   "referencePositions": [
+    "FUNCTION",
+    "INTERACTION WITH MDH2"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "AP001753",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAA95554.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AB001517",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAA21138.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AB001517",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAA21139.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AP001055",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "D86060",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAA20888.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS33580.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS33581.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "P0DPI2-2"
+  },
+  {
+   "database": "PIR",
+   "id": "JC4914",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "JC4914"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_004640.4",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_004649.8"
+    }
+   ],
+   "isoformId": "P0DPI2-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_937798.4",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_198155.5"
+    }
+   ],
+   "isoformId": "P0DPI2-2"
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "P0DPI2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "P0DPI2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "113847",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "400"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "3195145",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "14"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "P0DPI2",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "97"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "P0DPI2",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "56"
+    }
+   ]
+  },
+  {
+   "database": "MINT",
+   "id": "P0DPI2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000291577",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BindingDB",
+   "id": "P0DPI2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ChEMBL",
+   "id": "CHEMBL5169114",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "P0DPI2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "P0DPI2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "P0DPI2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "P0DPI2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000480313",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "P0DPI2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "54621",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "54622",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pumba",
+   "id": "P0DPI2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "10117",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "167 antibodies from 23 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "8209",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000291577.11",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000291577.6"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000160221.19"
+    }
+   ],
+   "isoformId": "P0DPI2-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000348499.9",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000344901.5"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000160221.19"
+    }
+   ],
+   "isoformId": "P0DPI2-2"
+  },
+  {
+   "database": "GeneID",
+   "id": "8209",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:8209",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000291577.11",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000291577.6"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_004649.8"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_004640.4"
+    }
+   ]
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:1273",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "8209",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "8209",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "GATD3",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:1273",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "GATD3"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000160221",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Tissue enhanced (tongue)"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "601659",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000160221",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000160221",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "ENOG502QQFM",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00390000003706",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "P0DPI2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "NRMAVFR",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "543156at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "P0DPI2",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "1 GO annotation based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "P0DPI2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000160221",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CD-CODE",
+   "id": "DEE660B4",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Stress granule"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "C21orf33",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "P0DPI2",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tdark"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:P0DPI2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 21"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000160221",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in mucosa of transverse colon and 100 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "P0DPI2",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005759",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrial matrix"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:UniProtKB-SubCell"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005739",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrion"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "HTP:FlyBase"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0006056",
+     "source": "PubMed",
+     "id": "34800366"
+    }
+   ]
+  },
+  {
+   "database": "CDD",
+   "id": "cd03133",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GATase1_ES1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.40.50.880:FF:000035",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "ES1 protein homolog, mitochondrial isoform X1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.40.50.880",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "-"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR029062",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Class_I_gatase-like"
+    }
+   ]
+  },
+  {
+   "database": "NCBIfam",
+   "id": "NF008747",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PRK11780.1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR10224",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "ES1 PROTEIN HOMOLOG, MITOCHONDRIAL"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR10224:SF9",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "GLUTAMINE AMIDOTRANSFERASE-LIKE CLASS 1 DOMAIN-CONTAINING PROTEIN 3, MITOCHONDRIAL-RELATED"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF52317",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Class I glutamine amidotransferase-like"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MAAVRVLVASRLAAASAFTSLSPGGRTPSQRAALHLSVPRPAARVALVLSGCGVYDGTEIHEASAILVHLSRGGAEVQIFAPDVPQMHVIDHTKGQPSEGESRNVLTESARIARGKITDLANLSAANHDAAIFPGGFGAAKNLSTFAVDGKDCKVNKEVERVLKEFHQAGKPIGLCCIAPVLAAKVLRGVEVTVGHEQEEGGKWPYAGTAEAIKALGAKHCVKEVVEAHVDQKNKVVTTPAFMCETALHYIHDGIGAMVRKVLELTGK",
+  "length": 268,
+  "molWeight": 28170,
+  "crc64": "FCDE084D43173330",
+  "md5": "5B7CF489DFF7CAF9711D510F136BC474"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "SUBUNIT": 1,
+   "INTERACTION": 1,
+   "SUBCELLULAR LOCATION": 1,
+   "ALTERNATIVE PRODUCTS": 2,
+   "SIMILARITY": 1
+  },
+  "countByFeatureType": {
+   "Transit peptide": 1,
+   "Chain": 1,
+   "Modified residue": 10,
+   "Alternative sequence": 1,
+   "Natural variant": 2,
+   "Mutagenesis": 1
+  },
+  "uniParcId": "UPI0000169D5E"
+ }
+}
