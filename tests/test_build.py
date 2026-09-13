@@ -67,15 +67,23 @@ def test_multiple_chains_union_with_internal_gap():
     assert segs["X.master_2"]["in_master_molecule"] == "true"
 
 
-def test_uncertain_chain_position_flags_until_closed():
+def test_non_exact_chain_position_resolves_by_rule_r2e():
+    # a qualified position is used as stated; an UNKNOWN boundary extends to the sequence end (D60)
     sec = _sec(30, [("Chain", "2(UNSURE)", 30, "a", "PRO_1")])
     rule, ranges, note, flag, _ = bps.chain_rule("X", sec, _dec())
-    assert rule == "R2c" and ranges == [] and flag["rule"] == "chain_position_uncertain"
+    assert (rule, ranges, flag) == ("R2e", [(2, 30)], None) and "D60" in note
+    sec = _sec(30, [("Chain", "(UNKNOWN)", 25, "a", "PRO_1")])
+    assert bps.chain_rule("X", sec, _dec())[1] == [(1, 25)]
+    sec = _sec(30, [("Chain", 5, "(UNKNOWN)", "a", "PRO_1")])
+    assert bps.chain_rule("X", sec, _dec())[1] == [(5, 30)]
+    sec = _sec(30, [("Chain", "1(OUTSIDE)", 30, "a", "PRO_1")])
+    assert bps.chain_rule("X", sec, _dec())[1] == [(1, 30)]
+    # an earlier hand closure, if present, still wins
     closed = _dec(**{"flag.X": {"rule": "chain_position_uncertain", "decision": "D99",
                                 "master_start": "2", "master_end": "30"}})
+    sec = _sec(30, [("Chain", "2(UNSURE)", 30, "a", "PRO_1")])
     rule, ranges, note, flag, _ = bps.chain_rule("X", sec, closed)
     assert (rule, ranges) == ("R2c-closed", [(2, 30)]) and "D99" in note
-    assert flag["rule"] == "chain_position_uncertain"  # still recorded in flags.tsv, just closed
 
 
 def test_c_terminal_removed_segment():

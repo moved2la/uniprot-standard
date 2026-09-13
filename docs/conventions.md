@@ -53,6 +53,7 @@ the code raises a flag; it never defaults.
 | **R3 Evidence** | Gene Ontology cross-reference property `GoEvidenceType` | Recorded per annotation and summarised per tier. Never filters. |
 | **R4 Tier** | Membership of `data/tier<N>_pool.tsv` | An entry in more than one pool carries every tier it is in. |
 
+| **R2e Non-exact Chain** (D60) | `Chain` positions with a qualifier or `UNKNOWN` | Qualified positions used as stated; an `UNKNOWN` boundary extends to the sequence end; listed in `outputs/chain_positions_resolved.tsv`. Supersedes R2c's flag. |
 | **R5 Alphabet** (D59) | the canonical sequence's letters against the twenty coded amino acids | Any other letter excludes the entry from the set, listed with UniProt's molecular weight in `outputs/excluded_non_standard_alphabet.tsv`; an isoform with another letter is skipped in the delta table and listed. |
 | **M1–M5 Measured tier** (D56) | The identity column of the primary Layer B dataset; UniProt search fields `organism_id`, `reviewed`, `gene_exact`; the contaminant FASTA headers | M1 genes = every identity cell split on `;`. M2 each gene looked up by `gene_exact`; an entry belongs to the gene when the gene equals its primary symbol or a synonym. M3 exactly one entry → candidate; zero → `unmapped`; several → `ambiguous`, excluded. M4 a candidate in an ontology tier → `in_tier<N>`, not a member. M5 a candidate in the contaminant list → `contaminant`, not a member. Every outcome is written to `data/tier<N>_gene_mapping.tsv`. R3 does not apply to a measured tier. |
 

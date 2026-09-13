@@ -36,6 +36,7 @@ segments.ini, and the build exits non-zero.
 from __future__ import annotations
 
 import argparse
+import re
 import configparser
 import sys
 from collections import Counter
@@ -109,13 +110,18 @@ def chain_rule(acc: str, sec, decisions):
                 "no Chain feature in UniProt feature table; whole sequence is the master molecule", None, chains)
     inexact = [c for c in chains if not (_is_exact(c["start"]) and _is_exact(c["end"]))]
     if inexact:
-        desc = "; ".join(f"{c['id']} '{c['description']}' {c['start']}-{c['end']}" for c in inexact)
-        flag = {"rule": "chain_position_uncertain", "detail": f"Chain feature(s) with non-exact position: {desc}"}
         cl = closure(decisions, acc)
-        if cl is not None and cl.get("rule") == flag["rule"]:
+        if cl is not None and cl.get("rule") == "chain_position_uncertain":       # a closure, if one was ever written, still wins
             s, e = int(cl["master_start"]), int(cl["master_end"])
-            return ("R2c-closed", [(s, e)], f"flag {flag['rule']} closed by {cl['decision']}: master = {s}-{e}", flag, chains)
-        return ("R2c", [], "", flag, chains)
+            return ("R2c-closed", [(s, e)], f"flag chain_position_uncertain closed by {cl['decision']}: master = {s}-{e}", None, chains)
+        # R2e (D60): a non-exact Chain position resolves by rule — a stated position with a qualifier
+        # (UNSURE, OUTSIDE, <, >) is used as stated; an UNKNOWN boundary extends to that end of the
+        # sequence, i.e. no processing is assumed where UniProt records none. Listed, not flagged.
+        ranges = [(_resolve_position(c["start"], True, length), _resolve_position(c["end"], False, length)) for c in chains]
+        merged = _union(ranges)
+        desc = "; ".join(f"{c['id']} '{c['description']}' {c['start']}-{c['end']}" for c in chains)
+        note = f"R2e (D60): non-exact Chain position(s) resolved by rule to {_fmt_ranges(merged)}; chains: {desc}"
+        return ("R2e", merged, note, None, chains)
     ranges = [(int(c["start"]), int(c["end"])) for c in chains]
     if len(chains) == 1:
         c = chains[0]
@@ -124,6 +130,15 @@ def chain_rule(acc: str, sec, decisions):
     desc = "; ".join(f"{c['id']} '{c['description']}' {c['start']}-{c['end']}" for c in chains)
     return ("R2d", merged,
             f"union of {len(chains)} Chain features = {_fmt_ranges(merged)} (D24); chains: {desc}", None, chains)
+
+
+def _resolve_position(pos: str, is_start: bool, length: int) -> int:
+    """R2e: '724(UNSURE)', '1(OUTSIDE)', '<5', '>300' -> the number as stated; '(UNKNOWN)' -> 1 for a
+    start, the sequence length for an end."""
+    m = re.search(r"\d+", pos or "")
+    if m:
+        return max(1, min(length, int(m.group())))
+    return 1 if is_start else length
 
 
 def _fmt_ranges(ranges: list[tuple[int, int]]) -> str:
@@ -189,6 +204,7 @@ def build(decisions, resolved, sequences, pools: dict[str, list[dict[str, str]]]
     multi_chain_rows: list[list] = []
 
     excluded_rows: list[list] = []
+    resolved_rows: list[list] = []
     for acc in sorted(tiers_of):
         if not sequences.has_section(acc):
             raise RuntimeError(f"{acc} is in a pool but not in {common.SEQUENCES_INI}; rerun fetch_sequences")
@@ -235,6 +251,9 @@ def build(decisions, resolved, sequences, pools: dict[str, list[dict[str, str]]]
 
         # R2: processing
         rule, ranges, note, flag, chains = chain_rule(acc, sec, decisions)
+        if rule == "R2e":
+            resolved_rows.append([acc, sec.get("gene", ""), ";".join(tiers), len(chains),
+                                  "; ".join(f"{c['id']} {c['start']}-{c['end']}" for c in chains), _fmt_ranges(ranges), sec.get("length", "")])
         if flag is not None:
             append_flag(flags_path, stage=STAGE, subject=acc, rule=flag["rule"], detail=flag["detail"])
         if rule == "R2c":
@@ -299,7 +318,8 @@ def build(decisions, resolved, sequences, pools: dict[str, list[dict[str, str]]]
     evidence_rows = [[t, code, n] for t in sorted(evidence_counter)
                      for code, n in sorted(evidence_counter[t].items())]
     header.append(f"R5 (D59): {len(excluded_rows)} entries excluded for letters outside the twenty coded amino acids; see outputs/excluded_non_standard_alphabet.tsv")
-    return acc_cp, seg_cp, header, open_flags, evidence_rows, acc_evidence_rows, multi_chain_rows, excluded_rows
+    header.append(f"R2e (D60): {len(resolved_rows)} entries with a non-exact Chain position resolved by rule; see outputs/chain_positions_resolved.tsv")
+    return acc_cp, seg_cp, header, open_flags, evidence_rows, acc_evidence_rows, multi_chain_rows, excluded_rows, resolved_rows
 
 
 def _uniprot_mol_weight(acc: str) -> str:
@@ -360,7 +380,7 @@ def main(argv=None) -> int:
     if not args.check:
         reset_flags(common.FLAGS_TSV, STAGE)
 
-    acc_cp, seg_cp, header, open_flags, evidence_rows, acc_evidence_rows, multi_chain_rows, excluded_rows = build(
+    acc_cp, seg_cp, header, open_flags, evidence_rows, acc_evidence_rows, multi_chain_rows, excluded_rows, resolved_rows = build(
         decisions, resolved, sequences, pools, subtrees, queries, log, flags_path)
     seg_header = [
         "GENERATED by build_protein_set.py. DO NOT EDIT BY HAND.",
@@ -386,6 +406,9 @@ def main(argv=None) -> int:
     common.write_tsv(common.OUTPUTS_DIR / "evidence_summary.tsv", ["tier", "evidence_code", "n_accessions"], evidence_rows)
     common.write_tsv(common.OUTPUTS_DIR / "accession_evidence.tsv",
                      ["accession", "tier", "subtree_annotations", "evidence_codes"], acc_evidence_rows)
+    common.write_tsv(common.OUTPUTS_DIR / "chain_positions_resolved.tsv",
+                     ["accession", "gene", "tier", "n_chain_features", "chain_features_as_recorded", "master_ranges_resolved", "length"],
+                     resolved_rows)
     common.write_tsv(common.OUTPUTS_DIR / "excluded_non_standard_alphabet.tsv",
                      ["accession", "gene", "tier", "non_standard_letters", "length", "uniprot_mol_weight_da", "protein_name"],
                      excluded_rows)
