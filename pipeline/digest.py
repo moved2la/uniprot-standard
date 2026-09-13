@@ -128,12 +128,22 @@ def theoretical_peptides(seq: str, r: dict, cleave_before_proline: bool | None =
 # ---------------------------------------------------------------- inputs
 
 def load_sequences() -> dict[str, str]:
+    """The sequences of the protein set — the accessions in config/accessions.ini — read from the
+    sequences file. The sequences file may hold more entries than the set (entries excluded under
+    R5, D59, stay on disk as fetched); only set members are digested."""
     cp = configparser.ConfigParser(interpolation=None)
     cp.optionxform = str
     with SEQ_FILE.open(encoding="utf-8") as fh:
         cp.read_file(fh)
+    acc_cp = configparser.ConfigParser(interpolation=None)
+    acc_cp.optionxform = str
+    with (ROOT / "config" / "accessions.ini").open(encoding="utf-8") as fh:
+        acc_cp.read_file(fh)
+    members = set(acc_cp.sections())
     seqs: dict[str, str] = {}
     for sec in cp.sections():
+        if sec not in members:
+            continue
         s = cp[sec]
         seq_key = next((k for k in ("sequence", "seq", "canonical_sequence") if k in s), None)
         if seq_key is None:
