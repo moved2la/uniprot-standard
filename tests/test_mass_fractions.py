@@ -97,7 +97,7 @@ def test_accession_cell_matches_pool_with_isoform_suffix_dropped():
 
 
 def test_per_entry_table_has_every_weight_and_sums_to_one():
-    """D61: the generated config carries within-tier and combined weights with low/high, one
+    """D61: the one-table form carries within-tier and combined weights with low/high, one
     row per pool accession, provenance in the header; every weight column sums to one."""
     pool = _pool(("X00001", "GA", "1"), ("X00002", "GB", "1"), ("X00003", "GC", "2"))
     j = mf.join([_row(4, "GA", v=(30.0, 30.0, 30.0)), _row(5, "GB", v=(10.0, 10.0, 10.0)), _row(6, "GC", v=(20.0, 20.0, 20.0))], pool, LOG)

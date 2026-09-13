@@ -70,7 +70,7 @@ flowchart TB
   bounds1 --> m4
   procd --> m4
   ptmd --> m4
-  m4 --> w[config/mass_fractions_per_entry.tsv]
+  m4 --> w[config/mass_fractions/I.ini, IIa.ini, IIx.ini + mass_fractions_per_entry.tsv]
   m4 --> mfo[outputs/mass_fractions/ ranked tables, checks, summary]
 
   w --> AGG[[aggregation — next]]
@@ -121,8 +121,10 @@ Layer B multiplies by.
 
 | File | What it is | Open it to |
 |---|---|---|
-| `config/mass_fractions_per_entry.tsv` | Generated config (D61). One row per pool accession: per fiber type the dataset's median, SD, valid values, the within-tier weight (D31) and the combined weight (D58) with low / high, match rule, dataset row numbers; file hash, sheet, column names, and retrieval time once in the header | feed the aggregation step; trace any weight to its dataset rows |
+| `config/mass_fractions/{I,IIa,IIx}.ini` | Generated. One section per pool accession: weight per tier and combined (D58), each with low / high, dataset values, match rule, row numbers, source line with file hash | audit one entry with its citation on the same lines |
+| `config/mass_fractions_per_entry.tsv` | Generated (D61); the same values as one table. One row per pool accession: per fiber type the dataset's median, SD, valid values, the within-tier weight (D31) and the combined weight (D58) with low / high, match rule, dataset row numbers; file hash, sheet, column names, and retrieval time once in the header | feed the aggregation step; read the weights across fiber types at a glance |
 | `outputs/mass_fractions/combined_entries_ranked.tsv` | Every entry of every tier under one denominator per fiber type — the primary standard's weights (D58), ordered by type-I weight | the standard as measured; quote a top-N; plot |
+| `weights_per_pool_entry.tsv` | Every pool entry with everything the dataset said about it and every weight — the full table | trace any number in the ranked tables back to its row |
 | `tier1_entries_ranked.tsv`, `tier2_entries_ranked.tsv` | One tier, ordered by type-I weight; rank and cumulative share per fiber type within the tier | see what each tier is made of |
 | `excluded_entries_mass_share.tsv` | The R5-excluded entries and the share each would have held (D59) | state what the alphabet rule cost |
 | `mass_fractions_summary.ini` | Counts per file; per tier and fiber type: entries with mass, share of the ten largest, largest entry, maximum weighted bound per kind; `[combined]`: each tier's share of the combined standard per fiber type; gel-check factors | the one-screen view |
@@ -147,7 +149,7 @@ Layer B multiplies by.
 
 | Folder | Meaning |
 |---|---|
-| `config/` | Hand-written decisions (five files, listed in `docs/conventions.md`) and the config generated from them, including the Layer B weights table `mass_fractions_per_entry.tsv` (D61) |
+| `config/` | Hand-written decisions (five files, listed in `docs/conventions.md`) and the config generated from them, including the Layer B weights as `mass_fractions/<type>.ini` and as one table `mass_fractions_per_entry.tsv` (D61) |
 | `data/` | What the public databases and publishers said, unchanged or tabulated |
 | `outputs/` | Everything computed here that is not config |
 | `excerpts/` | Bounded cuts of the large generated files, for review in chat (`python run.py excerpt`); not committed, not the record |

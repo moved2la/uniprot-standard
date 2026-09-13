@@ -21,10 +21,10 @@ generator produces from the data on disk.
 
 | Folder | Meaning |
 |---|---|
-| `config/` | Decisions (hand-written) and the config generated from them. `config/mass_fractions_per_entry.tsv` is the generated Layer B weights table (D61): one row per pool accession, every weight with its interval, provenance in the header — the input the aggregation stage reads. |
+| `config/` | Decisions (hand-written) and the config generated from them. The Layer B weights are generated in two forms with identical values: `config/mass_fractions/<type>.ini` (one section per accession, the per-entry citable record) and `config/mass_fractions_per_entry.tsv` (one row per accession, every fiber type side by side, provenance once in the header — the form the aggregation stage reads; D61). |
 | `data/` | What the public databases said, unchanged or minimally tabulated. `data/gene-ontology/` holds the ontology file and the resolved term tables; `data/uniprot_raw/` holds entry JSON as fetched; `data/uniprot_sequences.ini` holds every canonical sequence in tabulated form, with its UniProt MD5, computed MD5, and captured features; `data/iupac/` holds the downloaded IUPAC-IUBMB Table 1 page, its hash, and `amino_acid_symbols.ini` parsed from it; `data/pubchem/` holds the PubChem responses as fetched and `amino_acid_masses.ini` tabulated from them; `data/uniprot_ptmlist/` holds UniProt's PTM vocabulary as fetched and its hash. |
 | `data/literature/` | Not committed (`.gitignore`). The literature files as downloaded or hand-obtained, unchanged, one folder per source id; `manifest.ini` (generated) records url, path, sha256, bytes, retrieval time, and whether the file was obtained by hand; `README.md` (generated) is the human-readable provenance. A reviewer re-creates the folder with `fetch_literature.py` plus the hand-obtained files named in the manifest. |
-| `outputs/` | Everything computed here that is not config: flags, evidence summaries, delta tables. `outputs/composition/` holds `amino_acid_composition_per_protein.tsv` and the processing and PTM disclosures. `outputs/digest/` holds the in-silico digest tables. `outputs/literature_inventory/` holds the structure of every literature file (members, sheets, header rows) read by code from the hashed files. `outputs/mass_fractions/` holds the ranked weight tables, completeness, cross-checks, and summary (the weights themselves are generated config, D61) — see `docs/pipeline_map.md` for which file answers which question. |
+| `outputs/` | Everything computed here that is not config: flags, evidence summaries, delta tables. `outputs/composition/` holds `amino_acid_composition_per_protein.tsv` and the processing and PTM disclosures. `outputs/digest/` holds the in-silico digest tables. `outputs/literature_inventory/` holds the structure of every literature file (members, sheets, header rows) read by code from the hashed files. `outputs/mass_fractions/` holds the weight tables (full and per-tier ranked), completeness, cross-checks, and summary — see `docs/pipeline_map.md` for which file answers which question. |
 | `logs/` | Debugging only: one timestamped log per stage per run, plus one per test run. Not committed; not part of the record. The record is the header of each generated file plus `outputs/flags.tsv`. |
 | `docs/` | `pipeline_map.md` (every stage, its inputs and outputs, and the flowchart), plan, decisions, methods, conventions, handoffs. |
 
@@ -45,6 +45,10 @@ Nothing in the repository is named by a project-plan step number.
 
 Each rule names the database field it reads. Where the field cannot settle the case,
 the code raises a flag; it never defaults.
+
+**No stage deletes, renames, or moves a file** in `config/`, `data/`, or `outputs/`. A stage writes
+the files it generates and leaves everything else as it found it; when a generated file is
+superseded, removing it is the author's own hand action, recorded in `decisions.md`, never code's (D61).
 
 | Rule | Reads | Result |
 |---|---|---|
@@ -114,7 +118,7 @@ abundance) and does not appear in the protein set.
 | **B3 Fiber type** | the dataset's own columns and purity threshold | Never re-derived. |
 | **B4 Missing** | the mapped valid-values column | `NaN` with valid values = 0 → 0, listed; never imputed. |
 | **B5 Spread** | the mapped SD column per fiber type | Carried per row for the aggregation step (D45); w_low / w_high = (v ∓ SD) × MW over the unchanged denominator, clipped at zero; a shared row adds its whole value to each member's w_high (D48). Rows summed under D47 carry the root-sum-square of their SDs (D53). |
-| **B9 Config** (D61) | every measured entry | One generated table, `config/mass_fractions_per_entry.tsv`: per entry and fiber type v, sd, valid, within-tier and combined weights with low / high, match rule, row numbers; provenance once in the header. The stage removes the superseded per-fiber-type `.ini` files and `weights_per_pool_entry.tsv` if present. |
+| **B9 Config** (D61) | every measured entry | The weights written in two forms with identical values: `config/mass_fractions/<type>.ini` (one section per accession, within-tier and combined weights with low / high) and `config/mass_fractions_per_entry.tsv` (one row per accession, every fiber type side by side, provenance once in the header). Both are covered by the currency test. |
 | **B7 Families** | `outputs/digest/shared_pairs.tsv`; composition `free_frac_*` on master rows | A family at the D52 cutoff is a unit (D55); its bound per amino acid = (max − min free-mass fraction across members) × family weight. |
 | **B8 Combined** (D58) | every measured entry of every tier | w_i = v_i · MW_i / Σ_all (v_j · MW_j), one denominator per fiber type; the primary standard. Within-tier weights are kept for the checks. |
 | **B6 Bands** | `config/carroll_classical_fractionation.ini` `anchor_genes`; `outputs/digest/shared_pairs.tsv` | A gel band is the shared-peptide family of its anchor genes at the D52 cutoff; its weight is Σ w over the family. Families at cutoffs 1 and 2 are both written. |

@@ -28,7 +28,7 @@ go to `outputs/flags.tsv` and are closed, with a D-number, in
 
 | Path | Meaning |
 |---|---|
-| `config/` | Hand-written decisions (`protein_set_decisions.ini`, `composition_decisions.ini`, `mass_fraction_decisions.ini`, `carroll_classical_fractionation.ini`, `aggregation_decisions.ini`) and generated config (`accessions.ini`, `segments.ini`, `mass_fractions_per_entry.tsv`) |
+| `config/` | Hand-written decisions (`protein_set_decisions.ini`, `composition_decisions.ini`, `mass_fraction_decisions.ini`, `carroll_classical_fractionation.ini`, `aggregation_decisions.ini`) and generated config (`accessions.ini`, `segments.ini`, `mass_fractions/<type>.ini`, `mass_fractions_per_entry.tsv`) |
 | `data/` | What the public databases said |
 | `outputs/` | Everything computed here that is not config |
 | `logs/` | Stage and test logs, debugging only; not committed |

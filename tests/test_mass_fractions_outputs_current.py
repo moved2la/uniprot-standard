@@ -1,7 +1,7 @@
 """The mass-fraction outputs and generated config must equal a fresh build from the
 files on disk. Skipped where the literature has not been fetched on this machine.
 Also: the code names no accession, and every weight column of the generated config
-(config/mass_fractions_per_entry.tsv, D61) sums to one."""
+(the per-fiber-type .ini files and the one-table form, D61) sums to one."""
 import re
 
 import pytest
@@ -22,7 +22,22 @@ def test_mass_fraction_outputs_are_current():
 
 @needs_data
 @upstream_running
-def test_generated_config_sums_to_one_per_tier_and_combined():
+def test_generated_config_sums_to_one_per_tier():
+    for ft in mf.FIBER_TYPES:
+        cp = common.read_ini(common.CONFIG_DIR / "mass_fractions" / f"{ft}.ini")
+        sums = {}
+        for acc in cp.sections():
+            for k, v in cp[acc].items():
+                if re.fullmatch(r"w_tier\d+|w_combined", k):
+                    sums[k] = sums.get(k, 0.0) + float(v)
+        assert sums, ft
+        for k, s in sums.items():
+            assert abs(s - 1.0) < 1e-6, (ft, k, s)
+
+
+@needs_data
+@upstream_running
+def test_generated_table_sums_to_one_per_tier_and_combined():
     """config/mass_fractions_per_entry.tsv (D61): every within-tier weight column sums to one
     over the tier's members, and every combined column sums to one over all entries."""
     rows = mf.read_tsv_skip_comments(common.MASS_FRACTIONS_TSV)
