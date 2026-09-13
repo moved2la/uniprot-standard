@@ -37,6 +37,7 @@ def test_nonstandard_letters_are_recorded_not_failures(entry):
     # R5 (D59): the letters are recorded on the record; build_protein_set excludes and lists the entry
     rec = va.extract(entry)
     rec["sequence"] = "MGGGAAAKKKWWXU"
+    rec["length"] = str(len(rec["sequence"]))
     rec["md5_uniprot"] = common.md5_text(rec["sequence"])
     problems = va.check_sequence(rec, rec["sequence"])
     assert problems == [] and rec["non_standard_letters"] == "UX"
