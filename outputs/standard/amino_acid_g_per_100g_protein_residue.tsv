@@ -15,21 +15,26 @@
 # input.outside_pool = outputs/mass_fractions/dataset_rows_outside_pool.tsv sha256 651ebbaeee358c4390c9e3716a661784aab7c83474efb3fd87e3998c9e7137d9
 # A1: profile = molar mixture n_a = sum_i (w_i / MW_i) count_{i,a}; p_a = n_a m_a / sum (m = residue mass or free mass). A1c: fraction mixture sum_i w_i f_{i,a}, renormalised, written as a check.
 # A2: total = every weighted entry under one denominator (D58); contractile and builders = the two tiers under their within-tier weights (D31); tiers are named, never numbered (D66).
-# A7: the genes the primary dataset quantified that map to no pool entry, ranked by their median value per fiber type; molar_share = their share of all quantified signal if included;
-# mass_share assumes each has the pool's molar-mean molecular weight (sum v*MW / sum v) — an assumption, stated, under which the mass share equals the molar share; bound_on_any_fraction = mass_share: a share of unknown composition can move no amino acid's fraction by more than itself
-fiber_type	n_top_genes	scope	sum_v	molar_share_if_included	assumed_mw_g_per_mol	mass_share_if_included	bound_on_any_fraction
-I	1	top	14066.83691	0.01117963684	59268.0	0.01117963684	0.01117963684
-I	5	top	33860.1347	0.02649362137	59268.0	0.02649362137	0.02649362137
-I	10	top	36104.66243	0.02820031031	59268.0	0.02820031031	0.02820031031
-I	30	top	37379.93409	0.02916733528	59268.0	0.02916733528	0.02916733528
-I	121	all	38231.71349	0.02981215926	59268.0	0.02981215926	0.02981215926
-IIa	1	top	8921.34668	0.006866470066	63872.2	0.006866470066	0.006866470066
-IIa	5	top	21527.94543	0.01641013297	63872.2	0.01641013297	0.01641013297
-IIa	10	top	23835.79106	0.0181374298	63872.2	0.0181374298	0.0181374298
-IIa	30	top	25120.461	0.01909630946	63872.2	0.01909630946	0.01909630946
-IIa	121	all	25979.76952	0.01973665402	63872.2	0.01973665402	0.01973665402
-IIx	1	top	10262.64844	0.00758053908	62695.3	0.00758053908	0.00758053908
-IIx	5	top	24973.11299	0.01824818859	62695.3	0.01824818859	0.01824818859
-IIx	10	top	29449.65549	0.02144909674	62695.3	0.02144909674	0.02144909674
-IIx	30	top	31553.8415	0.02294647414	62695.3	0.02294647414	0.02294647414
-IIx	121	all	32640.41892	0.02371790982	62695.3	0.02371790982	0.02371790982
+# g of amino acid per 100 g protein; residue convention: in-chain residue mass; the column sums to 100 g per 100 g protein less each chain's one terminal water (the MW includes it)
+amino_acid	three_letter	name	total_I	total_IIa	total_IIx	contractile_I	contractile_IIa	contractile_IIx	builders_I	builders_IIa	builders_IIx
+A	Ala	Alanine	5.0053	5.0527	4.9982	4.8563	4.9978	4.9725	5.3824	5.1999	5.0629
+C	Cys	Cysteine	1.1655	1.1802	1.2081	1.0749	1.0962	1.1162	1.3948	1.4054	1.4396
+D	Asp	Aspartic acid	5.8382	5.8460	5.9386	5.9916	5.8642	5.9588	5.4501	5.7974	5.8877
+E	Glu	Glutamic acid	11.3417	11.5820	11.5416	12.6076	12.7893	12.7128	8.1375	8.3481	8.5925
+F	Phe	Phenylalanine	4.1970	4.1464	4.2046	3.8406	3.7180	3.7785	5.0989	5.2939	5.2776
+G	Gly	Glycine	3.0047	3.0227	3.0376	2.6575	2.6769	2.7055	3.8833	3.9489	3.8737
+H	His	Histidine	2.2620	2.3070	2.2858	2.0795	2.1204	2.0942	2.7238	2.8068	2.7681
+I	Ile	Isoleucine	5.4165	5.5043	5.4344	5.3441	5.4900	5.4701	5.6000	5.5427	5.3445
+K	Lys	Lysine	9.5436	9.7567	9.5962	10.1008	10.1339	9.9888	8.1330	8.7463	8.6075
+L	Leu	Leucine	8.4880	8.3864	8.3851	8.1231	8.1604	8.1256	9.4117	8.9920	9.0386
+M	Met	Methionine	2.7836	2.6551	2.6675	2.7704	2.6026	2.6291	2.8168	2.7956	2.7640
+N	Asn	Asparagine	3.6186	3.5973	3.6221	3.5919	3.5044	3.5036	3.6861	3.8463	3.9203
+P	Pro	Proline	4.2116	3.9857	4.0675	4.1353	3.8908	3.9801	4.4047	4.2399	4.2877
+Q	Gln	Glutamine	4.7411	4.8372	4.7420	4.7781	4.9615	4.8138	4.6474	4.5042	4.5613
+R	Arg	Arginine	7.2289	7.1544	7.1644	7.3076	7.2437	7.2339	7.0297	6.9150	6.9895
+S	Ser	Serine	4.5763	4.5637	4.6024	4.4997	4.5498	4.5365	4.7703	4.6010	4.7682
+T	Thr	Threonine	5.0100	5.0083	4.9683	5.0139	5.0380	5.0336	5.0001	4.9288	4.8039
+V	Val	Valine	5.8460	5.8121	5.8956	5.6278	5.6231	5.7386	6.3985	6.3185	6.2907
+W	Trp	Tryptophan	1.6401	1.6208	1.6691	1.5721	1.5614	1.6151	1.8120	1.7798	1.8052
+Y	Tyr	Tyrosine	4.0511	3.9526	3.9423	4.0043	3.9578	3.9719	4.1696	3.9387	3.8677
+sum			99.9696	99.9718	99.9713	99.9771	99.9803	99.9792	99.9506	99.9491	99.9513

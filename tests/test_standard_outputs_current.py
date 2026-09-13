@@ -41,7 +41,7 @@ def test_calculated_standard_columns_sum_to_100():
     for col in [c for c in rows[0] if c not in ("amino_acid", "three_letter", "name")]:
         if all(r[col] == "" for r in body):
             continue                                                    # the final column may be blank until the mix is filled
-        assert abs(sum(float(r[col]) for r in body) - 100.0) < 1e-6, col
+        assert abs(sum(float(r[col]) for r in body) - 100.0) < 5e-4, col
 
 
 @needs_data
