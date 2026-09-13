@@ -650,7 +650,7 @@ def carroll_check(measured, pool, log) -> tuple[list[list], list[list]]:
                     raise SystemExit(f"[STOP] anchor gene {g} of band {band} is not in the pool (D52)")
                 a = gene_to_acc[g]
                 accs |= fams.get(a, {a})
-            for a in sorted(accs, key=lambda a: -(measured[a].get("w_I_tier1") or 0.0)):
+            for a in sorted(accs, key=lambda a: (-(measured[a].get("w_I_tier1") or 0.0), a)):   # ties by accession: reproducible order
                 m = measured[a]
                 fam_rows.append([cutoff, band, a, m["gene"], m["tier"], "anchor" if m["gene"] in anchors else "family",
                                  m["match_rule"]] + [fnum(m[f"v_{ft}"]) for ft in FIBER_TYPES]
