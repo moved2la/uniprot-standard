@@ -47,9 +47,9 @@ def test_max_shift_reports_the_amino_acid_and_percent():
 
 def test_settings_lists_parse_with_semicolons_and_stop_on_placeholder(tmp_path, monkeypatch):
     ini = tmp_path / "agg.ini"
-    ini.write_text("[stress]\ncomposition_distance_top_entries = 3\nconvergence_top_k = 2;3\nknockout_top_k = 1\n"
-                   "tier1_share = 0.5;0.9\nsize_tilt_alpha = -0.5;0.5\nrandom_abuse_factor = 2\nrandom_abuse_draws = 5\nseed = 1\n", encoding="utf-8")
-    monkeypatch.setattr(stt.common, "AGGREGATION_DECISIONS_INI", ini)
+    ini.write_text("[stress]\ncomposition_distance_top_entries = 3\nconvergence_top_k = 2, 3\nknockout_top_k = 1\n"
+                   "contractile_share = 0.5, 0.9\nsize_tilt_alpha = -0.5, 0.5\nrandom_abuse_factor = 2\nrandom_abuse_draws = 5\nseed = 1\n", encoding="utf-8")
+    monkeypatch.setattr(stt.common, "STRESS_SETTINGS_INI", ini)
     st = stt.load_settings()
     assert st["convergence_k"] == [2, 3] and st["alphas"] == [-0.5, 0.5] and st["random_draws"] == 5
     ini.write_text("[stress]\ncomposition_distance_top_entries = ___\n", encoding="utf-8")

@@ -3,6 +3,7 @@
 An open, sequence-derived amino acid standard for human skeletal muscle protein,
 computed from UniProtKB sequences and literature-derived tissue mass fractions.
 
+The result is `outputs/standard/_calculated_amino_acid_standard.tsv`; `docs/formula.md` is the calculation by hand.
 Read `PROVENANCE.md` first, then `docs/pipeline_map.md` for what runs in what order. Every value in this repository is an author decision, a
 citation, or a computation, and nothing else.
 
@@ -29,7 +30,7 @@ go to `outputs/flags.tsv` and are closed, with a D-number, in
 
 | Path | Meaning |
 |---|---|
-| `config/` | Hand-written decisions (`protein_set_decisions.ini`, `composition_decisions.ini`, `mass_fraction_decisions.ini`, `carroll_classical_fractionation.ini`, `aggregation_decisions.ini`) and generated config (`accessions.ini`, `segments.ini`, `mass_fractions/<type>.ini`, `mass_fractions_per_entry.tsv`) |
+| `config/` | Hand-written decisions and transcriptions (`protein_set_decisions.ini`, `composition_decisions.ini`, `mass_fraction_decisions.ini`, `carroll_classical_fractionation.ini`, `fao_2013_indispensable_amino_acids.ini`, `fiber_type_mix.ini`, `uncertainty_settings.ini`, `stress_test_settings.ini`) and generated config (`accessions.ini`, `segments.ini`, `mass_fractions/<type>.ini`, `mass_fractions_per_entry.tsv`) |
 | `data/` | What the public databases said |
 | `outputs/` | Everything computed here that is not config |
 | `logs/` | Stage and test logs, debugging only; not committed |

@@ -52,8 +52,8 @@ def test_simulation_is_deterministic_and_every_draw_is_a_composition():
         assert np.array_equal(a[k], b[k])
         assert a[k].shape == (40, 20)
         assert np.allclose(a[k].sum(axis=1), 1.0)
-    assert not np.array_equal(a[("combined", "I", "free", "between_fiber_spread")],
-                              un.simulate(e, c, m, draws=40, seed=8, log=LOG)[("combined", "I", "free", "between_fiber_spread")])
+    assert not np.array_equal(a[("total", "I", "free", "between_fiber_spread")],
+                              un.simulate(e, c, m, draws=40, seed=8, log=LOG)[("total", "I", "free", "between_fiber_spread")])
 
 
 def test_zero_sd_reproduces_the_standard_in_every_draw():
@@ -63,13 +63,13 @@ def test_zero_sd_reproduces_the_standard_in_every_draw():
     tot = sum(w.values())
     w = {k: v / tot for k, v in w.items()}
     p = ag.molar_profile(w, c, m, "free")
-    P = sims[("combined", "I", "free", "median_uncertainty")]
+    P = sims[("total", "I", "free", "median_uncertainty")]
     assert np.allclose(P, np.array([[p[a] for a in AA]] * 10))
 
 
 def test_median_uncertainty_is_narrower_than_between_fiber_spread():
     e, c, m = _entries(6, 0.8), _counts(6), _masses()
     sims = un.simulate(e, c, m, draws=400, seed=3, log=LOG)
-    spread = sims[("combined", "I", "free", "between_fiber_spread")].std(axis=0)
-    med = sims[("combined", "I", "free", "median_uncertainty")].std(axis=0)
+    spread = sims[("total", "I", "free", "between_fiber_spread")].std(axis=0)
+    med = sims[("total", "I", "free", "median_uncertainty")].std(axis=0)
     assert (med <= spread).all()

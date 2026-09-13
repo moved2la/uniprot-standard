@@ -49,8 +49,12 @@ COMPOSITION_SUMMARY_INI = COMPOSITION_DIR / "composition_summary.ini"
 MASS_FRACTIONS_TSV = CONFIG_DIR / "mass_fractions_per_entry.tsv"
 MASS_FRACTIONS_DIR = OUTPUTS_DIR / "mass_fractions"
 
-# The standard (aggregation and uncertainty).
-AGGREGATION_DECISIONS_INI = CONFIG_DIR / "aggregation_decisions.ini"    # hand-written: EAA transcription (D62), Monte Carlo draws and seed (D63)
+# The standard (aggregation, uncertainty, stress).
+EAA_INI = CONFIG_DIR / "fao_2013_indispensable_amino_acids.ini"    # hand-written transcription (D62)
+UNCERTAINTY_SETTINGS_INI = CONFIG_DIR / "uncertainty_settings.ini"   # hand-written: draws and seed (D63)
+STRESS_SETTINGS_INI = CONFIG_DIR / "stress_test_settings.ini"        # hand-written: magnitudes (D65)
+FIBER_TYPE_MIX_INI = CONFIG_DIR / "fiber_type_mix.ini"               # hand-written transcription: the shares that make the final column
+TIER_NAMES = {"1": "contractile", "2": "builders"}                     # naming rule: tiers are named, never numbered, in outputs (D66)
 STANDARD_DIR = OUTPUTS_DIR / "standard"
 
 # The twenty standard amino acid letters, in the order used for every vector.

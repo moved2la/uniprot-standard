@@ -77,8 +77,10 @@ flowchart TB
   subgraph ST["python run.py standard"]
     a1[aggregate] --> a2[uncertainty] --> a4[stress] --> a3[plots]
   end
-  agd[config/aggregation_decisions.ini] --> a1
-  agd --> a2
+  eaa[config/fao_2013_indispensable_amino_acids.ini] --> a1
+  mix[config/fiber_type_mix.ini] --> a1
+  us[config/uncertainty_settings.ini] --> a2
+  ss[config/stress_test_settings.ini] --> a4
   w --> a1
   comp --> a1
   masses --> a1
@@ -86,7 +88,7 @@ flowchart TB
   bounds1 --> a1
   procd --> a1
   ptmd --> a1
-  a1 --> std[outputs/standard/ profiles, differences, sensitivity, bounds, completeness, eaa_subset]
+  a1 --> std[outputs/standard/ _calculated_amino_acid_standard, profiles, differences, sensitivity, bounds, completeness, eaa_subset]
   std --> a2
   w --> a2
   comp --> a2
@@ -167,18 +169,20 @@ Layer B multiplies by.
 
 | # | Stage | Reads | Does | Writes | Read next by |
 |---|---|---|---|---|---|
-| 1 | `aggregate` | `config/mass_fractions_per_entry.tsv`, composition counts (`master`), the fetched masses and symbols, `config/aggregation_decisions.ini`, `classical_check_carroll_2004.tsv`, `band_families.tsv`, `family_bounds.tsv`, the three per-entry delta tables, `dataset_rows_outside_pool.tsv` | The profiles by molar mixture (A1, D64) for the combined and contractile sets per fiber type and convention; their differences and the fiber-type bracket (A5); the MHC:actin sensitivity (A6); bounds after weighting; the completeness bound (A7); the EAA subset (A8, D62) | see the next table | 2, 3 |
-| 2 | `uncertainty` | the same weights and counts; `[monte_carlo]`; the aggregate tables | Log-space Monte Carlo (A3, D63): between-fiber spread and median uncertainty; every term on one scale (A4); the SD-to-median regime table | `uncertainty_intervals.tsv`, `uncertainty_per_amino_acid.tsv`, `sd_to_median_ratio.tsv`, `uncertainty_summary.ini` | 3, the paper |
-| 3 | `stress` | the same weights and counts; `[stress]`; `band_families.tsv`; `outputs/digest/theoretical_peptides.tsv`; the aggregate profiles | How far the standard moves under named perturbations (A9, D65): composition distance, convergence, knock-outs, per-entry influence, tier ratio, size tilt, TPA weighting, random abuse | `stress_shifts.tsv`, `stress_summary_per_scenario.tsv`, `stress_influence_per_entry.tsv`, `composition_distance_top_entries.tsv`, `stress_summary.ini` | 4, the paper |
+| 1 | `aggregate` | `config/mass_fractions_per_entry.tsv`, composition counts (`master`), the fetched masses and symbols, `config/fao_2013_indispensable_amino_acids.ini`, `config/fiber_type_mix.ini`, `classical_check_carroll_2004.tsv`, `band_families.tsv`, `family_bounds.tsv`, the three per-entry delta tables, `dataset_rows_outside_pool.tsv` | The profiles by molar mixture (A1, D64) for the total, contractile, and builders sets per fiber type and convention; **the deliverable** `_calculated_amino_acid_standard.tsv` (D66); their differences and the fiber-type bracket (A5); the MHC:actin sensitivity (A6); bounds after weighting; the completeness bound (A7); the EAA subset (A8, D62) | see the next table | 2, 3 |
+| 2 | `uncertainty` | the same weights and counts; `config/uncertainty_settings.ini`; the aggregate tables | Log-space Monte Carlo (A3, D63): between-fiber spread and median uncertainty; every term on one scale (A4); the SD-to-median regime table | `uncertainty_intervals.tsv`, `uncertainty_per_amino_acid.tsv`, `sd_to_median_ratio.tsv`, `uncertainty_summary.ini` | 3, the paper |
+| 3 | `stress` | the same weights and counts; `config/stress_test_settings.ini`; `band_families.tsv`; `outputs/digest/theoretical_peptides.tsv`; the aggregate profiles | How far the standard moves under named perturbations (A9, D65): composition distance, convergence, knock-outs, per-entry influence, tier ratio, size tilt, TPA weighting, random abuse | `stress_shifts.tsv`, `stress_summary_per_scenario.tsv`, `stress_influence_per_entry.tsv`, `composition_distance_top_entries.tsv`, `stress_summary.ini` | 4, the paper |
 | 4 | `plots` | the tables of 1–3 | Figures; nothing computed | `outputs/standard/plots/*.png`, `*.svg` | the paper |
 
 ### What `aggregate` writes, and which one to open
 
 | File | What it is | Open it to |
 |---|---|---|
-| `amino_acid_profiles.tsv` | One row per profile × fiber type × convention: twenty fractions summing to one, the A1c check | the standard as fractions |
-| `amino_acid_profiles_free_wide.tsv`, `_residue_wide.tsv` | g per 100 g protein, one row per amino acid, one column per profile and fiber type | read the standard |
-| `profile_differences.tsv` | combined − contractile; between fiber types; the bracket (max − min over the three types) | see what the support tier and the fiber type change |
+| **`_calculated_amino_acid_standard.tsv`** | **The deliverable.** Twenty rows; columns contractile, builders, total × fiber type I / IIa / IIx, and `standard` = the fiber-type mix of the totals (from `config/fiber_type_mix.ini`; blank until filled); percent of amino acid mass, free convention, summing to 100 | the standard |
+| `_calculated_amino_acid_standard_residue_convention.tsv` | the same in the residue convention | compare with in-chain compositions |
+| `amino_acid_profiles.tsv` | One row per set × fiber type × convention: twenty fractions summing to one, the A1c check | the standard as fractions, machine-readable |
+| `amino_acid_g_per_100g_protein_free.tsv`, `_residue.tsv` | g per 100 g protein, unnormalised (free sums to ~116 by the water of hydrolysis) | compare with USDA-style tables |
+| `profile_differences.tsv` | total − contractile, contractile − builders; between fiber types; the bracket (max − min over the three fiber types) | see what the builders and the fiber type change |
 | `sensitivity_mhc_actin_profiles.tsv`, `_spread.tsv` | the profile at each measured MHC:actin ratio, both single-band ways; per amino acid the range and the max shift | how much the method disagreement could move the standard |
 | `bounds_after_weighting.tsv` | isoform, processing, PTM, family, shared-row bounds × weight; largest single and worst-case sum | what each disclosed choice could cost after weighting |
 | `completeness_sensitivity.tsv` | the outside genes' share by rank and the bound it implies | what the unmapped genes could change |
@@ -195,7 +199,7 @@ Layer B multiplies by.
 
 | Folder | Meaning |
 |---|---|
-| `config/` | Hand-written decisions (five files, listed in `docs/conventions.md`) and the config generated from them, including the Layer B weights as `mass_fractions/<type>.ini` and as one table `mass_fractions_per_entry.tsv` (D61) |
+| `config/` | Hand-written decisions and transcriptions (eight files, listed in `docs/conventions.md`) and the config generated from them, including the Layer B weights as `mass_fractions/<type>.ini` and as one table `mass_fractions_per_entry.tsv` (D61) |
 | `data/` | What the public databases and publishers said, unchanged or tabulated |
 | `outputs/` | Everything computed here that is not config |
 | `excerpts/` | Bounded cuts of the large generated files, for review in chat (`python run.py excerpt`); not committed, not the record |

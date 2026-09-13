@@ -9,7 +9,8 @@ Reads
   outputs/composition/amino_acid_composition_per_protein.tsv residue counts per entry, segment_set = master
   data/pubchem/amino_acid_masses.ini                         free and residue mass per letter; three-letter symbol; name
   data/iupac/amino_acid_symbols.ini                          three-letter -> one-letter (for the EAA config)
-  config/aggregation_decisions.ini                           the indispensable amino acids and their groupings (D62)
+  config/fao_2013_indispensable_amino_acids.ini              the indispensable amino acids and their groupings (D62)
+  config/fiber_type_mix.ini                                  the fiber-type shares that make the final column (blank = ___)
   outputs/mass_fractions/classical_check_carroll_2004.tsv    the MHC:actin ratio as measured by each method
   outputs/mass_fractions/band_families.tsv                   the entries in each band's family (cutoff 2, D52)
   outputs/mass_fractions/family_bounds.tsv                   within-tier family bounds (D55)
@@ -18,10 +19,14 @@ Reads
   outputs/mass_fractions/dataset_rows_outside_pool.tsv       the completeness list (molar shares)
 
 Writes (outputs/standard/, every file with a header naming inputs and hashes)
-  amino_acid_profiles.tsv              one row per profile x fiber type x convention: twenty fractions summing
+  _calculated_amino_acid_standard.tsv  THE DELIVERABLE: twenty rows, ten columns — contractile, builders, total
+                                       x fiber type I / IIa / IIx, and the final standard (the fiber-type
+                                       mix of the totals, from config/fiber_type_mix.ini; blank until filled)
+                                       — percent of amino acid mass, free convention, summing to 100
+  _calculated_amino_acid_standard_residue_convention.tsv   the same in the residue convention
+  amino_acid_profiles.tsv              one row per set x fiber type x convention: twenty fractions summing
                                        to one (A1), the fraction-mixing check (A1c), entries with weight
-  amino_acid_profiles_free_wide.tsv    g per 100 g protein, one row per amino acid, one column per profile and
-  amino_acid_profiles_residue_wide.tsv fiber type — the human-readable tables
+  amino_acid_g_per_100g_protein_free.tsv, _residue.tsv   the same as g per 100 g protein (unnormalised)
   profile_differences.tsv              per amino acid: combined - contractile per fiber type; between fiber
                                        types; the fiber-type bracket (max - min over the three types, A5)
   sensitivity_mhc_actin_profiles.tsv   the profile at each measured MHC:actin ratio, both single-band ways (A6)
@@ -39,7 +44,7 @@ Rules (docs/conventions.md, "Aggregation rules")
      then p_a = n_a * m_a / sum_b n_b * m_b with m the residue mass (residue convention) or the free mass
      (free convention). A1c: the fraction mixture sum_i w_i * f_{i,a}, renormalised, is written beside it
      as a check; the difference is disclosed.
-  A2 sets: combined = every weighted entry (D58); contractile = tier 1. No other set is named.
+  A2 sets: total = every weighted entry (D58); contractile and builders = its two tiers (D66). No other set is named.
   A5 the bracket: max - min of each amino acid over the three pure fiber types bounds every mix.
   A6 MHC:actin sensitivity (D54b as reframed): at each ratio the three methods measured, the band family is
      rescaled two ways (MHC family scaled, actin fixed; actin family scaled, MHC fixed), all weights
@@ -67,7 +72,7 @@ from pipeline.mass_fractions import read_tsv_skip_comments, fnum, sha256_path
 OUT_DIR = common.STANDARD_DIR
 MF_DIR = common.MASS_FRACTIONS_DIR
 FIBER_TYPES = ("I", "IIa", "IIx")
-PROFILES = ("combined", "contractile")
+PROFILES = ("total", "contractile", "builders")   # rule A2: the total (D58), and its two tiers by name (D66)
 CONVENTIONS = ("free", "residue")
 AA = list(common.AMINO_ACIDS)
 GEL_TYPES = ("I", "IIa")            # the fiber types the gel measured; no IIx factor is invented (A6)
@@ -79,7 +84,8 @@ INPUTS = {
     "composition": common.COMPOSITION_TSV,
     "masses": common.AMINO_ACID_MASSES_INI,
     "symbols": common.AMINO_ACID_SYMBOLS_INI,
-    "eaa": common.AGGREGATION_DECISIONS_INI,
+    "eaa": common.EAA_INI,
+    "fiber_type_mix": common.FIBER_TYPE_MIX_INI,
     "mhc_actin": MF_DIR / "classical_check_carroll_2004.tsv",
     "band_families": MF_DIR / "band_families.tsv",
     "family_bounds": MF_DIR / "family_bounds.tsv",
@@ -93,6 +99,11 @@ INPUTS = {
 # ----------------------------------------------------------------------------
 # inputs
 # ----------------------------------------------------------------------------
+
+def split_list(value: str) -> list[str]:
+    """A config list: comma- or semicolon-separated, whitespace stripped, empties dropped."""
+    return [x.strip() for x in value.replace(";", ",").split(",") if x.strip()]
+
 
 def load_masses() -> dict[str, dict]:
     cp = common.read_ini(INPUTS["masses"])
@@ -121,8 +132,9 @@ def load_entries() -> tuple[dict[str, dict], list[str]]:
             e[f"valid_{ft}"] = int(float(r[f"valid_{ft}"])) if r[f"valid_{ft}"] else 0
             e[f"w_{ft}_combined"] = float(r[f"w_{ft}_combined"])
             e[f"w_{ft}_combined_high"] = float(r[f"w_{ft}_combined_high"])
-            t1 = r.get(f"w_{ft}_tier1", "")
-            e[f"w_{ft}_tier1"] = float(t1) if t1 not in ("", None) else None
+            for t in ("1", "2"):
+                tv = r.get(f"w_{ft}_tier{t}", "")
+                e[f"w_{ft}_tier{t}"] = float(tv) if tv not in ("", None) else None
         entries[r["accession"]] = e
     if not entries:
         raise SystemExit(f"[STOP] no rows in {INPUTS['weights']}")
@@ -167,13 +179,15 @@ def load_counts(entries: dict[str, dict]) -> dict[str, dict]:
 # ----------------------------------------------------------------------------
 
 def weight_vector(entries, profile: str, ft: str) -> dict[str, float]:
-    """The weights of a profile's set for one fiber type (A2). Tier-1 weights sum to one over
-    the tier; combined over everything."""
-    if profile == "combined":
+    """The weights of a profile's set for one fiber type (A2): total = every entry under the
+    one-denominator weights (D58, column w_combined); contractile / builders = the entries of
+    that tier under its within-tier weights (D31)."""
+    if profile == "total":
         return {acc: e[f"w_{ft}_combined"] for acc, e in entries.items()}
-    if profile == "contractile":
-        return {acc: e[f"w_{ft}_tier1"] for acc, e in entries.items() if e[f"w_{ft}_tier1"] is not None}
-    raise ValueError(profile)
+    tier = {"contractile": "1", "builders": "2"}.get(profile)
+    if tier is None:
+        raise ValueError(profile)
+    return {acc: e[f"w_{ft}_tier{tier}"] for acc, e in entries.items() if e.get(f"w_{ft}_tier{tier}") is not None}
 
 
 def molar_profile(weights: dict[str, float], counts: dict[str, dict], masses: dict[str, dict], convention: str) -> dict[str, float]:
@@ -324,6 +338,31 @@ def load_family_bounds() -> dict[str, list[dict]]:
 
 
 # ----------------------------------------------------------------------------
+# the fiber-type mix (the final column)
+# ----------------------------------------------------------------------------
+
+def load_fiber_type_mix() -> dict | None:
+    """The author-transcribed shares of muscle protein per fiber type, normalised to sum to one,
+    or None while the file still holds `___` (the final column stays blank)."""
+    cp = common.read_ini(INPUTS["fiber_type_mix"])
+    if "shares" not in cp:
+        raise SystemExit(f"[STOP] {INPUTS['fiber_type_mix'].name} has no [shares] section")
+    sec = cp["shares"]
+    vals = {}
+    for ft in FIBER_TYPES:
+        v = sec.get(ft, "").strip()
+        if v in ("", "___"):
+            return None
+        vals[ft] = float(v)
+    tot = sum(vals.values())
+    if tot <= 0:
+        raise SystemExit(f"[STOP] {INPUTS['fiber_type_mix'].name}: shares sum to {tot}")
+    meta = dict(cp["meta"]) if "meta" in cp else {}
+    return {"shares": {ft: v / tot for ft, v in vals.items()}, "as_given": vals, "basis": sec.get("basis", ""),
+            "location": sec.get("location", ""), "as_reported": sec.get("as_reported", ""), "meta": meta}
+
+
+# ----------------------------------------------------------------------------
 # EAA (D62)
 # ----------------------------------------------------------------------------
 
@@ -344,14 +383,14 @@ def load_eaa() -> dict:
             raise SystemExit(f"[STOP] {INPUTS['eaa'].name}: [{section}] {key} is not filled in (D62; the author transcribes it from the pinned PDF)")
         return val
 
-    headings = [h.strip() for h in need("indispensable_amino_acids", "headings").split(";") if h.strip()]
+    headings = split_list(need("indispensable_amino_acids", "headings"))
     groups = {}
     for sec in cp.sections():
         if sec.startswith("group."):
             gname = sec[len("group."):]
             if gname == "___":
                 raise SystemExit(f"[STOP] {INPUTS['eaa'].name}: a [group.___] template section is still present — name it or delete it (D62)")
-            members = [m.strip() for m in need(sec, "members").split(";") if m.strip()]
+            members = split_list(need(sec, "members"))
             groups[gname] = {"members": members, "location": cp[sec].get("location", ""), "as_reported": cp[sec].get("as_reported", "")}
     resolved = []   # (heading, [one-letter symbols])
     for h in headings:
@@ -391,7 +430,7 @@ def build(log) -> dict[str, str]:
     header_common = [f"generated = {common.iso_now()}"] + [f"input.{k} = {v}" for k, v in hashes.items()] + [
         "A1: profile = molar mixture n_a = sum_i (w_i / MW_i) count_{i,a}; p_a = n_a m_a / sum (m = residue mass or free mass). "
         "A1c: fraction mixture sum_i w_i f_{i,a}, renormalised, written as a check.",
-        "A2: combined = every weighted entry (D58); contractile = tier 1 (within-tier weights, D31).",
+        "A2: total = every weighted entry under one denominator (D58); contractile and builders = the two tiers under their within-tier weights (D31); tiers are named, never numbered (D66).",
     ]
     files: dict[str, str] = {}
 
@@ -422,6 +461,40 @@ def build(log) -> dict[str, str]:
         ["profile", "fiber_type", "convention", "entries_with_weight", "sum_of_weights", "sum_of_fractions", "max_abs_a1_minus_a1c", "amino_acid_at_max"]
         + [f"frac_{a}" for a in AA] + [f"a1c_{a}" for a in AA], rows)
 
+    # ---- THE DELIVERABLE: _calculated_amino_acid_standard.tsv (and its residue-convention twin)
+    mix = load_fiber_type_mix()
+    final: dict[tuple, dict[str, float]] = {}
+    for conv in CONVENTIONS:
+        if mix is None:
+            continue
+        final[("standard", conv)] = {a: sum(mix["shares"][ft] * prof[("total", ft, conv)][a] for ft in FIBER_TYPES) for a in AA}
+    col_order = [(pf, ft) for pf in ("contractile", "builders", "total") for ft in FIBER_TYPES]
+    for conv in CONVENTIONS:
+        cols = ["amino_acid", "three_letter", "name"] + [f"{pf}_{ft}" for pf, ft in col_order] + ["standard"]
+        body = []
+        for a in AA:
+            row = [a, masses[a]["three"], masses[a]["name"]] + [f"{100 * prof[(pf, ft, conv)][a]:.4f}" for pf, ft in col_order]
+            row.append(f"{100 * final[('standard', conv)][a]:.4f}" if mix else "")
+            body.append(row)
+        body.append(["sum", "", ""] + [f"{100 * sum(prof[(pf, ft, conv)].values()):.4f}" for pf, ft in col_order] + [f"{100 * sum(final[('standard', conv)].values()):.4f}" if mix else ""])
+        if mix:
+            terms = " + ".join(f"{mix['shares'][ft]:.4f} x total_{ft}" for ft in FIBER_TYPES)
+            mix_line = f"standard = {terms} (config/fiber_type_mix.ini: {mix['meta'].get('source_id', '')}, {mix['location']}; basis: {mix['basis']})"
+        else:
+            mix_line = "standard = share_I x total_I + share_IIa x total_IIa + share_IIx x total_IIx — BLANK until config/fiber_type_mix.ini is filled from a cited source"
+        convention_line = ("free amino acid convention (D7): the mass of each free amino acid after hydrolysis, as laboratories and food tables report it — the basis Match Rate uses"
+                           if conv == "free" else "residue convention: the in-chain residue mass (free mass minus one water)")
+        header = header_common + [
+            "THE CALCULATED AMINO ACID STANDARD of human skeletal muscle protein — percent of total amino acid mass, summing to 100.",
+            convention_line,
+            "columns: contractile_<fiber type> = the contractile proteins of a pure fiber of that type; builders_<fiber type> = the builder proteins (everything else the fiber makes and keeps); total_<fiber type> = both, weighted as measured (D58, ~72 % contractile);",
+            "fiber types I, IIa, IIx are the primary dataset's own (B3); each column is the molar mixture of every weighted entry of its set (A1, D64).",
+            mix_line,
+            "the range of each amino acid over the three fiber types (the bracket, A5) is in profile_differences.tsv; g per 100 g protein in amino_acid_g_per_100g_protein_<convention>.tsv.",
+        ]
+        name = "_calculated_amino_acid_standard.tsv" if conv == "free" else "_calculated_amino_acid_standard_residue_convention.tsv"
+        files[name] = tsv_text(header, cols, body)
+
     # wide tables: g per 100 g protein
     for conv in CONVENTIONS:
         cols = ["amino_acid", "three_letter", "name"] + [f"{p}_{ft}" for p in PROFILES for ft in FIBER_TYPES]
@@ -432,14 +505,15 @@ def build(log) -> dict[str, str]:
         note = ("residue convention: in-chain residue mass; the column sums to 100 g per 100 g protein less each chain's one terminal water (the MW includes it)"
                 if conv == "residue" else
                 "free convention: free amino acid mass (the USDA / laboratory convention, D7); the column sums to more than 100 g per 100 g protein by the water added on hydrolysis")
-        files[f"amino_acid_profiles_{conv}_wide.tsv"] = tsv_text(header_common + [f"g of amino acid per 100 g protein; {note}"], cols, body)
+        files[f"amino_acid_g_per_100g_protein_{conv}.tsv"] = tsv_text(header_common + [f"g of amino acid per 100 g protein; {note}"], cols, body)
 
     # ---- 2. differences (A5)
     rows = []
     for conv in CONVENTIONS:
         for ft in FIBER_TYPES:
             for a in AA:
-                rows.append([conv, "combined_minus_contractile", ft, a, fnum(prof[("combined", ft, conv)][a] - prof[("contractile", ft, conv)][a])])
+                rows.append([conv, "total_minus_contractile", ft, a, fnum(prof[("total", ft, conv)][a] - prof[("contractile", ft, conv)][a])])
+                rows.append([conv, "contractile_minus_builders", ft, a, fnum(prof[("contractile", ft, conv)][a] - prof[("builders", ft, conv)][a])])
         for profile in PROFILES:
             for x, y in (("I", "IIa"), ("I", "IIx"), ("IIa", "IIx")):
                 for a in AA:
@@ -448,7 +522,7 @@ def build(log) -> dict[str, str]:
                 vals = [prof[(profile, ft, conv)][a] for ft in FIBER_TYPES]
                 rows.append([conv, "fiber_type_bracket_max_minus_min", profile, a, fnum(max(vals) - min(vals))])
     files["profile_differences.tsv"] = tsv_text(
-        header_common + ["difference of fractions (convention as named); fiber_type_bracket = max - min over the three pure types, which bounds every mix of them (A5)"],
+        header_common + ["difference of fractions (convention as named); fiber_type_bracket = max - min over the three pure fiber types, which bounds every mix of them (A5)"],
         ["convention", "difference", "set", "amino_acid", "value"], rows)
     bracket = {}
     for conv in CONVENTIONS:
@@ -466,6 +540,9 @@ def build(log) -> dict[str, str]:
     for profile in PROFILES:
         for ft in GEL_TYPES:
             base_w = weight_vector(entries, profile, ft)
+            if not (sum(base_w.get(a, 0.0) for a in bands["myosin_heavy_chain"]) > 0 and sum(base_w.get(a, 0.0) for a in bands["actin"]) > 0):
+                log.info("A6: set %s holds neither band family with weight; no MHC:actin sensitivity for it", profile)
+                continue
             variants: list[tuple[str, float, str, dict]] = []
             for label, target in ratios[ft]:
                 for way in ("scale_mhc", "scale_actin"):
@@ -489,7 +566,7 @@ def build(log) -> dict[str, str]:
                     spread_rows.append([profile, ft, conv, a, fnum(base[a]), fnum(min(vals)), fnum(max(vals)), fnum(max(vals) - min(vals)), fnum(shifts[a])])
                 mhc_shift[(profile, ft, conv)] = shifts
     files["sensitivity_mhc_actin_profiles.tsv"] = tsv_text(
-        header_common + ["A6: the profile when the MHC band family (D52, cutoff 2) or the actin band family is rescaled so MHC:actin equals each ratio the methods measured; the ratio labelled ibaq_x_mw_within_tier1 is this repository's own and reproduces the standard;",
+        header_common + ["A6: the profile when the MHC band family (D52, cutoff 2) or the actin band family is rescaled so MHC:actin equals each ratio the methods measured; the ratio labelled ibaq_x_mw_within_tier1 (the table's own label for this repository's contractile-set measurement) reproduces the standard;",
                          "no method is a reference for another; the other sources' slow/fast pools are placed against the gel's fiber types as classical_check_carroll_2004.tsv places them; types I and IIa only — no factor is invented for IIx"],
         ["profile", "fiber_type", "convention", "ratio_source", "mhc_to_actin_target", "mhc_to_actin_before_scaling", "way"] + [f"frac_{a}" for a in AA], sens_rows)
     files["sensitivity_mhc_actin_spread.tsv"] = tsv_text(
@@ -523,12 +600,10 @@ def build(log) -> dict[str, str]:
                     bound_rows.append([profile, ft, kind, a, fnum(best[a]), where[a], fnum(sums[a])])
             # family bounds: within-tier rows scaled to the profile's denominator
             fam_sum, fam_best, fam_where = {a: 0.0 for a in AA}, {a: 0.0 for a in AA}, {a: "" for a in AA}
-            if profile == "contractile":
-                scale = {"1": 1.0}
+            if profile == "total":
+                scale = {t: sum(e[f"w_{ft}_combined"] for e in entries.values() if t in e["tiers"]) for t in ("1", "2")}
             else:
-                scale = {}
-                for t in ("1", "2"):
-                    scale[t] = sum(e[f"w_{ft}_combined"] for e in entries.values() if t in e["tiers"])
+                scale = {{"contractile": "1", "builders": "2"}[profile]: 1.0}
             for t, s in scale.items():
                 for r in fam.get(f"{t}/{ft}", []):
                     for a in AA:
@@ -543,12 +618,13 @@ def build(log) -> dict[str, str]:
             for conv in CONVENTIONS:
                 base = prof[(profile, ft, conv)]
                 w_plus = {}
-                if profile == "combined":
+                if profile == "total":
                     d = next(iter(entries.values()))[f"D_{ft}"]
                     for acc, e in entries.items():
                         w_plus[acc] = (e[f"v_{ft}"] + e[f"shared_excess_{ft}"]) * e["mw"] / d
                 else:
-                    members = {acc: e for acc, e in entries.items() if "1" in e["tiers"]}
+                    tier = {"contractile": "1", "builders": "2"}[profile]
+                    members = {acc: e for acc, e in entries.items() if tier in e["tiers"]}
                     d1 = sum(e[f"v_{ft}"] * e["mw"] for e in members.values())
                     for acc, e in members.items():
                         w_plus[acc] = (e[f"v_{ft}"] + e[f"shared_excess_{ft}"]) * e["mw"] / d1
@@ -595,7 +671,7 @@ def build(log) -> dict[str, str]:
         files["__stop__"] = str(e.code)
         eaa = None
     if eaa is None:
-        files["standard_summary.ini"] = summary_text(hashes, header_common, nweighted, prof, check, g100, bound_table, mhc_shift, bracket, comp_bound, None, identity)
+        files["standard_summary.ini"] = summary_text(hashes, header_common, nweighted, prof, check, g100, bound_table, mhc_shift, bracket, comp_bound, None, identity, mix, final)
         return files
     eaa_rows = []
     for profile in PROFILES:
@@ -616,13 +692,23 @@ def build(log) -> dict[str, str]:
                          "mg_free_amino_acid_per_g_protein: free amino acid mass per gram of protein (residue-mass basis) — the unit of the report's scoring patterns; fraction_of_free_mass: share of the free-convention profile"],
         ["profile", "fiber_type", "heading", "kind", "letters", "mg_free_amino_acid_per_g_protein", "fraction_of_free_mass"], eaa_rows)
 
-    files["standard_summary.ini"] = summary_text(hashes, header_common, nweighted, prof, check, g100, bound_table, mhc_shift, bracket, comp_bound, eaa, identity)
+    files["standard_summary.ini"] = summary_text(hashes, header_common, nweighted, prof, check, g100, bound_table, mhc_shift, bracket, comp_bound, eaa, identity, mix, final)
     return files
 
 
-def summary_text(hashes, header_common, nweighted, prof, check, g100, bound_table, mhc_shift, bracket, comp_bound, eaa, identity=None) -> str:
+def summary_text(hashes, header_common, nweighted, prof, check, g100, bound_table, mhc_shift, bracket, comp_bound, eaa, identity=None, mix=None, final=None) -> str:
     identity = identity or {}
+    final = final or {}
     summ = common.new_ini()
+    summ.add_section("the_standard")
+    summ["the_standard"]["file"] = "outputs/standard/_calculated_amino_acid_standard.tsv (percent of amino acid mass, free convention; residue twin alongside)"
+    summ["the_standard"]["final_column"] = ("computed: " + "; ".join(f"share_{ft} = {mix['shares'][ft]:.4f}" for ft in FIBER_TYPES) + f" ({mix['meta'].get('source_id', '')})"
+                                             if mix else "BLANK: config/fiber_type_mix.ini not yet filled from a cited source")
+    if mix:
+        for conv in CONVENTIONS:
+            p = final[("standard", conv)]
+            top = sorted(AA, key=lambda a: -p[a])[:3]
+            summ["the_standard"][f"{conv}_three_largest"] = "; ".join(f"{a} {fnum(p[a])}" for a in top)
     summ.add_section("inputs")
     for k, v in hashes.items():
         summ["inputs"][k] = v
@@ -643,7 +729,7 @@ def summary_text(hashes, header_common, nweighted, prof, check, g100, bound_tabl
                     summ[sec]["glycosylated_entries_sum_w"] = fnum(sums[a_max])      # a mass share, not a shift
                 else:
                     summ[sec][f"bound_{kind}_worst_case_max"] = f"{fnum(sums[a_max])} ({a_max})"
-            if ft in GEL_TYPES:
+            if ft in GEL_TYPES and (profile, ft, "free") in mhc_shift:
                 for conv in CONVENTIONS:
                     s = mhc_shift[(profile, ft, conv)]
                     a_max = max(AA, key=lambda a: s[a])
@@ -652,9 +738,10 @@ def summary_text(hashes, header_common, nweighted, prof, check, g100, bound_tabl
     summ.add_section("differences")
     for conv in CONVENTIONS:
         for ft in FIBER_TYPES:
-            diffs = {a: abs(prof[("combined", ft, conv)][a] - prof[("contractile", ft, conv)][a]) for a in AA}
-            a_max = max(AA, key=lambda a: diffs[a])
-            summ["differences"][f"{conv}_combined_minus_contractile_max_abs_{ft}"] = f"{fnum(diffs[a_max])} ({a_max})"
+            for x, y in (("total", "contractile"), ("contractile", "builders")):
+                diffs = {a: abs(prof[(x, ft, conv)][a] - prof[(y, ft, conv)][a]) for a in AA}
+                a_max = max(AA, key=lambda a: diffs[a])
+                summ["differences"][f"{conv}_{x}_minus_{y}_max_abs_{ft}"] = f"{fnum(diffs[a_max])} ({a_max})"
         for profile in PROFILES:
             summ["differences"][f"{conv}_fiber_type_bracket_max_{profile}"] = fnum(bracket[(profile, conv)])
     summ.add_section("completeness")
@@ -662,7 +749,7 @@ def summary_text(hashes, header_common, nweighted, prof, check, g100, bound_tabl
         summ["completeness"][f"bound_all_outside_genes_{ft}"] = fnum(comp_bound[ft])
     summ.add_section("eaa")
     if eaa is None:
-        summ["eaa"]["status"] = "not computed: config/aggregation_decisions.ini is not filled in (D62)"
+        summ["eaa"]["status"] = "not computed: config/fao_2013_indispensable_amino_acids.ini is not filled in (D62)"
     else:
         summ["eaa"]["headings"] = "; ".join(f"{h}={''.join(ls)}" for h, ls, _ in eaa["headings"])
         summ["eaa"]["location"] = eaa["location"]

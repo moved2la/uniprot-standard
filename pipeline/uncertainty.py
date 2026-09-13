@@ -18,13 +18,13 @@ Both are Monte Carlo in log space (D63, A3):
   median_uncertainty:   log v_i ~ Normal(mu_i, sigma_i / sqrt(n_i)), n_i = the entry's valid-value
                         count for the fiber type (the sampling error of a log-median).
   Every draw recomputes the whole profile (A1), so each draw is a composition. Entries with m = 0
-  or s = 0 are fixed. Draws and seed come from config/aggregation_decisions.ini [monte_carlo].
+  or s = 0 are fixed. Draws and seed come from config/uncertainty_settings.ini [monte_carlo].
   The profile of a draw depends on v and the residue counts only: n_a proportional to
   sum_i v_i * count_{i,a} (the MW in the weight cancels against the MW in the molar conversion).
 
 Reads
   config/mass_fractions_per_entry.tsv, outputs/composition/amino_acid_composition_per_protein.tsv,
-  data/pubchem/amino_acid_masses.ini, config/aggregation_decisions.ini [monte_carlo],
+  data/pubchem/amino_acid_masses.ini, config/uncertainty_settings.ini [monte_carlo],
   outputs/standard/amino_acid_profiles.tsv, sensitivity_mhc_actin_spread.tsv, bounds_after_weighting.tsv,
   completeness_sensitivity.tsv (from aggregate.py)
 
@@ -69,9 +69,9 @@ def lognormal_sigma(m: float, s: float) -> float:
 
 
 def load_monte_carlo_settings() -> tuple[int, int]:
-    cp = common.read_ini(common.AGGREGATION_DECISIONS_INI)
+    cp = common.read_ini(common.UNCERTAINTY_SETTINGS_INI)
     if "monte_carlo" not in cp:
-        raise SystemExit(f"[STOP] {common.AGGREGATION_DECISIONS_INI.name} has no [monte_carlo] section (draws, seed; D63)")
+        raise SystemExit(f"[STOP] {common.UNCERTAINTY_SETTINGS_INI.name} has no [monte_carlo] section (draws, seed; D63)")
     sec = cp["monte_carlo"]
     for k in ("draws", "seed"):
         if k not in sec or sec[k].strip() in ("", "___"):
@@ -93,7 +93,8 @@ def simulate(entries, counts, masses, draws: int, seed: int, log) -> dict[tuple,
     accs = sorted(entries)
     C = np.array([[counts[a]["count"][x] for x in AA] for a in accs], dtype=float)          # entries x 20
     mass = {conv: np.array([masses[x][conv] for x in AA]) for conv in CONVENTIONS}
-    tier1 = np.array(["1" in entries[a]["tiers"] for a in accs])
+    tier_mask = {"contractile": np.array(["1" in entries[a]["tiers"] for a in accs]),
+                 "builders": np.array(["2" in entries[a]["tiers"] for a in accs])}
     rng = np.random.default_rng(seed)
     results: dict[tuple, list[np.ndarray]] = {}
     for ft in FIBER_TYPES:
@@ -110,7 +111,7 @@ def simulate(entries, counts, masses, draws: int, seed: int, log) -> dict[tuple,
                 z = rng.standard_normal((k, len(accs)))
                 V = np.where(m > 0, np.exp(mu + sig * z), 0.0)                           # k x entries
                 for profile in PROFILES:
-                    Vp = V if profile == "combined" else V * tier1
+                    Vp = V if profile == "total" else V * tier_mask[profile]
                     N = Vp @ C                                                        # k x 20: molar amounts (up to a constant)
                     for conv in CONVENTIONS:
                         M = N * mass[conv]
@@ -128,7 +129,7 @@ def build(log) -> tuple[dict[str, str], dict]:
     counts = ag.load_counts(entries)
     standard = read_standard_profiles()
     inputs = {"weights": common.MASS_FRACTIONS_TSV, "composition": common.COMPOSITION_TSV, "masses": common.AMINO_ACID_MASSES_INI,
-              "settings": common.AGGREGATION_DECISIONS_INI, "profiles": OUT_DIR / "amino_acid_profiles.tsv",
+              "settings": common.UNCERTAINTY_SETTINGS_INI, "profiles": OUT_DIR / "amino_acid_profiles.tsv",
               "mhc_actin": OUT_DIR / "sensitivity_mhc_actin_spread.tsv", "bounds": OUT_DIR / "bounds_after_weighting.tsv",
               "completeness": OUT_DIR / "completeness_sensitivity.tsv"}
     hashes = {k: f"{p.relative_to(common.REPO_ROOT).as_posix()} sha256 {sha256_path(p)}" for k, p in inputs.items()}

@@ -5,7 +5,7 @@ stress.py — offline stage: how far the standard moves when the weights are pus
 The uncertainty stage says how well the standard is known from its source. This stage asks
 the question a reader will actually have: what would it take to move it? Every scenario is
 "perturb the weights, recompute the profile (rule A1), report the shift"; every magnitude is an
-author-set number in config/aggregation_decisions.ini [stress]; nothing biological is named —
+author-set number in config/stress_test_settings.ini [stress]; nothing biological is named —
 scenarios are defined by rank, by tier, by band family, or by a factor.
 
 Scenarios (rule A9, D65)
@@ -18,7 +18,7 @@ Scenarios (rule A9, D65)
                          renormalise
   influence              per entry: zero it, double it; the largest shift of any amino acid —
                          sorted, the entries that can move the standard at all
-  tier_ratio             set the contractile : support share to each listed value (measured ~72:28)
+  tier_ratio             set the contractile : builders share to each listed value (measured ~72:28)
   size_tilt              w_i x MW_i^alpha for each listed alpha, renormalised — a systematic bias
                          for or against large proteins (the shape of the iBAQ-vs-other-methods question)
   tpa_weighting          the other quantification convention, exactly: w_i proportional to
@@ -30,7 +30,7 @@ Scenarios (rule A9, D65)
                          up to that much
 
 Reads   config/mass_fractions_per_entry.tsv, the composition counts, the fetched masses,
-        config/aggregation_decisions.ini [stress], outputs/mass_fractions/band_families.tsv,
+        config/stress_test_settings.ini [stress], outputs/mass_fractions/band_families.tsv,
         outputs/digest/theoretical_peptides.tsv, outputs/standard/amino_acid_profiles.tsv
 Writes  outputs/standard/stress_shifts.tsv            every scenario x profile x fiber type x convention x amino acid
         outputs/standard/stress_summary_per_scenario.tsv  the largest shift per scenario, in fraction and in percent of the fraction
@@ -61,9 +61,9 @@ BAND_CUTOFF = ag.BAND_CUTOFF
 
 
 def load_settings() -> dict:
-    cp = common.read_ini(common.AGGREGATION_DECISIONS_INI)
+    cp = common.read_ini(common.STRESS_SETTINGS_INI)
     if "stress" not in cp:
-        raise SystemExit(f"[STOP] {common.AGGREGATION_DECISIONS_INI.name} has no [stress] section (D65)")
+        raise SystemExit(f"[STOP] {common.STRESS_SETTINGS_INI.name} has no [stress] section (D65)")
     s = cp["stress"]
 
     def nums(key, cast=float):
@@ -75,7 +75,7 @@ def load_settings() -> dict:
         "top_k_distance": nums("composition_distance_top_entries", int),
         "convergence_k": nums("convergence_top_k", int),
         "knockout_k": nums("knockout_top_k", int),
-        "tier_ratios": nums("tier1_share"),
+        "tier_ratios": nums("contractile_share"),
         "alphas": nums("size_tilt_alpha"),
         "random_factors": nums("random_abuse_factor"),
         "random_draws": int(s.get("random_abuse_draws", "0") or 0),
@@ -114,7 +114,7 @@ def build(log) -> dict[str, str]:
     for r in read_tsv_skip_comments(pep_path):
         peptides[r["accession"]] = int(float(r["n_peptides"]))
     inputs = {"weights": common.MASS_FRACTIONS_TSV, "composition": common.COMPOSITION_TSV, "masses": common.AMINO_ACID_MASSES_INI,
-              "settings": common.AGGREGATION_DECISIONS_INI, "band_families": ag.INPUTS["band_families"], "peptides": pep_path}
+              "settings": common.STRESS_SETTINGS_INI, "band_families": ag.INPUTS["band_families"], "peptides": pep_path}
     hashes = {k: f"{p.relative_to(common.REPO_ROOT).as_posix()} sha256 {sha256_path(p)}" for k, p in inputs.items()}
     header_common = [f"generated = {common.iso_now()}"] + [f"input.{k} = {v}" for k, v in hashes.items()] + [
         "A9 (D65): every scenario perturbs the weights as stated, renormalises, recomputes the profile by rule A1, and reports the shift; magnitudes are the author's numbers in [stress]; nothing biological is named in code.",
@@ -143,19 +143,19 @@ def build(log) -> dict[str, str]:
             entry_lookup = {acc: entries[acc] for acc in w0}
 
             # --- composition distance among the largest entries (free convention), no perturbation
-            if profile == "combined":
+            if profile == "total":
                 for k in st["top_k_distance"]:
                     top = order[:k]
                     for acc in top:
                         f = counts[acc]["free_frac"]
                         d_std = math.sqrt(sum((f[a] - base["free"][a]) ** 2 for a in AA))
-                        distance_rows.append([ft, k, acc, entries[acc]["gene"], entries[acc]["tiers"][0], fnum(w0[acc]), "standard", fnum(d_std),
+                        distance_rows.append([ft, k, acc, entries[acc]["gene"], common.TIER_NAMES.get(entries[acc]["tiers"][0], entries[acc]["tiers"][0]), fnum(w0[acc]), "standard", fnum(d_std),
                                               max(AA, key=lambda a: abs(f[a] - base["free"][a]))] + [fnum(f[a] - base["free"][a]) for a in AA])
                     for i, x in enumerate(top):
                         for y in top[i + 1:]:
                             fx, fy = counts[x]["free_frac"], counts[y]["free_frac"]
                             d = math.sqrt(sum((fx[a] - fy[a]) ** 2 for a in AA))
-                            distance_rows.append([ft, k, x, entries[x]["gene"], entries[x]["tiers"][0], fnum(w0[x]), f"{y} {entries[y]['gene']}", fnum(d),
+                            distance_rows.append([ft, k, x, entries[x]["gene"], common.TIER_NAMES.get(entries[x]["tiers"][0], entries[x]["tiers"][0]), fnum(w0[x]), f"{y} {entries[y]['gene']}", fnum(d),
                                                   max(AA, key=lambda a: abs(fx[a] - fy[a]))] + [fnum(fx[a] - fy[a]) for a in AA])
 
             # --- convergence: top-k only
@@ -194,18 +194,18 @@ def build(log) -> dict[str, str]:
                     Pk = Nk * mfree / (Nk * mfree).sum()
                     d = np.abs(Pk - P0)
                     j = int(d.argmax())
-                    influence_rows.append([profile, ft, acc, entries[acc]["gene"], entries[acc]["tiers"][0], fnum(w0[acc]), label, fnum(float(d[j])), AA[j],
+                    influence_rows.append([profile, ft, acc, entries[acc]["gene"], common.TIER_NAMES.get(entries[acc]["tiers"][0], entries[acc]["tiers"][0]), fnum(w0[acc]), label, fnum(float(d[j])), AA[j],
                                            fnum(100.0 * float(d[j]) / P0[j]) if P0[j] > 0 else "nan"])
 
             # --- tier ratio (combined only): set the contractile share, keep within-tier proportions
-            if profile == "combined":
+            if profile == "total":
                 share1 = sum(w0[a] for a in w0 if "1" in entry_lookup[a]["tiers"])
                 for target in st["tier_ratios"]:
                     wk = {}
                     for a, w in w0.items():
                         in1 = "1" in entry_lookup[a]["tiers"]
                         wk[a] = w * (target / share1 if in1 else (1 - target) / (1 - share1))
-                    record("tier_ratio", f"tier1_share_{target:g}", profile, ft, base, {conv: profile_from_weights(wk, counts, masses, conv) for conv in CONVENTIONS})
+                    record("tier_ratio", f"contractile_share_{target:g}", profile, ft, base, {conv: profile_from_weights(wk, counts, masses, conv) for conv in CONVENTIONS})
 
             # --- size tilt
             for alpha in st["alphas"]:
@@ -265,7 +265,7 @@ def build(log) -> dict[str, str]:
                                                        ["scenario", "parameter", "profile", "fiber_type", "convention", "max_abs_shift", "amino_acid", "max_abs_shift_pct"], summary_rows, tool="stress.py"),
         "stress_influence_per_entry.tsv": ag.tsv_text(header_common + ["per entry with weight: the largest shift of any amino acid (free convention) if the entry were removed (zeroed) or doubled, everything renormalised; sorted by shift"],
                                                       ["profile", "fiber_type", "accession", "gene", "tier", "w", "perturbation", "max_abs_shift", "amino_acid", "max_abs_shift_pct"], influence_rows, tool="stress.py"),
-        "composition_distance_top_entries.tsv": ag.tsv_text(header_common + ["free-convention composition of the largest combined entries: each against the standard and against each other; distance = Euclidean over the twenty fractions; delta_<a> = row entry minus comparator"],
+        "composition_distance_top_entries.tsv": ag.tsv_text(header_common + ["free-convention composition of the largest entries of the total: each against the standard and against each other; distance = Euclidean over the twenty fractions; delta_<a> = row entry minus comparator"],
                                                             ["fiber_type", "top_k", "accession", "gene", "tier", "w", "against", "distance", "amino_acid_at_max"] + [f"delta_{a}" for a in AA], distance_rows, tool="stress.py"),
     }
     summ = common.new_ini()

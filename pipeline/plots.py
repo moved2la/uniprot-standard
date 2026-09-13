@@ -10,9 +10,9 @@ Writes  outputs/standard/plots/<name>.png and .svg
         logs/plots_<UTC>.log
 
 Figures
-  profile_<type>.png                 combined and contractile profiles, free convention, with the
+  profile_<type>.png                 total, contractile, and builders profiles, free convention, with the
                                      median-uncertainty interval as error bars
-  profile_fiber_types_combined.png   the three fiber types side by side, combined profile, free convention
+  profile_fiber_types_total.png      the three fiber types side by side, total profile, free convention
   uncertainty_terms_<type>.png       every uncertainty term per amino acid on the one scale (log axis)
   sensitivity_mhc_actin.png          the profile's range over the measured MHC:actin ratios, types I and IIa
   stress_largest_shift_per_scenario.png  the largest shift per stress scenario (if the stress stage ran)
@@ -65,16 +65,16 @@ def main(argv: list[str] | None = None) -> int:
     # 1. combined vs contractile per fiber type, free convention, median-uncertainty error bars
     for ft in FIBER_TYPES:
         fig, ax = plt.subplots(figsize=(11, 4))
-        width = 0.4
+        width = 0.27
         for j, profile in enumerate(PROFILES):
             p = prof[(profile, ft, "free")]
             vals = [100 * p[a] for a in AA]
             lo = [100 * (p[a] - intervals[(profile, ft, "free", "median_uncertainty", a)][0]) for a in AA]
             hi = [100 * (intervals[(profile, ft, "free", "median_uncertainty", a)][1] - p[a]) for a in AA]
-            ax.bar([i + (j - 0.5) * width for i in x], vals, width, yerr=[lo, hi], capsize=2, label=profile)
+            ax.bar([i + (j - 1) * width for i in x], vals, width, yerr=[lo, hi], capsize=2, label=profile)
         ax.set_xticks(list(x), AA)
         ax.set_ylabel("% of amino acid mass (free convention)")
-        ax.set_title(f"Type {ft}: combined (D58) and contractile profiles; error bars = 95 % median uncertainty (amino_acid_profiles.tsv, uncertainty_intervals.tsv)", fontsize=9)
+        ax.set_title(f"Fiber type {ft}: total (D58), contractile, builders; error bars = 95 % median uncertainty (amino_acid_profiles.tsv, uncertainty_intervals.tsv)", fontsize=9)
         ax.legend()
         _save(fig, f"profile_{ft}", log)
 
@@ -82,13 +82,13 @@ def main(argv: list[str] | None = None) -> int:
     fig, ax = plt.subplots(figsize=(11, 4))
     width = 0.27
     for j, ft in enumerate(FIBER_TYPES):
-        p = prof[("combined", ft, "free")]
-        ax.bar([i + (j - 1) * width for i in x], [100 * p[a] for a in AA], width, label=f"type {ft}")
+        p = prof[("total", ft, "free")]
+        ax.bar([i + (j - 1) * width for i in x], [100 * p[a] for a in AA], width, label=f"fiber type {ft}")
     ax.set_xticks(list(x), AA)
     ax.set_ylabel("% of amino acid mass (free convention)")
-    ax.set_title("Combined profile per fiber type (amino_acid_profiles.tsv)", fontsize=9)
+    ax.set_title("Total profile per fiber type (amino_acid_profiles.tsv)", fontsize=9)
     ax.legend()
-    _save(fig, "profile_fiber_types_combined", log)
+    _save(fig, "profile_fiber_types_total", log)
 
     # 3. uncertainty terms on one scale
     terms_rows = read_tsv_skip_comments(OUT_DIR / "uncertainty_per_amino_acid.tsv")
@@ -97,7 +97,7 @@ def main(argv: list[str] | None = None) -> int:
         term_cols = [c for c in terms_rows[0] if c not in skip]
         for ft in FIBER_TYPES:
             fig, ax = plt.subplots(figsize=(11, 4.5))
-            sel = [r for r in terms_rows if r["profile"] == "combined" and r["fiber_type"] == ft and r["convention"] == "free"]
+            sel = [r for r in terms_rows if r["profile"] == "total" and r["fiber_type"] == ft and r["convention"] == "free"]
             for term in term_cols:
                 vals = []
                 for a in AA:
@@ -108,7 +108,7 @@ def main(argv: list[str] | None = None) -> int:
             ax.set_yscale("log")
             ax.set_xticks(list(x), AA)
             ax.set_ylabel("max absolute shift of the fraction")
-            ax.set_title(f"Type {ft}, combined, free convention: every uncertainty term on one scale (uncertainty_per_amino_acid.tsv)", fontsize=9)
+            ax.set_title(f"Fiber type {ft}, total, free convention: every uncertainty term on one scale (uncertainty_per_amino_acid.tsv)", fontsize=9)
             ax.legend(fontsize=7, ncol=2)
             _save(fig, f"uncertainty_terms_{ft}", log)
 
@@ -117,14 +117,14 @@ def main(argv: list[str] | None = None) -> int:
     if spread:
         fig, axes = plt.subplots(1, 2, figsize=(12, 4), sharey=True)
         for ax, ft in zip(axes, ag.GEL_TYPES):
-            sel = [r for r in spread if r["profile"] == "combined" and r["fiber_type"] == ft and r["convention"] == "free"]
+            sel = [r for r in spread if r["profile"] == "total" and r["fiber_type"] == ft and r["convention"] == "free"]
             std = [100 * float(next(r for r in sel if r["amino_acid"] == a)["standard"]) for a in AA]
             lo = [100 * float(next(r for r in sel if r["amino_acid"] == a)["min_over_variants"]) for a in AA]
             hi = [100 * float(next(r for r in sel if r["amino_acid"] == a)["max_over_variants"]) for a in AA]
             ax.bar(list(x), std, 0.6, color="lightgray", label="standard")
             ax.errorbar(list(x), std, yerr=[[s - l for s, l in zip(std, lo)], [h - s for s, h in zip(std, hi)]], fmt="none", ecolor="black", capsize=2, label="range over measured MHC:actin ratios")
             ax.set_xticks(list(x), AA)
-            ax.set_title(f"Type {ft}, combined, free convention", fontsize=9)
+            ax.set_title(f"Fiber type {ft}, total, free convention", fontsize=9)
         axes[0].set_ylabel("% of amino acid mass")
         axes[0].legend(fontsize=8)
         fig.suptitle("Sensitivity of the profile to the MHC:actin ratio across the measured range (sensitivity_mhc_actin_spread.tsv)", fontsize=9)
@@ -139,11 +139,11 @@ def main(argv: list[str] | None = None) -> int:
             if r["heading"] not in headings:
                 headings.append(r["heading"])
         fig, ax = plt.subplots(figsize=(10, 4))
-        width = 0.13
+        width = 0.09
         combos = [(p, ft) for p in PROFILES for ft in FIBER_TYPES]
         for j, (p, ft) in enumerate(combos):
             vals = [float(next(r["mg_free_amino_acid_per_g_protein"] for r in rows if r["profile"] == p and r["fiber_type"] == ft and r["heading"] == h)) for h in headings]
-            ax.bar([i + (j - 2.5) * width for i in range(len(headings))], vals, width, label=f"{p} {ft}")
+            ax.bar([i + (j - 4) * width for i in range(len(headings))], vals, width, label=f"{p} {ft}")
         ax.set_xticks(range(len(headings)), headings)
         ax.set_ylabel("mg free amino acid per g protein")
         ax.set_title("Indispensable amino acids per profile and fiber type (eaa_subset.tsv; headings per D62)", fontsize=9)
