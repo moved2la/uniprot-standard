@@ -33,12 +33,13 @@ def test_md5_verification_passes_and_fails(entry):
     assert any("MD5" in p for p in problems) and any("differs" in p for p in problems)
 
 
-def test_nonstandard_letters_fail(entry):
+def test_nonstandard_letters_are_recorded_not_failures(entry):
+    # R5 (D59): the letters are recorded on the record; build_protein_set excludes and lists the entry
     rec = va.extract(entry)
-    rec["sequence"] = "MGGGAAAKKKWWX"
+    rec["sequence"] = "MGGGAAAKKKWWXU"
     rec["md5_uniprot"] = common.md5_text(rec["sequence"])
     problems = va.check_sequence(rec, rec["sequence"])
-    assert any("non-standard" in p for p in problems)
+    assert problems == [] and rec["non_standard_letters"] == "UX"
 
 
 def test_md5_matches_uniprot_convention():

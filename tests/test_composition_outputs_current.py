@@ -21,6 +21,8 @@ needs_outputs = pytest.mark.skipif(not common.COMPOSITION_TSV.exists()
                                    or not common.AMINO_ACID_MASSES_INI.exists()
                                    or not common.SEQUENCES_INI.exists(),
                                    reason="composition has not run on this machine")
+upstream_running = pytest.mark.skipif(common.running_command_is_before("composition"),
+                                      reason="an earlier command is running; composition is rebuilt by `python run.py composition`")
 
 
 @needs_masses
@@ -55,11 +57,13 @@ def test_mass_table_matches_parsed_symbols_and_decisions():
 
 
 @needs_outputs
+@upstream_running
 def test_composition_outputs_are_current():
     assert composition.main(["--check"]) == 0
 
 
 @needs_outputs
+@upstream_running
 def test_composition_covers_every_accession_twice():
     rows = common.read_tsv(common.COMPOSITION_TSV)
     accessions = common.read_ini(common.ACCESSIONS_INI)

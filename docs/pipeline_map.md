@@ -145,7 +145,7 @@ Layer B multiplies by.
 | `config/` | Hand-written decisions (four files, listed in `docs/conventions.md`) and the config generated from them |
 | `data/` | What the public databases and publishers said, unchanged or tabulated |
 | `outputs/` | Everything computed here that is not config |
-| `logs/` | One timestamped log per stage per run; not committed |
+| `logs/` | One timestamped log per stage per run, plus `run_<command>_<stamp>.log` — everything run.py itself printed (banners, stop messages, crash tracebacks, the full test report) — and `pytest_report_<stamp>.log`; the screen and the logs never differ; not committed |
 | `docs/` | This map, the plan, `decisions.md` (every D-number), `methods.md` (the paper's Methods, written from run records), `conventions.md` (every rule and the field it reads), handoffs (not committed) |
 
 ## Reading order for a newcomer

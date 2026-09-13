@@ -10,14 +10,18 @@ from pipeline import common, mass_fractions as mf
 
 needs_data = pytest.mark.skipif(not mf.MANIFEST_INI.exists() or not (mf.OUT_DIR / "mass_fractions_summary.ini").exists(),
                                 reason="literature not fetched or mass_fractions not run on this machine")
+upstream_running = pytest.mark.skipif(common.running_command_is_before("mass-fractions"),
+                                      reason="an earlier command is running; mass fractions are rebuilt by `python run.py mass-fractions`")
 
 
 @needs_data
+@upstream_running
 def test_mass_fraction_outputs_are_current():
     assert mf.main(["--check"]) == 0
 
 
 @needs_data
+@upstream_running
 def test_generated_config_sums_to_one_per_tier():
     for ft in mf.FIBER_TYPES:
         cp = common.read_ini(mf.MASS_FRACTIONS_CONFIG_DIR / f"{ft}.ini")

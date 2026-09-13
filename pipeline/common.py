@@ -173,3 +173,12 @@ def ontology_tiers(cp: configparser.ConfigParser) -> list[str]:
 
 def measured_tiers(cp: configparser.ConfigParser) -> list[str]:
     return [t for t in tiers_from_decisions(cp) if tier_definition(cp, t) == "measured_remainder"]
+
+
+def running_command_is_before(command: str) -> bool:
+    """True when run.py is executing an EARLIER command than `command` (env UNIPROT_STANDARD_COMMAND),
+    so `command`'s outputs are legitimately stale until it is run next. False for `python run.py test`."""
+    import os
+    order = ["protein-set", "composition", "mass-fractions"]
+    current = os.environ.get("UNIPROT_STANDARD_COMMAND", "")
+    return current in order and command in order and order.index(current) < order.index(command)
