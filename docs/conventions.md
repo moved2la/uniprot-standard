@@ -12,7 +12,7 @@ generator produces from the data on disk.
 | `config/composition_decisions.ini` | The URL of the IUPAC-IUBMB table that defines the one-letter code, the PubChem endpoint, the chiral-prefix query rule, and the two extra compound names (water, hydrogen), each with its D-number (D26). Never an amino acid name, symbol, or mass — the code parses the names from the cited table and fetches every mass. |
 | `config/mass_fraction_decisions.ini` | Literature sources (citation, DOI, role with its D-number, download URLs), the column-to-fiber-type map for the primary file (each value the exact header string as it appears in the sheet, cited by sheet and row), and the in-silico digest rules with their citation. Never a protein, an accession, an abundance number, or a non-human data source — a test asserts the first three. |
 | `config/carroll_classical_fractionation.ini` | The measured values of Carroll, Carrithers & Trappe 2004, transcribed by the author with page and table per row (D50). Feed the classical cross-check only, never a weight. |
-| `config/aggregation_decisions.ini` | Which amino acids are dietary indispensable and how the reference scoring pattern groups them, transcribed by the author from FAO 2013 with table and page per value (D62); the Monte Carlo draws and seed (D63). The report's three-letter symbols as printed; resolved to one-letter symbols by code from the IUPAC-IUBMB table. Never an abundance, a weight, or a protein. |
+| `config/aggregation_decisions.ini` | Which amino acids are dietary indispensable and how the reference scoring pattern groups them, transcribed by the author from FAO 2013 with table and page per value (D62); the Monte Carlo draws and seed (D63); the stress-test magnitudes (D65). The report's three-letter symbols as printed; resolved to one-letter symbols by code from the IUPAC-IUBMB table. Never an abundance, a weight, or a protein. |
 | `docs/*.md` | Prose. Every sentence in `docs/methods.md` either carries a citation or describes a computation performed here (`PROVENANCE.md`). |
 | `tests/**` | Code and synthetic fixtures. Fixtures contain no real biology. |
 | `pipeline/**`, `run.py` | Code. Contains no gene name, accession, term ID, or category. |
@@ -37,7 +37,7 @@ inventory, and the mass-fraction stages in order and then the tests. The literat
 is also the first stage of `protein-set`, because the measured tier (D56) reads the primary
 dataset.
 `--offline` skips the stages that touch the network and rebuilds from `data/`.
-`python run.py standard` runs `aggregate`, `uncertainty`, and `plots` (all offline) and then the tests.
+`python run.py standard` runs `aggregate`, `uncertainty`, `stress`, and `plots` (all offline) and then the tests.
 `python run.py excerpt` is tooling, not a stage: it writes bounded, labelled cuts of the large
 generated files into `excerpts/` (not committed, not the record) for review in chat.
 Nothing in the repository is named by a project-plan step number.
@@ -136,6 +136,7 @@ abundance) and does not appear in the protein set.
 | **A5 Bracket** | the three pure-type profiles | max − min per amino acid bounds every mix of the types; the IIa − IIx difference is written (D46). |
 | **A6 MHC:actin sensitivity** (D54b) | `classical_check_carroll_2004.tsv` at cutoff 2; `band_families.tsv` at cutoff 2 | At each ratio the methods measured, the MHC family is rescaled with actin fixed and the actin family with MHC fixed, all weights renormalised; combined and contractile; types I and IIa only. No method is a reference; files named `sensitivity_mhc_actin_*`. |
 | **A7 Completeness** | `dataset_rows_outside_pool.tsv` | The outside genes' molar share by rank, converted to a mass share with the pool's molar-mean MW (stated assumption, under which the two are equal): a share of unknown composition moves no fraction by more than itself. |
+| **A9 Stress** (D65) | `[stress]` magnitudes; weights, counts, masses; `band_families.tsv`; `outputs/digest/theoretical_peptides.tsv` | Perturb the weights as stated, renormalise, recompute by A1, report the shift as a fraction and as a percentage; scenarios by rank, tier, band family, or factor — nothing named. TPA weighting = v × N_peptides in place of v × MW. |
 | **A8 EAA** (D62) | `config/aggregation_decisions.ini`; `data/iupac/amino_acid_symbols.ini` | Headings resolved from three-letter symbols by code; group headings expanded from their `[group.*]` sections; a `___` leaves the EAA subset unwritten, recorded in `standard_summary.ini`, and a test fails until it is filled. |
 
 ## Flags

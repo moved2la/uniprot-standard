@@ -16,7 +16,7 @@ python run.py composition            # per-protein composition (needs network fo
 python run.py composition --offline  # recompute from data/ on disk
 python run.py mass-fractions         # literature fetch, digest, inventory, mass fractions (needs network for one stage)
 python run.py mass-fractions --offline
-python run.py standard               # the standard: aggregate -> uncertainty -> plots (offline)
+python run.py standard               # the standard: aggregate -> uncertainty -> stress -> plots (offline)
 python run.py test
 python run.py excerpt                # tooling: bounded excerpts of the large generated files, for review (not the record)
 ```

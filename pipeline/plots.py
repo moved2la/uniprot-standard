@@ -15,6 +15,7 @@ Figures
   profile_fiber_types_combined.png   the three fiber types side by side, combined profile, free convention
   uncertainty_terms_<type>.png       every uncertainty term per amino acid on the one scale (log axis)
   sensitivity_mhc_actin.png          the profile's range over the measured MHC:actin ratios, types I and IIa
+  stress_largest_shift_per_scenario.png  the largest shift per stress scenario (if the stress stage ran)
   eaa_subset.png                     the indispensable amino acids per profile and fiber type (if computed)
 
 Plots are not covered by the currency check: image bytes depend on the plotting library's

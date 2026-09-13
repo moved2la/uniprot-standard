@@ -75,7 +75,7 @@ flowchart TB
   m4 --> mfo[outputs/mass_fractions/ ranked tables, checks, summary]
 
   subgraph ST["python run.py standard"]
-    a1[aggregate] --> a2[uncertainty] --> a3[plots]
+    a1[aggregate] --> a2[uncertainty] --> a4[stress] --> a3[plots]
   end
   agd[config/aggregation_decisions.ini] --> a1
   agd --> a2
@@ -91,8 +91,13 @@ flowchart TB
   w --> a2
   comp --> a2
   a2 --> unc[outputs/standard/ uncertainty_intervals, uncertainty_per_amino_acid, sd_to_median_ratio]
+  std --> a4
+  w --> a4
+  dig --> a4
+  a4 --> strs[outputs/standard/ stress_shifts, stress_summary_per_scenario, stress_influence_per_entry, composition_distance_top_entries]
   std --> a3
   unc --> a3
+  strs --> a3
   a3 --> figs[outputs/standard/plots/]
 ```
 
@@ -164,7 +169,8 @@ Layer B multiplies by.
 |---|---|---|---|---|---|
 | 1 | `aggregate` | `config/mass_fractions_per_entry.tsv`, composition counts (`master`), the fetched masses and symbols, `config/aggregation_decisions.ini`, `classical_check_carroll_2004.tsv`, `band_families.tsv`, `family_bounds.tsv`, the three per-entry delta tables, `dataset_rows_outside_pool.tsv` | The profiles by molar mixture (A1, D64) for the combined and contractile sets per fiber type and convention; their differences and the fiber-type bracket (A5); the MHC:actin sensitivity (A6); bounds after weighting; the completeness bound (A7); the EAA subset (A8, D62) | see the next table | 2, 3 |
 | 2 | `uncertainty` | the same weights and counts; `[monte_carlo]`; the aggregate tables | Log-space Monte Carlo (A3, D63): between-fiber spread and median uncertainty; every term on one scale (A4); the SD-to-median regime table | `uncertainty_intervals.tsv`, `uncertainty_per_amino_acid.tsv`, `sd_to_median_ratio.tsv`, `uncertainty_summary.ini` | 3, the paper |
-| 3 | `plots` | the tables of 1 and 2 | Figures; nothing computed | `outputs/standard/plots/*.png`, `*.svg` | the paper |
+| 3 | `stress` | the same weights and counts; `[stress]`; `band_families.tsv`; `outputs/digest/theoretical_peptides.tsv`; the aggregate profiles | How far the standard moves under named perturbations (A9, D65): composition distance, convergence, knock-outs, per-entry influence, tier ratio, size tilt, TPA weighting, random abuse | `stress_shifts.tsv`, `stress_summary_per_scenario.tsv`, `stress_influence_per_entry.tsv`, `composition_distance_top_entries.tsv`, `stress_summary.ini` | 4, the paper |
+| 4 | `plots` | the tables of 1–3 | Figures; nothing computed | `outputs/standard/plots/*.png`, `*.svg` | the paper |
 
 ### What `aggregate` writes, and which one to open
 
