@@ -128,14 +128,14 @@ Layer B multiplies by.
 | `weights_per_pool_entry.tsv` | Every pool entry with everything the dataset said about it and every weight — the full table | trace any number in the ranked tables back to its row |
 | `mass_fractions_summary.ini` | Counts per file; per tier and fiber type: entries with mass, share of the ten largest, largest entry, maximum weighted bound per kind; `[combined]`: each tier's share of the combined standard per fiber type; gel-check factors | the one-screen view |
 | `pool_entries_without_dataset_row.tsv` | Pool accessions the dataset never quantified (w = 0) | see what the set contains that the fibers do not |
-| `dataset_rows_outside_pool.tsv` | Dataset genes not in the pool, ranked by median value | the completeness check; the Tier 2 evidence; the contaminants |
+| `dataset_rows_outside_pool.tsv` | Dataset genes not in the pool, ranked by median value, with each gene's mapping outcome (unmapped / ambiguous / contaminant) | the completeness check; why each gene is outside |
 | `shared_gene_rows.tsv` | Every `;` row that touched the pool, with its D48 outcome | audit the shared-peptide assignments |
 | `branch_exclusive_mass.tsv` | Per ontology term: Σ w over entries it returns, and over entries reached only through its branch | see whether any branch (e.g. cardiac) carries mass |
 | `weighted_bounds.tsv` | Isoform, processing, PTM bounds × w, largest per amino acid; Σ w glycosylated | state, as numbers, what the canonical/processing/PTM choices cost after weighting |
 | `band_families.tsv` | The shared-peptide family of each gel band's anchors, at cutoffs 1 and 2, with values and weights | see what "MHC" and "actin" mean as sums of entries (D52) |
 | `family_bounds.tsv` | Per shared-peptide family, tier, and fiber type: the composition spread across members × the family's weight, per amino acid (D55) | state what an unresolved within-family split could cost the profile |
 | `ratio_check_moreno-justicia_2025.tsv`, `ratio_check_deshmukh_2021.tsv` | Per pool entry, the slow/fast ratio in each cross-check source against the primary dataset's I/IIa and I/IIx | the between-fiber-type checks (D34, D36) |
-| `classical_check_carroll_2004.tsv` | MHC:actin as measured by each method — Carroll's gel, iBAQ × MW (ours), and the intensity share in Deshmukh 2021's slow/fast pools — and their quotients, per fiber type; no attribution (D54) | see how three methods compare on the two largest proteins |
+| `classical_check_carroll_2004.tsv` | MHC:actin as measured by each method — Carroll's gel, iBAQ × MW (ours), and the intensity share in Deshmukh 2021's slow/fast pools — and their quotients, per fiber type; plus each band's share of the combined standard against the gel's fraction of total fiber protein (D58); no attribution (D54) | see how three methods compare on the two largest proteins, in ratio and in absolute share |
 | `<source>_myh_fractions_ibaq_vs_lfq.tsv` | The method comparison: MYH fractions per fiber under iBAQ and MaxLFQ from the same fibers | the number behind "why not LFQ" in methods |
 
 ## Where things live
