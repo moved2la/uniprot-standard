@@ -3,13 +3,14 @@
 What runs, in what order, what each stage reads and writes, and what reads that next.
 Read this before the code. Update it whenever a stage or an output file is added.
 
-The repository is three commands run in order; each is a chain of stages, each stage is
+The repository is four commands run in order; each is a chain of stages, each stage is
 one module in `pipeline/`, and every stage writes a timestamped log to `logs/`.
 
 ```
 python run.py protein-set       # Layer A, part 1: which proteins
 python run.py composition       # Layer A, part 2: what each protein is made of
 python run.py mass-fractions    # Layer B: how much of each protein the tissue holds
+python run.py standard          # the standard: Layer A x Layer B, with uncertainty and figures
 ```
 
 `--offline` on any command skips the stages that touch the network and rebuilds from
@@ -73,8 +74,26 @@ flowchart TB
   m4 --> w[config/mass_fractions/I.ini, IIa.ini, IIx.ini + mass_fractions_per_entry.tsv]
   m4 --> mfo[outputs/mass_fractions/ ranked tables, checks, summary]
 
-  w --> AGG[[aggregation — next]]
-  comp --> AGG
+  subgraph ST["python run.py standard"]
+    a1[aggregate] --> a2[uncertainty] --> a3[plots]
+  end
+  agd[config/aggregation_decisions.ini] --> a1
+  agd --> a2
+  w --> a1
+  comp --> a1
+  masses --> a1
+  mfo --> a1
+  bounds1 --> a1
+  procd --> a1
+  ptmd --> a1
+  a1 --> std[outputs/standard/ profiles, differences, sensitivity, bounds, completeness, eaa_subset]
+  std --> a2
+  w --> a2
+  comp --> a2
+  a2 --> unc[outputs/standard/ uncertainty_intervals, uncertainty_per_amino_acid, sd_to_median_ratio]
+  std --> a3
+  unc --> a3
+  a3 --> figs[outputs/standard/plots/]
 ```
 
 Solid arrows are files on disk read by the next stage. Dotted arrows are network
@@ -138,6 +157,27 @@ Layer B multiplies by.
 | `ratio_check_moreno-justicia_2025.tsv`, `ratio_check_deshmukh_2021.tsv` | Per pool entry, the slow/fast ratio in each cross-check source against the primary dataset's I/IIa and I/IIx | the between-fiber-type checks (D34, D36) |
 | `classical_check_carroll_2004.tsv` | MHC:actin as measured by each method — Carroll's gel, iBAQ × MW (ours), and the intensity share in Deshmukh 2021's slow/fast pools — and their quotients, per fiber type; plus each band's share of the combined standard against the gel's fraction of total fiber protein (D58); no attribution (D54) | see how three methods compare on the two largest proteins, in ratio and in absolute share |
 | `<source>_myh_fractions_ibaq_vs_lfq.tsv` | The method comparison: MYH fractions per fiber under iBAQ and MaxLFQ from the same fibers | the number behind "why not LFQ" in methods |
+
+## Command 4 — `standard` (the standard)
+
+| # | Stage | Reads | Does | Writes | Read next by |
+|---|---|---|---|---|---|
+| 1 | `aggregate` | `config/mass_fractions_per_entry.tsv`, composition counts (`master`), the fetched masses and symbols, `config/aggregation_decisions.ini`, `classical_check_carroll_2004.tsv`, `band_families.tsv`, `family_bounds.tsv`, the three per-entry delta tables, `dataset_rows_outside_pool.tsv` | The profiles by molar mixture (A1, D64) for the combined and contractile sets per fiber type and convention; their differences and the fiber-type bracket (A5); the MHC:actin sensitivity (A6); bounds after weighting; the completeness bound (A7); the EAA subset (A8, D62) | see the next table | 2, 3 |
+| 2 | `uncertainty` | the same weights and counts; `[monte_carlo]`; the aggregate tables | Log-space Monte Carlo (A3, D63): between-fiber spread and median uncertainty; every term on one scale (A4); the SD-to-median regime table | `uncertainty_intervals.tsv`, `uncertainty_per_amino_acid.tsv`, `sd_to_median_ratio.tsv`, `uncertainty_summary.ini` | 3, the paper |
+| 3 | `plots` | the tables of 1 and 2 | Figures; nothing computed | `outputs/standard/plots/*.png`, `*.svg` | the paper |
+
+### What `aggregate` writes, and which one to open
+
+| File | What it is | Open it to |
+|---|---|---|
+| `amino_acid_profiles.tsv` | One row per profile × fiber type × convention: twenty fractions summing to one, the A1c check | the standard as fractions |
+| `amino_acid_profiles_free_wide.tsv`, `_residue_wide.tsv` | g per 100 g protein, one row per amino acid, one column per profile and fiber type | read the standard |
+| `profile_differences.tsv` | combined − contractile; between fiber types; the bracket (max − min over the three types) | see what the support tier and the fiber type change |
+| `sensitivity_mhc_actin_profiles.tsv`, `_spread.tsv` | the profile at each measured MHC:actin ratio, both single-band ways; per amino acid the range and the max shift | how much the method disagreement could move the standard |
+| `bounds_after_weighting.tsv` | isoform, processing, PTM, family, shared-row bounds × weight; largest single and worst-case sum | what each disclosed choice could cost after weighting |
+| `completeness_sensitivity.tsv` | the outside genes' share by rank and the bound it implies | what the unmapped genes could change |
+| `eaa_subset.tsv` | the indispensable amino acids per profile and fiber type, individually and under the report's groupings (D62) | the Match Rate inputs |
+| `standard_summary.ini` | the one-screen view | start here |
 
 ## Tooling (not a stage, not the record)
 

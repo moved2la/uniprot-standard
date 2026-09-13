@@ -97,6 +97,24 @@ SPEC: list[tuple[str, list[dict]]] = [
     ("outputs/chain_positions_resolved.tsv", [{"kind": "whole"}]),
     ("outputs/digest/density_ranked.tsv", [{"kind": "head", "name": "first20", "n": 20}]),
     ("outputs/digest/families.tsv", [{"kind": "head", "name": "first40", "n": 40}]),
+    # --- the standard (small tables whole; the per-entry regime table cut) ---
+    ("outputs/standard/standard_summary.ini", [{"kind": "whole"}]),
+    ("outputs/standard/uncertainty_summary.ini", [{"kind": "whole"}]),
+    ("outputs/standard/amino_acid_profiles.tsv", [{"kind": "whole"}]),
+    ("outputs/standard/amino_acid_profiles_free_wide.tsv", [{"kind": "whole"}]),
+    ("outputs/standard/amino_acid_profiles_residue_wide.tsv", [{"kind": "whole"}]),
+    ("outputs/standard/profile_differences.tsv", [{"kind": "whole"}]),
+    ("outputs/standard/sensitivity_mhc_actin_profiles.tsv", [{"kind": "whole"}]),
+    ("outputs/standard/sensitivity_mhc_actin_spread.tsv", [{"kind": "whole"}]),
+    ("outputs/standard/bounds_after_weighting.tsv", [{"kind": "whole"}]),
+    ("outputs/standard/completeness_sensitivity.tsv", [{"kind": "whole"}]),
+    ("outputs/standard/eaa_subset.tsv", [{"kind": "whole"}]),
+    ("outputs/standard/uncertainty_intervals.tsv", [{"kind": "whole"}]),
+    ("outputs/standard/uncertainty_per_amino_acid.tsv", [{"kind": "whole"}]),
+    ("outputs/standard/sd_to_median_ratio.tsv", [
+        {"kind": "top", "name": "top100_by_w_combined", "n": 100, "by": "w_combined"},
+        {"kind": "top", "name": "top100_by_sd_over_median", "n": 100, "by": "sd_over_median"},
+    ]),
 ]
 
 

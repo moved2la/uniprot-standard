@@ -283,3 +283,37 @@ MHC : actin (D52 families, cutoff 2): gel 1.56 (I) and 2.21 (IIa); iBAQ × MW 2.
 ### Carried checks (from the protein-set and composition stages)
 
 All computed by `pipeline/mass_fractions.py` and written to `outputs/mass_fractions/` (`weighted_bounds.tsv`, `branch_exclusive_mass.tsv`, summary sections). Run record, Tier 1: largest weighted isoform bound 0.0055 (glutamine, titin), largest weighted processing bound 0.0002 (methionine, ACTA1), largest weighted PTM mass bound 0.0014 (TPM3); Σ w over glycosylated entries 2.1 % / 2.2 % / 3.0 % of Tier 1 (I / IIa / IIx) and 17 % / 17 % / 19 % of Tier 2. The 26 entries that were in both ontology tiers are now Tier 1 only, since Tier 2 is defined as the remainder. Every Gene Ontology branch of the Tier 1 subtree, including the cardiac-myofibril branch, carries its returned and branch-exclusive mass in `branch_exclusive_mass.tsv`.
+
+## Aggregation (the standard)
+
+*Placeholders in ⟨angle brackets⟩ are filled from the run records after `python run.py standard`.*
+
+### Inputs
+
+The per-entry weights (`config/mass_fractions_per_entry.tsv`, D61), the residue counts of every entry's mature chain (`outputs/composition/amino_acid_composition_per_protein.tsv`, `segment_set = master`), and the fetched amino acid masses (`data/pubchem/amino_acid_masses.ini`). Every input's hash is in every output header (rule A0).
+
+### Profile
+
+The standard is the molar mixture of its proteins (rule A1, D64). For a set of entries with mass fractions w_i and molecular weights MW_i, the moles of residue a per gram of protein are
+
+    n_a = Σ_i (w_i / MW_i) · count_{i,a}
+
+and the profile in either convention is p_a = n_a · m_a / Σ_b n_b · m_b, with m_a the in-chain residue mass (residue convention) or the free amino acid mass (free convention, D7). Two sets are aggregated (rule A2): the combined standard, every weighted entry under `w_combined` (D58), and the contractile profile, the tier-1 entries under their within-tier weights (D31). The fraction mixture Σ_i w_i f_{i,a}, renormalised, is written beside the profile as a check; the largest difference between the two is ⟨max_abs_a1_minus_a1c⟩ (`standard_summary.ini`). The wide tables give g per 100 g protein without renormalisation: the residue column sums to ⟨residue_g_sum⟩ (100 less the terminal water of each chain), the free column to ⟨free_g_sum⟩.
+
+Run record: the contractile tier holds ⟨share_tier1⟩ of the combined standard; the three largest fractions of the combined type I profile (free convention) are ⟨three_largest_I⟩. The largest difference between the combined and contractile profiles is ⟨combined_minus_contractile_max⟩ (`profile_differences.tsv`).
+
+### Fiber types
+
+The standard is reported for types I, IIa, and IIx as the primary dataset defines them (rule B3; D46). Because a mix of fiber types is a convex combination of the pure types, the range of each amino acid over the three pure profiles bounds every mix (rule A5); that bracket is at most ⟨bracket_max⟩ in the combined standard and the IIa − IIx difference at most ⟨IIa_minus_IIx_max⟩ (`profile_differences.tsv`). No fiber-type mix is applied.
+
+### Uncertainty
+
+Layer B's between-fiber term is propagated in log space (rule A3, D63). For each entry and fiber type a log-normal is fitted exactly to the published median m and standard deviation s (σ² = ln x, x = (1 + √(1 + 4 s²/m²)) / 2; μ = ln m). Two quantities are sampled, ⟨draws⟩ draws each with seed ⟨seed⟩, the whole profile recomputed per draw: the *between-fiber spread*, v ~ LogNormal(μ, σ), what a random pure fiber of the type looks like (the D45 reading), and the *median uncertainty*, log v ~ Normal(μ, σ/√n) with n the entry's valid-value count, the sampling uncertainty of the fiber type's median profile — the interval stated beside the standard. The one assumption, that an entry's between-fiber distribution is log-normal, is the field's standard model for intensities and is stated in every header. On the linear scale the published SD exceeds the median for ⟨sd_ge_median_I⟩ of ⟨entries_with_value_I⟩ type-I entries with a value (`sd_to_median_ratio.tsv`), which is what a right-skewed spread looks like when summarised as an SD; the anchor protein's SD is zero by construction and its variation lives in every other entry's.
+
+Run record: the 95 % median-uncertainty interval of the combined type I profile has a half-width of at most ⟨median_hw_max_I⟩ (free convention; `uncertainty_intervals.tsv`); the between-fiber spread at most ⟨spread_hw_max_I⟩.
+
+The other terms are bounds, not sampled (`bounds_after_weighting.tsv`): the isoform, processing, and PTM bounds of each entry times its weight (D16, D28), the shared-peptide family bounds scaled to the profile (D55), and the D48 shared-row excess; each is written as the largest single contribution and as the worst-case sum. The MHC : actin sensitivity (rule A6, D54b) rescales the myosin heavy chain family with actin fixed, and the actin family with myosin fixed, to each ratio the three methods measured (`classical_check_carroll_2004.tsv`), for types I and IIa, and reports the profile's range; no method is a reference, and its largest shift of any fraction is ⟨mhc_actin_max_shift⟩ (`sensitivity_mhc_actin_spread.tsv`). The completeness bound (rule A7) converts the outside genes' molar share to a mass share under the stated assumption that they have the pool's molar-mean molecular weight, at most ⟨completeness_bound⟩ of the combined standard. Every term is placed on one scale — the maximum absolute shift of the fraction from the standard — and the widest term named per amino acid (`uncertainty_per_amino_acid.tsv`); this scale is provisional.
+
+### Indispensable amino acids
+
+The indispensable amino acids and the groupings of the reference scoring pattern are those of FAO 2013 (Food and Nutrition Paper 92), transcribed by the author with table and page into `config/aggregation_decisions.ini` (D62) and resolved to one-letter symbols by code through the IUPAC-IUBMB table. `eaa_subset.tsv` reports each heading per profile and fiber type as mg of free amino acid per gram of protein and as its share of the free-convention profile.

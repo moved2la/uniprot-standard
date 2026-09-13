@@ -12,7 +12,7 @@ generator produces from the data on disk.
 | `config/composition_decisions.ini` | The URL of the IUPAC-IUBMB table that defines the one-letter code, the PubChem endpoint, the chiral-prefix query rule, and the two extra compound names (water, hydrogen), each with its D-number (D26). Never an amino acid name, symbol, or mass — the code parses the names from the cited table and fetches every mass. |
 | `config/mass_fraction_decisions.ini` | Literature sources (citation, DOI, role with its D-number, download URLs), the column-to-fiber-type map for the primary file (each value the exact header string as it appears in the sheet, cited by sheet and row), and the in-silico digest rules with their citation. Never a protein, an accession, an abundance number, or a non-human data source — a test asserts the first three. |
 | `config/carroll_classical_fractionation.ini` | The measured values of Carroll, Carrithers & Trappe 2004, transcribed by the author with page and table per row (D50). Feed the classical cross-check only, never a weight. |
-| `config/aggregation_decisions.ini` | Which amino acids are dietary indispensable and how the reference scoring pattern groups them, transcribed by the author from FAO 2013 with table and page per value (D62). The report's three-letter symbols as printed; resolved to one-letter symbols by code from the IUPAC-IUBMB table. Never an abundance, a weight, or a protein. |
+| `config/aggregation_decisions.ini` | Which amino acids are dietary indispensable and how the reference scoring pattern groups them, transcribed by the author from FAO 2013 with table and page per value (D62); the Monte Carlo draws and seed (D63). The report's three-letter symbols as printed; resolved to one-letter symbols by code from the IUPAC-IUBMB table. Never an abundance, a weight, or a protein. |
 | `docs/*.md` | Prose. Every sentence in `docs/methods.md` either carries a citation or describes a computation performed here (`PROVENANCE.md`). |
 | `tests/**` | Code and synthetic fixtures. Fixtures contain no real biology. |
 | `pipeline/**`, `run.py` | Code. Contains no gene name, accession, term ID, or category. |
@@ -24,7 +24,7 @@ generator produces from the data on disk.
 | `config/` | Decisions (hand-written) and the config generated from them. The Layer B weights are generated in two forms with identical values: `config/mass_fractions/<type>.ini` (one section per accession, the per-entry citable record) and `config/mass_fractions_per_entry.tsv` (one row per accession, every fiber type side by side, provenance once in the header — the form the aggregation stage reads; D61). |
 | `data/` | What the public databases said, unchanged or minimally tabulated. `data/gene-ontology/` holds the ontology file and the resolved term tables; `data/uniprot_raw/` holds entry JSON as fetched; `data/uniprot_sequences.ini` holds every canonical sequence in tabulated form, with its UniProt MD5, computed MD5, and captured features; `data/iupac/` holds the downloaded IUPAC-IUBMB Table 1 page, its hash, and `amino_acid_symbols.ini` parsed from it; `data/pubchem/` holds the PubChem responses as fetched and `amino_acid_masses.ini` tabulated from them; `data/uniprot_ptmlist/` holds UniProt's PTM vocabulary as fetched and its hash. |
 | `data/literature/` | Not committed (`.gitignore`). The literature files as downloaded or hand-obtained, unchanged, one folder per source id; `manifest.ini` (generated) records url, path, sha256, bytes, retrieval time, and whether the file was obtained by hand; `README.md` (generated) is the human-readable provenance. A reviewer re-creates the folder with `fetch_literature.py` plus the hand-obtained files named in the manifest. |
-| `outputs/` | Everything computed here that is not config: flags, evidence summaries, delta tables. `outputs/composition/` holds `amino_acid_composition_per_protein.tsv` and the processing and PTM disclosures. `outputs/digest/` holds the in-silico digest tables. `outputs/literature_inventory/` holds the structure of every literature file (members, sheets, header rows) read by code from the hashed files. `outputs/mass_fractions/` holds the weight tables (full and per-tier ranked), completeness, cross-checks, and summary — see `docs/pipeline_map.md` for which file answers which question. |
+| `outputs/` | Everything computed here that is not config: flags, evidence summaries, delta tables. `outputs/composition/` holds `amino_acid_composition_per_protein.tsv` and the processing and PTM disclosures. `outputs/digest/` holds the in-silico digest tables. `outputs/literature_inventory/` holds the structure of every literature file (members, sheets, header rows) read by code from the hashed files. `outputs/mass_fractions/` holds the weight tables (full and per-tier ranked), completeness, cross-checks, and summary. `outputs/standard/` holds the standard: the profiles, differences, sensitivity, bounds, completeness, EAA subset, the uncertainty tables, and `plots/` — see `docs/pipeline_map.md` for which file answers which question. |
 | `logs/` | Debugging only: one timestamped log per stage per run, plus one per test run. Not committed; not part of the record. The record is the header of each generated file plus `outputs/flags.tsv`. |
 | `docs/` | `pipeline_map.md` (every stage, its inputs and outputs, and the flowchart), plan, decisions, methods, conventions, handoffs. |
 
@@ -37,6 +37,7 @@ inventory, and the mass-fraction stages in order and then the tests. The literat
 is also the first stage of `protein-set`, because the measured tier (D56) reads the primary
 dataset.
 `--offline` skips the stages that touch the network and rebuilds from `data/`.
+`python run.py standard` runs `aggregate`, `uncertainty`, and `plots` (all offline) and then the tests.
 `python run.py excerpt` is tooling, not a stage: it writes bounded, labelled cuts of the large
 generated files into `excerpts/` (not committed, not the record) for review in chat.
 Nothing in the repository is named by a project-plan step number.
@@ -122,6 +123,20 @@ abundance) and does not appear in the protein set.
 | **B7 Families** | `outputs/digest/shared_pairs.tsv`; composition `free_frac_*` on master rows | A family at the D52 cutoff is a unit (D55); its bound per amino acid = (max − min free-mass fraction across members) × family weight. |
 | **B8 Combined** (D58) | every measured entry of every tier | w_i = v_i · MW_i / Σ_all (v_j · MW_j), one denominator per fiber type; the primary standard. Within-tier weights are kept for the checks. |
 | **B6 Bands** | `config/carroll_classical_fractionation.ini` `anchor_genes`; `outputs/digest/shared_pairs.tsv` | A gel band is the shared-peptide family of its anchor genes at the D52 cutoff; its weight is Σ w over the family. Families at cutoffs 1 and 2 are both written. |
+
+### Aggregation rules (`pipeline/aggregate.py`, `uncertainty.py`, `plots.py`)
+
+| Rule | Reads | Result |
+|---|---|---|
+| **A0 Inputs** | every file read | Hashed into every output header. |
+| **A1 Profile** (D64) | `config/mass_fractions_per_entry.tsv` weights; composition `count_*` on `segment_set = master`; the fetched masses | The molar mixture: n_a = Σ_i (w_i / MW_i) count_{i,a}; p_a = n_a m_a / Σ (m = residue or free mass). A1c: the fraction mixture, renormalised, written as a check. Wide tables: g per 100 g protein, unnormalised. |
+| **A2 Sets** | `w_<type>_combined` (D58); `w_<type>_tier1` (D31) | combined = every weighted entry; contractile = tier 1. No other set is named. |
+| **A3 Uncertainty** (D63) | `v`, `sd`, `valid` per entry and fiber type; `[monte_carlo]` draws and seed | Log-normal per entry, exact moment match; between-fiber spread (σ) and median uncertainty (σ/√n) as two terms; every draw a composition; 2.5 / 50 / 97.5 percentiles. |
+| **A4 One scale** (provisional) | the tables above | Every term as the maximum absolute shift of the fraction from the standard: Monte Carlo half-width; bounds as their worst-case sum over entries or families (largest single also written); sensitivity as max |profile − standard|; completeness as the outside genes' mass share. The widest term is named per amino acid. |
+| **A5 Bracket** | the three pure-type profiles | max − min per amino acid bounds every mix of the types; the IIa − IIx difference is written (D46). |
+| **A6 MHC:actin sensitivity** (D54b) | `classical_check_carroll_2004.tsv` at cutoff 2; `band_families.tsv` at cutoff 2 | At each ratio the methods measured, the MHC family is rescaled with actin fixed and the actin family with MHC fixed, all weights renormalised; combined and contractile; types I and IIa only. No method is a reference; files named `sensitivity_mhc_actin_*`. |
+| **A7 Completeness** | `dataset_rows_outside_pool.tsv` | The outside genes' molar share by rank, converted to a mass share with the pool's molar-mean MW (stated assumption, under which the two are equal): a share of unknown composition moves no fraction by more than itself. |
+| **A8 EAA** (D62) | `config/aggregation_decisions.ini`; `data/iupac/amino_acid_symbols.ini` | Headings resolved from three-letter symbols by code; group headings expanded from their `[group.*]` sections; a `___` leaves the EAA subset unwritten, recorded in `standard_summary.ini`, and a test fails until it is filled. |
 
 ## Flags
 

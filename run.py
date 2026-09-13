@@ -7,6 +7,7 @@
     python run.py composition --offline    skip the two network stages; recompute from data/ on disk
     python run.py mass-fractions           fetch literature -> digest -> literature inventory -> mass fractions -> tests
     python run.py mass-fractions --offline skip the fetch; recompute from data/ on disk
+    python run.py standard                 aggregate -> uncertainty -> plots -> tests (all offline)
     python run.py <command> --stop-after <stage>
     python run.py test                     tests only
     python run.py excerpt                  tooling: bounded excerpts of the large generated files
@@ -38,11 +39,13 @@ COMMANDS = {
                     ["composition", "ptm_disclosure"]),
     "mass-fractions": (["fetch_literature"],
                        ["digest", "literature_inventory", "mass_fractions"]),
+    "standard": ([],
+                 ["aggregate", "uncertainty", "plots"]),
 }
 
 
 RUN_LOG: Path | None = None
-COMMAND_ORDER = ["protein-set", "composition", "mass-fractions"]
+COMMAND_ORDER = ["protein-set", "composition", "mass-fractions", "standard"]
 
 
 class _Tee:
