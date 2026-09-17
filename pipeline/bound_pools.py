@@ -117,7 +117,7 @@ def _basis(cp, section: str) -> str:
 def _cite(cp, section: str) -> str:
     """The source line for a header: source id, location, as_reported, population — whatever is filled."""
     parts = []
-    for k in ("source_id", "location", "population", "spread_kind", "as_reported"):
+    for k in ("source_id", "location"):          # the rest (population, spread kind, wording) stays in the config
         v = cp[section].get(k, "").strip() if section in cp else ""
         if v and v != PLACEHOLDER:
             parts.append(f"{k}: {v}")
