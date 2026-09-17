@@ -71,20 +71,26 @@ on none of those lists, the paper never names it, and the fifteen other protein 
 same table — same instrument, same procedure, same run — report proline from 1.8 to 8.8 g/100 g.
 The method measures proline perfectly well. Only this one cell is zero.
 
-**The mass balance will not admit either zero.** Acid hydrolysis breaks every peptide bond and
-adds a water to each, so a gram of protein yields *more* than a gram of free amino acids — for
+**The mass balance is consistent with that reading.** Acid hydrolysis breaks every peptide bond
+and adds a water to each, so a gram of protein yields *more* than a gram of free amino acids — for
 this composition, a factor of 1.160, computed in `gorissen_2018_mass_balance.tsv` from the
-PubChem masses and this repository's own standard, with nothing taken from the paper.
+PubChem masses and this repository's own standard, with nothing taken from the paper. The factor
+assumes the paper's values are free-amino-acid masses: the paper quantifies the hydrolysate against
+free amino acid standards (p. 1687) and states no conversion to residue equivalents, so that is
+how they are read (`units_note` in the config); the paper does not say it in so many words.
 
 | Protein content used | Expected free amino acids | What the method could measure | Reported | Recovery |
 |---|---:|---:|---:|---:|
 | Gorissen's 84 % (nitrogen × 6.25) | 97.5 g | 81.6 g | 60.8 g | **75 %** |
 | Mingrone 2001's 65.4 % (measured) | 75.9 g | 63.5 g | 60.8 g | **96 %** |
 
-Their sixteen printed values total 60.8 g per 100 g of tissue against a stated 84 g of protein.
-That is 36.7 g short of the expected yield — and treating proline, cysteine, aspartate,
-asparagine and tryptophan as entirely absent accounts for only 15.9 g of it. A quarter of the
-expected mass is simply not in the table.
+The fourteen non-zero printed values total 60.8 g per 100 g of tissue against a stated 84 g of
+protein. That is 36.7 g below the expected yield, and treating proline, cysteine, aspartate,
+asparagine and tryptophan as entirely absent accounts for 15.9 g of it. Some of the rest is the
+method: acid hydrolysis loses part of the serine, threonine, methionine and tyrosine, and the paper
+applies no recovery correction, so a recovery below 100 % is expected under any protein figure.
+The balance is therefore a bound on what the printed values can be reconciled with, not a test that
+picks a protein content.
 
 The second row is this repository's own D77 source: Mingrone et al. 2001 measured muscle protein
 directly, 155 g/kg wet against 763 g/kg water, which is 65.4 % of dry mass. Gorissen's 84 % is
@@ -92,9 +98,12 @@ nitrogen × 6.25 on whole freeze-dried muscle, and that factor counts non-protei
 creatine, carnosine, free amino acids, nucleotides, urea. Use the directly measured protein
 content and treat the two zeros as unmeasured, and the balance closes to **96 %**.
 
-Two independent corrections landing together is not proof, and the stage draws no conclusion from
-it (X3). But it is a second line of evidence for what Step 4b found from the other direction: the
-muscle column measures *tissue*, not protein.
+Two readings landing together is not proof, and the stage draws no conclusion from it (X3): the
+printed values are consistent with a protein content between the direct measurement and the paper's
+nitrogen-derived figure, after the declared exclusions and the method's uncorrected losses. Read
+beside Step 4b, the pattern is the same one seen from the other direction — the muscle column is a
+measurement of freeze-dried tissue, in which protein is one component — and that is reported here
+as a pattern, not adjudicated.
 
 ## 3b. The comparison
 
@@ -173,9 +182,10 @@ and the measurement itself — are for later steps. No verdict (X3).
 
 ## 5. What a Match Rate user should take from this
 
-1. **Use the adjusted standard.** The measured comparator counts tissue histidine, not protein
-   histidine, so the version of the standard that includes the non-protein metabolite pools is
-   the one that answers the same question the measurement does.
+1. **The adjusted standard is the like-for-like column.** The measured comparator counts tissue
+   histidine, not protein histidine, so the version of the standard that includes the non-protein
+   metabolite pools is the one that answers the same question the measurement does. It is also the
+   primary Match Rate reference (`config/match_rate.ini`, D87).
 2. **Scores against the new reference will differ most where the reference differs most.** Of the
    nine indispensable amino acids, phenylalanine (0.77×) and histidine (0.67×) are the rows where
    the calculated standard asks for *less* than Gorissen's column does, and threonine (1.27×),
@@ -200,6 +210,12 @@ else, and stops if either misses by more than 0.05 (rule X4). Both reproduce exa
 ```
 essential sum 31.8 = printed 31.8; non-essential sum 29.0 = printed 29.0
 ```
+
+Which rows the essential sum covers is the paper's own statement (p. 1687: "the sum of essential
+amino acids includes threonine, methionine, phenylalanine, histidine, lysine, valine, isoleucine,
+and leucine"), transcribed as `essential_rows` in the config with that location and read by the
+stage; the code names no amino acid. The same eight rows are the scored set of the original Match
+Rate reference (`config/match_rate.ini`, D87).
 
 This is a check on the transcription, not on the paper. It catches a mistyped digit, a
 transposed row, or a value read from the wrong column — the failure modes of a hand
@@ -241,9 +257,9 @@ resolved.
 | Path | What |
 |---|---|
 | `config/gorissen_2018_comparison.ini` | the transcription, with a page-level location on every value |
-| `pipeline/comparison.py` | the stage; rules X1–X5 in `docs/conventions.md` |
+| `pipeline/comparison.py` | the stage; rules X1–X6 in `docs/conventions.md` |
 | `outputs/comparison/gorissen_2018_human_muscle.tsv` | Table 1's human muscle column as letters |
 | `outputs/comparison/calculated_vs_gorissen_2018.tsv` | the comparison behind §3b |
 | `outputs/comparison/gorissen_2018_mass_balance.tsv` | the reconciliation behind §3 |
 | `outputs/comparison/comparison_summary.ini` | the set, the exclusions, the transcription check, the largest differences |
-| `tests/test_comparison.py` | twelve tests, one per rule plus the guards |
+| `tests/test_comparison.py` | thirteen tests, one per rule plus the guards |

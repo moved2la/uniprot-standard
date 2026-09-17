@@ -62,6 +62,7 @@ def _config(path, measured=MEASURED, eaa_sum=20.0, neaa_sum=20.0, not_measured=T
              "[protein_content_of_the_muscle_sample]", "value = 84", "", "[values.human_muscle]"]
     lines += [f"{k} = {v}" for k, v in measured.items()]
     lines += ["", "[values.human_muscle.location]",
+              "essential_rows = Threonine, Methionine, Phenylalanine, Histidine, Lysine, Valine, Isoleucine, Leucine",
               f"sums_as_printed = EAA {eaa_sum:.1f}, non-EAA {neaa_sum:.1f}", "",
               "[hydrolysis_conversions]", "Glutamic acid = Glutamic acid + Glutamine", ""]
     if not_measured:
@@ -267,3 +268,13 @@ def test_the_config_names_the_rows_the_paper_names(comparison_repo):
         cmp.build(_Log())
     assert "IUPAC trivial name" in str(e.value)
     
+
+def test_the_printed_sum_check_reads_the_papers_own_grouping_from_config(comparison_repo):
+    """X4 groups the rows as [values.human_muscle.location] essential_rows says; without it the stage stops,
+    because the alternative is naming amino acids in code."""
+    cfg = cmp.INPUTS["comparison"]
+    text = cfg.read_text(encoding="utf-8")
+    cfg.write_text("\n".join(ln for ln in text.splitlines() if not ln.startswith("essential_rows")), encoding="utf-8")
+    with pytest.raises(SystemExit) as e:
+        cmp.build(_Log())
+    assert "essential_rows" in str(e.value)

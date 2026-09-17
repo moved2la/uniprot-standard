@@ -106,6 +106,34 @@ flowchart TB
   unc --> a3
   strs --> a3
   a3 --> figs[outputs/standard/plots/]
+
+  subgraph US["python run.py usda"]
+    u1[usda]
+  end
+  ufd[config/usda_food_data.ini] --> u1
+  zips[(data/usda/*.zip, hand-downloaded)] --> u1
+  masses --> u1
+  u1 --> foods[outputs/usda/ amino_acids_per_food, foods_without_amino_acids, usda_nutrient_map]
+
+  subgraph CP["python run.py comparison"]
+    x1[comparison]
+  end
+  gor[config/gorissen_2018_comparison.ini] --> x1
+  lit --> x1
+  std --> x1
+  bp --> x1
+  x1 --> cmpo[outputs/comparison/ calculated_vs_gorissen_2018, gorissen_2018_mass_balance]
+
+  subgraph MR["python run.py match"]
+    r1[match]
+  end
+  mri[config/match_rate.ini] --> r1
+  oth[config/food_amino_acids_other_sources.csv] --> r1
+  gor --> r1
+  std --> r1
+  bp --> r1
+  foods --> r1
+  r1 --> mro[outputs/match/ match_rate_per_food, match_rate_by_reference, match_rate_ranked_*, limiting_amino_acid_counts]
 ```
 
 Solid arrows are files on disk read by the next stage. Dotted arrows are network
@@ -224,11 +252,21 @@ and which archive wins when a food is in both, are the match step's decisions.
 
 | # | Stage | Reads | Writes |
 |---|---|---|---|
-| 1 | `comparison` | `config/gorissen_2018_comparison.ini` (hand-written transcription of Table 1, D79/D84); `config/mass_fraction_decisions.ini` `[source.gorissen_2018]`; `data/literature/manifest.ini` (green light, D78); `data/iupac/amino_acid_symbols.ini`; both calculated standards | `outputs/comparison/gorissen_2018_human_muscle.tsv`; `calculated_vs_gorissen_2018.tsv`; `comparison_summary.ini` |
+| 1 | `comparison` | `config/gorissen_2018_comparison.ini` (hand-written transcription of Table 1, D79/D84); `config/mass_fraction_decisions.ini` `[source.gorissen_2018]`; `data/literature/manifest.ini` (green light, D78); `data/iupac/amino_acid_symbols.ini`; both calculated standards | `outputs/comparison/gorissen_2018_human_muscle.tsv`; `calculated_vs_gorissen_2018.tsv`; `gorissen_2018_mass_balance.tsv`; `comparison_summary.ini` |
 
-Rules X1–X5 in `docs/conventions.md`; the document written on top of them is
+Rules X1–X6 in `docs/conventions.md`; the document written on top of them is
 `docs/gorissen_comparison.md`. The stage compares and does not judge: no fit, no scaling, no error
 term, and no path that writes back into the standard.
+
+## `python run.py match` — Match Rate, every food against every reference (Step 6)
+
+| # | Stage | Reads | Writes |
+|---|---|---|---|
+| 1 | `match` | `config/match_rate.ini` (hand-written: references, scored sets, food tables, version label; D86–D88); `config/fao_2013_indispensable_amino_acids.ini` (the nine headings, D62); `config/gorissen_2018_comparison.ini` (the original reference and its own essential rows); `data/iupac/amino_acid_symbols.ini`; both calculated standards; `outputs/usda/amino_acids_per_food.tsv`; `config/food_amino_acids_other_sources.csv` (hand-maintained) | `outputs/match/match_rate_per_food.tsv` (every food × every reference: score, limiting amino acid, every ratio, source, reference label); `match_rate_by_reference.tsv` (one row per food, references side by side, difference in pp); `match_rate_ranked_<reference>.tsv` (best first, one per reference); `limiting_amino_acid_counts.tsv`; `foods_not_scored.tsv`; `match_summary.ini` |
+
+Rules M1–M6 in `docs/conventions.md`; the calculation by hand in `docs/formula.md`, "Match Rate".
+The score is the smallest of (food share / reference share) over the scored set (D87). It is the
+public single-food scorer; the blend / fortification script is separate and imports it (D88).
 
 ## Tooling (not a stage, not the record)
 
@@ -251,7 +289,7 @@ term, and no path that writes back into the standard.
 
 1. `PROVENANCE.md` — the rule everything obeys.
 2. This file — the shape.
-3. `docs/conventions.md` — the rules by letter (R, C, F, G, I, B) and the field each reads.
+3. `docs/conventions.md` — the rules by letter (R, C, F, G, I, B, A, U, X, M) and the field each reads.
 4. `docs/decisions.md` — why each rule is what it is.
 5. `docs/methods.md` — what the runs found, written for the paper.
 6. The code, one stage at a time, in the order above.

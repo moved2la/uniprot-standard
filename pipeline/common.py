@@ -67,6 +67,11 @@ USDA_OUT_DIR = OUTPUTS_DIR / "usda"
 GORISSEN_COMPARISON_INI = CONFIG_DIR / "gorissen_2018_comparison.ini"   # hand-written transcription (D79, D84)
 COMPARISON_OUT_DIR = OUTPUTS_DIR / "comparison"
 
+# --- Match Rate (D86-D88) ---
+MATCH_RATE_INI = CONFIG_DIR / "match_rate.ini"                                   # hand-written: references, scored sets, food tables
+FOOD_OTHER_SOURCES_CSV = CONFIG_DIR / "food_amino_acids_other_sources.csv"      # hand-maintained: foods USDA does not carry
+MATCH_OUT_DIR = OUTPUTS_DIR / "match"
+
 # The twenty standard amino acid letters, in the order used for every vector.
 AMINO_ACIDS = "ACDEFGHIKLMNPQRSTVWY"
 
@@ -201,6 +206,6 @@ def running_command_is_before(command: str) -> bool:
     """True when run.py is executing an EARLIER command than `command` (env UNIPROT_STANDARD_COMMAND),
     so `command`'s outputs are legitimately stale until it is run next. False for `python run.py test`."""
     import os
-    order = ["protein-set", "composition", "mass-fractions", "standard", "usda", "comparison"]
+    order = ["protein-set", "composition", "mass-fractions", "standard", "usda", "comparison", "match"]
     current = os.environ.get("UNIPROT_STANDARD_COMMAND", "")
     return current in order and command in order and order.index(current) < order.index(command)

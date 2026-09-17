@@ -11,6 +11,7 @@
     python run.py <command> --stop-after <stage>
     python run.py usda                     read the USDA FoodData Central archives in data/usda/ -> tests (offline)
     python run.py comparison               the calculated standard beside Gorissen 2018's measurement (offline)
+    python run.py match                    Match Rate: every food against every reference (offline)
     python run.py test                     tests only
     python run.py excerpt                  tooling: bounded excerpts of the large generated files
                                            into excerpts/<stamp>/ and a tarball (no tests; not the record)
@@ -47,11 +48,13 @@ COMMANDS = {
              ["usda"]),
     "comparison": ([],
                    ["comparison"]),
+    "match": ([],
+              ["match"]),
 }
 
 
 RUN_LOG: Path | None = None
-COMMAND_ORDER = ["protein-set", "composition", "mass-fractions", "standard", "usda", "comparison"]
+COMMAND_ORDER = ["protein-set", "composition", "mass-fractions", "standard", "usda", "comparison", "match"]
 
 
 class _Tee:

@@ -189,3 +189,96 @@ mass shares (which protein is "big"), not for the amino acid profile of the mixt
 
 Every file named here carries the SHA-256 of what it was computed from in its header, so the
 chain can be followed back to the UniProt release and the dataset file.
+
+## Match Rate — one food against the standard
+
+The score is the author's spreadsheet formula, transcribed as it is (D87). Everything below can
+be done with the standard's `standard_with_non_protein_metabolite_pools` column, a food's amino
+acid row, and a calculator.
+
+**What you need**
+
+1. The reference: the scored amino acids' values from the standard (any unit — percent of amino
+   acid mass, g per 100 g, it does not matter, as step 2 shows).
+2. The food: the same amino acids' values, in any one unit (USDA gives g per 100 g of food).
+3. The scored set (D86): FAO 2013's nine indispensable headings, each group reduced to its
+   indispensable member — His, Ile, Leu, Lys, Met, Phe, Thr, Trp, Val. Cysteine and tyrosine are
+   not scored. (The original spreadsheet scored eight: its reference was an acid-hydrolysis
+   measurement, which destroys tryptophan.)
+
+**The calculation**
+
+1. Sum the food's scored values; divide each by the sum. These are the food's *shares* of its
+   scored amino acids, and they add to 1.
+2. Do the same for the reference. Because both sides are now shares, the unit each was reported
+   in has cancelled, and so has the food's protein content: a food per 100 g of food and the same
+   food per 100 g of protein give the same shares. **Match Rate is a property of the proportion
+   only.**
+3. For each scored amino acid, ratio = food share ÷ reference share. A ratio of 1 means the food
+   carries that amino acid in exactly the reference proportion; above 1 is surplus relative to the
+   reference; below 1 is short.
+4. **Match Rate = the smallest ratio**, as a percent. The amino acid with the smallest ratio is
+   the *limiting* amino acid: it is the one the food runs out of first when the amino acids are
+   assembled in the reference proportion.
+
+That is the whole score. The code is `pipeline/match.py`, `match_rate()`, and it is those four
+steps and nothing else (rule M1).
+
+**Why the spreadsheet's longer road gives the same number (rule M5)**
+
+The spreadsheet does not stop at step 4. It scales the food to the reference's essential-amino-acid
+total (its Step 3), divides every ratio by the smallest so the limiting amino acid reads 1 (Step 8,
+"lowest common denominator"), multiplies the scaled food by the average of those (Step 9), divides
+by the new minimum (Step 10b), sums the result as the "total need to consume", and calls
+(need − reference total) ÷ need the percent *wasted*; Match Rate is 1 − wasted. Written out, with
+k the smallest ratio and R the reference total:
+
+- Step 3 puts the food on the reference's total, so its scored values sum to R.
+- Steps 8–10b divide that vector by k. The Step 9 average multiplies every entry by one constant,
+  and Step 10b's minimum carries the same constant, so it cancels out entirely.
+- The "need to consume" is therefore Σ(scaled food ÷ k) = R ÷ k.
+- Wasted = (R ÷ k − R) ÷ (R ÷ k) = 1 − k. Utilized = k.
+
+So the surplus arithmetic and the limiting ratio are one number stated two ways, not two scores.
+The stage keeps the per-amino-acid ratios as columns (`ratio_<letter>`) because they show which
+amino acids carry the surplus and by how much; it does not write a second score.
+
+**A worked example — pea protein isolate against the original reference**
+
+The four foods in the spreadsheet are the transcription test (`tests/test_match.py`), so this
+example can be checked against the spreadsheet cell by cell. Pea, column I, against the
+spreadsheet's column A — which is Gorissen 2018's human muscle column, g per 100 g raw material,
+on the eight amino acids that reference carries. Food total 30.99, reference total 31.8.
+
+| amino acid | food g/100 g | food share % | reference g/100 g | reference share % | ratio (step 3) | spreadsheet Step 3 (food × 31.8/30.99) | Step 10b (÷ k) |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| H | 1.99 | 6.421 | 2.8 | 8.805 | 0.7293 | 2.0420 | 3.9800 |
+| I | 4.05 | 13.069 | 3.4 | 10.692 | 1.2223 | 4.1559 | 8.1000 |
+| L | 6.80 | 21.943 | 6.3 | 19.811 | 1.1076 | 6.9777 | 13.6000 |
+| K | 6.11 | 19.716 | 6.6 | 20.755 | 0.9500 | 6.2697 | 12.2200 |
+| **M** | 0.85 | 2.743 | 1.7 | 5.346 | **0.5131** | 0.8722 | **1.7000** |
+| F | 3.86 | 12.456 | 3.8 | 11.950 | 1.0423 | 3.9609 | 7.7200 |
+| T | 3.05 | 9.842 | 2.9 | 9.119 | 1.0792 | 3.1297 | 6.1000 |
+| V | 4.28 | 13.811 | 4.3 | 13.522 | 1.0214 | 4.3919 | 8.5600 |
+| sum | 30.99 | 100 | 31.8 | 100 | | 31.80 | 61.98 |
+
+Methionine has the smallest ratio, 0.5131, so **Match Rate = 51.31 %** and methionine is the
+limiting amino acid. The spreadsheet's road: the Step 10b column sums to 61.98 (its cell I153,
+"Total Need to Consume" = 31.8 ÷ 0.5131), wasted = (61.98 − 31.8) ÷ 61.98 = 0.4869 (I155), utilized
+= 0.5131 (I156). The same number. Note the Step 10b column: methionine sits at exactly the reference's
+1.7, and every other amino acid sits above its reference value — that is the surplus, and the
+ratio column already says the same thing (1.2223 for isoleucine means 22 % more than the reference
+proportion).
+
+**Against the new reference**, the same food is scored on nine amino acids (tryptophan included)
+with the standard's shares in place of column A. The spreadsheet's four foods carry no tryptophan
+value, so they cannot be scored on the nine; every USDA food that reports all nine can. The
+ranked tables in `outputs/match/` are that calculation for every food.
+
+**Doing it for a real food**
+
+1. `outputs/usda/amino_acids_per_food.tsv` — the food's row: the nine `<letter>_g_per_100g` values.
+2. `outputs/standard/_calculated_amino_acid_standard_with_non_protein_metabolite_pools.tsv` — the
+   nine rows of the `standard_with_non_protein_metabolite_pools` column.
+3. Steps 1–4 above. `outputs/match/match_rate_per_food.tsv` carries the score, the limiting amino
+   acid, and every ratio for that food and reference; the header carries the hashes of both inputs.

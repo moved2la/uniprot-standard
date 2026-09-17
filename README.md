@@ -20,6 +20,7 @@ python run.py mass-fractions --offline
 python run.py standard               # the standard: aggregate -> non_protein_metabolite_pools -> uncertainty -> stress -> plots (offline)
 python run.py usda                   # the food side of Match Rate: read the USDA archives in data/usda/ (offline)
 python run.py comparison             # the standard beside Gorissen 2018's measured human muscle composition
+python run.py match                  # Match Rate: every food against every reference (offline)
 python run.py test
 python run.py excerpt                # tooling: bounded excerpts of the large generated files, for review (not the record)
 ```
@@ -32,7 +33,7 @@ go to `outputs/flags.tsv` and are closed, with a D-number, in
 
 | Path | Meaning |
 |---|---|
-| `config/` | Hand-written decisions and transcriptions (`protein_set_decisions.ini`, `composition_decisions.ini`, `mass_fraction_decisions.ini`, `carroll_classical_fractionation.ini`, `fao_2013_indispensable_amino_acids.ini`, `fiber_type_mix.ini`, `uncertainty_settings.ini`, `stress_test_settings.ini`) and generated config (`accessions.ini`, `segments.ini`, `mass_fractions/<type>.ini`, `mass_fractions_per_entry.tsv`) |
+| `config/` | Hand-written decisions and transcriptions (`protein_set_decisions.ini`, `composition_decisions.ini`, `mass_fraction_decisions.ini`, `carroll_classical_fractionation.ini`, `fao_2013_indispensable_amino_acids.ini`, `fiber_type_mix.ini`, `non_protein_metabolite_pools.ini`, `gorissen_2018_comparison.ini`, `usda_food_data.ini`, `match_rate.ini`, `food_amino_acids_other_sources.csv`, `uncertainty_settings.ini`, `stress_test_settings.ini`) and generated config (`accessions.ini`, `segments.ini`, `mass_fractions/<type>.ini`, `mass_fractions_per_entry.tsv`) |
 | `data/` | What the public databases said |
 | `outputs/` | Everything computed here that is not config |
 | `logs/` | Stage and test logs, debugging only; not committed |

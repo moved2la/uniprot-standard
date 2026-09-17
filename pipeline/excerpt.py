@@ -131,7 +131,16 @@ SPEC: list[tuple[str, list[dict]]] = [
     # --- the comparison with the measured composition ---
     ("outputs/comparison/gorissen_2018_human_muscle.tsv", [{"kind": "whole"}]),
     ("outputs/comparison/calculated_vs_gorissen_2018.tsv", [{"kind": "whole"}]),
+    ("outputs/comparison/gorissen_2018_mass_balance.tsv", [{"kind": "whole"}]),
     ("outputs/comparison/comparison_summary.ini", [{"kind": "whole"}]),
+    # --- Match Rate (the per-food table cut; the rest whole) ---
+    ("outputs/match/match_summary.ini", [{"kind": "whole"}]),
+    ("outputs/match/limiting_amino_acid_counts.tsv", [{"kind": "whole"}]),
+    ("outputs/match/match_rate_by_reference.tsv", [{"kind": "head", "name": "first60", "n": 60}]),
+    ("outputs/match/match_rate_per_food.tsv", [{"kind": "head", "name": "first60", "n": 60}]),
+    ("outputs/match/match_rate_ranked_skeletal_muscle_protein_with_non_protein_metabolite_pools.tsv", [{"kind": "head", "name": "first100", "n": 100}]),
+    ("outputs/match/match_rate_ranked_gorissen_2018_human_muscle.tsv", [{"kind": "head", "name": "first100", "n": 100}]),
+    ("outputs/match/foods_not_scored.tsv", [{"kind": "head", "name": "first40", "n": 40}]),
     ("outputs/standard/eaa_subset.tsv", [{"kind": "whole"}]),
     ("outputs/standard/uncertainty_intervals.tsv", [{"kind": "whole"}]),
     ("outputs/standard/uncertainty_per_amino_acid.tsv", [{"kind": "whole"}]),

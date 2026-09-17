@@ -15,11 +15,14 @@ own method rather than from a choice made here:
   - Tryptophan is decomposed by acid hydrolysis, and aspartic acid is listed as not measured.
     Asparagine converts into aspartic acid, so it is not measurable either. Three of the twenty
     (W, D, N) are therefore absent from the measured side and are excluded from BOTH sides.
+  - Two further rows print as 0.0 in the human muscle column (proline, cysteine) and are declared
+    not measured in the config, with the reason (D85, rule X5); they too are excluded from both.
   - Glutamine converts into glutamic acid during hydrolysis, so the paper's glutamic acid row
     holds both. The calculated standard's E and Q are summed into one row to match it.
 
-That leaves sixteen comparison rows covering seventeen of the twenty amino acids. Each side is
-then renormalised over that set, so the two columns are percentages of the same thing. Comparing
+The set is whatever the config declares under those rules (fourteen rows across fifteen amino
+acids for Gorissen 2018). Each side is then renormalised over that set, so the two columns are
+percentages of the same thing. Comparing
 the paper's own "% of total protein" figures with this repository's would not be like for like:
 the paper's denominator is a protein mass that includes the amino acids it did not measure.
 
@@ -37,7 +40,7 @@ Writes (outputs/comparison/)
   gorissen_2018_mass_balance.tsv          whether the published values reconcile with a stated protein content (X6)
   comparison_summary.ini                  what was excluded and why, the transcription checks, the largest differences
 
-Rules (docs/conventions.md, "Comparison rules")
+Rules (docs/conventions.md, "Comparison rules", X1-X6)
   X1 Both sides renormalised over the SAME set, and the set is decided by the measured side's own
      stated method, never by which amino acids happen to agree.
   X2 An amino acid the method converts into another is compared as the sum of the two, on both
@@ -238,10 +241,16 @@ def check_printed_sums(cp, measured: dict, log) -> list[str]:
     nums = [float(x) for x in re.findall(r"(\d+\.\d+)", stated)]
     if len(nums) != 2:
         return [f"could not read two printed sums from {stated!r}; transcription not cross-checked"]
-    eaa_names = {"Threonine", "Methionine", "Phenylalanine", "Histidine", "Lysine", "Valine",
-                 "Isoleucine", "Leucine"}
-    got_eaa = sum(m["value"] for m in measured.values() if m["label"] in eaa_names)
-    got_neaa = sum(m["value"] for m in measured.values() if m["label"] not in eaa_names)
+    rows = loc.get("essential_rows", "")
+    if not rows.strip():
+        raise Stop("X4: [values.human_muscle.location] essential_rows is missing — the paper's own statement of which "
+                   "rows its essential sum covers is needed to check the printed sums; code names no amino acid")
+    eaa_names = {r.strip().lower() for r in rows.replace(";", ",").split(",") if r.strip()}
+    unknown = [r for r in eaa_names if r not in {m["label"].lower() for m in measured.values()}]
+    if unknown:
+        raise Stop(f"X4: essential_rows names {', '.join(sorted(unknown))}, which is not a row of [values.human_muscle]")
+    got_eaa = sum(m["value"] for m in measured.values() if m["label"].lower() in eaa_names)
+    got_neaa = sum(m["value"] for m in measured.values() if m["label"].lower() not in eaa_names)
     notes = []
     for what, got, want in (("essential", got_eaa, nums[0]), ("non-essential", got_neaa, nums[1])):
         if abs(got - want) > 0.05:
@@ -344,8 +353,8 @@ def build(log) -> dict[str, str]:
             "one-letter symbols through the IUPAC-IUBMB trivial names; no amino acid is named in code.",
             "g_per_100g_raw_material is the paper's unit: grams per 100 g of freeze-dried tissue, NOT per 100 g of "
             "protein. The same tissue is stated as 84 % protein (p. 1688).",
-            "percent_of_measured renormalises over the sixteen rows the paper reports, which is the only denominator "
-            "the two measurements share (X1).",
+            "percent_of_measured renormalises over the rows compared (the paper's reported rows less the declared "
+            "not-measured zeros, D85), which is the only denominator the two measurements share (X1).",
             f"transcription cross-check (X4): {'; '.join(sum_notes)}.",
         ],
         ["row", "paper_row_label", "amino_acids", "g_per_100g_raw_material", "percent_of_measured", "caveat"],
@@ -377,9 +386,11 @@ def build(log) -> dict[str, str]:
             "THE CALCULATED STANDARD BESIDE AN INDEPENDENT MEASUREMENT. Both sides are percentages of the SAME set: "
             "the amino acids Gorissen et al. 2018 report (X1). Neither side is treated as the truth, neither is fitted "
             "or scaled toward the other, and no error term is computed (X3).",
-            "The set is decided by the paper's method, not by agreement (X2). Excluded from BOTH sides: tryptophan "
-            "(decomposed by acid hydrolysis), aspartic acid (not measured), asparagine (converts to aspartic acid). "
-            "Glutamine converts to glutamic acid during hydrolysis, so E and Q are summed into one row on both sides.",
+            "The set is decided by the paper's method, not by agreement (X2). Excluded from BOTH sides: "
+            + ", ".join(sorted(excluded))
+            + " — each one's reason is on its 'not measured' row at the foot of this table. A combined row holds amino "
+            "acids the method converts into one another (E+Q: glutamine converts to glutamic acid during hydrolysis), "
+            "summed on both sides.",
             f"the comparison set is {our_total['with_non_protein_metabolite_pools']:.2f} % of the calculated standard's "
             f"twenty amino acids; the three excluded carry the rest.",
             "difference_pp is calculated minus Gorissen in percentage points of the comparison set; ratio is "

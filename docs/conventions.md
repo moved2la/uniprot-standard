@@ -17,6 +17,8 @@ generator produces from the data on disk.
 | `config/non_protein_metabolite_pools.ini` | The bound metabolite pool folded into the muscle standard (D73–D77): its amino acid as the three-letter symbol the sources print (resolved by code), its stoichiometry, its cited size per fiber type and per whole muscle with basis (dry / wet), the cited protein and water content per kg muscle, and the cited turnover rates for the resupply-frame sensitivity — transcribed by the author with location per value (the D50 pattern). Never a weight, a protein, or a mass. `___` until filled; the adjusted table is not written and a test says so. |
 | `config/gorissen_2018_comparison.ini` | The human muscle column of Gorissen et al. 2018's Table 1, transcribed with a page-level location on every value, plus the paper's own statements about what its method converts and cannot measure (D84). Values and row labels only — no amino acid is named in code, and the comparison set is derived from the [hydrolysis_conversions] and [not_measured] sections rather than chosen. |
 | `config/usda_food_data.ini` | Which USDA FoodData Central archives are read, the release of each, and the name each extra nutrient (protein, nitrogen, cystine, hydroxyproline) goes by in the archive's own `nutrient.csv` (D83). Never an amino acid name, a nutrient id, a food, or a value — the twenty are joined through the IUPAC-IUBMB trivial names and a test fails if one is named here. |
+| `config/match_rate.ini` | What Match Rate scores and against what: the references (a file and column, or a config section), each with its scored set and label; the scored sets (the FAO headings with each group's scored member named as a three-letter symbol, D86; or a list of rows another config file names); the two food tables; the version label (D86–D88). |
+| `config/food_amino_acids_other_sources.csv` | Foods USDA does not carry, maintained by the author (M4). CSV, one row per food. Columns: `label` (the food's identity; unique), `source` (where the values come from — a supplier analysis, a label, a paper; required), `location` (the spot in the source), `note`, `protein_g_per_100g` (carried, not scored), then `A_g_per_100g` … `Y_g_per_100g` — the twenty amino acids by one-letter symbol, grams per 100 g of product, blank where not reported. A header-only file is valid. |
 | `config/uncertainty_settings.ini` | Monte Carlo draws and seed (D63). Nothing biological. |
 | `config/stress_test_settings.ini` | The magnitudes the stress stage pushes the weights by (D65). Nothing biological. |
 | `docs/*.md` | Prose. Every sentence in `docs/methods.md` either carries a citation or describes a computation performed here (`PROVENANCE.md`). |
@@ -51,6 +53,8 @@ is also the first stage of `protein-set`, because the measured tier (D56) reads 
 dataset.
 `--offline` skips the stages that touch the network and rebuilds from `data/`.
 `python run.py standard` runs `aggregate`, `non_protein_metabolite_pools`, `uncertainty`, `stress`, and `plots` (all offline) and then the tests.
+`python run.py usda` reads the FoodData Central archives; `python run.py comparison` puts the standard beside Gorissen 2018;
+`python run.py match` scores every food against every reference (all offline), each followed by the tests.
 `python run.py excerpt` is tooling, not a stage: it writes bounded, labelled cuts of the large
 generated files into `excerpts/` (not committed, not the record) for review in chat.
 Nothing in the repository is named by a project-plan step number.
@@ -175,9 +179,20 @@ abundance) and does not appear in the protein set.
 | **X1 One denominator** | the transcription; both standards | Both sides are renormalised over the SAME set before anything is compared. The measured side's published percentages use a denominator that includes what it did not measure, so they are never compared with this repository's directly. |
 | **X2 The set comes from the method** | `[hydrolysis_conversions]`, `[not_measured]` | An amino acid the method converts into another is compared as the sum of the two, on both sides. One it destroys or does not report is excluded from both. The set is never chosen by which amino acids happen to agree. Every one of the twenty must be either compared or excluded with a stated reason, or the stage stops. |
 | **X3 No verdict** | — | Difference and ratio only. Neither side is called correct, neither is fitted, scaled or adjusted toward the other, and no error term is written. A test asserts the column names carry no verdict word. |
-| **X4 The transcription is checked against the paper** | the paper's own printed sums | Recomputed from the transcribed values before anything else. A mismatch is a `[STOP]`, not a flag: a mistyped digit must not reach a comparison. |
+| **X4 The transcription is checked against the paper** | the paper's own printed sums; `[values.human_muscle.location] essential_rows` (the paper's own statement of which rows its essential sum covers) | Recomputed from the transcribed values before anything else. A mismatch is a `[STOP]`, not a flag: a mistyped digit must not reach a comparison. |
 | **X5 A zero is never compared unexamined** | `[not_measured]`, `[zero_is_a_measurement]` | A measured value of 0.0 must be declared: either in `[not_measured]` with the reason it is not a measurement, or in `[zero_is_a_measurement]` with the evidence that it is one. An undeclared zero is a `[STOP]`. A zero that reaches the comparison sits in one side's denominator and not the other's, and biases every other row (D85). |
 | **X6 The mass balance is computed** | the PubChem masses; the calculated standard; every protein content config offers | Hydrolysis adds a water per peptide bond, so a gram of protein yields more than a gram of free amino acids. The stage computes that factor from this repository's own composition, then reports what share of the expected yield the source's published values reach, under each protein content offered. It draws no conclusion from the result (X3). |
+
+### Match Rate rules (`pipeline/match.py`)
+
+| Rule | Reads | Result |
+|---|---|---|
+| **M1 The score** | the food's and the reference's scored values | Both expressed as shares of their scored total; ratio = food share / reference share per amino acid; Match Rate = the smallest ratio, its amino acid the limiting one (D87). Protein content and the reporting unit never enter: the score is a property of the proportion. |
+| **M2 The scored set is named, not coded** | `config/match_rate.ini` `[scored_set.*]`, `[reference.*]` | Every reference names its scored set. A set is either the FAO 2013 headings with each group's scored member named as a three-letter symbol (D86), or a list of rows another config file names (the paper's own essential rows for the original reference). Resolved through the IUPAC-IUBMB table; a group without a named member is a `[STOP]`. |
+| **M3 Missing is listed, zero is scored** | the food's scored values | A food that does not report a scored amino acid goes to `foods_not_scored.tsv` with the letters named (U5 carried). A published zero is scored as published: ratio zero, score zero, limiting amino acid named. The stage does not decide what a source measured. |
+| **M4 Two food tables, no dedup** | `outputs/usda/amino_acids_per_food.tsv`; `config/food_amino_acids_other_sources.csv` | Every row names its source; the same food from two sources, or two archives, is two rows (U6 carried). An other-sources row without a `source` is a `[STOP]`; a duplicate `label` is a `[STOP]`. |
+| **M5 Ratios are a display** | — | The per-amino-acid ratios are written beside the score. They are the spreadsheet's surplus arithmetic, which reduces to the same number (`docs/formula.md`); no second score is written. |
+| **M6 One scorer** | — | `match_rate()` in `pipeline/match.py` is the only implementation of the formula. The blend / fortification script (D88) imports it; nothing copies it. |
 
 ## Flags
 
