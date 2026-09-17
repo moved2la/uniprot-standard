@@ -19,7 +19,9 @@ Rules
       blank, the computed hash is written back into config (the ONLY thing
       this script writes into config).
   F3  Nothing is ever modified, converted, or re-saved. Bytes on disk == bytes
-      served.
+      served. A re-fetch whose bytes already equal the file on disk writes
+      nothing (logged as unchanged); a file that cannot be written (locked by
+      a viewer or a sync client) is a flag, not a crash.
   F4  HTTP failure is a flag, not a retry loop that hides the failure.
   F5  A file obtained by hand (blocked download, paywalled PDF) is declared
       with file.<n>.obtained = manual. It must already be saved as
@@ -219,11 +221,22 @@ def main(argv: list[str] | None = None) -> int:
                     flags.append(f"{key}: sha256 mismatch — config {want_sha[:12]}… got {got_sha[:12]}… (F2); nothing saved; the served file has changed since it was pinned")
                     log_lines.append(f"[FLAG] {key} sha256 mismatch")
                     continue
-                dest.write_bytes(data)
+                if dest.exists() and sha256_bytes(dest.read_bytes()) == got_sha:
+                    # F3: the bytes on disk already equal the bytes served; nothing to write (and nothing to
+                    # collide with a viewer or a sync client holding the file open).
+                    log_lines.append(f"[OK]   {key} {len(data)} bytes sha256 {got_sha} == {dest.relative_to(ROOT).as_posix()} (unchanged on disk)")
+                else:
+                    try:
+                        dest.write_bytes(data)
+                    except OSError as e:
+                        flags.append(f"{key}: cannot write {dest.relative_to(ROOT).as_posix()} — {e.__class__.__name__}: {e} (F4). "
+                                     f"The file is locked or read-only (a PDF viewer or a sync client holding it open); close it and rerun.")
+                        log_lines.append(f"[FLAG] {key} cannot write: {e}")
+                        continue
+                    log_lines.append(f"[OK]   {key} {len(data)} bytes sha256 {got_sha} -> {dest.relative_to(ROOT).as_posix()}")
                 if not want_sha:
                     pending_hashes.append((sid, n, got_sha))
                     config_dirty = True
-                log_lines.append(f"[OK]   {key} {len(data)} bytes sha256 {got_sha} -> {dest.relative_to(ROOT).as_posix()}")
 
             m = f"file.{key}"
             if not manifest.has_section(m):

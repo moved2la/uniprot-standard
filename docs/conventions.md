@@ -87,7 +87,7 @@ abundance) and does not appear in the protein set.
 |---|---|---|
 | **F1 Placeholder** | `file.<n>.url` | A url of `___` is a flag: recorded, skipped, non-zero exit at the end. |
 | **F2 Hash pinned** | `file.<n>.sha256` | Blank → the computed hash is written back into config (the only thing the fetcher writes there). Present → the bytes must hash to it; mismatch is a flag and nothing is written. |
-| **F3 Unchanged** | served bytes | Bytes on disk == bytes served. Nothing is converted or re-saved. |
+| **F3 Unchanged** | served bytes | Bytes on disk == bytes served. Nothing is converted or re-saved. A re-fetch whose bytes already equal the file on disk writes nothing (logged as unchanged); a file that cannot be written — locked by a viewer or a sync client — is a flag, not a crash. |
 | **F4 HTTP failure** | response status | A flag, not a retry loop that hides the failure. |
 | **F5 Hand-obtained** | `file.<n>.obtained = manual` | The file must already be on disk under the URL's filename; it is hashed in place and recorded as hand-obtained; never downloaded. |
 | **F6 Blocked page** | served body | HTML where a document (pdf/xlsx/zip/rar/docx) was expected is a flag; nothing written. |
