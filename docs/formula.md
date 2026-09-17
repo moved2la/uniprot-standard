@@ -87,6 +87,54 @@ The shares are not in the dataset (its fibers were selected pure, not sampled fr
 they come, with their citation, from `config/fiber_type_mix.ini`. Until that file is filled the
 column is blank.
 
+## The bound pool — one more thing the muscle holds
+
+The steps above count the amino acids held as protein. Muscle also holds one amino acid in a
+stable non-protein form: histidine, as the dipeptide carnosine. That histidine had to be eaten
+to be there, so the standard with bound pools adds it (D73–D77). The protein-only table above is
+not changed; the adjusted table sits beside it as
+`_calculated_amino_acid_standard_with_bound_pools.tsv`.
+
+**Step 9. Put the pool and the protein on the same kilogram of muscle.** The pool is cited per
+kilogram of muscle (`config/bound_metabolite_pools.ini`: c mmol/kg, on the source's basis — dry
+or wet muscle); the protein content P (g/kg) is cited on its own basis. If the bases differ, the
+cited water content W (g per kg wet muscle) moves one to the other:
+
+    P_dry = P_wet ÷ (1 − W ÷ 1000)
+
+**Step 10. Grams of each amino acid per kilogram, from protein.** Step 7 gave g_a per 100 g
+protein (free convention). Then
+
+    F_a = P × g_a ÷ 100          [g of free amino acid a from protein, per kg muscle]
+
+**Step 11. Grams of the pool's amino acid per kilogram, from the pool.** With n the moles of
+the amino acid released per mole of pool (one for carnosine) and m its free mass (PubChem):
+
+    C = c ÷ 1000 × n × m         [g of the amino acid held as the pool, per kg muscle]
+
+**Step 12. Add, then renormalise.** The pool's amino acid becomes F + C; every other amino acid
+stays F; the percent column is each over the new sum:
+
+    percent_a = F_a ÷ (Σ_b F_b + C) × 100   (for the pool's amino acid, (F_a + C) in the numerator)
+
+This is done per fiber type with that fiber type's pool value, for the total column; the
+contractile and builders columns are protein-only by definition and are copied; the final column
+mixes the three adjusted totals by the same fiber-type shares as step 8.
+
+**A worked line.** Suppose a fiber type's protein-only profile gives 2.50 g of free histidine
+per 100 g protein and 116.0 g of free amino acids in all; the muscle holds P = 800 g protein per
+kg dry muscle and c = 20 mmol carnosine per kg dry muscle; histidine's free mass is 155.16.
+Then F_His = 800 × 2.50 ÷ 100 = 20.00 g/kg; Σ F = 800 × 116.0 ÷ 100 = 928.0 g/kg;
+C = 20 ÷ 1000 × 1 × 155.16 = 3.10 g/kg; histidine goes from 20.00 ÷ 928.0 = 2.155 % to
+(20.00 + 3.10) ÷ (928.0 + 3.10) = 2.481 %, and every other amino acid is multiplied by
+928.0 ÷ 931.1. The ratio C ÷ F_His = 0.155 is written in `bound_pool_amounts_per_kg_muscle.tsv`.
+(These are illustrative numbers; the real ones are in the config and the output headers.)
+
+**The frame.** This is an inventory: what the muscle holds. The resupply frame — how much of
+each pool the body has to replace per day — would multiply C by k_pool ÷ k_protein, the two
+replacement rates; the cited ranges for those rates are wide, so that frame is reported as a
+sensitivity (`sensitivity_bound_pool_turnover_frame.tsv`), not as the standard (D73).
+
 ## A worked example
 
 Two invented proteins, real masses (from `data/pubchem/amino_acid_masses.ini`: glycine

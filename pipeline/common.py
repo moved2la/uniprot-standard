@@ -54,6 +54,7 @@ EAA_INI = CONFIG_DIR / "fao_2013_indispensable_amino_acids.ini"    # hand-writte
 UNCERTAINTY_SETTINGS_INI = CONFIG_DIR / "uncertainty_settings.ini"   # hand-written: draws and seed (D63)
 STRESS_SETTINGS_INI = CONFIG_DIR / "stress_test_settings.ini"        # hand-written: magnitudes (D65)
 FIBER_TYPE_MIX_INI = CONFIG_DIR / "fiber_type_mix.ini"               # hand-written transcription: the shares that make the final column
+BOUND_POOLS_INI = CONFIG_DIR / "bound_metabolite_pools.ini"           # hand-written transcription: the bound pools folded into the standard (D73-D77)
 TIER_NAMES = {"1": "contractile", "2": "builders"}                     # naming rule: tiers are named, never numbered, in outputs (D66)
 STANDARD_DIR = OUTPUTS_DIR / "standard"
 

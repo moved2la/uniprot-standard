@@ -14,6 +14,7 @@ generator produces from the data on disk.
 | `config/carroll_classical_fractionation.ini` | The measured values of Carroll, Carrithers & Trappe 2004, transcribed by the author with page and table per row (D50). Feed the classical cross-check only, never a weight. |
 | `config/fao_2013_indispensable_amino_acids.ini` | Which amino acids are dietary indispensable and how the reference scoring pattern groups them, transcribed by the author from FAO 2013 with table and page per value (D62). The report's three-letter symbols as printed; resolved to one-letter symbols by code from the IUPAC-IUBMB table. Never an abundance, a weight, or a protein. |
 | `config/fiber_type_mix.ini` | The share of a muscle's protein in each fiber type, transcribed by the author from a cited source with page and table, and its basis (area, count); the only input to the final column of the standard. `___` until filled; the column stays blank. |
+| `config/bound_metabolite_pools.ini` | The bound metabolite pool folded into the muscle standard (D73–D77): its amino acid as the three-letter symbol the sources print (resolved by code), its stoichiometry, its cited size per fiber type and per whole muscle with basis (dry / wet), the cited protein and water content per kg muscle, and the cited turnover rates for the resupply-frame sensitivity — transcribed by the author with location per value (the D50 pattern). Never a weight, a protein, or a mass. `___` until filled; the adjusted table is not written and a test says so. |
 | `config/uncertainty_settings.ini` | Monte Carlo draws and seed (D63). Nothing biological. |
 | `config/stress_test_settings.ini` | The magnitudes the stress stage pushes the weights by (D65). Nothing biological. |
 | `docs/*.md` | Prose. Every sentence in `docs/methods.md` either carries a citation or describes a computation performed here (`PROVENANCE.md`). |
@@ -40,7 +41,7 @@ inventory, and the mass-fraction stages in order and then the tests. The literat
 is also the first stage of `protein-set`, because the measured tier (D56) reads the primary
 dataset.
 `--offline` skips the stages that touch the network and rebuilds from `data/`.
-`python run.py standard` runs `aggregate`, `uncertainty`, `stress`, and `plots` (all offline) and then the tests.
+`python run.py standard` runs `aggregate`, `bound_pools`, `uncertainty`, `stress`, and `plots` (all offline) and then the tests.
 `python run.py excerpt` is tooling, not a stage: it writes bounded, labelled cuts of the large
 generated files into `excerpts/` (not committed, not the record) for review in chat.
 Nothing in the repository is named by a project-plan step number.
@@ -140,6 +141,7 @@ abundance) and does not appear in the protein set.
 | **A6 MHC:actin sensitivity** (D54b) | `classical_check_carroll_2004.tsv` at cutoff 2; `band_families.tsv` at cutoff 2 | At each ratio the methods measured, the MHC family is rescaled with actin fixed and the actin family with MHC fixed, all weights renormalised; combined and contractile; types I and IIa only. No method is a reference; files named `sensitivity_mhc_actin_*`. |
 | **A7 Completeness** | `dataset_rows_outside_pool.tsv` | The outside genes' molar share by rank, converted to a mass share with the pool's molar-mean MW (stated assumption, under which the two are equal): a share of unknown composition moves no fraction by more than itself. |
 | **A9 Stress** (D65) | `config/stress_test_settings.ini`; weights, counts, masses; `band_families.tsv`; `outputs/digest/theoretical_peptides.tsv` | Perturb the weights as stated, renormalise, recompute by A1, report the shift as a fraction and as a percentage; scenarios by rank, tier, band family, or factor — nothing named. TPA weighting = v × N_peptides in place of v × MW. |
+| **A10 Bound pools** (D73–D77; `pipeline/bound_pools.py`) | `config/bound_metabolite_pools.ini`; `amino_acid_g_per_100g_protein_free.tsv`; `_calculated_amino_acid_standard.tsv`; `fiber_type_mix.ini`; the fetched masses and symbols | Per fiber type, on the pool's mass basis: F_a = P × g100_a / 100 (free mass of amino acid a from protein per kg muscle; P = protein per kg on that basis, moved between bases only through the cited water content, P_dry = P_wet / (1 − W/1000)); C = c × n × m / 1000 (the pool's amino acid per kg; c in mmol/kg, n mol per mol, m the free mass). The pool's amino acid becomes F + C, every other stays F, all renormalised to 100. Contractile and builders are protein-only by definition and copied unchanged; the final column mixes the adjusted totals by the fiber-type shares as the protein-only standard does. The protein-only table is never changed. Sensitivities: the resupply frame (C × k_pool / k_protein, k_pool = ln 2 / (7 t½) per day, k_protein = 24 × FSR / 100 per day, over every cited pair), whole-muscle vs single-fiber basis (two options, no verdict), subgroups of the whole-muscle value, and the single-fiber spread (log-normal fitted to mean and SD, 2.5 / 97.5 percentiles). Any `___` leaves the adjusted table (or one sensitivity) unwritten and says so in `bound_pools_summary.ini`. |
 | **A8 EAA** (D62) | `config/fao_2013_indispensable_amino_acids.ini`; `data/iupac/amino_acid_symbols.ini` | Headings resolved from three-letter symbols by code; group headings expanded from their `[group.*]` sections; a `___` leaves the EAA subset unwritten, recorded in `standard_summary.ini`, and a test fails until it is filled. |
 
 ## Flags
@@ -168,7 +170,9 @@ writes a name.
 `stress_test_settings.ini`), never by a step or a stage.
 
 **The deliverable** is `outputs/standard/_calculated_amino_acid_standard.tsv`; the leading
-underscore sorts it first in its folder.
+underscore sorts it first in its folder. Its companion with the bound pool folded in,
+`_calculated_amino_acid_standard_with_bound_pools.tsv`, sorts beside it; the protein-only table is
+never changed by the bound-pool stage.
 
 Write "Gene Ontology" in full. The two-letter abbreviation appears only inside term
 IDs (`GO:0000000`) and in the UniProt query field name `go:`, where it is a literal.

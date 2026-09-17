@@ -4,7 +4,7 @@ import re
 
 import pytest
 
-from pipeline import common, aggregate as ag, uncertainty as un, stress as stt
+from pipeline import common, aggregate as ag, uncertainty as un, stress as stt, bound_pools as bp
 
 needs_data = pytest.mark.skipif(not (common.STANDARD_DIR / "amino_acid_profiles.tsv").exists(),
                                 reason="standard not built on this machine")
@@ -16,6 +16,14 @@ upstream_running = pytest.mark.skipif(common.running_command_is_before("standard
 @upstream_running
 def test_aggregate_outputs_are_current():
     assert ag.main(["--check"]) == 0
+
+
+@needs_data
+@upstream_running
+def test_bound_pool_outputs_are_current():
+    if not (common.STANDARD_DIR / "bound_pools_summary.ini").exists():
+        pytest.skip("bound_pools stage not run on this machine")
+    assert bp.main(["--check"]) == 0
 
 
 @needs_data
@@ -42,6 +50,24 @@ def test_calculated_standard_columns_sum_to_100():
         if all(r[col] == "" for r in body):
             continue                                                    # the final column may be blank until the mix is filled
         assert abs(sum(float(r[col]) for r in body) - 100.0) < 5e-4, col
+
+
+@needs_data
+@upstream_running
+def test_calculated_standard_with_bound_pools_columns_sum_to_100():
+    path = common.STANDARD_DIR / bp.TABLE
+    if not path.exists():
+        pytest.skip("the adjusted standard is not written until config/bound_metabolite_pools.ini is filled")
+    rows = ag.read_tsv_skip_comments(path)
+    body = [r for r in rows if r["amino_acid"] != "sum"]
+    assert len(body) == 20
+    std = {r["amino_acid"]: r for r in ag.read_tsv_skip_comments(common.STANDARD_DIR / "_calculated_amino_acid_standard.tsv")}
+    for col in [c for c in rows[0] if c not in ("amino_acid", "three_letter", "name")]:
+        if all(r[col] == "" for r in body):
+            continue
+        assert abs(sum(float(r[col]) for r in body) - 100.0) < 5e-4, col
+        if col.startswith(("contractile_", "builders_")):
+            assert all(r[col] == std[r["amino_acid"]][col] for r in body), f"{col} must be copied unchanged (D76)"
 
 
 @needs_data
@@ -73,9 +99,17 @@ def test_fiber_type_mix_is_filled_in():
     assert left == [], f"{common.FIBER_TYPE_MIX_INI.name} still has placeholders: {left}"
 
 
+@upstream_running
+def test_bound_metabolite_pools_is_filled_in():
+    """D73–D77: the bound-pool file is the author's transcription; while any `___` remains the
+    adjusted standard is not computed (or a sensitivity is skipped), and this test says so."""
+    left = _placeholders(common.BOUND_POOLS_INI)
+    assert left == [], f"{common.BOUND_POOLS_INI.name} still has placeholders: {left}"
+
+
 def test_code_names_no_accession():
     acc = re.compile(r"\b(?:[OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9](?:[A-Z][A-Z0-9]{2}[0-9]){1,2})\b")
-    for name in ("aggregate.py", "uncertainty.py", "stress.py", "plots.py"):
+    for name in ("aggregate.py", "bound_pools.py", "uncertainty.py", "stress.py", "plots.py"):
         text = (common.REPO_ROOT / "pipeline" / name).read_text(encoding="utf-8")
         hits = [ln for ln in text.splitlines() if acc.search(ln)]
         assert hits == [], (name, hits)
