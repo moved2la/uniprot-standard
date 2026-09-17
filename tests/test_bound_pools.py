@@ -189,8 +189,12 @@ def synthetic_repo(tmp_path, monkeypatch):
                                        "standard": out / "_calculated_amino_acid_standard.tsv", "fiber_type_mix": mix,
                                        "masses": masses, "symbols": symbols, "manifest": manifest})
     monkeypatch.setattr(bp, "OUT_DIR", out)
+    eaa = tmp_path / "eaa.ini"
+    eaa.write_text("[meta]\nsource_id = synthetic\n\n[indispensable_amino_acids]\nheadings = Hhx, Kkx, Grp\nlocation = synthetic\n\n[group.Grp]\nmembers = Mmx, Ccx\n", encoding="utf-8")
     monkeypatch.setitem(ag.INPUTS, "masses", masses)
     monkeypatch.setitem(ag.INPUTS, "fiber_type_mix", mix)
+    monkeypatch.setitem(ag.INPUTS, "eaa", eaa)
+    monkeypatch.setitem(ag.INPUTS, "symbols", symbols)
     monkeypatch.setattr(bp.common, "REPO_ROOT", tmp_path)
     return {"tmp": tmp_path, "out": out, "g100": g100, "pools": pools, "manifest": manifest}
 
@@ -202,6 +206,12 @@ def test_build_writes_the_adjusted_table_and_the_sensitivities(synthetic_repo):
                  "sensitivity_bound_pool_turnover_frame.tsv", "sensitivity_bound_pool_basis.tsv",
                  "sensitivity_bound_pool_sex.tsv", "sensitivity_bound_pool_spread.tsv", "bound_pools_summary.ini"):
         assert name in files, name
+    assert "eaa_subset_with_bound_pools.tsv" in files
+    eaa_rows = [ln.split("\t") for ln in files["eaa_subset_with_bound_pools.tsv"].splitlines() if not ln.startswith("#")][1:]
+    his = [r for r in eaa_rows if r[0] == "total_I" and r[1] == "Hhx"][0]
+    assert float(his[5]) > float(his[4])                                # the pool's amino acid rises
+    lys = [r for r in eaa_rows if r[0] == "total_I" and r[1] == "Kkx"][0]
+    assert float(lys[5]) < float(lys[4])                                # every other falls
     body = [ln.split("\t") for ln in files[bp.TABLE].splitlines() if not ln.startswith("#")]
     header, rows = body[0], body[1:]
     by_aa = {r[0]: dict(zip(header, r)) for r in rows}

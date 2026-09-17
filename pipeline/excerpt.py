@@ -109,6 +109,7 @@ SPEC: list[tuple[str, list[dict]]] = [
     ("outputs/standard/sensitivity_bound_pool_basis.tsv", [{"kind": "whole"}]),
     ("outputs/standard/sensitivity_bound_pool_sex.tsv", [{"kind": "whole"}]),
     ("outputs/standard/sensitivity_bound_pool_spread.tsv", [{"kind": "whole"}]),
+    ("outputs/standard/eaa_subset_with_bound_pools.tsv", [{"kind": "whole"}]),
     ("outputs/standard/stress_summary.ini", [{"kind": "whole"}]),
     ("outputs/standard/stress_summary_per_scenario.tsv", [{"kind": "whole"}]),
     ("outputs/standard/stress_influence_per_entry.tsv", [{"kind": "head", "name": "first60", "n": 60}]),

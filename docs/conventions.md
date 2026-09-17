@@ -21,6 +21,13 @@ generator produces from the data on disk.
 | `tests/**` | Code and synthetic fixtures. Fixtures contain no real biology. |
 | `pipeline/**`, `run.py` | Code. Contains no gene name, accession, term ID, or category. |
 
+**Location format for every transcribed value (standing rule from Step 4b, D79):** `location` is a page number plus
+the exact spot — table row and column, or column and paragraph — so a person opens the PDF and lands on it
+(`p. E368, Table 1, row "Proteins, %", column "Control Group (n = 16)"`; `p. 841, first column, first paragraph`).
+The file on disk goes in `file`, the source's wording in `as_reported`, and anything else about the study in `note`;
+`location` carries nothing but the place. Values may be read from the PDF by the assistant and audited by the author;
+`transcribed_by` says so.
+
 ## Folder meanings
 
 | Folder | Meaning |

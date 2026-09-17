@@ -206,6 +206,7 @@ Layer B multiplies by.
 | `sensitivity_bound_pool_basis.tsv` | the whole-muscle value on every column against the single-fiber values; no verdict | the two measurement options side by side |
 | `sensitivity_bound_pool_sex.tsv` | each whole-muscle subgroup through the same arithmetic | what the subject population does to the number |
 | `sensitivity_bound_pool_spread.tsv` | the single-fiber spread carried through (log-normal, 2.5 / 97.5 percentiles) | what the between-fiber spread of the pool does to the profile |
+| `eaa_subset_with_bound_pools.tsv` | the D62 indispensable amino acids as their share of the profile, protein-only beside with-pools, per total column and the standard | the Match Rate inputs from the with-pools reference |
 | `bound_pools_summary.ini` | status of every table (written / NOT computed and why), the pool, the amounts per fiber type | start here |
 
 ## Tooling (not a stage, not the record)

@@ -28,6 +28,8 @@ Writes (outputs/standard/, every file with a header naming inputs and hashes)
   sensitivity_bound_pool_basis.tsv                       whole-muscle value on every column vs the single-fiber values
   sensitivity_bound_pool_sex.tsv                         the men's and women's whole-muscle values through the same arithmetic
   sensitivity_bound_pool_spread.tsv                      the single-fiber spread carried through (log-normal fitted to mean and SD)
+  eaa_subset_with_bound_pools.tsv                        the indispensable amino acids (D62) as their share of the adjusted profile,
+                                                         per total_<fiber type> and standard, beside the protein-only share
   bound_pools_summary.ini
   logs/bound_pools_<UTC>.log
 
@@ -60,8 +62,8 @@ import sys
 from pathlib import Path
 
 from pipeline import common
-from pipeline.aggregate import (FIBER_TYPES, load_fiber_type_mix, load_masses, split_list, strip_generated_line,
-                                tsv_text)
+from pipeline.aggregate import (FIBER_TYPES, load_eaa, load_fiber_type_mix, load_masses, split_list,
+                                strip_generated_line, tsv_text)
 from pipeline.mass_fractions import read_tsv_skip_comments, fnum, sha256_path
 
 OUT_DIR = common.STANDARD_DIR
@@ -486,6 +488,30 @@ def build(log) -> dict[str, str]:
     except NotFilled as e:
         summ["status"]["sensitivity_spread"] = f"NOT computed: {e}"
         log.warning("spread sensitivity NOT written: %s", e)
+
+    # ---- 5. the indispensable amino acids of the adjusted profile (A8 on A10)
+    try:
+        eaa = load_eaa()
+        rows = []
+        columns = [(f"total_{ft}", adj_total[ft]["fractions"], {a: g100[("total", ft)][a] / sum(g100[("total", ft)].values()) for a in AA}) for ft in FIBER_TYPES]
+        if final:
+            columns.append(("standard", final, {a: float(protein_only[a]["standard"]) / 100.0 for a in AA}))
+        for col, adj, before in columns:
+            for heading, letters, kind in eaa["headings"]:
+                a_before = sum(before[a] for a in letters)
+                a_after = sum(adj[a] for a in letters)
+                rows.append([col, heading, kind, ";".join(letters), fnum(a_before), fnum(a_after), fnum(a_after - a_before)])
+            all_letters = sorted({l for _, ls, _ in eaa["headings"] for l in ls})
+            rows.append([col, "sum_of_headings", "sum", ";".join(all_letters), fnum(sum(before[a] for a in all_letters)),
+                         fnum(sum(adj[a] for a in all_letters)), fnum(sum(adj[a] for a in all_letters) - sum(before[a] for a in all_letters))])
+        files["eaa_subset_with_bound_pools.tsv"] = tsv_text(
+            header_common + [f"D62 headings as transcribed from FAO 2013 ({eaa['location']}); share of the free-convention profile, protein-only and with the pool folded in; "
+                             "no mg-per-g-protein column here because the adjusted profile is per kg muscle, not per g protein"],
+            ["column", "heading", "kind", "letters", "fraction_protein_only", "fraction_with_bound_pools", "difference"], rows, tool="bound_pools.py")
+        summ["status"]["eaa_subset"] = "written"
+    except SystemExit as e:
+        summ["status"]["eaa_subset"] = f"NOT computed: {e.code}"
+        log.warning("EAA subset with bound pools NOT written: %s", e.code)
 
     # ---- summary
     summ["status"]["adjusted_standard"] = f"written: outputs/standard/{TABLE}"
