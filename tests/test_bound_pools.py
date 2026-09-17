@@ -183,14 +183,16 @@ def synthetic_repo(tmp_path, monkeypatch):
     _ini_symbols(symbols)
     _mix(mix)
     pools.write_text(POOL_INI, encoding="utf-8")
+    manifest = tmp_path / "manifest.ini"
+    manifest.write_text("[file.synthetic.file.1]\nsource_id = synthetic\nsha256 = 00ff\n", encoding="utf-8")
     monkeypatch.setattr(bp, "INPUTS", {"pools": pools, "g100_free": out / "amino_acid_g_per_100g_protein_free.tsv",
                                        "standard": out / "_calculated_amino_acid_standard.tsv", "fiber_type_mix": mix,
-                                       "masses": masses, "symbols": symbols})
+                                       "masses": masses, "symbols": symbols, "manifest": manifest})
     monkeypatch.setattr(bp, "OUT_DIR", out)
     monkeypatch.setitem(ag.INPUTS, "masses", masses)
     monkeypatch.setitem(ag.INPUTS, "fiber_type_mix", mix)
     monkeypatch.setattr(bp.common, "REPO_ROOT", tmp_path)
-    return {"tmp": tmp_path, "out": out, "g100": g100, "pools": pools}
+    return {"tmp": tmp_path, "out": out, "g100": g100, "pools": pools, "manifest": manifest}
 
 
 def test_build_writes_the_adjusted_table_and_the_sensitivities(synthetic_repo):
@@ -247,3 +249,29 @@ def test_check_mode_is_current_after_a_build(synthetic_repo):
     assert bp.main(["--check"]) == 0
     (synthetic_repo["out"] / bp.TABLE).write_text("tampered\n", encoding="utf-8")
     assert bp.main(["--check"]) == 1
+
+
+def test_green_light_refuses_a_source_without_a_hashed_file(synthetic_repo):
+    synthetic_repo["manifest"].write_text("[file.synthetic.file.1]\nsource_id = synthetic\nsha256 =\n", encoding="utf-8")
+    with pytest.raises(SystemExit) as e:
+        bp.build(_Log())
+    assert "green light refused" in str(e.value.code) and "synthetic" in str(e.value.code)
+
+
+def test_green_light_refuses_when_the_manifest_is_absent(synthetic_repo):
+    synthetic_repo["manifest"].unlink()
+    with pytest.raises(SystemExit) as e:
+        bp.build(_Log())
+    assert "green light" in str(e.value.code)
+
+
+def test_missing_whole_muscle_sections_skip_only_those_sensitivities(synthetic_repo):
+    ini = POOL_INI
+    i = ini.index("[testpool.whole_muscle]"); j = ini.index("[protein_content]")
+    synthetic_repo["pools"].write_text(ini[:i] + ini[j:], encoding="utf-8")
+    files = bp.build(_Log())
+    assert bp.TABLE in files
+    assert "sensitivity_bound_pool_basis.tsv" not in files and "sensitivity_bound_pool_sex.tsv" not in files
+    assert "sensitivity_bound_pool_spread.tsv" in files and "sensitivity_bound_pool_turnover_frame.tsv" in files
+    line = [ln for ln in files["bound_pools_summary.ini"].splitlines() if ln.startswith("sensitivity_basis")][0]
+    assert "NOT computed" in line

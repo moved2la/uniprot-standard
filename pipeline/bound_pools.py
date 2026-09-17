@@ -43,6 +43,9 @@ Rules (docs/conventions.md, "Aggregation rules")
       and k_protein = 24 x FSR(%/h) / 100 per day, over every cited pair.
   Nothing is named in code: the amino acid, its stoichiometry, every value, every basis, and the fiber-type columns
       a value fills come from the config.
+  Green light (the author's rule, 2026-09-17): before anything is computed, every source_id the config names must have
+      a hashed file in data/literature/manifest.ini; a missing or unhashed source is a [STOP], not a warning. No
+      calculation runs on a source that is not on disk.
 
 Usage
   python pipeline/bound_pools.py            # build
@@ -75,6 +78,7 @@ INPUTS = {
     "fiber_type_mix": common.FIBER_TYPE_MIX_INI,
     "masses": common.AMINO_ACID_MASSES_INI,
     "symbols": common.AMINO_ACID_SYMBOLS_INI,
+    "manifest": common.DATA_DIR / "literature" / "manifest.ini",
 }
 
 
@@ -118,6 +122,31 @@ def _cite(cp, section: str) -> str:
         if v and v != PLACEHOLDER:
             parts.append(f"{k}: {v}")
     return "; ".join(parts)
+
+
+def green_light(cp, manifest_path: Path) -> list[str]:
+    """Every source_id named in a filled config line must have at least one hashed file in the manifest.
+    Returns the lines it checked (for the header); raises SystemExit naming every source that is not on disk."""
+    named: dict[str, list[str]] = {}
+    for sec in cp.sections():
+        sid = cp[sec].get("source_id", "").strip()
+        if sid and sid != PLACEHOLDER:
+            named.setdefault(sid, []).append(sec)
+    if not named:
+        return []
+    if not manifest_path.exists():
+        raise SystemExit(f"[STOP] {manifest_path.relative_to(common.REPO_ROOT).as_posix()} does not exist: run the literature fetch first (green light)")
+    man = common.read_ini(manifest_path)
+    hashed = set()
+    for msec in man.sections():
+        if man[msec].get("sha256", "").strip():
+            hashed.add(man[msec].get("source_id", "").strip())
+    missing = sorted(sid for sid in named if sid not in hashed)
+    if missing:
+        detail = "; ".join(f"{sid} (named by {', '.join(named[sid])})" for sid in missing)
+        raise SystemExit(f"[STOP] green light refused: no hashed file in the literature manifest for {detail}. "
+                         f"Fetch or hand-obtain the file, run `python run.py mass-fractions --stop-after fetch_literature`, and rerun.")
+    return [f"green light: {sid} -> hashed file in manifest ({', '.join(named[sid])})" for sid in sorted(named)]
 
 
 def load_pool(cp, symbols_path: Path, masses: dict) -> dict:
@@ -244,12 +273,16 @@ def k_per_day_from_fsr_percent_per_hour(fsr: float) -> float:
 
 def build(log) -> dict[str, str]:
     cp = common.read_ini(INPUTS["pools"])
+    light = green_light(cp, INPUTS["manifest"])
+    for ln in light:
+        log.info(ln)
     hashes = {k: f"{p.relative_to(common.REPO_ROOT).as_posix()} sha256 {sha256_path(p)}" for k, p in INPUTS.items() if p.exists()}
     meta = dict(cp["meta"]) if "meta" in cp else {}
     decisions = meta.get("decisions", "").strip()
     label = meta.get("version_label", "").strip()
     header_common = [f"generated = {common.iso_now()}"] + [f"input.{k} = {v}" for k, v in hashes.items()] + [
         f"version label: ref = {label} ({decisions})",
+    ] + light + [
         "A10: on the pool's mass basis, F_a = P x g100_a / 100 = free mass of amino acid a from protein per kg muscle; "
         "C = c x n x m / 1000 = mass of the pool's amino acid per kg; that amino acid becomes F + C, every other stays F, all renormalised to 100. "
         "Contractile and builders are protein-only by definition and copied; the final column mixes the adjusted totals by the fiber-type shares.",
