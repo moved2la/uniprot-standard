@@ -92,7 +92,7 @@ def comparison_repo(tmp_path, monkeypatch):
         "masses": _masses(tmp_path / "amino_acid_masses.ini"),
         "pools": _pools(tmp_path / "non_protein_metabolite_pools.ini"),
     })
-    monkeypatch.setattr(cmp, "MANIFEST", _manifest(tmp_path))
+    monkeypatch.setattr(cmp, "MANIFEST", _manifest(tmp_path, monkeypatch))
     assert cmp.INPUTS["comparison"].is_relative_to(tmp_path), \
         "the fixture did not take effect; a test must never write to the real config"
     return tmp_path
@@ -129,7 +129,12 @@ def _decisions(path):
     return path
 
 
-def _manifest(tmp_path):
+def _manifest(tmp_path, monkeypatch):
+    """A one-file manifest, with the repo root pointed at the temp directory for the duration.
+
+    REPO_ROOT is patched through monkeypatch, never assigned directly: a direct assignment is not
+    undone when the test ends, and every later test in the session then resolves its own paths
+    against this temp directory."""
     import hashlib
     pdf = tmp_path / "paper.pdf"
     pdf.write_bytes(b"%PDF-1.4 synthetic\n")
@@ -137,9 +142,7 @@ def _manifest(tmp_path):
     rel = pdf.relative_to(tmp_path).as_posix()
     man.write_text(f"[gorissen_2018.file.1]\nsource_id = gorissen_2018\npath = {rel}\n"
                    f"sha256 = {hashlib.sha256(pdf.read_bytes()).hexdigest()}\n", encoding="utf-8")
-    # the stage resolves manifest paths against the repo root
-    import pipeline.comparison as c
-    c.common.REPO_ROOT = tmp_path
+    monkeypatch.setattr(common, "REPO_ROOT", tmp_path)
     return man
 
 
@@ -263,3 +266,4 @@ def test_the_config_names_the_rows_the_paper_names(comparison_repo):
     with pytest.raises(SystemExit) as e:
         cmp.build(_Log())
     assert "IUPAC trivial name" in str(e.value)
+    
