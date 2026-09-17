@@ -54,9 +54,14 @@ EAA_INI = CONFIG_DIR / "fao_2013_indispensable_amino_acids.ini"    # hand-writte
 UNCERTAINTY_SETTINGS_INI = CONFIG_DIR / "uncertainty_settings.ini"   # hand-written: draws and seed (D63)
 STRESS_SETTINGS_INI = CONFIG_DIR / "stress_test_settings.ini"        # hand-written: magnitudes (D65)
 FIBER_TYPE_MIX_INI = CONFIG_DIR / "fiber_type_mix.ini"               # hand-written transcription: the shares that make the final column
-BOUND_POOLS_INI = CONFIG_DIR / "bound_metabolite_pools.ini"           # hand-written transcription: the bound pools folded into the standard (D73-D77)
+NON_PROTEIN_METABOLITE_POOLS_INI = CONFIG_DIR / "non_protein_metabolite_pools.ini"           # hand-written transcription: the non-protein metabolite pools folded into the standard (D73-D77, D82)
 TIER_NAMES = {"1": "contractile", "2": "builders"}                     # naming rule: tiers are named, never numbered, in outputs (D66)
 STANDARD_DIR = OUTPUTS_DIR / "standard"
+
+# Match Rate (Step 6): the USDA food tables.
+USDA_CONFIG_INI = CONFIG_DIR / "usda_food_data.ini"    # hand-written: which archives, which release, extra nutrients
+USDA_DIR = DATA_DIR / "usda"                            # the downloaded archives (gitignored) and their manifest
+USDA_OUT_DIR = OUTPUTS_DIR / "usda"
 
 # The twenty standard amino acid letters, in the order used for every vector.
 AMINO_ACIDS = "ACDEFGHIKLMNPQRSTVWY"
@@ -192,6 +197,6 @@ def running_command_is_before(command: str) -> bool:
     """True when run.py is executing an EARLIER command than `command` (env UNIPROT_STANDARD_COMMAND),
     so `command`'s outputs are legitimately stale until it is run next. False for `python run.py test`."""
     import os
-    order = ["protein-set", "composition", "mass-fractions", "standard"]
+    order = ["protein-set", "composition", "mass-fractions", "standard", "usda"]
     current = os.environ.get("UNIPROT_STANDARD_COMMAND", "")
     return current in order and command in order and order.index(current) < order.index(command)

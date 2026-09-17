@@ -93,10 +93,10 @@ The steps above count the amino acids held as protein. Muscle also holds one ami
 stable non-protein form: histidine, as the dipeptide carnosine. That histidine had to be eaten
 to be there, so the standard with bound pools adds it (D73–D77). The protein-only table above is
 not changed; the adjusted table sits beside it as
-`_calculated_amino_acid_standard_with_bound_pools.tsv`.
+`_calculated_amino_acid_standard_with_non_protein_metabolite_pools.tsv`.
 
 **Step 9. Put the pool and the protein on the same kilogram of muscle.** The pool is cited per
-kilogram of muscle (`config/bound_metabolite_pools.ini`: c mmol/kg, on the source's basis — dry
+kilogram of muscle (`config/non_protein_metabolite_pools.ini`: c mmol/kg, on the source's basis — dry
 or wet muscle); the protein content P (g/kg) is cited on its own basis. If the bases differ, the
 cited water content W (g per kg wet muscle) moves one to the other:
 
@@ -127,13 +127,13 @@ kg dry muscle and c = 20 mmol carnosine per kg dry muscle; histidine's free mass
 Then F_His = 800 × 2.50 ÷ 100 = 20.00 g/kg; Σ F = 800 × 116.0 ÷ 100 = 928.0 g/kg;
 C = 20 ÷ 1000 × 1 × 155.16 = 3.10 g/kg; histidine goes from 20.00 ÷ 928.0 = 2.155 % to
 (20.00 + 3.10) ÷ (928.0 + 3.10) = 2.481 %, and every other amino acid is multiplied by
-928.0 ÷ 931.1. The ratio C ÷ F_His = 0.155 is written in `bound_pool_amounts_per_kg_muscle.tsv`.
+928.0 ÷ 931.1. The ratio C ÷ F_His = 0.155 is written in `non_protein_metabolite_pool_amounts_per_kg_muscle.tsv`.
 (These are illustrative numbers; the real ones are in the config and the output headers.)
 
 **The frame.** This is an inventory: what the muscle holds. The resupply frame — how much of
 each pool the body has to replace per day — would multiply C by k_pool ÷ k_protein, the two
 replacement rates; the cited ranges for those rates are wide, so that frame is reported as a
-sensitivity (`sensitivity_bound_pool_turnover_frame.tsv`), not as the standard (D73).
+sensitivity (`sensitivity_non_protein_metabolite_pool_turnover_frame.tsv`), not as the standard (D73).
 
 ## A worked example
 

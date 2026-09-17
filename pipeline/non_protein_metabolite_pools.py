@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-bound_pools.py — offline stage: the bound-metabolite adjustment of the skeletal muscle standard.
+non_protein_metabolite_pools.py — offline stage: the bound-metabolite adjustment of the skeletal muscle standard.
 
 The protein-only standard counts the amino acids held as protein. Muscle also holds one amino
 acid in a stable non-protein form: histidine, as the dipeptide carnosine. This stage adds that
@@ -8,7 +8,7 @@ histidine to the protein-bound histidine of the same kilogram of muscle and writ
 standard beside the protein-only one, which it never changes (D76).
 
 Reads
-  config/bound_metabolite_pools.ini                          the author's transcription: pool size per fiber type and
+  config/non_protein_metabolite_pools.ini                          the author's transcription: pool size per fiber type and
                                                              whole muscle, protein and water per kg muscle, turnover rates
   outputs/standard/amino_acid_g_per_100g_protein_free.tsv    g of free amino acid per 100 g protein, per set and fiber type
   outputs/standard/_calculated_amino_acid_standard.tsv       the protein-only standard (its columns are copied, not recomputed)
@@ -17,24 +17,24 @@ Reads
   data/iupac/amino_acid_symbols.ini                          three-letter -> one-letter
 
 Writes (outputs/standard/, every file with a header naming inputs and hashes)
-  _calculated_amino_acid_standard_with_metabolites.tsv   the ten columns of the protein-only standard with the pool folded
+  _calculated_amino_acid_standard_with_non_protein_metabolite_pools.tsv   the ten columns of the protein-only standard with the pool folded
                                                          into total_<fiber type> and standard; contractile and builders
                                                          copied unchanged; percent of amino acid mass, free convention,
                                                          summing to 100
-  metabolite_adjustment_per_amino_acid.tsv               per column and amino acid: protein-only, with pools, the difference
-  metabolite_amounts_per_kg_muscle.tsv                 per fiber type: the pool, the protein-bound amount, their ratio, in grams
+  non_protein_metabolite_pool_adjustment_per_amino_acid.tsv               per column and amino acid: protein-only, with pools, the difference
+  non_protein_metabolite_pool_amounts_per_kg_muscle.tsv                 per fiber type: the pool, the protein-bound amount, their ratio, in grams
                                                          per kg muscle on the pool's basis
-  sensitivity_metabolite_turnover_frame.tsv              the resupply frame: pool x (k_pool / k_protein) over the cited ranges
-  sensitivity_metabolite_basis.tsv                       whole-muscle value on every column vs the single-fiber values
-  sensitivity_metabolite_sex.tsv                         the men's and women's whole-muscle values through the same arithmetic
-  sensitivity_metabolite_spread.tsv                      the single-fiber spread carried through (log-normal fitted to mean and SD)
-  eaa_subset_with_metabolites.tsv                        the indispensable amino acids (D62) as their share of the adjusted profile,
+  sensitivity_non_protein_metabolite_pool_turnover_frame.tsv              the resupply frame: pool x (k_pool / k_protein) over the cited ranges
+  sensitivity_non_protein_metabolite_pool_basis.tsv                       whole-muscle value on every column vs the single-fiber values
+  sensitivity_non_protein_metabolite_pool_sex.tsv                         the men's and women's whole-muscle values through the same arithmetic
+  sensitivity_non_protein_metabolite_pool_spread.tsv                      the single-fiber spread carried through (log-normal fitted to mean and SD)
+  eaa_subset_with_non_protein_metabolite_pools.tsv                        the indispensable amino acids (D62) as their share of the adjusted profile,
                                                          per total_<fiber type> and standard, beside the protein-only share
-  metabolite_pools_summary.ini
-  logs/bound_pools_<UTC>.log
+  non_protein_metabolite_pools_summary.ini
+  logs/non_protein_metabolite_pools_<UTC>.log
 
 Rules (docs/conventions.md, "Aggregation rules")
-  A10 Bound pools (D73–D77): per fiber type ft, on the pool's mass basis, F_a = P x g100_ft,a / 100 is the free mass of
+  A10 Non-protein metabolite pools (D73–D77): per fiber type ft, on the pool's mass basis, F_a = P x g100_ft,a / 100 is the free mass of
       amino acid a from protein per kg muscle (P = protein per kg on that basis; g100 = g per 100 g protein, free
       convention); C = c_ft x n x m / 1000 is the mass of the pool's amino acid per kg (c in mmol/kg, n moles of the
       amino acid per mole of pool, m its free mass). The adjusted profile has F_a for every amino acid but the pool's,
@@ -50,8 +50,8 @@ Rules (docs/conventions.md, "Aggregation rules")
       calculation runs on a source that is not on disk.
 
 Usage
-  python pipeline/bound_pools.py            # build
-  python pipeline/bound_pools.py --check    # rebuild in memory, compare with disk, exit 1 on difference
+  python pipeline/non_protein_metabolite_pools.py            # build
+  python pipeline/non_protein_metabolite_pools.py --check    # rebuild in memory, compare with disk, exit 1 on difference
 """
 
 from __future__ import annotations
@@ -70,12 +70,12 @@ OUT_DIR = common.STANDARD_DIR
 AA = list(common.AMINO_ACIDS)
 PLACEHOLDER = "___"
 COL_ORDER = [(pf, ft) for pf in ("contractile", "builders", "total") for ft in FIBER_TYPES]
-TABLE = "_calculated_amino_acid_standard_with_metabolites.tsv"
-ADJ_SUFFIX = "_with_metabolites"   # D82: the suffix on the columns this stage computes
+TABLE = "_calculated_amino_acid_standard_with_non_protein_metabolite_pools.tsv"
+ADJ_SUFFIX = "_with_non_protein_metabolite_pools"   # D82: the suffix on the columns this stage computes
 Z_95 = 1.959963984540054   # the 2.5 / 97.5 percentile of a standard normal
 
 INPUTS = {
-    "pools": common.BOUND_POOLS_INI,
+    "pools": common.NON_PROTEIN_METABOLITE_POOLS_INI,
     "g100_free": OUT_DIR / "amino_acid_g_per_100g_protein_free.tsv",
     "standard": OUT_DIR / "_calculated_amino_acid_standard.tsv",
     "fiber_type_mix": common.FIBER_TYPE_MIX_INI,
@@ -308,9 +308,9 @@ def build(log) -> dict[str, str]:
         basis = next(iter(sf.values()))["basis"]
         protein, protein_line = protein_per_kg(cp, basis)
     except NotFilled as e:
-        summ["status"]["adjusted_standard"] = f"NOT computed: config/bound_metabolite_pools.ini is not filled in — {e}"
+        summ["status"]["adjusted_standard"] = f"NOT computed: config/non_protein_metabolite_pools.ini is not filled in — {e}"
         log.warning("adjusted standard NOT written: %s", e)
-        files["metabolite_pools_summary.ini"] = common.render_ini(summ, ["GENERATED by bound_pools.py. DO NOT EDIT BY HAND."] + header_common)
+        files["non_protein_metabolite_pools_summary.ini"] = common.render_ini(summ, ["GENERATED by non_protein_metabolite_pools.py. DO NOT EDIT BY HAND."] + header_common)
         return files
     letter = pool["letter"]
     log.info("pool %s -> %s (%s), %g mol per mol, free mass %g; basis %s; %s", pool["name"], pool["three"], letter,
@@ -352,13 +352,13 @@ def build(log) -> dict[str, str]:
     mix_line = (f"standard{ADJ_SUFFIX} = " + " + ".join(f"{mix['shares'][ft]:.4f} x total_{ft}{ADJ_SUFFIX}" for ft in FIBER_TYPES) + f" (config/fiber_type_mix.ini, as the protein-only standard mixes)"
                 if mix else f"standard{ADJ_SUFFIX} = BLANK until config/fiber_type_mix.ini is filled")
     header = header_common + [
-        f"THE CALCULATED AMINO ACID STANDARD of human skeletal muscle protein WITH METABOLITES — percent of total amino acid mass, free convention, summing to 100.",
-        f"metabolites = the bound non-protein pools carried in config/bound_metabolite_pools.ini: {pool_names} (D75).",
+        f"THE CALCULATED AMINO ACID STANDARD of human skeletal muscle protein WITH NON-PROTEIN METABOLITE POOLS — percent of total amino acid mass, free convention, summing to 100.",
+        f"metabolites = the bound non-protein pools carried in config/non_protein_metabolite_pools.ini: {pool_names} (D75).",
         f"total = contractile + builders + metabolites. The protein-only standard (_calculated_amino_acid_standard.tsv) is unchanged; the four columns ending {ADJ_SUFFIX} are computed here and hold the pool; the six contractile / builders columns are copied from it unchanged (D82).",
         protein_line, *pool_lines, mix_line,
-        "the per-amino-acid difference is in metabolite_adjustment_per_amino_acid.tsv; the sensitivities in sensitivity_metabolite_*.tsv",
+        "the per-amino-acid difference is in non_protein_metabolite_pool_adjustment_per_amino_acid.tsv; the sensitivities in sensitivity_non_protein_metabolite_pool_*.tsv",
     ]
-    files[TABLE] = tsv_text(header, cols, body, tool="bound_pools.py")
+    files[TABLE] = tsv_text(header, cols, body, tool="non_protein_metabolite_pools.py")
 
     # ---- 2. the difference
     rows = []
@@ -375,9 +375,9 @@ def build(log) -> dict[str, str]:
             before = float(protein_only[a]["standard"]) / 100.0 if protein_only[a]["standard"] else float("nan")
             after = final[a]
             rows.append(["standard", a, fnum(before), fnum(after), fnum(after - before), fnum((after - before) / before if before > 0 else float("nan"))])
-    files["metabolite_adjustment_per_amino_acid.tsv"] = tsv_text(
+    files["non_protein_metabolite_pool_adjustment_per_amino_acid.tsv"] = tsv_text(
         header_common + ["per column and amino acid: the protein-only fraction, the fraction with the pool folded in, their difference, and the difference as a share of the protein-only fraction (free convention)"],
-        ["column", "amino_acid", "protein_only", "with_metabolites", "difference", "relative_difference"], rows, tool="bound_pools.py")
+        ["column", "amino_acid", "protein_only", "with_non_protein_metabolite_pools", "difference", "relative_difference"], rows, tool="non_protein_metabolite_pools.py")
 
     # ---- 3. the amounts per kg
     rows = []
@@ -385,10 +385,10 @@ def build(log) -> dict[str, str]:
         r = adj_total[ft]
         rows.append([ft, basis, fnum(sf[ft]["value"]), sf[ft]["section"], fnum(r["C"]), fnum(protein), fnum(r["protein_free_total"]),
                      fnum(r["F"][letter]), fnum(r["ratio"]), fnum(100 * g100[("total", ft)][letter] / sum(g100[("total", ft)].values())), fnum(100 * r["fractions"][letter])])
-    files["metabolite_amounts_per_kg_muscle.tsv"] = tsv_text(
+    files["non_protein_metabolite_pool_amounts_per_kg_muscle.tsv"] = tsv_text(
         header_common + [f"per fiber type, per kg muscle on the pool's basis: the pool in mmol and as grams of {pool['three']}; protein per kg; total free amino acid mass from that protein; {pool['three']} from protein; the ratio pool : protein"],
         ["fiber_type", "basis", "pool_mmol_per_kg", "pool_section", f"pool_{pool['three']}_g_per_kg", "protein_g_per_kg", "free_amino_acid_from_protein_g_per_kg",
-         f"protein_{pool['three']}_g_per_kg", "ratio_pool_to_protein", f"protein_only_{pool['three']}_percent", f"with_pool_{pool['three']}_percent"], rows, tool="bound_pools.py")
+         f"protein_{pool['three']}_g_per_kg", "ratio_pool_to_protein", f"protein_only_{pool['three']}_percent", f"with_pool_{pool['three']}_percent"], rows, tool="non_protein_metabolite_pools.py")
 
     # ---- 4. sensitivities (each skipped, and said so, when its inputs are not filled)
     # 4a. turnover frame
@@ -411,11 +411,11 @@ def build(log) -> dict[str, str]:
                     r = adjusted_profile(g100[("total", ft)], protein, sf[ft]["value"] * factor, letter, pool["n_per_mole"], pool["free_mass"])
                     rows.append([ft, hsec, fnum(th), fnum(k_pool), fsec, fnum(fsr), fnum(k_prot), fnum(factor), fnum(base["ratio"]), fnum(r["ratio"]),
                                  fnum(100 * base["fractions"][letter]), fnum(100 * r["fractions"][letter])])
-        files["sensitivity_metabolite_turnover_frame.tsv"] = tsv_text(
+        files["sensitivity_non_protein_metabolite_pool_turnover_frame.tsv"] = tsv_text(
             header_common + ["the resupply (turnover-weighted) frame, a sensitivity only (D73): the pool counted as C x k_pool / k_protein, k_pool = ln 2 / (7 x t_half) per day, k_protein = 24 x FSR / 100 per day, over every cited pair;",
                              "ratio_pool_frame = the inventory ratio of the standard; ratio_turnover_frame = the same ratio in this frame; the percent columns are the pool's amino acid in total_<fiber type> under each frame"],
             ["fiber_type", "pool_half_life_section", "t_half_weeks", "k_pool_per_day", "protein_fsr_section", "fsr_percent_per_hour", "k_protein_per_day", "k_pool_over_k_protein",
-             "ratio_pool_frame", "ratio_turnover_frame", f"{pool['three']}_percent_pool_frame", f"{pool['three']}_percent_turnover_frame"], rows, tool="bound_pools.py")
+             "ratio_pool_frame", "ratio_turnover_frame", f"{pool['three']}_percent_pool_frame", f"{pool['three']}_percent_turnover_frame"], rows, tool="non_protein_metabolite_pools.py")
         summ["status"]["sensitivity_turnover_frame"] = f"written: {len(halves)} half-lives x {len(fsrs)} protein rates"
     except NotFilled as e:
         summ["status"]["sensitivity_turnover_frame"] = f"NOT computed: {e}"
@@ -439,10 +439,10 @@ def build(log) -> dict[str, str]:
             fin_wm = sum(mix["shares"][ft] * wm[ft]["fractions"][letter] for ft in FIBER_TYPES)
             rows.append(["standard", "single_fiber", basis, "", fnum(protein), "", fnum(100 * final[letter]),
                          "whole_muscle", wm["_basis"], fnum(wm["_value"]), fnum(wm["_protein"]), "", fnum(100 * fin_wm), fnum(100 * (fin_wm - final[letter]))])
-        files["sensitivity_metabolite_basis.tsv"] = tsv_text(
+        files["sensitivity_non_protein_metabolite_pool_basis.tsv"] = tsv_text(
             header_common + ["two measurement options for the pool, no verdict (the D54 pattern): the single-fiber values that fill the columns (D74) against one whole-muscle value applied to every column; the pool's amino acid in percent under each, and the difference"],
             ["column", "option_a", "basis_a", "pool_mmol_per_kg_a", "protein_g_per_kg_a", "ratio_a", f"{pool['three']}_percent_a",
-             "option_b", "basis_b", "pool_mmol_per_kg_b", "protein_g_per_kg_b", "ratio_b", f"{pool['three']}_percent_b", "percent_b_minus_a"], rows, tool="bound_pools.py")
+             "option_b", "basis_b", "pool_mmol_per_kg_b", "protein_g_per_kg_b", "ratio_b", f"{pool['three']}_percent_b", "percent_b_minus_a"], rows, tool="non_protein_metabolite_pools.py")
         summ["status"]["sensitivity_basis"] = "written"
     except NotFilled as e:
         summ["status"]["sensitivity_basis"] = f"NOT computed: {e}"
@@ -467,9 +467,9 @@ def build(log) -> dict[str, str]:
                 fin_g = sum(mix["shares"][ft] * g[ft]["fractions"][letter] for ft in FIBER_TYPES)
                 fin_wm = sum(mix["shares"][ft] * wm[ft]["fractions"][letter] for ft in FIBER_TYPES)
                 rows.append([gname, "standard", g["_basis"], fnum(g["_value"]), "", fnum(100 * fin_g), fnum(wm["_value"]), fnum(100 * fin_wm), fnum(100 * (fin_g - fin_wm))])
-        files["sensitivity_metabolite_sex.tsv"] = tsv_text(
+        files["sensitivity_non_protein_metabolite_pool_sex.tsv"] = tsv_text(
             header_common + ["each whole-muscle subgroup's value through the same arithmetic, against the all-subjects whole-muscle value; the pool's amino acid in percent and the difference"],
-            ["group", "column", "basis", "pool_mmol_per_kg", "ratio", f"{pool['three']}_percent", "pool_mmol_per_kg_all_subjects", f"{pool['three']}_percent_all_subjects", "percent_group_minus_all"], rows, tool="bound_pools.py")
+            ["group", "column", "basis", "pool_mmol_per_kg", "ratio", f"{pool['three']}_percent", "pool_mmol_per_kg_all_subjects", f"{pool['three']}_percent_all_subjects", "percent_group_minus_all"], rows, tool="non_protein_metabolite_pools.py")
         summ["status"]["sensitivity_sex"] = f"written: {', '.join(groups)}"
     except NotFilled as e:
         summ["status"]["sensitivity_sex"] = f"NOT computed: {e}"
@@ -487,9 +487,9 @@ def build(log) -> dict[str, str]:
             r_hi = adjusted_profile(g100[("total", ft)], protein, hi, letter, pool["n_per_mole"], pool["free_mass"])
             rows.append([ft, s["section"], fnum(s["value"]), s["spread"], cp[s["section"]].get("spread_kind", ""), fnum(lo), fnum(hi),
                          fnum(100 * adj_total[ft]["fractions"][letter]), fnum(100 * r_lo["fractions"][letter]), fnum(100 * r_hi["fractions"][letter])])
-        files["sensitivity_metabolite_spread.tsv"] = tsv_text(
+        files["sensitivity_non_protein_metabolite_pool_spread.tsv"] = tsv_text(
             header_common + ["the published single-fiber spread carried through: a log-normal fitted to the mean and SD (the D63 pattern; a between-fiber spread, not the uncertainty of the mean), its 2.5 and 97.5 percentiles, and the pool's amino acid in percent at each"],
-            ["fiber_type", "section", "mean_mmol_per_kg", "spread", "spread_kind", "p2_5_mmol_per_kg", "p97_5_mmol_per_kg", f"{pool['three']}_percent_at_mean", f"{pool['three']}_percent_at_p2_5", f"{pool['three']}_percent_at_p97_5"], rows, tool="bound_pools.py")
+            ["fiber_type", "section", "mean_mmol_per_kg", "spread", "spread_kind", "p2_5_mmol_per_kg", "p97_5_mmol_per_kg", f"{pool['three']}_percent_at_mean", f"{pool['three']}_percent_at_p2_5", f"{pool['three']}_percent_at_p97_5"], rows, tool="non_protein_metabolite_pools.py")
         summ["status"]["sensitivity_spread"] = "written"
     except NotFilled as e:
         summ["status"]["sensitivity_spread"] = f"NOT computed: {e}"
@@ -510,10 +510,10 @@ def build(log) -> dict[str, str]:
             all_letters = sorted({l for _, ls, _ in eaa["headings"] for l in ls})
             rows.append([col, "sum_of_headings", "sum", ";".join(all_letters), fnum(sum(before[a] for a in all_letters)),
                          fnum(sum(adj[a] for a in all_letters)), fnum(sum(adj[a] for a in all_letters) - sum(before[a] for a in all_letters))])
-        files["eaa_subset_with_metabolites.tsv"] = tsv_text(
+        files["eaa_subset_with_non_protein_metabolite_pools.tsv"] = tsv_text(
             header_common + [f"D62 headings as transcribed from FAO 2013 ({eaa['location']}); share of the free-convention profile, protein-only and with the pool folded in; "
                              "no mg-per-g-protein column here because the adjusted profile is per kg muscle, not per g protein"],
-            ["column", "heading", "kind", "letters", "fraction_protein_only", "fraction_with_metabolites", "difference"], rows, tool="bound_pools.py")
+            ["column", "heading", "kind", "letters", "fraction_protein_only", "fraction_with_non_protein_metabolite_pools", "difference"], rows, tool="non_protein_metabolite_pools.py")
         summ["status"]["eaa_subset"] = "written"
     except SystemExit as e:
         summ["status"]["eaa_subset"] = f"NOT computed: {e.code}"
@@ -532,7 +532,7 @@ def build(log) -> dict[str, str]:
                                                f"{letter} {100 * g100[('total', ft)][letter] / sum(g100[('total', ft)].values()):.4f} -> {100 * r['fractions'][letter]:.4f} %")
     if final:
         summ["the_pool"]["standard"] = f"{letter} {protein_only[letter]['standard']} -> {100 * final[letter]:.4f} %"
-    files["metabolite_pools_summary.ini"] = common.render_ini(summ, ["GENERATED by bound_pools.py. DO NOT EDIT BY HAND."] + header_common)
+    files["non_protein_metabolite_pools_summary.ini"] = common.render_ini(summ, ["GENERATED by non_protein_metabolite_pools.py. DO NOT EDIT BY HAND."] + header_common)
     return files
 
 
@@ -540,7 +540,7 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--check", action="store_true", help="rebuild in memory and compare with the files on disk")
     args = ap.parse_args(argv)
-    log = common.make_logger("bound_pools_check" if args.check else "bound_pools")
+    log = common.make_logger("non_protein_metabolite_pools_check" if args.check else "non_protein_metabolite_pools")
     files = build(log)
     if args.check:
         stale = [rel for rel, content in files.items()

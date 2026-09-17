@@ -7,8 +7,9 @@
     python run.py composition --offline    skip the two network stages; recompute from data/ on disk
     python run.py mass-fractions           fetch literature -> digest -> literature inventory -> mass fractions -> tests
     python run.py mass-fractions --offline skip the fetch; recompute from data/ on disk
-    python run.py standard                 aggregate -> bound_pools -> uncertainty -> stress -> plots -> tests (all offline)
+    python run.py standard                 aggregate -> non_protein_metabolite_pools -> uncertainty -> stress -> plots -> tests (all offline)
     python run.py <command> --stop-after <stage>
+    python run.py usda                     read the USDA FoodData Central archives in data/usda/ -> tests (offline)
     python run.py test                     tests only
     python run.py excerpt                  tooling: bounded excerpts of the large generated files
                                            into excerpts/<stamp>/ and a tarball (no tests; not the record)
@@ -40,12 +41,14 @@ COMMANDS = {
     "mass-fractions": (["fetch_literature"],
                        ["digest", "literature_inventory", "mass_fractions"]),
     "standard": ([],
-                 ["aggregate", "bound_pools", "uncertainty", "stress", "plots"]),
+                 ["aggregate", "non_protein_metabolite_pools", "uncertainty", "stress", "plots"]),
+    "usda": ([],
+             ["usda"]),
 }
 
 
 RUN_LOG: Path | None = None
-COMMAND_ORDER = ["protein-set", "composition", "mass-fractions", "standard"]
+COMMAND_ORDER = ["protein-set", "composition", "mass-fractions", "standard", "usda"]
 
 
 class _Tee:

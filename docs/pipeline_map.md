@@ -75,11 +75,11 @@ flowchart TB
   m4 --> mfo[outputs/mass_fractions/ ranked tables, checks, summary]
 
   subgraph ST["python run.py standard"]
-    a1[aggregate] --> a5[bound_pools] --> a2[uncertainty] --> a4[stress] --> a3[plots]
+    a1[aggregate] --> a5[non_protein_metabolite_pools] --> a2[uncertainty] --> a4[stress] --> a3[plots]
   end
   eaa[config/fao_2013_indispensable_amino_acids.ini] --> a1
   mix[config/fiber_type_mix.ini] --> a1
-  bmp[config/bound_metabolite_pools.ini] --> a5
+  bmp[config/non_protein_metabolite_pools.ini] --> a5
   mix --> a5
   masses --> a5
   us[config/uncertainty_settings.ini] --> a2
@@ -93,7 +93,7 @@ flowchart TB
   ptmd --> a1
   a1 --> std[outputs/standard/ _calculated_amino_acid_standard, profiles, differences, sensitivity, bounds, completeness, eaa_subset]
   std --> a5
-  a5 --> bp[outputs/standard/ _calculated_amino_acid_standard_with_bound_pools, bound_pool_*, sensitivity_bound_pool_*]
+  a5 --> bp[outputs/standard/ _calculated_amino_acid_standard_with_non_protein_metabolite_pools, metabolite_*, sensitivity_non_protein_metabolite_pool_*]
   std --> a2
   w --> a2
   comp --> a2
@@ -175,7 +175,7 @@ Layer B multiplies by.
 | # | Stage | Reads | Does | Writes | Read next by |
 |---|---|---|---|---|---|
 | 1 | `aggregate` | `config/mass_fractions_per_entry.tsv`, composition counts (`master`), the fetched masses and symbols, `config/fao_2013_indispensable_amino_acids.ini`, `config/fiber_type_mix.ini`, `classical_check_carroll_2004.tsv`, `band_families.tsv`, `family_bounds.tsv`, the three per-entry delta tables, `dataset_rows_outside_pool.tsv` | The profiles by molar mixture (A1, D64) for the total, contractile, and builders sets per fiber type and convention; **the deliverable** `_calculated_amino_acid_standard.tsv` (D66); their differences and the fiber-type bracket (A5); the MHC:actin sensitivity (A6); bounds after weighting; the completeness bound (A7); the EAA subset (A8, D62) | see the next table | 2, 3 |
-| 1b | `bound_pools` | `config/bound_metabolite_pools.ini`; `amino_acid_g_per_100g_protein_free.tsv` and `_calculated_amino_acid_standard.tsv` from stage 1; `config/fiber_type_mix.ini`; the fetched masses and symbols | Folds the amino acid held as a bound metabolite pool (carnosine → histidine) into the total and standard columns on a per-kg-muscle basis (A10, D73–D77); copies contractile and builders; the difference table; the sensitivities (resupply frame, spread; basis and subgroup only if a whole-muscle value is ever added). Stops before computing if any cited source has no hashed file in the manifest (D78). The protein-only table is untouched | `_calculated_amino_acid_standard_with_bound_pools.tsv`, `bound_pool_adjustment_per_amino_acid.tsv`, `bound_pool_amounts_per_kg_muscle.tsv`, `sensitivity_bound_pool_{turnover_frame,basis,sex,spread}.tsv`, `bound_pools_summary.ini` | the paper; Match Rate (Step 6 reference "skeletal muscle protein + carnosine") |
+| 1b | `non_protein_metabolite_pools` | `config/non_protein_metabolite_pools.ini`; `amino_acid_g_per_100g_protein_free.tsv` and `_calculated_amino_acid_standard.tsv` from stage 1; `config/fiber_type_mix.ini`; the fetched masses and symbols | Folds the amino acid held as a bound metabolite pool (carnosine → histidine) into the total and standard columns on a per-kg-muscle basis (A10, D73–D77); copies contractile and builders; the difference table; the sensitivities (resupply frame, spread; basis and subgroup only if a whole-muscle value is ever added). Stops before computing if any cited source has no hashed file in the manifest (D78). The protein-only table is untouched | `_calculated_amino_acid_standard_with_non_protein_metabolite_pools.tsv`, `non_protein_metabolite_pool_adjustment_per_amino_acid.tsv`, `non_protein_metabolite_pool_amounts_per_kg_muscle.tsv`, `sensitivity_non_protein_metabolite_pool_{turnover_frame,basis,sex,spread}.tsv`, `non_protein_metabolite_pools_summary.ini` | the paper; Match Rate (Step 6 reference "skeletal muscle protein + carnosine") |
 | 2 | `uncertainty` | the same weights and counts; `config/uncertainty_settings.ini`; the aggregate tables | Log-space Monte Carlo (A3, D63): between-fiber spread and median uncertainty; every term on one scale (A4); the SD-to-median regime table | `uncertainty_intervals.tsv`, `uncertainty_per_amino_acid.tsv`, `sd_to_median_ratio.tsv`, `uncertainty_summary.ini` | 3, the paper |
 | 3 | `stress` | the same weights and counts; `config/stress_test_settings.ini`; `band_families.tsv`; `outputs/digest/theoretical_peptides.tsv`; the aggregate profiles | How far the standard moves under named perturbations (A9, D65): composition distance, convergence, knock-outs, per-entry influence, tier ratio, size tilt, TPA weighting, random abuse | `stress_shifts.tsv`, `stress_summary_per_scenario.tsv`, `stress_influence_per_entry.tsv`, `composition_distance_top_entries.tsv`, `stress_summary.ini` | 4, the paper |
 | 4 | `plots` | the tables of 1–3 | Figures; nothing computed | `outputs/standard/plots/*.png`, `*.svg` | the paper |
@@ -195,19 +195,30 @@ Layer B multiplies by.
 | `eaa_subset.tsv` | the indispensable amino acids per profile and fiber type, individually and under the report's groupings (D62) | the Match Rate inputs |
 | `standard_summary.ini` | the one-screen view | start here |
 
-### What `bound_pools` writes, and which one to open
+### What `non_protein_metabolite_pools` writes, and which one to open
 
 | File | What it is | Open it to |
 |---|---|---|
-| **`_calculated_amino_acid_standard_with_bound_pools.tsv`** | The ten columns of the standard with the pool's amino acid added to `total_<fiber type>` and `standard`; contractile and builders copied; percent, free convention, summing to 100; header names the pool, its cited size per fiber type, the protein per kg and its basis, the version label | the standard as the Match Rate reference "skeletal muscle protein + carnosine" |
-| `bound_pool_adjustment_per_amino_acid.tsv` | per column and amino acid: protein-only, with the pool, difference, relative difference | how much each amino acid moved |
-| `bound_pool_amounts_per_kg_muscle.tsv` | per fiber type: the pool in mmol and grams of its amino acid per kg muscle, protein per kg, the protein-bound amount, their ratio | the arithmetic in one row per fiber type |
-| `sensitivity_bound_pool_turnover_frame.tsv` | the resupply frame over every cited half-life × protein-turnover pair | why the resupply frame is a spread, not a number (D73) |
-| `sensitivity_bound_pool_basis.tsv` | the whole-muscle value on every column against the single-fiber values; no verdict | the two measurement options side by side |
-| `sensitivity_bound_pool_sex.tsv` | each whole-muscle subgroup through the same arithmetic | what the subject population does to the number |
-| `sensitivity_bound_pool_spread.tsv` | the single-fiber spread carried through (log-normal, 2.5 / 97.5 percentiles) | what the between-fiber spread of the pool does to the profile |
-| `eaa_subset_with_bound_pools.tsv` | the D62 indispensable amino acids as their share of the profile, protein-only beside with-pools, per total column and the standard | the Match Rate inputs from the with-pools reference |
-| `bound_pools_summary.ini` | status of every table (written / NOT computed and why), the pool, the amounts per fiber type | start here |
+| **`_calculated_amino_acid_standard_with_non_protein_metabolite_pools.tsv`** | The ten columns of the standard with the pool's amino acid added to `total_<fiber type>` and `standard`; contractile and builders copied; percent, free convention, summing to 100; header names the pool, its cited size per fiber type, the protein per kg and its basis, the version label | the standard as the Match Rate reference "skeletal muscle protein + carnosine" |
+| `non_protein_metabolite_pool_adjustment_per_amino_acid.tsv` | per column and amino acid: protein-only, with the pool, difference, relative difference | how much each amino acid moved |
+| `non_protein_metabolite_pool_amounts_per_kg_muscle.tsv` | per fiber type: the pool in mmol and grams of its amino acid per kg muscle, protein per kg, the protein-bound amount, their ratio | the arithmetic in one row per fiber type |
+| `sensitivity_non_protein_metabolite_pool_turnover_frame.tsv` | the resupply frame over every cited half-life × protein-turnover pair | why the resupply frame is a spread, not a number (D73) |
+| `sensitivity_non_protein_metabolite_pool_basis.tsv` | the whole-muscle value on every column against the single-fiber values; no verdict | the two measurement options side by side |
+| `sensitivity_non_protein_metabolite_pool_sex.tsv` | each whole-muscle subgroup through the same arithmetic | what the subject population does to the number |
+| `sensitivity_non_protein_metabolite_pool_spread.tsv` | the single-fiber spread carried through (log-normal, 2.5 / 97.5 percentiles) | what the between-fiber spread of the pool does to the profile |
+| `eaa_subset_with_non_protein_metabolite_pools.tsv` | the D62 indispensable amino acids as their share of the profile, protein-only beside with-pools, per total column and the standard | the Match Rate inputs from the with-pools reference |
+| `non_protein_metabolite_pools_summary.ini` | status of every table (written / NOT computed and why), the pool, the amounts per fiber type | start here |
+
+## `python run.py usda` — the food side of Match Rate (Step 6)
+
+| # | Stage | Reads | Writes |
+|---|---|---|---|
+| 1 | `usda` | `config/usda_food_data.ini` (hand-written: which archives, which release, the extra nutrients); `data/usda/*.zip` (hand-downloaded FoodData Central CSV archives, gitignored); `data/iupac/amino_acid_symbols.ini` (the trivial names the twenty are joined on) | `outputs/usda/amino_acids_per_food.tsv` (one row per food, grams per 100 g of food, as published); `foods_without_amino_acids.tsv`; `usda_nutrient_map.tsv` (the audit trail of the name join); `usda_archive_summary.ini`; `data/usda/manifest.ini` (file, hash, size, release — committed; the zips are not) |
+
+Rules U1–U7 in `docs/conventions.md`. The stage pivots FoodData Central's long
+food × nutrient table into one row per food and does nothing else: it converts no value, drops no
+food for being incomplete, and prefers no archive over another. Which amino acids a score requires,
+and which archive wins when a food is in both, are the match step's decisions.
 
 ## Tooling (not a stage, not the record)
 
@@ -220,7 +231,7 @@ Layer B multiplies by.
 | Folder | Meaning |
 |---|---|
 | `config/` | Hand-written decisions and transcriptions (nine files, listed in `docs/conventions.md`) and the config generated from them, including the Layer B weights as `mass_fractions/<type>.ini` and as one table `mass_fractions_per_entry.tsv` (D61) |
-| `data/` | What the public databases and publishers said, unchanged or tabulated |
+| `data/` | What the public databases and publishers said, unchanged or tabulated. `data/usda/` holds the hand-downloaded FoodData Central archives — gitignored, with `manifest.ini` (name, hash, release) committed as the record |
 | `outputs/` | Everything computed here that is not config |
 | `excerpts/` | Bounded cuts of the large generated files, for review in chat (`python run.py excerpt`); not committed, not the record |
 | `logs/` | One timestamped log per stage per run, plus `run_<command>_<stamp>.log` — everything run.py itself printed (banners, stop messages, crash tracebacks, the full test report) — and `pytest_report_<stamp>.log`; the screen and the logs never differ; not committed |
