@@ -167,7 +167,10 @@ def load_pool(cp, symbols_path: Path, masses: dict) -> dict:
     letter = three_to_one[three.lower()]
     n = _num(cp, sec, "moles_amino_acid_per_mole")
     return {"name": name, "section": sec, "three": three, "letter": letter, "n_per_mole": n,
-            "free_mass": masses[letter]["free"], "cite": _cite(cp, sec)}
+            "free_mass": masses[letter]["free"], "cite": _cite(cp, sec),
+            "sole_cite": "; ".join(v for v in (cp[sec].get("sole_pool_source", "").strip(),
+                                               cp[sec].get("sole_pool_location", "").strip())
+                                   if v and v != PLACEHOLDER)}
 
 
 def protein_per_kg(cp, basis: str) -> tuple[float, str]:
@@ -345,7 +348,11 @@ def build(log) -> dict[str, str]:
     sums.append(f"{100 * sum(final.values()):.4f}" if final else "")
     body.append(sums)
     pool_names = pool["name"]
-    pool_lines = [f"pool {pool['name']} -> {pool['three']}, {pool['n_per_mole']:g} mol per mol, free mass {pool['free_mass']} g/mol from PubChem ({pool['cite']})"]
+    pool_lines = [f"pool {pool['name']} -> {pool['three']} ({pool['letter']}), {pool['n_per_mole']:g} mol per mol "
+                  f"(config/{INPUTS['pools'].name} [{pool['section']}]); free mass {pool['free_mass']} g/mol from PubChem "
+                  f"(data/pubchem/amino_acid_masses.ini)"]
+    if pool["sole_cite"]:
+        pool_lines.append(f"{pool['name']} is the only pool of its kind carried, on the cited statement: {pool['sole_cite']} (D75)")
     for ft in FIBER_TYPES:
         pool_lines.append(f"{pool['name']} fiber type {ft} = {sf[ft]['value']:g} mmol/kg {basis} muscle ({sf[ft]['cite']}) -> "
                           f"{letter} from the pool {adj_total[ft]['C']:.4f} g/kg vs {letter} from protein {adj_total[ft]['F'][letter]:.4f} g/kg; ratio {adj_total[ft]['ratio']:.4f}")
@@ -353,8 +360,10 @@ def build(log) -> dict[str, str]:
                 if mix else f"standard{ADJ_SUFFIX} = BLANK until config/fiber_type_mix.ini is filled")
     header = header_common + [
         f"THE CALCULATED AMINO ACID STANDARD of human skeletal muscle protein WITH NON-PROTEIN METABOLITE POOLS — percent of total amino acid mass, free convention, summing to 100.",
-        f"metabolites = the bound non-protein pools carried in config/non_protein_metabolite_pools.ini: {pool_names} (D75).",
-        f"total = contractile + builders + metabolites. The protein-only standard (_calculated_amino_acid_standard.tsv) is unchanged; the four columns ending {ADJ_SUFFIX} are computed here and hold the pool; the six contractile / builders columns are copied from it unchanged (D82).",
+        f"non-protein metabolite pools = amino acids held in stable non-protein compounds — neither protein-bound (the "
+        f"protein-only standard) nor the free amino acid pool (excluded by design, D68). Carried here: {pool_names} (D75). "
+        f"Defined in docs/methods.md, section \"Non-protein metabolite pools\".",
+        f"total = contractile + builders + non-protein metabolite pools. The protein-only standard (_calculated_amino_acid_standard.tsv) is unchanged; the four columns ending {ADJ_SUFFIX} are computed here and hold the pool; the six contractile / builders columns are copied from it unchanged (D82).",
         protein_line, *pool_lines, mix_line,
         "the per-amino-acid difference is in non_protein_metabolite_pool_adjustment_per_amino_acid.tsv; the sensitivities in sensitivity_non_protein_metabolite_pool_*.tsv",
     ]
