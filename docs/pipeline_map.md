@@ -220,6 +220,16 @@ food × nutrient table into one row per food and does nothing else: it converts 
 food for being incomplete, and prefers no archive over another. Which amino acids a score requires,
 and which archive wins when a food is in both, are the match step's decisions.
 
+## `python run.py comparison` — the standard beside an independent measurement (Step 6)
+
+| # | Stage | Reads | Writes |
+|---|---|---|---|
+| 1 | `comparison` | `config/gorissen_2018_comparison.ini` (hand-written transcription of Table 1, D79/D84); `config/mass_fraction_decisions.ini` `[source.gorissen_2018]`; `data/literature/manifest.ini` (green light, D78); `data/iupac/amino_acid_symbols.ini`; both calculated standards | `outputs/comparison/gorissen_2018_human_muscle.tsv`; `calculated_vs_gorissen_2018.tsv`; `comparison_summary.ini` |
+
+Rules X1–X5 in `docs/conventions.md`; the document written on top of them is
+`docs/gorissen_comparison.md`. The stage compares and does not judge: no fit, no scaling, no error
+term, and no path that writes back into the standard.
+
 ## Tooling (not a stage, not the record)
 
 | Command | Reads | Writes | Use |

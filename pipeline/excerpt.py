@@ -128,6 +128,10 @@ SPEC: list[tuple[str, list[dict]]] = [
     ("outputs/usda/usda_nutrient_map.tsv", [{"kind": "whole"}]),
     ("outputs/usda/amino_acids_per_food.tsv", [{"kind": "head", "name": "first60", "n": 60}]),
     ("outputs/usda/foods_without_amino_acids.tsv", [{"kind": "head", "name": "first40", "n": 40}]),
+    # --- the comparison with the measured composition ---
+    ("outputs/comparison/gorissen_2018_human_muscle.tsv", [{"kind": "whole"}]),
+    ("outputs/comparison/calculated_vs_gorissen_2018.tsv", [{"kind": "whole"}]),
+    ("outputs/comparison/comparison_summary.ini", [{"kind": "whole"}]),
     ("outputs/standard/eaa_subset.tsv", [{"kind": "whole"}]),
     ("outputs/standard/uncertainty_intervals.tsv", [{"kind": "whole"}]),
     ("outputs/standard/uncertainty_per_amino_acid.tsv", [{"kind": "whole"}]),

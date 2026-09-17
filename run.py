@@ -10,6 +10,7 @@
     python run.py standard                 aggregate -> non_protein_metabolite_pools -> uncertainty -> stress -> plots -> tests (all offline)
     python run.py <command> --stop-after <stage>
     python run.py usda                     read the USDA FoodData Central archives in data/usda/ -> tests (offline)
+    python run.py comparison               the calculated standard beside Gorissen 2018's measurement (offline)
     python run.py test                     tests only
     python run.py excerpt                  tooling: bounded excerpts of the large generated files
                                            into excerpts/<stamp>/ and a tarball (no tests; not the record)
@@ -44,11 +45,13 @@ COMMANDS = {
                  ["aggregate", "non_protein_metabolite_pools", "uncertainty", "stress", "plots"]),
     "usda": ([],
              ["usda"]),
+    "comparison": ([],
+                   ["comparison"]),
 }
 
 
 RUN_LOG: Path | None = None
-COMMAND_ORDER = ["protein-set", "composition", "mass-fractions", "standard", "usda"]
+COMMAND_ORDER = ["protein-set", "composition", "mass-fractions", "standard", "usda", "comparison"]
 
 
 class _Tee:

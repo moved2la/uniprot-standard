@@ -19,6 +19,7 @@ python run.py mass-fractions         # literature fetch, digest, inventory, mass
 python run.py mass-fractions --offline
 python run.py standard               # the standard: aggregate -> non_protein_metabolite_pools -> uncertainty -> stress -> plots (offline)
 python run.py usda                   # the food side of Match Rate: read the USDA archives in data/usda/ (offline)
+python run.py comparison             # the standard beside Gorissen 2018's measured human muscle composition
 python run.py test
 python run.py excerpt                # tooling: bounded excerpts of the large generated files, for review (not the record)
 ```
