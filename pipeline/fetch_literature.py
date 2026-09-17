@@ -23,6 +23,9 @@ Rules
       nothing (logged as unchanged); a file that cannot be written (locked by
       a viewer or a sync client) is a flag, not a crash.
   F4  HTTP failure is a flag, not a retry loop that hides the failure.
+  F4b A failed re-fetch of a file that is already on disk and hashes to its
+      pin is logged as verified on disk with the failure noted, not flagged: the
+      record is the verified file. With no verified file on disk it is a flag.
   F5  A file obtained by hand (blocked download, paywalled PDF) is declared
       with file.<n>.obtained = manual. It must already be saved as
       data/literature/<source_id>/<filename from the URL> — the name the
@@ -246,6 +249,22 @@ def main(argv: list[str] | None = None) -> int:
                 try:
                     data, ctype = fetch(url)
                 except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as e:
+                    # F4b: a transient failure on a file already on disk that verifies against its pin is not a flag —
+                    # the record is the verified file, and it is still there.
+                    on_disk = find_manual_file(dest_dir, served_name) if want_sha else None
+                    if on_disk is not None:
+                        disk_data = on_disk.read_bytes()
+                        disk_sha = sha256_bytes(disk_data)
+                        if disk_sha == want_sha.lower():
+                            dest, data, got_sha, ctype = on_disk, disk_data, disk_sha, "on disk (re-fetch failed)"
+                            log_lines.append(f"[OK]   {key} {len(data)} bytes sha256 {got_sha} == {dest.relative_to(ROOT).as_posix()} (verified on disk; re-fetch failed: {e})")
+                            m = f"file.{key}"
+                            if not manifest.has_section(m):
+                                manifest.add_section(m)
+                            manifest[m].update({"source_id": sid, "id_short": sec.get("id_short", ""), "published_name": pub_name, "url": url,
+                                                "path": dest.relative_to(ROOT).as_posix(), "served_name": served_name, "sha256": got_sha,
+                                                "bytes": str(len(data)), "content_type": ctype, "obtained": obtained, "retrieved": manifest[m].get("retrieved", utc_now())})
+                            continue
                     flags.append(f"{key}: fetch failed — {e} (F4)")
                     log_lines.append(f"[FLAG] {key} fetch failed: {e}")
                     continue
@@ -281,6 +300,7 @@ def main(argv: list[str] | None = None) -> int:
             m = f"file.{key}"
             if not manifest.has_section(m):
                 manifest.add_section(m)
+            unchanged = manifest[m].get("sha256") == got_sha and bool(manifest[m].get("retrieved"))
             manifest[m]["source_id"] = sid
             manifest[m]["id_short"] = sec.get("id_short", "")
             manifest[m]["published_name"] = pub_name
@@ -291,7 +311,8 @@ def main(argv: list[str] | None = None) -> int:
             manifest[m]["bytes"] = str(len(data))
             manifest[m]["content_type"] = ctype
             manifest[m]["obtained"] = obtained
-            manifest[m]["retrieved"] = utc_now()
+            if not unchanged:
+                manifest[m]["retrieved"] = utc_now()     # a file whose hash is already in the manifest keeps the time it was first retrieved
 
     if not args.dry_run:
         with manifest_path.open("w", encoding="utf-8") as fh:

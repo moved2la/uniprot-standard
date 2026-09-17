@@ -89,6 +89,8 @@ abundance) and does not appear in the protein set.
 | **F2 Hash pinned** | `file.<n>.sha256` | Blank → the computed hash is written back into config (the only thing the fetcher writes there). Present → the bytes must hash to it; mismatch is a flag and nothing is written. |
 | **F3 Unchanged** | served bytes | Bytes on disk == bytes served. Nothing is converted or re-saved. A re-fetch whose bytes already equal the file on disk writes nothing (logged as unchanged); a file that cannot be written — locked by a viewer or a sync client — is a flag, not a crash. |
 | **F4 HTTP failure** | response status | A flag, not a retry loop that hides the failure. |
+| **F2b Retrieved once** | the manifest | A file whose hash is already in the manifest keeps the time it was first retrieved; a verified re-fetch does not touch it. Generated config never repeats the retrieval time — the file is identified by its hash, and a re-fetch of an unchanged file must not invalidate anything built from it. |
+| **F4b Verified on disk** | the pinned hash; the file on disk | A failed re-fetch of a file already on disk that hashes to its pin is logged as verified on disk with the failure noted, not flagged; with no verified file on disk the failure is a flag. |
 | **F5 Hand-obtained** | `file.<n>.obtained = manual` | The file must already be on disk under the URL's filename; it is hashed in place and recorded as hand-obtained; never downloaded. |
 | **F6 Blocked page** | served body | HTML where a document (pdf/xlsx/zip/rar/docx) was expected is a flag; nothing written. |
 | **F7 Stored name** | URL basename | Windows-illegal characters → `_`; the served name is kept in the manifest. |
