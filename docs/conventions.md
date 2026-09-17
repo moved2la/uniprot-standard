@@ -92,6 +92,7 @@ abundance) and does not appear in the protein set.
 | **F5 Hand-obtained** | `file.<n>.obtained = manual` | The file must already be on disk under the URL's filename; it is hashed in place and recorded as hand-obtained; never downloaded. |
 | **F6 Blocked page** | served body | HTML where a document (pdf/xlsx/zip/rar/docx) was expected is a flag; nothing written. |
 | **F7 Stored name** | URL basename | Windows-illegal characters → `_`; the served name is kept in the manifest. |
+| **F7b Extension** | the file's magic bytes | When the URL basename has no extension, the one the bytes imply is appended (`%PDF` → `.pdf`, `PK` → `.zip`, `Rar!` → `.rar`, gzip → `.gz`), so every stored file opens in the program a person would use; a hand-obtained file is found under the bare name or under the name with any of those extensions. |
 
 ### Digest rules (`pipeline/digest.py`)
 

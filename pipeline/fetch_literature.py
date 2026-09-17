@@ -33,6 +33,11 @@ Rules
       hand-obtained files alike, with characters Windows forbids (colon, quotes,
       angle brackets, pipe, ?, *, slashes) replaced by '_'. The exact served
       name is in the manifest.
+  F7b When the URL's filename has no extension, the extension the file's own
+      magic bytes imply is appended (%PDF -> .pdf, PK -> .zip, Rar! -> .rar,
+      gzip -> .gz), so every stored file opens in the program a person would
+      use. A hand-obtained file is looked for under the bare name and under
+      the name with any of those extensions.
   F6  A served body that is HTML while the expected type is a document
       (pdf/xlsx/zip/rar/docx) is a blocked or paywalled page: flagged in the
       log, nothing written to disk.
@@ -127,9 +132,41 @@ def filename_from_url(url: str) -> str:
     return urllib.parse.unquote(Path(path).name) or "download"
 
 
-def stored_name(served: str) -> str:
-    """Served name with characters Windows forbids replaced by '_' (F7)."""
-    return re.sub(r'[<>:"/\\|?*]', "_", served)
+MAGIC_EXT = ((b"%PDF", ".pdf"), (b"PK\x03\x04", ".zip"), (b"Rar!", ".rar"), (b"\x1f\x8b", ".gz"))
+KNOWN_EXT = {".pdf", ".xlsx", ".xls", ".zip", ".rar", ".docx", ".csv", ".tsv", ".txt", ".gz", ".html", ".htm", ".json", ".xml", ".fasta", ".obo", ".ini"}
+
+
+def extension_from_bytes(data: bytes) -> str:
+    """The extension a file's own magic bytes imply, or '' (F7b)."""
+    for sig, ext in MAGIC_EXT:
+        if data.startswith(sig):
+            return ext
+    return ""
+
+
+def stored_name(served: str, data: bytes | None = None) -> str:
+    """Served name with characters Windows forbids replaced by '_' (F7). When the served name has no
+    extension and the bytes are given, the extension the magic bytes imply is appended (F7b), so a
+    PDF served from an extensionless URL is stored as <basename>.pdf and opens like any other PDF."""
+    name = re.sub(r'[<>:"/\\|?*]', "_", served)
+    if data is not None and Path(name).suffix.lower() not in KNOWN_EXT:
+        name += extension_from_bytes(data)          # ".2008" or ".E365" is part of the name, not an extension
+    return name
+
+
+def find_manual_file(dest_dir: Path, served: str) -> Path | None:
+    """A hand-obtained file is looked for under the bare stored name and, when that name has no
+    extension, under every extension the magic bytes could add (F7b) — the person saved it with the
+    extension their browser gave it."""
+    bare = dest_dir / stored_name(served)
+    if bare.exists():
+        return bare
+    if bare.suffix.lower() not in KNOWN_EXT:
+        for _, ext in MAGIC_EXT:
+            cand = bare.with_name(bare.name + ext)
+            if cand.exists():
+                return cand
+    return None
 
 
 def fetch(url: str) -> tuple[bytes, str]:
@@ -172,11 +209,14 @@ def main(argv: list[str] | None = None) -> int:
                     log_lines.append(f"[FLAG] {key} manual without url")
                     continue
                 served_name = filename_from_url(url)
-                dest = dest_dir / stored_name(served_name)
-                if not dest.exists():
-                    flags.append(f"{key}: obtained=manual but {dest.relative_to(ROOT).as_posix()} not found (F5)")
+                found = find_manual_file(dest_dir, served_name)
+                if found is None:
+                    want = dest_dir / stored_name(served_name)
+                    hint = "" if want.suffix else " (or that name plus the extension the browser gave it, e.g. .pdf)"
+                    flags.append(f"{key}: obtained=manual but {want.relative_to(ROOT).as_posix()}{hint} not found (F5)")
                     log_lines.append(f"[FLAG] {key} manual file missing")
                     continue
+                dest = found
                 data = dest.read_bytes()
                 ext = dest.suffix.lower()
                 if looks_like_html(data) or not magic_ok(data, ext):
@@ -203,14 +243,14 @@ def main(argv: list[str] | None = None) -> int:
                     continue
                 dest_dir.mkdir(parents=True, exist_ok=True)
                 served_name = filename_from_url(url)
-                fname = stored_name(served_name)
-                dest = dest_dir / fname
                 try:
                     data, ctype = fetch(url)
                 except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as e:
                     flags.append(f"{key}: fetch failed — {e} (F4)")
                     log_lines.append(f"[FLAG] {key} fetch failed: {e}")
                     continue
+                fname = stored_name(served_name, data)          # F7b: extension from the bytes when the URL has none
+                dest = dest_dir / fname
                 ext = dest.suffix.lower()
                 if ext in DOC_EXT and (looks_like_html(data) or not magic_ok(data, ext)):
                     flags.append(f"{key}: server returned HTML/wrong type for {fname} — blocked or paywalled; nothing saved (F6). Download it in a browser into {dest_dir.relative_to(ROOT).as_posix()}/ and set file.{n}.obtained = manual.")
