@@ -769,7 +769,7 @@ def main(argv: list[str] | None = None) -> int:
     stop = files.pop("__stop__", None)
     if args.check:
         stale = [rel for rel, content in files.items()
-                 if not common.standard_path(rel).exists() or strip_generated_line(common.standard_path(rel).read_text(encoding="utf-8")) != strip_generated_line(content)]
+                 if not common.standard_path(rel, OUT_DIR).exists() or strip_generated_line(common.standard_path(rel, OUT_DIR).read_text(encoding="utf-8")) != strip_generated_line(content)]
         if stale:
             log.error("check: %d file(s) differ from a fresh build: %s", len(stale), stale)
             return 1
@@ -777,8 +777,8 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     for rel, content in files.items():
-        common.write_text_file(common.standard_path(rel), content)
-        log.info("wrote %s", common.standard_path(rel).relative_to(common.REPO_ROOT).as_posix())
+        common.write_text_file(common.standard_path(rel, OUT_DIR), content)
+        log.info("wrote %s", common.standard_path(rel, OUT_DIR).relative_to(common.REPO_ROOT).as_posix())
     if stop:
         # Not a stop for the stage: every other output is written and the later stages can run.
         # The unfilled transcription is recorded in standard_summary.ini [eaa] and a test fails

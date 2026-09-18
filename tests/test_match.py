@@ -359,7 +359,7 @@ def test_a_header_only_other_sources_file_is_allowed(match_repo):
 def test_build_writes_every_table(match_repo):
     files = match.build(_Log())
     for name in ("match_rate_per_food.tsv", "match_rate_by_reference.tsv", "match_rate_steps.tsv",
-                 "match_rate_ranked_new.tsv", "match_rate_ranked_old.tsv", "limiting_amino_acid_counts.tsv",
+                 "new/match_rate_ranked_new.tsv", "old/match_rate_ranked_old.tsv", "limiting_amino_acid_counts.tsv",
                  "foods_not_scored.tsv", "match_summary.ini"):
         assert name in files, name
 
@@ -378,7 +378,7 @@ def test_the_by_reference_table_puts_old_beside_new_with_the_difference(match_re
 
 def test_the_ranked_table_is_best_first(match_repo):
     files = match.build(_Log())
-    vals = [float(r["match_rate_percent"]) for r in _rows(files["match_rate_ranked_old.tsv"])]
+    vals = [float(r["match_rate_percent"]) for r in _rows(files["old/match_rate_ranked_old.tsv"])]
     assert vals == sorted(vals, reverse=True)
 
 

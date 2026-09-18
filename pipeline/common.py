@@ -109,41 +109,52 @@ MATCH_OUT_DIR = OUTPUTS_DIR / "match"
 
 STANDARD_SUBFOLDERS = {
     # uncertainty/ — the interval reported beside the standard, and the terms behind it (D63)
-    "uncertainty_intervals.tsv": UNCERTAINTY_DIR,
-    "uncertainty_per_amino_acid.tsv": UNCERTAINTY_DIR,
-    "uncertainty_summary.ini": UNCERTAINTY_DIR,
-    "sd_to_median_ratio.tsv": UNCERTAINTY_DIR,
-    "bounds_after_weighting.tsv": UNCERTAINTY_DIR,
+    "uncertainty_intervals.tsv": "uncertainty",
+    "uncertainty_per_amino_acid.tsv": "uncertainty",
+    "uncertainty_summary.ini": "uncertainty",
+    "sd_to_median_ratio.tsv": "uncertainty",
+    "bounds_after_weighting.tsv": "uncertainty",
     # stress/ — named perturbations and how far each moves the standard (A9, D65)
-    "stress_shifts.tsv": STRESS_DIR,
-    "stress_influence_per_entry.tsv": STRESS_DIR,
-    "stress_summary.ini": STRESS_DIR,
-    "stress_summary_per_scenario.tsv": STRESS_DIR,
-    "composition_distance_top_entries.tsv": STRESS_DIR,
+    "stress_shifts.tsv": "stress",
+    "stress_influence_per_entry.tsv": "stress",
+    "stress_summary.ini": "stress",
+    "stress_summary_per_scenario.tsv": "stress",
+    "composition_distance_top_entries.tsv": "stress",
     # sensitivity/ — what the standard does under a cited range of an input
-    "sensitivity_mhc_actin_profiles.tsv": SENSITIVITY_DIR,
-    "sensitivity_mhc_actin_spread.tsv": SENSITIVITY_DIR,
-    "sensitivity_non_protein_metabolite_pool_spread.tsv": SENSITIVITY_DIR,
-    "completeness_sensitivity.tsv": SENSITIVITY_DIR,
+    "sensitivity_mhc_actin_profiles.tsv": "sensitivity",
+    "sensitivity_mhc_actin_spread.tsv": "sensitivity",
+    "sensitivity_non_protein_metabolite_pool_spread.tsv": "sensitivity",
+    "completeness_sensitivity.tsv": "sensitivity",
 }
 
 # A plot goes where its table goes.
 STANDARD_PLOT_SUBFOLDERS = {
-    "uncertainty_terms_I": UNCERTAINTY_DIR / "plots",
-    "uncertainty_terms_IIa": UNCERTAINTY_DIR / "plots",
-    "uncertainty_terms_IIx": UNCERTAINTY_DIR / "plots",
-    "sensitivity_mhc_actin": SENSITIVITY_DIR / "plots",
+    "uncertainty_terms_I": "uncertainty",
+    "uncertainty_terms_IIa": "uncertainty",
+    "uncertainty_terms_IIx": "uncertainty",
+    "sensitivity_mhc_actin": "sensitivity",
 }
 
 
-def standard_path(name: str) -> Path:
-    """Where a standard/ file lives: its subfolder if it has one, else the top."""
-    return STANDARD_SUBFOLDERS.get(name, STANDARD_DIR) / name
+def standard_path(name: str, base: Path | None = None) -> Path:
+    """Where a standard/ file lives: its subfolder if it has one, else the top.
+
+    `base` is the standard/ folder to resolve against and defaults to this repository's.
+    Every stage passes its own OUT_DIR, so a test that redirects a stage to a temp folder,
+    and a category that writes to outputs/<category>/standard/, both land where they mean to.
+    The map holds subfolder NAMES, not absolute paths, for the same reason: an absolute path
+    baked in at import time ignores where the caller is writing.
+    """
+    base = STANDARD_DIR if base is None else base
+    sub = STANDARD_SUBFOLDERS.get(name)
+    return (base / sub / name) if sub else (base / name)
 
 
-def standard_plot_path(name: str, ext: str) -> Path:
-    """Where a standard/ plot lives: beside its table's subfolder, else standard/plots/."""
-    return STANDARD_PLOT_SUBFOLDERS.get(name, STANDARD_PLOTS_DIR) / f"{name}.{ext}"
+def standard_plot_path(name: str, ext: str, base: Path | None = None) -> Path:
+    """Where a standard/ plot lives: in its table's subfolder, else standard/plots/."""
+    base = STANDARD_DIR if base is None else base
+    sub = STANDARD_PLOT_SUBFOLDERS.get(name)
+    return ((base / sub / "plots") if sub else (base / "plots")) / f"{name}.{ext}"
 
 
 def write_text_file(path: Path, text: str) -> None:
