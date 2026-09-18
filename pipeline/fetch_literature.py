@@ -100,8 +100,8 @@ def file_entries(section):
                (section.get(f"file.{n}.obtained", "manual") or "manual").strip())
 
 
-def categories_used_by(section) -> list[str]:
-    return [c.strip() for c in (section.get("used_by", "") or "").split(",") if c.strip()]
+def categories_used_for(section) -> list[str]:
+    return [c.strip() for c in (section.get("used_for", "") or "").split(",") if c.strip()]
 
 
 def looks_like_html(data: bytes) -> bool:
@@ -139,22 +139,29 @@ def find_file(dest_dir: Path, served: str) -> Path | None:
 def manifest_map_rows(cp: configparser.ConfigParser) -> tuple[list[str], list[list[str]], list[str]]:
     """One row per source, one column per category, X where the source is used.
 
+    The columns and their order come from [categories] in config, not from the data — so the
+    map reads the way a person laid it out, and a new category is one line in config plus the
+    used_for of the sources it is used for. A source that feeds no calculation carries the
+    unused_marker in its used_for; the marker is printed in the `other` column, since a row of
+    four blanks would read as an unfilled line rather than a deliberate one.
+
     The first column is the source id exactly as config spells it: `murgia_2021` is already the
     author-year name, and a prettier label would have to be derived from the citation prose.
-    Category columns appear in the order the categories first appear in a used_by value.
     """
-    cats: list[str] = []
-    rows: list[tuple[str, list[str]]] = []
+    cats = [c.strip() for c in cp["categories"]["columns"].split(",") if c.strip()]
+    marker = cp["categories"].get("unused_marker", "unused").strip()
+    header = ["source"] + cats
+    body, unknown = [], []
     for sid, sec in source_sections(cp):
-        used = categories_used_by(sec)
+        used = categories_used_for(sec)
+        if used == [marker]:
+            body.append([sid] + [marker if c == cats[-1] else "" for c in cats])
+            continue
         for c in used:
             if c not in cats:
-                cats.append(c)
-        rows.append((sid, used))
-    header = ["source"] + cats
-    body = [[sid] + ["X" if c in used else "" for c in cats] for sid, used in rows]
-    no_category = [sid for sid, used in rows if not used]
-    return header, body, no_category
+                unknown.append(f"source.{sid}: used_for names `{c}`, which is not in [categories] columns")
+        body.append([sid] + ["X" if c in used else "" for c in cats])
+    return header, body, unknown
 
 
 def record_hashes(pending: list[tuple[str, int, str]]) -> None:
@@ -194,7 +201,7 @@ def write_readme(cp: configparser.ConfigParser, manifest: configparser.ConfigPar
         "",
     ]
     for sid, sec in source_sections(cp):
-        used = ", ".join(categories_used_by(sec)) or "—"
+        used = ", ".join(categories_used_for(sec)) or "—"
         out.append(f"## {sid}  — {sec.get('id_short', '')}, role: `{sec.get('role', '')}` "
                    f"({sec.get('role_decision', '')}), used by: {used}")
         out.append("")
@@ -230,8 +237,9 @@ def build(log, only: str | None = None):
     n_files = n_cited_only = 0
 
     for sid, sec in source_sections(cp, only):
-        if not categories_used_by(sec):
-            flags.append(f"source.{sid}: no used_by — every source names the categories that cite it")
+        if not categories_used_for(sec):
+            flags.append(f"source.{sid}: no used_for — every source names what it is used for, "
+                         f"or the unused marker")
         files = list(file_entries(sec))
         if not files:
             n_cited_only += 1
@@ -306,13 +314,12 @@ def main(argv: list[str] | None = None) -> int:
             f"generated = {utc_now()}",
             "Nothing is downloaded (D80): every file was obtained by hand and is re-hashed each run.",
         ])
-        header, body, no_category = manifest_map_rows(cp)
+        header, body, unknown = manifest_map_rows(cp)
         common.write_tsv(MANIFEST_MAP_TSV, header, body)
+        flags.extend(unknown)
         log.info("wrote %s: %d source(s) x %d categor%s", MANIFEST_MAP_TSV.relative_to(ROOT).as_posix(),
                  len(body), len(header) - 1, "y" if len(header) == 2 else "ies")
         write_readme(cp, manifest)
-        if no_category:
-            log.warning("source(s) with no used_by: %s", ", ".join(no_category))
         log.info("manifest: %d file(s), %d source(s) cited only", n_files, n_cited_only)
 
     if flags:
