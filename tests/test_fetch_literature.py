@@ -302,7 +302,11 @@ def test_the_real_map_places_every_source_in_a_declared_column():
     assert not unknown, unknown
     ids = [r[0] for r in body]
     assert ids == sorted(ids), "the map must read A-Z like the data/literature/ folder listing"
-    assert header == ["source", "original", "skeletal_muscle", "non_protein_metabolites", "other"]
+    # the columns are the ones config declares, in config order (D93) — never a list typed here;
+    # the list this line used to carry broke the day `blood` was added (Step 7b)
+    declared = [c.strip() for c in src["categories"]["columns"].split(",") if c.strip()]
+    assert header == ["source"] + declared
+    assert "skeletal_muscle" in declared and "other" in declared     # the two every category shares
     blank = [r[0] for r in body if not any(c for c in r[1:])]
     assert not blank, f"sources with no column and no unused marker: {blank}"
 
