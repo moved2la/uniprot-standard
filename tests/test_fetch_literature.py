@@ -210,6 +210,68 @@ file.1.sha256 =
     assert manifest["file.eps_2005.file.1"]["served_name"] == "abcd"
 
 
+def test_a_file_named_in_config_is_found_under_that_name_whatever_the_url_says(lit_repo):
+    """F7 (amended 2026-09-18): file.<n>.name is the filename as downloaded; the URL is provenance.
+    ACS supplement links end in '/', so the URL has no filename at all."""
+    (lit_repo["lit"] / "zeta_2006").mkdir()
+    (lit_repo["lit"] / "zeta_2006" / "pr7b00025_si_002.xlsx").write_bytes(b"PK\x03\x04" + b"x" * 40)
+    text = lit_repo["cfg"].read_text(encoding="utf-8") + """
+[source.zeta_2006]
+id_short = Z1
+citation = Zeta Z. A supplement. Journal 2006.
+role = primary
+role_decision = D6
+used_for = blood
+file.1.published_name = Table S3
+file.1.url = https://example.org/jprobs/article-supplement/1/xlsx/pr7b00025_si_002/
+file.1.name = pr7b00025_si_002.xlsx
+file.1.sha256 =
+"""
+    lit_repo["cfg"].write_text(text, encoding="utf-8")
+    _, manifest, flags, _, _, _ = fl.build(_Log())
+    assert not [f for f in flags if "zeta_2006" in f]
+    assert manifest["file.zeta_2006.file.1"]["path"].endswith("pr7b00025_si_002.xlsx")
+    assert manifest["file.zeta_2006.file.1"]["served_name"] == "pr7b00025_si_002.xlsx"
+    assert manifest["file.zeta_2006.file.1"]["name_from"] == "config"
+
+
+def test_a_url_with_no_filename_and_no_name_says_what_to_add(lit_repo):
+    """Without file.<n>.name a trailing-slash URL cannot name a file; the flag says so."""
+    text = lit_repo["cfg"].read_text(encoding="utf-8") + """
+[source.eta_2007]
+id_short = H1
+citation = Eta E. A supplement. Journal 2007.
+role = primary
+role_decision = D7
+used_for = blood
+file.1.published_name = Table S1
+file.1.url = https://example.org/jprobs/article-supplement/1/pdf/pr7b00025_si_001/
+file.1.sha256 =
+"""
+    lit_repo["cfg"].write_text(text, encoding="utf-8")
+    _, _, flags, _, _, _ = fl.build(_Log())
+    hit = [f for f in flags if f.startswith("eta_2007.file.1")]
+    assert hit and "file.1.name" in hit[0]
+
+
+def test_the_whole_stage_runs_end_to_end_on_the_synthetic_tree(lit_repo, monkeypatch):
+    """main() writes the manifest, the map and the README; the README loop reads file_entries too.
+    Added after delivery 1 of Step 7b crashed there (file_entries grew a field, one caller missed)."""
+    monkeypatch.setattr(fl.common, "make_logger", lambda stage, **kw: _Log())   # no log file in logs/
+    rc = fl.main([])
+    assert rc == 1                                  # delta_2004's file is missing: one flag
+    assert (lit_repo["lit"] / "manifest.ini").is_file()
+    assert (lit_repo["lit"] / "manifest_map.tsv").is_file()
+    assert (lit_repo["lit"] / "README.md").is_file()
+    assert "not on disk" in (lit_repo["lit"] / "README.md").read_text(encoding="utf-8")
+
+
+def test_existing_sources_keep_the_url_rule_and_the_manifest_says_so(lit_repo):
+    _, manifest, flags, _, _, _ = fl.build(_Log())
+    assert manifest["file.alpha_2001.file.1"]["name_from"] == "url"
+    assert manifest["file.alpha_2001.file.1"]["served_name"] == "paper.pdf"
+
+
 # --------------------------------------------------------------------------- the real config
 
 def test_every_role_named_in_mass_fraction_decisions_resolves_to_a_source():

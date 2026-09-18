@@ -25,9 +25,13 @@ Rules (the fetch-mechanics rules F3, F4, F4b and F6 are retired with the downloa
   F2b An unknown hash is blank, never `___`. `___` is only ever a value a person types.
   F5  Every file is obtained by hand and must already be on disk under
       data/literature/<source_id>/. This stage hashes it; the file on disk is the record.
-  F7  The stored filename is the filename in the URL, with characters Windows forbids
-      (colon, quotes, angle brackets, pipe, ?, *, slashes) replaced by '_'. The exact served
-      name is recorded in the manifest.
+  F7  The stored filename is the name the file was downloaded with, recorded in config as
+      file.<n>.name (amended 2026-09-18, Step 7b). The URL is provenance only. For a section
+      with no file.<n>.name the old rule still applies: the filename in the URL, with
+      characters Windows forbids (colon, quotes, angle brackets, pipe, ?, *, slashes)
+      replaced by '_'. Either way the name looked for is recorded in the manifest as
+      served_name. A URL whose path ends in '/' has no filename (ACS supplement links do
+      this), so such a file needs file.<n>.name.
   F7b When the URL's filename has no extension, the extension the file's own magic bytes imply
       is appended (%PDF -> .pdf, PK -> .zip, Rar! -> .rar, gzip -> .gz), so every stored file
       opens in the program a person would use. A file is looked for under the bare name and
@@ -89,7 +93,8 @@ def source_sections(cp: configparser.ConfigParser, only: str | None = None):
 
 
 def file_entries(section):
-    """(n, published_name, url, sha256, obtained) for every file.<n>.* in the section."""
+    """(n, published_name, url, sha256, obtained, name) for every file.<n>.* in the section.
+    name is file.<n>.name — the filename as downloaded (F7) — or '' when the section has none."""
     ns = sorted({int(m.group(1)) for k in section
                  for m in [re.match(r"file\.(\d+)\.", k)] if m})
     for n in ns:
@@ -97,7 +102,8 @@ def file_entries(section):
                section.get(f"file.{n}.published_name", ""),
                (section.get(f"file.{n}.url", "") or "").strip(),
                (section.get(f"file.{n}.sha256", "") or "").strip(),
-               (section.get(f"file.{n}.obtained", "manual") or "manual").strip())
+               (section.get(f"file.{n}.obtained", "manual") or "manual").strip(),
+               (section.get(f"file.{n}.name", "") or "").strip())
 
 
 def categories_used_for(section) -> list[str]:
@@ -220,7 +226,7 @@ def write_readme(cp: configparser.ConfigParser, manifest: configparser.ConfigPar
             out.append("")
             out.append("| n | Published name | URL | Path | Hashed | SHA-256 |")
             out.append("|---|---|---|---|---|---|")
-            for n, pub, url, _, _obtained in files:
+            for n, pub, url, _, _obtained, _name in files:
                 m = f"file.{sid}.file.{n}"
                 if manifest.has_section(m):
                     ms = manifest[m]
@@ -252,17 +258,24 @@ def build(log, only: str | None = None):
             n_cited_only += 1
             log.info("cited only, no file: %-24s role %s", sid, sec.get("role", ""))
             continue
-        for n, pub_name, url, want_sha, obtained in files:
+        for n, pub_name, url, want_sha, obtained, name in files:
             key = f"{sid}.file.{n}"
             if not url or url == PLACEHOLDER:
-                flags.append(f"{key}: url is blank or `{PLACEHOLDER}` — the stored filename comes from it (F1, F7)")
+                flags.append(f"{key}: url is blank or `{PLACEHOLDER}` (F1)")
                 log.error("[FLAG] %s url is a placeholder", key)
                 continue
-            served = filename_from_url(url)
+            if name == PLACEHOLDER:
+                flags.append(f"{key}: name is `{PLACEHOLDER}` — it is the filename as downloaded, or absent (F7)")
+                log.error("[FLAG] %s name is a placeholder", key)
+                continue
+            # F7: the name as downloaded when config records it; the URL's filename otherwise
+            served = name or filename_from_url(url)
             found = find_file(LIT_DIR / sid, served)
             if found is None:
                 want = (LIT_DIR / sid / safe_name(served)).relative_to(ROOT).as_posix()
                 hint = "" if Path(served).suffix else " (or that name plus the extension the browser gave it)"
+                if not name and served == "download":   # filename_from_url found nothing after the last '/'
+                    hint = f" — the URL has no filename; add file.{n}.name = <the filename as downloaded> (F7)"
                 flags.append(f"{key}: not on disk — expected {want}{hint} (F5)")
                 log.error("[FLAG] %s missing on disk", key)
                 continue
@@ -287,6 +300,7 @@ def build(log, only: str | None = None):
                 "url": url,
                 "path": found.relative_to(ROOT).as_posix(),
                 "served_name": served,
+                "name_from": "config" if name else "url",
                 "sha256": got,
                 "bytes": str(len(data)),
                 "content_type": obtained,
