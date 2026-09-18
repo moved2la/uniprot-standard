@@ -11,8 +11,9 @@ hand in docs/formula.md, "Match Rate". In one sentence:
 The spreadsheet reaches the same number by a longer road — it scales the food to the reference's
 essential-amino-acid total, divides each amino acid by the limiting one, sums the "need to
 consume" and calls the excess "wasted" — and docs/formula.md shows that every step of that road
-cancels back to the minimum ratio. The per-amino-acid ratios are written beside the score so
-the surplus each amino acid carries is visible; they are a display, not a second score (M5).
+cancels back to the minimum ratio. That walk is written out per food and reference in
+match_rate_steps.tsv, in the spreadsheet's own step order and names, so any published score can be
+rebuilt in the spreadsheet from its row (M5).
 
 Nothing about the food's protein content enters the score (M1): the score is a property of the
 proportion alone, so a food reported per 100 g of food, per 100 g of protein, or per serving
@@ -28,12 +29,18 @@ Reads
   config/food_amino_acids_other_sources.csv             the author's hand-maintained foods (M4)
 
 Writes (outputs/match/)
-  match_rate_per_food.tsv           one row per food per reference: the score, the limiting amino acid, every ratio
-  match_rate_by_reference.tsv       one row per food, the score under each reference side by side (old beside new)
+  match_rate_per_food.tsv           one row per food per reference: the score, the limiting amino acid, EAA total,
+                                    EAA percent of protein, and the Step 7 ratio per amino acid
+  match_rate_by_reference.tsv       one row per food, every reference's score and limiting amino acid side by side
+  match_rate_steps.tsv              one row per food x reference: the spreadsheet's own walk (Steps 3, 7, 10b,
+                                    rows 153-156), so any score can be rebuilt in the spreadsheet cell by cell
   match_rate_ranked_<reference>.tsv every scored food under that reference, best first
   limiting_amino_acid_counts.tsv    per reference, how many foods each amino acid limits
   foods_not_scored.tsv              food x reference pairs that could not be scored, and why
-  match_summary.ini                 references, scored sets as resolved, counts, medians, hashes
+  match_summary.ini                 references (with their values), scored sets as resolved, counts, medians, hashes
+
+Headers carry provenance only: generated time, version label, the hash of every input, and each reference with its
+values (the spreadsheet's column A). Explanation lives in docs/formula.md and docs/conventions.md.
 
 Rules (docs/conventions.md, "Match Rate rules")
   M1 The score is the minimum ratio, shares over the scored set; protein content never enters.
@@ -42,8 +49,8 @@ Rules (docs/conventions.md, "Match Rate rules")
      published: the ratio is zero, the score is zero, and the limiting amino acid is named.
   M4 Foods come from the USDA table and from the author's other-sources file; no food is dropped or
      preferred across sources (U6 carried), and every row names its source.
-  M5 The per-amino-acid ratios are written beside the score. They are the spreadsheet's surplus
-     arithmetic, which is the same number, not a second score.
+  M5 The spreadsheet's walk is written per food and reference (match_rate_steps.tsv) so that any score can
+     be rebuilt by hand; it is the same number as the minimum ratio, not a second score.
   M6 This is the public single-food scorer. The blend / fortification script is separate (D88) and
      calls match_rate() from here, so the arithmetic lives in one place.
 
@@ -345,6 +352,31 @@ def _pct(x: float, d: int) -> str:
     return f"{100 * x:.{d}f}"
 
 
+def _g(x: float | None) -> str:
+    return "" if x is None else f"{x:g}"
+
+
+def sheet_steps(food: dict[str, float], reference: dict[str, float], scored: list[str], res: dict) -> dict:
+    """The spreadsheet's own walk for one food (Base_Match_Rate_Formula.xlsx rows 22-23, 30-37, 100-108,
+    145-156), computed from the same inputs the score used, so a row can be rebuilt cell by cell.
+    Steps 8-9 (divide by the limiting ratio, average, renormalise) are not written: they cancel in
+    Step 10b (docs/formula.md), and the spreadsheet computes them from the Step 3 values given here."""
+    ref_total = sum(reference[a] for a in scored)                       # A22
+    food_total = sum(food[a] for a in scored)                           # row 22
+    pct_of_ref_total = food_total / ref_total                           # row 23, "% of Human"
+    scaled = {a: food[a] / pct_of_ref_total for a in scored}            # rows 30-37
+    k = res["score"]                                                    # row 108, MIN of rows 100-107
+    if k == 0:                                                          # a published zero: the spreadsheet's Step 10b divides by it
+        return {"food_total": food_total, "ref_total": ref_total, "pct_of_ref_total": pct_of_ref_total,
+                "scaled": scaled, "final": None, "need": None, "wasted": None, "utilized": 0.0}
+    final = {a: scaled[a] / k for a in scored}                          # rows 145-152 (Step 10b)
+    need = sum(final.values())                                          # row 153, Total Need to Consume
+    return {"food_total": food_total, "ref_total": ref_total, "pct_of_ref_total": pct_of_ref_total,
+            "scaled": scaled, "final": final, "need": need,
+            "wasted": (need - ref_total) / need,                        # row 155, Percent Wasted
+            "utilized": k}                                              # row 156, Percent Utilized
+
+
 def build(log) -> dict[str, str]:
     if not CONFIG_INI.exists():
         raise Stop(f"{_rel(CONFIG_INI)} not found")
@@ -353,8 +385,9 @@ def build(log) -> dict[str, str]:
     scored_sets = load_scored_sets(cp, three, names)
     refs = load_references(cp, scored_sets, three, names)
     primary = cp["formula"].get("primary_reference", "").strip() if "formula" in cp else ""
-    if primary and primary not in [r["name"] for r in refs]:
+    if not primary or primary not in [r["name"] for r in refs]:
         raise Stop(f"[formula] primary_reference {primary!r} is not a [reference.*]")
+    prim = next(r for r in refs if r["name"] == primary)
     version = cp["meta"].get("version", "").strip() if "meta" in cp else ""
     decimals = int(cp["output"].get("decimals", "4")) if "output" in cp else 4
 
@@ -368,9 +401,11 @@ def build(log) -> dict[str, str]:
     log.info("%d foods (%d USDA, %d other sources); %d references",
              len(foods), sum(f["source"] == "usda" for f in foods), sum(f["source"] == "other" for f in foods), len(refs))
 
-    # ---- score
-    all_letters = sorted({a for r in refs for a in r["letters"]}, key=AA.index)
-    per_food_rows, not_scored, scores = [], [], {}       # scores[(source, food_id)][ref] = result
+    # ---- score everything once. Columns follow the primary reference's scored-set order (the spreadsheet's
+    #      row order for the FAO nine: H I L K M F T W V), then any letter only another reference scores.
+    all_letters = list(prim["letters"]) + [a for r in refs for a in r["letters"] if a not in prim["letters"]]
+    all_letters = list(dict.fromkeys(all_letters))
+    scores, not_scored = {}, []
     for f in foods:
         key = (f["source"], f["food_id"])
         scores[key] = {}
@@ -379,105 +414,136 @@ def build(log) -> dict[str, str]:
             scores[key][r["name"]] = res
             if res["score"] is None:
                 not_scored.append([f["source"], f["source_detail"], f["food_id"], f["description"], r["name"], res["reason"]])
-                continue
-            scored_sum = sum(f["values"][a] for a in r["letters"])
-            row = [f["source"], f["source_detail"], f["food_id"], f["description"], f["category"],
-                   r["name"], r["label"], r["scored_set"], "".join(r["letters"]),
-                   _pct(res["score"], decimals), "+".join(res["limiting"]),
-                   f"{scored_sum:.{decimals}f}", "" if f["protein"] is None else f"{f['protein']:g}", f["min_data_points"]]
-            for a in all_letters:
-                row.append(f"{res['ratio'][a]:.{decimals}f}" if a in res["ratio"] else "")
-            row.append(f["citation"])
-            per_food_rows.append(row)
 
-    # ---- headers
+    # ---- provenance header: what was read, hashed; the references with their values (the spreadsheet's column A)
     inputs = {"config": CONFIG_INI, "symbols": common.AMINO_ACID_SYMBOLS_INI,
               "usda_foods": food_paths["usda"], "other_sources": food_paths["other_sources"]}
     for r in refs:
         inputs[f"reference.{r['name']}"] = r["path"]
     for ss in [s for s in cp.sections() if s.startswith("scored_set.")]:
         inputs[ss] = _path(cp[ss]["from_file"])
-    seen_hash, hash_lines = set(), []
-    for k, p in inputs.items():
-        if p.exists() and p not in seen_hash:
-            seen_hash.add(p)
-            hash_lines.append(f"input.{k} = {_rel(p)} sha256 {sha256_path(p)}")
-    header_common = ([f"generated = {common.iso_now()}"] + hash_lines +
-                     [f"Match Rate version = {version} (config/match_rate.ini [meta] version)" if version else "Match Rate version = (unlabelled)"] +
-                     [f"reference.{r['name']} = {r['label']} | {r['where']} | scored set {r['scored_set']} = {''.join(r['letters'])} | {r['decisions']}"
-                      for r in refs] +
-                     [f"primary reference = {primary}" if primary else "primary reference = (none named)"] +
-                     ["M1 (D87): match_rate_percent = 100 x min over the scored set of (food share / reference share), both shares "
-                      "taken over the scored set only. Protein content never enters: the score is a property of the proportion. "
-                      "docs/formula.md 'Match Rate' shows the spreadsheet's surplus arithmetic reduces to this number.",
-                      "M3: a food that does not report a scored amino acid is in foods_not_scored.tsv, not here; a published zero "
-                      "scores zero with the limiting amino acid named. M4: usda rows are outputs/usda/amino_acids_per_food.tsv as "
-                      "published; other rows are the author's config/food_amino_acids_other_sources.csv, each citing its source. "
-                      "A food in two archives, or in USDA and the other-sources file, is two rows (U6)."])
+    seen, hash_lines = set(), []
+    for k, pth in inputs.items():
+        if pth.exists() and pth not in seen:
+            seen.add(pth)
+            hash_lines.append(f"input.{k} = {_rel(pth)} sha256 {sha256_path(pth)}")
+    header = ([f"generated = {common.iso_now()}", f"Match Rate version = {version or '(unlabelled)'}",
+               f"formula = M1 (D87), docs/formula.md 'Match Rate'; primary reference = {primary}"] + hash_lines +
+              [f"reference.{r['name']} = {r['label']} | {r['where']} | scored set {r['scored_set']} ({''.join(r['letters'])}) | "
+               + "values: " + ", ".join(f"{a} {r['values'][a]:g}" for a in r["letters"])
+               for r in refs])
 
     files: dict[str, str] = {}
-    cols = (["source", "source_detail", "food_id", "description", "food_category",
-             "reference", "reference_label", "scored_set", "scored_amino_acids",
-             "match_rate_percent", "limiting_amino_acid", "scored_sum_g_per_100g", "protein_g_per_100g", "min_data_points"]
-            + [f"ratio_{a}" for a in all_letters] + ["citation"])
-    files["match_rate_per_food.tsv"] = tsv_text(
-        header_common + ["ratio_<letter> = food share / reference share for that amino acid (M5): 1.0000 is the limiting "
-                         "amino acid, anything above it is surplus relative to the reference; blank where the amino acid is not "
-                         "in that reference's scored set."],
-        cols, per_food_rows, tool="match.py")
-
-    # ---- wide: one row per food, every reference side by side
     ref_names = [r["name"] for r in refs]
+    ratio_letters = sorted(all_letters, key=AA.index)      # the ratio_<letter> columns, as delivery 3 wrote them
+
+    # ---- 1. match_rate_per_food.tsv — one row per food x reference
+    per_food_rows = []
+    for f in foods:
+        key = (f["source"], f["food_id"])
+        for r in refs:
+            res = scores[key][r["name"]]
+            if res["score"] is None:
+                continue
+            eaa = sum(f["values"][a] for a in r["letters"])
+            prot = f["protein"]
+            row = [f["source"], f["source_detail"], f["food_id"], f["description"], f["category"], r["name"],
+                   _pct(res["score"], decimals), "+".join(res["limiting"]),
+                   f"{eaa:.{decimals}f}", _g(prot), f"{100 * eaa / prot:.2f}" if prot else ""]
+            row += [f"{res['ratio'][a]:.{decimals}f}" if a in res["ratio"] else "" for a in ratio_letters]
+            per_food_rows.append(row)
+    files["match_rate_per_food.tsv"] = tsv_text(
+        header + ["eaa_g_per_100g = the sum of the reference's scored amino acids as published; eaa_percent_of_protein = "
+                  "100 x eaa_g_per_100g / protein_g_per_100g; ratio_<letter> = food share / reference share (Step 7), "
+                  "blank where the amino acid is not in that reference's scored set"],
+        ["source", "source_detail", "food_id", "description", "food_category", "reference",
+         "match_rate_percent", "limiting_amino_acid", "eaa_g_per_100g", "protein_g_per_100g", "eaa_percent_of_protein"]
+        + [f"ratio_{a}" for a in ratio_letters],
+        per_food_rows, tool="match.py")
+
+    # ---- 2. match_rate_by_reference.tsv — one row per food, every reference side by side
     wide_rows = []
     for f in foods:
         key = (f["source"], f["food_id"])
-        row = [f["source"], f["source_detail"], f["food_id"], f["description"], "" if f["protein"] is None else f"{f['protein']:g}"]
+        row = [f["source"], f["source_detail"], f["food_id"], f["description"], _g(f["protein"])]
         for rn in ref_names:
             res = scores[key][rn]
             row += [_pct(res["score"], decimals) if res["score"] is not None else "",
                     "+".join(res["limiting"]) if res["score"] is not None else ""]
-        if primary and len(ref_names) > 1:
-            p = scores[key][primary]
-            for rn in ref_names:
-                if rn == primary:
-                    continue
-                o = scores[key][rn]
-                row.append(_pct(p["score"] - o["score"], decimals) if (p["score"] is not None and o["score"] is not None) else "")
+        pr = scores[key][primary]
+        for rn in ref_names:
+            if rn == primary:
+                continue
+            o = scores[key][rn]
+            row.append(_pct(pr["score"] - o["score"], decimals) if (pr["score"] is not None and o["score"] is not None) else "")
         wide_rows.append(row)
     wcols = ["source", "source_detail", "food_id", "description", "protein_g_per_100g"]
     for rn in ref_names:
         wcols += [f"match_{rn}_percent", f"limiting_{rn}"]
-    if primary and len(ref_names) > 1:
-        wcols += [f"difference_pp_{primary}_minus_{rn}" for rn in ref_names if rn != primary]
+    wcols += [f"difference_pp_{primary}_minus_{rn}" for rn in ref_names if rn != primary]
     files["match_rate_by_reference.tsv"] = tsv_text(
-        header_common + ["One row per food; the score and limiting amino acid under every reference, side by side. difference_pp "
-                         "is the primary reference's score minus the other's, in percentage points; blank where either is unscored. "
-                         "Two references with different scored sets (eight vs nine amino acids) score different questions: the "
-                         "difference is reported, not explained (X3 pattern)."],
+        header + ["one row per food; blank = not scored under that reference; difference_pp = primary minus the other, "
+                  "in percentage points"],
         wcols, wide_rows, tool="match.py")
 
-    # ---- ranked, per reference
+    # ---- 2b. match_rate_steps.tsv — one row per food x reference, the spreadsheet's walk (M5)
+    step_rows = []
+    for f in foods:
+        key = (f["source"], f["food_id"])
+        for r in refs:
+            res = scores[key][r["name"]]
+            if res["score"] is None:
+                continue
+            s = sheet_steps(f["values"], r["values"], r["letters"], res)
+            row = [f["source"], f["source_detail"], f["food_id"], f["description"], r["name"], _g(f["protein"])]
+            row += [_g(f["values"].get(a)) if a in r["letters"] else "" for a in all_letters]
+            row += [f"{s['food_total']:.{decimals}f}", f"{s['ref_total']:.{decimals}f}", f"{s['pct_of_ref_total']:.{decimals}f}"]
+            row += [f"{s['scaled'][a]:.{decimals}f}" if a in r["letters"] else "" for a in all_letters]
+            row += [f"{res['ratio'][a]:.{decimals}f}" if a in r["letters"] else "" for a in all_letters]
+            row += [f"{res['score']:.{decimals}f}", "+".join(res["limiting"])]
+            if s["final"] is None:      # a zero score: Step 10b is undefined (the spreadsheet shows #DIV/0!)
+                row += ["" for a in all_letters] + ["", "", f"{s['utilized']:.{decimals}f}", _pct(res["score"], decimals)]
+            else:
+                row += [f"{s['final'][a]:.{decimals}f}" if a in r["letters"] else "" for a in all_letters]
+                row += [f"{s['need']:.{decimals}f}", f"{s['wasted']:.{decimals}f}", f"{s['utilized']:.{decimals}f}",
+                        _pct(res["score"], decimals)]
+            step_rows.append(row)
+    scols = (["source", "source_detail", "food_id", "description", "reference", "protein_g_per_100g"]
+             + [f"{a}_g_per_100g" for a in all_letters]                              # rows 12-20
+             + ["eaa_g_per_100g", "reference_eaa_total", "percent_of_reference_total"]   # rows 22, A22, 23
+             + [f"step3_scaled_{a}" for a in all_letters]                              # rows 30-37
+             + [f"step7_percent_of_reference_{a}" for a in all_letters]                # rows 100-107
+             + ["step7_min", "limiting_amino_acid"]                                    # row 108
+             + [f"step10b_{a}" for a in all_letters]                                   # rows 145-152
+             + ["step10b_total_need_to_consume", "percent_wasted", "percent_utilized", "match_rate_percent"])  # 153-156
+    files["match_rate_steps.tsv"] = tsv_text(
+        header + ["Columns follow Base_Match_Rate_Formula.xlsx: <letter>_g_per_100g = rows 12-20 (the food, column G); "
+                  "eaa_g_per_100g = row 22; reference_eaa_total = A22; percent_of_reference_total = row 23 ('% of Human'); "
+                  "step3_scaled_* = rows 30-37; step7_percent_of_reference_* = rows 100-107; step7_min = row 108; "
+                  "step10b_* = rows 145-152; step10b_total_need_to_consume = row 153; percent_wasted = row 155; "
+                  "percent_utilized = row 156 = Match Rate. Steps 8-9 cancel in Step 10b and are not written; a zero score leaves Step 10b blank (division by zero). "
+                  "Reference values (the spreadsheet's column A) are in the reference.* lines above."],
+        scols, step_rows, tool="match.py")
+
+    # ---- 3. ranked, per reference
     for r in refs:
-        rows = []
+        ranked = []
         for f in foods:
             res = scores[(f["source"], f["food_id"])][r["name"]]
             if res["score"] is None:
                 continue
-            rows.append((res["score"], f, res))
-        rows.sort(key=lambda t: (-t[0], t[1]["description"].lower(), t[1]["source"], t[1]["food_id"]))
+            ranked.append((res["score"], f, res))
+        ranked.sort(key=lambda x: (-x[0], x[1]["description"].lower(), x[1]["source"], x[1]["food_id"]))
         files[f"match_rate_ranked_{r['name']}.tsv"] = tsv_text(
-            header_common + [f"Every scored food under reference {r['name']} ({r['label']}), best first; ties by description. "
-                             f"Scored set {r['scored_set']} = {''.join(r['letters'])}."],
+            header + [f"every scored food under reference {r['name']}, best first; ties by description"],
             ["rank", "source", "source_detail", "food_id", "description", "match_rate_percent", "limiting_amino_acid", "protein_g_per_100g"],
-            [[i, f["source"], f["source_detail"], f["food_id"], f["description"], _pct(s, decimals), "+".join(res["limiting"]),
-              "" if f["protein"] is None else f"{f['protein']:g}"] for i, (s, f, res) in enumerate(rows, 1)],
-            tool="match.py")
+            [[i, f["source"], f["source_detail"], f["food_id"], f["description"], _pct(s, decimals), "+".join(res["limiting"]), _g(f["protein"])]
+             for i, (s, f, res) in enumerate(ranked, 1)], tool="match.py")
 
-    # ---- limiting counts
+    # ---- 4. limiting counts
     lc_rows = []
     for r in refs:
-        counts = {a: 0 for a in r["letters"]}
-        n = 0
+        counts, n = {a: 0 for a in r["letters"]}, 0
         for f in foods:
             res = scores[(f["source"], f["food_id"])][r["name"]]
             if res["score"] is None:
@@ -488,16 +554,15 @@ def build(log) -> dict[str, str]:
         for a in r["letters"]:
             lc_rows.append([r["name"], a, counts[a], n, f"{100 * counts[a] / n:.2f}" if n else ""])
     files["limiting_amino_acid_counts.tsv"] = tsv_text(
-        header_common + ["Per reference: how many scored foods each amino acid limits (a tie counts for each tied amino acid). "
-                         "This is the table that answers 'where do scores move between references'."],
+        header + ["per reference: how many scored foods each amino acid limits (a tie counts for each tied amino acid)"],
         ["reference", "amino_acid", "foods_limited", "foods_scored", "percent_of_scored"], lc_rows, tool="match.py")
 
+    # ---- 5. not scored
     files["foods_not_scored.tsv"] = tsv_text(
-        header_common + ["Food x reference pairs the formula could not score, with the reason (M3). Nothing here is a judgement "
-                         "of the food; it is the record of what the source did not report."],
+        header + ["food x reference pairs the formula could not score, with the reason (M3)"],
         ["source", "source_detail", "food_id", "description", "reference", "reason"], not_scored, tool="match.py")
 
-    # ---- summary
+    # ---- 6. summary
     s = common.new_ini()
     s.add_section("run")
     s["run"]["match_rate_version"] = version
@@ -519,13 +584,14 @@ def build(log) -> dict[str, str]:
         s[sec]["label"] = r["label"]
         s[sec]["read_from"] = r["where"]
         s[sec]["scored_set"] = f"{r['scored_set']} = {''.join(r['letters'])}"
-        s[sec]["reference_shares_percent"] = ", ".join(
+        s[sec]["values"] = ", ".join(f"{a} {r['values'][a]:g}" for a in r["letters"])
+        s[sec]["shares_percent"] = ", ".join(
             f"{a} {100 * r['values'][a] / sum(r['values'][b] for b in r['letters']):.{decimals}f}" for a in r["letters"])
         s[sec]["foods_scored"] = str(len(vals))
         s[sec]["foods_not_scored"] = str(len(foods) - len(vals))
         s[sec]["median_match_rate_percent"] = _pct(statistics.median(vals), decimals) if vals else ""
         s[sec]["foods_at_zero"] = str(sum(1 for v in vals if v == 0))
-    files["match_summary.ini"] = common.render_ini(s, ["GENERATED by match.py. DO NOT EDIT BY HAND."] + header_common)
+    files["match_summary.ini"] = common.render_ini(s, ["GENERATED by match.py. DO NOT EDIT BY HAND."] + header)
     return files
 
 

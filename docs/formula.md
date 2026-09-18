@@ -240,8 +240,9 @@ k the smallest ratio and R the reference total:
 - Wasted = (R ÷ k − R) ÷ (R ÷ k) = 1 − k. Utilized = k.
 
 So the surplus arithmetic and the limiting ratio are one number stated two ways, not two scores.
-The stage keeps the per-amino-acid ratios as columns (`ratio_<letter>`) because they show which
-amino acids carry the surplus and by how much; it does not write a second score.
+The stage writes the whole walk per food and reference in `match_rate_steps.tsv` — Step 3 scaled
+values, Step 7 ratios and their minimum, Step 10b values, total need, wasted, utilized — so that any
+score can be rebuilt in the spreadsheet cell by cell; it does not write a second score.
 
 **A worked example — pea protein isolate against the original reference**
 
@@ -280,5 +281,8 @@ ranked tables in `outputs/match/` are that calculation for every food.
 1. `outputs/usda/amino_acids_per_food.tsv` — the food's row: the nine `<letter>_g_per_100g` values.
 2. `outputs/standard/_calculated_amino_acid_standard_with_non_protein_metabolite_pools.tsv` — the
    nine rows of the `standard_with_non_protein_metabolite_pools` column.
-3. Steps 1–4 above. `outputs/match/match_rate_per_food.tsv` carries the score, the limiting amino
-   acid, and every ratio for that food and reference; the header carries the hashes of both inputs.
+3. Steps 1–4 above. `outputs/match/match_rate_per_food.tsv` carries the score, the limiting amino acid and
+   every ratio; `match_rate_steps.tsv` carries the grams and the spreadsheet's walk for that food and reference — paste the
+   grams into the spreadsheet's column G (rows 12–20; add a tryptophan row for the nine) and the
+   reference's values from the file header into column A, and row 156 reproduces `match_rate_percent`.
+   The header carries the hashes of both inputs.

@@ -133,7 +133,7 @@ flowchart TB
   std --> r1
   bp --> r1
   foods --> r1
-  r1 --> mro[outputs/match/ match_rate_per_food, match_rate_by_reference, match_rate_ranked_*, limiting_amino_acid_counts]
+  r1 --> mro[outputs/match/ match_rate_per_food, match_rate_by_reference, match_rate_steps, match_rate_ranked_*, limiting_amino_acid_counts]
 ```
 
 Solid arrows are files on disk read by the next stage. Dotted arrows are network
@@ -262,7 +262,7 @@ term, and no path that writes back into the standard.
 
 | # | Stage | Reads | Writes |
 |---|---|---|---|
-| 1 | `match` | `config/match_rate.ini` (hand-written: references, scored sets, food tables, version label; D86–D88); `config/fao_2013_indispensable_amino_acids.ini` (the nine headings, D62); `config/gorissen_2018_comparison.ini` (the original reference and its own essential rows); `data/iupac/amino_acid_symbols.ini`; both calculated standards; `outputs/usda/amino_acids_per_food.tsv`; `config/food_amino_acids_other_sources.csv` (hand-maintained) | `outputs/match/match_rate_per_food.tsv` (every food × every reference: score, limiting amino acid, every ratio, source, reference label); `match_rate_by_reference.tsv` (one row per food, references side by side, difference in pp); `match_rate_ranked_<reference>.tsv` (best first, one per reference); `limiting_amino_acid_counts.tsv`; `foods_not_scored.tsv`; `match_summary.ini` |
+| 1 | `match` | `config/match_rate.ini` (hand-written: references, scored sets, food tables, version label; D86–D88); `config/fao_2013_indispensable_amino_acids.ini` (the nine headings, D62); `config/gorissen_2018_comparison.ini` (the original reference and its own essential rows); `data/iupac/amino_acid_symbols.ini`; both calculated standards; `outputs/usda/amino_acids_per_food.tsv`; `config/food_amino_acids_other_sources.csv` (hand-maintained) | `outputs/match/match_rate_per_food.tsv` (one row per food × reference: score, limiting amino acid, ΣEAA, ΣEAA as % of protein, the Step 7 ratio per amino acid); `match_rate_by_reference.tsv` (one row per food, references side by side, differences in pp); `match_rate_steps.tsv` (one row per food × reference: the spreadsheet's walk — Step 3, Step 7 and its MIN, Step 10b, total need, wasted, utilized); `match_rate_ranked_<reference>.tsv` (best first, one per reference); `limiting_amino_acid_counts.tsv`; `foods_not_scored.tsv`; `match_summary.ini` |
 
 Rules M1–M6 in `docs/conventions.md`; the calculation by hand in `docs/formula.md`, "Match Rate".
 The score is the smallest of (food share / reference share) over the scored set (D87). It is the

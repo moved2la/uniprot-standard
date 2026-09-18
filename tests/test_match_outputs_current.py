@@ -17,15 +17,16 @@ def test_match_outputs_are_current():
 
 @needs_data
 @upstream_running
-def test_every_scored_row_has_a_score_between_zero_and_one_hundred_and_a_limiting_amino_acid():
-    text = (common.MATCH_OUT_DIR / "match_rate_per_food.tsv").read_text(encoding="utf-8")
+def test_every_step_row_has_a_score_between_zero_and_one_hundred_and_a_limiting_amino_acid():
+    text = (common.MATCH_OUT_DIR / "match_rate_steps.tsv").read_text(encoding="utf-8")
     body = [ln.split("\t") for ln in text.splitlines() if not ln.startswith("#")]
     rows = [dict(zip(body[0], r)) for r in body[1:]]
     assert rows, "no food was scored"
     for r in rows:
         assert 0.0 <= float(r["match_rate_percent"]) <= 100.0 + 1e-9
-        assert r["limiting_amino_acid"]
-        assert r["reference_label"] and r["source"]
+        assert r["limiting_amino_acid"] and r["reference"] and r["source"]
+        if r["percent_wasted"]:                                                              # blank on a zero score
+            assert abs(float(r["percent_utilized"]) + float(r["percent_wasted"]) - 1.0) < 1e-3   # rows 155 + 156 = 1
 
 
 @needs_data

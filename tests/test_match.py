@@ -208,6 +208,47 @@ def test_the_stage_scores_the_spreadsheet_foods_against_the_old_reference(match_
         assert got[name][1] == SHEET_LIMITING[name], name
 
 
+def test_the_steps_table_reproduces_the_spreadsheets_cells(match_repo):
+    """Pea, column I of the spreadsheet: I22 = 30.99, I23 = 0.97453, I153 = 61.98, I155 = 0.48693, I156 = 0.51307."""
+    files = match.build(_Log())
+    pea = [r for r in _rows(files["match_rate_steps.tsv"]) if r["food_id"] == "Pea" and r["reference"] == "old"][0]
+    assert float(pea["eaa_g_per_100g"]) == pytest.approx(30.99, abs=1e-4)
+    assert float(pea["reference_eaa_total"]) == pytest.approx(31.8, abs=1e-4)
+    assert float(pea["percent_of_reference_total"]) == pytest.approx(30.99 / 31.8, abs=1e-4)
+    assert float(pea["step3_scaled_M"]) == pytest.approx(0.85 * 31.8 / 30.99, abs=1e-4)      # I34
+    assert float(pea["step7_percent_of_reference_M"]) == pytest.approx(SHEET_SCORES["Pea"], abs=1e-4)
+    assert float(pea["step7_min"]) == pytest.approx(SHEET_SCORES["Pea"], abs=1e-4)
+    assert pea["limiting_amino_acid"] == "M"
+    assert float(pea["step10b_M"]) == pytest.approx(1.7, abs=1e-4)                           # the limiting one meets the reference
+    assert float(pea["step10b_total_need_to_consume"]) == pytest.approx(31.8 / SHEET_SCORES["Pea"], abs=1e-3)
+    assert float(pea["percent_wasted"]) == pytest.approx(1 - SHEET_SCORES["Pea"], abs=1e-4)
+    assert float(pea["percent_utilized"]) == pytest.approx(SHEET_SCORES["Pea"], abs=1e-4)
+    assert float(pea["match_rate_percent"]) == pytest.approx(100 * SHEET_SCORES["Pea"], abs=5e-3)
+    assert pea["W_g_per_100g"] == "" and pea["step10b_W"] == "", "the old set has no tryptophan column filled"
+
+
+def test_the_per_food_table_carries_the_eaa_columns_and_not_the_dropped_ones(match_repo):
+    files = match.build(_Log())
+    rows = _rows(files["match_rate_per_food.tsv"])
+    even = [r for r in rows if r["food_id"] == "1" and r["reference"] == "new"][0]
+    assert float(even["eaa_g_per_100g"]) == pytest.approx(9.0)                 # nine amino acids at 1.0
+    assert float(even["eaa_percent_of_protein"]) == pytest.approx(90.0)        # 9 / 10 g protein
+    assert even["reference"] == "new"
+    for gone in ("reference_label", "scored_set", "scored_amino_acids", "scored_sum_g_per_100g", "min_data_points", "citation"):
+        assert gone not in even, gone
+    assert "ratio_K" in even and "ratio_W" in even
+    steps = [r for r in _rows(files["match_rate_steps.tsv"]) if r["food_id"] == "1" and r["reference"] == "new"][0]
+    assert all(f"{a}_g_per_100g" in steps for a in "HILKMFTWV"), "the steps table carries the grams"
+
+
+def test_headers_carry_provenance_and_the_reference_values_only(match_repo):
+    files = match.build(_Log())
+    head = [ln for ln in files["match_rate_per_food.tsv"].splitlines() if ln.startswith("#")]
+    assert any("input.config" in ln and "sha256" in ln for ln in head)
+    assert any(ln.startswith("# reference.old = ") and "values: T 2.9" in ln for ln in head)
+    assert not any("M3:" in ln or "M4:" in ln for ln in head), "rule prose belongs in the docs, not the header"
+
+
 # --------------------------------------------------------------------------- M1
 
 def test_protein_content_and_scale_never_enter_the_score():
@@ -220,7 +261,7 @@ def test_protein_content_and_scale_never_enter_the_score():
 
 def test_a_food_in_the_reference_proportion_scores_100_and_every_ratio_is_one(match_repo):
     files = match.build(_Log())
-    even = [r for r in _rows(files["match_rate_per_food.tsv"]) if r["food_id"] == "1" and r["reference"] == "old"]
+    even = [r for r in _rows(files["match_rate_steps.tsv"]) if r["food_id"] == "1" and r["reference"] == "old"]
     assert even, "the even food was not scored on the old reference"
     # the old reference is not even, so 'Even food' does not score 100 there; a food equal to the reference does
     res = match.match_rate(SHEET_REFERENCE, SHEET_REFERENCE, EIGHT)
@@ -235,17 +276,16 @@ def test_the_nine_are_the_fao_headings_with_each_group_reduced(match_repo):
     files = match.build(_Log())
     summary = files["match_summary.ini"]
     assert "amino_acids = HILKMFTWV" in summary.replace(" = ", " = ")  # order of the FAO headings
-    rows = [r for r in _rows(files["match_rate_per_food.tsv"]) if r["reference"] == "new"]
-    assert rows and rows[0]["scored_amino_acids"] == "HILKMFTWV"
-    assert "ratio_C" not in rows[0] and "ratio_Y" not in rows[0], "cysteine and tyrosine are not scored on the nine (D86)"
-    assert all(r["ratio_M"] != "" and r["ratio_F"] != "" for r in rows)
+    rows = [r for r in _rows(files["match_rate_steps.tsv"]) if r["reference"] == "new"]
+    assert rows and "C_g_per_100g" not in rows[0] and "Y_g_per_100g" not in rows[0], "cysteine and tyrosine are not scored on the nine (D86)"
+    assert all(r["step7_percent_of_reference_M"] != "" and r["step7_percent_of_reference_F"] != "" for r in rows)
 
 
 def test_the_eight_come_from_the_papers_own_essential_rows(match_repo):
     files = match.build(_Log())
-    rows = [r for r in _rows(files["match_rate_per_food.tsv"]) if r["reference"] == "old"]
-    assert rows and set(rows[0]["scored_amino_acids"]) == set(EIGHT)
-    assert all(r["ratio_W"] == "" for r in rows), "the old set has no tryptophan"
+    rows = [r for r in _rows(files["match_rate_steps.tsv"]) if r["reference"] == "old"]
+    assert rows and all(r["step7_percent_of_reference_W"] == "" for r in rows), "the old set has no tryptophan"
+    assert all(r["step7_percent_of_reference_H"] != "" for r in rows)
 
 
 def test_a_group_without_a_named_member_stops_the_stage(match_repo):
@@ -262,7 +302,7 @@ def test_a_missing_scored_amino_acid_is_listed_not_scored(match_repo):
     ns = _rows(files["foods_not_scored.tsv"])
     hit = [r for r in ns if r["food_id"] == "2" and r["reference"] == "new"]
     assert hit and "W" in hit[0]["reason"]
-    scored = [r for r in _rows(files["match_rate_per_food.tsv"]) if r["food_id"] == "2"]
+    scored = [r for r in _rows(files["match_rate_steps.tsv"]) if r["food_id"] == "2"]
     assert {r["reference"] for r in scored} == {"old"}, "no tryptophan is still scorable on the eight"
 
 
@@ -279,18 +319,20 @@ def test_a_published_zero_scores_zero_and_names_the_limiting_amino_acid(match_re
 
 def test_no_food_is_dropped_or_preferred_across_sources(match_repo):
     files = match.build(_Log())
-    rice = [r for r in _rows(files["match_rate_per_food.tsv"]) if r["description"] == "Rice" and r["reference"] == "old"]
+    rice = [r for r in _rows(files["match_rate_by_reference.tsv"]) if r["description"] == "Rice"]
     assert {r["source"] for r in rice} == {"usda", "other"}
     assert len(rice) == 2
 
 
 def test_every_row_names_its_source_and_reference(match_repo):
     files = match.build(_Log())
-    for r in _rows(files["match_rate_per_food.tsv"]):
-        assert r["source"] in ("usda", "other") and r["source_detail"] and r["reference_label"]
-    for r in _rows(files["match_rate_per_food.tsv"]):
-        if r["source"] == "other":
-            assert r["citation"].startswith("the author's spreadsheet")
+    for name in ("match_rate_per_food.tsv", "match_rate_by_reference.tsv", "match_rate_steps.tsv"):
+        for r in _rows(files[name]):
+            assert r["source"] in ("usda", "other") and r["source_detail"], name
+            if r["source"] == "other":
+                assert r["source_detail"].startswith("the author's spreadsheet"), name
+    for r in _rows(files["match_rate_steps.tsv"]):
+        assert r["reference"] in ("new", "old")
 
 
 def test_a_duplicate_label_in_the_other_sources_file_stops_the_stage(match_repo):
@@ -309,20 +351,20 @@ def test_an_other_sources_food_without_a_source_stops_the_stage(match_repo):
 def test_a_header_only_other_sources_file_is_allowed(match_repo):
     _other(match_repo / "config" / "other.csv", [])
     files = match.build(_Log())
-    assert all(r["source"] == "usda" for r in _rows(files["match_rate_per_food.tsv"]))
+    assert all(r["source"] == "usda" for r in _rows(files["match_rate_by_reference.tsv"]))
 
 
 # --------------------------------------------------------------------------- outputs
 
 def test_build_writes_every_table(match_repo):
     files = match.build(_Log())
-    for name in ("match_rate_per_food.tsv", "match_rate_by_reference.tsv", "match_rate_ranked_new.tsv",
-                 "match_rate_ranked_old.tsv", "limiting_amino_acid_counts.tsv", "foods_not_scored.tsv",
-                 "match_summary.ini"):
+    for name in ("match_rate_per_food.tsv", "match_rate_by_reference.tsv", "match_rate_steps.tsv",
+                 "match_rate_ranked_new.tsv", "match_rate_ranked_old.tsv", "limiting_amino_acid_counts.tsv",
+                 "foods_not_scored.tsv", "match_summary.ini"):
         assert name in files, name
 
 
-def test_the_wide_table_puts_old_beside_new_with_the_difference(match_repo):
+def test_the_by_reference_table_puts_old_beside_new_with_the_difference(match_repo):
     files = match.build(_Log())
     rows = _rows(files["match_rate_by_reference.tsv"])
     cols = list(rows[0].keys())

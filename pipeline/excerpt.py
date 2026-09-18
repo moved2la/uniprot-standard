@@ -138,6 +138,7 @@ SPEC: list[tuple[str, list[dict]]] = [
     ("outputs/match/limiting_amino_acid_counts.tsv", [{"kind": "whole"}]),
     ("outputs/match/match_rate_by_reference.tsv", [{"kind": "head", "name": "first60", "n": 60}]),
     ("outputs/match/match_rate_per_food.tsv", [{"kind": "head", "name": "first60", "n": 60}]),
+    ("outputs/match/match_rate_steps.tsv", [{"kind": "head", "name": "first60", "n": 60}]),
     ("outputs/match/match_rate_ranked_skeletal_muscle_protein_with_non_protein_metabolite_pools.tsv", [{"kind": "head", "name": "first100", "n": 100}]),
     ("outputs/match/match_rate_ranked_gorissen_2018_human_muscle.tsv", [{"kind": "head", "name": "first100", "n": 100}]),
     ("outputs/match/foods_not_scored.tsv", [{"kind": "head", "name": "first40", "n": 40}]),
