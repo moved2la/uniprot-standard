@@ -32,31 +32,59 @@ The file on disk goes in `file`, the source's wording in `as_reported`, and anyt
 `location` carries nothing but the place. Values may be read from the PDF by the assistant and audited by the author;
 `transcribed_by` says so.
 
+## Placeholders
+
+`___` means the author fills this in. It is only ever a value a person types, never something
+code writes and never a hash: an unknown hash is left blank. Any stage that meets `___` in a
+field it needs stops and flags; it never defaults. A test walks every `.ini` under `config/` and
+fails on `___` in any `sha256` key.
+
+The same principle covers defaults in code: where the word printed or the column shown is a
+decision, config says it or the stage stops. `[categories] unused_marker` has no code fallback
+for that reason.
+
 ## Folder meanings
+
+One meaning per folder. A new category (blood, liver) repeats this shape under its own name:
+`config/<category>/` and `outputs/<category>/{intermediate,standard}/`.
 
 | Folder | Meaning |
 |---|---|
-| `config/` | Decisions (hand-written) and the config generated from them. The Layer B weights are generated in two forms with identical values: `config/mass_fractions/<type>.ini` (one section per accession, the per-entry citable record) and `config/mass_fractions_per_entry.tsv` (one row per accession, every fiber type side by side, provenance once in the header — the form the aggregation stage reads; D61). |
-| `data/` | What the public databases said, unchanged or minimally tabulated. `data/gene-ontology/` holds the ontology file and the resolved term tables; `data/uniprot_raw/` holds entry JSON as fetched; `data/uniprot_sequences.ini` holds every canonical sequence in tabulated form, with its UniProt MD5, computed MD5, and captured features; `data/iupac/` holds the downloaded IUPAC-IUBMB Table 1 page, its hash, and `amino_acid_symbols.ini` parsed from it; `data/pubchem/` holds the PubChem responses as fetched and `amino_acid_masses.ini` tabulated from them; `data/uniprot_ptmlist/` holds UniProt's PTM vocabulary as fetched and its hash. |
-| `data/literature/` | Not committed (`.gitignore`). The literature files as downloaded or hand-obtained, unchanged, one folder per source id; `manifest.ini` (generated) records url, path, sha256, bytes, retrieval time, and whether the file was obtained by hand; `README.md` (generated) is the human-readable provenance. A reviewer re-creates the folder with `fetch_literature.py` plus the hand-obtained files named in the manifest. |
-| `outputs/` | Everything computed here that is not config: flags, evidence summaries, delta tables. `outputs/composition/` holds `amino_acid_composition_per_protein.tsv` and the processing and PTM disclosures. `outputs/digest/` holds the in-silico digest tables. `outputs/literature_inventory/` holds the structure of every literature file (members, sheets, header rows) read by code from the hashed files. `outputs/mass_fractions/` holds the weight tables (full and per-tier ranked), completeness, cross-checks, and summary. `outputs/standard/` holds the standard: the profiles, differences, sensitivity, bounds, completeness, EAA subset, the uncertainty tables, and `plots/` — see `docs/pipeline_map.md` for which file answers which question. |
-| `logs/` | Debugging only: one timestamped log per stage per run, plus one per test run. Not committed; not part of the record. The record is the header of each generated file plus `outputs/flags.tsv`. |
-| `docs/` | `pipeline_map.md` (every stage, its inputs and outputs, and the flowchart), plan, decisions, methods, conventions, handoffs. |
+| `config/` | Decisions (hand-written) and the config generated from them. `literature_sources.ini` holds every source the repository cites, one section each, with `used_for` naming what it is used for. The Layer B weights are generated in two forms with identical values: `config/mass_fractions/<type>.ini` (one section per accession, the per-entry citable record) and `config/mass_fractions_per_entry.tsv` (one row per accession, every fiber type side by side, provenance once in the header — the form the aggregation stage reads; D61). |
+| `data/` | What the public databases said, unchanged or minimally tabulated. `data/gene-ontology/`, `data/uniprot_raw/`, `data/uniprot_sequences.ini`, `data/iupac/`, `data/pubchem/`, `data/uniprot_ptmlist/`, `data/usda/`. |
+| `data/literature/` | Not committed (`.gitignore`). The literature files as obtained, unchanged, one folder per source id. Generated beside them: `manifest.ini` (url, path, sha256, bytes, retrieval time), `manifest_map.tsv` (one row per source, one column per purpose, `X` where used), `README.md` (human-readable provenance). Nothing here is downloaded by code (D80); `python run.py fetch-literature` hashes what is on disk. |
+| `outputs/intermediate/` | What feeds the standard but is not the standard, one folder per stage: `protein_set/`, `composition/`, `digest/`, `literature_inventory/`, `mass_fractions/`. |
+| `outputs/standard/` | The standard. The deliverable tables and the profiles at the top; `uncertainty/`, `stress/` and `sensitivity/` hold the tables that support them, each with its own `plots/`; `plots/` at the top holds the plots of the standard itself. `docs/pipeline_map.md` says which file answers which question. |
+| `outputs/match/` | Match Rate. The per-food and cross-reference tables at the top; `match/<reference>/` — one folder per `[reference.*]` section of `config/match_rate.ini` — holds that reference's ranked table. |
+| `outputs/usda/`, `outputs/comparison/` | The food side; the standard beside Gorissen 2018's measurement. |
+| `outputs/flags.tsv` | Cases the rules could not settle. Written only when a flag is raised. |
+| `logs/` | Debugging only: one timestamped log per stage per run, plus one per test run, plus one master log per command holding exactly what appeared on screen. Not committed; not the record. The record is the header of each generated file plus `outputs/flags.tsv`. |
+| `docs/` | `run_order.md` (what to rerun after an edit), `pipeline_map.md` (every stage, its inputs and outputs, the flowchart), plan, decisions, methods, conventions, handoffs. |
+
+## Paths in code
+
+Every generated path is resolved through `pipeline/common.py`. Paths derived from a root that
+can move — `OUTPUTS_DIR`, `DATA_DIR` — are **functions, not constants**: a path computed at
+import time cannot follow a test that redirects the root, or a category writing under
+`outputs/<category>/`. `tests/test_paths.py` fails the moment one goes back to being frozen
+(D91). Where a `standard/` file lives is data, not code: `common.STANDARD_SUBFOLDERS` maps a
+file name to its subfolder and `standard_path(name, base)` resolves it against whichever
+standard folder the caller is writing (D90).
 
 ## One command
 
-`python run.py protein-set` runs the protein-set stages in order and then the tests;
-`python run.py composition` runs the composition stages in order and then the tests;
-`python run.py mass-fractions` runs the literature fetch, the digest, the literature
-inventory, and the mass-fraction stages in order and then the tests. The literature fetch
-is also the first stage of `protein-set`, because the measured tier (D56) reads the primary
-dataset.
-`--offline` skips the stages that touch the network and rebuilds from `data/`.
-`python run.py standard` runs `aggregate`, `non_protein_metabolite_pools`, `uncertainty`, `stress`, and `plots` (all offline) and then the tests.
-`python run.py usda` reads the FoodData Central archives; `python run.py comparison` puts the standard beside Gorissen 2018;
-`python run.py match` scores every food against every reference (all offline), each followed by the tests.
-`python run.py excerpt` is tooling, not a stage: it writes bounded, labelled cuts of the large
-generated files into `excerpts/` (not committed, not the record) for review in chat.
+Eight commands, in run order: `fetch-literature`, `protein-set`, `composition`,
+`mass-fractions`, `standard`, `usda`, `comparison`, `match`. Each runs its stages in order and
+then the tests. `--offline` skips the stages that touch the network; only `protein-set` and
+`composition` have any, because nothing in the pipeline downloads (D80).
+
+`python run.py test` runs the tests alone. `python run.py excerpt` is tooling, not a stage: it
+writes bounded, labelled cuts of the large generated files into `excerpts/` (not committed, not
+the record) for review, one spec per command.
+
+**`docs/run_order.md` is the one screen that says what to rerun after an edit.** The rule is:
+the command that reads what changed, then everything after it.
+
 Nothing in the repository is named by a project-plan step number.
 
 ## Rules applied by the code
@@ -96,18 +124,20 @@ abundance) and does not appear in the protein set.
 
 ### Literature rules (`pipeline/fetch_literature.py`)
 
+Nothing here downloads (D80). A literature file is obtained by hand once, saved under
+`data/literature/<source_id>/`, and hashed once; every run re-hashes what is on disk and must
+reproduce the pin. **F3, F4, F4b and F6 retired with the download code** in Step 7a.
+
 | Rule | Reads | Result |
 |---|---|---|
-| **F1 Placeholder** | `file.<n>.url` | A url of `___` is a flag: recorded, skipped, non-zero exit at the end. |
-| **F2 Hash pinned** | `file.<n>.sha256` | Blank → the computed hash is written back into config (the only thing the fetcher writes there). Present → the bytes must hash to it; mismatch is a flag and nothing is written. |
-| **F3 Unchanged** | served bytes | Bytes on disk == bytes served. Nothing is converted or re-saved. A re-fetch whose bytes already equal the file on disk writes nothing (logged as unchanged); a file that cannot be written — locked by a viewer or a sync client — is a flag, not a crash. |
-| **F4 HTTP failure** | response status | A flag, not a retry loop that hides the failure. |
-| **F2b Retrieved once** | the manifest | A file whose hash is already in the manifest keeps the time it was first retrieved; a verified re-fetch does not touch it. Generated config never repeats the retrieval time — the file is identified by its hash, and a re-fetch of an unchanged file must not invalidate anything built from it. |
-| **F4b Verified on disk** | the pinned hash; the file on disk | A failed re-fetch of a file already on disk that hashes to its pin is logged as verified on disk with the failure noted, not flagged; with no verified file on disk the failure is a flag. |
-| **F5 Hand-obtained** | `file.<n>.obtained = manual` | The file must already be on disk under the URL's filename; it is hashed in place and recorded as hand-obtained; never downloaded. |
-| **F6 Blocked page** | served body | HTML where a document (pdf/xlsx/zip/rar/docx) was expected is a flag; nothing written. |
+| **F1 Placeholder** | `file.<n>.url` | A url of `___` is a flag: recorded, skipped, non-zero exit at the end. The stored filename comes from the url, so a missing one cannot be worked around. |
+| **F2 Hash pinned** | `file.<n>.sha256` | Blank → the computed hash is written back into `config/literature_sources.ini` (the only thing this stage writes into config). Present → the bytes on disk must hash to it; a mismatch is a flag. |
+| **F2b Blank, not `___`** | `file.<n>.sha256` | An unknown hash is left blank. `___` is only ever a value a person types; a test fails on `___` in any `sha256` key under `config/`. |
+| **F5 On disk** | `data/literature/<source_id>/` | Every file must already be there; it is hashed in place and the file on disk is the record. A file that is missing, or whose bytes are an HTML page while its name implies a document, is a flag — that is what catches a saved paywall page filed under a `.pdf` name. |
 | **F7 Stored name** | URL basename | Windows-illegal characters → `_`; the served name is kept in the manifest. |
-| **F7b Extension** | the file's magic bytes | When the URL basename has no extension, the one the bytes imply is appended (`%PDF` → `.pdf`, `PK` → `.zip`, `Rar!` → `.rar`, gzip → `.gz`), so every stored file opens in the program a person would use; a hand-obtained file is found under the bare name or under the name with any of those extensions. |
+| **F7b Extension** | the file's magic bytes | When the URL basename has no extension, the one the bytes imply is appended (`%PDF` → `.pdf`, `PK` → `.zip`, `Rar!` → `.rar`, gzip → `.gz`), so every stored file opens in the program a person would use; the file is found under the bare name or under the name with any of those extensions. |
+| **F8 Cited, not stored** | the absence of `file.<n>.*` | A source with no files is cited but not stored — a method citation, a provenance reference, a paywalled article whose values were never transcribed. It appears in the map and the README and is never flagged for a missing file. |
+| **F9 Used for** | `used_for` | Names what the source is used for, comma-separated, from the columns declared in `[categories]`. A value not in that list is a flag, so a typo cannot quietly drop a source out of the map. A source that feeds no calculation carries the `unused_marker`, which prints in the `other` column — a row of blanks would read as an unfilled line. |
 
 ### Digest rules (`pipeline/digest.py`)
 
@@ -148,7 +178,7 @@ abundance) and does not appear in the protein set.
 
 | Rule | Reads | Result |
 |---|---|---|
-| **A0 Inputs** | every file read | Hashed into every output header. |
+| **A0 Inputs** | every file read | Hashed into every output header. Amended in Step 7a (D92): a stage hashes only the config sections and manifest entries it **reads**, not whole shared files — a source added to `data/literature/manifest.ini` for another category must not make a stage's header claim its inputs moved. Keys that record *when* a line was written rather than *what* it says (`retrieved`, `generated`) are excluded, so re-hashing an unchanged file does not mark everything downstream stale. A named section that is absent hashes as absent rather than being skipped. |
 | **A1 Profile** (D64) | `config/mass_fractions_per_entry.tsv` weights; composition `count_*` on `segment_set = master`; the fetched masses | The molar mixture: n_a = Σ_i (w_i / MW_i) count_{i,a}; p_a = n_a m_a / Σ (m = residue or free mass). A1c: the fraction mixture, renormalised, written as a check. Wide tables: g per 100 g protein, unnormalised. |
 | **A2 Sets** | `w_<type>_combined` (D58); `w_<type>_tier1`, `w_<type>_tier2` (D31) | total = every weighted entry under one denominator; contractile and builders = the two tiers under their within-tier weights. No other set is named. |
 | **A3 Uncertainty** (D63) | `v`, `sd`, `valid` per entry and fiber type; `[monte_carlo]` draws and seed | Log-normal per entry, exact moment match; between-fiber spread (σ) and median uncertainty (σ/√n) as two terms; every draw a composition; 2.5 / 50 / 97.5 percentiles. |
