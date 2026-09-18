@@ -287,6 +287,13 @@ def write_ini(cp: configparser.ConfigParser, path: Path, header_lines: list[str]
     path.write_text(render_ini(cp, header_lines), encoding="utf-8", newline="\n")
 
 
+# Keys that record WHEN a generated line was written, not WHAT it says. They change on every
+# run of the stage that writes them, so hashing them makes an unchanged input look changed —
+# the D81 problem: re-hashing a literature file that has not moved would mark every downstream
+# output stale. A hash answers "would this produce the same numbers", and a timestamp cannot.
+VOLATILE_KEYS = ("retrieved", "generated")
+
+
 def hash_ini_sections(path: Path, sections: list[str]) -> str:
     """SHA-256 of just the named sections of an .ini, rendered canonically.
 
@@ -297,7 +304,8 @@ def hash_ini_sections(path: Path, sections: list[str]) -> str:
     had changed when nothing the stage uses had. (A0, amended in Step 7a.)
 
     Sections are sorted and keys sorted within them, so the hash depends on the content read and
-    not on where the section sits in the file or what order the stage asked for them. A section
+    not on where the section sits in the file or what order the stage asked for them. Keys in
+    VOLATILE_KEYS are left out: they say when a line was written, not what it says. A section
     named here that does not exist is recorded as absent rather than skipped, so a section
     disappearing changes the hash instead of quietly matching.
     """
@@ -307,7 +315,8 @@ def hash_ini_sections(path: Path, sections: list[str]) -> str:
         if not cp.has_section(name):
             parts.append(f"[{name}]\n<absent>\n")
             continue
-        body = "".join(f"{k} = {v}\n" for k, v in sorted(cp[name].items()))
+        body = "".join(f"{k} = {v}\n" for k, v in sorted(cp[name].items())
+                       if k not in VOLATILE_KEYS)
         parts.append(f"[{name}]\n{body}")
     return hashlib.sha256("".join(parts).encode("utf-8")).hexdigest()
 

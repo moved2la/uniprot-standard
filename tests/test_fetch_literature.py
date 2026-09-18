@@ -255,3 +255,61 @@ def test_no_placeholder_hash_anywhere_in_config():
                 if key.endswith("sha256") and value.strip() == "___":
                     bad.append(f"{path.name} [{sec}] {key}")
     assert not bad, f"placeholder in a sha256 key: {bad}"
+
+
+# --------------------------------------------------------------------------- input hashing
+
+def _manifest(path, retrieved, sha="aaa"):
+    cp = configparser.ConfigParser(interpolation=None)
+    cp.optionxform = str
+    cp["file.alpha_2001.file.1"] = {"source_id": "alpha_2001", "sha256": sha, "bytes": "100",
+                                    "path": "data/literature/alpha_2001/paper.pdf",
+                                    "retrieved": retrieved}
+    cp["file.other_2099.file.1"] = {"source_id": "other_2099", "sha256": "bbb", "bytes": "200",
+                                    "path": "data/literature/other_2099/x.pdf",
+                                    "retrieved": retrieved}
+    with open(path, "w", encoding="utf-8") as fh:
+        cp.write(fh)
+    return path
+
+
+MINE = ["file.alpha_2001.file.1"]
+
+
+def test_re_hashing_an_unchanged_file_does_not_move_the_hash(tmp_path):
+    """D81: a retrieval time is when, not what. Re-running the literature hashing must not
+    make every downstream output read stale."""
+    m = _manifest(tmp_path / "manifest.ini", "2026-01-01T00:00:00Z")
+    before = common.hash_ini_sections(m, MINE)
+    _manifest(m, "2026-06-30T12:00:00Z")
+    assert common.hash_ini_sections(m, MINE) == before
+
+
+def test_a_changed_file_does_move_the_hash(tmp_path):
+    m = _manifest(tmp_path / "manifest.ini", "2026-01-01T00:00:00Z")
+    before = common.hash_ini_sections(m, MINE)
+    _manifest(m, "2026-01-01T00:00:00Z", sha="zzz")
+    assert common.hash_ini_sections(m, MINE) != before
+
+
+def test_a_source_added_for_another_category_does_not_move_the_hash(tmp_path):
+    """The Step 6 case: this stage never reads the new section."""
+    m = _manifest(tmp_path / "manifest.ini", "2026-01-01T00:00:00Z")
+    before = common.hash_ini_sections(m, MINE)
+    cp = common.read_ini(m)
+    cp["file.blood_2026.file.1"] = {"source_id": "blood_2026", "sha256": "ccc",
+                                    "path": "data/literature/blood_2026/y.pdf"}
+    with open(m, "w", encoding="utf-8") as fh:
+        cp.write(fh)
+    assert common.hash_ini_sections(m, MINE) == before
+
+
+def test_a_section_that_disappears_moves_the_hash(tmp_path):
+    """Absence is recorded, not skipped: a vanished input must not hash the same as a present one."""
+    m = _manifest(tmp_path / "manifest.ini", "2026-01-01T00:00:00Z")
+    before = common.hash_ini_sections(m, MINE)
+    cp = common.read_ini(m)
+    cp.remove_section("file.alpha_2001.file.1")
+    with open(m, "w", encoding="utf-8") as fh:
+        cp.write(fh)
+    assert common.hash_ini_sections(m, MINE) != before
