@@ -81,7 +81,7 @@ INPUTS = {
     "fiber_type_mix": common.FIBER_TYPE_MIX_INI,
     "masses": common.AMINO_ACID_MASSES_INI,
     "symbols": common.AMINO_ACID_SYMBOLS_INI,
-    "manifest": common.DATA_DIR / "literature" / "manifest.ini",
+    "manifest": common.LITERATURE_MANIFEST_INI,
 }
 
 

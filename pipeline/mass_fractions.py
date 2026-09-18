@@ -3,7 +3,8 @@
 mass_fractions.py — offline stage: Layer B weights from the primary dataset.
 
 Reads
-  config/mass_fraction_decisions.ini      the [source.*] with role = primary and its [columns.*] map;
+  config/literature_sources.ini           the [source.*] with role = primary (Step 7a)
+  config/mass_fraction_decisions.ini      its [columns.*] map;
                                           the method-citation source with two tables (iBAQ vs LFQ)
   data/literature/manifest.ini            path + sha256 of every literature file (B0)
   config/accessions.ini                   the pool: accession, gene, tier
@@ -84,9 +85,10 @@ from pathlib import Path
 from pipeline import common
 from pipeline.literature_inventory import find_rar_tool, read_archive_members
 
-DECISIONS_INI = common.CONFIG_DIR / "mass_fraction_decisions.ini"
+DECISIONS_INI = common.CONFIG_DIR / "mass_fraction_decisions.ini"   # column maps, digest rules
+SOURCES_INI = common.LITERATURE_SOURCES_INI                          # the [source.*] sections (Step 7a)
 CARROLL_INI = common.CONFIG_DIR / "carroll_classical_fractionation.ini"
-MANIFEST_INI = common.DATA_DIR / "literature" / "manifest.ini"
+MANIFEST_INI = common.LITERATURE_MANIFEST_INI
 MASS_FRACTIONS_TSV = common.MASS_FRACTIONS_TSV                 # generated config (D61)
 OUT_DIR = common.MASS_FRACTIONS_DIR
 DIGEST_DIR = common.DIGEST_DIR
@@ -911,15 +913,16 @@ def per_entry_table(measured, tiers, meta: dict, header_common: list[str]) -> st
 
 def build(log) -> dict:
     dec = common.read_ini(DECISIONS_INI)
+    src_cp = common.read_ini(SOURCES_INI)
     manifest = common.read_ini(MANIFEST_INI)
-    primaries = [s for s in dec.sections() if s.startswith("source.") and dec[s].get("role") == "primary"]
+    primaries = [s for s in src_cp.sections() if s.startswith("source.") and src_cp[s].get("role") == "primary"]
     if len(primaries) != 1:
         raise SystemExit(f"[STOP] expected exactly one [source.*] with role = primary, found {primaries}")
     primary = primaries[0][len("source."):]
-    src = dec[f"source.{primary}"]
+    src = src_cp[f"source.{primary}"]
     cols = dec[f"columns.{primary}.{PRIMARY_FILE_KEY}"]
-    method_with_tables = [s[len("source."):] for s in dec.sections() if s.startswith("source.")
-                          and dec[s].get("role") == "method_citation" and dec[s].get("file.2.url")]
+    method_with_tables = [s[len("source."):] for s in src_cp.sections() if s.startswith("source.")
+                          and src_cp[s].get("role") == "method_citation" and src_cp[s].get("file.2.url")]
     if len(method_with_tables) != 1:
         raise SystemExit(f"[STOP] expected exactly one method-citation source with two tables (the iBAQ-vs-LFQ comparison), found {method_with_tables}")
 

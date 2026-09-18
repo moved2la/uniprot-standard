@@ -28,7 +28,7 @@ the paper's denominator is a protein mass that includes the amino acids it did n
 
 Reads
   config/gorissen_2018_comparison.ini                    the transcribed Table 1 column (hand-written, D79/D84)
-  config/mass_fraction_decisions.ini                     the [source.gorissen_2018] citation
+  config/literature_sources.ini                          the [source.gorissen_2018] citation
   data/literature/manifest.ini                           the green light: the PDF must be on disk and hashed (D78)
   data/iupac/amino_acid_symbols.ini                      trivial name -> letter: nothing is named in code
   outputs/standard/_calculated_amino_acid_standard.tsv                              protein only
@@ -82,14 +82,14 @@ SOURCE_ID = "gorissen_2018"
 
 INPUTS = {
     "comparison": common.CONFIG_DIR / "gorissen_2018_comparison.ini",
-    "decisions": common.CONFIG_DIR / "mass_fraction_decisions.ini",
+    "sources": common.LITERATURE_SOURCES_INI,
     "symbols": common.AMINO_ACID_SYMBOLS_INI,
     "standard": common.standard_path("_calculated_amino_acid_standard.tsv"),
     "standard_npmp": common.standard_path("_calculated_amino_acid_standard_with_non_protein_metabolite_pools.tsv"),
     "masses": common.AMINO_ACID_MASSES_INI,
     "pools": common.NON_PROTEIN_METABOLITE_POOLS_INI,
 }
-MANIFEST = common.DATA_DIR / "literature" / "manifest.ini"
+MANIFEST = common.LITERATURE_MANIFEST_INI
 
 
 class Stop(SystemExit):
@@ -128,7 +128,7 @@ def green_light(log) -> dict:
     hits = [s for s in man.sections() if man[s].get("source_id", "").strip() == SOURCE_ID]
     if not hits:
         raise Stop(f"no file for source {SOURCE_ID} in {_rel(MANIFEST)}; "
-                   f"add [source.{SOURCE_ID}] to config/mass_fraction_decisions.ini and run "
+                   f"add [source.{SOURCE_ID}] to config/literature_sources.ini and run "
                    f"`python pipeline/fetch_literature.py --only {SOURCE_ID}` (D78)")
     sec = man[hits[0]]
     path = common.REPO_ROOT / sec.get("path", "").strip()
@@ -143,10 +143,10 @@ def green_light(log) -> dict:
 
 
 def citation() -> str:
-    cp = common.read_ini(INPUTS["decisions"])
+    cp = common.read_ini(INPUTS["sources"])
     sec = f"source.{SOURCE_ID}"
     if sec not in cp:
-        raise Stop(f"[{sec}] not in {INPUTS['decisions'].name}")
+        raise Stop(f"[{sec}] not in {INPUTS['sources'].name}")
     c, doi = cp[sec].get("citation", "").strip(), cp[sec].get("doi", "").strip()
     return f"{cp[sec].get('id_short', '').strip()} {c} DOI {doi}"
 

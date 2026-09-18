@@ -34,6 +34,13 @@ ACCESSIONS_INI = CONFIG_DIR / "accessions.ini"
 SEGMENTS_INI = CONFIG_DIR / "segments.ini"
 FLAGS_TSV = OUTPUTS_DIR / "flags.tsv"
 
+# Literature: the sources are declared in config, the files sit on disk, the manifest is
+# generated from the two by `python run.py fetch-literature`. Nothing is downloaded (D80).
+LITERATURE_SOURCES_INI = CONFIG_DIR / "literature_sources.ini"   # hand-written: one section per source
+LITERATURE_DIR = DATA_DIR / "literature"                          # one folder per source
+LITERATURE_MANIFEST_INI = LITERATURE_DIR / "manifest.ini"         # generated: one section per file
+LITERATURE_MANIFEST_MAP_TSV = LITERATURE_DIR / "manifest_map.tsv" # generated: source x category
+
 # --------------------------------------------------------------------------- outputs/ layout
 #
 # Three meanings, one folder each:
@@ -296,6 +303,7 @@ def running_command_is_before(command: str) -> bool:
     """True when run.py is executing an EARLIER command than `command` (env UNIPROT_STANDARD_COMMAND),
     so `command`'s outputs are legitimately stale until it is run next. False for `python run.py test`."""
     import os
-    order = ["protein-set", "composition", "mass-fractions", "standard", "usda", "comparison", "match"]
+    order = ["fetch-literature", "protein-set", "composition", "mass-fractions", "standard",
+             "usda", "comparison", "match"]
     current = os.environ.get("UNIPROT_STANDARD_COMMAND", "")
     return current in order and command in order and order.index(current) < order.index(command)

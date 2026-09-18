@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Single entry point for the repository.
 
-    python run.py protein-set              fetch literature -> resolve -> enumerate -> fetch sequences -> build -> deltas -> tests
-    python run.py protein-set --offline    skip the four network stages; rebuild from data/ on disk
+    python run.py fetch-literature         hash the literature files on disk -> manifest, map, README (never downloads, D80)
+    python run.py protein-set              resolve -> enumerate -> fetch sequences -> build -> deltas -> tests
+    python run.py protein-set --offline    skip the three network stages; rebuild from data/ on disk
     python run.py composition              fetch masses -> fetch ptmlist -> composition -> ptm disclosure -> tests
     python run.py composition --offline    skip the two network stages; recompute from data/ on disk
-    python run.py mass-fractions           fetch literature -> digest -> literature inventory -> mass fractions -> tests
-    python run.py mass-fractions --offline skip the fetch; recompute from data/ on disk
+    python run.py mass-fractions           digest -> literature inventory -> mass fractions -> tests (offline)
     python run.py standard                 aggregate -> non_protein_metabolite_pools -> uncertainty -> stress -> plots -> tests (all offline)
     python run.py <command> --stop-after <stage>
     python run.py usda                     read the USDA FoodData Central archives in data/usda/ -> tests (offline)
@@ -36,11 +36,15 @@ sys.path.insert(0, str(ROOT))
 
 COMMANDS = {
     # command: (network stages, offline stages). Each stage is pipeline/<name>.py with a main(argv).
-    "protein-set": (["fetch_literature", "resolve_ontology_term", "enumerate_pool", "fetch_sequences"],
+    # fetch-literature is its own command (D80, D81): it hashes what is on disk, never downloads,
+    # and is run when a literature file is added or replaced — not on every protein-set run.
+    "fetch-literature": ([],
+                         ["fetch_literature"]),
+    "protein-set": (["resolve_ontology_term", "enumerate_pool", "fetch_sequences"],
                     ["build_protein_set", "isoform_processing_deltas"]),
     "composition": (["fetch_amino_acid_masses", "fetch_ptmlist"],
                     ["composition", "ptm_disclosure"]),
-    "mass-fractions": (["fetch_literature"],
+    "mass-fractions": ([],
                        ["digest", "literature_inventory", "mass_fractions"]),
     "standard": ([],
                  ["aggregate", "non_protein_metabolite_pools", "uncertainty", "stress", "plots"]),
@@ -54,7 +58,8 @@ COMMANDS = {
 
 
 RUN_LOG: Path | None = None
-COMMAND_ORDER = ["protein-set", "composition", "mass-fractions", "standard", "usda", "comparison", "match"]
+COMMAND_ORDER = ["fetch-literature", "protein-set", "composition", "mass-fractions", "standard",
+                 "usda", "comparison", "match"]
 
 
 class _Tee:

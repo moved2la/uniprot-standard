@@ -154,7 +154,7 @@ def dataset_gene_cells(source_id: str, file_key: str, log) -> list[str]:
     import io
     from openpyxl import load_workbook
     dec = common.read_ini(common.CONFIG_DIR / "mass_fraction_decisions.ini")
-    manifest = common.read_ini(common.DATA_DIR / "literature" / "manifest.ini")
+    manifest = common.read_ini(common.LITERATURE_MANIFEST_INI)
     cols = dec[f"columns.{source_id}.{file_key}"]
     m = manifest[f"file.{source_id}.{file_key}"]
     path = common.REPO_ROOT / m["path"]
@@ -187,7 +187,7 @@ def contaminant_accessions(source_id: str, log) -> set[str]:
     """Accessions in the cited contaminant FASTA (gzip or plain). The header's first
     token, with a leading 'CON__' or 'sp|'/'tr|' prefix removed, is the accession."""
     import gzip
-    manifest = common.read_ini(common.DATA_DIR / "literature" / "manifest.ini")
+    manifest = common.read_ini(common.LITERATURE_MANIFEST_INI)
     m = manifest[f"file.{source_id}.file.1"]
     path = common.REPO_ROOT / m["path"]
     got = common.sha256_file(path)
