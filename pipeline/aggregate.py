@@ -69,8 +69,8 @@ from pathlib import Path
 from pipeline import common
 from pipeline.mass_fractions import read_tsv_skip_comments, fnum, sha256_path
 
-OUT_DIR = common.STANDARD_DIR
-MF_DIR = common.MASS_FRACTIONS_DIR
+OUT_DIR = common.standard_dir()
+MF_DIR = common.mass_fractions_dir()
 FIBER_TYPES = ("I", "IIa", "IIx")
 PROFILES = ("total", "contractile", "builders")   # rule A2: the total (D58), and its two tiers by name (D66)
 CONVENTIONS = ("free", "residue")
@@ -81,7 +81,7 @@ COMPLETENESS_RANKS = (1, 5, 10, 30)
 
 INPUTS = {
     "weights": common.MASS_FRACTIONS_TSV,
-    "composition": common.COMPOSITION_TSV,
+    "composition": common.composition_tsv(),
     "masses": common.AMINO_ACID_MASSES_INI,
     "symbols": common.AMINO_ACID_SYMBOLS_INI,
     "eaa": common.EAA_INI,
@@ -89,9 +89,9 @@ INPUTS = {
     "mhc_actin": MF_DIR / "classical_check_carroll_2004.tsv",
     "band_families": MF_DIR / "band_families.tsv",
     "family_bounds": MF_DIR / "family_bounds.tsv",
-    "isoform_deltas": common.PROTEIN_SET_OUT_DIR / "isoform_deltas.tsv",
-    "processing_deltas": common.COMPOSITION_DIR / "processing_mass_deltas.tsv",
-    "ptm_deltas": common.COMPOSITION_DIR / "ptm_mass_deltas.tsv",
+    "isoform_deltas": common.protein_set_out_dir() / "isoform_deltas.tsv",
+    "processing_deltas": common.composition_dir() / "processing_mass_deltas.tsv",
+    "ptm_deltas": common.composition_dir() / "ptm_mass_deltas.tsv",
     "outside_pool": MF_DIR / "dataset_rows_outside_pool.tsv",
 }
 

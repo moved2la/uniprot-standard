@@ -61,8 +61,8 @@ from pipeline import common
 ROOT = common.REPO_ROOT
 CONFIG = common.CONFIG_DIR / "mass_fraction_decisions.ini"
 SEQ_FILE = common.SEQUENCES_INI
-COMP_TSV = common.COMPOSITION_TSV
-OUT_DIR = common.DIGEST_DIR
+COMP_TSV = common.composition_tsv()
+OUT_DIR = common.digest_dir()
 LOG_DIR = common.LOGS_DIR
 PLACEHOLDER = "___"
 AA20 = set("ACDEFGHIKLMNPQRSTVWY")

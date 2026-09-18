@@ -51,7 +51,7 @@ from pipeline import common
 from pipeline.mass_fractions import read_tsv_skip_comments, fnum, sha256_path
 from pipeline import aggregate as ag
 
-OUT_DIR = common.STANDARD_DIR
+OUT_DIR = common.standard_dir()
 AA = ag.AA
 FIBER_TYPES = ag.FIBER_TYPES
 PROFILES = ag.PROFILES
@@ -128,7 +128,7 @@ def build(log) -> tuple[dict[str, str], dict]:
     entries, _ = ag.load_entries()
     counts = ag.load_counts(entries)
     standard = read_standard_profiles()
-    inputs = {"weights": common.MASS_FRACTIONS_TSV, "composition": common.COMPOSITION_TSV, "masses": common.AMINO_ACID_MASSES_INI,
+    inputs = {"weights": common.MASS_FRACTIONS_TSV, "composition": common.composition_tsv(), "masses": common.AMINO_ACID_MASSES_INI,
               "settings": common.UNCERTAINTY_SETTINGS_INI, "profiles": common.standard_path("amino_acid_profiles.tsv", OUT_DIR),
               "mhc_actin": common.standard_path("sensitivity_mhc_actin_spread.tsv", OUT_DIR), "bounds": common.standard_path("bounds_after_weighting.tsv", OUT_DIR),
               "completeness": common.standard_path("completeness_sensitivity.tsv", OUT_DIR)}

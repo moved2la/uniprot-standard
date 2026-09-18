@@ -256,11 +256,11 @@ def main(argv=None) -> int:
     summary_cp["composition"] = summary
 
     files = {
-        common.COMPOSITION_TSV: _tsv_text(ALL_COLUMNS, all_rows),
-        common.COMPOSITION_DIR / "processing_mass_deltas.tsv": _tsv_text(DELTA_COLUMNS, delta_rows),
-        common.COMPOSITION_DIR / "processing_mass_bound.tsv":
+        common.composition_tsv(): _tsv_text(ALL_COLUMNS, all_rows),
+        common.composition_dir() / "processing_mass_deltas.tsv": _tsv_text(DELTA_COLUMNS, delta_rows),
+        common.composition_dir() / "processing_mass_bound.tsv":
             _tsv_text(["amino_acid", "max_abs_delta_free_frac", "where"], bound_rows),
-        common.COMPOSITION_SUMMARY_INI: common.render_ini(summary_cp, header_note),
+        common.composition_summary_ini(): common.render_ini(summary_cp, header_note),
     }
 
     if args.check:
@@ -272,7 +272,7 @@ def main(argv=None) -> int:
         log.info("check: %s", "composition outputs are current" if ok else "composition outputs are STALE")
         return 0 if ok else 1
 
-    common.COMPOSITION_DIR.mkdir(parents=True, exist_ok=True)
+    common.composition_dir().mkdir(parents=True, exist_ok=True)
     for path, text in files.items():
         path.write_text(text, encoding="utf-8", newline="\n")
     log.info("wrote %d rows to amino_acid_composition_per_protein.tsv, %d processing rows; water identity max error %s g/mol; "

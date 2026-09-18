@@ -152,7 +152,10 @@ def manifest_map_rows(cp: configparser.ConfigParser) -> tuple[list[str], list[li
     `data/literature/` folder listing, which the file explorer sorts A-Z. Same order, same scan.
     """
     cats = [c.strip() for c in cp["categories"]["columns"].split(",") if c.strip()]
-    marker = cp["categories"].get("unused_marker", "unused").strip()
+    if "unused_marker" not in cp["categories"]:
+        raise SystemExit("[STOP] [categories] in literature_sources.ini has no unused_marker; "
+                         "the word printed for a source that feeds no calculation is a decision, not a default")
+    marker = cp["categories"]["unused_marker"].strip()
     header = ["source"] + cats
     body, unknown = [], []
     for sid, sec in sorted(source_sections(cp), key=lambda pair: pair[0]):
@@ -203,7 +206,7 @@ def write_readme(cp: configparser.ConfigParser, manifest: configparser.ConfigPar
         "`manifest_map.tsv` beside this file says which category uses which source.",
         "",
     ]
-    for sid, sec in source_sections(cp):
+    for sid, sec in sorted(source_sections(cp), key=lambda pair: pair[0]):
         used = ", ".join(categories_used_for(sec)) or "—"
         out.append(f"## {sid}  — {sec.get('id_short', '')}, role: `{sec.get('role', '')}` "
                    f"({sec.get('role_decision', '')}), used by: {used}")
@@ -239,7 +242,8 @@ def build(log, only: str | None = None):
     pending: list[tuple[str, int, str]] = []
     n_files = n_cited_only = 0
 
-    for sid, sec in source_sections(cp, only):
+    # A-Z, like the map and the data/literature/ folder listing: the log is read beside them.
+    for sid, sec in sorted(source_sections(cp, only), key=lambda pair: pair[0]):
         if not categories_used_for(sec):
             flags.append(f"source.{sid}: no used_for — every source names what it is used for, "
                          f"or the unused marker")

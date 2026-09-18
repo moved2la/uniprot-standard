@@ -113,20 +113,20 @@ def main(argv=None) -> int:
             if abs(d[a]) > proc_bound[a][0]:
                 proc_bound[a] = (abs(d[a]), acc)
 
-    common.write_tsv(common.PROTEIN_SET_OUT_DIR / "isoform_deltas.tsv",
+    common.write_tsv(common.protein_set_out_dir() / "isoform_deltas.tsv",
                      ["accession", "gene", "tier", "isoform_id", "isoform_name", "status",
                       "length_canonical", "length_isoform", "max_abs_delta", "amino_acid_at_max", *delta_cols],
                      iso_rows)
-    common.write_tsv(common.PROTEIN_SET_OUT_DIR / "isoforms_skipped_non_standard_alphabet.tsv",
+    common.write_tsv(common.protein_set_out_dir() / "isoforms_skipped_non_standard_alphabet.tsv",
                      ["accession", "gene", "isoform_id", "non_standard_letters"], skipped_isoforms)
-    common.write_tsv(common.PROTEIN_SET_OUT_DIR / "isoform_bound.tsv",
+    common.write_tsv(common.protein_set_out_dir() / "isoform_bound.tsv",
                      ["amino_acid", "max_abs_delta_fraction", "where"],
                      [[a, _fmt(iso_bound[a][0]), iso_bound[a][1]] for a in AA])
-    common.write_tsv(common.PROTEIN_SET_OUT_DIR / "processing_deltas.tsv",
+    common.write_tsv(common.protein_set_out_dir() / "processing_deltas.tsv",
                      ["accession", "gene", "tier", "length_full", "length_master", "n_residues_removed",
                       "max_abs_delta", "amino_acid_at_max", *delta_cols],
                      proc_rows)
-    common.write_tsv(common.PROTEIN_SET_OUT_DIR / "processing_bound.tsv",
+    common.write_tsv(common.protein_set_out_dir() / "processing_bound.tsv",
                      ["amino_acid", "max_abs_delta_fraction", "where"],
                      [[a, _fmt(proc_bound[a][0]), proc_bound[a][1]] for a in AA])
 

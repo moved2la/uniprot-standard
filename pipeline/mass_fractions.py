@@ -90,11 +90,11 @@ SOURCES_INI = common.LITERATURE_SOURCES_INI                          # the [sour
 CARROLL_INI = common.CONFIG_DIR / "carroll_classical_fractionation.ini"
 MANIFEST_INI = common.literature_manifest()
 MASS_FRACTIONS_TSV = common.MASS_FRACTIONS_TSV                 # generated config (D61)
-OUT_DIR = common.MASS_FRACTIONS_DIR
-DIGEST_DIR = common.DIGEST_DIR
-ISOFORM_DELTAS_TSV = common.PROTEIN_SET_OUT_DIR / "isoform_deltas.tsv"
-PROCESSING_DELTAS_TSV = common.COMPOSITION_DIR / "processing_mass_deltas.tsv"
-PTM_DELTAS_TSV = common.COMPOSITION_DIR / "ptm_mass_deltas.tsv"
+OUT_DIR = common.mass_fractions_dir()
+DIGEST_DIR = common.digest_dir()
+ISOFORM_DELTAS_TSV = common.protein_set_out_dir() / "isoform_deltas.tsv"
+PROCESSING_DELTAS_TSV = common.composition_dir() / "processing_mass_deltas.tsv"
+PTM_DELTAS_TSV = common.composition_dir() / "ptm_mass_deltas.tsv"
 SHARED_PAIRS_TSV = DIGEST_DIR / "shared_pairs.tsv"
 
 PRIMARY_FILE_KEY = "file.1"             # the primary source is the [source.*] section whose role = primary (D32)
@@ -181,7 +181,7 @@ def load_pool() -> dict[str, dict]:
 
 def load_master_mw() -> dict[str, float]:
     mw = {}
-    for r in common.read_tsv(common.COMPOSITION_TSV):
+    for r in common.read_tsv(common.composition_tsv()):
         if r["segment_set"] == "master":
             mw[r["accession"]] = float(r["mw"])
     return mw
@@ -526,7 +526,7 @@ def family_bounds(measured, tiers, cutoff: int) -> list[list]:
     weight — what the within-family split could cost the profile if it were entirely wrong."""
     aas = list(common.AMINO_ACIDS)
     frac = {}
-    for r in common.read_tsv(common.COMPOSITION_TSV):
+    for r in common.read_tsv(common.composition_tsv()):
         if r["segment_set"] == "master":
             frac[r["accession"]] = {a: float(r[f"free_frac_{a}"]) for a in aas}
     fams = families_from_pairs(cutoff)
@@ -946,7 +946,7 @@ def build(log) -> dict:
     hashes = {
         "dataset": f"{mf['path']} sha256 {sha}",
         "accessions": f"{common.ACCESSIONS_INI.relative_to(common.REPO_ROOT).as_posix()} sha256 {sha256_path(common.ACCESSIONS_INI)}",
-        "composition": f"{common.COMPOSITION_TSV.relative_to(common.REPO_ROOT).as_posix()} sha256 {sha256_path(common.COMPOSITION_TSV)}",
+        "composition": f"{common.composition_tsv().relative_to(common.REPO_ROOT).as_posix()} sha256 {sha256_path(common.composition_tsv())}",
     }
     header_common = [f"generated   = {common.iso_now()}",
                      f"dataset     = {hashes['dataset']}",
@@ -1054,7 +1054,7 @@ def build(log) -> dict:
     files["shared_gene_rows.tsv"] = tsv_text(header_common, hdr, body)
 
     # R5-excluded entries (D59): the mass they would have carried, from their dataset value and UniProt's molecular weight
-    excl_path = common.PROTEIN_SET_OUT_DIR / "excluded_non_standard_alphabet.tsv"
+    excl_path = common.protein_set_out_dir() / "excluded_non_standard_alphabet.tsv"
     excl_rows = []
     if excl_path.exists():
         outside_by_gene = {r["gene"]: r for r in j["outside"]}

@@ -17,7 +17,7 @@ from pipeline import common, composition
 
 needs_masses = pytest.mark.skipif(not common.AMINO_ACID_MASSES_INI.exists(),
                                   reason="fetch_amino_acid_masses has not run on this machine")
-needs_outputs = pytest.mark.skipif(not common.COMPOSITION_TSV.exists()
+needs_outputs = pytest.mark.skipif(not common.composition_tsv().exists()
                                    or not common.AMINO_ACID_MASSES_INI.exists()
                                    or not common.SEQUENCES_INI.exists(),
                                    reason="composition has not run on this machine")
@@ -65,7 +65,7 @@ def test_composition_outputs_are_current():
 @needs_outputs
 @upstream_running
 def test_composition_covers_every_accession_twice():
-    rows = common.read_tsv(common.COMPOSITION_TSV)
+    rows = common.read_tsv(common.composition_tsv())
     accessions = common.read_ini(common.ACCESSIONS_INI)
     expected = [a for a in accessions.sections() if accessions[a].get("flag_open") != "true"]
     seen = {}

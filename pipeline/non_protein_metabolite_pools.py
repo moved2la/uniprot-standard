@@ -66,7 +66,7 @@ from pipeline.aggregate import (FIBER_TYPES, load_eaa, load_fiber_type_mix, load
                                 strip_generated_line, tsv_text)
 from pipeline.mass_fractions import read_tsv_skip_comments, fnum, sha256_path
 
-OUT_DIR = common.STANDARD_DIR
+OUT_DIR = common.standard_dir()
 AA = list(common.AMINO_ACIDS)
 PLACEHOLDER = "___"
 COL_ORDER = [(pf, ft) for pf in ("contractile", "builders", "total") for ft in FIBER_TYPES]
@@ -127,16 +127,19 @@ def _cite(cp, section: str) -> str:
     return "; ".join(parts)
 
 
-def green_light(cp, manifest_path: Path) -> list[str]:
+def green_light(cp, manifest_path: Path) -> tuple[list[str], list[str]]:
     """Every source_id named in a filled config line must have at least one hashed file in the manifest.
-    Returns the lines it checked (for the header); raises SystemExit naming every source that is not on disk."""
+
+    Returns (the lines it checked, the manifest sections those sources own). The second is what
+    the header hashes — this stage's inputs are those entries, not the whole shared manifest.
+    Raises SystemExit naming every source that is not on disk."""
     named: dict[str, list[str]] = {}
     for sec in cp.sections():
         sid = cp[sec].get("source_id", "").strip()
         if sid and sid != PLACEHOLDER:
             named.setdefault(sid, []).append(sec)
     if not named:
-        return []
+        return [], []
     if not manifest_path.exists():
         raise SystemExit(f"[STOP] {manifest_path.relative_to(common.REPO_ROOT).as_posix()} does not exist: run the literature fetch first (green light)")
     man = common.read_ini(manifest_path)
@@ -148,8 +151,11 @@ def green_light(cp, manifest_path: Path) -> list[str]:
     if missing:
         detail = "; ".join(f"{sid} (named by {', '.join(named[sid])})" for sid in missing)
         raise SystemExit(f"[STOP] green light refused: no hashed file in the literature manifest for {detail}. "
-                         f"Fetch or hand-obtain the file, run `python run.py mass-fractions --stop-after fetch_literature`, and rerun.")
-    return [f"green light: {sid} -> hashed file in manifest ({', '.join(named[sid])})" for sid in sorted(named)]
+                         f"Fetch or hand-obtain the file, run `python run.py fetch-literature`, and rerun.")
+    lines = [f"green light: {sid} -> hashed file in manifest ({', '.join(named[sid])})" for sid in sorted(named)]
+    read_sections = sorted(msec for msec in man.sections()
+                           if man[msec].get("source_id", "").strip() in named)
+    return lines, read_sections
 
 
 def load_pool(cp, symbols_path: Path, masses: dict) -> dict:
@@ -279,10 +285,17 @@ def k_per_day_from_fsr_percent_per_hour(fsr: float) -> float:
 
 def build(log) -> dict[str, str]:
     cp = common.read_ini(INPUTS["pools"])
-    light = green_light(cp, INPUTS["manifest"])
+    light, manifest_sections = green_light(cp, INPUTS["manifest"])
     for ln in light:
         log.info(ln)
-    hashes = {k: f"{p.relative_to(common.REPO_ROOT).as_posix()} sha256 {sha256_path(p)}" for k, p in INPUTS.items() if p.exists()}
+    # A0 as amended in Step 7a: hash the manifest ENTRIES this stage reads, not the whole file.
+    # A source added for another category must not make this stage's header claim its inputs moved.
+    hashes = {k: f"{p.relative_to(common.REPO_ROOT).as_posix()} sha256 {sha256_path(p)}"
+              for k, p in INPUTS.items() if k != "manifest" and p.exists()}
+    if INPUTS["manifest"].exists():
+        hashes["manifest"] = (f"{INPUTS['manifest'].relative_to(common.REPO_ROOT).as_posix()} "
+                              f"sections [{', '.join(manifest_sections)}] "
+                              f"sha256 {common.hash_ini_sections(INPUTS['manifest'], manifest_sections)}")
     meta = dict(cp["meta"]) if "meta" in cp else {}
     decisions = meta.get("decisions", "").strip()
     label = meta.get("version_label", "").strip()

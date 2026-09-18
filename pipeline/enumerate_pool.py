@@ -351,7 +351,7 @@ def main(argv=None) -> int:
         for b in tiers[i + 1:]:
             for acc in sorted(pools[a] & pools[b]):
                 overlap_rows.append([acc, a, b])
-    common.write_tsv(common.PROTEIN_SET_OUT_DIR / "pool_overlap.tsv", ["accession", "tier_a", "tier_b"], overlap_rows)
+    common.write_tsv(common.protein_set_out_dir() / "pool_overlap.tsv", ["accession", "tier_a", "tier_b"], overlap_rows)
     log.info("tier overlap: %d accessions in more than one tier", len(overlap_rows))
     log.info("UniProt release: %s", client.release)
     return 0

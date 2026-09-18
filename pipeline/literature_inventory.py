@@ -67,7 +67,7 @@ from pathlib import Path
 from pipeline import common
 
 MANIFEST_INI = common.literature_manifest()
-OUT_DIR = common.LITERATURE_INVENTORY_DIR
+OUT_DIR = common.literature_inventory_dir()
 FILES_TSV = OUT_DIR / "literature_files_and_members.tsv"
 HEADERS_TSV = OUT_DIR / "literature_header_rows.tsv"
 SUMMARY_INI = OUT_DIR / "literature_inventory_summary.ini"

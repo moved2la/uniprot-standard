@@ -70,18 +70,41 @@ def literature_manifest_map() -> Path:
 # into a stage. Every stage resolves its output paths through the constants here — nothing
 # joins "outputs" to a name of its own.
 
-INTERMEDIATE_DIR = OUTPUTS_DIR / "intermediate"
-PROTEIN_SET_OUT_DIR = INTERMEDIATE_DIR / "protein_set"
-COMPOSITION_DIR = INTERMEDIATE_DIR / "composition"
-DIGEST_DIR = INTERMEDIATE_DIR / "digest"
-LITERATURE_INVENTORY_DIR = INTERMEDIATE_DIR / "literature_inventory"
-MASS_FRACTIONS_DIR = INTERMEDIATE_DIR / "mass_fractions"
+# These are FUNCTIONS, not constants. A path computed at import time from OUTPUTS_DIR cannot
+# follow a caller that redirects the root — a test writing to a temp folder, or a category
+# writing under outputs/<category>/. That is not hypothetical: it broke standard_path in
+# delivery 1 and the literature manifest in delivery 2, both times as a failure far from the
+# cause. Anything derived from a root that can move is resolved when it is used.
 
-STANDARD_DIR = OUTPUTS_DIR / "standard"
-STANDARD_PLOTS_DIR = STANDARD_DIR / "plots"
-UNCERTAINTY_DIR = STANDARD_DIR / "uncertainty"
-STRESS_DIR = STANDARD_DIR / "stress"
-SENSITIVITY_DIR = STANDARD_DIR / "sensitivity"
+
+def intermediate_dir() -> Path:
+    """outputs/intermediate/ — what feeds the standard but is not the standard."""
+    return OUTPUTS_DIR / "intermediate"
+
+
+def protein_set_out_dir() -> Path:
+    return intermediate_dir() / "protein_set"
+
+
+def composition_dir() -> Path:
+    return intermediate_dir() / "composition"
+
+
+def digest_dir() -> Path:
+    return intermediate_dir() / "digest"
+
+
+def literature_inventory_dir() -> Path:
+    return intermediate_dir() / "literature_inventory"
+
+
+def mass_fractions_dir() -> Path:
+    return intermediate_dir() / "mass_fractions"
+
+
+def standard_dir() -> Path:
+    """outputs/standard/ — the deliverable tables at the top, companions in subfolders."""
+    return OUTPUTS_DIR / "standard"
 
 
 def category_outputs(category: str) -> dict[str, Path]:
@@ -96,8 +119,12 @@ AMINO_ACID_SYMBOLS_INI = IUPAC_DIR / "amino_acid_symbols.ini"           # parsed
 PUBCHEM_DIR = DATA_DIR / "pubchem"
 AMINO_ACID_MASSES_INI = PUBCHEM_DIR / "amino_acid_masses.ini"           # fetched from PubChem
 PTMLIST_TXT = DATA_DIR / "uniprot_ptmlist" / "ptmlist.txt"               # fetched from UniProt
-COMPOSITION_TSV = COMPOSITION_DIR / "amino_acid_composition_per_protein.tsv"
-COMPOSITION_SUMMARY_INI = COMPOSITION_DIR / "composition_summary.ini"
+def composition_tsv() -> Path:
+    return composition_dir() / "amino_acid_composition_per_protein.tsv"
+
+
+def composition_summary_ini() -> Path:
+    return composition_dir() / "composition_summary.ini"
 
 # Mass fractions (Layer B): the generated weights table (D61) that aggregation reads.
 MASS_FRACTIONS_TSV = CONFIG_DIR / "mass_fractions_per_entry.tsv"
@@ -169,14 +196,14 @@ def standard_path(name: str, base: Path | None = None) -> Path:
     The map holds subfolder NAMES, not absolute paths, for the same reason: an absolute path
     baked in at import time ignores where the caller is writing.
     """
-    base = STANDARD_DIR if base is None else base
+    base = standard_dir() if base is None else base
     sub = STANDARD_SUBFOLDERS.get(name)
     return (base / sub / name) if sub else (base / name)
 
 
 def standard_plot_path(name: str, ext: str, base: Path | None = None) -> Path:
     """Where a standard/ plot lives: in its table's subfolder, else standard/plots/."""
-    base = STANDARD_DIR if base is None else base
+    base = standard_dir() if base is None else base
     sub = STANDARD_PLOT_SUBFOLDERS.get(name)
     return ((base / sub / "plots") if sub else (base / "plots")) / f"{name}.{ext}"
 
@@ -258,6 +285,31 @@ def render_ini(cp: configparser.ConfigParser, header_lines: list[str]) -> str:
 def write_ini(cp: configparser.ConfigParser, path: Path, header_lines: list[str]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(render_ini(cp, header_lines), encoding="utf-8", newline="\n")
+
+
+def hash_ini_sections(path: Path, sections: list[str]) -> str:
+    """SHA-256 of just the named sections of an .ini, rendered canonically.
+
+    A stage's header records what the stage READ, so that a reader can tell whether a rerun
+    would produce the same numbers. Hashing a whole shared file breaks that: adding a source to
+    data/literature/manifest.ini changed the hash recorded by every stage that touches the
+    manifest, including ones that never read the new source — the header then claimed an input
+    had changed when nothing the stage uses had. (A0, amended in Step 7a.)
+
+    Sections are sorted and keys sorted within them, so the hash depends on the content read and
+    not on where the section sits in the file or what order the stage asked for them. A section
+    named here that does not exist is recorded as absent rather than skipped, so a section
+    disappearing changes the hash instead of quietly matching.
+    """
+    cp = read_ini(path)
+    parts = []
+    for name in sorted(sections):
+        if not cp.has_section(name):
+            parts.append(f"[{name}]\n<absent>\n")
+            continue
+        body = "".join(f"{k} = {v}\n" for k, v in sorted(cp[name].items()))
+        parts.append(f"[{name}]\n{body}")
+    return hashlib.sha256("".join(parts).encode("utf-8")).hexdigest()
 
 
 def sha256_file(path: Path) -> str:

@@ -52,7 +52,7 @@ from pipeline import common
 from pipeline.mass_fractions import read_tsv_skip_comments, fnum, sha256_path
 from pipeline import aggregate as ag
 
-OUT_DIR = common.STANDARD_DIR
+OUT_DIR = common.standard_dir()
 AA = ag.AA
 FIBER_TYPES = ag.FIBER_TYPES
 PROFILES = ag.PROFILES
@@ -110,10 +110,10 @@ def build(log) -> dict[str, str]:
     counts = ag.load_counts(entries)
     bands = ag.load_band_families()
     peptides = {}
-    pep_path = common.DIGEST_DIR / "theoretical_peptides.tsv"
+    pep_path = common.digest_dir() / "theoretical_peptides.tsv"
     for r in read_tsv_skip_comments(pep_path):
         peptides[r["accession"]] = int(float(r["n_peptides"]))
-    inputs = {"weights": common.MASS_FRACTIONS_TSV, "composition": common.COMPOSITION_TSV, "masses": common.AMINO_ACID_MASSES_INI,
+    inputs = {"weights": common.MASS_FRACTIONS_TSV, "composition": common.composition_tsv(), "masses": common.AMINO_ACID_MASSES_INI,
               "settings": common.STRESS_SETTINGS_INI, "band_families": ag.INPUTS["band_families"], "peptides": pep_path}
     hashes = {k: f"{p.relative_to(common.REPO_ROOT).as_posix()} sha256 {sha256_path(p)}" for k, p in inputs.items()}
     header_common = [f"generated = {common.iso_now()}"] + [f"input.{k} = {v}" for k, v in hashes.items()] + [

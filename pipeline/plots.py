@@ -35,8 +35,8 @@ from pipeline import common
 from pipeline.mass_fractions import read_tsv_skip_comments
 from pipeline import aggregate as ag
 
-OUT_DIR = common.STANDARD_DIR
-PLOT_DIR = common.STANDARD_PLOTS_DIR
+OUT_DIR = common.standard_dir()
+PLOT_DIR = common.standard_dir() / "plots"
 AA = ag.AA
 FIBER_TYPES = ag.FIBER_TYPES
 PROFILES = ag.PROFILES
