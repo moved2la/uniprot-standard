@@ -150,6 +150,14 @@ def test_the_map_columns_come_from_config_in_config_order(lit_repo):
     assert rows["gamma_2003"] == ["", "", "X", ""]                # cited-only still appears
 
 
+def test_the_map_is_sorted_like_the_folder_listing(lit_repo):
+    """A-Z by source id, so the map scans beside data/literature/ in the explorer."""
+    cp = common.read_ini(lit_repo["cfg"])
+    _, body, _ = fl.manifest_map_rows(cp)
+    ids = [r[0] for r in body]
+    assert ids == sorted(ids), ids
+
+
 def test_a_source_that_feeds_no_calculation_says_so(lit_repo):
     """A row of blanks reads as an unfilled line; the marker says it was decided."""
     text = lit_repo["cfg"].read_text(encoding="utf-8").replace(
@@ -230,6 +238,8 @@ def test_the_real_map_places_every_source_in_a_declared_column():
     src = common.read_ini(common.LITERATURE_SOURCES_INI)
     header, body, unknown = fl.manifest_map_rows(src)
     assert not unknown, unknown
+    ids = [r[0] for r in body]
+    assert ids == sorted(ids), "the map must read A-Z like the data/literature/ folder listing"
     assert header == ["source", "original", "skeletal_muscle", "non_protein_metabolites", "other"]
     blank = [r[0] for r in body if not any(c for c in r[1:])]
     assert not blank, f"sources with no column and no unused marker: {blank}"

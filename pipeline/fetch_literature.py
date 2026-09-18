@@ -147,12 +147,15 @@ def manifest_map_rows(cp: configparser.ConfigParser) -> tuple[list[str], list[li
 
     The first column is the source id exactly as config spells it: `murgia_2021` is already the
     author-year name, and a prettier label would have to be derived from the citation prose.
+
+    Rows are sorted A-Z by that id, NOT left in config order: the map is read beside the
+    `data/literature/` folder listing, which the file explorer sorts A-Z. Same order, same scan.
     """
     cats = [c.strip() for c in cp["categories"]["columns"].split(",") if c.strip()]
     marker = cp["categories"].get("unused_marker", "unused").strip()
     header = ["source"] + cats
     body, unknown = [], []
-    for sid, sec in source_sections(cp):
+    for sid, sec in sorted(source_sections(cp), key=lambda pair: pair[0]):
         used = categories_used_for(sec)
         if used == [marker]:
             body.append([sid] + [marker if c == cats[-1] else "" for c in cats])
