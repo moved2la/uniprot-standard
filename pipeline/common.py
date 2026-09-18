@@ -37,9 +37,26 @@ FLAGS_TSV = OUTPUTS_DIR / "flags.tsv"
 # Literature: the sources are declared in config, the files sit on disk, the manifest is
 # generated from the two by `python run.py fetch-literature`. Nothing is downloaded (D80).
 LITERATURE_SOURCES_INI = CONFIG_DIR / "literature_sources.ini"   # hand-written: one section per source
-LITERATURE_DIR = DATA_DIR / "literature"                          # one folder per source
-LITERATURE_MANIFEST_INI = LITERATURE_DIR / "manifest.ini"         # generated: one section per file
-LITERATURE_MANIFEST_MAP_TSV = LITERATURE_DIR / "manifest_map.tsv" # generated: source x category
+
+
+def literature_dir() -> Path:
+    """data/literature/ — one folder per source.
+
+    A function, not a constant: DATA_DIR is redirected by tests and, later, by a category,
+    and a path computed at import time cannot follow. Anything derived from a root that can
+    move is resolved when it is used.
+    """
+    return DATA_DIR / "literature"
+
+
+def literature_manifest() -> Path:
+    """The generated manifest: one section per stored file, hashes and all."""
+    return literature_dir() / "manifest.ini"
+
+
+def literature_manifest_map() -> Path:
+    """The generated source x category map."""
+    return literature_dir() / "manifest_map.tsv"
 
 # --------------------------------------------------------------------------- outputs/ layout
 #

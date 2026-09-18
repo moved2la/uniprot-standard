@@ -88,7 +88,7 @@ from pipeline.literature_inventory import find_rar_tool, read_archive_members
 DECISIONS_INI = common.CONFIG_DIR / "mass_fraction_decisions.ini"   # column maps, digest rules
 SOURCES_INI = common.LITERATURE_SOURCES_INI                          # the [source.*] sections (Step 7a)
 CARROLL_INI = common.CONFIG_DIR / "carroll_classical_fractionation.ini"
-MANIFEST_INI = common.LITERATURE_MANIFEST_INI
+MANIFEST_INI = common.literature_manifest()
 MASS_FRACTIONS_TSV = common.MASS_FRACTIONS_TSV                 # generated config (D61)
 OUT_DIR = common.MASS_FRACTIONS_DIR
 DIGEST_DIR = common.DIGEST_DIR

@@ -85,7 +85,7 @@ def comparison_repo(tmp_path, monkeypatch):
     monkeypatch.setattr(cmp, "OUT_DIR", out)
     monkeypatch.setattr(cmp, "INPUTS", {
         "comparison": _config(tmp_path / "gorissen_2018_comparison.ini"),
-        "decisions": _decisions(tmp_path / "mass_fraction_decisions.ini"),
+        "sources": _sources(tmp_path / "literature_sources.ini"),
         "symbols": _symbols(tmp_path / "amino_acid_symbols.ini"),
         "standard": _standard(tmp_path / "std.tsv", "standard", flat),
         "standard_npmp": _standard(tmp_path / "std_npmp.tsv",
@@ -124,7 +124,7 @@ def _pools(path):
     return path
 
 
-def _decisions(path):
+def _sources(path):
     path.write_text("[source.gorissen_2018]\nid_short = P10\ncitation = Synthetic et al.\ndoi = 10.0000/x\n",
                     encoding="utf-8")
     return path

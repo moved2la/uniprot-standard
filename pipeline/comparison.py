@@ -89,7 +89,7 @@ INPUTS = {
     "masses": common.AMINO_ACID_MASSES_INI,
     "pools": common.NON_PROTEIN_METABOLITE_POOLS_INI,
 }
-MANIFEST = common.LITERATURE_MANIFEST_INI
+MANIFEST = common.literature_manifest()
 
 
 class Stop(SystemExit):

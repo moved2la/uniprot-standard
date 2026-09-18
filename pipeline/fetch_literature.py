@@ -60,7 +60,7 @@ from pipeline import common  # noqa: E402
 
 ROOT = common.REPO_ROOT
 CONFIG = common.LITERATURE_SOURCES_INI
-LIT_DIR = common.LITERATURE_DIR
+LIT_DIR = common.literature_dir()
 PLACEHOLDER = "___"
 
 MANIFEST_INI = LIT_DIR / "manifest.ini"
