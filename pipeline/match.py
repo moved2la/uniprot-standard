@@ -534,7 +534,7 @@ def build(log) -> dict[str, str]:
                 continue
             ranked.append((res["score"], f, res))
         ranked.sort(key=lambda x: (-x[0], x[1]["description"].lower(), x[1]["source"], x[1]["food_id"]))
-        files[f"match_rate_ranked_{r['name']}.tsv"] = tsv_text(
+        files[f"{r['name']}/match_rate_ranked_{r['name']}.tsv"] = tsv_text(
             header + [f"every scored food under reference {r['name']}, best first; ties by description"],
             ["rank", "source", "source_detail", "food_id", "description", "match_rate_percent", "limiting_amino_acid", "protein_g_per_100g"],
             [[i, f["source"], f["source_detail"], f["food_id"], f["description"], _pct(s, decimals), "+".join(res["limiting"]), _g(f["protein"])]
@@ -614,7 +614,7 @@ def main(argv: list[str] | None = None) -> int:
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     for name, text in files.items():
-        (OUT_DIR / name).write_text(text, encoding="utf-8", newline="\n")
+        common.write_text_file(OUT_DIR / name, text)
         log.info("wrote %s", _rel(OUT_DIR / name))
     return 0
 

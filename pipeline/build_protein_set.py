@@ -403,16 +403,16 @@ def main(argv=None) -> int:
 
     common.ACCESSIONS_INI.write_text(acc_text, encoding="utf-8", newline="\n")
     common.SEGMENTS_INI.write_text(seg_text, encoding="utf-8", newline="\n")
-    common.write_tsv(common.OUTPUTS_DIR / "evidence_summary.tsv", ["tier", "evidence_code", "n_accessions"], evidence_rows)
-    common.write_tsv(common.OUTPUTS_DIR / "accession_evidence.tsv",
+    common.write_tsv(common.PROTEIN_SET_OUT_DIR / "evidence_summary.tsv", ["tier", "evidence_code", "n_accessions"], evidence_rows)
+    common.write_tsv(common.PROTEIN_SET_OUT_DIR / "accession_evidence.tsv",
                      ["accession", "tier", "subtree_annotations", "evidence_codes"], acc_evidence_rows)
-    common.write_tsv(common.OUTPUTS_DIR / "chain_positions_resolved.tsv",
+    common.write_tsv(common.PROTEIN_SET_OUT_DIR / "chain_positions_resolved.tsv",
                      ["accession", "gene", "tier", "n_chain_features", "chain_features_as_recorded", "master_ranges_resolved", "length"],
                      resolved_rows)
-    common.write_tsv(common.OUTPUTS_DIR / "excluded_non_standard_alphabet.tsv",
+    common.write_tsv(common.PROTEIN_SET_OUT_DIR / "excluded_non_standard_alphabet.tsv",
                      ["accession", "gene", "tier", "non_standard_letters", "length", "uniprot_mol_weight_da", "protein_name"],
                      excluded_rows)
-    common.write_tsv(common.OUTPUTS_DIR / "multi_chain_entries.tsv",
+    common.write_tsv(common.PROTEIN_SET_OUT_DIR / "multi_chain_entries.tsv",
                      ["accession", "gene", "tier", "n_chain_features", "chain_features", "master_ranges_union", "length"],
                      multi_chain_rows)
     log.info("wrote %s (%d accessions) and %s (%d segments)",

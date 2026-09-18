@@ -45,16 +45,16 @@ EXCERPTS_DIR = common.REPO_ROOT / "excerpts"
 # Every cut has a "name" used in the output filename; "whole" needs none.
 # ----------------------------------------------------------------------------
 
-MF = "outputs/mass_fractions"
-CO = "outputs/composition"
+MF = "outputs/intermediate/mass_fractions"
+CO = "outputs/intermediate/composition"
 
 SPEC: list[tuple[str, list[dict]]] = [
     # --- one-screen summaries and provenance (whole) ---
     (f"{MF}/mass_fractions_summary.ini", [{"kind": "whole"}]),
     (f"{CO}/composition_summary.ini", [{"kind": "whole"}]),
     (f"{CO}/ptm_summary.ini", [{"kind": "whole"}]),
-    ("outputs/digest/digest_summary.ini", [{"kind": "whole"}]),
-    ("outputs/literature_inventory/literature_inventory_summary.ini", [{"kind": "whole"}]),
+    ("outputs/intermediate/digest/digest_summary.ini", [{"kind": "whole"}]),
+    ("outputs/intermediate/literature_inventory/literature_inventory_summary.ini", [{"kind": "whole"}]),
     ("data/literature/manifest.ini", [{"kind": "whole"}]),
     ("data/gene-ontology/source.ini", [{"kind": "whole"}]),
     ("data/iupac/source.ini", [{"kind": "whole"}]),
@@ -90,13 +90,13 @@ SPEC: list[tuple[str, list[dict]]] = [
     (f"{MF}/momenzadeh_2023_myh_fractions_ibaq_vs_lfq.tsv", [{"kind": "whole"}]),
     (f"{MF}/ratio_check_moreno-justicia_2025.tsv", [{"kind": "head", "name": "first20", "n": 20}]),
     (f"{MF}/ratio_check_deshmukh_2021.tsv", [{"kind": "head", "name": "first20", "n": 20}]),
-    ("outputs/isoform_bound.tsv", [{"kind": "whole"}]),
-    ("outputs/processing_bound.tsv", [{"kind": "whole"}]),
+    ("outputs/intermediate/protein_set/isoform_bound.tsv", [{"kind": "whole"}]),
+    ("outputs/intermediate/protein_set/processing_bound.tsv", [{"kind": "whole"}]),
     (f"{CO}/processing_mass_bound.tsv", [{"kind": "whole"}]),
-    ("outputs/excluded_non_standard_alphabet.tsv", [{"kind": "whole"}]),
-    ("outputs/chain_positions_resolved.tsv", [{"kind": "whole"}]),
-    ("outputs/digest/density_ranked.tsv", [{"kind": "head", "name": "first20", "n": 20}]),
-    ("outputs/digest/families.tsv", [{"kind": "head", "name": "first40", "n": 40}]),
+    ("outputs/intermediate/protein_set/excluded_non_standard_alphabet.tsv", [{"kind": "whole"}]),
+    ("outputs/intermediate/protein_set/chain_positions_resolved.tsv", [{"kind": "whole"}]),
+    ("outputs/intermediate/digest/density_ranked.tsv", [{"kind": "head", "name": "first20", "n": 20}]),
+    ("outputs/intermediate/digest/families.tsv", [{"kind": "head", "name": "first40", "n": 40}]),
     # --- the standard (small tables whole; the per-entry regime table cut) ---
     ("outputs/standard/_calculated_amino_acid_standard.tsv", [{"kind": "whole"}]),
     ("outputs/standard/_calculated_amino_acid_standard_residue_convention.tsv", [{"kind": "whole"}]),
@@ -108,21 +108,21 @@ SPEC: list[tuple[str, list[dict]]] = [
     ("outputs/standard/sensitivity_non_protein_metabolite_pool_turnover_frame.tsv", [{"kind": "whole"}]),
     ("outputs/standard/sensitivity_non_protein_metabolite_pool_basis.tsv", [{"kind": "whole"}]),
     ("outputs/standard/sensitivity_non_protein_metabolite_pool_sex.tsv", [{"kind": "whole"}]),
-    ("outputs/standard/sensitivity_non_protein_metabolite_pool_spread.tsv", [{"kind": "whole"}]),
+    ("outputs/standard/sensitivity/sensitivity_non_protein_metabolite_pool_spread.tsv", [{"kind": "whole"}]),
     ("outputs/standard/eaa_subset_with_non_protein_metabolite_pools.tsv", [{"kind": "whole"}]),
-    ("outputs/standard/stress_summary.ini", [{"kind": "whole"}]),
-    ("outputs/standard/stress_summary_per_scenario.tsv", [{"kind": "whole"}]),
-    ("outputs/standard/stress_influence_per_entry.tsv", [{"kind": "head", "name": "first60", "n": 60}]),
-    ("outputs/standard/composition_distance_top_entries.tsv", [{"kind": "whole"}]),
-    ("outputs/standard/uncertainty_summary.ini", [{"kind": "whole"}]),
+    ("outputs/standard/stress/stress_summary.ini", [{"kind": "whole"}]),
+    ("outputs/standard/stress/stress_summary_per_scenario.tsv", [{"kind": "whole"}]),
+    ("outputs/standard/stress/stress_influence_per_entry.tsv", [{"kind": "head", "name": "first60", "n": 60}]),
+    ("outputs/standard/stress/composition_distance_top_entries.tsv", [{"kind": "whole"}]),
+    ("outputs/standard/uncertainty/uncertainty_summary.ini", [{"kind": "whole"}]),
     ("outputs/standard/amino_acid_profiles.tsv", [{"kind": "whole"}]),
     ("outputs/standard/amino_acid_g_per_100g_protein_free.tsv", [{"kind": "whole"}]),
     ("outputs/standard/amino_acid_g_per_100g_protein_residue.tsv", [{"kind": "whole"}]),
     ("outputs/standard/profile_differences.tsv", [{"kind": "whole"}]),
-    ("outputs/standard/sensitivity_mhc_actin_profiles.tsv", [{"kind": "whole"}]),
-    ("outputs/standard/sensitivity_mhc_actin_spread.tsv", [{"kind": "whole"}]),
-    ("outputs/standard/bounds_after_weighting.tsv", [{"kind": "whole"}]),
-    ("outputs/standard/completeness_sensitivity.tsv", [{"kind": "whole"}]),
+    ("outputs/standard/sensitivity/sensitivity_mhc_actin_profiles.tsv", [{"kind": "whole"}]),
+    ("outputs/standard/sensitivity/sensitivity_mhc_actin_spread.tsv", [{"kind": "whole"}]),
+    ("outputs/standard/uncertainty/bounds_after_weighting.tsv", [{"kind": "whole"}]),
+    ("outputs/standard/sensitivity/completeness_sensitivity.tsv", [{"kind": "whole"}]),
     # --- the USDA food tables (the big one cut; the rest whole) ---
     ("outputs/usda/usda_archive_summary.ini", [{"kind": "whole"}]),
     ("outputs/usda/usda_nutrient_map.tsv", [{"kind": "whole"}]),
@@ -143,9 +143,9 @@ SPEC: list[tuple[str, list[dict]]] = [
     ("outputs/match/match_rate_ranked_gorissen_2018_human_muscle.tsv", [{"kind": "head", "name": "first100", "n": 100}]),
     ("outputs/match/foods_not_scored.tsv", [{"kind": "head", "name": "first40", "n": 40}]),
     ("outputs/standard/eaa_subset.tsv", [{"kind": "whole"}]),
-    ("outputs/standard/uncertainty_intervals.tsv", [{"kind": "whole"}]),
-    ("outputs/standard/uncertainty_per_amino_acid.tsv", [{"kind": "whole"}]),
-    ("outputs/standard/sd_to_median_ratio.tsv", [
+    ("outputs/standard/uncertainty/uncertainty_intervals.tsv", [{"kind": "whole"}]),
+    ("outputs/standard/uncertainty/uncertainty_per_amino_acid.tsv", [{"kind": "whole"}]),
+    ("outputs/standard/uncertainty/sd_to_median_ratio.tsv", [
         {"kind": "top", "name": "top100_by_w_combined", "n": 100, "by": "w_combined"},
         {"kind": "top", "name": "top100_by_sd_over_median", "n": 100, "by": "sd_over_median"},
     ]),

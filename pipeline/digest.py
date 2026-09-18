@@ -56,12 +56,14 @@ from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-CONFIG = ROOT / "config" / "mass_fraction_decisions.ini"
-SEQ_FILE = ROOT / "data" / "uniprot_sequences.ini"
-COMP_TSV = ROOT / "outputs" / "composition" / "amino_acid_composition_per_protein.tsv"
-OUT_DIR = ROOT / "outputs" / "digest"
-LOG_DIR = ROOT / "logs"
+from pipeline import common
+
+ROOT = common.REPO_ROOT
+CONFIG = common.CONFIG_DIR / "mass_fraction_decisions.ini"
+SEQ_FILE = common.SEQUENCES_INI
+COMP_TSV = common.COMPOSITION_TSV
+OUT_DIR = common.DIGEST_DIR
+LOG_DIR = common.LOGS_DIR
 PLACEHOLDER = "___"
 AA20 = set("ACDEFGHIKLMNPQRSTVWY")
 

@@ -110,7 +110,7 @@ def build(log) -> dict[str, str]:
     counts = ag.load_counts(entries)
     bands = ag.load_band_families()
     peptides = {}
-    pep_path = common.OUTPUTS_DIR / "digest" / "theoretical_peptides.tsv"
+    pep_path = common.DIGEST_DIR / "theoretical_peptides.tsv"
     for r in read_tsv_skip_comments(pep_path):
         peptides[r["accession"]] = int(float(r["n_peptides"]))
     inputs = {"weights": common.MASS_FRACTIONS_TSV, "composition": common.COMPOSITION_TSV, "masses": common.AMINO_ACID_MASSES_INI,
@@ -287,7 +287,7 @@ def main(argv: list[str] | None = None) -> int:
     files = build(log)
     if args.check:
         stale = [rel for rel, content in files.items()
-                 if not (OUT_DIR / rel).exists() or ag.strip_generated_line((OUT_DIR / rel).read_text(encoding="utf-8")) != ag.strip_generated_line(content)]
+                 if not common.standard_path(rel).exists() or ag.strip_generated_line(common.standard_path(rel).read_text(encoding="utf-8")) != ag.strip_generated_line(content)]
         if stale:
             log.error("check: %d file(s) differ from a fresh build: %s", len(stale), stale)
             return 1
@@ -295,8 +295,8 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     for rel, content in files.items():
-        (OUT_DIR / rel).write_text(content, encoding="utf-8", newline="\n")
-        log.info("wrote %s", (OUT_DIR / rel).relative_to(common.REPO_ROOT).as_posix())
+        common.write_text_file(common.standard_path(rel), content)
+        log.info("wrote %s", common.standard_path(rel).relative_to(common.REPO_ROOT).as_posix())
     return 0
 
 

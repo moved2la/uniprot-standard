@@ -36,16 +36,16 @@ from pipeline.mass_fractions import read_tsv_skip_comments
 from pipeline import aggregate as ag
 
 OUT_DIR = common.STANDARD_DIR
-PLOT_DIR = OUT_DIR / "plots"
+PLOT_DIR = common.STANDARD_PLOTS_DIR
 AA = ag.AA
 FIBER_TYPES = ag.FIBER_TYPES
 PROFILES = ag.PROFILES
 
 
 def _save(fig, name: str, log) -> None:
-    PLOT_DIR.mkdir(parents=True, exist_ok=True)
     for ext in ("png", "svg"):
-        p = PLOT_DIR / f"{name}.{ext}"
+        p = common.standard_plot_path(name, ext)
+        p.parent.mkdir(parents=True, exist_ok=True)
         fig.savefig(p, dpi=150 if ext == "png" else None, bbox_inches="tight", metadata={"Software": None} if ext == "png" else {"Creator": None, "Date": None})
         log.info("wrote %s", p.relative_to(common.REPO_ROOT).as_posix())
     plt.close(fig)
@@ -56,9 +56,9 @@ def main(argv: list[str] | None = None) -> int:
     ap.parse_args(argv)
     log = common.make_logger("plots")
     prof = {(r["profile"], r["fiber_type"], r["convention"]): {a: float(r[f"frac_{a}"]) for a in AA}
-            for r in read_tsv_skip_comments(OUT_DIR / "amino_acid_profiles.tsv")}
+            for r in read_tsv_skip_comments(common.standard_path("amino_acid_profiles.tsv"))}
     intervals = {}
-    for r in read_tsv_skip_comments(OUT_DIR / "uncertainty_intervals.tsv"):
+    for r in read_tsv_skip_comments(common.standard_path("uncertainty_intervals.tsv")):
         intervals[(r["profile"], r["fiber_type"], r["convention"], r["term"], r["amino_acid"])] = (float(r["p2_5"]), float(r["p97_5"]))
     x = range(len(AA))
 
@@ -91,7 +91,7 @@ def main(argv: list[str] | None = None) -> int:
     _save(fig, "profile_fiber_types_total", log)
 
     # 3. uncertainty terms on one scale
-    terms_rows = read_tsv_skip_comments(OUT_DIR / "uncertainty_per_amino_acid.tsv")
+    terms_rows = read_tsv_skip_comments(common.standard_path("uncertainty_per_amino_acid.tsv"))
     if terms_rows:
         skip = {"profile", "fiber_type", "convention", "amino_acid", "standard", "widest_term", "widest_term_including_global", "glycosylated_entries_sum_w"}
         term_cols = [c for c in terms_rows[0] if c not in skip]
@@ -113,7 +113,7 @@ def main(argv: list[str] | None = None) -> int:
             _save(fig, f"uncertainty_terms_{ft}", log)
 
     # 4. MHC:actin sensitivity
-    spread = read_tsv_skip_comments(OUT_DIR / "sensitivity_mhc_actin_spread.tsv")
+    spread = read_tsv_skip_comments(common.standard_path("sensitivity_mhc_actin_spread.tsv"))
     if spread:
         fig, axes = plt.subplots(1, 2, figsize=(12, 4), sharey=True)
         for ax, ft in zip(axes, ag.GEL_TYPES):
@@ -131,7 +131,7 @@ def main(argv: list[str] | None = None) -> int:
         _save(fig, "sensitivity_mhc_actin", log)
 
     # 5. EAA subset, if computed
-    eaa_path = OUT_DIR / "eaa_subset.tsv"
+    eaa_path = common.standard_path("eaa_subset.tsv")
     if eaa_path.exists():
         rows = [r for r in read_tsv_skip_comments(eaa_path) if r["kind"] != "sum"]
         headings = []

@@ -6,7 +6,7 @@ import pytest
 
 from pipeline import common, aggregate as ag, uncertainty as un, stress as stt, non_protein_metabolite_pools as npmp
 
-needs_data = pytest.mark.skipif(not (common.STANDARD_DIR / "amino_acid_profiles.tsv").exists(),
+needs_data = pytest.mark.skipif(not common.standard_path("amino_acid_profiles.tsv").exists(),
                                 reason="standard not built on this machine")
 upstream_running = pytest.mark.skipif(common.running_command_is_before("standard"),
                                       reason="an earlier command is running; the standard is rebuilt by `python run.py standard`")
@@ -21,7 +21,7 @@ def test_aggregate_outputs_are_current():
 @needs_data
 @upstream_running
 def test_metabolite_outputs_are_current():
-    if not (common.STANDARD_DIR / "non_protein_metabolite_pools_summary.ini").exists():
+    if not common.standard_path("non_protein_metabolite_pools_summary.ini").exists():
         pytest.skip("non_protein_metabolite_pools stage not run on this machine")
     assert npmp.main(["--check"]) == 0
 
@@ -35,7 +35,7 @@ def test_uncertainty_outputs_are_current():
 @needs_data
 @upstream_running
 def test_stress_outputs_are_current():
-    if not (common.STANDARD_DIR / "stress_summary.ini").exists():
+    if not common.standard_path("stress_summary.ini").exists():
         pytest.skip("stress stage not run on this machine")
     assert stt.main(["--check"]) == 0
 
@@ -43,7 +43,7 @@ def test_stress_outputs_are_current():
 @needs_data
 @upstream_running
 def test_calculated_standard_columns_sum_to_100():
-    rows = ag.read_tsv_skip_comments(common.STANDARD_DIR / "_calculated_amino_acid_standard.tsv")
+    rows = ag.read_tsv_skip_comments(common.standard_path("_calculated_amino_acid_standard.tsv"))
     body = [r for r in rows if r["amino_acid"] != "sum"]
     assert len(body) == 20
     for col in [c for c in rows[0] if c not in ("amino_acid", "three_letter", "name")]:
@@ -55,13 +55,13 @@ def test_calculated_standard_columns_sum_to_100():
 @needs_data
 @upstream_running
 def test_calculated_standard_with_non_protein_metabolite_pools_columns_sum_to_100():
-    path = common.STANDARD_DIR / npmp.TABLE
+    path = common.standard_path(npmp.TABLE)
     if not path.exists():
         pytest.skip("the adjusted standard is not written until config/non_protein_metabolite_pools.ini is filled")
     rows = ag.read_tsv_skip_comments(path)
     body = [r for r in rows if r["amino_acid"] != "sum"]
     assert len(body) == 20
-    std = {r["amino_acid"]: r for r in ag.read_tsv_skip_comments(common.STANDARD_DIR / "_calculated_amino_acid_standard.tsv")}
+    std = {r["amino_acid"]: r for r in ag.read_tsv_skip_comments(common.standard_path("_calculated_amino_acid_standard.tsv"))}
     for col in [c for c in rows[0] if c not in ("amino_acid", "three_letter", "name")]:
         if all(r[col] == "" for r in body):
             continue
@@ -73,7 +73,7 @@ def test_calculated_standard_with_non_protein_metabolite_pools_columns_sum_to_10
 @needs_data
 @upstream_running
 def test_profiles_sum_to_one():
-    for r in ag.read_tsv_skip_comments(common.STANDARD_DIR / "amino_acid_profiles.tsv"):
+    for r in ag.read_tsv_skip_comments(common.standard_path("amino_acid_profiles.tsv")):
         s = sum(float(r[f"frac_{a}"]) for a in ag.AA)
         assert abs(s - 1.0) < 1e-9, (r["profile"], r["fiber_type"], r["convention"], s)
 

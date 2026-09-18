@@ -34,6 +34,37 @@ ACCESSIONS_INI = CONFIG_DIR / "accessions.ini"
 SEGMENTS_INI = CONFIG_DIR / "segments.ini"
 FLAGS_TSV = OUTPUTS_DIR / "flags.tsv"
 
+# --------------------------------------------------------------------------- outputs/ layout
+#
+# Three meanings, one folder each:
+#   outputs/intermediate/  what feeds the standard but is not the standard
+#   outputs/standard/      the deliverable tables, at the top; their companions in subfolders
+#   outputs/<the rest>     the food side (usda), the measured comparison, the match scores, flags
+#
+# A new category (blood, liver) gets outputs/<category>/ with the same intermediate/ and
+# standard/ inside; category_outputs() below builds those paths so no folder name is typed
+# into a stage. Every stage resolves its output paths through the constants here — nothing
+# joins "outputs" to a name of its own.
+
+INTERMEDIATE_DIR = OUTPUTS_DIR / "intermediate"
+PROTEIN_SET_OUT_DIR = INTERMEDIATE_DIR / "protein_set"
+COMPOSITION_DIR = INTERMEDIATE_DIR / "composition"
+DIGEST_DIR = INTERMEDIATE_DIR / "digest"
+LITERATURE_INVENTORY_DIR = INTERMEDIATE_DIR / "literature_inventory"
+MASS_FRACTIONS_DIR = INTERMEDIATE_DIR / "mass_fractions"
+
+STANDARD_DIR = OUTPUTS_DIR / "standard"
+STANDARD_PLOTS_DIR = STANDARD_DIR / "plots"
+UNCERTAINTY_DIR = STANDARD_DIR / "uncertainty"
+STRESS_DIR = STANDARD_DIR / "stress"
+SENSITIVITY_DIR = STANDARD_DIR / "sensitivity"
+
+
+def category_outputs(category: str) -> dict[str, Path]:
+    """The outputs/<category>/ tree for a non-muscle category, same shape as the muscle tree."""
+    root = OUTPUTS_DIR / category
+    return {"root": root, "intermediate": root / "intermediate", "standard": root / "standard"}
+
 # Composition (Layer A): masses fetched from PubChem, PTM vocabulary from UniProt.
 COMPOSITION_DECISIONS_INI = CONFIG_DIR / "composition_decisions.ini"   # hand-written: two URLs and one rule
 IUPAC_DIR = DATA_DIR / "iupac"
@@ -41,13 +72,11 @@ AMINO_ACID_SYMBOLS_INI = IUPAC_DIR / "amino_acid_symbols.ini"           # parsed
 PUBCHEM_DIR = DATA_DIR / "pubchem"
 AMINO_ACID_MASSES_INI = PUBCHEM_DIR / "amino_acid_masses.ini"           # fetched from PubChem
 PTMLIST_TXT = DATA_DIR / "uniprot_ptmlist" / "ptmlist.txt"               # fetched from UniProt
-COMPOSITION_DIR = OUTPUTS_DIR / "composition"
 COMPOSITION_TSV = COMPOSITION_DIR / "amino_acid_composition_per_protein.tsv"
 COMPOSITION_SUMMARY_INI = COMPOSITION_DIR / "composition_summary.ini"
 
 # Mass fractions (Layer B): the generated weights table (D61) that aggregation reads.
 MASS_FRACTIONS_TSV = CONFIG_DIR / "mass_fractions_per_entry.tsv"
-MASS_FRACTIONS_DIR = OUTPUTS_DIR / "mass_fractions"
 
 # The standard (aggregation, uncertainty, stress).
 EAA_INI = CONFIG_DIR / "fao_2013_indispensable_amino_acids.ini"    # hand-written transcription (D62)
@@ -56,7 +85,6 @@ STRESS_SETTINGS_INI = CONFIG_DIR / "stress_test_settings.ini"        # hand-writ
 FIBER_TYPE_MIX_INI = CONFIG_DIR / "fiber_type_mix.ini"               # hand-written transcription: the shares that make the final column
 NON_PROTEIN_METABOLITE_POOLS_INI = CONFIG_DIR / "non_protein_metabolite_pools.ini"           # hand-written transcription: the non-protein metabolite pools folded into the standard (D73-D77, D82)
 TIER_NAMES = {"1": "contractile", "2": "builders"}                     # naming rule: tiers are named, never numbered, in outputs (D66)
-STANDARD_DIR = OUTPUTS_DIR / "standard"
 
 # Match Rate (Step 6): the USDA food tables.
 USDA_CONFIG_INI = CONFIG_DIR / "usda_food_data.ini"    # hand-written: which archives, which release, extra nutrients
@@ -71,6 +99,57 @@ COMPARISON_OUT_DIR = OUTPUTS_DIR / "comparison"
 MATCH_RATE_INI = CONFIG_DIR / "match_rate.ini"                                   # hand-written: references, scored sets, food tables
 FOOD_OTHER_SOURCES_CSV = CONFIG_DIR / "food_amino_acids_other_sources.csv"      # hand-maintained: foods USDA does not carry
 MATCH_OUT_DIR = OUTPUTS_DIR / "match"
+
+# --------------------------------------------------------------------------- placement of standard/ files
+#
+# The deliverable tables and the profiles they are read beside stay at the top of
+# outputs/standard/. Everything that supports them sits in the subfolder named for what it is.
+# This map IS the placement table: one place to read, one place to change. A file not listed
+# here stays at the top — so adding a deliverable needs no entry, and moving one needs one line.
+
+STANDARD_SUBFOLDERS = {
+    # uncertainty/ — the interval reported beside the standard, and the terms behind it (D63)
+    "uncertainty_intervals.tsv": UNCERTAINTY_DIR,
+    "uncertainty_per_amino_acid.tsv": UNCERTAINTY_DIR,
+    "uncertainty_summary.ini": UNCERTAINTY_DIR,
+    "sd_to_median_ratio.tsv": UNCERTAINTY_DIR,
+    "bounds_after_weighting.tsv": UNCERTAINTY_DIR,
+    # stress/ — named perturbations and how far each moves the standard (A9, D65)
+    "stress_shifts.tsv": STRESS_DIR,
+    "stress_influence_per_entry.tsv": STRESS_DIR,
+    "stress_summary.ini": STRESS_DIR,
+    "stress_summary_per_scenario.tsv": STRESS_DIR,
+    "composition_distance_top_entries.tsv": STRESS_DIR,
+    # sensitivity/ — what the standard does under a cited range of an input
+    "sensitivity_mhc_actin_profiles.tsv": SENSITIVITY_DIR,
+    "sensitivity_mhc_actin_spread.tsv": SENSITIVITY_DIR,
+    "sensitivity_non_protein_metabolite_pool_spread.tsv": SENSITIVITY_DIR,
+    "completeness_sensitivity.tsv": SENSITIVITY_DIR,
+}
+
+# A plot goes where its table goes.
+STANDARD_PLOT_SUBFOLDERS = {
+    "uncertainty_terms_I": UNCERTAINTY_DIR / "plots",
+    "uncertainty_terms_IIa": UNCERTAINTY_DIR / "plots",
+    "uncertainty_terms_IIx": UNCERTAINTY_DIR / "plots",
+    "sensitivity_mhc_actin": SENSITIVITY_DIR / "plots",
+}
+
+
+def standard_path(name: str) -> Path:
+    """Where a standard/ file lives: its subfolder if it has one, else the top."""
+    return STANDARD_SUBFOLDERS.get(name, STANDARD_DIR) / name
+
+
+def standard_plot_path(name: str, ext: str) -> Path:
+    """Where a standard/ plot lives: beside its table's subfolder, else standard/plots/."""
+    return STANDARD_PLOT_SUBFOLDERS.get(name, STANDARD_PLOTS_DIR) / f"{name}.{ext}"
+
+
+def write_text_file(path: Path, text: str) -> None:
+    """Write a generated file, creating its folder. The one writer for files in subfolders."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8", newline="\n")
 
 # The twenty standard amino acid letters, in the order used for every vector.
 AMINO_ACIDS = "ACDEFGHIKLMNPQRSTVWY"

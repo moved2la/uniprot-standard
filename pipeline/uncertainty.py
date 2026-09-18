@@ -81,7 +81,7 @@ def load_monte_carlo_settings() -> tuple[int, int]:
 
 def read_standard_profiles() -> dict[tuple, dict[str, float]]:
     out = {}
-    for r in read_tsv_skip_comments(OUT_DIR / "amino_acid_profiles.tsv"):
+    for r in read_tsv_skip_comments(common.standard_path("amino_acid_profiles.tsv")):
         out[(r["profile"], r["fiber_type"], r["convention"])] = {a: float(r[f"frac_{a}"]) for a in AA}
     if not out:
         raise SystemExit("[STOP] outputs/standard/amino_acid_profiles.tsv is empty; run aggregate first")
@@ -129,9 +129,9 @@ def build(log) -> tuple[dict[str, str], dict]:
     counts = ag.load_counts(entries)
     standard = read_standard_profiles()
     inputs = {"weights": common.MASS_FRACTIONS_TSV, "composition": common.COMPOSITION_TSV, "masses": common.AMINO_ACID_MASSES_INI,
-              "settings": common.UNCERTAINTY_SETTINGS_INI, "profiles": OUT_DIR / "amino_acid_profiles.tsv",
-              "mhc_actin": OUT_DIR / "sensitivity_mhc_actin_spread.tsv", "bounds": OUT_DIR / "bounds_after_weighting.tsv",
-              "completeness": OUT_DIR / "completeness_sensitivity.tsv"}
+              "settings": common.UNCERTAINTY_SETTINGS_INI, "profiles": common.standard_path("amino_acid_profiles.tsv"),
+              "mhc_actin": common.standard_path("sensitivity_mhc_actin_spread.tsv"), "bounds": common.standard_path("bounds_after_weighting.tsv"),
+              "completeness": common.standard_path("completeness_sensitivity.tsv")}
     hashes = {k: f"{p.relative_to(common.REPO_ROOT).as_posix()} sha256 {sha256_path(p)}" for k, p in inputs.items()}
     header_common = [f"generated = {common.iso_now()}"] + [f"input.{k} = {v}" for k, v in hashes.items()] + [
         f"A3: Monte Carlo in log space, {draws} draws, seed {seed}, independent per entry, the whole profile recomputed per draw (D63).",
@@ -257,7 +257,7 @@ def main(argv: list[str] | None = None) -> int:
     files, _ = build(log)
     if args.check:
         stale = [rel for rel, content in files.items()
-                 if not (OUT_DIR / rel).exists() or ag.strip_generated_line((OUT_DIR / rel).read_text(encoding="utf-8")) != ag.strip_generated_line(content)]
+                 if not common.standard_path(rel).exists() or ag.strip_generated_line(common.standard_path(rel).read_text(encoding="utf-8")) != ag.strip_generated_line(content)]
         if stale:
             log.error("check: %d file(s) differ from a fresh build: %s", len(stale), stale)
             return 1
@@ -265,8 +265,8 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     for rel, content in files.items():
-        (OUT_DIR / rel).write_text(content, encoding="utf-8", newline="\n")
-        log.info("wrote %s", (OUT_DIR / rel).relative_to(common.REPO_ROOT).as_posix())
+        common.write_text_file(common.standard_path(rel), content)
+        log.info("wrote %s", common.standard_path(rel).relative_to(common.REPO_ROOT).as_posix())
     return 0
 
 

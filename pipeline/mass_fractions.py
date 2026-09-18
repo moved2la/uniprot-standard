@@ -88,9 +88,9 @@ DECISIONS_INI = common.CONFIG_DIR / "mass_fraction_decisions.ini"
 CARROLL_INI = common.CONFIG_DIR / "carroll_classical_fractionation.ini"
 MANIFEST_INI = common.DATA_DIR / "literature" / "manifest.ini"
 MASS_FRACTIONS_TSV = common.MASS_FRACTIONS_TSV                 # generated config (D61)
-OUT_DIR = common.OUTPUTS_DIR / "mass_fractions"
-DIGEST_DIR = common.OUTPUTS_DIR / "digest"
-ISOFORM_DELTAS_TSV = common.OUTPUTS_DIR / "isoform_deltas.tsv"
+OUT_DIR = common.MASS_FRACTIONS_DIR
+DIGEST_DIR = common.DIGEST_DIR
+ISOFORM_DELTAS_TSV = common.PROTEIN_SET_OUT_DIR / "isoform_deltas.tsv"
 PROCESSING_DELTAS_TSV = common.COMPOSITION_DIR / "processing_mass_deltas.tsv"
 PTM_DELTAS_TSV = common.COMPOSITION_DIR / "ptm_mass_deltas.tsv"
 SHARED_PAIRS_TSV = DIGEST_DIR / "shared_pairs.tsv"
@@ -1051,7 +1051,7 @@ def build(log) -> dict:
     files["shared_gene_rows.tsv"] = tsv_text(header_common, hdr, body)
 
     # R5-excluded entries (D59): the mass they would have carried, from their dataset value and UniProt's molecular weight
-    excl_path = common.OUTPUTS_DIR / "excluded_non_standard_alphabet.tsv"
+    excl_path = common.PROTEIN_SET_OUT_DIR / "excluded_non_standard_alphabet.tsv"
     excl_rows = []
     if excl_path.exists():
         outside_by_gene = {r["gene"]: r for r in j["outside"]}

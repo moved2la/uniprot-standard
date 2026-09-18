@@ -77,15 +77,15 @@ from pipeline.mass_fractions import sha256_path
 
 AA = list(common.AMINO_ACIDS)
 PLACEHOLDER = "___"
-OUT_DIR = common.OUTPUTS_DIR / "comparison"
+OUT_DIR = common.COMPARISON_OUT_DIR
 SOURCE_ID = "gorissen_2018"
 
 INPUTS = {
     "comparison": common.CONFIG_DIR / "gorissen_2018_comparison.ini",
     "decisions": common.CONFIG_DIR / "mass_fraction_decisions.ini",
     "symbols": common.AMINO_ACID_SYMBOLS_INI,
-    "standard": common.STANDARD_DIR / "_calculated_amino_acid_standard.tsv",
-    "standard_npmp": common.STANDARD_DIR / "_calculated_amino_acid_standard_with_non_protein_metabolite_pools.tsv",
+    "standard": common.standard_path("_calculated_amino_acid_standard.tsv"),
+    "standard_npmp": common.standard_path("_calculated_amino_acid_standard_with_non_protein_metabolite_pools.tsv"),
     "masses": common.AMINO_ACID_MASSES_INI,
     "pools": common.NON_PROTEIN_METABOLITE_POOLS_INI,
 }

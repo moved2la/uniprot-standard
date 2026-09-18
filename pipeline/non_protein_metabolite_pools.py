@@ -76,8 +76,8 @@ Z_95 = 1.959963984540054   # the 2.5 / 97.5 percentile of a standard normal
 
 INPUTS = {
     "pools": common.NON_PROTEIN_METABOLITE_POOLS_INI,
-    "g100_free": OUT_DIR / "amino_acid_g_per_100g_protein_free.tsv",
-    "standard": OUT_DIR / "_calculated_amino_acid_standard.tsv",
+    "g100_free": common.standard_path("amino_acid_g_per_100g_protein_free.tsv"),
+    "standard": common.standard_path("_calculated_amino_acid_standard.tsv"),
     "fiber_type_mix": common.FIBER_TYPE_MIX_INI,
     "masses": common.AMINO_ACID_MASSES_INI,
     "symbols": common.AMINO_ACID_SYMBOLS_INI,
@@ -553,7 +553,7 @@ def main(argv: list[str] | None = None) -> int:
     files = build(log)
     if args.check:
         stale = [rel for rel, content in files.items()
-                 if not (OUT_DIR / rel).exists() or strip_generated_line((OUT_DIR / rel).read_text(encoding="utf-8")) != strip_generated_line(content)]
+                 if not common.standard_path(rel).exists() or strip_generated_line(common.standard_path(rel).read_text(encoding="utf-8")) != strip_generated_line(content)]
         if stale:
             log.error("check: %d file(s) differ from a fresh build: %s", len(stale), stale)
             return 1
@@ -561,8 +561,8 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     for rel, content in files.items():
-        (OUT_DIR / rel).write_text(content, encoding="utf-8", newline="\n")
-        log.info("wrote %s", (OUT_DIR / rel).relative_to(common.REPO_ROOT).as_posix())
+        common.write_text_file(common.standard_path(rel), content)
+        log.info("wrote %s", common.standard_path(rel).relative_to(common.REPO_ROOT).as_posix())
     return 0
 
 
