@@ -24,6 +24,7 @@ matches, 1 when anything differs, is missing, or is unexpected.
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 from collections import Counter
 from pathlib import Path
@@ -37,7 +38,33 @@ from pipeline import common  # noqa: E402
 NOT_REGENERATED = {
     "match_rate.tsv": "superseded in Step 6 by match_rate_per_food.tsv and match_rate_by_reference.tsv",
     "match_rate_filtered.xlsx": "not a pipeline output — the author's own working file",
+    "pool_overlap.tsv": "written by enumerate_pool, a NETWORK stage; `protein-set --offline` skips it",
+    "flags.tsv": "written only when a flag is raised; zero flags this run, and the old copy was header-only",
+    "profile_fiber_types_combined.png": "plots.py no longer draws it (it draws profile_fiber_types_total)",
+    "profile_fiber_types_combined.svg": "plots.py no longer draws it (it draws profile_fiber_types_total)",
 }
+
+# A body line may legitimately differ for reasons that are not a change of content. Each kind is
+# named, matched narrowly, and reported in full — the point is to say WHY a line differs, not to
+# wave it through. Anything not matching one of these is a real difference and fails the run.
+SHA256 = re.compile(r"\b[0-9a-f]{64}\b")
+TIMESTAMP = re.compile(r"\b\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z\b")
+PATH_IN_OUTPUTS = re.compile(r"\boutputs/[\w./-]+")
+
+
+def why_differs(old_line: str, new_line: str) -> str | None:
+    """Name the reason two body lines differ, or None when the content really changed."""
+    o, n = old_line, new_line
+    if TIMESTAMP.sub("<t>", o) == TIMESTAMP.sub("<t>", n):
+        return "run timestamp"
+    o2, n2 = PATH_IN_OUTPUTS.sub("<p>", o), PATH_IN_OUTPUTS.sub("<p>", n)
+    if o2 == n2:
+        return "outputs path moved"
+    if SHA256.sub("<h>", o2) == SHA256.sub("<h>", n2):
+        return "path moved + hash of a file whose header names it" if o2 != n2 else "hash of a file whose header moved"
+    if SHA256.sub("<h>", o) == SHA256.sub("<h>", n):
+        return "hash of a file whose header moved"
+    return None
 
 BINARY_SUFFIXES = {".png", ".svg", ".xlsx", ".zip", ".gz", ".rar", ".pdf"}
 
@@ -79,7 +106,7 @@ def main(argv: list[str] | None = None) -> int:
     log.info("old tree %s: %d files", args.old, len(old))
     log.info("new tree %s: %d files", args.new, len(new))
 
-    same, moved, differ, missing, added, binary, expected_gone = [], [], [], [], [], [], []
+    same, moved, differ, missing, added, binary, expected_gone, explained = [], [], [], [], [], [], [], []
 
     for name, opath in sorted(old.items()):
         if name not in new:
@@ -94,8 +121,18 @@ def main(argv: list[str] | None = None) -> int:
             (moved if orel != nrel else same).append((name, orel, nrel))
         else:
             ob, nb = body(opath), body(npath)
-            first = next((i for i, (a, b) in enumerate(zip(ob, nb)) if a != b), min(len(ob), len(nb)))
-            differ.append((name, orel, nrel, len(ob), len(nb), first))
+            reasons, unexplained = [], []
+            if len(ob) != len(nb):
+                unexplained.append((0, f"line count {len(ob)} -> {len(nb)}", "", ""))
+            for i, (a, b) in enumerate(zip(ob, nb)):
+                if a == b:
+                    continue
+                why = why_differs(a, b)
+                (reasons if why else unexplained).append((i + 1, why or "CONTENT CHANGED", a, b))
+            if unexplained:
+                differ.append((name, orel, nrel, unexplained))
+            else:
+                explained.append((name, orel, nrel, reasons))
 
     for name in sorted(new):
         if name not in old:
@@ -105,7 +142,8 @@ def main(argv: list[str] | None = None) -> int:
     log.info("identical body, path unchanged : %d", len(same))
     log.info("identical body, moved          : %d", len(moved))
     log.info("binary, not compared           : %d", len(binary))
-    log.info("BODY DIFFERS                   : %d", len(differ))
+    log.info("differs, every line explained  : %d", len(explained))
+    log.info("BODY DIFFERS, UNEXPLAINED      : %d", len(differ))
     log.info("MISSING from the new tree      : %d", len(missing))
     log.info("new files not in the old tree  : %d", len(added))
     log.info("expected not-regenerated       : %d", len(expected_gone))
@@ -125,12 +163,28 @@ def main(argv: list[str] | None = None) -> int:
         log.info("--- not regenerated, by design ---")
         for name in expected_gone:
             log.info("  %s  (%s)", name, NOT_REGENERATED[name])
+    if explained:
+        log.info("")
+        log.info("--- differs, every differing line explained (not a content change) ---")
+        for name, o, n, reasons in explained:
+            kinds = {}
+            for _, why, _, _ in reasons:
+                kinds[why] = kinds.get(why, 0) + 1
+            log.info("  %s -> %s", o, n)
+            for why, count in sorted(kinds.items()):
+                log.info("      %2d line(s): %s", count, why)
     if differ:
         log.error("")
-        log.error("--- BODY DIFFERS ---")
-        for name, o, n, lo, ln, first in differ:
-            log.error("  %s -> %s : old %d body lines, new %d, first difference at body line %d",
-                      o, n, lo, ln, first + 1)
+        log.error("--- BODY DIFFERS, UNEXPLAINED — a real change of content ---")
+        for name, o, n, unexplained in differ:
+            log.error("  %s -> %s", o, n)
+            for ln, why, a, b in unexplained[:5]:
+                log.error("      body line %d: %s", ln, why)
+                if a or b:
+                    log.error("        old: %s", a[:160])
+                    log.error("        new: %s", b[:160])
+            if len(unexplained) > 5:
+                log.error("      ... and %d more", len(unexplained) - 5)
     if missing:
         log.error("")
         log.error("--- MISSING (in the old tree, not produced by the run) ---")
