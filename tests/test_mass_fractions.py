@@ -1,8 +1,12 @@
 """mass_fractions.py rules on synthetic inputs. No real biology; no network; no files
 outside tmp_path. Gene symbols and accessions here are invented."""
+import configparser
 import logging
 import math
 
+import pytest
+
+from pipeline import common
 from pipeline import mass_fractions as mf
 
 LOG = logging.getLogger("t")
@@ -118,3 +122,70 @@ def test_per_entry_table_has_every_weight_and_sums_to_one():
         assert math.isclose(sum(float(r[col]) for r in rows if r[col] != ""), 1.0)
     assert rows[2]["w_I_tier1"] == "" and rows[2]["w_I_tier2"] != ""      # a tier-2 entry has no tier-1 weight
     assert math.isclose(float(rows[0]["w_I_combined"]), 30.0 * 1000 / (30.0 * 1000 + 10.0 * 2000 + 20.0 * 500))
+
+
+# --------------------------------------------------------------------------- category scoping
+#
+# config/literature_sources.ini is shared by every category, so `role = primary` is a statement
+# about a source FOR a category: blood's two primaries are as legitimate as muscle's one. Before
+# these tests the stage scanned the whole file and stopped with three primaries. (Step 7b)
+
+def _sources(*rows) -> configparser.ConfigParser:
+    """A synthetic literature_sources.ini: (source_id, role, used_for[, extra keys])."""
+    cp = configparser.ConfigParser(interpolation=None)
+    cp.optionxform = str
+    for sid, role, used_for, *extra in rows:
+        cp[f"source.{sid}"] = {"role": role, "used_for": used_for, **(extra[0] if extra else {})}
+    return cp
+
+
+def _decisions(category: str | None) -> configparser.ConfigParser:
+    cp = configparser.ConfigParser(interpolation=None)
+    cp.optionxform = str
+    cp["meta"] = {"step": "test"} if category is None else {"step": "test", "category": category}
+    return cp
+
+
+def test_primary_is_the_one_used_for_this_stages_category():
+    src = _sources(("muscle_source", "primary", "skeletal_muscle"),
+                   ("blood_red", "primary", "blood"),
+                   ("blood_plasma", "primary", "blood"))
+    assert mf.sources_with_role(src, "primary", "skeletal_muscle") == ["muscle_source"]
+    assert mf.sources_with_role(src, "primary", "blood") == ["blood_red", "blood_plasma"]
+    assert mf.sources_with_role(src, "primary", "liver") == []
+
+
+def test_a_source_used_for_several_categories_is_found_by_each():
+    src = _sources(("shared", "method_citation", "original, skeletal_muscle, non_protein_metabolites"))
+    for cat in ("original", "skeletal_muscle", "non_protein_metabolites"):
+        assert mf.sources_with_role(src, "method_citation", cat) == ["shared"]
+    assert mf.sources_with_role(src, "method_citation", "blood") == []
+
+
+def test_role_holders_hint_names_every_primary_and_what_it_is_used_for():
+    """The STOP says which categories the primaries belong to, so a typo in [meta] category
+    reads as a typo rather than as a missing source."""
+    src = _sources(("muscle_source", "primary", "skeletal_muscle"), ("blood_red", "primary", "blood"))
+    hint = mf.role_holders_by_category(src, "primary")
+    assert "muscle_source (used_for = skeletal_muscle)" in hint and "blood_red (used_for = blood)" in hint
+
+
+def test_stage_category_stops_when_it_is_missing_or_a_placeholder():
+    assert mf.stage_category(_decisions("skeletal_muscle")) == "skeletal_muscle"
+    for dec in (_decisions(None), _decisions("___"), _decisions("")):
+        with pytest.raises(SystemExit) as e:
+            mf.stage_category(dec)
+        assert "[meta] category" in str(e.value)
+
+
+# --------------------------------------------------------------------------- the real config
+
+def test_this_repository_declares_a_category_with_exactly_one_primary():
+    dec = common.read_ini(common.CONFIG_DIR / "mass_fraction_decisions.ini")
+    src = common.read_ini(common.LITERATURE_SOURCES_INI)
+    category = mf.stage_category(dec)
+    declared = [c.strip() for c in src["categories"].get("columns", "").split(",") if c.strip()]
+    assert category in declared, \
+        f"[meta] category = {category} is not a column of [categories] in literature_sources.ini: {declared}"
+    assert len(mf.sources_with_role(src, "primary", category)) == 1, \
+        f"category {category} must have exactly one source with role = primary"

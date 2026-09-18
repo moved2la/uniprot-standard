@@ -3,8 +3,10 @@
 mass_fractions.py — offline stage: Layer B weights from the primary dataset.
 
 Reads
-  config/literature_sources.ini           the [source.*] with role = primary (Step 7a)
-  config/mass_fraction_decisions.ini      its [columns.*] map;
+  config/literature_sources.ini           the [source.*] with role = primary whose used_for names
+                                          this stage's category (Step 7a, scoped in Step 7b)
+  config/mass_fraction_decisions.ini      [meta] category — which category's sources to read;
+                                          its [columns.*] map;
                                           the method-citation source with two tables (iBAQ vs LFQ)
   data/literature/manifest.ini            path + sha256 of every literature file (B0)
   config/accessions.ini                   the pool: accession, gene, tier
@@ -97,7 +99,7 @@ PROCESSING_DELTAS_TSV = common.composition_dir() / "processing_mass_deltas.tsv"
 PTM_DELTAS_TSV = common.composition_dir() / "ptm_mass_deltas.tsv"
 SHARED_PAIRS_TSV = DIGEST_DIR / "shared_pairs.tsv"
 
-PRIMARY_FILE_KEY = "file.1"             # the primary source is the [source.*] section whose role = primary (D32)
+PRIMARY_FILE_KEY = "file.1"             # the primary source: role = primary (D32), used_for naming [meta] category
 FIBER_TYPES = ("I", "IIa", "IIx")
 SIG = 10                                # significant digits for fractions (as in composition, D29)
 
@@ -132,6 +134,43 @@ def fnum(x: float) -> str:
 
 def sha256_path(p: Path) -> str:
     return common.sha256_file(p)
+
+
+def categories_of(section) -> list[str]:
+    """The categories a [source.*] section declares in used_for (Step 7a)."""
+    return [c.strip() for c in (section.get("used_for", "") or "").split(",") if c.strip()]
+
+
+def stage_category(dec) -> str:
+    """The category whose sources this stage reads, from [meta] category.
+
+    config/literature_sources.ini is shared by every category, so `role` is what a source is
+    FOR a category, not a property of the source alone: two categories each have a primary.
+    The stage says which category it is building and reads only that category's sources.
+    A per-category copy of this file names its own category; until the pipeline takes it as
+    an argument (Step 7c), the config line is where it lives.
+    """
+    cat = (dec["meta"].get("category", "") if dec.has_section("meta") else "").strip()
+    if not cat or cat == "___":
+        raise SystemExit(
+            "[STOP] config/mass_fraction_decisions.ini [meta] category is missing or a placeholder. "
+            "It names the category whose sources this stage reads (e.g. category = skeletal_muscle) "
+            "and must match a column of [categories] in config/literature_sources.ini.")
+    return cat
+
+
+def sources_with_role(src_cp, role: str, category: str) -> list[str]:
+    """Source ids with this role whose used_for names this category."""
+    return [s[len("source."):] for s in src_cp.sections()
+            if s.startswith("source.") and src_cp[s].get("role") == role
+            and category in categories_of(src_cp[s])]
+
+
+def role_holders_by_category(src_cp, role: str) -> str:
+    """Every source with this role and what it is used for — the hint in a role STOP."""
+    rows = [f"{s[len('source.'):]} (used_for = {', '.join(categories_of(src_cp[s])) or '—'})"
+            for s in src_cp.sections() if s.startswith("source.") and src_cp[s].get("role") == role]
+    return "; ".join(rows) if rows else "none"
 
 
 def manifest_file(manifest, source_id: str, file_key: str):
@@ -915,16 +954,20 @@ def build(log) -> dict:
     dec = common.read_ini(DECISIONS_INI)
     src_cp = common.read_ini(SOURCES_INI)
     manifest = common.read_ini(MANIFEST_INI)
-    primaries = [s for s in src_cp.sections() if s.startswith("source.") and src_cp[s].get("role") == "primary"]
+    category = stage_category(dec)
+    primaries = sources_with_role(src_cp, "primary", category)
     if len(primaries) != 1:
-        raise SystemExit(f"[STOP] expected exactly one [source.*] with role = primary, found {primaries}")
-    primary = primaries[0][len("source."):]
+        raise SystemExit(f"[STOP] expected exactly one [source.*] with role = primary and used_for naming "
+                         f"`{category}`, found {primaries}. Sources with role = primary: "
+                         f"{role_holders_by_category(src_cp, 'primary')}")
+    primary = primaries[0]
     src = src_cp[f"source.{primary}"]
     cols = dec[f"columns.{primary}.{PRIMARY_FILE_KEY}"]
-    method_with_tables = [s[len("source."):] for s in src_cp.sections() if s.startswith("source.")
-                          and src_cp[s].get("role") == "method_citation" and src_cp[s].get("file.2.url")]
+    method_with_tables = [sid for sid in sources_with_role(src_cp, "method_citation", category)
+                          if src_cp[f"source.{sid}"].get("file.2.url")]
     if len(method_with_tables) != 1:
-        raise SystemExit(f"[STOP] expected exactly one method-citation source with two tables (the iBAQ-vs-LFQ comparison), found {method_with_tables}")
+        raise SystemExit(f"[STOP] expected exactly one method-citation source with two tables (the iBAQ-vs-LFQ "
+                         f"comparison) used_for `{category}`, found {method_with_tables}")
 
     path, sha = verify_file(manifest, primary, PRIMARY_FILE_KEY, log)
     mf = manifest_file(manifest, primary, PRIMARY_FILE_KEY)
