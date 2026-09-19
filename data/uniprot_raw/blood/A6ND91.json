@@ -1,0 +1,1400 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "A6ND91",
+ "secondaryAccessions": [
+  "Q6NZ37"
+ ],
+ "uniProtkbId": "ASPDH_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "2007-09-11",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2007-09-11",
+  "entryVersion": 132,
+  "sequenceVersion": 2
+ },
+ "annotationScore": 2.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000305"
+     }
+    ],
+    "value": "Aspartate dehydrogenase domain-containing protein"
+   }
+  }
+ },
+ "genes": [
+  {
+   "geneName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000312",
+      "source": "HGNC",
+      "id": "HGNC:33856"
+     }
+    ],
+    "value": "ASPDH"
+   }
+  }
+ ],
+ "comments": [
+  {
+   "commentType": "ALTERNATIVE PRODUCTS",
+   "events": [
+    "Alternative splicing"
+   ],
+   "isoforms": [
+    {
+     "name": {
+      "value": "1"
+     },
+     "isoformIds": [
+      "A6ND91-1"
+     ],
+     "isoformSequenceStatus": "Displayed"
+    },
+    {
+     "name": {
+      "value": "2"
+     },
+     "isoformIds": [
+      "A6ND91-2"
+     ],
+     "sequenceIds": [
+      "VSP_038742",
+      "VSP_038743"
+     ],
+     "isoformSequenceStatus": "Described"
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the L-aspartate dehydrogenase family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  }
+ ],
+ "features": [
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 283,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Aspartate dehydrogenase domain-containing protein",
+   "featureId": "PRO_0000300623"
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 20,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 20,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "24275569"
+    }
+   ]
+  },
+  {
+   "type": "Modified residue",
+   "location": {
+    "start": {
+     "value": 168,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 168,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Phosphoserine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PubMed",
+     "id": "24275569"
+    }
+   ]
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 2,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 65,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 2",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "15489334"
+    }
+   ],
+   "featureId": "VSP_038742",
+   "alternativeSequence": {
+    "originalSequence": "ADRGPWRVGVVGYGRLGQSLVSRLLAQGPELGLELVFVWNRDPGRMAGSVPPSLQLQNLAALGE",
+    "alternativeSequences": [
+     "GDRVKGSKS"
+    ]
+   }
+  },
+  {
+   "type": "Alternative sequence",
+   "location": {
+    "start": {
+     "value": 95,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 144,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in isoform 2",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000303",
+     "source": "PubMed",
+     "id": "15489334"
+    }
+   ],
+   "featureId": "VSP_038743",
+   "alternativeSequence": {}
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 266,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 266,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs12977172",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs12977172"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "15489334"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "Reference",
+     "id": "Ref.1"
+    }
+   ],
+   "featureId": "VAR_062676",
+   "alternativeSequence": {
+    "originalSequence": "Q",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0025",
+   "category": "Coding sequence diversity",
+   "name": "Alternative splicing"
+  },
+  {
+   "id": "KW-0597",
+   "category": "PTM",
+   "name": "Phosphoprotein"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "CI-5GBDQ6B103N1E",
+    "citationType": "submission",
+    "authors": [
+     "Mural R.J.",
+     "Istrail S.",
+     "Sutton G.G.",
+     "Florea L.",
+     "Halpern A.L.",
+     "Mobarry C.M.",
+     "Lippert R.",
+     "Walenz B.",
+     "Shatkay H.",
+     "Dew I.",
+     "Miller J.R.",
+     "Flanigan M.J.",
+     "Edwards N.J.",
+     "Bolanos R.",
+     "Fasulo D.",
+     "Halldorsson B.V.",
+     "Hannenhalli S.",
+     "Turner R.",
+     "Yooseph S.",
+     "Lu F.",
+     "Nusskern D.R.",
+     "Shue B.C.",
+     "Zheng X.H.",
+     "Zhong F.",
+     "Delcher A.L.",
+     "Huson D.H.",
+     "Kravitz S.A.",
+     "Mouchard L.",
+     "Reinert K.",
+     "Remington K.A.",
+     "Clark A.G.",
+     "Waterman M.S.",
+     "Eichler E.E.",
+     "Adams M.D.",
+     "Hunkapiller M.W.",
+     "Myers E.W.",
+     "Venter J.C."
+    ],
+    "publicationDate": "JUL-2005",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]",
+    "VARIANT ARG-266"
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "15057824",
+    "citationType": "journal article",
+    "authors": [
+     "Grimwood J.",
+     "Gordon L.A.",
+     "Olsen A.S.",
+     "Terry A.",
+     "Schmutz J.",
+     "Lamerdin J.E.",
+     "Hellsten U.",
+     "Goodstein D.",
+     "Couronne O.",
+     "Tran-Gyamfi M.",
+     "Aerts A.",
+     "Altherr M.",
+     "Ashworth L.",
+     "Bajorek E.",
+     "Black S.",
+     "Branscomb E.",
+     "Caenepeel S.",
+     "Carrano A.V.",
+     "Caoile C.",
+     "Chan Y.M.",
+     "Christensen M.",
+     "Cleland C.A.",
+     "Copeland A.",
+     "Dalin E.",
+     "Dehal P.",
+     "Denys M.",
+     "Detter J.C.",
+     "Escobar J.",
+     "Flowers D.",
+     "Fotopulos D.",
+     "Garcia C.",
+     "Georgescu A.M.",
+     "Glavina T.",
+     "Gomez M.",
+     "Gonzales E.",
+     "Groza M.",
+     "Hammon N.",
+     "Hawkins T.",
+     "Haydu L.",
+     "Ho I.",
+     "Huang W.",
+     "Israni S.",
+     "Jett J.",
+     "Kadner K.",
+     "Kimball H.",
+     "Kobayashi A.",
+     "Larionov V.",
+     "Leem S.-H.",
+     "Lopez F.",
+     "Lou Y.",
+     "Lowry S.",
+     "Malfatti S.",
+     "Martinez D.",
+     "McCready P.M.",
+     "Medina C.",
+     "Morgan J.",
+     "Nelson K.",
+     "Nolan M.",
+     "Ovcharenko I.",
+     "Pitluck S.",
+     "Pollard M.",
+     "Popkie A.P.",
+     "Predki P.",
+     "Quan G.",
+     "Ramirez L.",
+     "Rash S.",
+     "Retterer J.",
+     "Rodriguez A.",
+     "Rogers S.",
+     "Salamov A.",
+     "Salazar A.",
+     "She X.",
+     "Smith D.",
+     "Slezak T.",
+     "Solovyev V.",
+     "Thayer N.",
+     "Tice H.",
+     "Tsai M.",
+     "Ustaszewska A.",
+     "Vo N.",
+     "Wagner M.",
+     "Wheeler J.",
+     "Wu K.",
+     "Xie G.",
+     "Yang J.",
+     "Dubchak I.",
+     "Furey T.S.",
+     "DeJong P.",
+     "Dickson M.",
+     "Gordon D.",
+     "Eichler E.E.",
+     "Pennacchio L.A.",
+     "Richardson P.",
+     "Stubbs L.",
+     "Rokhsar D.S.",
+     "Myers R.M.",
+     "Rubin E.M.",
+     "Lucas S.M."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15057824"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/nature02399"
+     }
+    ],
+    "title": "The DNA sequence and biology of human chromosome 19.",
+    "publicationDate": "2004",
+    "journal": "Nature",
+    "firstPage": "529",
+    "lastPage": "535",
+    "volume": "428"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 2)",
+    "VARIANT ARG-266"
+   ],
+   "referenceComments": [
+    {
+     "value": "Brain",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "24275569",
+    "citationType": "journal article",
+    "authors": [
+     "Bian Y.",
+     "Song C.",
+     "Cheng K.",
+     "Dong M.",
+     "Wang F.",
+     "Huang J.",
+     "Sun D.",
+     "Wang L.",
+     "Ye M.",
+     "Zou H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "24275569"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.jprot.2013.11.014"
+     }
+    ],
+    "title": "An enzyme assisted RP-RPLC approach for in-depth analysis of human liver phosphoproteome.",
+    "publicationDate": "2014",
+    "journal": "J. Proteomics",
+    "firstPage": "253",
+    "lastPage": "262",
+    "volume": "96"
+   },
+   "referencePositions": [
+    "PHOSPHORYLATION [LARGE SCALE ANALYSIS] AT SER-20 AND SER-168",
+    "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Liver",
+     "type": "TISSUE"
+    }
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "CH471135",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "EAW71880.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AC008743",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC066359",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH66359.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS33082.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "A6ND91-2"
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS46153.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "A6ND91-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001019827.2",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001024656.3"
+    }
+   ],
+   "isoformId": "A6ND91-2"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001108070.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001114598.2"
+    }
+   ],
+   "isoformId": "A6ND91-1"
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "A6ND91",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "A6ND91",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "299841",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "18"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "A6ND91",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "194"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "A6ND91",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "6"
+    }
+   ]
+  },
+  {
+   "database": "MINT",
+   "id": "A6ND91",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000373860",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "A6ND91",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "A6ND91",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "ASPDH",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "A6ND91",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000373860",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "A6ND91",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "891",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "A6ND91-1"
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "892",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "A6ND91-2"
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "46022",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "76 antibodies from 11 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "554235",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000376916.7",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000366114.2"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000204653.11"
+    }
+   ],
+   "isoformId": "A6ND91-2"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000389208.9",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000373860.3"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000204653.11"
+    }
+   ],
+   "isoformId": "A6ND91-1"
+  },
+  {
+   "database": "GeneID",
+   "id": "554235",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:554235",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000389208.9",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000373860.3"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_001114598.2"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_001108070.1"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc002psr.4",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ],
+   "isoformId": "A6ND91-1"
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:33856",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA164716234",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "554235",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "ASPDH",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:33856",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "ASPDH"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000204653",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Tissue enhanced (brain, kidney, liver)"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000204653",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000204653",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "ENOG502QVGC",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00390000004452",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_063528_0_0_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "A6ND91",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "KHPTSFK",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "4310724at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "A6ND91",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "0 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "A6ND91",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "A6ND91",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "A6ND91",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000204653",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "554235",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "19 hits in 1145 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "ASPDH",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "554235",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "A6ND91",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tbio"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:A6ND91",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 19"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "A6ND91",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000204653",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in male germ line stem cell (sensu Vertebrata) in testis and 145 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "A6ND91",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0033735",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:L-aspartate dehydrogenase [NAD(P)+] activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:InterPro"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0050661",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:NADP binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:InterPro"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0009435",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:NAD+ biosynthetic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:InterPro"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.30.360.10",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Dihydrodipicolinate Reductase, domain 2"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.40.50.720",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NAD(P)-binding Rossmann-like Domain"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR005106",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Asp/hSer_DH_NAD-bd"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR002811",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Asp_DH"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR011182",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "L-Asp_DH"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR036291",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NAD(P)-bd_dom_sf"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR31873:SF6",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "ASPARTATE DEHYDROGENASE DOMAIN-CONTAINING PROTEIN"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR31873",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "L-ASPARTATE DEHYDROGENASE-RELATED"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF01958",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Asp_DH_C"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF03447",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NAD_binding_3"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PIRSF",
+   "id": "PIRSF005227",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Asp_dh_NAD_syn"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF55347",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Glyceraldehyde-3-phosphate dehydrogenase-like, C-terminal domain"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF51735",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "NAD(P)-binding Rossmann-fold domains"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MADRGPWRVGVVGYGRLGQSLVSRLLAQGPELGLELVFVWNRDPGRMAGSVPPSLQLQNLAALGERRPDLVVEVAHPKIIHESGAQILRHANLLVGSPSALSDQTTERQLLEASQHWDHAVFVARGALWGAEDIRRLDAAGGLRSLRVTMATHPDGFRLEGPLAAAHSPGPCTVLYEGPVRGLCPFAPRNSNTMAAAALAAPSLGFDGVIGVLVADTSLTDMHVVDVELSGPRGPTGRSFAVHTRRENPAEPGAVTGSATVTAFWQSLLACCQLPSRPGIHLC",
+  "length": 283,
+  "molWeight": 29946,
+  "crc64": "FF4254EF3F14D840",
+  "md5": "1FB0DDDD10493945BA39D06EB421EF60"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "ALTERNATIVE PRODUCTS": 2,
+   "SIMILARITY": 1
+  },
+  "countByFeatureType": {
+   "Chain": 1,
+   "Modified residue": 2,
+   "Alternative sequence": 2,
+   "Natural variant": 1
+  },
+  "uniParcId": "UPI00015B3C66"
+ }
+}

@@ -1,0 +1,5426 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "P09172",
+ "secondaryAccessions": [
+  "Q5T381",
+  "Q96AG2"
+ ],
+ "uniProtkbId": "DOPO_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "1989-07-01",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2007-07-24",
+  "entryVersion": 240,
+  "sequenceVersion": 3
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000303",
+      "source": "PubMed",
+      "id": "27152332"
+     },
+     {
+      "evidenceCode": "ECO:0000303",
+      "source": "PubMed",
+      "id": "3443096"
+     }
+    ],
+    "value": "Dopamine beta-hydroxylase"
+   },
+   "ecNumbers": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "3443096"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "7961964"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "8546710"
+      }
+     ],
+     "value": "1.14.17.1"
+    }
+   ]
+  },
+  "alternativeNames": [
+   {
+    "fullName": {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000303",
+       "source": "PubMed",
+       "id": "27152332"
+      }
+     ],
+     "value": "Dopamine beta-monooxygenase"
+    }
+   }
+  ],
+  "contains": [
+   {
+    "recommendedName": {
+     "fullName": {
+      "value": "Soluble dopamine beta-hydroxylase"
+     }
+    }
+   }
+  ]
+ },
+ "genes": [
+  {
+   "geneName": {
+    "value": "DBH"
+   }
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "27148966"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "3443096"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "7961964"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "8546710"
+      }
+     ],
+     "value": "Catalyzes the hydroxylation of dopamine to noradrenaline (also known as norepinephrine), and is thus vital for regulation of these neurotransmitters"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "dopamine + 2 L-ascorbate + O2 = (R)-noradrenaline + 2 monodehydro-L-ascorbate radical + H2O",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:19117"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15379"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:38290"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:59513"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:59905"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:72587"
+     }
+    ],
+    "ecNumber": "1.14.17.1",
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "3443096"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "7961964"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "8546710"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:19118"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "3443096"
+      },
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "8546710"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "COFACTOR",
+   "cofactors": [
+    {
+     "name": "Cu(2+)",
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "8546710"
+      },
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "27152332"
+      }
+     ],
+     "cofactorCrossReference": {
+      "database": "ChEBI",
+      "id": "CHEBI:29036"
+     }
+    }
+   ],
+   "note": {
+    "texts": [
+     {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000305",
+        "source": "PubMed",
+        "id": "27152332"
+       }
+      ],
+      "value": "Binds 2 copper ions per subunit."
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "BIOPHYSICOCHEMICAL PROPERTIES",
+   "kineticParameters": {
+    "michaelisConstants": [
+     {
+      "constant": 1.8,
+      "unit": "mM",
+      "substrate": "tyramine",
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "8546710"
+       }
+      ]
+     }
+    ]
+   },
+   "phDependence": {
+    "texts": [
+     {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "8546710"
+       }
+      ],
+      "value": "Optimum pH is 5.2."
+     }
+    ]
+   }
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "27148966"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "3443096"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "8546710"
+      }
+     ],
+     "value": "Catecholamine biosynthesis; (R)-noradrenaline biosynthesis; (R)-noradrenaline from dopamine: step 1/1"
+    }
+   ],
+   "commentType": "PATHWAY"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "27152332"
+      }
+     ],
+     "value": "Homotetramer; composed of two disulfide-linked dimers"
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P09172",
+      "intActId": "EBI-8589586"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P00352",
+      "geneName": "ALDH1A1",
+      "intActId": "EBI-752170"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P09172",
+      "intActId": "EBI-8589586"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P63010-2",
+      "geneName": "AP2B1",
+      "intActId": "EBI-11529439"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P09172",
+      "intActId": "EBI-8589586"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q04656",
+      "geneName": "ATP7A",
+      "intActId": "EBI-7706409"
+     },
+     "numberOfExperiments": 2,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P09172",
+      "intActId": "EBI-8589586"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q8WUW1",
+      "geneName": "BRK1",
+      "intActId": "EBI-2837444"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P09172",
+      "intActId": "EBI-8589586"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9UNS2",
+      "geneName": "COPS3",
+      "intActId": "EBI-350590"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P09172",
+      "intActId": "EBI-8589586"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q71DI3",
+      "geneName": "H3C15",
+      "intActId": "EBI-750650"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P09172",
+      "intActId": "EBI-8589586"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P61978",
+      "geneName": "HNRNPK",
+      "intActId": "EBI-304185"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P09172",
+      "intActId": "EBI-8589586"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9Y2M5",
+      "geneName": "KLHL20",
+      "intActId": "EBI-714379"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P09172",
+      "intActId": "EBI-8589586"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q92876",
+      "geneName": "KLK6",
+      "intActId": "EBI-2432309"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P09172",
+      "intActId": "EBI-8589586"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P08727",
+      "geneName": "KRT19",
+      "intActId": "EBI-742756"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P09172",
+      "intActId": "EBI-8589586"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q14693",
+      "geneName": "LPIN1",
+      "intActId": "EBI-5278370"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P09172",
+      "intActId": "EBI-8589586"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P0DPK4",
+      "geneName": "NOTCH2NLC",
+      "intActId": "EBI-22310682"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P09172",
+      "intActId": "EBI-8589586"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q6GQQ9-2",
+      "geneName": "OTUD7B",
+      "intActId": "EBI-25830200"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P09172",
+      "intActId": "EBI-8589586"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "P27986-2",
+      "geneName": "PIK3R1",
+      "intActId": "EBI-9090282"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P09172",
+      "intActId": "EBI-8589586"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9ULX5",
+      "geneName": "RNF112",
+      "intActId": "EBI-25829984"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P09172",
+      "intActId": "EBI-8589586"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q96D59",
+      "geneName": "RNF183",
+      "intActId": "EBI-743938"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P09172",
+      "intActId": "EBI-8589586"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q8N6K7-2",
+      "geneName": "SAMD3",
+      "intActId": "EBI-11528848"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P09172",
+      "intActId": "EBI-8589586"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9GZS3",
+      "geneName": "SKIC8",
+      "intActId": "EBI-358545"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P09172",
+      "intActId": "EBI-8589586"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q8IUW3",
+      "geneName": "SPATA2L",
+      "intActId": "EBI-2510414"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "P09172",
+      "intActId": "EBI-8589586"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q86WT6-2",
+      "geneName": "TRIM69",
+      "intActId": "EBI-11525489"
+     },
+     "numberOfExperiments": 3,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "molecule": "Soluble dopamine beta-hydroxylase",
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "7961964"
+       }
+      ],
+      "value": "Cytoplasmic vesicle, secretory vesicle lumen",
+      "id": "SL-0347"
+     }
+    },
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "7961964"
+       }
+      ],
+      "value": "Cytoplasmic vesicle, secretory vesicle, chromaffin granule lumen",
+      "id": "SL-0349"
+     }
+    },
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "7961964"
+       },
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "8546710"
+       }
+      ],
+      "value": "Secreted",
+      "id": "SL-0243"
+     }
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "7961964"
+       }
+      ],
+      "value": "Cytoplasmic vesicle, secretory vesicle membrane",
+      "id": "SL-0245"
+     },
+     "topology": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000305"
+       }
+      ],
+      "value": "Single-pass type II membrane protein",
+      "id": "SL-9906"
+     }
+    },
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "7961964"
+       }
+      ],
+      "value": "Cytoplasmic vesicle, secretory vesicle, chromaffin granule membrane",
+      "id": "SL-0062"
+     },
+     "topology": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000305"
+       }
+      ],
+      "value": "Single-pass type II membrane protein",
+      "id": "SL-9906"
+     }
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "value": "Activity is enhanced by nerve growth factor (in superior cervical ganglia and adrenal medulla). Trans-synaptic stimulation with reserpine, acetylcholine and glucocorticoids"
+    }
+   ],
+   "commentType": "INDUCTION"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "27152332"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "8546710"
+      }
+     ],
+     "value": "N-glycosylated"
+    }
+   ],
+   "commentType": "PTM"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250",
+       "source": "UniProtKB",
+       "id": "P15101"
+      }
+     ],
+     "value": "Proteolytic cleavage after the membrane-anchor leads to the release of the soluble form"
+    }
+   ],
+   "commentType": "PTM"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "10391209"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "10391210"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "10490716"
+      }
+     ],
+     "value": "There are two main alleles of DBH: DBH-A with Ala-318 and DBH-B with Ser-318 (PubMed:10391209, PubMed:10391210, PubMed:10490716)"
+    }
+   ],
+   "commentType": "POLYMORPHISM"
+  },
+  {
+   "commentType": "DISEASE",
+   "disease": {
+    "diseaseId": "Orthostatic hypotension 1",
+    "diseaseAccession": "DI-01502",
+    "acronym": "ORTHYP1",
+    "description": "A form of orthostatic hypotension due to congenital dopamine beta-hydroxylase deficiency. Orthostatic hypotension, also known as postural hypotension, is a finding defined as a 20-mm Hg decrease in systolic pressure or a 10-mm Hg decrease in diastolic pressure occurring 3 minutes after a person has risen from supine to standing. Symptoms include dizziness, blurred vision, and sometimes syncope. ORTHYP1 is an autosomal recessive condition apparent from infancy or early childhood and characterized by low plasma and urinary levels of norepinephrine and epinephrine, and episodic hypoglycemia.",
+    "diseaseCrossReference": {
+     "database": "MIM",
+     "id": "223360"
+    },
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "11857564"
+     }
+    ]
+   },
+   "note": {
+    "texts": [
+     {
+      "value": "The disease is caused by variants affecting the gene represented in this entry"
+     }
+    ]
+   }
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the copper type II ascorbate-dependent monooxygenase family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  },
+  {
+   "commentType": "SEQUENCE CAUTION",
+   "sequenceCautionType": "Erroneous initiation",
+   "sequence": "AAH17174.1",
+   "note": "Truncated N-terminus.",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ]
+  },
+  {
+   "commentType": "SEQUENCE CAUTION",
+   "sequenceCautionType": "Erroneous initiation",
+   "sequence": "CAA31631.1",
+   "note": "Truncated N-terminus.",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ]
+  },
+  {
+   "commentType": "SEQUENCE CAUTION",
+   "sequenceCautionType": "Erroneous initiation",
+   "sequence": "CAA31632.1",
+   "note": "Truncated N-terminus.",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ]
+  },
+  {
+   "commentType": "SEQUENCE CAUTION",
+   "sequenceCautionType": "Erroneous initiation",
+   "sequence": "CAA68285.1",
+   "note": "Truncated N-terminus.",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ]
+  },
+  {
+   "commentType": "WEB RESOURCE",
+   "resourceName": "Wikipedia",
+   "resourceUrl": "https://en.wikipedia.org/wiki/Dopamine_beta_hydroxylase",
+   "ftp": false,
+   "note": "Dopamine beta hydroxylase entry"
+  }
+ ],
+ "features": [
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 617,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Dopamine beta-hydroxylase",
+   "featureId": "PRO_0000006356"
+  },
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 40,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 617,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Soluble dopamine beta-hydroxylase",
+   "featureId": "PRO_0000308209"
+  },
+  {
+   "type": "Topological domain",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 16,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Cytoplasmic",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 17,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 37,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical; Signal-anchor for type II membrane protein",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Topological domain",
+   "location": {
+    "start": {
+     "value": 38,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 617,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Intragranular",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Domain",
+   "location": {
+    "start": {
+     "value": 57,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 173,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "DOMON",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255",
+     "source": "PROSITE-ProRule",
+     "id": "PRU00246"
+    }
+   ]
+  },
+  {
+   "type": "Region",
+   "location": {
+    "start": {
+     "value": 590,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 617,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Disordered",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000256",
+     "source": "SAM",
+     "id": "MobiDB-lite"
+    }
+   ]
+  },
+  {
+   "type": "Active site",
+   "location": {
+    "start": {
+     "value": 230,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 230,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Active site",
+   "location": {
+    "start": {
+     "value": 412,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 412,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 262,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 262,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:29036"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305",
+     "source": "PubMed",
+     "id": "27152332"
+    }
+   ],
+   "ligand": {
+    "name": "Cu(2+)",
+    "id": "ChEBI:CHEBI:29036",
+    "label": "A"
+   }
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 263,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 263,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:29036"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305",
+     "source": "PubMed",
+     "id": "27152332"
+    }
+   ],
+   "ligand": {
+    "name": "Cu(2+)",
+    "id": "ChEBI:CHEBI:29036",
+    "label": "A"
+   }
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 333,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 333,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:29036"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305",
+     "source": "PubMed",
+     "id": "27152332"
+    }
+   ],
+   "ligand": {
+    "name": "Cu(2+)",
+    "id": "ChEBI:CHEBI:29036",
+    "label": "A"
+   }
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 412,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 412,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:29036"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27152332"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ],
+   "ligand": {
+    "name": "Cu(2+)",
+    "id": "ChEBI:CHEBI:29036",
+    "label": "B"
+   }
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 414,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 414,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:29036"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305",
+     "source": "PubMed",
+     "id": "27152332"
+    }
+   ],
+   "ligand": {
+    "name": "Cu(2+)",
+    "id": "ChEBI:CHEBI:29036",
+    "label": "B"
+   }
+  },
+  {
+   "type": "Binding site",
+   "location": {
+    "start": {
+     "value": 487,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 487,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:29036"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27152332"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ],
+   "ligand": {
+    "name": "Cu(2+)",
+    "id": "ChEBI:CHEBI:29036",
+    "label": "B"
+   }
+  },
+  {
+   "type": "Site",
+   "location": {
+    "start": {
+     "value": 39,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 40,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Cleavage",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "UniProtKB",
+     "id": "P15101"
+    }
+   ]
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 64,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 64,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27152332"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 184,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 184,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) (complex) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "16335952"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "19139490"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27152332"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 344,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 344,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27152332"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Glycosylation",
+   "location": {
+    "start": {
+     "value": 566,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 566,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "N-linked (GlcNAc...) asparagine",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27152332"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ],
+   "featureId": ""
+  },
+  {
+   "type": "Disulfide bond",
+   "location": {
+    "start": {
+     "value": 154,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 596,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27152332"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Disulfide bond",
+   "location": {
+    "start": {
+     "value": 232,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 283,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27152332"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Disulfide bond",
+   "location": {
+    "start": {
+     "value": 269,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 295,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27152332"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Disulfide bond",
+   "location": {
+    "start": {
+     "value": 390,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 503,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27152332"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Disulfide bond",
+   "location": {
+    "start": {
+     "value": 394,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 565,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27152332"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Disulfide bond",
+   "location": {
+    "start": {
+     "value": 466,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 488,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27152332"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Disulfide bond",
+   "location": {
+    "start": {
+     "value": 528,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 528,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Interchain (with C-530)",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27152332"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Disulfide bond",
+   "location": {
+    "start": {
+     "value": 530,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 530,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Interchain (with C-528)",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "27152332"
+    },
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 12,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 12,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs5318",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs5318"
+    }
+   ],
+   "featureId": "VAR_048838",
+   "alternativeSequence": {
+    "originalSequence": "G",
+    "alternativeSequences": [
+     "S"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 101,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 101,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in ORTHYP1; dbSNP:rs267606760",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs267606760"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "11857564"
+    }
+   ],
+   "featureId": "VAR_022758",
+   "alternativeSequence": {
+    "originalSequence": "V",
+    "alternativeSequences": [
+     "M"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 114,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 114,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in ORTHYP1; dbSNP:rs77576840",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs77576840"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "11857564"
+    }
+   ],
+   "featureId": "VAR_022759",
+   "alternativeSequence": {
+    "originalSequence": "D",
+    "alternativeSequences": [
+     "E"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 181,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 181,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs5319",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs5319"
+    }
+   ],
+   "featureId": "VAR_014706",
+   "alternativeSequence": {
+    "originalSequence": "E",
+    "alternativeSequences": [
+     "Q"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 211,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 211,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs5320",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs5320"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "10391210"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "3443096"
+    }
+   ],
+   "featureId": "VAR_013947",
+   "alternativeSequence": {
+    "originalSequence": "A",
+    "alternativeSequences": [
+     "T"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 239,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 239,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs5321",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs5321"
+    }
+   ],
+   "featureId": "VAR_014707",
+   "alternativeSequence": {
+    "originalSequence": "K",
+    "alternativeSequences": [
+     "N"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 250,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 250,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs5323",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs5323"
+    }
+   ],
+   "featureId": "VAR_014708",
+   "alternativeSequence": {
+    "originalSequence": "E",
+    "alternativeSequences": [
+     "Q"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 290,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 290,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs5324",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs5324"
+    }
+   ],
+   "featureId": "VAR_014709",
+   "alternativeSequence": {
+    "originalSequence": "D",
+    "alternativeSequences": [
+     "N"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 317,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 317,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs5325",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs5325"
+    }
+   ],
+   "featureId": "VAR_014710",
+   "alternativeSequence": {
+    "originalSequence": "L",
+    "alternativeSequences": [
+     "P"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 318,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 318,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in allele DBH-B; dbSNP:rs4531",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs4531"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "10391209"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "10391210"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "10490716"
+    }
+   ],
+   "featureId": "VAR_002196",
+   "alternativeSequence": {
+    "originalSequence": "A",
+    "alternativeSequences": [
+     "S"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 345,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 345,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in ORTHYP1; dbSNP:rs267606761",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs267606761"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "11857564"
+    }
+   ],
+   "featureId": "VAR_022760",
+   "alternativeSequence": {
+    "originalSequence": "D",
+    "alternativeSequences": [
+     "N"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 549,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 549,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs6271",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs6271"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "10391209"
+    },
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "3443096"
+    }
+   ],
+   "featureId": "VAR_013948",
+   "alternativeSequence": {
+    "originalSequence": "R",
+    "alternativeSequences": [
+     "C"
+    ]
+   }
+  },
+  {
+   "type": "Sequence conflict",
+   "location": {
+    "start": {
+     "value": 505,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 505,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in Ref. 2; CAA68285 and 4; CAA31631/CAA31632",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "S",
+    "alternativeSequences": [
+     "T"
+    ]
+   }
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 48,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 52,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 58,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 66,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Turn",
+   "location": {
+    "start": {
+     "value": 67,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 70,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 71,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 80,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 83,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 93,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 98,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 104,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 111,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 117,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 123,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 125,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 130,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 138,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 143,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 151,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 166,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 173,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 191,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 195,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 203,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 205,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 212,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 217,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 220,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 222,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 225,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 236,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 241,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 243,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 244,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 252,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Turn",
+   "location": {
+    "start": {
+     "value": 255,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 260,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 261,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 268,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 279,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 284,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 286,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 288,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 290,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 294,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 297,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 303,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 313,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 319,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 327,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 335,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 348,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 356,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 359,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 361,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 363,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 369,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 375,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 377,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 382,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 390,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 392,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 398,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 404,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 412,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 417,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 426,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 429,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 439,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 448,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 456,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 461,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 468,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 477,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 482,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 489,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 496,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 499,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 507,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 509,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 522,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 535,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 539,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 546,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 558,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Beta strand",
+   "location": {
+    "start": {
+     "value": 561,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 567,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "type": "Helix",
+   "location": {
+    "start": {
+     "value": 581,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 583,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0002",
+   "category": "Technical term",
+   "name": "3D-structure"
+  },
+  {
+   "id": "KW-0127",
+   "category": "Biological process",
+   "name": "Catecholamine biosynthesis"
+  },
+  {
+   "id": "KW-0186",
+   "category": "Ligand",
+   "name": "Copper"
+  },
+  {
+   "id": "KW-0968",
+   "category": "Cellular component",
+   "name": "Cytoplasmic vesicle"
+  },
+  {
+   "id": "KW-0903",
+   "category": "Technical term",
+   "name": "Direct protein sequencing"
+  },
+  {
+   "id": "KW-0225",
+   "category": "Disease",
+   "name": "Disease variant"
+  },
+  {
+   "id": "KW-1015",
+   "category": "PTM",
+   "name": "Disulfide bond"
+  },
+  {
+   "id": "KW-0325",
+   "category": "PTM",
+   "name": "Glycoprotein"
+  },
+  {
+   "id": "KW-0472",
+   "category": "Cellular component",
+   "name": "Membrane"
+  },
+  {
+   "id": "KW-0479",
+   "category": "Ligand",
+   "name": "Metal-binding"
+  },
+  {
+   "id": "KW-0503",
+   "category": "Molecular function",
+   "name": "Monooxygenase"
+  },
+  {
+   "id": "KW-0560",
+   "category": "Molecular function",
+   "name": "Oxidoreductase"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  },
+  {
+   "id": "KW-0964",
+   "category": "Cellular component",
+   "name": "Secreted"
+  },
+  {
+   "id": "KW-0735",
+   "category": "Domain",
+   "name": "Signal-anchor"
+  },
+  {
+   "id": "KW-0812",
+   "category": "Domain",
+   "name": "Transmembrane"
+  },
+  {
+   "id": "KW-1133",
+   "category": "Domain",
+   "name": "Transmembrane helix"
+  },
+  {
+   "id": "KW-0847",
+   "category": "Ligand",
+   "name": "Vitamin C"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "15164053",
+    "citationType": "journal article",
+    "authors": [
+     "Humphray S.J.",
+     "Oliver K.",
+     "Hunt A.R.",
+     "Plumb R.W.",
+     "Loveland J.E.",
+     "Howe K.L.",
+     "Andrews T.D.",
+     "Searle S.",
+     "Hunt S.E.",
+     "Scott C.E.",
+     "Jones M.C.",
+     "Ainscough R.",
+     "Almeida J.P.",
+     "Ambrose K.D.",
+     "Ashwell R.I.S.",
+     "Babbage A.K.",
+     "Babbage S.",
+     "Bagguley C.L.",
+     "Bailey J.",
+     "Banerjee R.",
+     "Barker D.J.",
+     "Barlow K.F.",
+     "Bates K.",
+     "Beasley H.",
+     "Beasley O.",
+     "Bird C.P.",
+     "Bray-Allen S.",
+     "Brown A.J.",
+     "Brown J.Y.",
+     "Burford D.",
+     "Burrill W.",
+     "Burton J.",
+     "Carder C.",
+     "Carter N.P.",
+     "Chapman J.C.",
+     "Chen Y.",
+     "Clarke G.",
+     "Clark S.Y.",
+     "Clee C.M.",
+     "Clegg S.",
+     "Collier R.E.",
+     "Corby N.",
+     "Crosier M.",
+     "Cummings A.T.",
+     "Davies J.",
+     "Dhami P.",
+     "Dunn M.",
+     "Dutta I.",
+     "Dyer L.W.",
+     "Earthrowl M.E.",
+     "Faulkner L.",
+     "Fleming C.J.",
+     "Frankish A.",
+     "Frankland J.A.",
+     "French L.",
+     "Fricker D.G.",
+     "Garner P.",
+     "Garnett J.",
+     "Ghori J.",
+     "Gilbert J.G.R.",
+     "Glison C.",
+     "Grafham D.V.",
+     "Gribble S.",
+     "Griffiths C.",
+     "Griffiths-Jones S.",
+     "Grocock R.",
+     "Guy J.",
+     "Hall R.E.",
+     "Hammond S.",
+     "Harley J.L.",
+     "Harrison E.S.I.",
+     "Hart E.A.",
+     "Heath P.D.",
+     "Henderson C.D.",
+     "Hopkins B.L.",
+     "Howard P.J.",
+     "Howden P.J.",
+     "Huckle E.",
+     "Johnson C.",
+     "Johnson D.",
+     "Joy A.A.",
+     "Kay M.",
+     "Keenan S.",
+     "Kershaw J.K.",
+     "Kimberley A.M.",
+     "King A.",
+     "Knights A.",
+     "Laird G.K.",
+     "Langford C.",
+     "Lawlor S.",
+     "Leongamornlert D.A.",
+     "Leversha M.",
+     "Lloyd C.",
+     "Lloyd D.M.",
+     "Lovell J.",
+     "Martin S.",
+     "Mashreghi-Mohammadi M.",
+     "Matthews L.",
+     "McLaren S.",
+     "McLay K.E.",
+     "McMurray A.",
+     "Milne S.",
+     "Nickerson T.",
+     "Nisbett J.",
+     "Nordsiek G.",
+     "Pearce A.V.",
+     "Peck A.I.",
+     "Porter K.M.",
+     "Pandian R.",
+     "Pelan S.",
+     "Phillimore B.",
+     "Povey S.",
+     "Ramsey Y.",
+     "Rand V.",
+     "Scharfe M.",
+     "Sehra H.K.",
+     "Shownkeen R.",
+     "Sims S.K.",
+     "Skuce C.D.",
+     "Smith M.",
+     "Steward C.A.",
+     "Swarbreck D.",
+     "Sycamore N.",
+     "Tester J.",
+     "Thorpe A.",
+     "Tracey A.",
+     "Tromans A.",
+     "Thomas D.W.",
+     "Wall M.",
+     "Wallis J.M.",
+     "West A.P.",
+     "Whitehead S.L.",
+     "Willey D.L.",
+     "Williams S.A.",
+     "Wilming L.",
+     "Wray P.W.",
+     "Young L.",
+     "Ashurst J.L.",
+     "Coulson A.",
+     "Blocker H.",
+     "Durbin R.M.",
+     "Sulston J.E.",
+     "Hubbard T.",
+     "Jackson M.J.",
+     "Bentley D.R.",
+     "Beck S.",
+     "Rogers J.",
+     "Dunham I."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15164053"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/nature02465"
+     }
+    ],
+    "title": "DNA sequence and analysis of human chromosome 9.",
+    "publicationDate": "2004",
+    "journal": "Nature",
+    "firstPage": "369",
+    "lastPage": "374",
+    "volume": "429"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "3443096",
+    "citationType": "journal article",
+    "authors": [
+     "Lamouroux A.",
+     "Vigny A.",
+     "Faucon Biguet N.",
+     "Darmon M.C.",
+     "Franck R.",
+     "Henry J.-P.",
+     "Mallet J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "3443096"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1002/j.1460-2075.1987.tb02734.x"
+     }
+    ],
+    "title": "The primary structure of human dopamine-beta-hydroxylase: insights into the relationship between the soluble and the membrane-bound forms of the enzyme.",
+    "publicationDate": "1987",
+    "journal": "EMBO J.",
+    "firstPage": "3931",
+    "lastPage": "3937",
+    "volume": "6"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA] OF 2-617",
+    "PARTIAL PROTEIN SEQUENCE",
+    "VARIANTS THR-211 AND CYS-549",
+    "CATALYTIC ACTIVITY",
+    "FUNCTION",
+    "PATHWAY"
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] OF 3-617"
+   ],
+   "referenceComments": [
+    {
+     "value": "Brain",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "2922261",
+    "citationType": "journal article",
+    "authors": [
+     "Kobayashi K.",
+     "Kurosawa Y.",
+     "Fukita K.",
+     "Nagatsu T."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "2922261"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1093/nar/17.3.1089"
+     }
+    ],
+    "title": "Human dopamine beta-hydroxylase gene: two mRNA types having different 3'-terminal regions are produced through alternative polyadenylation.",
+    "publicationDate": "1989",
+    "journal": "Nucleic Acids Res.",
+    "firstPage": "1089",
+    "lastPage": "1102",
+    "volume": "17"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [MRNA] OF 5-617"
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "8546710",
+    "citationType": "journal article",
+    "authors": [
+     "Li B.",
+     "Tsing S.",
+     "Kosaka A.H.",
+     "Nguyen B.",
+     "Osen E.G.",
+     "Bach C.",
+     "Chan H.",
+     "Barnett J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "8546710"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1042/bj3130057"
+     }
+    ],
+    "title": "Expression of human dopamine beta-hydroxylase in Drosophila Schneider 2 cells.",
+    "publicationDate": "1996",
+    "journal": "Biochem. J.",
+    "firstPage": "57",
+    "lastPage": "64",
+    "volume": "313"
+   },
+   "referencePositions": [
+    "PROTEIN SEQUENCE OF 40-48",
+    "CATALYTIC ACTIVITY",
+    "FUNCTION",
+    "PATHWAY",
+    "SUBCELLULAR LOCATION",
+    "GLYCOSYLATION",
+    "COFACTOR",
+    "BIOPHYSICOCHEMICAL PROPERTIES"
+   ]
+  },
+  {
+   "referenceNumber": 6,
+   "citation": {
+    "id": "7961964",
+    "citationType": "journal article",
+    "authors": [
+     "Kobayashi K.",
+     "Morita S.",
+     "Mizuguchi T.",
+     "Sawada H.",
+     "Yamada K.",
+     "Nagatsu I.",
+     "Fujita K.",
+     "Nagatsu T."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "7961964"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/s0021-9258(18)43941-5"
+     }
+    ],
+    "title": "Functional and high level expression of human dopamine beta-hydroxylase in transgenic mice.",
+    "publicationDate": "1994",
+    "journal": "J. Biol. Chem.",
+    "firstPage": "29725",
+    "lastPage": "29731",
+    "volume": "269"
+   },
+   "referencePositions": [
+    "FUNCTION",
+    "CATALYTIC ACTIVITY",
+    "SUBCELLULAR LOCATION"
+   ]
+  },
+  {
+   "referenceNumber": 7,
+   "citation": {
+    "id": "16335952",
+    "citationType": "journal article",
+    "authors": [
+     "Liu T.",
+     "Qian W.-J.",
+     "Gritsenko M.A.",
+     "Camp D.G. II",
+     "Monroe M.E.",
+     "Moore R.J.",
+     "Smith R.D."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "16335952"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1021/pr0502065"
+     }
+    ],
+    "title": "Human plasma N-glycoproteome analysis by immunoaffinity subtraction, hydrazide chemistry, and mass spectrometry.",
+    "publicationDate": "2005",
+    "journal": "J. Proteome Res.",
+    "firstPage": "2070",
+    "lastPage": "2080",
+    "volume": "4"
+   },
+   "referencePositions": [
+    "GLYCOSYLATION [LARGE SCALE ANALYSIS] AT ASN-184"
+   ],
+   "referenceComments": [
+    {
+     "value": "Plasma",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 8,
+   "citation": {
+    "id": "19139490",
+    "citationType": "journal article",
+    "authors": [
+     "Jia W.",
+     "Lu Z.",
+     "Fu Y.",
+     "Wang H.P.",
+     "Wang L.H.",
+     "Chi H.",
+     "Yuan Z.F.",
+     "Zheng Z.B.",
+     "Song L.N.",
+     "Han H.H.",
+     "Liang Y.M.",
+     "Wang J.L.",
+     "Cai Y.",
+     "Zhang Y.K.",
+     "Deng Y.L.",
+     "Ying W.T.",
+     "He S.M.",
+     "Qian X.H."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "19139490"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1074/mcp.m800504-mcp200"
+     }
+    ],
+    "title": "A strategy for precise and large scale identification of core fucosylated glycoproteins.",
+    "publicationDate": "2009",
+    "journal": "Mol. Cell. Proteomics",
+    "firstPage": "913",
+    "lastPage": "923",
+    "volume": "8"
+   },
+   "referencePositions": [
+    "GLYCOSYLATION AT ASN-184"
+   ]
+  },
+  {
+   "referenceNumber": 9,
+   "citation": {
+    "id": "27148966",
+    "citationType": "journal article",
+    "authors": [
+     "Cubells J.F.",
+     "Schroeder J.P.",
+     "Barrie E.S.",
+     "Manvich D.F.",
+     "Sadee W.",
+     "Berg T.",
+     "Mercer K.",
+     "Stowe T.A.",
+     "Liles L.C.",
+     "Squires K.E.",
+     "Mezher A.",
+     "Curtin P.",
+     "Perdomo D.L.",
+     "Szot P.",
+     "Weinshenker D."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "27148966"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1371/journal.pone.0154864"
+     }
+    ],
+    "title": "Human bacterial artificial chromosome (BAC) transgenesis fully rescues noradrenergic function in dopamine beta-hydroxylase knockout mice.",
+    "publicationDate": "2016",
+    "journal": "PLoS ONE",
+    "firstPage": "E0154864",
+    "lastPage": "E0154864",
+    "volume": "11"
+   },
+   "referencePositions": [
+    "FUNCTION",
+    "PATHWAY"
+   ]
+  },
+  {
+   "referenceNumber": 10,
+   "citation": {
+    "id": "27152332",
+    "citationType": "journal article",
+    "authors": [
+     "Vendelboe T.V.",
+     "Harris P.",
+     "Zhao Y.",
+     "Walter T.S.",
+     "Harlos K.",
+     "El Omari K.",
+     "Christensen H.E."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "27152332"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1126/sciadv.1500980"
+     }
+    ],
+    "title": "The crystal structure of human dopamine beta-hydroxylase at 2.9 A resolution.",
+    "publicationDate": "2016",
+    "journal": "Sci. Adv.",
+    "firstPage": "E1500980",
+    "lastPage": "E1500980",
+    "volume": "2"
+   },
+   "referencePositions": [
+    "X-RAY CRYSTALLOGRAPHY (2.90 ANGSTROMS) OF 40-617 IN COMPLEX WITH CU(2+)",
+    "SUBUNIT",
+    "DISULFIDE BONDS",
+    "GLYCOSYLATION AT ASN-64; ASN-184; ASN-344 AND ASN-566",
+    "COFACTOR"
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007744",
+     "source": "PDB",
+     "id": "4ZEL"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 11,
+   "citation": {
+    "id": "10490716",
+    "citationType": "journal article",
+    "authors": [
+     "Williams H.J.",
+     "Bray N.",
+     "Murphy K.C.",
+     "Cardno A.G.",
+     "Jones L.A.",
+     "Owen M.J."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "10490716"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1002/(sici)1096-8628(19991015)88:5<557::aid-ajmg22>3.0.co;2-f"
+     }
+    ],
+    "title": "No evidence for allelic association between schizophrenia and a functional variant of the human dopamine beta-hydroxylase gene (DBH).",
+    "publicationDate": "1999",
+    "journal": "Am. J. Med. Genet.",
+    "firstPage": "557",
+    "lastPage": "559",
+    "volume": "88"
+   },
+   "referencePositions": [
+    "VARIANT SER-318"
+   ]
+  },
+  {
+   "referenceNumber": 12,
+   "citation": {
+    "id": "10391209",
+    "citationType": "journal article",
+    "authors": [
+     "Cargill M.",
+     "Altshuler D.",
+     "Ireland J.",
+     "Sklar P.",
+     "Ardlie K.",
+     "Patil N.",
+     "Shaw N.",
+     "Lane C.R.",
+     "Lim E.P.",
+     "Kalyanaraman N.",
+     "Nemesh J.",
+     "Ziaugra L.",
+     "Friedland L.",
+     "Rolfe A.",
+     "Warrington J.",
+     "Lipshutz R.",
+     "Daley G.Q.",
+     "Lander E.S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "10391209"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/10290"
+     }
+    ],
+    "title": "Characterization of single-nucleotide polymorphisms in coding regions of human genes.",
+    "publicationDate": "1999",
+    "journal": "Nat. Genet.",
+    "firstPage": "231",
+    "lastPage": "238",
+    "volume": "22"
+   },
+   "referencePositions": [
+    "VARIANTS SER-318 AND CYS-549"
+   ]
+  },
+  {
+   "referenceNumber": 13,
+   "citation": {
+    "id": "CI-7BM7J78BCMMM4",
+    "citationType": "journal article",
+    "authors": [
+     "Cargill M.",
+     "Altshuler D.",
+     "Ireland J.",
+     "Sklar P.",
+     "Ardlie K.",
+     "Patil N.",
+     "Shaw N.",
+     "Lane C.R.",
+     "Lim E.P.",
+     "Kalyanaraman N.",
+     "Nemesh J.",
+     "Ziaugra L.",
+     "Friedland L.",
+     "Rolfe A.",
+     "Warrington J.",
+     "Lipshutz R.",
+     "Daley G.Q.",
+     "Lander E.S."
+    ],
+    "publicationDate": "1999",
+    "journal": "Nat. Genet.",
+    "firstPage": "373",
+    "lastPage": "373",
+    "volume": "23"
+   },
+   "referencePositions": [
+    "ERRATUM OF PUBMED:10391209"
+   ]
+  },
+  {
+   "referenceNumber": 14,
+   "citation": {
+    "id": "10391210",
+    "citationType": "journal article",
+    "authors": [
+     "Halushka M.K.",
+     "Fan J.-B.",
+     "Bentley K.",
+     "Hsie L.",
+     "Shen N.",
+     "Weder A.",
+     "Cooper R.",
+     "Lipshutz R.",
+     "Chakravarti A."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "10391210"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/10297"
+     }
+    ],
+    "title": "Patterns of single-nucleotide polymorphisms in candidate genes for blood-pressure homeostasis.",
+    "publicationDate": "1999",
+    "journal": "Nat. Genet.",
+    "firstPage": "239",
+    "lastPage": "247",
+    "volume": "22"
+   },
+   "referencePositions": [
+    "VARIANTS THR-211 AND SER-318"
+   ]
+  },
+  {
+   "referenceNumber": 15,
+   "citation": {
+    "id": "11857564",
+    "citationType": "journal article",
+    "authors": [
+     "Kim C.-H.",
+     "Zabetian C.P.",
+     "Cubells J.F.",
+     "Cho S.",
+     "Biaggioni I.",
+     "Cohen B.M.",
+     "Robertson D.",
+     "Kim K.-S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "11857564"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1002/ajmg.10196.abs"
+     }
+    ],
+    "title": "Mutations in the dopamine beta-hydroxylase gene are associated with human norepinephrine deficiency.",
+    "publicationDate": "2002",
+    "journal": "Am. J. Med. Genet.",
+    "firstPage": "140",
+    "lastPage": "147",
+    "volume": "108"
+   },
+   "referencePositions": [
+    "VARIANTS ORTHYP1 MET-101; GLU-114 AND ASN-345"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "AL365494",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "Y00096",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "CAA68285.1"
+    },
+    {
+     "key": "Status",
+     "value": "ALT_INIT"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC017174",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH17174.1"
+    },
+    {
+     "key": "Status",
+     "value": "ALT_INIT"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "X13255",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "CAA31631.1"
+    },
+    {
+     "key": "Status",
+     "value": "ALT_INIT"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "X13256",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "CAA31632.1"
+    },
+    {
+     "key": "Status",
+     "value": "ALT_INIT"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS6977.2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PIR",
+   "id": "S03020",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "S03020"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_000778.3",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_000787.4"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "4ZEL",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "X-ray"
+    },
+    {
+     "key": "Resolution",
+     "value": "2.90 A"
+    },
+    {
+     "key": "Chains",
+     "value": "A/B=40-617"
+    }
+   ]
+  },
+  {
+   "database": "PDBsum",
+   "id": "4ZEL",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "107989",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "21"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "147"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "26"
+    }
+   ]
+  },
+  {
+   "database": "MINT",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "NDEx",
+   "id": "IQUERY-CP-DBH",
+   "properties": [
+    {
+     "key": "Evidences",
+     "value": "8 NDEx IQuery Curated Pathways"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000376776",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BindingDB",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ChEMBL",
+   "id": "CHEMBL3102",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB00126",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Ascorbic acid"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB06774",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Capsaicin"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB09130",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Copper"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB05394",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Corticorelin"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB00822",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Disulfiram"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB00988",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Dopamine"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB15288",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Etamicastat"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB00968",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Methyldopa"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB00550",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Propylthiouracil"
+    }
+   ]
+  },
+  {
+   "database": "DrugCentral",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GuidetoPHARMACOLOGY",
+   "id": "2486",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GlyConnect",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "9 N-Linked glycans (1 site)"
+    }
+   ]
+  },
+  {
+   "database": "GlyCosmos",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "3 sites, 9 glycans"
+    }
+   ]
+  },
+  {
+   "database": "GlyGen",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "glycosylation",
+     "value": "5 sites, 13 N-linked glycans (2 sites)"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SwissPalm",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "DBH",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "158517849",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000376776",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "52205",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "881",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "558 antibodies from 48 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "1621",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000393056.8",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000376776.2"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000123454.13"
+    }
+   ]
+  },
+  {
+   "database": "GeneID",
+   "id": "1621",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:1621",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000393056.8",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000376776.2"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_000787.4"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_000778.3"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc004cel.4",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:2689",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA136",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "1621",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "1621",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "DBH",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneReviews",
+   "id": "DBH",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:2689",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "DBH"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000123454",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Tissue enriched (adrenal)"
+    }
+   ]
+  },
+  {
+   "database": "MalaCards",
+   "id": "DBH",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "223360",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "phenotype"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "609312",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000123454",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Orphanet",
+   "id": "230",
+   "properties": [
+    {
+     "key": "Disease",
+     "value": "Dopamine beta-hydroxylase deficiency"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000123454",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "KOG3568",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00530000063085",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_017939_3_0_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "FPHFSGP",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "129121at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "7 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioCyc",
+   "id": "MetaCyc:MONOMER66-381",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BRENDA",
+   "id": "1.14.17.1",
+   "properties": [
+    {
+     "key": "OrganismId",
+     "value": "2681"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-209905",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Catecholamine biosynthesis"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SIGNOR",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "UniPathway",
+   "id": "UPA00748",
+   "properties": [
+    {
+     "key": "RectionId",
+     "value": "UER00735"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000123454",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "1621",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "14 hits in 1158 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "DBH",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "GeneWiki",
+   "id": "Dopamine_beta_hydroxylase",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "1621",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tchem"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:P09172",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 9"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000123454",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in right lobe of liver and 103 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "P09172",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0034466",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:chromaffin granule lumen"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:UniProtKB-SubCell"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0042584",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:chromaffin granule membrane"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:UniProtKB-SubCell"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005737",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:cytoplasm"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:ProtInc"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000304",
+     "source": "PubMed",
+     "id": "3443096"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005576",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:extracellular region"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "7961964"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0016020",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:membrane"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:ProtInc"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000304",
+     "source": "PubMed",
+     "id": "3443096"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0034774",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:secretory granule lumen"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "7961964"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0030667",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:secretory granule membrane"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "7961964"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0045202",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:synapse"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:GOC"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0030658",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:transport vesicle membrane"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:UniProtKB-SubCell"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0003824",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:catalytic activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:ProtInc"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000304",
+     "source": "PubMed",
+     "id": "3443096"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005507",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:copper ion binding"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "27152332"
+    },
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "7961964"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0004500",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:dopamine beta-monooxygenase activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "3443096"
+    },
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "7961964"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0048149",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:behavioral response to ethanol"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IBA:GO_Central"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0007268",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:chemical synaptic transmission"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:ProtInc"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000304",
+     "source": "PubMed",
+     "id": "2880016"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0042420",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:dopamine catabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "3443096"
+    },
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "7961964"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0042421",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:norepinephrine biosynthetic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IMP:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000315",
+     "source": "PubMed",
+     "id": "27148966"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0120162",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:positive regulation of cold-induced thermogenesis"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:YuBioLab"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "source": "PubMed",
+     "id": "9139828"
+    }
+   ]
+  },
+  {
+   "database": "CDD",
+   "id": "cd09631",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "DOMON_DOH"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "2.60.120.310:FF:000003",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Dopamine beta-hydroxylase"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "2.60.120.230:FF:000001",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Monooxygenase, DBH-like 1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "2.60.120.230",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "-"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "2.60.120.310",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Copper type II, ascorbate-dependent monooxygenase, N-terminal domain"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR014784",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Cu2_ascorb_mOase-like_C"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR020611",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Cu2_ascorb_mOase_CS-1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR014783",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Cu2_ascorb_mOase_CS-2"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR000323",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Cu2_ascorb_mOase_N"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR036939",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Cu2_ascorb_mOase_N_sf"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR024548",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Cu2_monoox_C"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR000945",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "DBH-like"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR045266",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "DOH_DOMON"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR005018",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "DOMON_domain"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR008977",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PHM/PNGase_F_dom_sf"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR028460",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Tbh/DBH"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR10157",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "DOPAMINE BETA HYDROXYLASE RELATED"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR10157:SF29",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "DOPAMINE BETA-HYDROXYLASE"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF03712",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Cu2_monoox_C"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF01082",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Cu2_monooxygen"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF03351",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "DOMON"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PRINTS",
+   "id": "PR00767",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "DBMONOXGNASE"
+    }
+   ]
+  },
+  {
+   "database": "SMART",
+   "id": "SM00664",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "DoH"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF49742",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PHM/PNGase F"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "2"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS00084",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "CU2_MONOOXYGENASE_1"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS00085",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "CU2_MONOOXYGENASE_2"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS50836",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "DOMON"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MPALSRWASLPGPSMREAAFMYSTAVAIFLVILVAALQGSAPRESPLPYHIPLDPEGSLELSWNVSYTQEAIHFQLLVRRLKAGVLFGMSDRGELENADLVVLWTDGDTAYFADAWSDQKGQIHLDPQQDYQLLQVQRTPEGLTLLFKRPFGTCDPKDYLIEDGTVHLVYGILEEPFRSLEAINGSGLQMGLQRVQLLKPNIPEPELPSDACTMEVQAPNIQIPSQETTYWCYIKELPKGFSRHHIIKYEPIVTKGNEALVHHMEVFQCAPEMDSVPHFSGPCDSKMKPDRLNYCRHVLAAWALGAKAFYYPEEAGLAFGGPGSSRYLRLEVHYHNPLVIEGRNDSSGIRLYYTAKLRRFNAGIMELGLVYTPVMAIPPRETAFILTGYCTDKCTQLALPPSGIHIFASQLHTHLTGRKVVTVLVRDGREWEIVNQDNHYSPHFQEIRMLKKVVSVHPGDVLITSCTYNTEDRELATVGGFGILEEMCVNYVHYYPQTQLELCKSAVDAGFLQKYFHLINRFNNEDVCTCPQASVSQQFTSVPWNSFNRDVLKALYSFAPISMHCNKSSAVRFQGEWNLQPLPKVISTLEEPTPQCPTSQGRSPAGPTVVSIGGGKG",
+  "length": 617,
+  "molWeight": 69065,
+  "crc64": "4D5586F0E358885D",
+  "md5": "38927EE2935860A9742A6D5CCB6D1ECE"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "CATALYTIC ACTIVITY": 1,
+   "COFACTOR": 1,
+   "BIOPHYSICOCHEMICAL PROPERTIES": 1,
+   "PATHWAY": 1,
+   "SUBUNIT": 1,
+   "INTERACTION": 20,
+   "SUBCELLULAR LOCATION": 2,
+   "INDUCTION": 1,
+   "PTM": 2,
+   "POLYMORPHISM": 1,
+   "DISEASE": 1,
+   "SIMILARITY": 1,
+   "SEQUENCE CAUTION": 4,
+   "WEB RESOURCE": 1
+  },
+  "countByFeatureType": {
+   "Chain": 2,
+   "Topological domain": 2,
+   "Transmembrane": 1,
+   "Domain": 1,
+   "Region": 1,
+   "Active site": 2,
+   "Binding site": 6,
+   "Site": 1,
+   "Glycosylation": 4,
+   "Disulfide bond": 8,
+   "Natural variant": 12,
+   "Sequence conflict": 1,
+   "Beta strand": 36,
+   "Turn": 2,
+   "Helix": 7
+  },
+  "uniParcId": "UPI0000E5D219"
+ }
+}

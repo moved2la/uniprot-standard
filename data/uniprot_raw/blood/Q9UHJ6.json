@@ -1,0 +1,2183 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "Q9UHJ6",
+ "secondaryAccessions": [
+  "B2R640",
+  "Q8WUH3"
+ ],
+ "uniProtkbId": "SHPK_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "2001-04-27",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2022-02-23",
+  "entryVersion": 176,
+  "sequenceVersion": 4
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000305"
+     }
+    ],
+    "value": "Sedoheptulokinase"
+   },
+   "shortNames": [
+    {
+     "value": "SHK"
+    }
+   ],
+   "ecNumbers": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "18186520"
+      }
+     ],
+     "value": "2.7.1.14"
+    }
+   ]
+  },
+  "alternativeNames": [
+   {
+    "fullName": {
+     "value": "Carbohydrate kinase-like protein"
+    }
+   }
+  ]
+ },
+ "genes": [
+  {
+   "geneName": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000312",
+      "source": "HGNC",
+      "id": "HGNC:1492"
+     }
+    ],
+    "value": "SHPK"
+   },
+   "synonyms": [
+    {
+     "value": "CARKL"
+    }
+   ]
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250"
+      }
+     ],
+     "value": "Acts as a modulator of macrophage activation through control of glucose metabolism"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "sedoheptulose + ATP = D-sedoheptulose 7-phosphate + ADP + H(+)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:23844"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15378"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:16802"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:30616"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57483"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:456216"
+     }
+    ],
+    "ecNumber": "2.7.1.14",
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "18186520"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "BIOPHYSICOCHEMICAL PROPERTIES",
+   "kineticParameters": {
+    "michaelisConstants": [
+     {
+      "constant": 0.06,
+      "unit": "mM",
+      "substrate": "sedoheptulose",
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "18186520"
+       }
+      ]
+     }
+    ]
+   },
+   "phDependence": {
+    "texts": [
+     {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "18186520"
+       }
+      ],
+      "value": "Optimum pH is 8.5."
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "INTERACTION",
+   "interactions": [
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "Q9UHJ6",
+      "intActId": "EBI-3938184"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q9P016",
+      "geneName": "THYN1",
+      "intActId": "EBI-2795681"
+     },
+     "numberOfExperiments": 2,
+     "organismDiffer": false
+    },
+    {
+     "interactantOne": {
+      "uniProtKBAccession": "Q9UHJ6",
+      "intActId": "EBI-3938184"
+     },
+     "interactantTwo": {
+      "uniProtKBAccession": "Q13114",
+      "geneName": "TRAF3",
+      "intActId": "EBI-357631"
+     },
+     "numberOfExperiments": 2,
+     "organismDiffer": false
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000250"
+       }
+      ],
+      "value": "Cytoplasm",
+      "id": "SL-0086"
+     }
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "10673275"
+      }
+     ],
+     "value": "Strongly expressed in liver, kidney and pancreas. Expressed at lower levels in placenta and heart. Very weakly expressed in lung and brain"
+    }
+   ],
+   "commentType": "TISSUE SPECIFICITY"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "22682222"
+      }
+     ],
+     "value": "Down-regulated by LPS"
+    }
+   ],
+   "commentType": "INDUCTION"
+  },
+  {
+   "commentType": "DISEASE",
+   "disease": {
+    "diseaseId": "Sedoheptulokinase deficiency",
+    "diseaseAccession": "DI-04872",
+    "acronym": "SHPKD",
+    "description": "An autosomal recessive metabolic disease characterized by increased urinary erythritol and sedoheptulose. Neonatal cholestasis, hypoglycemia, anemia, congenital arthrogryposis multiplex, multiple contractures and dysmorphisms have been reported in SHPKD patients, but the relationship of these features to the SHPKD is unclear.",
+    "diseaseCrossReference": {
+     "database": "MIM",
+     "id": "617213"
+    },
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "25647543"
+     }
+    ]
+   },
+   "note": {
+    "texts": [
+     {
+      "value": "The disease is caused by variants affecting the gene represented in this entry"
+     }
+    ]
+   }
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the FGGY kinase family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  }
+ ],
+ "features": [
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 478,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Sedoheptulokinase",
+   "featureId": "PRO_0000059564"
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 215,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 215,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs150857",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs150857"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "10673275"
+    }
+   ],
+   "featureId": "VAR_042580",
+   "alternativeSequence": {
+    "originalSequence": "E",
+    "alternativeSequences": [
+     "K"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 421,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 421,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs224496",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs224496"
+    }
+   ],
+   "featureId": "VAR_048591",
+   "alternativeSequence": {
+    "originalSequence": "E",
+    "alternativeSequences": [
+     "D"
+    ]
+   }
+  },
+  {
+   "type": "Natural variant",
+   "location": {
+    "start": {
+     "value": 434,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 434,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in dbSNP:rs36125540",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs36125540"
+    }
+   ],
+   "featureId": "VAR_048592",
+   "alternativeSequence": {
+    "originalSequence": "L",
+    "alternativeSequences": [
+     "M"
+    ]
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0067",
+   "category": "Ligand",
+   "name": "ATP-binding"
+  },
+  {
+   "id": "KW-0963",
+   "category": "Cellular component",
+   "name": "Cytoplasm"
+  },
+  {
+   "id": "KW-0418",
+   "category": "Molecular function",
+   "name": "Kinase"
+  },
+  {
+   "id": "KW-0547",
+   "category": "Ligand",
+   "name": "Nucleotide-binding"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  },
+  {
+   "id": "KW-0808",
+   "category": "Molecular function",
+   "name": "Transferase"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "10673275",
+    "citationType": "journal article",
+    "authors": [
+     "Touchman J.W.",
+     "Anikster Y.",
+     "Dietrich N.L.",
+     "Maduro V.V.B.",
+     "McDowell G.",
+     "Shotelersuk V.",
+     "Bouffard G.G.",
+     "Beckstrom-Sternberg S.M.",
+     "Gahl W.A.",
+     "Green E.D."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "10673275"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.10.2.165"
+     }
+    ],
+    "title": "The genomic region encompassing the nephropathic cystinosis gene (CTNS): complete sequencing of a 200-kb segment and discovery of a novel gene within the common cystinosis-causing deletion.",
+    "publicationDate": "2000",
+    "journal": "Genome Res.",
+    "firstPage": "165",
+    "lastPage": "173",
+    "volume": "10"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [GENOMIC DNA / MRNA]",
+    "TISSUE SPECIFICITY",
+    "VARIANT LYS-215"
+   ],
+   "referenceComments": [
+    {
+     "value": "Fetal kidney",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "14702039",
+    "citationType": "journal article",
+    "authors": [
+     "Ota T.",
+     "Suzuki Y.",
+     "Nishikawa T.",
+     "Otsuki T.",
+     "Sugiyama T.",
+     "Irie R.",
+     "Wakamatsu A.",
+     "Hayashi K.",
+     "Sato H.",
+     "Nagai K.",
+     "Kimura K.",
+     "Makita H.",
+     "Sekine M.",
+     "Obayashi M.",
+     "Nishi T.",
+     "Shibahara T.",
+     "Tanaka T.",
+     "Ishii S.",
+     "Yamamoto J.",
+     "Saito K.",
+     "Kawai Y.",
+     "Isono Y.",
+     "Nakamura Y.",
+     "Nagahari K.",
+     "Murakami K.",
+     "Yasuda T.",
+     "Iwayanagi T.",
+     "Wagatsuma M.",
+     "Shiratori A.",
+     "Sudo H.",
+     "Hosoiri T.",
+     "Kaku Y.",
+     "Kodaira H.",
+     "Kondo H.",
+     "Sugawara M.",
+     "Takahashi M.",
+     "Kanda K.",
+     "Yokoi T.",
+     "Furuya T.",
+     "Kikkawa E.",
+     "Omura Y.",
+     "Abe K.",
+     "Kamihara K.",
+     "Katsuta N.",
+     "Sato K.",
+     "Tanikawa M.",
+     "Yamazaki M.",
+     "Ninomiya K.",
+     "Ishibashi T.",
+     "Yamashita H.",
+     "Murakawa K.",
+     "Fujimori K.",
+     "Tanai H.",
+     "Kimata M.",
+     "Watanabe M.",
+     "Hiraoka S.",
+     "Chiba Y.",
+     "Ishida S.",
+     "Ono Y.",
+     "Takiguchi S.",
+     "Watanabe S.",
+     "Yosida M.",
+     "Hotuta T.",
+     "Kusano J.",
+     "Kanehori K.",
+     "Takahashi-Fujii A.",
+     "Hara H.",
+     "Tanase T.-O.",
+     "Nomura Y.",
+     "Togiya S.",
+     "Komai F.",
+     "Hara R.",
+     "Takeuchi K.",
+     "Arita M.",
+     "Imose N.",
+     "Musashino K.",
+     "Yuuki H.",
+     "Oshima A.",
+     "Sasaki N.",
+     "Aotsuka S.",
+     "Yoshikawa Y.",
+     "Matsunawa H.",
+     "Ichihara T.",
+     "Shiohata N.",
+     "Sano S.",
+     "Moriya S.",
+     "Momiyama H.",
+     "Satoh N.",
+     "Takami S.",
+     "Terashima Y.",
+     "Suzuki O.",
+     "Nakagawa S.",
+     "Senoh A.",
+     "Mizoguchi H.",
+     "Goto Y.",
+     "Shimizu F.",
+     "Wakebe H.",
+     "Hishigaki H.",
+     "Watanabe T.",
+     "Sugiyama A.",
+     "Takemoto M.",
+     "Kawakami B.",
+     "Yamazaki M.",
+     "Watanabe K.",
+     "Kumagai A.",
+     "Itakura S.",
+     "Fukuzumi Y.",
+     "Fujimori Y.",
+     "Komiyama M.",
+     "Tashiro H.",
+     "Tanigami A.",
+     "Fujiwara T.",
+     "Ono T.",
+     "Yamada K.",
+     "Fujii Y.",
+     "Ozaki K.",
+     "Hirao M.",
+     "Ohmori Y.",
+     "Kawabata A.",
+     "Hikiji T.",
+     "Kobatake N.",
+     "Inagaki H.",
+     "Ikema Y.",
+     "Okamoto S.",
+     "Okitani R.",
+     "Kawakami T.",
+     "Noguchi S.",
+     "Itoh T.",
+     "Shigeta K.",
+     "Senba T.",
+     "Matsumura K.",
+     "Nakajima Y.",
+     "Mizuno T.",
+     "Morinaga M.",
+     "Sasaki M.",
+     "Togashi T.",
+     "Oyama M.",
+     "Hata H.",
+     "Watanabe M.",
+     "Komatsu T.",
+     "Mizushima-Sugano J.",
+     "Satoh T.",
+     "Shirai Y.",
+     "Takahashi Y.",
+     "Nakagawa K.",
+     "Okumura K.",
+     "Nagase T.",
+     "Nomura N.",
+     "Kikuchi H.",
+     "Masuho Y.",
+     "Yamashita R.",
+     "Nakai K.",
+     "Yada T.",
+     "Nakamura Y.",
+     "Ohara O.",
+     "Isogai T.",
+     "Sugano S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "14702039"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/ng1285"
+     }
+    ],
+    "title": "Complete sequencing and characterization of 21,243 full-length human cDNAs.",
+    "publicationDate": "2004",
+    "journal": "Nat. Genet.",
+    "firstPage": "40",
+    "lastPage": "45",
+    "volume": "36"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Brain",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "17974005",
+    "citationType": "journal article",
+    "authors": [
+     "Bechtel S.",
+     "Rosenfelder H.",
+     "Duda A.",
+     "Schmidt C.P.",
+     "Ernst U.",
+     "Wellenreuther R.",
+     "Mehrle A.",
+     "Schuster C.",
+     "Bahr A.",
+     "Bloecker H.",
+     "Heubner D.",
+     "Hoerlein A.",
+     "Michel G.",
+     "Wedler H.",
+     "Koehrer K.",
+     "Ottenwaelder B.",
+     "Poustka A.",
+     "Wiemann S.",
+     "Schupp I."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "17974005"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1186/1471-2164-8-399"
+     }
+    ],
+    "title": "The full-ORF clone resource of the German cDNA consortium.",
+    "publicationDate": "2007",
+    "journal": "BMC Genomics",
+    "firstPage": "399",
+    "lastPage": "399",
+    "volume": "8"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Melanoma",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "16625196",
+    "citationType": "journal article",
+    "authors": [
+     "Zody M.C.",
+     "Garber M.",
+     "Adams D.J.",
+     "Sharpe T.",
+     "Harrow J.",
+     "Lupski J.R.",
+     "Nicholson C.",
+     "Searle S.M.",
+     "Wilming L.",
+     "Young S.K.",
+     "Abouelleil A.",
+     "Allen N.R.",
+     "Bi W.",
+     "Bloom T.",
+     "Borowsky M.L.",
+     "Bugalter B.E.",
+     "Butler J.",
+     "Chang J.L.",
+     "Chen C.-K.",
+     "Cook A.",
+     "Corum B.",
+     "Cuomo C.A.",
+     "de Jong P.J.",
+     "DeCaprio D.",
+     "Dewar K.",
+     "FitzGerald M.",
+     "Gilbert J.",
+     "Gibson R.",
+     "Gnerre S.",
+     "Goldstein S.",
+     "Grafham D.V.",
+     "Grocock R.",
+     "Hafez N.",
+     "Hagopian D.S.",
+     "Hart E.",
+     "Norman C.H.",
+     "Humphray S.",
+     "Jaffe D.B.",
+     "Jones M.",
+     "Kamal M.",
+     "Khodiyar V.K.",
+     "LaButti K.",
+     "Laird G.",
+     "Lehoczky J.",
+     "Liu X.",
+     "Lokyitsang T.",
+     "Loveland J.",
+     "Lui A.",
+     "Macdonald P.",
+     "Major J.E.",
+     "Matthews L.",
+     "Mauceli E.",
+     "McCarroll S.A.",
+     "Mihalev A.H.",
+     "Mudge J.",
+     "Nguyen C.",
+     "Nicol R.",
+     "O'Leary S.B.",
+     "Osoegawa K.",
+     "Schwartz D.C.",
+     "Shaw-Smith C.",
+     "Stankiewicz P.",
+     "Steward C.",
+     "Swarbreck D.",
+     "Venkataraman V.",
+     "Whittaker C.A.",
+     "Yang X.",
+     "Zimmer A.R.",
+     "Bradley A.",
+     "Hubbard T.",
+     "Birren B.W.",
+     "Rogers J.",
+     "Lander E.S.",
+     "Nusbaum C."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "16625196"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/nature04689"
+     }
+    ],
+    "title": "DNA sequence of human chromosome 17 and analysis of rearrangement in the human lineage.",
+    "publicationDate": "2006",
+    "journal": "Nature",
+    "firstPage": "1045",
+    "lastPage": "1049",
+    "volume": "440"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "CI-5GBD0VIIJ7C63",
+    "citationType": "submission",
+    "authors": [
+     "Mural R.J.",
+     "Istrail S.",
+     "Sutton G.G.",
+     "Florea L.",
+     "Halpern A.L.",
+     "Mobarry C.M.",
+     "Lippert R.",
+     "Walenz B.",
+     "Shatkay H.",
+     "Dew I.",
+     "Miller J.R.",
+     "Flanigan M.J.",
+     "Edwards N.J.",
+     "Bolanos R.",
+     "Fasulo D.",
+     "Halldorsson B.V.",
+     "Hannenhalli S.",
+     "Turner R.",
+     "Yooseph S.",
+     "Lu F.",
+     "Nusskern D.R.",
+     "Shue B.C.",
+     "Zheng X.H.",
+     "Zhong F.",
+     "Delcher A.L.",
+     "Huson D.H.",
+     "Kravitz S.A.",
+     "Mouchard L.",
+     "Reinert K.",
+     "Remington K.A.",
+     "Clark A.G.",
+     "Waterman M.S.",
+     "Eichler E.E.",
+     "Adams M.D.",
+     "Hunkapiller M.W.",
+     "Myers E.W.",
+     "Venter J.C."
+    ],
+    "publicationDate": "SEP-2005",
+    "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 6,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Liver",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 7,
+   "citation": {
+    "id": "18186520",
+    "citationType": "journal article",
+    "authors": [
+     "Wamelink M.M.",
+     "Struys E.A.",
+     "Jansen E.E.",
+     "Levtchenko E.N.",
+     "Zijlstra F.S.",
+     "Engelke U.",
+     "Blom H.J.",
+     "Jakobs C.",
+     "Wevers R.A."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "18186520"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1002/humu.20685"
+     }
+    ],
+    "title": "Sedoheptulokinase deficiency due to a 57-kb deletion in cystinosis patients causes urinary accumulation of sedoheptulose: elucidation of the CARKL gene.",
+    "publicationDate": "2008",
+    "journal": "Hum. Mutat.",
+    "firstPage": "532",
+    "lastPage": "536",
+    "volume": "29"
+   },
+   "referencePositions": [
+    "CATALYTIC ACTIVITY",
+    "BIOPHYSICOCHEMICAL PROPERTIES"
+   ]
+  },
+  {
+   "referenceNumber": 8,
+   "citation": {
+    "id": "22682222",
+    "citationType": "journal article",
+    "authors": [
+     "Haschemi A.",
+     "Kosma P.",
+     "Gille L.",
+     "Evans C.R.",
+     "Burant C.F.",
+     "Starkl P.",
+     "Knapp B.",
+     "Haas R.",
+     "Schmid J.A.",
+     "Jandl C.",
+     "Amir S.",
+     "Lubec G.",
+     "Park J.",
+     "Esterbauer H.",
+     "Bilban M.",
+     "Brizuela L.",
+     "Pospisilik J.A.",
+     "Otterbein L.E.",
+     "Wagner O."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "22682222"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1016/j.cmet.2012.04.023"
+     }
+    ],
+    "title": "The sedoheptulose kinase CARKL directs macrophage polarization through control of glucose metabolism.",
+    "publicationDate": "2012",
+    "journal": "Cell Metab.",
+    "firstPage": "813",
+    "lastPage": "826",
+    "volume": "15"
+   },
+   "referencePositions": [
+    "INDUCTION"
+   ]
+  },
+  {
+   "referenceNumber": 9,
+   "citation": {
+    "id": "25647543",
+    "citationType": "journal article",
+    "authors": [
+     "Wamelink M.M.",
+     "Ramos R.J.",
+     "van den Elzen A.P.",
+     "Ruijter G.J.",
+     "Bonte R.",
+     "Diogo L.",
+     "Garcia P.",
+     "Neves N.",
+     "Nota B.",
+     "Haschemi A.",
+     "Tavares de Almeida I.",
+     "Salomons G.S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "25647543"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1007/s10545-014-9809-1"
+     }
+    ],
+    "title": "First two unrelated cases of isolated sedoheptulokinase deficiency: A benign disorder?",
+    "publicationDate": "2015",
+    "journal": "J. Inherit. Metab. Dis.",
+    "firstPage": "889",
+    "lastPage": "894",
+    "volume": "38"
+   },
+   "referencePositions": [
+    "INVOLVEMENT IN SHPKD"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "AF163573",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAF24936.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AF168787",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAF43103.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AK312428",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAG35337.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AL832420",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "CAH10646.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AC027796",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "CH471108",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "EAW90501.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC020543",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH20543.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS11030.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_037408.2",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_013276.4"
+    }
+   ]
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "Q9UHJ6",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "Q9UHJ6",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "117235",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "43"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "Q9UHJ6",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "785"
+    }
+   ]
+  },
+  {
+   "database": "IntAct",
+   "id": "Q9UHJ6",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "17"
+    }
+   ]
+  },
+  {
+   "database": "NDEx",
+   "id": "IQUERY-CP-SHPK",
+   "properties": [
+    {
+     "key": "Evidences",
+     "value": "1 NDEx IQuery Curated Pathway"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000225519",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "Q9UHJ6",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "Q9UHJ6",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "SHPK",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "296452959",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "Q9UHJ6",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "Q9UHJ6",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000225519",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "Q9UHJ6",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "84364",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pumba",
+   "id": "Q9UHJ6",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "TopDownProteomics",
+   "id": "Q9UHJ6",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "10891",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "229 antibodies from 29 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "23729",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000225519.5",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000225519.3"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000197417.9"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000572919.1",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000461416.1"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000262304.2"
+    }
+   ]
+  },
+  {
+   "database": "GeneID",
+   "id": "23729",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:23729",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000225519.5",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000225519.3"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_013276.4"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_037408.2"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc002fvz.1",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:1492",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA162403312",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "23729",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "23729",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "SHPK",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:1492",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "SHPK"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000197417",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Low tissue specificity"
+    }
+   ]
+  },
+  {
+   "database": "MalaCards",
+   "id": "SHPK",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "605060",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "617213",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "phenotype"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000197417",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000262304",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Orphanet",
+   "id": "440713",
+   "properties": [
+    {
+     "key": "Disease",
+     "value": "Isolated sedoheptulokinase deficiency"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000197417",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "KOG2517",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT01000000214434",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_021676_1_1_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "Q9UHJ6",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "TWQDTRC",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "10264182at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "Q9UHJ6",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "5 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "Q9UHJ6",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioCyc",
+   "id": "MetaCyc:G66-33950-MONOMER",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BRENDA",
+   "id": "2.7.1.14",
+   "properties": [
+    {
+     "key": "OrganismId",
+     "value": "2681"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "Q9UHJ6",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-71336",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Pentose phosphate pathway"
+    }
+   ]
+  },
+  {
+   "database": "SignaLink",
+   "id": "Q9UHJ6",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SIGNOR",
+   "id": "Q9UHJ6",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000197417",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "23729",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "10 hits in 1161 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "23729",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "Q9UHJ6",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tbio"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:Q9UHJ6",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome 17"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "Q9UHJ6",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000197417",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in right lobe of liver and 121 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005737",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:cytoplasm"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005829",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:cytosol"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:Reactome"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0050277",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:sedoheptulokinase activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "19413330"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005975",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:carbohydrate metabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "19413330"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0035963",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:cellular response to interleukin-13"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0071353",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:cellular response to interleukin-4"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0071222",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:cellular response to lipopolysaccharide"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "22682222"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0006098",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:pentose-phosphate shunt"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:Reactome"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0009052",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:pentose-phosphate shunt, non-oxidative branch"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0016310",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:phosphorylation"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000314",
+     "source": "PubMed",
+     "id": "19413330"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0050727",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:regulation of inflammatory response"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0043030",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:regulation of macrophage activation"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "ISS:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "CDD",
+   "id": "cd07777",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "ASKHA_NBD_FGGY_SHK"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.30.420.40:FF:000111",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Sedoheptulokinase"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.30.420.40:FF:000132",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Sedoheptulokinase"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.30.420.40",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "-"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "2"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR043129",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "ATPase_NBD"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR018484",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "FGGY_N"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR10196:SF67",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SEDOHEPTULOKINASE"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR10196",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "SUGAR KINASE"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF00370",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "FGGY_N"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF53067",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Actin-like ATPase domain"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "2"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MAARPITLGIDLGTTSVKAALLRAAPDDPSGFAVLASCARAARAEAAVESAVAGPQGREQDVSRILQALHECLAALPRPQLRSVVGIGVSGQMHGVVFWKTGQGCEWTEGGITPVFEPRAVSHLVTWQDGRCSSEFLASLPQPKSHLSVATGFGCATIFWLLKYRPEFLKSYDAAGTIHDYVVAMLCGLPRPLMSDQNAASWGYFNTQSQSWNVETLRSSGFPVHLLPDIAEPGSVAGRTSHMWFEIPKGTQVGVALGDLQASVYSCMAQRTDAVLNISTSVQLAASMPSGFQPAQTPDPTAPVAYFPYFNRTYLGVAASLNGGNVLATFVHMLVQWMADLGLEVEESTVYSRMIQAAVQQRDTHLTITPTVLGERHLPDQLASVTRISSSDLSLGHVTRALCRGIVQNLHSMLPIQQLQEWGVERVMGSGSALSRNDVLKQEVQRAFPLPMSFGQDVDAAVGAALVMLRRHLNQKES",
+  "length": 478,
+  "molWeight": 51505,
+  "crc64": "0C930B380826AC1E",
+  "md5": "3A9E1278C0586AAA79D8C53A795F3211"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "CATALYTIC ACTIVITY": 1,
+   "BIOPHYSICOCHEMICAL PROPERTIES": 1,
+   "INTERACTION": 2,
+   "SUBCELLULAR LOCATION": 1,
+   "TISSUE SPECIFICITY": 1,
+   "INDUCTION": 1,
+   "DISEASE": 1,
+   "SIMILARITY": 1
+  },
+  "countByFeatureType": {
+   "Chain": 1,
+   "Natural variant": 3
+  },
+  "uniParcId": "UPI0000070BB8"
+ }
+}
