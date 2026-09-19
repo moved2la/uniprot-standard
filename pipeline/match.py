@@ -29,7 +29,7 @@ Reads
   config/food_amino_acids_other_sources.csv             the author's hand-maintained foods (M4)
 
 Writes (outputs/match/)
-  match_rate_per_food.tsv           the summary: one row per food, the PRIMARY reference only (D127) — the score,
+  match_rate_per_food.tsv           the summary: one row per food, the SUMMARY reference only (D127, D128) — the score,
                                     the limiting amino acid, EAA total, EAA percent of protein, the Step 7 ratio per
                                     amino acid. Every reference is match_rate_by_reference.tsv; the walk is the steps table
   match_rate_by_reference.tsv       one row per food, every reference's score and limiting amino acid side by side
@@ -389,6 +389,17 @@ def build(log) -> dict[str, str]:
     if not primary or primary not in [r["name"] for r in refs]:
         raise Stop(f"[formula] primary_reference {primary!r} is not a [reference.*]")
     prim = next(r for r in refs if r["name"] == primary)
+    # The summary table is scored against the most complete reference built so far; the comparison
+    # baseline stays put so each new category's effect is readable against one unchanging reference
+    # (D128). Absent, the summary falls back to the baseline.
+    summary_ref = cp["formula"].get("summary_reference", "").strip() if "formula" in cp else ""
+    if not summary_ref:
+        raise Stop("[formula] summary_reference is not set. It names the reference match_rate_per_food.tsv is "
+                   "scored against — the most complete one built so far (D128). There is no default: falling back "
+                   "to primary_reference would write a summary against the comparison baseline and say nothing.")
+    if summary_ref not in [r["name"] for r in refs]:
+        raise Stop(f"[formula] summary_reference {summary_ref!r} is not a [reference.*]")
+    summ = next(r for r in refs if r["name"] == summary_ref)
     version = cp["meta"].get("version", "").strip() if "meta" in cp else ""
     decimals = int(cp["output"].get("decimals", "4")) if "output" in cp else 4
 
@@ -429,22 +440,23 @@ def build(log) -> dict[str, str]:
             seen.add(pth)
             hash_lines.append(f"input.{k} = {_rel(pth)} sha256 {sha256_path(pth)}")
     header = ([f"generated = {common.iso_now()}", f"Match Rate version = {version or '(unlabelled)'}",
-               f"formula = M1 (D87), docs/formula.md 'Match Rate'; primary reference = {primary}"] + hash_lines +
+               f"formula = M1 (D87), docs/formula.md 'Match Rate'; summary reference (match_rate_per_food.tsv) = {summary_ref}; "
+               f"comparison baseline (the difference_pp_ columns) = {primary}"] + hash_lines +
               [f"reference.{r['name']} = {r['label']} | {r['where']} | scored set {r['scored_set']} ({''.join(r['letters'])}) | "
                + "values: " + ", ".join(f"{a} {r['values'][a]:g}" for a in r["letters"])
                for r in refs])
 
     files: dict[str, str] = {}
     ref_names = [r["name"] for r in refs]
-    ratio_letters = sorted(prim["letters"], key=AA.index)   # the primary's scored set: the ratio_<letter> columns
+    ratio_letters = sorted(summ["letters"], key=AA.index)  # the summary reference's scored set
 
-    # ---- 1. match_rate_per_food.tsv — the summary table: one row per food, the primary reference only (D127)
+    # ---- 1. match_rate_per_food.tsv — the summary: one row per food, the summary reference only (D127, D128)
     per_food_rows = []
     for f in foods:
-        res = scores[(f["source"], f["food_id"])][primary]
+        res = scores[(f["source"], f["food_id"])][summary_ref]
         if res["score"] is None:
-            continue                       # not scorable on the primary: foods_not_scored.tsv says why
-        eaa = sum(f["values"][a] for a in prim["letters"])
+            continue                       # not scorable on it: foods_not_scored.tsv says why
+        eaa = sum(f["values"][a] for a in summ["letters"])
         prot = f["protein"]
         row = [f["source"], f["source_detail"], f["food_id"], f["description"], f["category"],
                _pct(res["score"], decimals), "+".join(res["limiting"]),
@@ -452,11 +464,12 @@ def build(log) -> dict[str, str]:
         row += [f"{res['ratio'][a]:.{decimals}f}" if a in res["ratio"] else "" for a in ratio_letters]
         per_food_rows.append(row)
     files["match_rate_per_food.tsv"] = tsv_text(
-        header + [f"THE SUMMARY TABLE: one row per food, scored against the primary reference ({primary}) only (D127). "
+        header + [f"THE SUMMARY TABLE: one row per food, scored against {summary_ref} only — the most complete "
+                  "reference built so far, and the one this table follows as categories are added (D127, D128). "
                   "The reference is named here rather than in a column because it is the same on every row. "
                   "Every reference side by side, with the differences: match_rate_by_reference.tsv. The spreadsheet's "
-                  "walk per food and reference: match_rate_steps.tsv. A food the primary cannot score is absent here "
-                  "and its reason is in foods_not_scored.tsv. "
+                  "walk per food and reference: match_rate_steps.tsv. A food this reference cannot score is absent "
+                  "here and its reason is in foods_not_scored.tsv. "
                   "eaa_g_per_100g = the sum of the reference's scored amino acids as published; eaa_percent_of_protein = "
                   "100 x eaa_g_per_100g / protein_g_per_100g; ratio_<letter> = food share / reference share (Step 7)"],
         ["source", "source_detail", "food_id", "description", "food_category",
@@ -571,6 +584,7 @@ def build(log) -> dict[str, str]:
     s = common.new_ini()
     s.add_section("run")
     s["run"]["match_rate_version"] = version
+    s["run"]["summary_reference"] = summary_ref
     s["run"]["primary_reference"] = primary
     s["run"]["foods_read"] = str(len(foods))
     s["run"]["foods_usda"] = str(sum(f["source"] == "usda" for f in foods))

@@ -124,14 +124,15 @@ def _other(path, foods):
                        ["" if vals.get(a) is None else vals[a] for a in common.AMINO_ACIDS])
 
 
-def _config(path, *, primary="new", references=("new", "old")):
+def _config(path, *, primary="new", summary="new", references=("new", "old")):
     refs = {
         "new": "[reference.new]\nfile = outputs/standard/new.tsv\ncolumn = standard\nscored_set = nine\n"
                "label = synthetic new reference\ndecisions = test\n\n",
         "old": "[reference.old]\nconfig = config/gorissen.ini\nsection = values.human_muscle\nscored_set = eight\n"
                "label = synthetic old reference\ndecisions = test\n\n",
     }
-    text = ("[meta]\nversion = test\n\n[formula]\nprimary_reference = " + primary + "\n\n"
+    text = ("[meta]\nversion = test\n\n[formula]\nprimary_reference = " + primary
+            + (("\nsummary_reference = " + summary) if summary else "") + "\n\n"
             "[scored_set.nine]\ndecision = D86\nkind = fao_headings_reduced\nfrom_file = config/fao.ini\n"
             "group_scored_as.SAA = Met\ngroup_scored_as.AAA = Phe\n\n"
             "[scored_set.eight]\nkind = rows_named_in_file\nfrom_file = config/gorissen.ini\n"
@@ -241,20 +242,60 @@ def test_the_per_food_table_carries_the_eaa_columns_and_not_the_dropped_ones(mat
     assert all(f"{a}_g_per_100g" in steps for a in "HILKMFTWV"), "the steps table carries the grams"
 
 
-def test_the_per_food_table_is_one_row_per_food_on_the_primary_reference(match_repo):
-    """D127: the summary table. One row per food, the primary (`new`) only — otherwise it is
-    match_rate_steps.tsv without the walk. The other references live in the by-reference table."""
+def test_the_per_food_table_is_one_row_per_food_on_the_summary_reference(match_repo):
+    """D127: the summary table. One row per food — otherwise it is match_rate_steps.tsv without the
+    walk. Here summary_reference and primary_reference are both `new`."""
     files = match.build(_Log())
     rows = _rows(files["match_rate_per_food.tsv"])
     ids = [(r["source"], r["food_id"]) for r in rows]
     assert len(ids) == len(set(ids)), "a food appears more than once"
     head = [ln for ln in files["match_rate_per_food.tsv"].splitlines() if ln.startswith("#")]
-    assert any("primary reference (new) only" in ln or "reference (new) only" in ln for ln in head)
-    # food 2 carries no tryptophan: unscorable on the primary's nine, so it is not in the summary,
+    assert any("scored against new only" in ln for ln in head)
+    # food 2 carries no tryptophan: unscorable on the nine, so it is not in the summary,
     # but it is still scored on the eight and still has its row in the by-reference table
     assert ("usda", "2") not in ids
     assert any(r["food_id"] == "2" for r in _rows(files["match_rate_by_reference.tsv"]))
     assert any(r["food_id"] == "2" and r["reference"] == "new" for r in _rows(files["foods_not_scored.tsv"]))
+
+
+def test_the_summary_reference_and_the_comparison_baseline_are_separate_keys(match_repo, tmp_path):
+    """D128: match_rate_per_food.tsv follows `summary_reference` — the most complete reference built
+    so far — while the difference_pp_ columns keep subtracting `primary_reference`, which is held
+    constant so each new category's effect is readable against one unchanging baseline."""
+    _config(tmp_path / "config" / "match_rate.ini", primary="new", summary="old")
+    files = match.build(_Log())
+
+    per_food = _rows(files["match_rate_per_food.tsv"])
+    ids = [(r["source"], r["food_id"]) for r in per_food]
+    assert len(ids) == len(set(ids)), "still one row per food"
+    # `old` is the eight, so the tryptophan-less food IS scorable here and IS in the summary
+    assert ("usda", "2") in ids
+    assert "ratio_W" not in per_food[0] and "ratio_T" in per_food[0]      # the summary reference's scored set
+    even = [r for r in per_food if r["food_id"] == "1"][0]
+    steps = [r for r in _rows(files["match_rate_steps.tsv"]) if r["food_id"] == "1" and r["reference"] == "old"][0]
+    assert even["match_rate_percent"] == steps["match_rate_percent"]      # scored on `old`, not on `new`
+
+    # the baseline is untouched: the differences still read against `new`
+    wide = _rows(files["match_rate_by_reference.tsv"])
+    assert "difference_pp_old_minus_new" in wide[0]
+    assert "difference_pp_new_minus_old" not in wide[0]
+
+    head = [ln for ln in files["match_rate_per_food.tsv"].splitlines() if ln.startswith("#")]
+    assert any("summary reference (match_rate_per_food.tsv) = old" in ln and "comparison baseline" in ln for ln in head)
+
+
+def test_a_summary_reference_that_is_not_a_reference_stops_the_stage(match_repo, tmp_path):
+    _config(tmp_path / "config" / "match_rate.ini", primary="new", summary="nonexistent")
+    with pytest.raises(SystemExit, match="summary_reference"):
+        match.build(_Log())
+
+
+def test_a_missing_summary_reference_stops_the_stage(match_repo, tmp_path):
+    """D128: no default. A silent fallback to primary_reference once wrote a summary scored against
+    the comparison baseline and looked correct — the stage stops instead."""
+    _config(tmp_path / "config" / "match_rate.ini", primary="new", summary="")
+    with pytest.raises(SystemExit, match="summary_reference is not set"):
+        match.build(_Log())
 
 
 def test_headers_carry_provenance_and_the_reference_values_only(match_repo):
