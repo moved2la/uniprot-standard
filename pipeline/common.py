@@ -147,6 +147,8 @@ def category_files(category: str | None) -> dict[str, Path]:
             "composition_dir": composition_dir(),
             "composition_tsv": composition_tsv(),
             "composition_summary": composition_summary_ini(),
+            "mass_fractions_tsv": MASS_FRACTIONS_TSV,
+            "mass_fractions_out": mass_fractions_dir(),
         }
     cfg = category_config_dir(category)
     dat = category_data_dir(category)
@@ -162,6 +164,8 @@ def category_files(category: str | None) -> dict[str, Path]:
         "composition_dir": out["intermediate"] / "composition",
         "composition_tsv": out["intermediate"] / "composition" / "amino_acid_composition_per_protein.tsv",
         "composition_summary": out["intermediate"] / "composition" / "composition_summary.ini",
+        "mass_fractions_tsv": cfg / "mass_fractions_per_entry.tsv",
+        "mass_fractions_out": out["intermediate"] / "mass_fractions",
     }
 
 
@@ -485,6 +489,6 @@ def running_command_is_before(command: str) -> bool:
     so `command`'s outputs are legitimately stale until it is run next. False for `python run.py test`."""
     import os
     order = ["fetch-literature", "protein-set", "composition", "mass-fractions", "standard",
-             "usda", "comparison", "match", "blood-protein-set", "blood-composition"]
+             "usda", "comparison", "match", "blood-protein-set", "blood-composition", "blood-mass-fractions"]
     current = os.environ.get("UNIPROT_STANDARD_COMMAND", "")
     return current in order and command in order and order.index(current) < order.index(command)

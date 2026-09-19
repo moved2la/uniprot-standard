@@ -239,6 +239,22 @@ SPECS: dict[str, list[tuple[str, list[dict]]]] = {
         ("outputs/blood/intermediate/composition/amino_acid_composition_per_protein.tsv", [{"kind": "head", "name": "first40", "n": 40}]),
         ("outputs/blood/intermediate/composition/ptm_mass_deltas.tsv", [{"kind": "head", "name": "first40", "n": 40}]),
     ],
+    "blood-mass-fractions": [
+        ("outputs/blood/intermediate/mass_fractions/mass_fractions_summary.ini", [{"kind": "whole"}]),
+        ("outputs/blood/intermediate/mass_fractions/plasma_entries_ranked.tsv", [{"kind": "head", "name": "first60", "n": 60}]),
+        ("outputs/blood/intermediate/mass_fractions/erythrocytes_entries_ranked.tsv", [{"kind": "head", "name": "first60", "n": 60}]),
+        ("outputs/blood/intermediate/mass_fractions/shared_rows.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/intermediate/mass_fractions/weighted_bounds.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/intermediate/mass_fractions/excluded_rows_mass_share.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/intermediate/mass_fractions/immunoglobulin_variable_domain_bound.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/intermediate/mass_fractions/immunoglobulin_variable_domain_bound_per_chain.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/intermediate/mass_fractions/ratio_check_hortin_2008.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/intermediate/mass_fractions/hortin_2008_rows_not_joined.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/intermediate/mass_fractions/profile_plasma_geyer_vs_hortin.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/intermediate/mass_fractions/completeness_check_geyer_2016_deep_dataset.tsv", [{"kind": "head", "name": "first40", "n": 40}]),
+        ("outputs/blood/intermediate/mass_fractions/pool_overlap_mass_share.tsv", [{"kind": "whole"}]),
+        ("config/blood/mass_fractions_per_entry.tsv", [{"kind": "head", "name": "first40", "n": 40}]),
+    ],
 }
 
 # The flat list the runner walks: every command's spec, in run order.

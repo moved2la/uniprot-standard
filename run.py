@@ -17,6 +17,8 @@
                                            build config/blood/ -> deltas -> tests; --offline skips the two network stages
     python run.py blood-composition        composition and PTM disclosure for the blood set (offline; the masses,
                                            symbols and ptmlist fetched by `composition` are shared)
+    python run.py blood-mass-fractions     the blood weights from the published mass shares (offline): per pool,
+                                           the bounds, the Hortin and deep-dataset cross-checks
     python run.py test                     tests only
     python run.py excerpt                  tooling: bounded excerpts of the large generated files
                                            into excerpts/<stamp>/ and a tarball (no tests; not the record)
@@ -67,15 +69,18 @@ COMMANDS = {
     # the masses, symbols and ptmlist are shared data already fetched by `composition`; blood has no network stage here
     "blood-composition": ([],
                           ["composition", "ptm_disclosure"]),
+    # the weights from published mass shares (a separate module for the ad-hoc form; no digest, no inventory)
+    "blood-mass-fractions": ([],
+                             ["mass_fractions_pools"]),
 }
 
 # The category a command builds; stages of these commands are called with --category <name>.
-COMMAND_CATEGORY = {"blood-protein-set": "blood", "blood-composition": "blood"}
+COMMAND_CATEGORY = {"blood-protein-set": "blood", "blood-composition": "blood", "blood-mass-fractions": "blood"}
 
 
 RUN_LOG: Path | None = None
 COMMAND_ORDER = ["fetch-literature", "protein-set", "composition", "mass-fractions", "standard",
-                 "usda", "comparison", "match", "blood-protein-set", "blood-composition"]
+                 "usda", "comparison", "match", "blood-protein-set", "blood-composition", "blood-mass-fractions"]
 
 
 class _Tee:
