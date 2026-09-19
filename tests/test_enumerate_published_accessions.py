@@ -23,18 +23,19 @@ class FakeClient:
         if query.startswith("(organism_id:9606) AND (reviewed:true)"):          # the M2 gene query (P4b)
             wanted = [t.split('"')[1] for t in query.split(" OR ") if 'gene_exact:"' in t]
             rows = []
-            for g in wanted:
-                for a in self.genes.get(g, []):
-                    rows.append(dict(self.entries[a], accession=a, gene_primary=g, gene_synonym=""))
-            return rows
-        wanted = [t.split(":", 1)[1].rstrip(")") for t in query.split(" OR ")]
-        wanted = [w.lstrip("(") for w in wanted]
-        rows = [dict(self.entries[a], accession=a) for a in wanted if a in self.entries]
-        if "sec_acc" in fields:                                                   # P3b: entries listing a token as secondary
-            for a, e in self.entries.items():
-                if any(w in e.get("sec_acc", "").split(";") for w in wanted):
+            for a, e in self.entries.items():                                  # every entry whose primary symbols or synonyms name the gene
+                names = {x.strip() for x in e.get("gene_primary", "").split(";")} | set(e.get("gene_synonym", "").split())
+                if e.get("reviewed") == "reviewed" and e.get("organism_id") == "9606" and names & set(wanted):
                     rows.append(dict(e, accession=a))
-        else:
+            return rows
+        terms = [t.strip("() ") for t in query.split(" OR ")]
+        by_acc = [t.split(":", 1)[1] for t in terms if t.startswith("accession:")]
+        by_sec = [t.split(":", 1)[1] for t in terms if t.startswith("sec_acc:")]
+        rows = [dict(self.entries[a], accession=a) for a in by_acc if a in self.entries]   # includes inactive stubs
+        for a, e in self.entries.items():                                      # the sec_acc query field
+            if any(w in e.get("sec_acc", "").split(";") for w in by_sec) and e.get("reviewed"):
+                rows.append(dict(e, accession=a))
+        if "sec_acc" not in fields:
             rows = [{k: v for k, v in r.items() if k != "sec_acc"} for r in rows]
         return rows
 
@@ -59,8 +60,11 @@ def _workbook(path):
         ("M00010", "mouse", "GI", 0.1, 0.1, 0.1, 0.1),                           # reviewed but not human
         ("S00011;S00011-2", "eleven", "GK", 0.3, 0.3, 0.3, 0.3),                  # secondary of exactly one entry -> X00011
         ("S00012", "twelve", "GL;GM", 0.4, 0.4, 0.4, 0.4),                        # demerged: secondary of X00012 and X00013 -> shared
-        ("T00014", "fourteen", "GN14", 0.2, 0.2, 0.2, 0.2),                       # TrEMBL only; gene resolves to X00014
+        ("T00014", "fourteen", "GN14", 0.2, 0.2, 0.2, 0.2),                       # TrEMBL only; gene resolves to X00014 (whose primary field lists two genes)
         ("T00015", "fifteen", "GN15", 0.1, 0.1, 0.1, 0.1),                        # TrEMBL only; gene ambiguous -> excluded
+        ("T00016", "sixteen", "GP16;GP17", 0.1, 0.1, 0.1, 0.1),                   # two genes, each one entry -> shared row (P4b)
+        ("T00018", "eighteen", "GS18", 0.1, 0.1, 0.1, 0.1),                       # two entries answer, one by primary symbol -> M3b
+        ("T00020", "twenty", "GP16;GN15", 0.1, 0.1, 0.1, 0.1),                    # one gene ambiguous -> the row is excluded
         ("", "", "", "", "", "", ""),                                             # empty identity -> skipped
     ]
     for r in rows:
@@ -103,15 +107,14 @@ def _entries():
         "T00001": unrev, "T00003": unrev, "T00007": unrev, "T00008": unrev,
         "M00010": dict(rev, organism_id="10090"),
         "X00011": dict(rev, sec_acc="S00011;S00099"),
+        "S00012": {"reviewed": "", "organism_id": "", "gene_primary": "", "protein_name": "", "length": "", "keywordid": ""},  # an INACTIVE stub, as UniProt answers a demerged accession
         "X00012": dict(rev, sec_acc="S00012"), "X00013": dict(rev, sec_acc="S00012"),
-        "X00014": rev, "X00015": rev, "X00016": rev,
-        "T00014": unrev, "T00015": unrev,
+        "X00014": dict(rev, gene_primary="GN14; GN14B"), "X00015": dict(rev, gene_primary="GN15"), "X00016": dict(rev, gene_primary="GP16", gene_synonym="GN15"),
+        "X00017": dict(rev, gene_primary="GP17"), "X00021": dict(rev, gene_primary="GN15"),      # GN15: two primary-symbol entries -> ambiguous
+        "X00018": dict(rev, gene_primary="GS18"), "X00019": dict(rev, gene_primary="OTHER", gene_synonym="GS18 ALSO"),
+        "T00014": unrev, "T00015": unrev, "T00016": unrev, "T00018": unrev, "T00020": unrev,
         # X00009 is deliberately absent: UniProt returns nothing for it, as primary or secondary
     }
-
-
-def _genes():
-    return {"GN14": ["X00014"], "GN15": ["X00015", "X00016"], "GH": []}
 
 
 def test_token_classification():
@@ -124,9 +127,9 @@ def test_token_classification():
 def test_published_pool_outcomes(tmp_path, monkeypatch):
     psd = _setup(tmp_path, monkeypatch)
     log = logging.getLogger("t")
-    client = FakeClient(_entries(), _genes())
+    client = FakeClient(_entries())
     members, record = ep.enumerate_published_pool(client, "cat", "red", psd["pool.red"], psd["contaminant_rules"], log)
-    assert members == {"X00001", "X00002", "X00003", "X00011", "X00012", "X00013", "X00014"}
+    assert members == {"X00001", "X00002", "X00003", "X00011", "X00012", "X00013", "X00014", "X00016", "X00017", "X00018"}
     rows = {r["identity_cell"]: r for r in common.read_tsv(tmp_path / "data" / "cat" / "red_dataset_rows.tsv")}
     assert rows["X00001;X00001-2;T00001"]["outcome"] == "member" and rows["X00001;X00001-2;T00001"]["entry_token_rank"] == "1"
     assert rows["X00002-3;X00002"]["outcome"] == "member" and rows["X00002-3;X00002"]["entry"] == "X00002"
@@ -142,10 +145,14 @@ def test_published_pool_outcomes(tmp_path, monkeypatch):
     # P3b: a secondary accession resolves to its current entry; a demerged one to both, as a shared row
     assert rows["S00011;S00011-2"]["outcome"] == "member_via_secondary_accession" and rows["S00011;S00011-2"]["entry"] == "X00011"
     assert rows["S00012"]["outcome"] == "member_via_secondary_accession_shared" and rows["S00012"]["entry"] == "X00012;X00013"
-    assert "secondary_of:X00012;X00013" in rows["S00012"]["tokens_checked"]
-    # P4b: a group with no usable token resolves through its gene cell when exactly one entry answers
+    assert "1:S00012:inactive" in rows["S00012"]["tokens_checked"] and "secondary_of:X00012;X00013" in rows["S00012"]["tokens_checked"]
+    # P4b: a group with no usable token resolves gene by gene; an entry's ';'-joined primary field counts each symbol
     assert rows["T00014"]["outcome"] == "member_via_gene" and rows["T00014"]["entry"] == "X00014" and rows["T00014"]["entry_token_rank"] == "gene"
-    assert rows["T00015"]["outcome"] == "no_reviewed_human_entry" and "ambiguous:X00015;X00016" in rows["T00015"]["tokens_checked"]
+    assert rows["T00015"]["outcome"] == "no_reviewed_human_entry" and "GN15:ambiguous:X00015;X00016;X00021" in rows["T00015"]["tokens_checked"]
+    assert rows["T00016"]["outcome"] == "member_via_gene_shared" and rows["T00016"]["entry"] == "X00016;X00017"
+    assert rows["T00018"]["outcome"] == "member_via_gene" and rows["T00018"]["entry"] == "X00018"          # M3b: primary over synonym
+    assert "primary over synonyms X00019" in rows["T00018"]["tokens_checked"]
+    assert rows["T00020"]["outcome"] == "no_reviewed_human_entry"                                          # one gene of two unresolved
     assert "" not in rows                                     # the empty row is skipped, not listed
     # the excluded listing is sorted by share, largest first, and carries the share
     exc = common.read_tsv(tmp_path / "data" / "cat" / "red_rows_excluded_with_share.tsv")
@@ -155,9 +162,10 @@ def test_published_pool_outcomes(tmp_path, monkeypatch):
     assert {r["accession"] for r in pool} == members
     dup = next(r for r in pool if r["accession"] == "X00001")
     assert dup["dataset_rows"].count(";") == 1                # both rows of X00001 are recorded on its entry
-    assert record["n_member"] == "2" and record["n_member_via_later_token"] == "1" and record["pool_size"] == "7"
+    assert record["n_member"] == "2" and record["n_member_via_later_token"] == "1" and record["pool_size"] == "10"
     assert record["n_member_via_secondary_accession"] == "1" and record["n_member_via_secondary_accession_shared"] == "1"
-    assert record["n_member_via_gene"] == "1" and record["tokens_resolved_as_secondary"] == "2"
+    assert record["n_member_via_gene"] == "2" and record["n_member_via_gene_shared"] == "1"
+    assert record["tokens_resolved_as_secondary"] == "2" and record["tokens_inactive_in_uniprot"] == "1"
     shared = [r for r in pool if r["accession"] in ("X00012", "X00013")]
     assert all(r["dataset_rows"] == shared[0]["dataset_rows"] for r in shared)   # both carry the one shared row
     # two-pass lookup: the first pass asks about first tokens only, the second about the rest

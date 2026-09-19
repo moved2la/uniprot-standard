@@ -426,8 +426,12 @@ def lookup_secondary(client: UniProtClient, tokens: list[str], log) -> dict[str,
     todo = sorted(set(tokens))
     for i in range(0, len(todo), GENE_BATCH):
         batch = todo[i:i + GENE_BATCH]
-        q = "(" + " OR ".join(f"accession:{t}" for t in batch) + ")"
-        rows = client.search_tsv(q, SECONDARY_FIELDS)
+        q = "(" + " OR ".join(f"accession:{t} OR sec_acc:{t}" for t in batch) + ")"
+        try:
+            rows = client.search_tsv(q, SECONDARY_FIELDS)
+        except requests.exceptions.HTTPError as exc:               # the sec_acc query field refused: ask by accession only
+            log.warning("secondary-accession lookup: query with sec_acc rejected (%s); retrying by accession only", exc)
+            rows = client.search_tsv("(" + " OR ".join(f"accession:{t}" for t in batch) + ")", SECONDARY_FIELDS)
         for r in rows:
             acc = _accession(r)
             secs = _secondary_list(r)
@@ -451,12 +455,12 @@ def lookup_genes(client: UniProtClient, genes: list[str], log) -> dict[str, dict
 
     def attribute(rows, batch):
         for r in rows:
-            primary = _col(r, "Gene Names (primary)", "gene_primary").strip()
+            primaries = {x.strip() for x in _col(r, "Gene Names (primary)", "gene_primary").split(";") if x.strip()}
             syn = _col(r, "Gene Names (synonym)", "gene_synonym")
-            names = {primary} | {x.strip() for x in syn.split() if x.strip()}
+            synonyms = {x.strip() for x in syn.split() if x.strip()}
             for g in batch:
-                if g in names:
-                    out[g][_accession(r)] = _info_of(r)
+                if g in primaries or g in synonyms:
+                    out[g][_accession(r)] = dict(_info_of(r), _matched_by="primary" if g in primaries else "synonym")
 
     for i in range(0, len(todo), GENE_BATCH):
         batch = todo[i:i + GENE_BATCH]
@@ -477,6 +481,12 @@ def lookup_genes(client: UniProtClient, genes: list[str], log) -> dict[str, dict
 
 def is_reviewed_human(info: dict[str, str] | None) -> bool:
     return bool(info) and info["reviewed"].strip().lower() == "reviewed" and info["organism_id"].strip() == HUMAN_TAXON
+
+
+def is_inactive(info: dict[str, str] | None) -> bool:
+    """UniProt answers a search for a deleted or demerged accession with an INACTIVE stub: the accession,
+    no reviewed status, no organism. Such a token has no entry; it goes to the secondary-accession lookup (P3b)."""
+    return bool(info) and not info["reviewed"].strip() and not info["organism_id"].strip()
 
 
 def has_keyword(info: dict[str, str], keyword_id: str) -> bool:
@@ -521,14 +531,18 @@ def enumerate_published_pool(client: UniProtClient, category: str, pool: str, se
     P2  a row's group = its identity cell split on ';' in the published order; each token is a
         CON__ contaminant marker, a REV__ decoy, or an accession with any isoform suffix removed (R1).
     P3  every accession token is looked up by `accession:`; reviewed, organism and keyword ids are read.
-    P3b (D111) a token not returned as a primary accession is asked for again with the secondary-accession
-        field: exactly one reviewed human entry lists it -> that entry (member_via_secondary_accession);
+    P3b (D111) a token not returned as a primary accession, or returned as an INACTIVE stub (deleted or
+        demerged: no reviewed status, no organism), is asked for again with the secondary-accession field:
+        exactly one reviewed human entry lists it -> that entry (member_via_secondary_accession);
         several (a demerged entry) -> all of them, the row is SHARED between them and the mass-fraction
         join splits it (D48; member_via_secondary_accession_shared); none -> the token is obsolete.
     P4  the row's entry = the first token in group order that is a reviewed human entry. A group whose
         FIRST token is a contaminant marker -> contaminant_group.
-    P4b (D111) a group with no usable token: its gene cell is looked up by the muscle M2/M3 rules;
-        exactly one reviewed human entry -> that entry (member_via_gene); zero or several -> the row is
+    P4b (D111) a group with no usable token: EACH gene of its gene cell is looked up by the muscle M2 query
+        and attribution; M3 per gene -- exactly one reviewed human entry -> that entry; M3b (D111a): when
+        several answer, one of which by its primary symbol and the rest by synonym, the primary-symbol
+        entry stands; otherwise the gene is ambiguous. One gene -> member_via_gene; several genes, each
+        resolved -> member_via_gene_shared (a shared row, split by D48); any gene unresolved -> the row is
         no_reviewed_human_entry, excluded and listed with its share.
     P5  an entry carrying the keratin keyword -> keratin; a row whose gene cell has a token in the pool's
         named contaminant genes -> named_contaminant. Both excluded, listed with their share.
@@ -580,7 +594,7 @@ def enumerate_published_pool(client: UniProtClient, category: str, pool: str, se
     def first_usable(toks) -> str:
         return next((acc for kind, acc in toks if kind == "accession" and is_reviewed_human(info.get(acc))), "")
     unresolved = sorted({acc for _, toks in groups if not first_usable(toks)
-                         for kind, acc in toks if kind == "accession" and acc not in info})
+                         for kind, acc in toks if kind == "accession" and (acc not in info or is_inactive(info[acc]))})
     secondary = lookup_secondary(client, unresolved, log) if unresolved else {}
     secondary = {t: {a: i for a, i in ents.items() if is_reviewed_human(i)} for t, ents in secondary.items()}
     secondary = {t: ents for t, ents in secondary.items() if ents}
@@ -620,6 +634,8 @@ def enumerate_published_pool(client: UniProtClient, category: str, pool: str, se
                 inf = info.get(acc)
                 if inf is None:
                     summary.append(f"{k}:{acc}:not_returned")
+                elif is_inactive(inf):
+                    summary.append(f"{k}:{acc}:inactive")
                 elif not is_reviewed_human(inf):
                     summary.append(f"{k}:{acc}:{inf['reviewed'] or '?'}/{inf['organism_id'] or '?'}")
                 else:
@@ -633,18 +649,28 @@ def enumerate_published_pool(client: UniProtClient, category: str, pool: str, se
                         how = "secondary_accession" if len(entries) == 1 else "secondary_accession_shared"
                         summary.append(f"{k}:{acc}:secondary_of:" + ";".join(sorted(entries)))
                         break
-            if not entries:                                                   # P4b
-                hits = {}
+            if not entries and gene_tokens(gcell):                            # P4b, gene by gene
+                per_gene: dict[str, dict[str, dict[str, str]]] = {}
+                notes = []
                 for g in gene_tokens(gcell):
-                    for a, i in by_gene.get(g, {}).items():
-                        hits[a] = i
-                if len(hits) == 1:
-                    entries, rank, how = hits, "gene", "gene"
-                    summary.append("gene:" + gcell + ":" + next(iter(hits)))
-                elif hits:
-                    summary.append("gene:" + gcell + ":ambiguous:" + ";".join(sorted(hits)))
-                elif gcell:
-                    summary.append("gene:" + gcell + ":unmapped")
+                    hits = dict(by_gene.get(g, {}))
+                    if len(hits) > 1:                                                   # M3b (D111a)
+                        by_primary = {a: i for a, i in hits.items() if i.get("_matched_by") == "primary"}
+                        if len(by_primary) == 1:
+                            notes.append(f"{g}:{next(iter(by_primary))}(primary over synonyms {';'.join(sorted(set(hits) - set(by_primary)))})")
+                            hits = by_primary
+                    if len(hits) == 1:
+                        per_gene[g] = hits
+                        if not notes or not notes[-1].startswith(f"{g}:"):
+                            notes.append(f"{g}:{next(iter(hits))}")
+                    elif hits:
+                        notes.append(f"{g}:ambiguous:{';'.join(sorted(hits))}")
+                    else:
+                        notes.append(f"{g}:unmapped")
+                summary.append("gene:" + " ".join(notes))
+                if per_gene and len(per_gene) == len(gene_tokens(gcell)):
+                    entries = {a: {k2: v for k2, v in i.items() if k2 != "_matched_by"} for hits in per_gene.values() for a, i in hits.items()}
+                    rank, how = "gene", ("gene" if len(per_gene) == 1 else "gene_shared")
             if not entries:
                 outcome = "no_reviewed_human_entry"
             elif any(has_keyword(i, keratin_kw) for i in entries.values()):
@@ -659,7 +685,7 @@ def enumerate_published_pool(client: UniProtClient, category: str, pool: str, se
                 outcome = {"primary": "member", "later_token": "member_via_later_token",
                            "secondary_accession": "member_via_secondary_accession",
                            "secondary_accession_shared": "member_via_secondary_accession_shared",
-                           "gene": "member_via_gene"}[how]
+                           "gene": "member_via_gene", "gene_shared": "member_via_gene_shared"}[how]
                 for a, i in entries.items():
                     if a in members:
                         members[a]["rows"].append(str(rec["row_index"]))
@@ -693,6 +719,7 @@ def enumerate_published_pool(client: UniProtClient, category: str, pool: str, se
               "gene_column": cols["gene_column"], "keratin_keyword_id": keratin_kw,
               "named_contaminant_genes": ", ".join(sorted(named)) or "(none)",
               "rows": str(len(rows)), "accessions_looked_up": str(len(info)),
+              "tokens_inactive_in_uniprot": str(sum(1 for i in info.values() if is_inactive(i))),
               "tokens_asked_as_secondary": str(len(unresolved)), "tokens_resolved_as_secondary": str(len(secondary)),
               "genes_asked_as_fallback": str(len(fallback_genes)), "pool_size": str(len(members)),
               "excluded_share_percent_of_listing": f"{excluded_share:.6f}",
