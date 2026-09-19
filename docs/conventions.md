@@ -19,6 +19,7 @@ generator produces from the data on disk.
 | `config/usda_food_data.ini` | Which USDA FoodData Central archives are read, the release of each, and the name each extra nutrient (protein, nitrogen, cystine, hydroxyproline) goes by in the archive's own `nutrient.csv` (D83). Never an amino acid name, a nutrient id, a food, or a value — the twenty are joined through the IUPAC-IUBMB trivial names and a test fails if one is named here. |
 | `config/match_rate.ini` | What Match Rate scores and against what: the references (a file and column, or a config section), each with its scored set and label; the scored sets (the FAO headings with each group's scored member named as a three-letter symbol, D86; or a list of rows another config file names); the two food tables; the version label (D86–D88). |
 | `config/food_amino_acids_other_sources.csv` | Foods USDA does not carry, maintained by the author (M4). CSV, one row per food. Columns: `label` (the food's identity; unique), `source` (where the values come from — a supplier analysis, a label, a paper; required), `location` (the spot in the source), `note`, `protein_g_per_100g` (carried, not scored), then `A_g_per_100g` … `Y_g_per_100g` — the twenty amino acids by one-letter symbol, grams per 100 g of product, blank where not reported. A header-only file is valid. |
+| `config/tissue_mass_fractions.ini` | Layer C (D67, D121, D122): one `[category.<name>]` per category standard — the table and column the composite reads, the tissue mass transcribed from ICRP 89 with page, table, row and column, and how the protein mass is set: a cited protein content read from the config that already transcribes it (`protein_content_from`), or the category's own split table and base row. Never a profile, a weight, or a protein. |
 | `config/uncertainty_settings.ini` | Monte Carlo draws and seed (D63). Nothing biological. |
 | `config/stress_test_settings.ini` | The magnitudes the stress stage pushes the weights by (D65). Nothing biological. |
 | `docs/*.md` | Prose. Every sentence in `docs/methods.md` either carries a citation or describes a computation performed here (`PROVENANCE.md`). |
@@ -56,6 +57,7 @@ One meaning per folder. A new category (blood, liver) repeats this shape under i
 | `outputs/intermediate/` | What feeds the standard but is not the standard, one folder per stage: `protein_set/`, `composition/`, `digest/`, `literature_inventory/`, `mass_fractions/`. |
 | `outputs/standard/` | The standard. The deliverable tables and the profiles at the top; `uncertainty/`, `stress/` and `sensitivity/` hold the tables that support them, each with its own `plots/`; `plots/` at the top holds the plots of the standard itself. `docs/pipeline_map.md` says which file answers which question. |
 | `outputs/match/` | Match Rate. The per-food and cross-reference tables at the top; `match/<reference>/` — one folder per `[reference.*]` section of `config/match_rate.ini` — holds that reference's ranked table. |
+| `outputs/composite/` | The composite (Layer C, D121): the category standards `config/tissue_mass_fractions.ini` names, mixed by protein mass; the deliverable `_calculated_amino_acid_standard_composite.tsv`, the masses, the contributions per category, the split sensitivity, the summary. Not the whole body until the categories justify the name. |
 | `outputs/usda/`, `outputs/comparison/` | The food side; the standard beside Gorissen 2018's measurement. |
 | `outputs/flags.tsv` | Cases the rules could not settle. Written only when a flag is raised. |
 | `logs/` | Debugging only: one timestamped log per stage per run, plus one per test run, plus one master log per command holding exactly what appeared on screen. Not committed; not the record. The record is the header of each generated file plus `outputs/flags.tsv`. |
@@ -75,9 +77,10 @@ standard folder the caller is writing (D90).
 
 ## One command
 
-Eight commands, in run order: `fetch-literature`, `protein-set`, `composition`,
-`mass-fractions`, `standard`, `usda`, `comparison`, `match`. Each runs its stages in order and
-then the tests. `--offline` skips the stages that touch the network; only `protein-set` and
+Thirteen commands, in run order (`common.COMMAND_ORDER`, D123): `fetch-literature`, `protein-set`,
+`composition`, `mass-fractions`, `standard`, `blood-protein-set`, `blood-composition`,
+`blood-mass-fractions`, `blood-standard`, `composite`, `usda`, `comparison`, `match`. Each runs
+its stages in order and then the tests. `--offline` skips the stages that touch the network; only `protein-set` and
 `composition` have any, because nothing in the pipeline downloads (D80).
 
 `python run.py test` runs the tests alone. `python run.py excerpt` is tooling, not a stage: it
@@ -224,6 +227,16 @@ For a category whose primary datasets publish a mass share per protein (blood: `
 | **T6 One scale** | the weighted bounds, the immunoglobulin bound, the completeness gap, the two sensitivities | Every term as the maximum absolute shift of the g / 100 g value: Monte Carlo half-widths; bounds and gaps mixed at the split (A7); the sensitivities as their spread; the widest term named per amino acid. |
 | **T7 Drivers** | the weights and compositions | Per profile and amino acid, the five entries contributing most; histidine's thirty largest with cumulative share; a `[histidine]` section in `standard_summary.ini` with every number that bears on it. |
 | **T8 No stress, no comparison** (D120) | — | The dominant-protein and per-replicate sensitivities are the category's stress scenarios; no external measured blood profile exists to compare with. |
+
+### Composite rules (`pipeline/composite.py`, Layer C, D121)
+
+| Rule | Reads | Result |
+|---|---|---|
+| **L1 Protein mass** (D122) | `config/tissue_mass_fractions.ini` `[category.<name>]`; the standard table and column each names | Every category profile is a percent of its amino acid mass; the composite weights each by the protein the category holds in the reference person: `tissue_mass_x_protein_content` = cited tissue mass × cited protein per kg (the protein section read from the config that already transcribes it, once); `category_split` = the mass the category's own stage computed, at the row named (blood: `compartment_split.tsv`, `as_measured`). composite[a] = Σ f_c × profile_c[a], f_c = P_c / Σ P. A profile that does not sum to 100, a protein basis that does not match the tissue mass's, or fewer than two categories is a `[STOP]`. |
+| **L2 Reference male** (D100, D119) | `tissue_mass_g_female`; the split's `female` rows | The base is the male masses. The female masses are recorded beside them and the composite at the female masses is written as a line (`amino_acid_profiles.tsv`, `category_protein_masses.tsv`), never the base. |
+| **L3 A split is reported at every row** (D117, D122) | a category's `sensitivity_file` (the D117 table: the profile at every published share × variant) and its split table | For every row of the split, the category's profile at that share, its protein mass at that share, and the composite recomputed with it; `composite_minus_base` against the base of the same sex; the range per amino acid over the male rows. ICRP's whole-blood protein is one of those rows, so the two consistent pairs (profile and mass at one share) stand in one table. |
+| **L4 Weighting basis is stated and checked** | the residue-convention table each category names; the PubChem masses; a category's non-protein metabolite pool amounts and the fiber-type mix | Mixing by protein mass assumes one amino-acid mass per gram of protein across categories. The stage computes each category's factor from its residue-convention profile (Σ residue share × free mass / residue mass, C1) and adds a category's non-protein metabolite pool per gram of protein (the amounts table mixed by the fiber-type shares, A10's inputs read back), then writes the composite under amino-acid-mass weights beside the protein-mass composite (`sensitivity_weighting_basis.tsv`; the factors and the largest difference in `composite_summary.ini`). Reported, not used. |
+| **L5 Headers name the categories** (D121) | — | Every output's header lists the categories in the composite and each one's protein mass, its source, and its share. The file is `_calculated_amino_acid_standard_composite.tsv`; the word "whole body" is not used until the categories justify it. |
 
 ### USDA rules (`pipeline/usda.py`)
 

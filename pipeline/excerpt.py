@@ -199,6 +199,21 @@ SPECS: dict[str, list[tuple[str, list[dict]]]] = {
         ("outputs/match/match_rate_ranked_skeletal_muscle_protein_with_non_protein_metabolite_pools.tsv", [{"kind": "head", "name": "first100", "n": 100}]),
         ("outputs/match/match_rate_ranked_gorissen_2018_human_muscle.tsv", [{"kind": "head", "name": "first100", "n": 100}]),
         ("outputs/match/foods_not_scored.tsv", [{"kind": "head", "name": "first40", "n": 40}]),
+        ("outputs/match/blood/match_rate_ranked_blood.tsv", [{"kind": "head", "name": "first100", "n": 100, "optional": True}]),
+        ("outputs/match/skeletal_muscle_with_non_protein_metabolite_pools_and_blood/match_rate_ranked_skeletal_muscle_with_non_protein_metabolite_pools_and_blood.tsv",
+         [{"kind": "head", "name": "first100", "n": 100, "optional": True}]),
+    ],
+    # the composite (Layer C): every table is twenty rows or a few dozen; whole
+    "composite": [
+        ("outputs/composite/_calculated_amino_acid_standard_composite.tsv", [{"kind": "whole"}]),
+        ("outputs/composite/category_protein_masses.tsv", [{"kind": "whole"}]),
+        ("outputs/composite/category_contributions.tsv", [{"kind": "whole"}]),
+        ("outputs/composite/eaa_subset.tsv", [{"kind": "whole"}]),
+        ("outputs/composite/sensitivity_category_split_spread.tsv", [{"kind": "whole"}]),
+        ("outputs/composite/sensitivity_category_split.tsv", [{"kind": "equals", "name": "histidine", "column": "amino_acid", "value": "H"},
+                                                             {"kind": "equals", "name": "phenylalanine", "column": "amino_acid", "value": "F"}]),
+        ("outputs/composite/sensitivity_weighting_basis.tsv", [{"kind": "whole"}]),
+        ("outputs/composite/composite_summary.ini", [{"kind": "whole"}]),
     ],
     # Step 7b: the blood category's protein set. The excluded-rows tables are the ones to read first:
     # they are what the contaminant rules removed, with the share each row carried in the listing.

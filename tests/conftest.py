@@ -31,7 +31,7 @@ import pytest
 from pipeline import common as _common
 
 _GUARDED = ("REPO_ROOT", "CONFIG_DIR", "DATA_DIR", "OUTPUTS_DIR", "LOGS_DIR",
-            "MATCH_OUT_DIR", "COMPARISON_OUT_DIR", "USDA_OUT_DIR")
+            "MATCH_OUT_DIR", "COMPARISON_OUT_DIR", "USDA_OUT_DIR", "COMPOSITE_OUT_DIR")
 
 
 @pytest.fixture(autouse=True)

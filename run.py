@@ -12,7 +12,9 @@
     python run.py usda                     read the USDA FoodData Central archives in data/usda/ -> tests (offline)
     python run.py comparison               the calculated standard beside Gorissen 2018's measurement (offline)
     python run.py match                    Match Rate: every food against every reference (offline)
-    python run.py blood-protein-set        the blood category (Step 7b): enumerate the two pools by published
+    python run.py composite                the composite standard: the category standards mixed by protein mass
+                                           (config/tissue_mass_fractions.ini, Layer C; offline)
+    python run.py blood-protein-set        the blood category: enumerate the two pools by published
                                            accession -> fetch the sequences the store lacks (additive) ->
                                            build config/blood/ -> deltas -> tests; --offline skips the two network stages
     python run.py blood-composition        composition and PTM disclosure for the blood set (offline; the masses,
@@ -22,6 +24,9 @@
     python run.py blood-standard           the blood standard (offline): profiles per pool, the split, the
                                            dominant-protein and per-donor sensitivities, uncertainty, histidine drivers, plots
     python run.py test                     tests only
+
+The run order is `common.COMMAND_ORDER` (docs/run_order.md): fetch-literature, protein-set,
+composition, mass-fractions, standard, the four blood commands, composite, usda, comparison, match.
     python run.py excerpt                  tooling: bounded excerpts of the large generated files
                                            into excerpts/<stamp>/ and a tarball (no tests; not the record)
 
@@ -63,9 +68,12 @@ COMMANDS = {
                    ["comparison"]),
     "match": ([],
               ["match"]),
-    # Step 7b: the blood category, built with the muscle stages passed --category blood. Each blood
-    # command mirrors the muscle command it adapts (the adaptation list is kept per command); Step 7c
-    # folds them into `<command> <category>`. Placement in the run order is provisional (after match).
+    # the composite: every category standard config/tissue_mass_fractions.ini names, mixed by protein mass (D121)
+    "composite": ([],
+                  ["composite"]),
+    # The blood category, built with the muscle stages passed --category blood. Each blood command
+    # mirrors the muscle command it adapts (the adaptation list is kept per command); Step 7c folds
+    # them into `<command> <category>`. They run after `standard` and before `composite` (D123).
     "blood-protein-set": (["enumerate_pool", "fetch_sequences"],
                           ["build_protein_set", "isoform_processing_deltas"]),
     # the masses, symbols and ptmlist are shared data already fetched by `composition`; blood has no network stage here
@@ -84,8 +92,7 @@ COMMAND_CATEGORY = {"blood-protein-set": "blood", "blood-composition": "blood", 
 
 
 RUN_LOG: Path | None = None
-COMMAND_ORDER = ["fetch-literature", "protein-set", "composition", "mass-fractions", "standard",
-                 "usda", "comparison", "match", "blood-protein-set", "blood-composition", "blood-mass-fractions", "blood-standard"]
+from pipeline.common import COMMAND_ORDER   # the run order, declared once (docs/run_order.md)
 
 
 class _Tee:

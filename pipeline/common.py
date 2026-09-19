@@ -258,6 +258,10 @@ MATCH_RATE_INI = CONFIG_DIR / "match_rate.ini"                                  
 FOOD_OTHER_SOURCES_CSV = CONFIG_DIR / "food_amino_acids_other_sources.csv"      # hand-maintained: foods USDA does not carry
 MATCH_OUT_DIR = OUTPUTS_DIR / "match"
 
+# --- the composite (Layer C, D67 / D121): the category standards mixed by protein mass ---
+TISSUE_MASS_FRACTIONS_INI = CONFIG_DIR / "tissue_mass_fractions.ini"            # hand-written: one section per category, its protein mass in the reference person
+COMPOSITE_OUT_DIR = OUTPUTS_DIR / "composite"
+
 # --------------------------------------------------------------------------- placement of standard/ files
 #
 # The deliverable tables and the profiles they are read beside stay at the top of
@@ -484,11 +488,17 @@ def measured_tiers(cp: configparser.ConfigParser) -> list[str]:
     return [t for t in tiers_from_decisions(cp) if tier_definition(cp, t) == "measured_remainder"]
 
 
+# The commands of run.py in dependency order (D123): the two standards, then the composite that
+# mixes them, then the food side and the scoring. run.py reads this list; nothing else declares it.
+COMMAND_ORDER = ["fetch-literature", "protein-set", "composition", "mass-fractions", "standard",
+                 "blood-protein-set", "blood-composition", "blood-mass-fractions", "blood-standard",
+                 "composite", "usda", "comparison", "match"]
+
+
 def running_command_is_before(command: str) -> bool:
     """True when run.py is executing an EARLIER command than `command` (env UNIPROT_STANDARD_COMMAND),
     so `command`'s outputs are legitimately stale until it is run next. False for `python run.py test`."""
     import os
-    order = ["fetch-literature", "protein-set", "composition", "mass-fractions", "standard",
-             "usda", "comparison", "match", "blood-protein-set", "blood-composition", "blood-mass-fractions", "blood-standard"]
+    order = COMMAND_ORDER
     current = os.environ.get("UNIPROT_STANDARD_COMMAND", "")
     return current in order and command in order and order.index(current) < order.index(command)

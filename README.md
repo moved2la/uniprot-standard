@@ -17,13 +17,19 @@ python run.py protein-set
 python run.py composition
 python run.py mass-fractions
 python run.py standard
+python run.py blood-protein-set
+python run.py blood-composition
+python run.py blood-mass-fractions
+python run.py blood-standard
+python run.py composite
 python run.py usda
 python run.py comparison
 python run.py match
 ```
 
-That is the full rebuild, in order. `--offline` on `protein-set` and `composition` skips the
-network and rebuilds from `data/` on disk; no other command touches the network.
+That is the full rebuild, in order (`docs/run_order.md`). `--offline` on `protein-set`,
+`composition` and `blood-protein-set` skips the network and rebuilds from `data/` on disk; no
+other command touches the network.
 
 `python run.py test` runs the tests alone.
 

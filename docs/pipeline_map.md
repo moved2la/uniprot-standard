@@ -3,14 +3,24 @@
 What runs, in what order, what each stage reads and writes, and what reads that next.
 Read this before the code. Update it whenever a stage or an output file is added.
 
-The repository is four commands run in order; each is a chain of stages, each stage is
-one module in `pipeline/`, and every stage writes a timestamped log to `logs/`.
+The repository is thirteen commands run in order (`common.COMMAND_ORDER`, D123;
+`docs/run_order.md` is the screen); each is a chain of stages, each stage is one module in
+`pipeline/`, and every stage writes a timestamped log to `logs/`.
 
 ```
-python run.py protein-set       # Layer A, part 1: which proteins
-python run.py composition       # Layer A, part 2: what each protein is made of
-python run.py mass-fractions    # Layer B: how much of each protein the tissue holds
-python run.py standard          # the standard: Layer A x Layer B, the bound-pool adjustment, uncertainty, stress, figures
+python run.py fetch-literature       # hash the literature files on disk -> the manifest
+python run.py protein-set            # Layer A, part 1: which proteins (skeletal muscle)
+python run.py composition            # Layer A, part 2: what each protein is made of
+python run.py mass-fractions         # Layer B: how much of each protein the tissue holds
+python run.py standard               # the muscle standard: Layer A x Layer B, the non-protein metabolite pools, uncertainty, stress, figures
+python run.py blood-protein-set      # the blood category, the same four steps with the muscle stages passed --category blood
+python run.py blood-composition
+python run.py blood-mass-fractions
+python run.py blood-standard         # the blood standard: profiles per pool, the plasma : erythrocyte split, sensitivities
+python run.py composite              # Layer C: the category standards mixed by protein mass
+python run.py usda                   # the food side
+python run.py comparison             # the muscle standard beside Gorissen 2018
+python run.py match                  # Match Rate: every food against every reference
 ```
 
 `--offline` on any command skips the stages that touch the network and rebuilds from
@@ -40,6 +50,14 @@ outputs/
 │   ├── uncertainty/  + plots/      the interval reported beside the standard, and its terms
 │   ├── stress/                     named perturbations and how far each moves the standard
 │   └── sensitivity/  + plots/      what the standard does across a cited range of an input
+├── blood/                          the blood category, the same shape
+│   ├── intermediate/               protein_set/, composition/, mass_fractions/
+│   └── standard/                   _calculated_amino_acid_standard.tsv, compartment_split.tsv, the sensitivities, plots/
+├── composite/                      Layer C: the category standards mixed by protein mass (D121)
+│   ├── _calculated_amino_acid_standard_composite.tsv                the deliverable
+│   ├── category_protein_masses.tsv, category_contributions.tsv, eaa_subset.tsv
+│   ├── sensitivity_category_split.tsv, sensitivity_category_split_spread.tsv, sensitivity_weighting_basis.tsv
+│   └── composite_summary.ini
 ├── usda/                           the food side
 ├── comparison/                     the standard beside Gorissen 2018's measurement
 └── match/                          Match Rate
@@ -49,7 +67,8 @@ outputs/
 ```
 
 A new category repeats this under its own name: `outputs/<category>/{intermediate,standard}/`,
-built by `common.category_outputs(<category>)`.
+built by `common.category_outputs(<category>)`; it enters the composite with one
+`[category.<name>]` section in `config/tissue_mass_fractions.ini`.
 
 ## The whole thing on one page
 
@@ -159,6 +178,32 @@ flowchart TB
   bp --> x1
   x1 --> cmpo[outputs/comparison/ calculated_vs_gorissen_2018, gorissen_2018_mass_balance]
 
+  subgraph BL["python run.py blood-protein-set / blood-composition / blood-mass-fractions / blood-standard"]
+    b1[enumerate_pool --category blood] --> b2[fetch_sequences, additive] --> b3[build_protein_set] --> b4[composition + ptm_disclosure] --> b5[mass_fractions_pools] --> b6[aggregate_pools]
+  end
+  bpsd[config/blood/protein_set_decisions.ini] --> b1
+  bmfd[config/blood/mass_fraction_decisions.ini] --> b1
+  lit --> b1
+  b2 -. "UniProt entries (network)" .-> seqs
+  seqs --> b4
+  bmfd --> b5
+  lit --> b5
+  cmix[config/blood/compartment_mix.ini] --> b6
+  eaa --> b6
+  b6 --> bstd[outputs/blood/standard/ _calculated_amino_acid_standard, compartment_split, sensitivity_dominant_protein, uncertainty, drivers]
+
+  subgraph CM["python run.py composite"]
+    k1[composite]
+  end
+  tmf[config/tissue_mass_fractions.ini] --> k1
+  bmp --> k1
+  mix --> k1
+  masses --> k1
+  bp --> k1
+  std --> k1
+  bstd --> k1
+  k1 --> cmp[outputs/composite/ _calculated_amino_acid_standard_composite, category_protein_masses, category_contributions, sensitivity_category_split]
+
   subgraph MR["python run.py match"]
     r1[match]
   end
@@ -167,6 +212,8 @@ flowchart TB
   gor --> r1
   std --> r1
   bp --> r1
+  bstd --> r1
+  cmp --> r1
   foods --> r1
   r1 --> mro[outputs/match/ match_rate_per_food, match_rate_by_reference, match_rate_steps, match_rate_ranked_*, limiting_amino_acid_counts]
 ```
@@ -272,6 +319,32 @@ Layer B multiplies by.
 | `eaa_subset_with_non_protein_metabolite_pools.tsv` | the D62 indispensable amino acids as their share of the profile, protein-only beside with-pools, per total column and the standard | the Match Rate inputs from the with-pools reference |
 | `non_protein_metabolite_pools_summary.ini` | status of every table (written / NOT computed and why), the pool, the amounts per fiber type | start here |
 
+## `python run.py blood-protein-set` … `blood-standard` — the blood category
+
+The muscle stages passed `--category blood`, plus two modules written for a pool with published
+mass shares (`mass_fractions_pools.py`, `aggregate_pools.py`). Rules P1–P6, P3b, P4b, M3b, S1
+(the set), C3b (composition), Q1–Q7 (weights) and T1–T8 (the standard) in `docs/conventions.md`.
+
+| Command | Stages | Reads | Writes |
+|---|---|---|---|
+| `blood-protein-set` | `enumerate_pool` (P1–P6, P3b, P4b, M3b), `fetch_sequences` (S1, additive), `build_protein_set`, `isoform_processing_deltas` | `config/blood/protein_set_decisions.ini`; the column maps in `config/blood/mass_fraction_decisions.ini`; the Bryk 2017 and Geyer 2016 files through the manifest; UniProt | `data/blood/` (pool tables, every row's outcome, the excluded rows with their share); `config/blood/accessions.ini`, `segments.ini`; the sequence store and `data/uniprot_raw/blood/` (additive); `outputs/blood/intermediate/protein_set/` |
+| `blood-composition` | `composition`, `ptm_disclosure` (C3b) | the blood accessions and segments, the sequence store, the shared masses and PTM list | `outputs/blood/intermediate/composition/` |
+| `blood-mass-fractions` | `mass_fractions_pools` (Q1–Q7) | `config/blood/mass_fraction_decisions.ini` `[columns.*]`, `[cross_checks]`, `[immunoglobulin_bound]`; the manifest; the literature files | `config/blood/mass_fractions_per_entry.tsv`; `outputs/blood/intermediate/mass_fractions/` (ranked entries per pool, the bounds, the Hortin and deep-dataset cross-checks, the pool overlap, the summary) |
+| `blood-standard` | `aggregate_pools` (T1–T8) | the blood weights and composition table; `config/blood/compartment_mix.ini`; `fao_2013_indispensable_amino_acids.ini`; `uncertainty_settings.ini` | `outputs/blood/standard/`: `_calculated_amino_acid_standard.tsv` (and residue convention), `amino_acid_profiles.tsv`, `eaa_subset.tsv`, `compartment_split.tsv` (D100 / D119, every published haemoglobin share, male and female), `sensitivity_dominant_protein.tsv` and `_spread` (D117), `sensitivity_per_donor*.tsv` (D108), `uncertainty_*.tsv`, `histidine_drivers.tsv`, `drivers_top_entries_per_amino_acid.tsv`, `standard_summary.ini`, `plots/` |
+
+The file to open first is `compartment_split.tsv`: it is where the plasma : erythrocyte split,
+the whole-blood protein, and the haemoglobin share each published number implies stand side by side.
+
+## `python run.py composite` — Layer C, the category standards mixed by protein mass (D121)
+
+| # | Stage | Reads | Writes |
+|---|---|---|---|
+| 1 | `composite` | `config/tissue_mass_fractions.ini` (hand-written: one `[category.<name>]` per category standard — the table and column, the tissue mass with its ICRP location, and how the protein mass is set: cited tissue mass × cited protein content, or the category's own split); `config/non_protein_metabolite_pools.ini [protein_content]` (D77, read once); `outputs/standard/_calculated_amino_acid_standard_with_non_protein_metabolite_pools.tsv`; `outputs/blood/standard/_calculated_amino_acid_standard.tsv`; both residue-convention tables (L4); `compartment_split.tsv` and `sensitivity_dominant_protein.tsv` (L3); `non_protein_metabolite_pool_amounts_per_kg_muscle.tsv` and `fiber_type_mix.ini` (L4); the symbols and masses; `fao_2013_indispensable_amino_acids.ini` | `outputs/composite/_calculated_amino_acid_standard_composite.tsv` (one column per category, the composite); `category_protein_masses.tsv` (Layer C: tissue mass, protein mass, how, share, per category and sex); `amino_acid_profiles.tsv` (long form, with the composite at the female masses); `category_contributions.tsv` (grams each category puts into 100 g of composite, per amino acid — the histidine explainer); `eaa_subset.tsv`; `sensitivity_category_split.tsv` and `_spread` (the composite at every row of blood's split); `sensitivity_weighting_basis.tsv` (protein-mass vs amino-acid-mass weights); `composite_summary.ini` (`[masses]`, `[histidine]`, `[phenylalanine]`, `[weighting_basis]`, the hashes) |
+
+Rules L1–L5 in `docs/conventions.md`. The composite is `Σ f_c × profile_c` with `f_c` the
+category's protein mass over the sum (L1); it is two categories today and is named for what it is.
+Adding a category is one config section once its standard exists.
+
 ## `python run.py usda` — the food side of Match Rate (Step 6)
 
 | # | Stage | Reads | Writes |
@@ -297,7 +370,7 @@ term, and no path that writes back into the standard.
 
 | # | Stage | Reads | Writes |
 |---|---|---|---|
-| 1 | `match` | `config/match_rate.ini` (hand-written: references, scored sets, food tables, version label; D86–D88); `config/fao_2013_indispensable_amino_acids.ini` (the nine headings, D62); `config/gorissen_2018_comparison.ini` (the original reference and its own essential rows); `data/iupac/amino_acid_symbols.ini`; both calculated standards; `outputs/usda/amino_acids_per_food.tsv`; `config/food_amino_acids_other_sources.csv` (hand-maintained) | `outputs/match/match_rate_per_food.tsv` (one row per food × reference: score, limiting amino acid, ΣEAA, ΣEAA as % of protein, the Step 7 ratio per amino acid); `match_rate_by_reference.tsv` (one row per food, references side by side, differences in pp); `match_rate_steps.tsv` (one row per food × reference: the spreadsheet's walk — Step 3, Step 7 and its MIN, Step 10b, total need, wasted, utilized); `match_rate_ranked_<reference>.tsv` (best first, one per reference); `limiting_amino_acid_counts.tsv`; `foods_not_scored.tsv`; `match_summary.ini` |
+| 1 | `match` | `config/match_rate.ini` (hand-written: references, scored sets, food tables, version label; D86–D88); `config/fao_2013_indispensable_amino_acids.ini` (the nine headings, D62); `config/gorissen_2018_comparison.ini` (the original reference and its own essential rows); `data/iupac/amino_acid_symbols.ini`; every standard table a `[reference.*]` names (the two muscle tables, the blood standard, the composite; D82, D124); `outputs/usda/amino_acids_per_food.tsv`; `config/food_amino_acids_other_sources.csv` (hand-maintained) | `outputs/match/match_rate_per_food.tsv` (one row per food × reference: score, limiting amino acid, ΣEAA, ΣEAA as % of protein, the Step 7 ratio per amino acid); `match_rate_by_reference.tsv` (one row per food, references side by side, differences in pp); `match_rate_steps.tsv` (one row per food × reference: the spreadsheet's walk — Step 3, Step 7 and its MIN, Step 10b, total need, wasted, utilized); `match_rate_ranked_<reference>.tsv` (best first, one per reference); `limiting_amino_acid_counts.tsv`; `foods_not_scored.tsv`; `match_summary.ini` |
 
 Rules M1–M6 in `docs/conventions.md`; the calculation by hand in `docs/formula.md`, "Match Rate".
 The score is the smallest of (food share / reference share) over the scored set (D87). It is the
@@ -313,7 +386,7 @@ public single-food scorer; the blend / fortification script is separate and impo
 
 | Folder | Meaning |
 |---|---|
-| `config/` | Hand-written decisions and transcriptions (nine files, listed in `docs/conventions.md`) and the config generated from them, including the Layer B weights as `mass_fractions/<type>.ini` and as one table `mass_fractions_per_entry.tsv` (D61) |
+| `config/` | Hand-written decisions and transcriptions (listed in `docs/conventions.md`) and the config generated from them, including the Layer B weights as `mass_fractions/<type>.ini` and as one table `mass_fractions_per_entry.tsv` (D61) |
 | `data/` | What the public databases and publishers said, unchanged or tabulated. `data/usda/` holds the hand-downloaded FoodData Central archives — gitignored, with `manifest.ini` (name, hash, release) committed as the record |
 | `outputs/` | Everything computed here that is not config |
 | `excerpts/` | Bounded cuts of the large generated files, for review in chat (`python run.py excerpt`); not committed, not the record |
@@ -324,7 +397,7 @@ public single-food scorer; the blend / fortification script is separate and impo
 
 1. `PROVENANCE.md` — the rule everything obeys.
 2. This file — the shape.
-3. `docs/conventions.md` — the rules by letter (R, C, F, G, I, B, A, U, X, M) and the field each reads.
+3. `docs/conventions.md` — the rules by letter (R, C, F, G, I, B, P, Q, S, A, T, L, U, X, M) and the field each reads.
 4. `docs/decisions.md` — why each rule is what it is.
 5. `docs/methods.md` — what the runs found, written for the paper.
 6. The code, one stage at a time, in the order above.
