@@ -201,7 +201,7 @@ def test_the_spreadsheets_long_road_is_the_minimum_ratio():
 
 def test_the_stage_scores_the_spreadsheet_foods_against_the_old_reference(match_repo):
     files = match.build(_Log())
-    rows = [r for r in _rows(files["match_rate_per_food.tsv"]) if r["source"] == "other" and r["reference"] == "old"]
+    rows = [r for r in _rows(files["match_rate_steps.tsv"]) if r["source"] == "other" and r["reference"] == "old"]
     got = {r["food_id"]: (float(r["match_rate_percent"]), r["limiting_amino_acid"]) for r in rows}
     for name in SHEET_FOODS:
         assert got[name][0] == pytest.approx(100 * SHEET_SCORES[name], abs=5e-5), name
@@ -230,15 +230,31 @@ def test_the_steps_table_reproduces_the_spreadsheets_cells(match_repo):
 def test_the_per_food_table_carries_the_eaa_columns_and_not_the_dropped_ones(match_repo):
     files = match.build(_Log())
     rows = _rows(files["match_rate_per_food.tsv"])
-    even = [r for r in rows if r["food_id"] == "1" and r["reference"] == "new"][0]
+    even = [r for r in rows if r["food_id"] == "1"][0]
     assert float(even["eaa_g_per_100g"]) == pytest.approx(9.0)                 # nine amino acids at 1.0
     assert float(even["eaa_percent_of_protein"]) == pytest.approx(90.0)        # 9 / 10 g protein
-    assert even["reference"] == "new"
-    for gone in ("reference_label", "scored_set", "scored_amino_acids", "scored_sum_g_per_100g", "min_data_points", "citation"):
-        assert gone not in even, gone
+    for gone in ("reference", "reference_label", "scored_set", "scored_amino_acids", "scored_sum_g_per_100g",
+                 "min_data_points", "citation"):
+        assert gone not in even, gone                   # the reference is the same on every row: it is in the header
     assert "ratio_K" in even and "ratio_W" in even
     steps = [r for r in _rows(files["match_rate_steps.tsv"]) if r["food_id"] == "1" and r["reference"] == "new"][0]
     assert all(f"{a}_g_per_100g" in steps for a in "HILKMFTWV"), "the steps table carries the grams"
+
+
+def test_the_per_food_table_is_one_row_per_food_on_the_primary_reference(match_repo):
+    """D127: the summary table. One row per food, the primary (`new`) only — otherwise it is
+    match_rate_steps.tsv without the walk. The other references live in the by-reference table."""
+    files = match.build(_Log())
+    rows = _rows(files["match_rate_per_food.tsv"])
+    ids = [(r["source"], r["food_id"]) for r in rows]
+    assert len(ids) == len(set(ids)), "a food appears more than once"
+    head = [ln for ln in files["match_rate_per_food.tsv"].splitlines() if ln.startswith("#")]
+    assert any("primary reference (new) only" in ln or "reference (new) only" in ln for ln in head)
+    # food 2 carries no tryptophan: unscorable on the primary's nine, so it is not in the summary,
+    # but it is still scored on the eight and still has its row in the by-reference table
+    assert ("usda", "2") not in ids
+    assert any(r["food_id"] == "2" for r in _rows(files["match_rate_by_reference.tsv"]))
+    assert any(r["food_id"] == "2" and r["reference"] == "new" for r in _rows(files["foods_not_scored.tsv"]))
 
 
 def test_headers_carry_provenance_and_the_reference_values_only(match_repo):
@@ -404,4 +420,3 @@ def test_limiting_counts_add_up(match_repo):
     rows = [r for r in _rows(files["limiting_amino_acid_counts.tsv"]) if r["reference"] == "old"]
     scored = int(rows[0]["foods_scored"])
     assert sum(int(r["foods_limited"]) for r in rows) >= scored     # ties count more than once, never fewer
-    

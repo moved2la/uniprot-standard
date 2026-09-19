@@ -282,7 +282,8 @@ ranked tables in `outputs/match/` are that calculation for every food.
 2. `outputs/standard/_calculated_amino_acid_standard_with_non_protein_metabolite_pools.tsv` — the
    nine rows of the `standard_with_non_protein_metabolite_pools` column.
 3. Steps 1–4 above. `outputs/match/match_rate_per_food.tsv` carries the score, the limiting amino acid and
-   every ratio; `match_rate_steps.tsv` carries the grams and the spreadsheet's walk for that food and reference — paste the
+   every ratio against the primary reference; for any other reference, and for the grams and the spreadsheet's
+   walk, use `match_rate_steps.tsv` — paste the
    grams into the spreadsheet's column G (rows 12–20; add a tryptophan row for the nine) and the
    reference's values from the file header into column A, and row 156 reproduces `match_rate_percent`.
    The header carries the hashes of both inputs.

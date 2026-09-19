@@ -29,8 +29,9 @@ Reads
   config/food_amino_acids_other_sources.csv             the author's hand-maintained foods (M4)
 
 Writes (outputs/match/)
-  match_rate_per_food.tsv           one row per food per reference: the score, the limiting amino acid, EAA total,
-                                    EAA percent of protein, and the Step 7 ratio per amino acid
+  match_rate_per_food.tsv           the summary: one row per food, the PRIMARY reference only (D127) — the score,
+                                    the limiting amino acid, EAA total, EAA percent of protein, the Step 7 ratio per
+                                    amino acid. Every reference is match_rate_by_reference.tsv; the walk is the steps table
   match_rate_by_reference.tsv       one row per food, every reference's score and limiting amino acid side by side
   match_rate_steps.tsv              one row per food x reference: the spreadsheet's own walk (Steps 3, 7, 10b,
                                     rows 153-156), so any score can be rebuilt in the spreadsheet cell by cell
@@ -435,28 +436,30 @@ def build(log) -> dict[str, str]:
 
     files: dict[str, str] = {}
     ref_names = [r["name"] for r in refs]
-    ratio_letters = sorted(all_letters, key=AA.index)      # the ratio_<letter> columns, as delivery 3 wrote them
+    ratio_letters = sorted(prim["letters"], key=AA.index)   # the primary's scored set: the ratio_<letter> columns
 
-    # ---- 1. match_rate_per_food.tsv — one row per food x reference
+    # ---- 1. match_rate_per_food.tsv — the summary table: one row per food, the primary reference only (D127)
     per_food_rows = []
     for f in foods:
-        key = (f["source"], f["food_id"])
-        for r in refs:
-            res = scores[key][r["name"]]
-            if res["score"] is None:
-                continue
-            eaa = sum(f["values"][a] for a in r["letters"])
-            prot = f["protein"]
-            row = [f["source"], f["source_detail"], f["food_id"], f["description"], f["category"], r["name"],
-                   _pct(res["score"], decimals), "+".join(res["limiting"]),
-                   f"{eaa:.{decimals}f}", _g(prot), f"{100 * eaa / prot:.2f}" if prot else ""]
-            row += [f"{res['ratio'][a]:.{decimals}f}" if a in res["ratio"] else "" for a in ratio_letters]
-            per_food_rows.append(row)
+        res = scores[(f["source"], f["food_id"])][primary]
+        if res["score"] is None:
+            continue                       # not scorable on the primary: foods_not_scored.tsv says why
+        eaa = sum(f["values"][a] for a in prim["letters"])
+        prot = f["protein"]
+        row = [f["source"], f["source_detail"], f["food_id"], f["description"], f["category"],
+               _pct(res["score"], decimals), "+".join(res["limiting"]),
+               f"{eaa:.{decimals}f}", _g(prot), f"{100 * eaa / prot:.2f}" if prot else ""]
+        row += [f"{res['ratio'][a]:.{decimals}f}" if a in res["ratio"] else "" for a in ratio_letters]
+        per_food_rows.append(row)
     files["match_rate_per_food.tsv"] = tsv_text(
-        header + ["eaa_g_per_100g = the sum of the reference's scored amino acids as published; eaa_percent_of_protein = "
-                  "100 x eaa_g_per_100g / protein_g_per_100g; ratio_<letter> = food share / reference share (Step 7), "
-                  "blank where the amino acid is not in that reference's scored set"],
-        ["source", "source_detail", "food_id", "description", "food_category", "reference",
+        header + [f"THE SUMMARY TABLE: one row per food, scored against the primary reference ({primary}) only (D127). "
+                  "The reference is named here rather than in a column because it is the same on every row. "
+                  "Every reference side by side, with the differences: match_rate_by_reference.tsv. The spreadsheet's "
+                  "walk per food and reference: match_rate_steps.tsv. A food the primary cannot score is absent here "
+                  "and its reason is in foods_not_scored.tsv. "
+                  "eaa_g_per_100g = the sum of the reference's scored amino acids as published; eaa_percent_of_protein = "
+                  "100 x eaa_g_per_100g / protein_g_per_100g; ratio_<letter> = food share / reference share (Step 7)"],
+        ["source", "source_detail", "food_id", "description", "food_category",
          "match_rate_percent", "limiting_amino_acid", "eaa_g_per_100g", "protein_g_per_100g", "eaa_percent_of_protein"]
         + [f"ratio_{a}" for a in ratio_letters],
         per_food_rows, tool="match.py")
