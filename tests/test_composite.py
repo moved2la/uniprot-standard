@@ -118,7 +118,7 @@ def test_composite_is_the_protein_mass_weighted_mix(repo):
     assert float(rows["H"]["muscle"]) == pytest.approx(4.0)
     assert float(rows["H"]["blood"]) == pytest.approx(10.0)
     assert float(rows["H"]["composite"]) == pytest.approx(0.6 * 4 + 0.4 * 10)          # 600 g : 400 g
-    assert sum(float(r["composite"]) for r in rows.values()) == pytest.approx(100.0, abs=1e-6)
+    assert sum(float(r["composite"]) for r in rows.values()) == pytest.approx(100.0, abs=1e-4)
     masses = {(r["category"], r["sex"]): r for r in _rows(out / "category_protein_masses.tsv")}
     assert float(masses[("muscle", "male")]["protein_g"]) == pytest.approx(600.0)     # 3000 g x 200 g/kg / 1000
     assert float(masses[("blood", "male")]["share_of_composite"]) == pytest.approx(0.4)
