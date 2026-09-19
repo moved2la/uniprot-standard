@@ -6,6 +6,7 @@ import logging
 from openpyxl import Workbook
 
 from pipeline import common, enumerate_pool as ep
+from pipeline.enumerate_pool import _accession
 
 KW = "KW-0416"
 
@@ -28,6 +29,7 @@ class FakeClient:
                 if e.get("reviewed") == "reviewed" and e.get("organism_id") == "9606" and names & set(wanted):
                     rows.append(dict(e, accession=a))
             return rows
+        assert "sec_acc" not in fields                                        # UniProt has no such return field
         terms = [t.strip("() ") for t in query.split(" OR ")]
         by_acc = [t.split(":", 1)[1] for t in terms if t.startswith("accession:")]
         by_sec = [t.split(":", 1)[1] for t in terms if t.startswith("sec_acc:")]
@@ -35,9 +37,12 @@ class FakeClient:
         for a, e in self.entries.items():                                      # the sec_acc query field
             if any(w in e.get("sec_acc", "").split(";") for w in by_sec) and e.get("reviewed"):
                 rows.append(dict(e, accession=a))
-        if "sec_acc" not in fields:
-            rows = [{k: v for k, v in r.items() if k != "sec_acc"} for r in rows]
-        return rows
+        if by_sec and "X00011" in [_accession(r) for r in rows]:              # a decoy hit that does not list the token
+            rows.append(dict(self.entries["X00099"], accession="X00099"))
+        return [{k: v for k, v in r.items() if k != "sec_acc"} for r in rows]
+
+    def entry_json(self, accession):
+        return {"primaryAccession": accession, "secondaryAccessions": self.entries[accession].get("sec_acc", "").split(";")}
 
 
 def _workbook(path):
@@ -106,7 +111,7 @@ def _entries():
         "X00005": dict(rev, keywordid="KW-0001;" + KW),
         "T00001": unrev, "T00003": unrev, "T00007": unrev, "T00008": unrev,
         "M00010": dict(rev, organism_id="10090"),
-        "X00011": dict(rev, sec_acc="S00011;S00099"),
+        "X00011": dict(rev, sec_acc="S00011;S00099"), "X00099": rev,       # X00099 is a decoy: returned for sec_acc:S00011, lists nothing
         "S00012": {"reviewed": "", "organism_id": "", "gene_primary": "", "protein_name": "", "length": "", "keywordid": ""},  # an INACTIVE stub, as UniProt answers a demerged accession
         "X00012": dict(rev, sec_acc="S00012"), "X00013": dict(rev, sec_acc="S00012"),
         "X00014": dict(rev, gene_primary="GN14; GN14B"), "X00015": dict(rev, gene_primary="GN15"), "X00016": dict(rev, gene_primary="GP16", gene_synonym="GN15"),
@@ -170,6 +175,10 @@ def test_published_pool_outcomes(tmp_path, monkeypatch):
     assert all(r["dataset_rows"] == shared[0]["dataset_rows"] for r in shared)   # both carry the one shared row
     # two-pass lookup: the first pass asks about first tokens only, the second about the rest
     assert any("T00001" not in q for q in client.queries) and any("X00003" in q for q in client.queries)
+    # P3b asks one token at a time and only for tokens with no active entry; the decoy hit was not attributed
+    assert "sec_acc:S00011" in client.queries and "sec_acc:S00012" in client.queries and "sec_acc:X00009" in client.queries
+    assert not any("sec_acc:" in q and " OR " in q for q in client.queries)
+    assert rows["S00011;S00011-2"]["entry"] == "X00011"
 
 
 def test_share_uses_mean_of_share_columns_and_log10_abundance():
@@ -178,3 +187,23 @@ def test_share_uses_mean_of_share_columns_and_log10_abundance():
     cols = {"share_columns": "", "abundance_column": "D", "abundance_scale": "log10"}
     assert ep.published_share({"abundance": 2}, cols) == 100.0
     assert ep.published_share({"abundance": ""}, cols) is None
+
+
+def test_refused_sec_acc_field_does_not_crash(tmp_path, monkeypatch):
+    """If UniProt refuses the sec_acc query field, P3b resolves nothing and the row falls to P4b."""
+    import requests
+    psd = _setup(tmp_path, monkeypatch)
+
+    class Refusing(FakeClient):
+        def search_tsv(self, query, fields):
+            if query.startswith("sec_acc:"):
+                resp = requests.Response(); resp.status_code = 400
+                raise requests.exceptions.HTTPError("400 Client Error", response=resp)
+            return super().search_tsv(query, fields)
+
+    client = Refusing(_entries())
+    members, record = ep.enumerate_published_pool(client, "cat", "red", psd["pool.red"], psd["contaminant_rules"], logging.getLogger("t"))
+    assert record["tokens_resolved_as_secondary"] == "0"
+    rows = {r["identity_cell"]: r for r in common.read_tsv(tmp_path / "data" / "cat" / "red_dataset_rows.tsv")}
+    assert rows["S00011;S00011-2"]["outcome"] == "no_reviewed_human_entry"           # gene GK has no entry to fall back on
+    assert "X00014" in members                                                         # P4b still ran

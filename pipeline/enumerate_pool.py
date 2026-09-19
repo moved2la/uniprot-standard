@@ -394,16 +394,7 @@ def lookup_accessions(client: UniProtClient, tokens: list[str], log) -> dict[str
     return found
 
 
-SECONDARY_FIELDS = LOOKUP_FIELDS + ["sec_acc"]
 GENE_FALLBACK_FIELDS = MEASURED_FIELDS + ["keywordid"]
-
-
-def _secondary_list(row: dict[str, str]) -> set[str]:
-    """The entry's secondary accessions, whatever header UniProt gives the `sec_acc` field."""
-    for k, v in row.items():
-        if k == "sec_acc" or "secondary" in k.lower():
-            return {x.strip() for x in v.replace(";", " ").split() if x.strip()}
-    return set()
 
 
 def _info_of(r: dict[str, str]) -> dict[str, str]:
@@ -418,28 +409,37 @@ def _info_of(r: dict[str, str]) -> dict[str, str]:
 
 
 def lookup_secondary(client: UniProtClient, tokens: list[str], log) -> dict[str, dict[str, dict[str, str]]]:
-    """P3b (D111): tokens UniProt no longer returns as a primary accession are asked for again with
-    the secondary-accession field returned. An entry that lists the token among its secondary
-    accessions takes it. Returns token -> {entry accession: info}; a token absent from the result is
-    obsolete (deleted) -- nothing carries it now."""
+    """P3b (D111): tokens UniProt no longer returns as an active primary accession are asked for ONE AT A
+    TIME with the `sec_acc` query field (secondary accession). UniProt has no return field for secondary
+    accessions, so attribution is by the query itself, and every hit is then confirmed against the
+    entry's own `secondaryAccessions` list in its JSON. Returns token -> {entry accession: info}; a
+    token with no hit is obsolete (deleted) -- nothing carries it now.
+    If UniProt refuses the query field, P3b resolves nothing this run (logged), and P4b carries on."""
     out: dict[str, dict[str, dict[str, str]]] = {}
     todo = sorted(set(tokens))
-    for i in range(0, len(todo), GENE_BATCH):
-        batch = todo[i:i + GENE_BATCH]
-        q = "(" + " OR ".join(f"accession:{t} OR sec_acc:{t}" for t in batch) + ")"
+    for n, t in enumerate(todo, 1):
         try:
-            rows = client.search_tsv(q, SECONDARY_FIELDS)
-        except requests.exceptions.HTTPError as exc:               # the sec_acc query field refused: ask by accession only
-            log.warning("secondary-accession lookup: query with sec_acc rejected (%s); retrying by accession only", exc)
-            rows = client.search_tsv("(" + " OR ".join(f"accession:{t}" for t in batch) + ")", SECONDARY_FIELDS)
+            rows = client.search_tsv(f"sec_acc:{t}", LOOKUP_FIELDS)
+        except requests.exceptions.HTTPError as exc:
+            log.warning("secondary-accession lookup: UniProt refused the sec_acc query field (%s); "
+                        "P3b resolves nothing this run, the gene fallback (P4b) carries on", exc)
+            return out
         for r in rows:
             acc = _accession(r)
-            secs = _secondary_list(r)
-            for t in batch:
-                if t in secs:
-                    out.setdefault(t, {})[acc] = _info_of(r)
-        log.info("secondary-accession lookup: %d-%d of %d; %d rows, %d tokens resolved so far",
-                 i + 1, min(i + GENE_BATCH, len(todo)), len(todo), len(rows), len(out))
+            info = _info_of(r)
+            if not is_reviewed_human(info):
+                continue
+            try:
+                secs = set(client.entry_json(acc).get("secondaryAccessions", []))
+            except requests.RequestException as exc:                      # confirmation failed: not attributed
+                log.warning("secondary-accession lookup: %s -> %s could not be confirmed (%s)", t, acc, exc)
+                continue
+            if t in secs:
+                out.setdefault(t, {})[acc] = info
+            else:
+                log.info("secondary-accession lookup: %s returned for sec_acc:%s but does not list it; ignored", acc, t)
+        if n % 25 == 0 or n == len(todo):
+            log.info("secondary-accession lookup: %d of %d tokens asked; %d resolved so far", n, len(todo), len(out))
     return out
 
 
