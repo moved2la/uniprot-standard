@@ -1,10 +1,11 @@
 # Run order
 
-One screen. What to run, in what order, and what to rerun after an edit.
+One screen. What to run, in what order, and how far back to start.
 
 ## The run
 
-**From the top, in dependency order, every single time.**
+The commands in dependency order. How much of this list you run depends on why you are running
+it — see "Where to start", below.
 
 ```
 0. apply the files from any delivery
@@ -24,8 +25,6 @@ One screen. What to run, in what order, and what to rerun after an edit.
 14. python run.py test
 ```
 
-- **Start at 1. Always.** Never start mid-chain; never skip ahead to the command that looks
-  relevant to what you are working on.
 - If a command stops, fix it and rerun **that same command** until it is green, then continue.
 - **Tests are step 14, not step 1.** A test confirms a state that has already been established; it
   cannot establish one. Run against a repo in an unknown state, it reports failures whose cause is
@@ -41,16 +40,41 @@ One screen. What to run, in what order, and what to rerun after an edit.
   `pipeline/aggregate_pools.py`) does not require 1–5: it reruns from the blood command that reads
   what changed, then 10–14. A change to shared code (`common.py`, `run.py`, a stage muscle also
   runs) is the full run from 1.
-- **"What to rerun after an edit", below, applies only once the whole chain is green and exactly
-  one thing has changed since.** Anything else — a fresh clone, a delivery applied, a repo you
-  have not run today, an unknown state — is the full run from 1.
 - A new command (a new category's stage) slots into this list in dependency order. Nothing is
   appended to the end because it is new.
+
+## Where to start
+
+**Start at 1 — the whole list — when:**
+
+- closing out a thread
+- deploying a build for the first time: a full delivery applied, a fresh clone, a repo you have
+  not run today
+- the change touches shared code (`pipeline/common.py`, `run.py`, a stage that more than one
+  command runs)
+- the state of the tree is unknown, for any reason
+
+**Start further down for debugging and minor adjustments.** Find the earliest command that reads
+anything you changed, start there, and **carry through to the end of the list.**
+
+- The shortcut is at the front, never at the back. Starting at the right place is the saving;
+  stopping early is not. Every command after the one you started at either reads what that command
+  wrote or records its hashes, so leaving them unrun leaves the tree stale in a way only the next
+  full run will find.
+- The question to answer is "what is the earliest command that reads anything I changed?" —
+  the table under "What to rerun after an edit" answers it for the usual cases.
+- Carrying to the end can be a single command. A patch to `pipeline/match.py` alone starts at 13,
+  and 13 is the end of the list, so `python run.py match` is the whole run (2026-09-19).
+- `python run.py test` is not needed as a separate step when you carry to 13: `match` is last in
+  `COMMAND_ORDER`, so the test run at the end of it skips nothing and is the full suite.
+- A repo you have not run today is not a minor adjustment. If in doubt about the state of the
+  tree, that is the unknown-state case: start at 1.
 
 Earned in Step 7b, 2026-09-19: a thread opened with `run.py test` on a repo in an unknown state
 and then jumped to command 4 on the strength of what the test reported. Both failures were real,
 but half of them were a day-old staleness nobody had run into yet, and the sequence produced two
-days of "you need to do this first". Running from the top is what prevents that.
+days of "you need to do this first". That is the unknown-state case, and it is what starting at 1
+prevents — not a reason to rebuild the whole tree for a one-file patch.
 
 ## The commands, in order
 
@@ -77,7 +101,8 @@ days of "you need to do this first". Running from the top is what prevents that.
 
 ## What to rerun after an edit
 
-**The rule: rerun the command that reads what you changed, then everything after it in the table above.**
+**The rule: rerun the command that reads what you changed, then everything after it in the table
+above.** "Rerun from" means from that number to the end of the list, not that number alone.
 
 | You changed | Rerun from |
 |---|---|
@@ -95,7 +120,9 @@ days of "you need to do this first". Running from the top is what prevents that.
 | `gorissen_2018_comparison.ini` | 12 |
 | `match_rate.ini` | 13 |
 | a stage's code | that stage's command, then everything after it |
-| documents only | nothing |
+| shared code (`pipeline/common.py`, `run.py`, a stage more than one command runs) | 1 |
+| a test file only | the command the test belongs to, for its test run |
+| documents only (`docs/`, `README.md`, `PROVENANCE.md`) | nothing |
 
 **The chain that catches people: 5 → 10 → 12 → 13, and 9 → 10 → 13.** `composite`,
 `comparison` and `match` all record the hashes of the standard tables in their headers, so any
@@ -120,5 +147,7 @@ stale silently (see `docs/step7a_report.md`, open items).
 
 ## A full rebuild
 
-"The run" at the top of this file. There is no other kind of rebuild: the full run is the default,
-and the rerun table is the narrow exception for a single edit on an already-green tree.
+"The run" at the top of this file, from command 1. There is no other kind of rebuild. It is what a
+thread close, a first deployment, a shared-code change and an unknown tree all get; a known tree
+with a known change gets the starting point "Where to start" and the rerun table give it, carried
+through to the end.

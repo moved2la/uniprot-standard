@@ -475,15 +475,16 @@ def build(log) -> dict[str, str]:
             if rn == primary:
                 continue
             o = scores[key][rn]
-            row.append(_pct(pr["score"] - o["score"], decimals) if (pr["score"] is not None and o["score"] is not None) else "")
+            row.append(_pct(o["score"] - pr["score"], decimals) if (pr["score"] is not None and o["score"] is not None) else "")
         wide_rows.append(row)
     wcols = ["source", "source_detail", "food_id", "description", "protein_g_per_100g"]
     for rn in ref_names:
         wcols += [f"match_{rn}_percent", f"limiting_{rn}"]
-    wcols += [f"difference_pp_{primary}_minus_{rn}" for rn in ref_names if rn != primary]
+    wcols += [f"difference_pp_{rn}_minus_{primary}" for rn in ref_names if rn != primary]
     files["match_rate_by_reference.tsv"] = tsv_text(
-        header + ["one row per food; blank = not scored under that reference; difference_pp = primary minus the other, "
-                  "in percentage points"],
+        header + ["one row per food; blank = not scored under that reference; difference_pp = the other reference "
+                  "minus the primary, in percentage points: positive = that reference scores the food closer to 100 "
+                  "than the primary does (D125)"],
         wcols, wide_rows, tool="match.py")
 
     # ---- 2b. match_rate_steps.tsv — one row per food x reference, the spreadsheet's walk (M5)
@@ -495,33 +496,34 @@ def build(log) -> dict[str, str]:
             if res["score"] is None:
                 continue
             s = sheet_steps(f["values"], r["values"], r["letters"], res)
-            row = [f["source"], f["source_detail"], f["food_id"], f["description"], r["name"], _g(f["protein"])]
+            row = [f["source"], f["source_detail"], f["food_id"], f["description"], r["name"],
+                   _pct(res["score"], decimals), _g(f["protein"])]
             row += [_g(f["values"].get(a)) if a in r["letters"] else "" for a in all_letters]
             row += [f"{s['food_total']:.{decimals}f}", f"{s['ref_total']:.{decimals}f}", f"{s['pct_of_ref_total']:.{decimals}f}"]
             row += [f"{s['scaled'][a]:.{decimals}f}" if a in r["letters"] else "" for a in all_letters]
             row += [f"{res['ratio'][a]:.{decimals}f}" if a in r["letters"] else "" for a in all_letters]
             row += [f"{res['score']:.{decimals}f}", "+".join(res["limiting"])]
             if s["final"] is None:      # a zero score: Step 10b is undefined (the spreadsheet shows #DIV/0!)
-                row += ["" for a in all_letters] + ["", "", f"{s['utilized']:.{decimals}f}", _pct(res["score"], decimals)]
+                row += ["" for a in all_letters] + ["", "", f"{s['utilized']:.{decimals}f}"]
             else:
                 row += [f"{s['final'][a]:.{decimals}f}" if a in r["letters"] else "" for a in all_letters]
-                row += [f"{s['need']:.{decimals}f}", f"{s['wasted']:.{decimals}f}", f"{s['utilized']:.{decimals}f}",
-                        _pct(res["score"], decimals)]
+                row += [f"{s['need']:.{decimals}f}", f"{s['wasted']:.{decimals}f}", f"{s['utilized']:.{decimals}f}"]
             step_rows.append(row)
-    scols = (["source", "source_detail", "food_id", "description", "reference", "protein_g_per_100g"]
+    scols = (["source", "source_detail", "food_id", "description", "reference", "match_rate_percent", "protein_g_per_100g"]
              + [f"{a}_g_per_100g" for a in all_letters]                              # rows 12-20
              + ["eaa_g_per_100g", "reference_eaa_total", "percent_of_reference_total"]   # rows 22, A22, 23
              + [f"step3_scaled_{a}" for a in all_letters]                              # rows 30-37
              + [f"step7_percent_of_reference_{a}" for a in all_letters]                # rows 100-107
              + ["step7_min", "limiting_amino_acid"]                                    # row 108
              + [f"step10b_{a}" for a in all_letters]                                   # rows 145-152
-             + ["step10b_total_need_to_consume", "percent_wasted", "percent_utilized", "match_rate_percent"])  # 153-156
+             + ["step10b_total_need_to_consume", "percent_wasted", "percent_utilized"])                        # 153-156
     files["match_rate_steps.tsv"] = tsv_text(
         header + ["Columns follow Base_Match_Rate_Formula.xlsx: <letter>_g_per_100g = rows 12-20 (the food, column G); "
                   "eaa_g_per_100g = row 22; reference_eaa_total = A22; percent_of_reference_total = row 23 ('% of Human'); "
                   "step3_scaled_* = rows 30-37; step7_percent_of_reference_* = rows 100-107; step7_min = row 108; "
                   "step10b_* = rows 145-152; step10b_total_need_to_consume = row 153; percent_wasted = row 155; "
-                  "percent_utilized = row 156 = Match Rate. Steps 8-9 cancel in Step 10b and are not written; a zero score leaves Step 10b blank (division by zero). "
+                  "percent_utilized = row 156 = Match Rate. match_rate_percent is column 6 rather than the last column (D126): it is row 156 x 100, "
+                  "the headline beside the food name; the walk itself still ends at row 156. Steps 8-9 cancel in Step 10b and are not written; a zero score leaves Step 10b blank (division by zero). "
                   "Reference values (the spreadsheet's column A) are in the reference.* lines above."],
         scols, step_rows, tool="match.py")
 

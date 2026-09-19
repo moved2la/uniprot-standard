@@ -365,15 +365,32 @@ def test_build_writes_every_table(match_repo):
 
 
 def test_the_by_reference_table_puts_old_beside_new_with_the_difference(match_repo):
+    """D125: the difference is the OTHER reference minus the primary, so a positive number means
+    that reference scores the food closer to 100 than the primary does."""
     files = match.build(_Log())
     rows = _rows(files["match_rate_by_reference.tsv"])
     cols = list(rows[0].keys())
-    assert "match_new_percent" in cols and "match_old_percent" in cols and "difference_pp_new_minus_old" in cols
+    assert "match_new_percent" in cols and "match_old_percent" in cols and "difference_pp_old_minus_new" in cols
+    assert "difference_pp_new_minus_old" not in cols              # `new` is the primary; it is not subtracted from itself
     even = [r for r in rows if r["food_id"] == "1"][0]          # scorable on both sets
-    assert float(even["difference_pp_new_minus_old"]) == pytest.approx(
-        float(even["match_new_percent"]) - float(even["match_old_percent"]), abs=2e-4)
+    assert float(even["difference_pp_old_minus_new"]) == pytest.approx(
+        float(even["match_old_percent"]) - float(even["match_new_percent"]), abs=2e-4)
     pea = [r for r in rows if r["food_id"] == "Pea"][0]          # the sheet's foods carry no tryptophan
-    assert pea["match_old_percent"] and pea["match_new_percent"] == "" and pea["difference_pp_new_minus_old"] == ""
+    assert pea["match_old_percent"] and pea["match_new_percent"] == "" and pea["difference_pp_old_minus_new"] == ""
+
+
+def test_the_steps_table_puts_the_match_rate_beside_the_food_name(match_repo):
+    """D126: the headline score is column 6, not the last column; the spreadsheet's walk still ends
+    at row 156 (percent_utilized), and match_rate_percent is that number x 100."""
+    files = match.build(_Log())
+    rows = _rows(files["match_rate_steps.tsv"])
+    cols = list(rows[0].keys())
+    assert cols[:7] == ["source", "source_detail", "food_id", "description", "reference",
+                        "match_rate_percent", "protein_g_per_100g"]
+    assert cols[-1] == "percent_utilized"
+    r = rows[0]
+    # both columns are written at four decimals, so the x 100 comparison carries about 5e-3 of rounding
+    assert float(r["match_rate_percent"]) == pytest.approx(100 * float(r["percent_utilized"]), abs=1e-2)
 
 
 def test_the_ranked_table_is_best_first(match_repo):
@@ -387,3 +404,4 @@ def test_limiting_counts_add_up(match_repo):
     rows = [r for r in _rows(files["limiting_amino_acid_counts.tsv"]) if r["reference"] == "old"]
     scored = int(rows[0]["foods_scored"])
     assert sum(int(r["foods_limited"]) for r in rows) >= scored     # ties count more than once, never fewer
+    
