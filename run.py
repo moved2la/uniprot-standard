@@ -19,6 +19,8 @@
                                            symbols and ptmlist fetched by `composition` are shared)
     python run.py blood-mass-fractions     the blood weights from the published mass shares (offline): per pool,
                                            the bounds, the Hortin and deep-dataset cross-checks
+    python run.py blood-standard           the blood standard (offline): profiles per pool, the split, the
+                                           dominant-protein and per-donor sensitivities, uncertainty, histidine drivers, plots
     python run.py test                     tests only
     python run.py excerpt                  tooling: bounded excerpts of the large generated files
                                            into excerpts/<stamp>/ and a tarball (no tests; not the record)
@@ -72,15 +74,18 @@ COMMANDS = {
     # the weights from published mass shares (a separate module for the ad-hoc form; no digest, no inventory)
     "blood-mass-fractions": ([],
                              ["mass_fractions_pools"]),
+    # the standard: profiles per pool, the split, the sensitivities, uncertainty, drivers, plots (no metabolite, stress or comparison stage)
+    "blood-standard": ([],
+                       ["aggregate_pools"]),
 }
 
 # The category a command builds; stages of these commands are called with --category <name>.
-COMMAND_CATEGORY = {"blood-protein-set": "blood", "blood-composition": "blood", "blood-mass-fractions": "blood"}
+COMMAND_CATEGORY = {"blood-protein-set": "blood", "blood-composition": "blood", "blood-mass-fractions": "blood", "blood-standard": "blood"}
 
 
 RUN_LOG: Path | None = None
 COMMAND_ORDER = ["fetch-literature", "protein-set", "composition", "mass-fractions", "standard",
-                 "usda", "comparison", "match", "blood-protein-set", "blood-composition", "blood-mass-fractions"]
+                 "usda", "comparison", "match", "blood-protein-set", "blood-composition", "blood-mass-fractions", "blood-standard"]
 
 
 class _Tee:

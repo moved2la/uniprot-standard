@@ -489,6 +489,6 @@ def running_command_is_before(command: str) -> bool:
     so `command`'s outputs are legitimately stale until it is run next. False for `python run.py test`."""
     import os
     order = ["fetch-literature", "protein-set", "composition", "mass-fractions", "standard",
-             "usda", "comparison", "match", "blood-protein-set", "blood-composition", "blood-mass-fractions"]
+             "usda", "comparison", "match", "blood-protein-set", "blood-composition", "blood-mass-fractions", "blood-standard"]
     current = os.environ.get("UNIPROT_STANDARD_COMMAND", "")
     return current in order and command in order and order.index(current) < order.index(command)

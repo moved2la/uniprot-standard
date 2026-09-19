@@ -255,6 +255,21 @@ SPECS: dict[str, list[tuple[str, list[dict]]]] = {
         ("outputs/blood/intermediate/mass_fractions/pool_overlap_mass_share.tsv", [{"kind": "whole"}]),
         ("config/blood/mass_fractions_per_entry.tsv", [{"kind": "head", "name": "first40", "n": 40}]),
     ],
+    "blood-standard": [
+        ("outputs/blood/standard/standard_summary.ini", [{"kind": "whole"}]),
+        ("outputs/blood/standard/_calculated_amino_acid_standard.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/standard/_calculated_amino_acid_standard_residue_convention.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/standard/eaa_subset.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/standard/compartment_split.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/standard/sensitivity_dominant_protein_spread.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/standard/sensitivity_dominant_protein.tsv", [{"kind": "equals", "name": "histidine", "column": "amino_acid", "value": "H"}]),
+        ("outputs/blood/standard/sensitivity_per_donor_spread.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/standard/sensitivity_per_donor.tsv", [{"kind": "equals", "name": "histidine", "column": "amino_acid", "value": "H"}]),
+        ("outputs/blood/standard/uncertainty_per_amino_acid.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/standard/uncertainty_intervals.tsv", [{"kind": "equals", "name": "histidine", "column": "amino_acid", "value": "H"}]),
+        ("outputs/blood/standard/histidine_drivers.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/standard/drivers_top_entries_per_amino_acid.tsv", [{"kind": "whole"}]),
+    ],
 }
 
 # The flat list the runner walks: every command's spec, in run order.
