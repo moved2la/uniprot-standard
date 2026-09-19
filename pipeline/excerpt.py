@@ -17,6 +17,12 @@ Writes  excerpts/<UTC stamp>/<same relative path>[__<cut>].<ext>
         excerpts/excerpts_<UTC stamp>.tar.gz          the folder, for upload
         logs/excerpt_<UTC>.log
 
+Source files are the generated TSV/INI tables and, since Step 7b, the literature workbooks
+themselves (.xlsx, .xls). A workbook cut names its sheet and which rows form the header;
+the excerpt is written as TSV with the rows above the header reproduced verbatim and a
+letter-to-column map, so a column map in config can be written against what the file holds
+rather than against a note about it. Nothing is computed, changed, or interpreted.
+
 `excerpts/` is not committed and is not part of the record (like docs/handoffs/). A file
 that is missing on this machine is listed as missing in INDEX.md and the log; it does not
 stop the run. The list of files and cuts is SPEC below — edit it there.
@@ -37,12 +43,24 @@ EXCERPTS_DIR = common.REPO_ROOT / "excerpts"
 #   {"kind": "whole"}
 #   {"kind": "head",   "n": N}                                  first N rows of an already-ranked table
 #   {"kind": "top",    "n": N, "by": <column>}                  N largest by a numeric column
+#   {"kind": "top",    "n": N, "by_col": "P"}                   the same, by spreadsheet column letter
 #   {"kind": "equals", "column": c, "value": v}                 rows where column == value
 #   {"kind": "contains", "column": c, "value": v}               rows where value is a substring of the cell
 #   {"kind": "in", "column": c, "from": <path>, "from_cut": <name>, "from_column": c2}
 #                                                              rows whose column is in the set of
 #                                                              values of c2 in an earlier cut
+#   {"kind": "sheet"}                                           a whole sheet of a workbook, as TSV
+#   {"kind": "sheet_list"}                                      every sheet of a workbook with its size
 # Every cut has a "name" used in the output filename; "whole" needs none.
+#
+# A cut on a workbook (.xlsx, .xls) also carries:
+#   "sheet": <sheet name>          which sheet — a name that is not in the workbook is reported
+#                                  with the names that are, and does not stop the run
+#   "header_rows": [2, 3]          1-based sheet rows that form the header (default [1]). Rows
+#                                  before the last one are forward-filled so a merged group label
+#                                  reaches the columns it spans; names are joined with ' | '.
+# {"optional": True} on any cut: a file that is a conditional output of its stage, so its
+# absence is reported without a warning.
 # ----------------------------------------------------------------------------
 
 MF = "outputs/intermediate/mass_fractions"
@@ -57,6 +75,26 @@ CO = "outputs/intermediate/composition"
 SPECS: dict[str, list[tuple[str, list[dict]]]] = {
     "fetch-literature": [
         ("data/literature/manifest.ini", [{"kind": "whole"}]),
+        # Step 7b, the blood sources: read before any blood stage code, so the column maps in
+        # config/blood/mass_fraction_decisions.ini are written against what the files hold.
+        ("data/literature/bryk_2017/pr7b00025_si_002.xlsx", [
+            {"kind": "sheet_list", "name": "sheets"},
+            {"kind": "head", "name": "first20", "n": 20, "sheet": "Table S3", "header_rows": [2, 3]},
+            {"kind": "top", "name": "top100_by_col_P", "n": 100, "by_col": "P",
+             "sheet": "Table S3", "header_rows": [2, 3]},
+        ]),
+        ("data/literature/geyer_2016/1-s2.0-S2405471216300722-mmc3.xlsx", [
+            {"kind": "sheet_list", "name": "sheets"},
+            {"kind": "sheet", "name": "table_s2", "sheet": "Supplementary Table S2"},
+        ]),
+        ("data/literature/geyer_2016/1-s2.0-S2405471216300722-mmc6.xlsx", [
+            {"kind": "sheet_list", "name": "sheets"},
+            {"kind": "sheet", "name": "table_s5"},
+        ]),
+        ("data/literature/hortin_2008/clinchem.2008.108175-2.xls", [
+            {"kind": "sheet_list", "name": "sheets"},
+            {"kind": "sheet", "name": "database", "sheet": "DataBase"},
+        ]),
     ],
     "protein-set": [
         ("data/gene-ontology/source.ini", [{"kind": "whole"}]),
@@ -114,9 +152,9 @@ SPECS: dict[str, list[tuple[str, list[dict]]]] = {
         ("outputs/standard/non_protein_metabolite_pools_summary.ini", [{"kind": "whole"}]),
         ("outputs/standard/non_protein_metabolite_pool_adjustment_per_amino_acid.tsv", [{"kind": "whole"}]),
         ("outputs/standard/non_protein_metabolite_pool_amounts_per_kg_muscle.tsv", [{"kind": "whole"}]),
-        ("outputs/standard/sensitivity_non_protein_metabolite_pool_turnover_frame.tsv", [{"kind": "whole"}]),
-        ("outputs/standard/sensitivity_non_protein_metabolite_pool_basis.tsv", [{"kind": "whole"}]),
-        ("outputs/standard/sensitivity_non_protein_metabolite_pool_sex.tsv", [{"kind": "whole"}]),
+        ("outputs/standard/sensitivity_non_protein_metabolite_pool_turnover_frame.tsv", [{"kind": "whole", "optional": True}]),
+        ("outputs/standard/sensitivity_non_protein_metabolite_pool_basis.tsv", [{"kind": "whole", "optional": True}]),
+        ("outputs/standard/sensitivity_non_protein_metabolite_pool_sex.tsv", [{"kind": "whole", "optional": True}]),
         ("outputs/standard/sensitivity/sensitivity_non_protein_metabolite_pool_spread.tsv", [{"kind": "whole"}]),
         ("outputs/standard/eaa_subset_with_non_protein_metabolite_pools.tsv", [{"kind": "whole"}]),
         ("outputs/standard/stress/stress_summary.ini", [{"kind": "whole"}]),
@@ -195,14 +233,159 @@ def as_float(x: str) -> float:
         return float("-inf")
 
 
+# ---------------------------------------------------------------- workbooks (Step 7b)
+
+WORKBOOK_EXT = {".xlsx", ".xls"}
+
+
+class SheetNotFound(Exception):
+    """The cut names a sheet the workbook does not have; the message lists the ones it does."""
+
+
+def col_letter(i: int) -> str:
+    """1 -> A, 26 -> Z, 27 -> AA: the column letter a person reads in the spreadsheet."""
+    out = ""
+    while i > 0:
+        i, r = divmod(i - 1, 26)
+        out = chr(65 + r) + out
+    return out
+
+
+def col_index(letter: str) -> int:
+    """A -> 0, P -> 15: the 0-based position of a spreadsheet column letter."""
+    n = 0
+    for ch in letter.strip().upper():
+        n = n * 26 + (ord(ch) - 64)
+    return n - 1
+
+
+def cell_text(v) -> str:
+    """A cell as text. A whole-number float is written without its '.0' — an accession count
+    or a row index read back as 153.0 is noise; nothing else is rounded or reformatted."""
+    if v is None:
+        return ""
+    if isinstance(v, float) and v.is_integer() and abs(v) < 1e15:
+        return str(int(v))
+    return str(v).replace("\t", " ").replace("\n", " ").replace("\r", " ").strip()
+
+
+def trim(rows: list[list[str]]) -> list[list[str]]:
+    """Drop trailing empty cells and trailing empty rows: a sheet's used range often
+    reports further than its content, and the padding would travel into the excerpt."""
+    out = []
+    for row in rows:
+        while row and row[-1] == "":
+            row = row[:-1]
+        out.append(row)
+    while out and not any(out[-1]):
+        out.pop()
+    return out
+
+
+def workbook_sheets(path: Path) -> list[tuple[str, int, int]]:
+    """(sheet name, rows, columns) for every sheet, in the workbook's own order."""
+    if path.suffix.lower() == ".xls":
+        import xlrd                                    # .xls only; openpyxl cannot read it
+        book = xlrd.open_workbook(path)
+        return [(s.name, s.nrows, s.ncols) for s in book.sheets()]
+    from openpyxl import load_workbook
+    wb = load_workbook(path, read_only=True, data_only=True)
+    try:
+        return [(ws.title, ws.max_row or 0, ws.max_column or 0) for ws in wb.worksheets]
+    finally:
+        wb.close()
+
+
+def read_sheet(path: Path, sheet: str | None) -> tuple[str, list[list[str]]]:
+    """(sheet name, every row as text). The named sheet, or the first when none is named."""
+    names = [n for n, _, _ in workbook_sheets(path)]
+    if not names:
+        raise SheetNotFound(f"{path.name} has no sheets")
+    if sheet is None:
+        name = names[0]
+    else:
+        match = [n for n in names if n.strip().lower() == sheet.strip().lower()]
+        if not match:
+            raise SheetNotFound(f"{path.name} has no sheet {sheet!r}; its sheets are: " + ", ".join(repr(n) for n in names))
+        name = match[0]
+    if path.suffix.lower() == ".xls":
+        import xlrd
+        sh = xlrd.open_workbook(path).sheet_by_name(name)
+        rows = [[cell_text(sh.cell_value(r, c)) for c in range(sh.ncols)] for r in range(sh.nrows)]
+    else:
+        from openpyxl import load_workbook
+        wb = load_workbook(path, read_only=True, data_only=True)
+        try:
+            rows = [[cell_text(v) for v in row] for row in wb[name].iter_rows(values_only=True)]
+        finally:
+            wb.close()
+    return name, trim(rows)
+
+
+def forward_fill(row: list[str]) -> list[str]:
+    """Carry each value into the empty cells that follow it: a merged group label is stored
+    in its first cell only, and the columns it spans would otherwise look unlabelled."""
+    out, last = [], ""
+    for v in row:
+        last = v or last
+        out.append(last)
+    return out
+
+
+def sheet_header(rows: list[list[str]], header_rows: list[int]) -> list[str]:
+    """Column names from the 1-based sheet rows that form the header. Every row but the last
+    is forward-filled (group labels); the last is taken as it is, so a genuinely empty column
+    stays empty and is named by its letter."""
+    picked = []
+    for n, r in enumerate(header_rows, 1):
+        row = rows[r - 1] if r - 1 < len(rows) else []
+        picked.append(forward_fill(row) if n < len(header_rows) else list(row))
+    width = max((len(r) for r in picked), default=0)
+    width = max(width, max((len(r) for r in rows), default=0))
+    names = []
+    for j in range(width):
+        parts = []
+        for r in picked:
+            v = r[j] if j < len(r) else ""
+            if v and (not parts or parts[-1] != v):
+                parts.append(v)
+        names.append(" | ".join(parts) or col_letter(j + 1))
+    return names
+
+
+def sheet_table(path: Path, cut: dict) -> tuple[list[str], list[str], list[list[str]], str]:
+    """(comment lines, header, body rows, sheet name) for a workbook cut. The comment lines
+    reproduce every sheet row above the header verbatim and map each column letter to its
+    name, so the excerpt says what the spreadsheet says."""
+    name, rows = read_sheet(path, cut.get("sheet"))
+    header_rows = list(cut.get("header_rows", [1]))
+    header = sheet_header(rows, header_rows)
+    last = max(header_rows)
+    comments = [f"# sheet {name!r}; header row(s) {', '.join(str(r) for r in header_rows)}; "
+                f"{len(rows) - last} data rows below row {last}"]
+    for i in range(1, last):
+        comments.append(f"# sheet row {i}: " + " | ".join(rows[i - 1]) if i - 1 < len(rows) else f"# sheet row {i}: (empty)")
+    comments.append("# columns: " + "; ".join(f"{col_letter(j + 1)} = {n}" for j, n in enumerate(header)))
+    body = [r + [""] * (len(header) - len(r)) for r in rows[last:]]
+    return comments, header, body, name
+
+
 def apply_cut(cut: dict, header: list[str], rows: list[list[str]], collected: dict) -> tuple[list[list[str]], str]:
     """Return (rows kept, one-line description of the rule)."""
     kind = cut["kind"]
     if kind == "head":
         return rows[: cut["n"]], f"first {cut['n']} rows as ordered in the file"
+    if kind == "sheet":
+        return rows, "the whole sheet"
     if kind == "top":
-        i = header.index(cut["by"])
-        return sorted(rows, key=lambda r: -as_float(r[i]))[: cut["n"]], f"the {cut['n']} largest by column {cut['by']} (descending)"
+        if "by_col" in cut:
+            i = col_index(cut["by_col"])
+            label = f"column {cut['by_col']} ({header[i] if i < len(header) else '?'})"
+        else:
+            i = header.index(cut["by"])
+            label = f"column {cut['by']}"
+        return sorted(rows, key=lambda r: -as_float(r[i] if i < len(r) else ""))[: cut["n"]], \
+            f"the {cut['n']} largest by {label} (descending)"
     if kind == "equals":
         i = header.index(cut["column"])
         return [r for r in rows if r[i] == cut["value"]], f"rows where {cut['column']} == {cut['value']!r}"
@@ -240,10 +423,46 @@ def main(argv: list[str] | None = None) -> int:
     for rel, cuts in SPEC:
         src = common.REPO_ROOT / rel
         if not src.exists():
-            log.warning("missing on this machine: %s", rel)
-            index.append(f"| — | `{rel}` | missing on this machine | — |")
+            if all(c.get("optional") for c in cuts):
+                log.info("not written by this run (conditional output): %s", rel)
+                index.append(f"| — | `{rel}` | not written by this run (conditional output) | — |")
+            else:
+                log.warning("missing on this machine: %s", rel)
+                index.append(f"| — | `{rel}` | missing on this machine | — |")
             continue
+        is_workbook = src.suffix.lower() in WORKBOOK_EXT
         for cut in cuts:
+            if is_workbook and cut["kind"] == "sheet_list":
+                sheets = workbook_sheets(src)
+                p = Path(rel)
+                dest = out_root / p.parent / f"{p.stem}__{cut['name']}.tsv"
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                lines = [f"# EXCERPT of {rel}: every sheet with its size; written {common.iso_now()} by pipeline/excerpt.py",
+                         "sheet\trows\tcolumns"] + [f"{n}\t{r}\t{c}" for n, r, c in sheets]
+                dest.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
+                index.append(f"| `{dest.relative_to(out_root).as_posix()}` | `{rel}` | every sheet with its size | {len(sheets)} sheets |")
+                log.info("sheets %s -> %d sheet(s): %s", rel, len(sheets), ", ".join(n for n, _, _ in sheets))
+                written += 1
+                continue
+            if is_workbook:
+                try:
+                    comments, header, rows, sheet_name = sheet_table(src, cut)
+                except SheetNotFound as e:
+                    log.warning("%s: %s", rel, e)
+                    index.append(f"| — | `{rel}` | {e} | — |")
+                    continue
+                kept, rule = apply_cut(cut, header, rows, collected)
+                rule = f"sheet {sheet_name!r}, {rule}"
+                p = Path(rel)
+                dest = out_root / p.parent / f"{p.stem}__{cut['name']}.tsv"
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                lines = [f"# EXCERPT of {rel}: {rule}; {len(kept)} of {len(rows)} rows; written {common.iso_now()} by pipeline/excerpt.py"]
+                lines += comments + ["\t".join(header)] + ["\t".join(r) for r in kept]
+                dest.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
+                index.append(f"| `{dest.relative_to(out_root).as_posix()}` | `{rel}` | {rule} | {len(kept)} / {len(rows)} |")
+                log.info("cut    %s :: %s -> %d of %d rows", rel, cut["name"], len(kept), len(rows))
+                written += 1
+                continue
             if cut["kind"] == "whole":
                 dest = out_root / rel
                 dest.parent.mkdir(parents=True, exist_ok=True)
