@@ -1,9 +1,9 @@
 # Per-Category Gameplan
 
-**Revision:** R3 (2026-09-18) — adds the source acquisition protocol (who does what, in what order) after the blood thread lost hours to the assistant writing file URLs it had not been given. R2 text is otherwise unchanged.
+**Revision:** R4 (2026-09-19) — step letters renumbered to the project plan's (7b blood, 7c refactor, 7d loops); R2's text predated D89 and said 7a/7b/7c. Nothing else changed. R3 (2026-09-18) — adds the source acquisition protocol (who does what, in what order) after the blood thread lost hours to the assistant writing file URLs it had not been given. R2 text is otherwise unchanged.
 **Established by:** D70 (Project Plan R7, §8); refactor sequencing set by D71 (R8, §8).
-**Referenced from:** Project Plan R8 §5 Steps 7a and 7c, §9 Thread Protocol.
-**Purpose:** Template for adding any new tissue/category to the whole-body composite. Each execution produces one publishable category standard that consumes pipeline infrastructure and feeds the whole-body composite. This gameplan is not re-revised for each category — the category itself is the deliverable, and its handoff document instantiates the template. The gameplan itself may be revised (R3+) after Step 7a and 7b close, informed by what those steps teach.
+**Referenced from:** Project Plan §5 Steps 7b and 7d, §9 Thread Protocol.
+**Purpose:** Template for adding any new tissue/category to the whole-body composite. Each execution produces one publishable category standard that consumes pipeline infrastructure and feeds the whole-body composite. This gameplan is not re-revised for each category — the category itself is the deliverable, and its handoff document instantiates the template. The gameplan itself may be revised (R4+) after Steps 7b and 7c close, informed by what those steps teach.
 
 ---
 
@@ -18,16 +18,16 @@
 - Modifications to a category that has already been shipped (those get their own decisions and a handoff, not a template re-run)
 - The whole-body composite itself (Step 8 in the project plan; it consumes category outputs, does not follow this template)
 - Metabolite pool adjustments to an existing category (small enough to be a handoff on their own; e.g., Step 4b muscle metabolite adjustment did not use this template)
-- The pipeline refactor for per-category modularity (Step 7b in the project plan; it is infrastructure work, not a category build)
+- The pipeline refactor for per-category modularity (Step 7c in the project plan; it is infrastructure work, not a category build)
 
 ---
 
 ## Pipeline state to know about
 
-The tier-generic pipeline refactor (Step 7b, D71) lands **after** the first non-muscle category (Step 7a: blood) is built. Executions of this gameplan therefore split into two eras:
+The tier-generic pipeline refactor (Step 7c, D71) lands **after** the first non-muscle category (Step 7b: blood) is built. Executions of this gameplan therefore split into two eras:
 
-- **Pre-refactor (Step 7a only — blood).** The pipeline still assumes muscle-specific column names ("contractile," "builders," "type_I/IIa/IIx") in the aggregate stage and other places. Steps 4, 5, 7, 8 of this gameplan (marked "reused code" below) will require ad-hoc adaptations rather than clean parameterization. Record what needed adapting in the handoff — those observations are the input to Step 7b's refactor scope. This is intentional (rule-of-three abstraction, D71).
-- **Post-refactor (Step 7c onward — liver, collagen, and beyond).** The pipeline is tier- and category-agnostic. Steps 4, 5, 7, 8 of this gameplan reuse code cleanly with no muscle-specific adaptation; the new category just adds config and its standard drops into `outputs/<category>/`.
+- **Pre-refactor (Step 7b only — blood).** The pipeline still assumes muscle-specific column names ("contractile," "builders," "type_I/IIa/IIx") in the aggregate stage and other places. Steps 4, 5, 7, 8 of this gameplan (marked "reused code" below) will require ad-hoc adaptations rather than clean parameterization. Record what needed adapting in the handoff — those observations are the input to Step 7c's refactor scope. This is intentional (rule-of-three abstraction, D71).
+- **Post-refactor (Step 7d onward — liver, collagen, and beyond).** The pipeline is tier- and category-agnostic. Steps 4, 5, 7, 8 of this gameplan reuse code cleanly with no muscle-specific adaptation; the new category just adds config and its standard drops into `outputs/<category>/`.
 
 The gameplan's twelve steps are the same in both eras. What differs is how much muscle-specific code the reused-code steps have to work around.
 
@@ -37,7 +37,7 @@ The gameplan's twelve steps are the same in both eras. What differs is how much 
 
 - UniProt fetch code with MD5 verification (Step 2 infrastructure)
 - Composition engine producing both mass conventions (Step 2 infrastructure)
-- Aggregate stage (tier-generic post-Step 7b; muscle-adapted pre-Step 7b)
+- Aggregate stage (tier-generic post-Step 7c; muscle-adapted pre-Step 7c)
 - Uncertainty stage (log-space Monte Carlo, D63)
 - Stress stage (named perturbations, D65)
 - `docs/conventions.md` (config schema, citation schema, mass conventions)
@@ -47,7 +47,7 @@ The gameplan's twelve steps are the same in both eras. What differs is how much 
 
 ## The Twelve Steps
 
-Each step names its inputs, outputs, reused code, and where new work sits. Steps marked "reused code" run cleanly post-refactor (Step 7c onward) and require adaptation pre-refactor (Step 7a only).
+Each step names its inputs, outputs, reused code, and where new work sits. Steps marked "reused code" run cleanly post-refactor (Step 7d onward) and require adaptation pre-refactor (Step 7b only).
 
 ### 1. Pick the category and its scope
 **New work.** Decide what tissue(s) the category represents, what proteins are in-scope, what the boundary decisions are (contaminants, dual-role proteins between categories, tissue-vs-cell scope). One D-number for this scoping decision, referencing D67 (whole-body composite framing). Written down in the handoff's opening section.
@@ -115,16 +115,16 @@ What Claude does **not** do: write a file URL it was not handed; build a URL fro
 **Deliverable:** `config/<category>/mass_fractions.ini` (or per-subtype files if the category has subtypes analogous to muscle's fiber types). Every value has source, location, retrieved date per citation schema.
 
 ### 7. Aggregate to category-level standard
-**Reused code — clean post-Step 7b refactor; ad-hoc adaptations pre-refactor.** Run the aggregate stage on the new category. Produces per-subtype and combined profiles in both conventions.
+**Reused code — clean post-Step 7c refactor; ad-hoc adaptations pre-refactor.** Run the aggregate stage on the new category. Produces per-subtype and combined profiles in both conventions.
 
-**Pre-refactor note (Step 7a only):** the aggregate stage assumes muscle-specific column names. Expect to fork or adapt the aggregate module. Record what adaptations were required in the handoff — that is the input to Step 7b's refactor scope.
+**Pre-refactor note (Step 7b only):** the aggregate stage assumes muscle-specific column names. Expect to fork or adapt the aggregate module. Record what adaptations were required in the handoff — that is the input to Step 7c's refactor scope.
 
 **Deliverable:** `outputs/<category>/_calculated_amino_acid_standard.tsv` — the category standard in the same shape as the muscle standard.
 
 ### 8. Uncertainty and stress on the category standard
 **Reused code — clean post-refactor.** Run uncertainty (log-space Monte Carlo, D63) and stress (D65) stages on the new category. The stress test scenarios apply per-category with sensible parameter ranges — knockout of top-N, tier ratio swings, size tilt, TPA weighting, random abuse.
 
-**Pre-refactor note (Step 7a only):** may require similar adaptations as Step 7 above if the uncertainty/stress modules also assume muscle-specific tier structure.
+**Pre-refactor note (Step 7b only):** may require similar adaptations as Step 7 above if the uncertainty/stress modules also assume muscle-specific tier structure.
 
 **Deliverable:** `outputs/<category>/uncertainty_intervals.tsv`, `outputs/<category>/stress_summary.ini` and associated files, following the muscle-standard pattern.
 
@@ -149,9 +149,9 @@ What Claude does **not** do: write a file URL it was not handed; build a URL fro
 **Deliverable:** row added to `config/tissue_mass_fractions.ini`. Not a rerun of the whole-body composite — that is Step 8.
 
 ### 12. Log decisions, update handoff, tick the plan
-**Delivery.** Every category-specific decision goes to `docs/decisions.md` with date, category, and rationale. The next handoff (either the next category or Step 8 whole-body composite) is written or updated. Project plan §5 Step 7a or 7c gets a status update. Commit.
+**Delivery.** Every category-specific decision goes to `docs/decisions.md` with date, category, and rationale. The next handoff (either the next category or Step 8 whole-body composite) is written or updated. Project plan §5 Step 7b or 7d gets a status update. Commit.
 
-**For Step 7a specifically:** the handoff must also enumerate the muscle-code adaptations that were required for Steps 7 and 8 above. That list is Step 7b's input.
+**For Step 7b specifically:** the handoff must also enumerate the muscle-code adaptations that were required for Steps 7 and 8 above. That list is Step 7c's input.
 
 ---
 
@@ -159,7 +159,7 @@ What Claude does **not** do: write a file URL it was not handed; build a URL fro
 
 The muscle build (Steps 1–4) took approximately 20 hours of active work across 3 days, including inventing the pipeline pattern. Per-category work reuses that pattern.
 
-| Step | Effort (post-refactor) | Effort (Step 7a, pre-refactor) |
+| Step | Effort (post-refactor) | Effort (Step 7b, pre-refactor) |
 |---|---|---|
 | 1. Scope decision | 1–2 hours | 1–2 hours |
 | 2. Find primary dataset | 2–4 hours | 2–4 hours |
@@ -172,10 +172,10 @@ The muscle build (Steps 1–4) took approximately 20 hours of active work across
 | 9. Metabolite pools (if any) | 2–4 hours | 2–4 hours |
 | 10. Publish category standard | Minutes | Minutes |
 | 11. Add tissue mass fraction | Minutes | Minutes |
-| 12. Log decisions and update plan | 30 minutes | 1 hour (also enumerating adaptations for 7b) |
+| 12. Log decisions and update plan | 30 minutes | 1 hour (also enumerating adaptations for 7c) |
 
 **Realistic total per category post-refactor: 1–3 days of active work.**
-**Realistic total for Step 7a (blood, pre-refactor): 2–4 days, plus the enumeration of adaptations for Step 7b.**
+**Realistic total for Step 7b (blood, pre-refactor): 2–4 days, plus the enumeration of adaptations for Step 7c.**
 
 Blood is likely the fastest category on scope (small proteome, well-characterized, one dominant protein — hemoglobin) but the slowest in wall-clock time because it runs pre-refactor. Liver runs post-refactor and benefits from the cleaner pipeline. Collagen tissues reuse the standalone collagen track's work and mostly need tissue mass fractions + lumping decisions.
 
@@ -196,10 +196,10 @@ At the end of each category execution, the following should exist:
 - [ ] Row added to `config/tissue_mass_fractions.ini` — cited tissue mass fraction
 - [ ] Decisions logged in `docs/decisions.md`
 - [ ] `docs/handoffs/07<a-or-c>_<category>_handoff.md` — the executed handoff, updated at close
-- [ ] Project plan §5 Step 7a or 7c status updated
+- [ ] Project plan §5 Step 7b or 7d status updated
 
-**Additional for Step 7a (blood only):**
-- [ ] Handoff enumerates muscle-specific assumptions encountered and adaptations required — this becomes the specification for Step 7b's refactor
+**Additional for Step 7b (blood only):**
+- [ ] Handoff enumerates muscle-specific assumptions encountered and adaptations required — this becomes the specification for Step 7c's refactor
 
 ---
 
@@ -211,6 +211,6 @@ At the end of each category execution, the following should exist:
 
 **On maintenance:** if a category standard needs revision after shipping (e.g., a better primary dataset appears, a metabolite pool citation changes), the revision does not re-run this gameplan. It is a modification to an existing category, handled with its own handoff and D-number.
 
-**Revision log.** R2 (planning thread, before Step 7a): the twelve steps and the two eras. R3 (2026-09-18, Step 7b thread): §2a source acquisition protocol added; the deliverables checklist gains its first line; the `file.<n>.name` rule recorded here pending its D-number and the `docs/conventions.md` edit. The step letters in R2's text (7a blood, 7b refactor) predate D89's renumbering (7b blood, 7c refactor, 7d loops) and are left as written.
+**Revision log.** R2 (planning thread, before the blood build): the twelve steps and the two eras. R3 (2026-09-18, Step 7b thread): §2a source acquisition protocol added; the deliverables checklist gains its first line; the `file.<n>.name` rule recorded here pending its D-number and the `docs/conventions.md` edit. R4 (2026-09-19, Step 7b thread): the step letters throughout renumbered to D89's — blood is 7b, the refactor 7c, the category loops 7d — which R2's text predated and R3 left as written. No other change.
 
-**On this gameplan's own future revisions:** R2 was written before the first non-muscle category (blood, Step 7a) executed. After Step 7a and 7b close, this gameplan may benefit from R3 revisions informed by what those steps actually taught — particularly around Step 7 (aggregate) and Step 8 (uncertainty/stress) of the gameplan, which are the steps most likely to reveal muscle-specific assumptions the pipeline needs to shed.
+**On this gameplan's own future revisions:** R2 was written before the first non-muscle category (blood, Step 7b) executed. After Step 7b and 7c close, this gameplan may benefit from R3 revisions informed by what those steps actually taught — particularly around Step 7 (aggregate) and Step 8 (uncertainty/stress) of the gameplan, which are the steps most likely to reveal muscle-specific assumptions the pipeline needs to shed.
