@@ -41,7 +41,11 @@ For each feature:
     or no_vocabulary_match), and the description is listed in ptm_summary.ini so the
     reader can see exactly what was not priced;
   - a site whose position lies outside the master molecule (config/segments.ini)
-    is recorded with in_master = false and excluded from the sums.
+    is recorded with in_master = false and excluded from the sums;
+  - C3b (D118): priced features of the same type at the same position are ALTERNATIVES
+    (UniProt lists the glycoforms seen at one glycosylation site as separate features),
+    not additions: one position contributes the largest |delta| among them to the entry's
+    sum, and the number of features so collapsed is recorded per entry.
 
 Outputs  outputs/composition/ptm_sites.tsv        one row per PTM feature
          outputs/composition/ptm_mass_deltas.tsv  one row per entry: counts, summed delta, fraction of MW
@@ -155,6 +159,17 @@ def price_feature(feature: dict, vocab: dict, h2_mass: float, master_ranges: lis
     return row
 
 
+def collapse_alternatives(priced: list[tuple[str, int | None, int | None, float]]) -> tuple[float, int]:
+    """C3b: (the entry's summed delta with one contribution per (type, start, end) -- the largest
+    |delta| among alternatives -- and the number of features collapsed away)."""
+    best: dict[tuple, float] = {}
+    for ftype, start, end, delta in priced:
+        key = (ftype, start, end)
+        if key not in best or abs(delta) > abs(best[key]):
+            best[key] = delta
+    return sum(best.values()), len(priced) - len(best)
+
+
 def _f(x: float) -> str:
     return f"{x:.{FRAC_DIGITS}g}"
 
@@ -202,6 +217,7 @@ def main(argv=None) -> int:
     rule_totals: dict[str, int] = {}
     best = (0.0, "")
     n_sites_total = 0
+    n_collapsed_total = 0
     for acc in accessions.sections():
         entry = accessions[acc]
         if entry.get("flag_open") == "true":
@@ -215,7 +231,7 @@ def main(argv=None) -> int:
         master_ranges = segment_ranges(segments, acc, master_only=True)
         by_type = {t: 0 for t in PTM_FEATURE_TYPES}
         n_in_master = n_with_mass = n_count_only = 0
-        delta_sum = 0.0
+        priced: list[tuple[str, int | None, int | None, float]] = []
         for f in data.get("features", []):
             if f.get("type") not in PTM_FEATURE_TYPES:
                 continue
@@ -238,7 +254,9 @@ def main(argv=None) -> int:
                 unpriced[label] = unpriced.get(label, 0) + 1
             else:
                 n_with_mass += 1
-                delta_sum += p["mass_delta"]
+                priced.append((p["feature_type"], p["start"], p["end"], p["mass_delta"]))
+        delta_sum, n_collapsed = collapse_alternatives(priced)                     # C3b (D118)
+        n_collapsed_total += n_collapsed
         mw = mw_master.get(acc)
         if mw is None:
             log.error("%s: no master row in %s -- run composition first", acc, files["composition_tsv"].name)
@@ -248,7 +266,7 @@ def main(argv=None) -> int:
             best = (abs(frac), acc)
         entry_rows.append([acc, gene, tier, sum(by_type.values()),
                            n_in_master, n_with_mass, n_count_only, *[by_type[t] for t in PTM_FEATURE_TYPES],
-                           _f(delta_sum), f"{mw:.4f}", _f(frac)])
+                           _f(delta_sum), f"{mw:.4f}", _f(frac), n_collapsed])
 
     out_dir.mkdir(parents=True, exist_ok=True)
     common.write_tsv(out_dir / "ptm_sites.tsv",
@@ -260,7 +278,7 @@ def main(argv=None) -> int:
     common.write_tsv(out_dir / "ptm_mass_deltas.tsv",
                      ["accession", "gene", "tier", "n_sites_total", "n_sites_in_master", "n_sites_with_mass",
                       "n_sites_count_only", *type_cols, "sum_mass_delta_g_per_mol", "mw_master",
-                      "ptm_mass_delta_fraction_of_mw"],
+                      "ptm_mass_delta_fraction_of_mw", "n_alternative_features_collapsed"],
                      entry_rows)
     summary = common.new_ini()
     summary["ptm_disclosure"] = {
@@ -273,6 +291,7 @@ def main(argv=None) -> int:
         "sites_total": str(n_sites_total),
         "sites_by_mass_status": "; ".join(f"{k}={v}" for k, v in sorted(status_totals.items())),
         "sites_by_match_rule": "; ".join(f"{k}={v}" for k, v in sorted(rule_totals.items())),
+        "alternative_features_collapsed_c3b": str(n_collapsed_total),
         "largest_abs_ptm_mass_fraction_of_mw": _f(best[0]),
         "largest_abs_ptm_mass_fraction_accession": best[1],
         "h2_mass_used_for_disulfide": str(h2_mass),

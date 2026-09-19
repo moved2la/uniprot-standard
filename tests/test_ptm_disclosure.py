@@ -96,3 +96,15 @@ def test_price_feature_rules(vocab, entry):
     assert q["match_rule"] == "exact" and q["mass_delta"] == pytest.approx(14.03)
     # the Region feature was not a PTM type and was never priced
     assert len(priced) == 9
+
+
+def test_alternatives_at_one_position_contribute_once():
+    """C3b (D118): priced features of one type at one position are alternatives -- the largest
+    |delta| counts once; different positions or types still add."""
+    from pipeline.ptm_disclosure import collapse_alternatives
+    priced = [("Glycosylation", 180, 180, 1216.4), ("Glycosylation", 180, 180, 1622.6), ("Glycosylation", 180, 180, 203.2),
+              ("Glycosylation", 300, 300, 203.2), ("Modified residue", 180, 180, 42.0), ("Disulfide bond", 22, 96, -2.016)]
+    total, collapsed = collapse_alternatives(priced)
+    assert collapsed == 2
+    assert abs(total - (1622.6 + 203.2 + 42.0 - 2.016)) < 1e-9
+    assert collapse_alternatives([]) == (0.0, 0)
