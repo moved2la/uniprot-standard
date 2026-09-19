@@ -142,7 +142,8 @@ def _sources(*rows) -> configparser.ConfigParser:
 def _decisions(category: str | None) -> configparser.ConfigParser:
     cp = configparser.ConfigParser(interpolation=None)
     cp.optionxform = str
-    cp["meta"] = {"step": "test"} if category is None else {"step": "test", "category": category}
+    if category is not None:
+        cp["scope"] = {"category": category}
     return cp
 
 
@@ -175,7 +176,7 @@ def test_stage_category_stops_when_it_is_missing_or_a_placeholder():
     for dec in (_decisions(None), _decisions("___"), _decisions("")):
         with pytest.raises(SystemExit) as e:
             mf.stage_category(dec)
-        assert "[meta] category" in str(e.value)
+        assert "[scope]" in str(e.value)
 
 
 # --------------------------------------------------------------------------- the real config
@@ -189,3 +190,4 @@ def test_this_repository_declares_a_category_with_exactly_one_primary():
         f"[meta] category = {category} is not a column of [categories] in literature_sources.ini: {declared}"
     assert len(mf.sources_with_role(src, "primary", category)) == 1, \
         f"category {category} must have exactly one source with role = primary"
+    
