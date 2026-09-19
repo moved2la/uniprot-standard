@@ -26,9 +26,9 @@ def _book(path, sheets: dict[str, list[list]]):
 # a two-row header with a merged-looking group label, as the blood tables have
 _S3 = [
     ["Table S3. identified proteins"],                                   # row 1: a title above the header
-    ["", "", "Whole erythrocyte", None, "White ghosts", None],           # row 2: group labels, only in the first cell
-    ["Protein IDs", "Gene names", "Donor 1", "Donor 2", "Donor 1", "Donor 2"],
-    ["P68871", "HBB", 40.5, 41.0, 1.2, 1.1],
+    ["", "", "Whole erythrocyte", None, "White ghosts"],                  # row 2: group labels, only in
+    ["Protein IDs", "Gene names", "Donor 1", "Donor 2", "Donor 1", "Donor 2"],   # the first cell, and the
+    ["P68871", "HBB", 40.5, 41.0, 1.2, 1.1],                             # row is SHORTER than row 3
     ["P69905", "HBA1", 30.0, 31.0, 0.9, 0.8],
     ["P00915", "CA1", 2.0, 2.5, 0.1, 0.2],
 ]
@@ -51,6 +51,8 @@ def test_group_label_reaches_the_columns_it_spans(tmp_path):
     # C and D are the whole-erythrocyte donors, E and F the ghosts: the label carried across
     assert header[2] == "Whole erythrocyte | Donor 1" and header[3] == "Whole erythrocyte | Donor 2"
     assert header[4] == "White ghosts | Donor 1"
+    # F is past the end of row 2: the label still reaches it, or the column looks unlabelled
+    assert header[5] == "White ghosts | Donor 2"
     assert header[0] == "Protein IDs"                       # no group label above it, so just the name
     assert [r[1] for r in rows] == ["HBB", "HBA1", "CA1"]    # the header rows are not in the body
     assert any(c.startswith("# sheet row 1: Table S3.") for c in comments)   # the title travels
@@ -77,6 +79,21 @@ def test_a_sheet_name_that_is_not_there_names_the_ones_that_are(tmp_path):
 def test_sheet_list_reports_every_sheet(tmp_path):
     path = _book(tmp_path / "s.xlsx", {"Table S1": [["a", "b"]], "Table S3": _S3})
     assert [(n, r) for n, r, _ in ex.workbook_sheets(path)] == [("Table S1", 1), ("Table S3", 6)]
+
+
+def test_the_sheet_list_says_its_counts_are_the_used_range(tmp_path, monkeypatch):
+    """A used range can exceed the content — geyer_2016's mmc3 reports 1289 rows for a 323-row
+    table — so the file must not read as a row count."""
+    root = tmp_path / "repo"
+    (root / "data").mkdir(parents=True)
+    _book(root / "data" / "s.xlsx", {"Table S3": _S3})
+    monkeypatch.setattr(common, "REPO_ROOT", root)
+    monkeypatch.setattr(ex, "EXCERPTS_DIR", root / "excerpts")
+    monkeypatch.setattr(ex, "SPEC", [("data/s.xlsx", [{"kind": "sheet_list", "name": "sheets"}])])
+    assert ex.main([]) == 0
+    stamp = [p for p in (root / "excerpts").iterdir() if p.is_dir()][0]
+    text = (stamp / "data" / "s__sheets.tsv").read_text(encoding="utf-8")
+    assert "used range" in text and "rows_used_range\tcolumns_used_range" in text
 
 
 def test_trailing_padding_does_not_travel(tmp_path):

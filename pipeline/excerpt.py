@@ -283,7 +283,13 @@ def trim(rows: list[list[str]]) -> list[list[str]]:
 
 
 def workbook_sheets(path: Path) -> list[tuple[str, int, int]]:
-    """(sheet name, rows, columns) for every sheet, in the workbook's own order."""
+    """(sheet name, rows, columns) for every sheet, in the workbook's own order.
+
+    The two numbers are the sheet's USED RANGE as the file reports it, which is what a
+    workbook can answer without reading every cell. It can exceed the content — a sheet
+    whose rows were formatted once reports them for ever. The row count to trust is the one
+    in an excerpt of that sheet, which counts rows that hold something.
+    """
     if path.suffix.lower() == ".xls":
         import xlrd                                    # .xls only; openpyxl cannot read it
         book = xlrd.open_workbook(path)
@@ -334,14 +340,20 @@ def forward_fill(row: list[str]) -> list[str]:
 
 def sheet_header(rows: list[list[str]], header_rows: list[int]) -> list[str]:
     """Column names from the 1-based sheet rows that form the header. Every row but the last
-    is forward-filled (group labels); the last is taken as it is, so a genuinely empty column
-    stays empty and is named by its letter."""
+    is padded to the sheet's full width and forward-filled (group labels); the last is taken as
+    it is, so a genuinely empty column stays empty and is named by its letter.
+
+    The padding matters: a group-label row is usually shorter than the row of names under it —
+    trailing empty cells are not stored — and filling only to that row's own end leaves the
+    columns past it unlabelled. In bryk_2017's Table S3 that silently dropped 'White ghosts'
+    from the last three copy-number columns.
+    """
+    width = max((len(r) for r in rows), default=0)
     picked = []
     for n, r in enumerate(header_rows, 1):
-        row = rows[r - 1] if r - 1 < len(rows) else []
-        picked.append(forward_fill(row) if n < len(header_rows) else list(row))
-    width = max((len(r) for r in picked), default=0)
-    width = max(width, max((len(r) for r in rows), default=0))
+        row = list(rows[r - 1]) if r - 1 < len(rows) else []
+        row += [""] * (width - len(row))
+        picked.append(forward_fill(row) if n < len(header_rows) else row)
     names = []
     for j in range(width):
         parts = []
@@ -438,9 +450,11 @@ def main(argv: list[str] | None = None) -> int:
                 dest = out_root / p.parent / f"{p.stem}__{cut['name']}.tsv"
                 dest.parent.mkdir(parents=True, exist_ok=True)
                 lines = [f"# EXCERPT of {rel}: every sheet with its size; written {common.iso_now()} by pipeline/excerpt.py",
-                         "sheet\trows\tcolumns"] + [f"{n}\t{r}\t{c}" for n, r, c in sheets]
+                         "# rows/columns are the sheet's used range as the file reports it; it can exceed the "
+                         "content. The count that holds is the one in an excerpt of the sheet.",
+                         "sheet\trows_used_range\tcolumns_used_range"] + [f"{n}\t{r}\t{c}" for n, r, c in sheets]
                 dest.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
-                index.append(f"| `{dest.relative_to(out_root).as_posix()}` | `{rel}` | every sheet with its size | {len(sheets)} sheets |")
+                index.append(f"| `{dest.relative_to(out_root).as_posix()}` | `{rel}` | every sheet with its used range | {len(sheets)} sheets |")
                 log.info("sheets %s -> %d sheet(s): %s", rel, len(sheets), ", ".join(n for n, _, _ in sheets))
                 written += 1
                 continue
