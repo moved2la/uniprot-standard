@@ -15,6 +15,8 @@
     python run.py blood-protein-set        the blood category (Step 7b): enumerate the two pools by published
                                            accession -> fetch the sequences the store lacks (additive) ->
                                            build config/blood/ -> deltas -> tests; --offline skips the two network stages
+    python run.py blood-composition        composition and PTM disclosure for the blood set (offline; the masses,
+                                           symbols and ptmlist fetched by `composition` are shared)
     python run.py test                     tests only
     python run.py excerpt                  tooling: bounded excerpts of the large generated files
                                            into excerpts/<stamp>/ and a tarball (no tests; not the record)
@@ -62,15 +64,18 @@ COMMANDS = {
     # folds them into `<command> <category>`. Placement in the run order is provisional (after match).
     "blood-protein-set": (["enumerate_pool", "fetch_sequences"],
                           ["build_protein_set", "isoform_processing_deltas"]),
+    # the masses, symbols and ptmlist are shared data already fetched by `composition`; blood has no network stage here
+    "blood-composition": ([],
+                          ["composition", "ptm_disclosure"]),
 }
 
 # The category a command builds; stages of these commands are called with --category <name>.
-COMMAND_CATEGORY = {"blood-protein-set": "blood"}
+COMMAND_CATEGORY = {"blood-protein-set": "blood", "blood-composition": "blood"}
 
 
 RUN_LOG: Path | None = None
 COMMAND_ORDER = ["fetch-literature", "protein-set", "composition", "mass-fractions", "standard",
-                 "usda", "comparison", "match", "blood-protein-set"]
+                 "usda", "comparison", "match", "blood-protein-set", "blood-composition"]
 
 
 class _Tee:

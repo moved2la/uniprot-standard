@@ -209,11 +209,17 @@ SPECS: dict[str, list[tuple[str, list[dict]]]] = {
         ("data/blood/plasma_dataset_rows.tsv", [
             {"kind": "head", "name": "first40", "n": 40},
             {"kind": "contains", "name": "via_later_token", "column": "outcome", "value": "via_later_token"},
+            {"kind": "contains", "name": "via_secondary_accession", "column": "outcome", "value": "via_secondary_accession"},
+            {"kind": "equals", "name": "via_gene", "column": "outcome", "value": "member_via_gene"},
+            {"kind": "equals", "name": "no_reviewed_human_entry", "column": "outcome", "value": "no_reviewed_human_entry"},
             {"kind": "equals", "name": "duplicates", "column": "outcome", "value": "member_duplicate_entry"},
         ]),
         ("data/blood/erythrocytes_dataset_rows.tsv", [
             {"kind": "head", "name": "first40", "n": 40},
             {"kind": "contains", "name": "via_later_token", "column": "outcome", "value": "via_later_token"},
+            {"kind": "contains", "name": "via_secondary_accession", "column": "outcome", "value": "via_secondary_accession"},
+            {"kind": "equals", "name": "via_gene", "column": "outcome", "value": "member_via_gene"},
+            {"kind": "equals", "name": "no_reviewed_human_entry", "column": "outcome", "value": "no_reviewed_human_entry"},
             {"kind": "equals", "name": "duplicates", "column": "outcome", "value": "member_duplicate_entry"},
         ]),
         ("data/blood/pool_plasma.tsv", [{"kind": "head", "name": "first20", "n": 20}]),
@@ -225,6 +231,13 @@ SPECS: dict[str, list[tuple[str, list[dict]]]] = {
         ("outputs/blood/intermediate/protein_set/isoform_bound.tsv", [{"kind": "whole"}]),
         ("outputs/blood/intermediate/protein_set/processing_bound.tsv", [{"kind": "whole"}]),
         ("outputs/blood/flags.tsv", [{"kind": "whole", "optional": True}]),
+    ],
+    "blood-composition": [
+        ("outputs/blood/intermediate/composition/composition_summary.ini", [{"kind": "whole"}]),
+        ("outputs/blood/intermediate/composition/processing_mass_bound.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/intermediate/composition/ptm_summary.ini", [{"kind": "whole"}]),
+        ("outputs/blood/intermediate/composition/amino_acid_composition_per_protein.tsv", [{"kind": "head", "name": "first40", "n": 40}]),
+        ("outputs/blood/intermediate/composition/ptm_mass_deltas.tsv", [{"kind": "head", "name": "first40", "n": 40}]),
     ],
 }
 

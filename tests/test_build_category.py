@@ -6,6 +6,7 @@ import json
 from conftest import FIXTURES
 
 from pipeline import common, build_protein_set as bp, fetch_sequences as fs, isoform_processing_deltas as ipd
+from pipeline import composition as comp, ptm_disclosure as ptm
 
 
 def _store(tmp_path, accs):
@@ -84,6 +85,43 @@ def test_category_build_writes_config_and_tables_under_the_category(tmp_path, mo
     assert (out / "isoform_bound.tsv").exists() and (out / "processing_deltas.tsv").exists()
     rows = common.read_tsv(out / "processing_deltas.tsv")
     assert {r["tier"] for r in rows} == {"red", "red;yellow"}
+
+
+def test_category_composition_writes_under_the_category(tmp_path, monkeypatch):
+    """composition and ptm_disclosure with --category: the category's accessions and segments in,
+    outputs/<category>/intermediate/composition/ out, the raw entries found in the nested folder."""
+    _category(tmp_path, monkeypatch)
+    masses = tmp_path / "data" / "pubchem" / "amino_acid_masses.ini"
+    masses.parent.mkdir(parents=True)
+    masses.write_text((FIXTURES / "masses_synthetic.ini").read_text(encoding="utf-8"), encoding="utf-8")
+    monkeypatch.setattr(common, "AMINO_ACID_MASSES_INI", masses)
+    ptmlist = tmp_path / "data" / "uniprot_ptmlist" / "ptmlist.txt"
+    ptmlist.parent.mkdir(parents=True)
+    ptmlist.write_text((FIXTURES / "ptmlist_synthetic.txt").read_text(encoding="utf-8"), encoding="utf-8")
+    src = common.new_ini(); src["ptmlist"] = {"url": "test", "sha256": "0", "retrieved": "now"}
+    common.write_ini(src, ptmlist.parent / "source.ini", ["test"])
+    monkeypatch.setattr(common, "PTMLIST_TXT", ptmlist)
+    raw = tmp_path / "data" / "uniprot_raw" / "cat"
+    raw.mkdir(parents=True)
+    entry = json.loads((FIXTURES / "entry_one_chain.json").read_text())
+    for acc in ("X99001", "X99002"):
+        e = json.loads(json.dumps(entry)); e["primaryAccession"] = acc
+        (raw / f"{acc}.json").write_text(json.dumps(e), encoding="utf-8")
+    assert bp.main(["--category", "cat"]) == 0
+    assert comp.main(["--category", "cat"]) == 0
+    cdir = tmp_path / "outputs" / "cat" / "intermediate" / "composition"
+    assert (cdir / "amino_acid_composition_per_protein.tsv").exists() and (cdir / "composition_summary.ini").exists()
+    head = (cdir / "composition_summary.ini").read_text().splitlines()
+    assert any(l.startswith("# category          = cat") for l in head)
+    assert any(l.startswith("# segments          = config/cat/segments.ini") for l in head)
+    rows = common.read_tsv(cdir / "amino_acid_composition_per_protein.tsv")
+    assert {r["accession"] for r in rows} == {"X99001", "X99002"}
+    assert comp.main(["--category", "cat", "--check"]) == 0
+    assert ptm.main(["--category", "cat"]) == 0
+    assert (cdir / "ptm_sites.tsv").exists() and (cdir / "ptm_summary.ini").exists()
+    deltas = common.read_tsv(cdir / "ptm_mass_deltas.tsv")
+    assert {r["tier"] for r in deltas} == {"red", "red;yellow"}
+    assert not (tmp_path / "outputs" / "intermediate").exists()          # nothing landed in the muscle tree
 
 
 def test_muscle_wording_is_unchanged():

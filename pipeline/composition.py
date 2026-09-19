@@ -59,8 +59,10 @@ MASS_DIGITS = 4    # sums and molecular weights, decimal places
 # Masses
 # ----------------------------------------------------------------------------
 
-def load_masses(path: Path = common.AMINO_ACID_MASSES_INI) -> dict:
-    """Return {'free': {aa: g/mol}, 'residue': {aa: g/mol}, 'water': g/mol, 'hydrogen': g/mol}."""
+def load_masses(path: Path | None = None) -> dict:
+    """Return {'free': {aa: g/mol}, 'residue': {aa: g/mol}, 'water': g/mol, 'hydrogen': g/mol}.
+    The path is resolved at call time (D91), so a redirected data folder is honoured."""
+    path = path or common.AMINO_ACID_MASSES_INI
     cp = common.read_ini(path)
     missing = [a for a in AA if not cp.has_section(a)]
     if missing:
@@ -176,7 +178,7 @@ def build(accessions, sequences, segments, masses, log) -> tuple[list[list], lis
         gene, tier = entry.get("gene", ""), entry.get("tier", "")
         master_ranges = segment_ranges(segments, acc, master_only=True)
         if not master_ranges:
-            raise RuntimeError(f"{acc}: no in_master_molecule = true segment in {common.SEGMENTS_INI}")
+            raise RuntimeError(f"{acc}: no in_master_molecule = true segment in segments.ini")
         comp = {
             "master": compose(slice_sequence(seq, master_ranges), masses),
             "metabolic": compose(seq, masses),
@@ -232,12 +234,14 @@ def _tsv_text(header: list[str], rows: list[list]) -> str:
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--check", action="store_true", help="compare a fresh build with outputs on disk; write nothing")
+    ap.add_argument("--category", default=None, help="a non-muscle category: its accessions and segments under config/<category>/, tables under outputs/<category>/intermediate/composition/ (Step 7b)")
     args = ap.parse_args(argv)
-    log = common.make_logger(STAGE + ("_check" if args.check else ""))
+    log = common.make_logger(STAGE + ("" if args.category is None else f"_{args.category}") + ("_check" if args.check else ""))
+    files = common.category_files(args.category)
 
-    accessions = common.read_ini(common.ACCESSIONS_INI)
+    accessions = common.read_ini(files["accessions"])
     sequences = common.read_ini(common.SEQUENCES_INI)
-    segments = common.read_ini(common.SEGMENTS_INI)
+    segments = common.read_ini(files["segments"])
     masses = load_masses()
     masses_cp = common.read_ini(common.AMINO_ACID_MASSES_INI)
     masses_header = _ini_header(common.AMINO_ACID_MASSES_INI)
@@ -249,31 +253,34 @@ def main(argv=None) -> int:
         f"masses            = {_rel(common.AMINO_ACID_MASSES_INI)} (PubChem, fetched {masses_header.get('fetched', '')}; MolecularWeight served to {_first_token(masses_header.get('served_decimals', '?'))} decimals)",
         f"water             = {masses['water']} g/mol (PubChem CID {masses_cp['water']['cid']})",
         f"sequences         = {_rel(common.SEQUENCES_INI)} (UniProt release {_ini_header(common.SEQUENCES_INI).get('uniprot_release', '')})",
-        f"segments          = {_rel(common.SEGMENTS_INI)}",
+        f"segments          = {_rel(files['segments'])}",
         f"fraction_digits   = {FRAC_DIGITS} significant; mass_decimals = {MASS_DIGITS}",
     ]
+    if args.category is not None:
+        header_note.insert(1, f"category          = {args.category}")
     summary_cp = common.new_ini()
     summary_cp["composition"] = summary
 
-    files = {
-        common.composition_tsv(): _tsv_text(ALL_COLUMNS, all_rows),
-        common.composition_dir() / "processing_mass_deltas.tsv": _tsv_text(DELTA_COLUMNS, delta_rows),
-        common.composition_dir() / "processing_mass_bound.tsv":
+    out_dir = files["composition_dir"]
+    outputs = {
+        files["composition_tsv"]: _tsv_text(ALL_COLUMNS, all_rows),
+        out_dir / "processing_mass_deltas.tsv": _tsv_text(DELTA_COLUMNS, delta_rows),
+        out_dir / "processing_mass_bound.tsv":
             _tsv_text(["amino_acid", "max_abs_delta_free_frac", "where"], bound_rows),
-        common.composition_summary_ini(): common.render_ini(summary_cp, header_note),
+        files["composition_summary"]: common.render_ini(summary_cp, header_note),
     }
 
     if args.check:
         ok = True
-        for path, text in files.items():
+        for path, text in outputs.items():
             if not path.exists() or path.read_text(encoding="utf-8") != text:
                 ok = False
                 log.error("STALE: %s differs from a fresh build", path)
         log.info("check: %s", "composition outputs are current" if ok else "composition outputs are STALE")
         return 0 if ok else 1
 
-    common.composition_dir().mkdir(parents=True, exist_ok=True)
-    for path, text in files.items():
+    out_dir.mkdir(parents=True, exist_ok=True)
+    for path, text in outputs.items():
         path.write_text(text, encoding="utf-8", newline="\n")
     log.info("wrote %d rows to amino_acid_composition_per_protein.tsv, %d processing rows; water identity max error %s g/mol; "
              "largest processing delta %s (%s, %s); largest mass removed %s (%s)",

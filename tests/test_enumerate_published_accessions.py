@@ -13,15 +13,30 @@ KW = "KW-0416"
 class FakeClient:
     release = "TEST"
 
-    def __init__(self, entries):
-        self.entries = entries          # accession -> dict of the lookup fields
+    def __init__(self, entries, genes=None):
+        self.entries = entries          # accession -> dict of the lookup fields (may carry "sec_acc")
+        self.genes = genes or {}        # gene symbol -> [accessions whose primary symbol or synonym it is]
         self.queries = []
 
     def search_tsv(self, query, fields):
         self.queries.append(query)
+        if query.startswith("(organism_id:9606) AND (reviewed:true)"):          # the M2 gene query (P4b)
+            wanted = [t.split('"')[1] for t in query.split(" OR ") if 'gene_exact:"' in t]
+            rows = []
+            for g in wanted:
+                for a in self.genes.get(g, []):
+                    rows.append(dict(self.entries[a], accession=a, gene_primary=g, gene_synonym=""))
+            return rows
         wanted = [t.split(":", 1)[1].rstrip(")") for t in query.split(" OR ")]
         wanted = [w.lstrip("(") for w in wanted]
-        return [dict(self.entries[a], accession=a) for a in wanted if a in self.entries]
+        rows = [dict(self.entries[a], accession=a) for a in wanted if a in self.entries]
+        if "sec_acc" in fields:                                                   # P3b: entries listing a token as secondary
+            for a, e in self.entries.items():
+                if any(w in e.get("sec_acc", "").split(";") for w in wanted):
+                    rows.append(dict(e, accession=a))
+        else:
+            rows = [{k: v for k, v in r.items() if k != "sec_acc"} for r in rows]
+        return rows
 
 
 def _workbook(path):
@@ -42,6 +57,10 @@ def _workbook(path):
         ("X00001;Q99999", "one again", "GA", 0.5, 0.5, 0.5, 0.5),                # duplicate entry
         ("X00009", "nine", "GH", 0.2, 0.2, 0.2, 0.2),                            # not returned by UniProt
         ("M00010", "mouse", "GI", 0.1, 0.1, 0.1, 0.1),                           # reviewed but not human
+        ("S00011;S00011-2", "eleven", "GK", 0.3, 0.3, 0.3, 0.3),                  # secondary of exactly one entry -> X00011
+        ("S00012", "twelve", "GL;GM", 0.4, 0.4, 0.4, 0.4),                        # demerged: secondary of X00012 and X00013 -> shared
+        ("T00014", "fourteen", "GN14", 0.2, 0.2, 0.2, 0.2),                       # TrEMBL only; gene resolves to X00014
+        ("T00015", "fifteen", "GN15", 0.1, 0.1, 0.1, 0.1),                        # TrEMBL only; gene ambiguous -> excluded
         ("", "", "", "", "", "", ""),                                             # empty identity -> skipped
     ]
     for r in rows:
@@ -83,8 +102,16 @@ def _entries():
         "X00005": dict(rev, keywordid="KW-0001;" + KW),
         "T00001": unrev, "T00003": unrev, "T00007": unrev, "T00008": unrev,
         "M00010": dict(rev, organism_id="10090"),
-        # X00009 is deliberately absent: UniProt returns nothing for it
+        "X00011": dict(rev, sec_acc="S00011;S00099"),
+        "X00012": dict(rev, sec_acc="S00012"), "X00013": dict(rev, sec_acc="S00012"),
+        "X00014": rev, "X00015": rev, "X00016": rev,
+        "T00014": unrev, "T00015": unrev,
+        # X00009 is deliberately absent: UniProt returns nothing for it, as primary or secondary
     }
+
+
+def _genes():
+    return {"GN14": ["X00014"], "GN15": ["X00015", "X00016"], "GH": []}
 
 
 def test_token_classification():
@@ -97,9 +124,9 @@ def test_token_classification():
 def test_published_pool_outcomes(tmp_path, monkeypatch):
     psd = _setup(tmp_path, monkeypatch)
     log = logging.getLogger("t")
-    client = FakeClient(_entries())
+    client = FakeClient(_entries(), _genes())
     members, record = ep.enumerate_published_pool(client, "cat", "red", psd["pool.red"], psd["contaminant_rules"], log)
-    assert members == {"X00001", "X00002", "X00003"}
+    assert members == {"X00001", "X00002", "X00003", "X00011", "X00012", "X00013", "X00014"}
     rows = {r["identity_cell"]: r for r in common.read_tsv(tmp_path / "data" / "cat" / "red_dataset_rows.tsv")}
     assert rows["X00001;X00001-2;T00001"]["outcome"] == "member" and rows["X00001;X00001-2;T00001"]["entry_token_rank"] == "1"
     assert rows["X00002-3;X00002"]["outcome"] == "member" and rows["X00002-3;X00002"]["entry"] == "X00002"
@@ -110,7 +137,15 @@ def test_published_pool_outcomes(tmp_path, monkeypatch):
     assert rows["T00007;T00008"]["outcome"] == "no_reviewed_human_entry"
     assert rows["X00001;Q99999"]["outcome"] == "member_duplicate_entry"
     assert rows["X00009"]["outcome"] == "no_reviewed_human_entry" and "not_returned" in rows["X00009"]["tokens_checked"]
+    assert "gene:GH:unmapped" in rows["X00009"]["tokens_checked"]
     assert rows["M00010"]["outcome"] == "no_reviewed_human_entry" and "/10090" in rows["M00010"]["tokens_checked"]
+    # P3b: a secondary accession resolves to its current entry; a demerged one to both, as a shared row
+    assert rows["S00011;S00011-2"]["outcome"] == "member_via_secondary_accession" and rows["S00011;S00011-2"]["entry"] == "X00011"
+    assert rows["S00012"]["outcome"] == "member_via_secondary_accession_shared" and rows["S00012"]["entry"] == "X00012;X00013"
+    assert "secondary_of:X00012;X00013" in rows["S00012"]["tokens_checked"]
+    # P4b: a group with no usable token resolves through its gene cell when exactly one entry answers
+    assert rows["T00014"]["outcome"] == "member_via_gene" and rows["T00014"]["entry"] == "X00014" and rows["T00014"]["entry_token_rank"] == "gene"
+    assert rows["T00015"]["outcome"] == "no_reviewed_human_entry" and "ambiguous:X00015;X00016" in rows["T00015"]["tokens_checked"]
     assert "" not in rows                                     # the empty row is skipped, not listed
     # the excluded listing is sorted by share, largest first, and carries the share
     exc = common.read_tsv(tmp_path / "data" / "cat" / "red_rows_excluded_with_share.tsv")
@@ -120,7 +155,11 @@ def test_published_pool_outcomes(tmp_path, monkeypatch):
     assert {r["accession"] for r in pool} == members
     dup = next(r for r in pool if r["accession"] == "X00001")
     assert dup["dataset_rows"].count(";") == 1                # both rows of X00001 are recorded on its entry
-    assert record["n_member"] == "2" and record["n_member_via_later_token"] == "1" and record["pool_size"] == "3"
+    assert record["n_member"] == "2" and record["n_member_via_later_token"] == "1" and record["pool_size"] == "7"
+    assert record["n_member_via_secondary_accession"] == "1" and record["n_member_via_secondary_accession_shared"] == "1"
+    assert record["n_member_via_gene"] == "1" and record["tokens_resolved_as_secondary"] == "2"
+    shared = [r for r in pool if r["accession"] in ("X00012", "X00013")]
+    assert all(r["dataset_rows"] == shared[0]["dataset_rows"] for r in shared)   # both carry the one shared row
     # two-pass lookup: the first pass asks about first tokens only, the second about the rest
     assert any("T00001" not in q for q in client.queries) and any("X00003" in q for q in client.queries)
 
