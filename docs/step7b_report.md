@@ -1,11 +1,11 @@
-# Step 7b report — Blood (part 1: scope, sources, decisions)
+# Step 7b report — Blood (part 1: scope, sources, decisions; part 2: the build)
 
 **Thread:** 2026-09-18. **Decisions:** D95–D105. **Deliveries:** 1 (R2), 2 (documents).
 **Result of part 1:** blood is scoped as plasma + erythrocytes; ten sources are on disk, hashed
 locally, `fetch-literature` green (34 files, 29 sources × 5 columns); the plasma : erythrocyte
 split is specified from measured reference values; the two findings that will shape the build are
 on record; F7 is amended and the source acquisition protocol is written down.
-**Part 2 (the build) appends to this report from its own thread.**
+**Part 2 (the build) is appended below. Part 3 (analysis, Match Rate, the Layer C row) follows from its own thread.**
 
 ## What the step set out to do
 
@@ -105,3 +105,125 @@ D100 (the split), D101 (sources and roles), D102 (dominant-protein sensitivity),
   joins the 147 that do.
 - Glutathione for an all-twenty extension (D99).
 - Everything carried from Steps 6 and 7a, untouched here.
+
+
+---
+
+# Part 2 — the build (2026-09-19/20)
+
+**Thread:** build thread, part 2. **Decisions:** D106–D120. **Deliveries:** 6, 7, 7b, 7c, 8, 8b, 9.
+**Result of part 2:** the four blood commands exist — `blood-protein-set`, `blood-composition`,
+`blood-mass-fractions`, `blood-standard` — and run green from a clean start after the muscle
+chain (commands 1–8, then the four, then `test`). The blood standard is on disk at
+`outputs/blood/standard/_calculated_amino_acid_standard.tsv` with its uncertainty, sensitivity and
+driver tables. Muscle rebuilds byte-identical throughout, except the PTM disclosure tables under a
+decided rule change (D118). No analysis of the numbers is in this part (deferred to part 3).
+
+## Procedure, delivery by delivery
+
+| Delivery | Command / change | Decisions | What the run showed |
+|---|---|---|---|
+| 6 | `blood-protein-set`: pools by published accession (P1–P6), additive sequence store, raw entries nested per category, `config/blood/protein_set_decisions.ini` and `mass_fraction_decisions.ini` (column maps by letter) | D107–D110 | fetch ~45 min; 247 tests. Plasma 4.45 % of the listing excluded — mostly accessions UniProt had demerged or merged since 2016, and TrEMBL-only groups |
+| 7 | `blood-composition` (the muscle stages with `--category`); D111's two fallbacks in the enumeration | D111 | the fallbacks did not fire: UniProt answers deleted / demerged accessions with inactive stubs; an entry's several gene names come `;`-joined in the primary field |
+| 7b | P3b reads inactive stubs; P4b per gene; M3b; the multi-gene primary field split | D112 | crashed: `sec_acc` is a query field, not a return field |
+| 7c | P3b one token per query by `sec_acc`, confirmed against the entry JSON; a refused field falls through to P4b | — | plasma exclusion 0.35 %, erythrocytes 0.79 %; 38 plasma tokens resolved as secondary accessions (the old immunoglobulin V-region entries had been *merged*, not deleted); 96 erythrocyte rows by gene |
+| 8 | `blood-mass-fractions` (`mass_fractions_pools.py`): weights from published shares, bounds, the D113 immunoglobulin bound, the Hortin and deep-dataset cross-checks, the overlap line; `[cross_checks]`, `[immunoglobulin_bound]`, S5 and Hortin column maps | D113–D116 | ran after `blood-composition` had actually been run (it had been skipped twice); albumin 24 % vs 51 %; Ig bound 6.1 % vs loose 15.6 %; IGHG1's PTM sum 113 % of its mass |
+| 8b | C3b in `ptm_disclosure.py` | D118 | shared code; muscle's two PTM tables move where an entry has alternatives at one site |
+| 9 | `blood-standard` (`aggregate_pools.py`): profiles, the split, D117 in both compartments, per-donor, D63 Monte Carlo, one scale, drivers, plots; `config/blood/compartment_mix.ini` drafted | D117, D119, D120 | green; analysis deferred |
+
+## The run record (transcribed from the excerpts; not analysed here)
+
+**Pools** (`data/blood/pool_queries.ini`, delivery 7c run)
+
+| | plasma (geyer_2016 S2) | erythrocytes (bryk_2017 S3) |
+|---|---|---|
+| rows | 322 (321 quantified) | 2,653 |
+| entries | 283 | 2,437 |
+| member rows: first token / later token / secondary accession / secondary shared / gene / gene shared / duplicate | 258 / 5 / 13 / 1 / 0 / 0 / 26 | 2,114 / 156 / 3 / 0 / 96 / 2 / 170 |
+| excluded share of the listing | 0.35 % (HBB, HBA1, HBD, CA1 = 0.33 %; keratins 0.006 %; one orphon V-gene) | 0.79 % (keratins 0.78 %; ALB 0.016 %; four rows < 0.01 %) |
+| tokens inactive in UniProt / asked as secondary / resolved | ~30 / 38 / 38 | — / 15 / 15 |
+| entries in both pools | 62 | |
+
+**Protein set** (`outputs/blood/intermediate/protein_set/`): 9 entries excluded under R5 (selenoproteins:
+GPX1 0.05 % of erythrocytes, SELENOP in plasma, seven others); 126 multi-chain entries under D24
+(complement C3 with twelve Chain features); the immunoglobulin constant-region entries carry
+`Chain 1(OUTSIDE)–end`, resolved whole by R2e, consistent with D103; no open flags.
+
+**Mass fractions** (`mass_fractions_summary.ini`)
+
+| | plasma | erythrocytes |
+|---|---|---|
+| denominator as share of the listing | 0.9964 | 0.9914 |
+| largest entry | ALB 24.0 % | HBB 26.8 % |
+| ten largest | 68 % | 74 % |
+| zero-weight members (ghost-only rows) | 0 | 547 |
+| completeness gap (A7) | 0.02 % | 0.06 % |
+| immunoglobulin variable-domain bound (D113) | 6.1 % (loose 15.6 %; L_V ≈ 97 residues from 13 / 13 / 11 V entries) | ~0 |
+| Hortin cross-check | 118 accessions joined covering 85.7 % of the pool; albumin share 0.585 (Hortin, joined) vs 0.281 (Geyer, joined), ratio 0.48; APOA1 ×4.9, SERPINA1 ×4.3, A2M ×2.8, C3 ×2.2, fibrinogen ×2–2.7; largest profile difference C +0.015, then K, A +0.008, Q −0.008, G, S −0.007 | — |
+| deep dataset (S5) signal absent from S2 | 0.6 % (657 rows) | — |
+| overlap sum of w | 62.8 % (albumin and the large plasma proteins, present at ~0 in the erythrocyte table) | 5.5 % (PRDX2 and other erythrocyte proteins present at ~0 in plasma; not carry-over) |
+
+**Standard** (`outputs/blood/standard/`): built and green; `standard_summary.ini` `[split]` and
+`[histidine]`, `sensitivity_dominant_protein_spread.tsv`, `histidine_drivers.tsv` are the tables
+part 3 reads first. The split's arithmetic on the D100 numbers, before the profiles are read:
+
+| haemoglobin share of erythrocyte protein | erythrocyte protein (775 g Hb ÷ share) | plasma : erythrocyte protein | whole-blood protein |
+|---|---|---|---|
+| 0.53 (bryk_2017, as measured) | 1,462 g | 13 : 87 | 1,677 g |
+| 0.70 (gautier_2018) | 1,107 g | 16 : 84 | 1,322 g |
+| ~0.98 (implied by ICRP's 1,008 g whole-blood protein) | ~790 g | 21 : 79 | 1,008 g |
+
+Plasma protein is 214.5 g in every row (3.0 L × 71.5 g/L).
+
+## Decisions and rules
+
+D106–D120 in `docs/decisions.md`; rules P1–P6, P3b, P4b, M3b, S1, C3b, Q1–Q7, T1–T8 in
+`docs/conventions.md`; the R4 amendment (the `tier` field holds pool names for a category).
+
+## Method lessons
+
+- **UniProt is not static.** Of Geyer's 2016 accessions, ~30 were inactive by 2026: demerged
+  (P0CG05 → IGLC2 + IGLC3), merged (the old immunoglobulin V-region entries into the current IGKV/IGLV
+  entries), or TrEMBL fragments. The join key the dataset supplies still needs the "formerly known
+  as" (P3b) and, failing that, the dataset's own gene cell (P4b). Both are deterministic; nothing was
+  hand-mapped. Plasma's exclusion went from 4.45 % to 0.35 %.
+- **Read the field list before writing the query.** `sec_acc` is a query field with no return
+  field; a search for a deleted accession returns an inactive stub, not nothing; an entry's gene
+  names come `;`-joined in one field. Each cost one run. Muscle's M2 has the same `;` blind spot
+  (item 19), left as is for byte-identity.
+- **The same compression twice.** Label-free MS under-weights the dominant protein of each
+  compartment — haemoglobin (D102) and now albumin (Hortin: 51 % against LFQ's 24 %) — and ICRP's
+  whole-blood protein reproduces only at a haemoglobin share near 0.98. Three independent lines say
+  the as-measured share is low. The base stays as measured; the sensitivity carries both
+  consequences (D117). The discussion is part 3's.
+- **A number without a location does not go into config.** The "95 % by classical chemistry" of
+  part 1 had none; the share ICRP's cited numbers imply took its place (D119).
+- **Shared code vs the blood branch.** A delivery that touches `common.py`, `fetch_sequences.py`,
+  `ptm_disclosure.py` or `run.py` reruns from the top; a delivery confined to a blood stage does not.
+  Each delivery states which.
+- **Run lists are numbered steps, one per line.** A prose "run" paragraph cost two skipped commands.
+- **Decisions go in `docs/decisions.md`.** They drifted into handoff notes because `docs/` was not in
+  the thread's tarball; the fix was to ask for the file, not to ship rows elsewhere.
+
+## Errata carried
+
+- D95 and D103 cite "(A8)" for the bound rule; A8 is the EAA rule, A7 the bound. Fix in `decisions.md`.
+- Part 1's "about 95 % by classical chemistry" is uncited (D119 replaces it).
+- The gameplan's "blood: dozens" (§3) is stale — blood is 2,653 + 322 rows.
+
+## Open (documented, not acted on) — part 3
+
+- The analysis of the standard: the split, histidine, whether the as-measured base stays.
+- Blood in the Match Rate outputs as an additive reference (before / after comparable).
+- The Layer C row: `config/tissue_mass_fractions.ini`, blood 5,600 g M / 4,100 g F.
+- Run-order placement of the four blood commands (provisional: after `match`).
+- The adaptation list (items 4–22, in `docs/handoffs/step7b_delivery*_notes.md`) consolidated
+  into the gameplan for 7c.
+- `docs/pipeline_map.md`, `docs/run_order.md` brought current.
+- One `___` in `config/blood/mass_fraction_decisions.ini`: the article page defining Bryk's TPA
+  fraction (file.3 is now in the manifest).
+- The female split needs no more transcription (ICRP's female volumes are in the config); it is
+  reported, not the base.
+- The carry-over line in `pool_overlap_mass_share.tsv` is directional and should be restated as
+  the plasma-side sum of entries at ~0 in the erythrocyte table.
+- Everything carried from part 1, untouched here.
