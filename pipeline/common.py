@@ -112,6 +112,103 @@ def category_outputs(category: str) -> dict[str, Path]:
     root = OUTPUTS_DIR / category
     return {"root": root, "intermediate": root / "intermediate", "standard": root / "standard"}
 
+
+# --------------------------------------------------------------------------- per-category files (Step 7b)
+#
+# A non-muscle category keeps its decisions and generated config under config/<category>/, its
+# pool tables under data/<category>/, and its outputs under outputs/<category>/. Muscle's files
+# stay where they are (D89). category_files() is the one place that says where a category's
+# protein-set files live; a stage passed --category resolves everything through it. With no
+# category the muscle constants are returned, so the muscle path is unchanged.
+#
+# Adaptation list, Step 7b: this is the ad-hoc form. Step 7c makes the category an argument
+# of every stage and folds the muscle constants into the same map.
+
+
+def category_config_dir(category: str) -> Path:
+    return CONFIG_DIR / category
+
+
+def category_data_dir(category: str) -> Path:
+    return DATA_DIR / category
+
+
+def category_files(category: str | None) -> dict[str, Path]:
+    """Where a category's protein-set files live. None = muscle (the flat layout)."""
+    if category is None:
+        return {
+            "decisions": DECISIONS_INI,
+            "accessions": ACCESSIONS_INI,
+            "segments": SEGMENTS_INI,
+            "pool_dir": DATA_DIR,
+            "pool_queries": POOL_QUERIES_INI,
+            "flags": FLAGS_TSV,
+            "protein_set_out": protein_set_out_dir(),
+        }
+    cfg = category_config_dir(category)
+    dat = category_data_dir(category)
+    out = category_outputs(category)
+    return {
+        "decisions": cfg / "protein_set_decisions.ini",
+        "accessions": cfg / "accessions.ini",
+        "segments": cfg / "segments.ini",
+        "pool_dir": dat,
+        "pool_queries": dat / "pool_queries.ini",
+        "flags": out["root"] / "flags.tsv",
+        "protein_set_out": out["intermediate"] / "protein_set",
+    }
+
+
+def pool_file(category: str | None, pool: str) -> Path:
+    """The pool table of one pool: data/tier<N>_pool.tsv for muscle, data/<category>/pool_<name>.tsv otherwise."""
+    if category is None:
+        return DATA_DIR / f"tier{pool}_pool.tsv"
+    return category_data_dir(category) / f"pool_{pool}.tsv"
+
+
+def pool_names(category: str | None) -> list[str]:
+    """The pools a category declares: muscle's [tier.N] sections, or a category's [pool.<name>] sections."""
+    cp = read_ini(category_files(category)["decisions"])
+    if category is None:
+        return tiers_from_decisions(cp)
+    names = [s.split(".", 1)[1] for s in cp.sections() if s.startswith("pool.")]
+    if not names:
+        raise ValueError(f"no [pool.<name>] sections in {category_files(category)['decisions']}")
+    return names
+
+
+# --------------------------------------------------------------------------- the raw UniProt entries
+#
+# data/uniprot_raw/ holds one JSON per fetched entry. Since Step 7b it is nested one folder per
+# category: uniprot_raw/muscle/ (the author moved muscle's files there by hand) and
+# uniprot_raw/<category>/ for the entries THAT CATEGORY'S FETCH ADDED. An entry is fetched once —
+# an accession already in the store is not fetched again by a later category — so a file's
+# folder says which fetch brought it in, not which categories use it. Readers therefore look in
+# every folder (and in the root, so files that were never moved are still found). Nothing here
+# is ever deleted by code (D61).
+
+
+MUSCLE_CATEGORY = "skeletal_muscle"     # the muscle category's name, as [categories] in literature_sources.ini spells it
+
+
+def uniprot_raw_dir(category: str | None = None) -> Path:
+    """Where a fetch WRITES: uniprot_raw/<category>/; the muscle fetch writes under the muscle category's name."""
+    return UNIPROT_RAW_DIR / (MUSCLE_CATEGORY if category is None else category)
+
+
+def uniprot_raw_entry(accession: str) -> Path | None:
+    """Where an entry's JSON IS: the root, else the first subfolder (A-Z) that holds it; None if nowhere."""
+    root = UNIPROT_RAW_DIR
+    p = root / f"{accession}.json"
+    if p.exists():
+        return p
+    if root.exists():
+        for sub in sorted(d for d in root.iterdir() if d.is_dir()):
+            q = sub / f"{accession}.json"
+            if q.exists():
+                return q
+    return None
+
 # Composition (Layer A): masses fetched from PubChem, PTM vocabulary from UniProt.
 COMPOSITION_DECISIONS_INI = CONFIG_DIR / "composition_decisions.ini"   # hand-written: two URLs and one rule
 IUPAC_DIR = DATA_DIR / "iupac"
@@ -382,6 +479,6 @@ def running_command_is_before(command: str) -> bool:
     so `command`'s outputs are legitimately stale until it is run next. False for `python run.py test`."""
     import os
     order = ["fetch-literature", "protein-set", "composition", "mass-fractions", "standard",
-             "usda", "comparison", "match"]
+             "usda", "comparison", "match", "blood-protein-set"]
     current = os.environ.get("UNIPROT_STANDARD_COMMAND", "")
     return current in order and command in order and order.index(current) < order.index(command)

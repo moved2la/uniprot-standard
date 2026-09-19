@@ -31,6 +31,11 @@ segments.ini, and the build exits non-zero.
 
   --check   rebuild in memory and compare with the files on disk; exit non-zero on
             any difference (used by the tests: generated config must be current).
+  --category <name>   build a non-muscle category (Step 7b): pools from
+            data/<category>/pool_<name>.tsv, decisions and generated config under
+            config/<category>/, tables under outputs/<category>/intermediate/protein_set/,
+            flags in outputs/<category>/flags.tsv. No ontology, so R3 does not apply; the
+            `tier` field holds the pool names (adaptation list: the field is called tier).
 """
 
 from __future__ import annotations
@@ -186,14 +191,67 @@ def segments_for(acc: str, sec, ranges: list[tuple[int, int]], rule: str, note: 
     return out
 
 
+# ----------------------------------------------------------------------------- pool wording
+def muscle_membership_text(resolved, pools, subtrees) -> dict[str, str]:
+    """The muscle `pool_membership` clause per tier, unchanged from Step 1 / D56."""
+    out = {}
+    for t in pools:
+        r = resolved[f"tier.{t}"]
+        out[t] = (f"tier {t} = subtree of {r['term_id']} ({r['term_name']})" if t in subtrees
+                  else f"tier {t} = measured remainder of {r['dataset_source']} ({r['definition_decision']})")
+    return out
+
+
+def muscle_pool_lines(resolved, pools, subtrees) -> list[str]:
+    """The muscle header lines per tier, unchanged from Step 1 / D56."""
+    lines = []
+    for t in sorted(pools):
+        r = resolved[f"tier.{t}"]
+        if t in subtrees:
+            lines.append(f"tier {t}: seed_word={r['seed_word']} ({r['seed_decision']}) lookup_name={r['lookup_name']} "
+                         f"({r['lookup_decision']}) -> {r['term_id']} {r['term_name']} ; pool size {len(pools[t])}")
+        else:
+            lines.append(f"tier {t}: seed_word={r['seed_word']} ({r['seed_decision']}) definition={r['definition']} "
+                         f"({r['definition_decision']}) from {r['dataset_source']} {r['dataset_file']} minus {r['contaminant_source']} ; pool size {len(pools[t])}")
+    return lines
+
+
+def category_membership_text(category: str, decisions, queries, pools) -> tuple[dict[str, str], list[str]]:
+    """A category's `pool_membership` clause and header lines, from its decisions file and the
+    enumerate record (pool_queries.ini). Nothing here names a protein."""
+    membership, lines = {}, []
+    for t in sorted(pools):
+        sec = decisions[f"pool.{t}"]
+        q = queries[f"pool.{t}"] if queries.has_section(f"pool.{t}") else {}
+        membership[t] = (f"{t} = quantified set of {sec['dataset_source']} {sec['dataset_file']} ({sec.get('pool_decision', '')}) "
+                         f"minus its contaminant rule ({sec.get('contaminant_decision', '')})")
+        lines.append(f"pool {t}: quantified set of {sec['dataset_source']} {sec['dataset_file']} "
+                     f"(sha256 {q.get('dataset_sha256', '')}) ; entry = first reviewed human accession of the "
+                     f"published protein group (P1-P6, {sec.get('pool_decision', '')}) ; contaminants: keyword "
+                     f"{q.get('keratin_keyword_id', '')} + named genes {q.get('named_contaminant_genes', '')} "
+                     f"({sec.get('contaminant_decision', '')}) ; pool size {len(pools[t])}")
+    return membership, lines
+
+
 # ----------------------------------------------------------------------------- build
 def build(decisions, resolved, sequences, pools: dict[str, list[dict[str, str]]],
-          subtrees: dict[str, set[str]], queries, log, flags_path):
-    """Returns (accessions_cp, segments_cp, header_lines, open_flags, evidence_rows, acc_evidence_rows)."""
+          subtrees: dict[str, set[str]], queries, log, flags_path, membership=None, pool_lines=None,
+          label=None, extra_header=None):
+    """Returns (accessions_cp, segments_cp, header_lines, open_flags, evidence_rows, acc_evidence_rows).
+
+    `membership[t]` is the text of one pool's `pool_membership` clause and `pool_lines` the
+    header lines describing the pools; both default to the muscle wording built from `resolved`.
+    `label(t)` names a pool in text ("tier1" for muscle, the pool's own name for a category)."""
     tiers_of: dict[str, list[str]] = {}
     for tier, rows in pools.items():
         for r in rows:
             tiers_of.setdefault(r["accession"], []).append(tier)
+    if membership is None:
+        membership = muscle_membership_text(resolved, pools, subtrees)
+    if pool_lines is None:
+        pool_lines = muscle_pool_lines(resolved, pools, subtrees)
+    if label is None:
+        label = lambda t: f"tier{t}"   # noqa: E731
 
     ver_header = _ini_header(common.SEQUENCES_INI)
     acc_cp = common.new_ini()
@@ -228,7 +286,8 @@ def build(decisions, resolved, sequences, pools: dict[str, list[dict[str, str]]]
         for t in tiers:
             if t not in subtrees:                      # measured tier (D56): no ontology category, no R3
                 subtree_terms_by_tier[t] = []
-                evidence_counter[t]["(measured remainder; no ontology annotation applies)"] += 1
+                evidence_counter[t]["(measured remainder; no ontology annotation applies)" if resolved is not None
+                                    else "(measured set; no ontology annotation applies)"] += 1
                 acc_evidence_rows.append([acc, t, "", ""])
                 continue
             hits = [a for a in anns if a["term_id"] in subtrees[t]]
@@ -271,7 +330,8 @@ def build(decisions, resolved, sequences, pools: dict[str, list[dict[str, str]]]
 
         # accessions.ini section
         terms_txt = " ; ".join(
-            f"tier{t}: " + (", ".join(f"{a['term_id']} [{a['evidence']}]" for a in subtree_terms_by_tier[t]) if t in subtrees else "(measured remainder)")
+            f"{label(t)}: " + (", ".join(f"{a['term_id']} [{a['evidence']}]" for a in subtree_terms_by_tier[t]) if t in subtrees
+                              else ("(measured remainder)" if resolved is not None else "(measured set; no ontology category)"))
             for t in tiers)
         acc_cp[acc] = {
             "accession": acc,
@@ -292,29 +352,21 @@ def build(decisions, resolved, sequences, pools: dict[str, list[dict[str, str]]]
             "subtree_annotations": terms_txt,
             "master_rule": rule if rule != "R2c" else "FLAGGED",
             "flag_open": "true" if rule == "R2c" else "false",
-            "pool_membership": "computed: " + "; ".join(
-                (f"tier {t} = subtree of {resolved[f'tier.{t}']['term_id']} ({resolved[f'tier.{t}']['term_name']})"
-                 if t in subtrees else f"tier {t} = measured remainder of {resolved[f'tier.{t}']['dataset_source']} ({resolved[f'tier.{t}']['definition_decision']})")
-                for t in tiers),
-            "uniprot_release": ver_header.get("uniprot_release", ""),
-            "fetched": ver_header.get("fetched", ""),
+            "pool_membership": "computed: " + "; ".join(membership[t] for t in tiers),
+            "uniprot_release": sec.get("uniprot_release", ver_header.get("uniprot_release", "")),
+            "fetched": sec.get("fetched", ver_header.get("fetched", "")),
         }
 
     header = [
         "GENERATED by build_protein_set.py. DO NOT EDIT BY HAND -- edit config/protein_set_decisions.ini and rebuild.",
-        f"ontology_file         = {resolved['ontology']['file']} (data_version {resolved['ontology']['data_version']}, sha256 {resolved['ontology']['sha256']})",
+    ] + (extra_header or []) + [
         f"uniprot_release       = {ver_header.get('uniprot_release', '')}",
         f"uniprot_fetched       = {ver_header.get('fetched', '')}",
-        f"pool_queries          = data/pool_queries.ini (run {queries['run']['date']})",
     ]
-    for t in sorted(pools):
-        r = resolved[f"tier.{t}"]
-        if t in subtrees:
-            header.append(f"tier {t}: seed_word={r['seed_word']} ({r['seed_decision']}) lookup_name={r['lookup_name']} "
-                          f"({r['lookup_decision']}) -> {r['term_id']} {r['term_name']} ; pool size {len(pools[t])}")
-        else:
-            header.append(f"tier {t}: seed_word={r['seed_word']} ({r['seed_decision']}) definition={r['definition']} "
-                          f"({r['definition_decision']}) from {r['dataset_source']} {r['dataset_file']} minus {r['contaminant_source']} ; pool size {len(pools[t])}")
+    if resolved is not None:
+        header.insert(1, f"ontology_file         = {resolved['ontology']['file']} (data_version {resolved['ontology']['data_version']}, sha256 {resolved['ontology']['sha256']})")
+        header.append(f"pool_queries          = data/pool_queries.ini (run {queries['run']['date']})")
+    header.extend(pool_lines)
     evidence_rows = [[t, code, n] for t in sorted(evidence_counter)
                      for code, n in sorted(evidence_counter[t].items())]
     header.append(f"R5 (D59): {len(excluded_rows)} entries excluded for letters outside the twenty coded amino acids; see outputs/excluded_non_standard_alphabet.tsv")
@@ -326,8 +378,8 @@ def _uniprot_mol_weight(acc: str) -> str:
     """UniProt's own molecular weight (sequence.molWeight, Da) from the raw entry JSON, if on disk;
     used only to state the mass an R5-excluded entry would have carried."""
     import json
-    p = common.DATA_DIR / "uniprot_raw" / f"{acc}.json"
-    if not p.exists():
+    p = common.uniprot_raw_entry(acc)          # the root or any category subfolder (D110)
+    if p is None:
         return ""
     try:
         return str(json.loads(p.read_text(encoding="utf-8")).get("sequence", {}).get("molWeight", ""))
@@ -352,36 +404,52 @@ def _render(cp: configparser.ConfigParser, header: list[str]) -> str:
     return common.render_ini(cp, header)
 
 
-def load_inputs():
-    decisions = common.read_ini(common.DECISIONS_INI)
-    resolved = common.read_ini(common.RESOLVED_TERMS_INI)
+def load_inputs(category: str | None = None):
+    files = common.category_files(category)
+    decisions = common.read_ini(files["decisions"])
     sequences = common.read_ini(common.SEQUENCES_INI)
-    queries = common.read_ini(common.POOL_QUERIES_INI)
+    queries = common.read_ini(files["pool_queries"])
     pools, subtrees = {}, {}
-    for section in resolved.sections():
-        if section.startswith("tier."):
-            t = section.split(".", 1)[1]
-            pools[t] = common.read_tsv(common.DATA_DIR / f"tier{t}_pool.tsv")
-            if resolved[section].get("term_id"):
-                subtrees[t] = {r["term_id"] for r in common.read_tsv(common.ONTOLOGY_DIR / f"tier{t}_subtree.tsv")}
-    return decisions, resolved, sequences, pools, subtrees, queries
+    if category is None:
+        resolved = common.read_ini(common.RESOLVED_TERMS_INI)
+        for section in resolved.sections():
+            if section.startswith("tier."):
+                t = section.split(".", 1)[1]
+                pools[t] = common.read_tsv(common.DATA_DIR / f"tier{t}_pool.tsv")
+                if resolved[section].get("term_id"):
+                    subtrees[t] = {r["term_id"] for r in common.read_tsv(common.ONTOLOGY_DIR / f"tier{t}_subtree.tsv")}
+        return decisions, resolved, sequences, pools, subtrees, queries
+    for t in common.pool_names(category):
+        pools[t] = common.read_tsv(common.pool_file(category, t))
+    return decisions, None, sequences, pools, subtrees, queries
 
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--check", action="store_true", help="compare a fresh build with config on disk; write nothing")
+    ap.add_argument("--category", default=None, help="a non-muscle category: its pools, decisions, config and outputs (Step 7b)")
     args = ap.parse_args(argv)
-    log = common.make_logger(STAGE + ("_check" if args.check else ""))
+    log = common.make_logger(STAGE + ("" if args.category is None else f"_{args.category}") + ("_check" if args.check else ""))
+    files = common.category_files(args.category)
+    out_dir = files["protein_set_out"]
 
-    decisions, resolved, sequences, pools, subtrees, queries = load_inputs()
-    flags_path = common.FLAGS_TSV if not args.check else common.OUTPUTS_DIR / "_flags_check.tmp"
+    decisions, resolved, sequences, pools, subtrees, queries = load_inputs(args.category)
+    flags_path = files["flags"] if not args.check else files["flags"].parent / "_flags_check.tmp"
     if args.check and flags_path.exists():
         flags_path.unlink()
     if not args.check:
-        reset_flags(common.FLAGS_TSV, STAGE)
+        reset_flags(files["flags"], STAGE)
 
+    membership = pool_lines = label = extra = None
+    if args.category is not None:
+        membership, pool_lines = category_membership_text(args.category, decisions, queries, pools)
+        label = lambda t: t   # noqa: E731
+        run_date = queries["run"]["date"] if queries.has_section("run") else ""
+        extra = [f"category              = {args.category}",
+                 f"pool_queries          = data/{args.category}/pool_queries.ini (run {run_date})"]
     acc_cp, seg_cp, header, open_flags, evidence_rows, acc_evidence_rows, multi_chain_rows, excluded_rows, resolved_rows = build(
-        decisions, resolved, sequences, pools, subtrees, queries, log, flags_path)
+        decisions, resolved, sequences, pools, subtrees, queries, log, flags_path,
+        membership=membership, pool_lines=pool_lines, label=label, extra_header=extra)
     seg_header = [
         "GENERATED by build_protein_set.py. DO NOT EDIT BY HAND.",
         "Segment flags per accession. in_master_molecule = true marks the mature-chain range",
@@ -394,32 +462,33 @@ def main(argv=None) -> int:
         if flags_path.exists():
             flags_path.unlink()
         ok = True
-        for path, text in ((common.ACCESSIONS_INI, acc_text), (common.SEGMENTS_INI, seg_text)):
+        for path, text in ((files["accessions"], acc_text), (files["segments"], seg_text)):
             if not path.exists() or path.read_text(encoding="utf-8") != text:
                 ok = False
                 log.error("STALE: %s differs from a fresh build", path)
         log.info("check: %s", "generated config is current" if ok else "generated config is STALE")
         return 0 if ok else 1
 
-    common.ACCESSIONS_INI.write_text(acc_text, encoding="utf-8", newline="\n")
-    common.SEGMENTS_INI.write_text(seg_text, encoding="utf-8", newline="\n")
-    common.write_tsv(common.protein_set_out_dir() / "evidence_summary.tsv", ["tier", "evidence_code", "n_accessions"], evidence_rows)
-    common.write_tsv(common.protein_set_out_dir() / "accession_evidence.tsv",
+    files["accessions"].parent.mkdir(parents=True, exist_ok=True)
+    files["accessions"].write_text(acc_text, encoding="utf-8", newline="\n")
+    files["segments"].write_text(seg_text, encoding="utf-8", newline="\n")
+    common.write_tsv(out_dir / "evidence_summary.tsv", ["tier", "evidence_code", "n_accessions"], evidence_rows)
+    common.write_tsv(out_dir / "accession_evidence.tsv",
                      ["accession", "tier", "subtree_annotations", "evidence_codes"], acc_evidence_rows)
-    common.write_tsv(common.protein_set_out_dir() / "chain_positions_resolved.tsv",
+    common.write_tsv(out_dir / "chain_positions_resolved.tsv",
                      ["accession", "gene", "tier", "n_chain_features", "chain_features_as_recorded", "master_ranges_resolved", "length"],
                      resolved_rows)
-    common.write_tsv(common.protein_set_out_dir() / "excluded_non_standard_alphabet.tsv",
+    common.write_tsv(out_dir / "excluded_non_standard_alphabet.tsv",
                      ["accession", "gene", "tier", "non_standard_letters", "length", "uniprot_mol_weight_da", "protein_name"],
                      excluded_rows)
-    common.write_tsv(common.protein_set_out_dir() / "multi_chain_entries.tsv",
+    common.write_tsv(out_dir / "multi_chain_entries.tsv",
                      ["accession", "gene", "tier", "n_chain_features", "chain_features", "master_ranges_union", "length"],
                      multi_chain_rows)
     log.info("wrote %s (%d accessions) and %s (%d segments)",
-             common.ACCESSIONS_INI, len(acc_cp.sections()), common.SEGMENTS_INI, len(seg_cp.sections()))
+             files["accessions"], len(acc_cp.sections()), files["segments"], len(seg_cp.sections()))
     if open_flags:
         log.error("%d open flag(s); close them in %s and rebuild: %s",
-                  len(open_flags), common.DECISIONS_INI, ", ".join(open_flags))
+                  len(open_flags), files["decisions"], ", ".join(open_flags))
         return 1
     return 0
 

@@ -12,6 +12,9 @@
     python run.py usda                     read the USDA FoodData Central archives in data/usda/ -> tests (offline)
     python run.py comparison               the calculated standard beside Gorissen 2018's measurement (offline)
     python run.py match                    Match Rate: every food against every reference (offline)
+    python run.py blood-protein-set        the blood category (Step 7b): enumerate the two pools by published
+                                           accession -> fetch the sequences the store lacks (additive) ->
+                                           build config/blood/ -> deltas -> tests; --offline skips the two network stages
     python run.py test                     tests only
     python run.py excerpt                  tooling: bounded excerpts of the large generated files
                                            into excerpts/<stamp>/ and a tarball (no tests; not the record)
@@ -54,12 +57,20 @@ COMMANDS = {
                    ["comparison"]),
     "match": ([],
               ["match"]),
+    # Step 7b: the blood category, built with the muscle stages passed --category blood. Each blood
+    # command mirrors the muscle command it adapts (the adaptation list is kept per command); Step 7c
+    # folds them into `<command> <category>`. Placement in the run order is provisional (after match).
+    "blood-protein-set": (["enumerate_pool", "fetch_sequences"],
+                          ["build_protein_set", "isoform_processing_deltas"]),
 }
+
+# The category a command builds; stages of these commands are called with --category <name>.
+COMMAND_CATEGORY = {"blood-protein-set": "blood"}
 
 
 RUN_LOG: Path | None = None
 COMMAND_ORDER = ["fetch-literature", "protein-set", "composition", "mass-fractions", "standard",
-                 "usda", "comparison", "match"]
+                 "usda", "comparison", "match", "blood-protein-set"]
 
 
 class _Tee:
@@ -94,11 +105,12 @@ def say(text: str, err: bool = False) -> None:
     print(text, file=sys.stderr if err else sys.stdout, flush=True)
 
 
-def run_stage(name: str) -> int:
-    say(f"\n=== {name} ===")
+def run_stage(name: str, argv: list[str] | None = None) -> int:
+    argv = argv or []
+    say(f"\n=== {name}{' ' + ' '.join(argv) if argv else ''} ===")
     mod = __import__(f"pipeline.{name}", fromlist=["main"])
     try:
-        rc = mod.main([])
+        rc = mod.main(list(argv))
     except SystemExit as e:
         rc = int(e.code) if isinstance(e.code, int) else 1
         if e.code and not isinstance(e.code, int):
@@ -158,8 +170,10 @@ def main() -> int:
 
     network, offline = COMMANDS[args.cmd]
     stages = (offline if args.offline else network + offline)
+    category = COMMAND_CATEGORY.get(args.cmd)
+    stage_argv = ["--category", category] if category else []
     for stage in stages:
-        rc = run_stage(stage)
+        rc = run_stage(stage, stage_argv)
         if rc:
             say(f"\nSTOPPED: {stage} exited {rc}. See logs/ and outputs/flags.tsv.", err=True)
             return rc

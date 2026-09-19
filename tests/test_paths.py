@@ -60,3 +60,39 @@ def test_the_placement_map_holds_subfolder_names_not_absolute_paths():
         assert isinstance(sub, str), f"{name} maps to {sub!r}, not a subfolder name"
     for name, sub in common.STANDARD_PLOT_SUBFOLDERS.items():
         assert isinstance(sub, str), f"{name} maps to {sub!r}, not a subfolder name"
+
+
+def test_category_files_follow_a_redirected_root(tmp_path, monkeypatch):
+    """Step 7b: a category's decisions, config, pools, flags and tables all sit under the category."""
+    monkeypatch.setattr(common, "CONFIG_DIR", tmp_path / "config")
+    monkeypatch.setattr(common, "DATA_DIR", tmp_path / "data")
+    monkeypatch.setattr(common, "OUTPUTS_DIR", tmp_path / "outputs")
+    f = common.category_files("blood")
+    assert f["decisions"] == tmp_path / "config" / "blood" / "protein_set_decisions.ini"
+    assert f["accessions"] == tmp_path / "config" / "blood" / "accessions.ini"
+    assert f["pool_queries"] == tmp_path / "data" / "blood" / "pool_queries.ini"
+    assert f["flags"] == tmp_path / "outputs" / "blood" / "flags.tsv"
+    assert f["protein_set_out"] == tmp_path / "outputs" / "blood" / "intermediate" / "protein_set"
+    assert common.pool_file("blood", "plasma") == tmp_path / "data" / "blood" / "pool_plasma.tsv"
+    assert common.pool_file(None, "2") == tmp_path / "data" / "tier2_pool.tsv"
+
+
+def test_muscle_files_are_the_flat_constants():
+    f = common.category_files(None)
+    assert f["decisions"] == common.DECISIONS_INI and f["accessions"] == common.ACCESSIONS_INI
+    assert f["flags"] == common.FLAGS_TSV and f["pool_dir"] == common.DATA_DIR
+
+
+def test_raw_entry_is_found_in_the_root_or_any_category_folder(tmp_path, monkeypatch):
+    """D110: the raw folder is nested per category; readers look everywhere, nothing is deleted."""
+    raw = tmp_path / "uniprot_raw"
+    monkeypatch.setattr(common, "UNIPROT_RAW_DIR", raw)
+    (raw / "skeletal_muscle").mkdir(parents=True); (raw / "blood").mkdir()
+    (raw / "P00001.json").write_text("{}"); (raw / "skeletal_muscle" / "P00002.json").write_text("{}")
+    (raw / "blood" / "P00003.json").write_text("{}")
+    assert common.uniprot_raw_entry("P00001") == raw / "P00001.json"
+    assert common.uniprot_raw_entry("P00002") == raw / "skeletal_muscle" / "P00002.json"
+    assert common.uniprot_raw_entry("P00003") == raw / "blood" / "P00003.json"
+    assert common.uniprot_raw_entry("P00004") is None
+    assert common.uniprot_raw_dir("blood") == raw / "blood"
+    assert common.uniprot_raw_dir(None) == raw / common.MUSCLE_CATEGORY

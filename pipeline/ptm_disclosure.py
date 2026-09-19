@@ -169,14 +169,20 @@ def master_mw_by_accession(all_tsv: Path) -> dict[str, float]:
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--raw-dir", default=str(common.UNIPROT_RAW_DIR), help="folder of <accession>.json (default data/uniprot_raw)")
+    ap.add_argument("--raw-dir", default=None, help="folder of <accession>.json; default: data/uniprot_raw/ and every category subfolder in it (D110)")
     args = ap.parse_args(argv)
     log = common.make_logger(STAGE)
 
-    raw_dir = Path(args.raw_dir)
+    raw_dir = Path(args.raw_dir) if args.raw_dir else common.UNIPROT_RAW_DIR
     if not raw_dir.exists():
         log.error("%s not found: this stage needs the raw entry JSON saved by fetch_sequences.py", raw_dir)
         return 1
+
+    def raw_entry(acc: str) -> Path | None:
+        if args.raw_dir:
+            p = raw_dir / f"{acc}.json"
+            return p if p.exists() else None
+        return common.uniprot_raw_entry(acc)
     accessions = common.read_ini(common.ACCESSIONS_INI)
     segments = common.read_ini(common.SEGMENTS_INI)
     vocab = parse_ptmlist(common.PTMLIST_TXT.read_text(encoding="utf-8", errors="replace"))
@@ -197,9 +203,9 @@ def main(argv=None) -> int:
         entry = accessions[acc]
         if entry.get("flag_open") == "true":
             continue
-        path = raw_dir / f"{acc}.json"
-        if not path.exists():
-            log.error("%s: raw JSON missing (%s)", acc, path)
+        path = raw_entry(acc)
+        if path is None:
+            log.error("%s: raw JSON missing under %s (root or any category subfolder)", acc, raw_dir)
             return 1
         data = json.loads(path.read_text(encoding="utf-8"))
         gene, tier = entry.get("gene", ""), entry.get("tier", "")

@@ -200,6 +200,32 @@ SPECS: dict[str, list[tuple[str, list[dict]]]] = {
         ("outputs/match/match_rate_ranked_gorissen_2018_human_muscle.tsv", [{"kind": "head", "name": "first100", "n": 100}]),
         ("outputs/match/foods_not_scored.tsv", [{"kind": "head", "name": "first40", "n": 40}]),
     ],
+    # Step 7b: the blood category's protein set. The excluded-rows tables are the ones to read first:
+    # they are what the contaminant rules removed, with the share each row carried in the listing.
+    "blood-protein-set": [
+        ("data/blood/pool_queries.ini", [{"kind": "whole"}]),
+        ("data/blood/plasma_rows_excluded_with_share.tsv", [{"kind": "whole"}]),
+        ("data/blood/erythrocytes_rows_excluded_with_share.tsv", [{"kind": "whole"}]),
+        ("data/blood/plasma_dataset_rows.tsv", [
+            {"kind": "head", "name": "first40", "n": 40},
+            {"kind": "contains", "name": "via_later_token", "column": "outcome", "value": "via_later_token"},
+            {"kind": "equals", "name": "duplicates", "column": "outcome", "value": "member_duplicate_entry"},
+        ]),
+        ("data/blood/erythrocytes_dataset_rows.tsv", [
+            {"kind": "head", "name": "first40", "n": 40},
+            {"kind": "contains", "name": "via_later_token", "column": "outcome", "value": "via_later_token"},
+            {"kind": "equals", "name": "duplicates", "column": "outcome", "value": "member_duplicate_entry"},
+        ]),
+        ("data/blood/pool_plasma.tsv", [{"kind": "head", "name": "first20", "n": 20}]),
+        ("data/blood/pool_erythrocytes.tsv", [{"kind": "head", "name": "first20", "n": 20}]),
+        ("outputs/blood/intermediate/protein_set/pool_overlap.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/intermediate/protein_set/excluded_non_standard_alphabet.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/intermediate/protein_set/chain_positions_resolved.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/intermediate/protein_set/multi_chain_entries.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/intermediate/protein_set/isoform_bound.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/intermediate/protein_set/processing_bound.tsv", [{"kind": "whole"}]),
+        ("outputs/blood/flags.tsv", [{"kind": "whole", "optional": True}]),
+    ],
 }
 
 # The flat list the runner walks: every command's spec, in run order.
