@@ -5,7 +5,7 @@
 locally, `fetch-literature` green (34 files, 29 sources × 5 columns); the plasma : erythrocyte
 split is specified from measured reference values; the two findings that will shape the build are
 on record; F7 is amended and the source acquisition protocol is written down.
-**Part 2 (the build) is appended below. Part 3 (analysis, Match Rate, the Layer C row) follows from its own thread.**
+**Part 2 (the build, and the Layer C / Match Rate work that closed it) is appended below. Part 3 — the analysis of the blood standard — follows from its own thread.**
 
 ## What the step set out to do
 
@@ -211,19 +211,53 @@ D106–D120 in `docs/decisions.md`; rules P1–P6, P3b, P4b, M3b, S1, C3b, Q1–
 - Part 1's "about 95 % by classical chemistry" is uncited (D119 replaces it).
 - The gameplan's "blood: dozens" (§3) is stale — blood is 2,653 + 322 rows.
 
+## Delivery 10 and the debug thread — Layer C, the composite, and the Match Rate outputs
+
+**Decisions:** D121–D128. **Deliveries:** 10, then a debug thread carrying five adjustments.
+
+Delivery 10 built the consumer side of the category: `config/tissue_mass_fractions.ini` (Layer C,
+hand-written, the ICRP masses with their page locations) and `pipeline/composite.py`, which mixes
+every category standard it names by the protein mass that category holds in the reference person
+(D121). Blood's weight is its own split's whole-blood protein at the base haemoglobin share, so the
+profile and the mass are taken at the same point (D122). The run order became one declaration,
+`common.COMMAND_ORDER`, with `composite` as command 10 (D123), and blood entered the Match Rate as
+two additive references — the blood standard alone, and the composite (D124).
+
+The debug thread that followed found one bug and made four adjustments to the outputs.
+
+| | What | Decisions |
+|---|---|---|
+| bug | `test_composite.py` asserted the composite's twenty columns sum to 100 within `1e-6`, while its own fixture writes profiles at six decimals — the read-back sum is `100.000004` and cannot be closer. Tolerance widened to `1e-4`. The same check in `test_comparison.py` had been calibrated to its fixture's four decimals (`2e-3`) when the protein set was built; the new test did not inherit the convention. | — |
+| 1 | The `difference_pp_` columns of `match_rate_by_reference.tsv` read `other − primary`, so a food scoring closer to 100 under another reference reads positive. Kiwifruit, 74.3536 on muscle and 79.1801 on the composite, had been showing `-4.8265`. | D125 |
+| 2 | `match_rate_percent` moved from column 51 to column 6 of `match_rate_steps.tsv`, beside the food name. The spreadsheet's walk is untouched and still ends at row 156. | D126 |
+| 3 | `match_rate_per_food.tsv` became a summary: one row per food, one reference, the `reference` column dropped into the header. At one row per food × reference it had been `match_rate_steps.tsv` without the walk. | D127 |
+| 4 | The Match Rate gained two named references. `summary_reference` is the most complete standard built so far and is what the summary table is scored against — each new category repoints it. `primary_reference` is the comparison baseline and stays the muscle reference, so every category's effect is measured against one unchanging yardstick. Neither defaults to the other. | D128 |
+
+**Two lessons worth the space.**
+
+*A tolerance belongs to the fixture, not the arithmetic.* Both sum-to-100 bugs were the same
+mistake: a test asserting more precision than the numbers it reads from disk can carry. The rule is
+now written where the next such test will be read.
+
+*A config key that selects which input an output is built from must not have a default.* D128's
+`summary_reference` first shipped with a fallback to `primary_reference` and a hand step to add the
+key. The step was missed, the fallback fired, and the output was correct in shape, correct in every
+column, and scored against the wrong reference — with only line 4 of the header to say so. The key
+is now required, and the config shipped as a file rather than as an instruction.
+
 ## Open (documented, not acted on) — part 3
 
 - The analysis of the standard: the split, histidine, whether the as-measured base stays.
-- Blood in the Match Rate outputs as an additive reference (before / after comparable).
-- The Layer C row: `config/tissue_mass_fractions.ini`, blood 5,600 g M / 4,100 g F.
-- Run-order placement of the four blood commands (provisional: after `match`).
-- The adaptation list (items 4–22, in `docs/handoffs/step7b_delivery*_notes.md`) consolidated
-  into the gameplan for 7c.
-- `docs/pipeline_map.md`, `docs/run_order.md` brought current.
 - One `___` in `config/blood/mass_fraction_decisions.ini`: the article page defining Bryk's TPA
   fraction (file.3 is now in the manifest).
-- The female split needs no more transcription (ICRP's female volumes are in the config); it is
-  reported, not the base.
 - The carry-over line in `pool_overlap_mass_share.tsv` is directional and should be restated as
   the plasma-side sum of entries at ~0 in the erythrocyte table.
+- `comparison` and `literature_inventory` still go stale silently — a currency test each, owned by
+  Step 7c (carried from Step 7a).
 - Everything carried from part 1, untouched here.
+
+**Closed since this section was written:** blood in the Match Rate as an additive reference (D124);
+the Layer C row (D121–D122); the run-order placement, which is dependency order, not "after
+`match`" (D123); the adaptation list, consolidated as items 1–22 in `per_category_gameplan_R6.md`;
+`docs/pipeline_map.md` and `docs/run_order.md` brought current; the female split, reported and not
+the base.

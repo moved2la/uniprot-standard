@@ -1,9 +1,9 @@
 # Project Plan — Sequence-Derived Amino Acid Standard for the Reference Adult Human
 
-**Status:** Steps 1, 2, 3a, 3b, 4, 4b, 6 and 7a complete (2026-09-18); Step 7b parts 1 and 2 complete (2026-09-20), part 3 next. Match Rate 1.0 runs against the skeletal muscle standard with its non-protein metabolite pools and scores 4,952 USDA foods. **Step 7b (blood) is in progress:** part 1 — scope, sources, decisions D95–D105, the F7 amendment — closed 2026-09-18; part 2 — the build through the run order — continues in its own thread. Then Step 7c (the abstraction), then Step 7d (the category loops). Step 5 (lab validation) deferred.
-**Revision:** 17 — see 10.
+**Status:** Steps 1, 2, 3a, 3b, 4, 4b, 6 and 7a complete (2026-09-18); Step 7b parts 1 and 2 complete (2026-09-20), part 3 next. Match Rate 1.0 runs against the skeletal muscle standard with its non-protein metabolite pools and scores 4,952 USDA foods. **Step 7b (blood) is in progress:** part 1 — scope, sources, decisions D95–D105, the F7 amendment — closed 2026-09-18; part 2 — the build through the run order — continues in its own thread. Then Step 7c — **part 1, the deliverable set and the output layout; part 2, the abstraction** — then Step 7d (the category loops). Step 5 (lab validation) deferred.
+**Revision:** 19 — see 10.
 **Planning thread:** this document is the output of the planning thread. Each step below is executed in its own thread using its handoff doc in `docs/handoffs/`.
-**Last updated:** 2026-09-20 (rev. 17)
+**Last updated:** 2026-09-20 (rev. 19)
 
 ---
 
@@ -103,7 +103,7 @@ uniprot-standard/
 ├── run.py                          # the one entry point, eight commands
 ├── config/                         # muscle's files stay flat
 │   ├── literature_sources.ini      # every source; used_for; [categories] declares the map's columns
-│   ├── tissue_mass_fractions.ini   # Layer C (D67) — Step 8
+│   ├── tissue_mass_fractions.ini   # Layer C (D67, D121) — built Step 7b; a category adds a [category.<n>] section
 │   ├── blood/                      # Step 7b — every new category gets its own subfolder
 │   ├── liver/                      # Step 7d
 │   └── collagen_tissues/           # Step 7d
@@ -130,7 +130,8 @@ uniprot-standard/
 │   ├── match/                      # per-food tables at the top
 │   │   └── <reference>/            # one folder per [reference.*] in config/match_rate.ini
 │   ├── blood/                      # Step 7b — intermediate/ and standard/ inside
-│   └── whole_body/                 # Step 8
+│   ├── composite/                  # the category standards mixed by protein mass (D121) — built Step 7b
+│   └── whole_body/                 # Step 8: the bounded whole body, once the categories are enough
 └── docs/
     ├── 00_project_plan_R<n>.md
     ├── run_order.md                # what to rerun after an edit
@@ -244,20 +245,38 @@ Moved to future work / grant-funded research. The core reason to keep Step 5 in 
 - **Rationale for going before the Step 7c refactor:** categories 2+ are the ones that benefit from a genuinely modular pipeline. Refactoring before category 2 is guessing what modularity should look like; refactoring after category 2 is codifying what has been observed. The rule-of-three principle (D71).
 - **Upgrades recorded, not fetched:** the ten-individual plasma set (PRIDE PXD002854 `proteinGroups.txt`); Gautier's per-protein table (PXD009258 `txt.zip`, 4 GB).
 
-### Step 7c — Pipeline refactor for per-category modularity — **AFTER STEP 7b**
-- **Goal (D71):** generalize the pipeline to be genuinely tier- and category-agnostic, informed by what Step 7b revealed about muscle-specific assumptions. The bookkeeping items this step carried in R9–R11 moved to Step 7a (D89); what remains is the abstraction.
+### Step 7c part 1 — The deliverable set and the output layout — **AFTER STEP 7b, BEFORE THE REFACTOR**
+- **Goal:** decide what this project's finished outputs *are* and where they live, as a set that does not change shape when a category is added. Settle the deliverable, then refactor the pipeline to produce it — not the other way round. **No category work and no refactor work starts until this is settled.**
+- **Why it exists (the author, 2026-09-20, after looking in `outputs/standard/` for the muscle+blood composite and not finding it):** the output tree grew a layer at a time as categories and the composite were added, and it is no longer followable — *"I'm really having a hard time with how the output folders have evolved as we've added layers/categories. I'm just having a hard time knowing/following where everything is."* Three symptoms, all from the same cause:
+  - The finished standards are spread across three folders (`outputs/standard/`, `outputs/blood/standard/`, `outputs/composite/`). **The rule: every finished standard belongs at the top level of `outputs/standard/`.** A category's working output — sensitivities, uncertainty, drivers, plots, splits — stays in that category's own folder.
+  - Seven filenames exist in more than one folder (`_calculated_amino_acid_standard.tsv`, `…_residue_convention.tsv`, `amino_acid_profiles.tsv`, `eaa_subset.tsv`, `standard_summary.ini`, `uncertainty_intervals.tsv`, `uncertainty_per_amino_acid.tsv`). Nothing is overwritten — each is written once into its own folder — but a filename does not say what it holds, so it does not stand without its folder.
+  - `outputs/standard/` is skeletal muscle's own folder and is not named for it, which is why the pattern is invisible from the outside.
+- **Scope of the discussion (its own thread):**
+  - The full list of finished deliverables the project ships, per category and for the composite, with the naming rule for each — the working proposal is the reference id already used in the output headers and `config/match_rate.ini` (e.g. `_calculated_amino_acid_standard_skeletal_muscle_with_non_protein_metabolite_pools_and_blood.tsv`), so the file name and the header name are one string.
+  - Where a category's working output lives, and what counts as working output versus deliverable.
+  - What `outputs/standard/` holds and what it is called.
+  - How the set grows when category 3 is added: which files appear, which are renamed, which move. It must be mechanical.
+  - The migration itself: D61 forbids code deleting or moving anything under `outputs/`, so superseded files are the author's hand deletions, listed explicitly.
+- **Blast radius, measured 2026-09-20:** 88 references to `outputs/standard/` across the repo — 54 in `pipeline/`, 22 in `docs/`, 7 in config, 4 in tests. Four config files point into it: `match_rate.ini`, `tissue_mass_fractions.ini`, `non_protein_metabolite_pools.ini`, `fao_2013_indispensable_amino_acids.ini`. Every output header records its input paths, so every generated file's provenance lines change and every currency test rebuilds.
+- **Deliverables:** the decided deliverable set and layout, with D-numbers; the naming rule in `docs/conventions.md`; `docs/pipeline_map.md` redrawn against it; the hand-deletion list.
+- **Size:** a discussion thread, then one delivery.
+- **Handoff:** `docs/handoffs/07c_output_layout_handoff.md` (to be written).
+
+### Step 7c part 2 — Pipeline refactor for per-category modularity — **AFTER PART 1**
+- **Goal (D71):** generalize the pipeline to be genuinely tier- and category-agnostic, informed by what Step 7b revealed about muscle-specific assumptions, and make it produce the deliverable set part 1 settles. The bookkeeping items this step carried in R9–R11 moved to Step 7a (D89); what remains is the abstraction.
 - **Deliverables:**
   - Aggregate stage reads tier names, subtype names, and column templates from a per-category manifest instead of hard-coding "contractile / builders / type_I/IIa/IIx"
   - Subtype-mix loader generalized (fiber-type mix becomes one instance of a per-category subtype mix)
   - Output header rendering templated with category-level substitutions
   - Tests parametrized over category × tier × subtype rather than hard-coded
   - `run.py standard <category>` and `run.py standard --all` commands
-  - `config/tissue_mass_fractions.ini` scaffolding laid in (actual aggregation code deferred to Step 8)
-  - Whether muscle's own config and outputs move under `skeletal_muscle/` subfolders — a decision for this step, not a default
+  - *(Done in Step 7b, D121–D124: `config/tissue_mass_fractions.ini` and `pipeline/composite.py` are built — the composite is command 10 of the run. Step 7c only makes its category sections category-agnostic.)*
+  - *(Moved to part 1: whether muscle's own config and outputs move, and where every finished standard lives. The author rejected leaving the standards spread across category folders, 2026-09-20.)*
+  - Every stage writes the deliverable set part 1 settles, with the naming rule applied by code from the category id rather than by hand
   - `docs/adding_a_category.md` — developer-facing map showing where a new category is added (complements the per-category gameplan)
   - *(Moved to Step 7a by D89: the fetch retirement and source-list split, per-stage hashing, the placeholder convention, per-stage excerpt specs, the header rule, `docs/run_order.md`.)*
 - **Acceptance criteria:**
-  - Skeletal muscle standard rebuilds byte-identical to pre-refactor output (primary regression test)
+  - Skeletal muscle standard rebuilds byte-identical to pre-refactor output in content (primary regression test; the file name and path follow part 1)
   - Blood standard rebuilds through the refactored pipeline and matches the Step 7b output
   - All existing tests pass after parametrization updates
 - **Size:** 1–2 days, informed by what Step 7b required.
@@ -322,7 +341,7 @@ note      = optional — conversions applied, caveats
 | Whether to run Match Rate v1.0 against muscle-with-metabolites first, or wait for whole-body composite | **Resolved Step 6 (2026-09-17): muscle with non-protein metabolite pools is v1.0's reference (D82).** |
 | Reference-body citation for tissue mass fractions (ICRP 89 or Snyder ICRP 23 or equivalent) | Step 8 (author verification required) |
 | Primary quantitative proteomics source for blood tier | **Resolved Step 7b part 1 (D101):** bryk_2017 (erythrocytes), geyer_2016 Table S2 (plasma); cross-checks gautier_2018 and hortin_2008 |
-| Which muscle-specific assumptions actually create friction for other categories (input to Step 7c refactor scope) | Step 7b part 2 — the adaptation list; known from part 1: tier names and the tier/subtype meaning (D97), per-compartment contaminants (D98), abundance kinds (D105), the fiber-type mix loader, header text; **item 11 added 2026-09-19: roles in the shared source file are unscoped (D106)** |
+| Which muscle-specific assumptions actually create friction for other categories (input to Step 7c refactor scope) | **Resolved Step 7b part 2:** twenty-two items, consolidated in the adaptation list of `per_category_gameplan_R6.md` and carried as Step 7c's specification. Known from part 1: tier names and the tier/subtype meaning (D97), per-compartment contaminants (D98), abundance kinds (D105), the fiber-type mix loader, header text; **item 11 added 2026-09-19: roles in the shared source file are unscoped (D106)** |
 | Hemoglobin's share of erythrocyte protein (53 / ~70 / ~95 % by three methods) and albumin's share of plasma protein (24 % LFQ vs >50 % immunoassay) — whether the sensitivity's movement justifies a two-piece erythrocyte compartment | Step 7b part 2 sensitivity (D102); follow-up decision if the movement is large |
 | Which files of `outputs/standard/` go to `uncertainty/`, `stress/`, `sensitivity/` | Step 7a — a placement table of every file, approved by the author before the code is changed |
 | Primary quantitative proteomics source for liver tier (Kim 2014 vs Wang 2019 vs Human Protein Atlas) | Step 7d-liver |
@@ -347,6 +366,7 @@ note      = optional — conversions applied, caveats
 | Momenzadeh 2023: which table (S2 / S3) matches the paper's text on MYH4 | Paper step (Step 9) |
 | Structural titin : MHC anchor from sarcomere stoichiometry | Paper step (Step 9) |
 | Per-fiber values (PRIDE PXD006182 deposit; Murgia 2017 tables) for a bootstrap of the two uncertainty quantities | Not blocking; upgrade opportunity |
+| What the finished deliverable set is, and where each file lives, so the layout does not change shape as categories 3–11 are added | **Open — Step 7c part 1**, its own discussion thread. Raised 2026-09-20: every finished standard belongs at the top level of `outputs/standard/`, named so it stands without its folder; seven filenames currently repeat across folders; `outputs/standard/` is muscle's own folder and is not named for it |
 | Two stages report nothing when their outputs go stale: `comparison` has a `--check` with no test wiring it, `literature_inventory` has neither | Open, raised Step 7a, unchanged through Step 7b part 1 — a currency test each, owned by Step 7c |
 | `literature_inventory.py` opens `.xlsx` but not `.xls` or `.doc`, so `hortin_2008`'s two supplementary files record as `unknown_not_opened` | Open, not blocking — the excerpt tool reads the `.xls` (delivery 4); the inventory's extension sets are a Step 7c tidy |
 
@@ -383,11 +403,11 @@ Maintained in `docs/decisions.md`. Seeded from §4. Every subsequent decision ma
 
 1. Open a new thread named for the step (e.g., "Step 4b — Muscle metabolite adjustment," "Step 7b — Blood category").
 2. Paste the handoff doc as the first message.
-3. **Before any work: apply any pending delivery, then run the pipeline from the top, in dependency order** — the nine commands of `docs/run_order.md`. Start at command 1 every time; never start mid-chain and never skip ahead to the command that looks relevant. If a command stops, fix it and rerun *that same command* until it is green, then continue. **Tests are the last command, not the first:** a test confirms a state that has already been established, and cannot establish one — run against a repo in an unknown state it reports failures whose cause is ambiguous, and green on an unbuilt tree it means nothing. The "what to rerun after an edit" tables in `run_order.md` apply only once the whole chain is green and exactly one thing has changed since. (Earned in Step 7b part 2, 2026-09-19, after a thread opened with the test command and then jumped to command 4.)
+3. **Before any work: apply any pending delivery, then run the pipeline in dependency order** — the thirteen commands of `docs/run_order.md`, whose "Where to start" section is authoritative on how far back to begin. **Start at command 1** when opening or closing a thread, on a first deployment of a build, when the change touches shared code, or whenever the state of the tree is unknown. **For debugging and minor adjustments, start at the earliest command that reads anything that changed and carry through to the end of the list** — the shortcut is at the front, never at the back; never run only the affected command and stop. If a command stops, fix it and rerun *that same command* until it is green, then continue. **Tests are the last command, not the first:** a test confirms a state that has already been established, and cannot establish one — run against a repo in an unknown state it reports failures whose cause is ambiguous, and green on an unbuilt tree it means nothing. (Earned in Step 7b part 2, 2026-09-19, after a thread opened with the test command and then jumped to command 4; scoped 2026-09-20 once the full run was being spent on one-file patches.)
 4. Work only that step. Anything out of scope goes into the handoff's "Deferred / raised" section, not into the work.
 5. On completion: update `decisions.md`, write the next step's handoff (or update the draft), tick this plan's step status and add a row to 10, commit.
 6. Return to the planning thread only to re-plan, not to do work.
-7. For Step 7b and Step 7d category expansions: follow the [Per-Category Gameplan](per_category_gameplan_R4.md) as the executing template. The gameplan itself is not re-revised for each category (though it may be revised after Step 7b+7c close, informed by what those steps taught). Its step 2 line `data/literature/<category>/` is superseded — literature stays one folder per source with `used_for` (Step 7a).
+7. For Step 7b and Step 7d category expansions: follow the [Per-Category Gameplan](per_category_gameplan_R6.md) as the executing template. The gameplan itself is not re-revised for each category (though it may be revised after Step 7b+7c close, informed by what those steps taught). Its step 2 line `data/literature/<category>/` is superseded — literature stays one folder per source with `used_for` (Step 7a).
 
 ---
 
@@ -395,6 +415,8 @@ Maintained in `docs/decisions.md`. Seeded from §4. Every subsequent decision ma
 
 | Rev | Date | Change |
 |---|---|---|
+| 19 | 2026-09-20 | **Step 7c split into two parts; part 1 — the deliverable set and the output layout — inserted before the refactor.** The output tree has grown a layer at a time and is no longer followable: the finished standards sit in three different folders, seven filenames repeat across folders, and `outputs/standard/` is muscle's own folder without being named for it. The rule the author set: every finished standard at the top level of `outputs/standard/`, named so it stands without its folder; a category's working output stays in the category's folder. Settle the deliverable set first, then refactor the pipeline to produce it. No category work and no refactor work starts until part 1 is settled; it gets its own discussion thread. §5 Step 7c restructured, the blast radius recorded, one open question added. No decisions logged — part 1 is where they will be. |
+| 18 | 2026-09-20 | **Step 7b part 2 closed** (D121–D128; deliveries 10 and the debug thread that followed). Delivery 10 built Layer C: `config/tissue_mass_fractions.ini` and `pipeline/composite.py`, the category standards mixed by protein mass (D121–D122), the run order declared once in `common.COMMAND_ORDER` (D123), and blood in the Match Rate as two additive references (D124). The debug thread that followed fixed one test-tolerance bug and adjusted the match outputs: the difference columns read other-minus-primary so a move toward 100 is positive (D125), `match_rate_percent` moved beside the food name in the steps table (D126), `match_rate_per_food.tsv` became a true summary — one row per food, one reference (D127) — and the Match Rate gained two named references, `summary_reference` (the most complete standard, which each category repoints) and `primary_reference` (the comparison baseline, held constant so each category's effect is readable), neither defaulting to the other (D128). §9 item 3's run rule scoped to full-run-versus-start-where-the-change-starts; the composite corrected in §4's tree and §5 Step 7c; gameplan links moved to R6. **Part 3 (the analysis of the blood standard) is next.** |
 | 17 | 2026-09-20 | **Step 7b part 2 built** (D106–D120; deliveries 6–9): the four blood commands, the additive sequence store, pools by published accession with two fallbacks, the published-share mass-fraction module, the split and the dominant-protein sensitivity in both compartments, C3b. Part 3 listed. §3 layout: `config/blood/`, `data/blood/`, `outputs/blood/`, `data/uniprot_raw/<category>/`. |
 | 1 | 2026-09-09 | Planning thread output. |
 | 2 | 2026-09-11 | Step 0 and Step 1 marked done; Step 1 goal restated as executed (D22); Step 2 rewritten; §7 rows resolved or moved; `PROVENANCE.md` added; §3 layout deferred to `docs/conventions.md`. |
@@ -417,7 +439,7 @@ Maintained in `docs/decisions.md`. Seeded from §4. Every subsequent decision ma
 
 ## 11. Referenced Artifacts
 
-- [`per_category_gameplan_R4.md`](per_category_gameplan_R4.md) — **R4 2026-09-19:** step letters renumbered to D89's (7b blood, 7c refactor, 7d loops), which R2's text predated. **R3 2026-09-18:** adds §2a, the source acquisition protocol (who does what, in what order) and the `file.<n>.name` rule. The twelve-step template for adding any new tissue/category to the whole-body composite. Referenced by Steps 7b, 7d, and 9. May be revised (R3+) after Step 7b+7c close, informed by what those steps teach about the actual per-category friction points.
+- [`per_category_gameplan_R6.md`](per_category_gameplan_R6.md) — **R6 2026-09-20:** step 11 rewritten against `pipeline/composite.py` as built (the composite is command 10, not something Step 8 picks up later; the deliverable is a `[category.<n>]` section, and a category repoints `summary_reference`, never `primary_reference`). **R5 2026-09-20:** the first revision informed by an executed category — the two shapes a category can have, steps 3–8 rewritten from blood's actuals, the adaptation list consolidated (items 1–22) as Step 7c's specification. **R4 2026-09-19:** step letters renumbered to D89's (7b blood, 7c refactor, 7d loops), which R2's text predated. **R3 2026-09-18:** adds §2a, the source acquisition protocol (who does what, in what order) and the `file.<n>.name` rule. The twelve-step template for adding any new tissue/category to the whole-body composite. Referenced by Steps 7b, 7d, and 9. May be revised (R3+) after Step 7b+7c close, informed by what those steps teach about the actual per-category friction points.
 - [`planning_summary_expanding_to_full_body_match_R3.md`](planning_summary_expanding_to_full_body_match_R3.md) — the reframe planning output that motivated R7. Contains the Gorissen comparison table, carnosine math walk-through, collagen EAA composition, cumulative body composition sketch, and per-tissue EAA ranking. Referenced by Steps 4b, 6, and 9.
 - [`docs/gorissen_comparison.md`](gorissen_comparison.md) — **written 2026-09-17 (D84, D85).** Reconciles the standard against Gorissen et al. 2018's measured human muscle composition. Every figure comes from `outputs/comparison/`; carries the mass balance that showed the paper's protein content to be inflated by non-protein nitrogen, and the finding that human muscle has the highest histidine of the sixteen protein sources in the paper's own table.
 - `docs/step6_report.md` — **written 2026-09-18.** The Step 6 narrative: procedure, the run's results, the tryptophan finding, method lessons.
