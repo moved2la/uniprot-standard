@@ -3,12 +3,11 @@
 The transcription test is the point of this file: match_rate() must reproduce the spreadsheet's
 four scores (Base_Match_Rate_Formula.xlsx, 2026-09-17, sheet "Example Match Rate Calculation",
 cells G156:J156) to the last digit from the same inputs, before anything else about the stage
-counts (D87). The remaining tests cover rules M1-M5.
+counts (D87). The remaining tests cover rules M1-M5. The same four foods are scored through the
+workbook path in tests/test_score.py (M7).
 
 Nothing here reads a real standard or a real archive.
 """
-import csv
-
 import pytest
 
 from pipeline import common, match
@@ -107,21 +106,12 @@ def _usda(path, foods):
            ["cystine_g_per_100g", "hydroxyproline_g_per_100g", "amino_acids_present", "amino_acids_absent", "min_data_points"]
     lines = ["# synthetic", "\t".join(cols)]
     for fdc, desc, protein, vals in foods:
-        row = [fdc, "sr_legacy_food", "2018-04", desc, "Synthetic", "2018-04-01", f"{protein}", ""]
+        row = [fdc, "sr_legacy_food", "2018-04", desc, "Synthetic", "2018-04-01",
+               "" if protein is None else f"{protein}", ""]
         row += ["" if vals.get(a) is None else f"{vals[a]}" for a in common.AMINO_ACIDS]
         row += ["", "", str(sum(v is not None for v in vals.values())), "", "3"]
         lines.append("\t".join(row))
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
-
-
-def _other(path, foods):
-    """foods: [(label, source, protein, {letter: value})]"""
-    with open(path, "w", encoding="utf-8", newline="") as fh:
-        w = csv.writer(fh)
-        w.writerow(match.OTHER_REQUIRED)
-        for label, source, protein, vals in foods:
-            w.writerow([label, source, "synthetic", "", protein] +
-                       ["" if vals.get(a) is None else vals[a] for a in common.AMINO_ACIDS])
 
 
 def _config(path, *, primary="new", summary="new", references=("new", "old")):
@@ -138,7 +128,7 @@ def _config(path, *, primary="new", summary="new", references=("new", "old")):
             "[scored_set.eight]\nkind = rows_named_in_file\nfrom_file = config/gorissen.ini\n"
             "from_section = values.human_muscle.location\nfrom_key = essential_rows\n\n"
             + "".join(refs[r] for r in references) +
-            "[foods.usda]\nfile = outputs/usda/foods.tsv\n\n[foods.other_sources]\nfile = config/other.csv\n\n"
+            "[foods.usda]\nfile = outputs/usda/foods.tsv\n\n"
             "[output]\ndecimals = 4\n")
     path.write_text(text, encoding="utf-8")
 
@@ -150,8 +140,8 @@ NEW_STANDARD = {"A": 6.5, "C": 1.2, "D": 5.5, "E": 12.0, "F": 4.8, "G": 4.1, "H"
 
 @pytest.fixture
 def match_repo(tmp_path, monkeypatch):
-    """A tiny repository: two references, a USDA table of four foods, the author's other-sources file
-    holding the spreadsheet's four foods. Paths are patched through monkeypatch, never assigned."""
+    """A tiny repository: two references and a USDA table of four synthetic foods plus the
+    spreadsheet's four. Paths are patched through monkeypatch, never assigned."""
     (tmp_path / "config").mkdir()
     (tmp_path / "outputs" / "standard").mkdir(parents=True)
     (tmp_path / "outputs" / "usda").mkdir(parents=True)
@@ -165,10 +155,8 @@ def match_repo(tmp_path, monkeypatch):
         ("1", "Even food", 10.0, full),                                             # every ratio equal -> 100 %
         ("2", "No tryptophan", 10.0, {**full, "W": None}),                         # unscorable on the nine, scorable on the eight
         ("3", "Zero lysine", 10.0, {**full, "K": 0.0}),                            # a published zero
-        ("4", "Rice", 80.0, {**{a: None for a in common.AMINO_ACIDS}, **SHEET_FOODS["Rice"]}),  # same label as an other-sources food
-    ])
-    _other(tmp_path / "config" / "other.csv",
-           [(name, "the author's spreadsheet, 2026-09-17", 0, vals) for name, vals in SHEET_FOODS.items()])
+        ("4", "Brown rice", 80.0, {**{a: None for a in common.AMINO_ACIDS}, **SHEET_FOODS["Rice"]}),
+    ] + [(name, name, None, vals) for name, vals in SHEET_FOODS.items()])            # the spreadsheet's four
     _config(tmp_path / "config" / "match_rate.ini")
     monkeypatch.setattr(common, "REPO_ROOT", tmp_path)
     monkeypatch.setattr(common, "AMINO_ACID_SYMBOLS_INI", tmp_path / "data" / "iupac" / "symbols.ini")
@@ -202,8 +190,9 @@ def test_the_spreadsheets_long_road_is_the_minimum_ratio():
 
 def test_the_stage_scores_the_spreadsheet_foods_against_the_old_reference(match_repo):
     files = match.build(_Log())
-    rows = [r for r in _rows(files["match_rate_steps.tsv"]) if r["source"] == "other" and r["reference"] == "old"]
-    got = {r["food_id"]: (float(r["match_rate_percent"]), r["limiting_amino_acid"]) for r in rows}
+    rows = [r for r in _rows(files["match_rate_steps.tsv"])
+            if r["description"] in SHEET_FOODS and r["reference"] == "old"]
+    got = {r["description"]: (float(r["match_rate_percent"]), r["limiting_amino_acid"]) for r in rows}
     for name in SHEET_FOODS:
         assert got[name][0] == pytest.approx(100 * SHEET_SCORES[name], abs=5e-5), name
         assert got[name][1] == SHEET_LIMITING[name], name
@@ -212,7 +201,7 @@ def test_the_stage_scores_the_spreadsheet_foods_against_the_old_reference(match_
 def test_the_steps_table_reproduces_the_spreadsheets_cells(match_repo):
     """Pea, column I of the spreadsheet: I22 = 30.99, I23 = 0.97453, I153 = 61.98, I155 = 0.48693, I156 = 0.51307."""
     files = match.build(_Log())
-    pea = [r for r in _rows(files["match_rate_steps.tsv"]) if r["food_id"] == "Pea" and r["reference"] == "old"][0]
+    pea = [r for r in _rows(files["match_rate_steps.tsv"]) if r["description"] == "Pea" and r["reference"] == "old"][0]
     assert float(pea["eaa_g_per_100g"]) == pytest.approx(30.99, abs=1e-4)
     assert float(pea["reference_eaa_total"]) == pytest.approx(31.8, abs=1e-4)
     assert float(pea["percent_of_reference_total"]) == pytest.approx(30.99 / 31.8, abs=1e-4)
@@ -374,41 +363,23 @@ def test_a_published_zero_scores_zero_and_names_the_limiting_amino_acid(match_re
 
 # --------------------------------------------------------------------------- M4
 
-def test_no_food_is_dropped_or_preferred_across_sources(match_repo):
-    files = match.build(_Log())
-    rice = [r for r in _rows(files["match_rate_by_reference.tsv"]) if r["description"] == "Rice"]
-    assert {r["source"] for r in rice} == {"usda", "other"}
-    assert len(rice) == 2
-
-
 def test_every_row_names_its_source_and_reference(match_repo):
+    """D129: USDA is the only food table. The source columns stay (the archives are two sources),
+    and a food entered by hand is scored by `python run.py score`, which writes nothing here."""
     files = match.build(_Log())
     for name in ("match_rate_per_food.tsv", "match_rate_by_reference.tsv", "match_rate_steps.tsv"):
         for r in _rows(files[name]):
-            assert r["source"] in ("usda", "other") and r["source_detail"], name
-            if r["source"] == "other":
-                assert r["source_detail"].startswith("the author's spreadsheet"), name
+            assert r["source"] == "usda" and r["source_detail"], name
     for r in _rows(files["match_rate_steps.tsv"]):
         assert r["reference"] in ("new", "old")
 
 
-def test_a_duplicate_label_in_the_other_sources_file_stops_the_stage(match_repo):
-    _other(match_repo / "config" / "other.csv",
-           [("Pea", "x", 0, SHEET_FOODS["Pea"]), ("Pea", "y", 0, SHEET_FOODS["Pea"])])
-    with pytest.raises(SystemExit, match="twice"):
+def test_a_config_without_the_usda_table_stops_the_stage(match_repo):
+    cfg = match.CONFIG_INI
+    cfg.write_text(cfg.read_text(encoding="utf-8").replace(
+        "[foods.usda]\nfile = outputs/usda/foods.tsv\n", ""), encoding="utf-8")
+    with pytest.raises(SystemExit, match=r"\[foods.usda\]"):
         match.build(_Log())
-
-
-def test_an_other_sources_food_without_a_source_stops_the_stage(match_repo):
-    _other(match_repo / "config" / "other.csv", [("Pea", "", 0, SHEET_FOODS["Pea"])])
-    with pytest.raises(SystemExit, match="source is empty"):
-        match.build(_Log())
-
-
-def test_a_header_only_other_sources_file_is_allowed(match_repo):
-    _other(match_repo / "config" / "other.csv", [])
-    files = match.build(_Log())
-    assert all(r["source"] == "usda" for r in _rows(files["match_rate_by_reference.tsv"]))
 
 
 # --------------------------------------------------------------------------- outputs
@@ -432,7 +403,7 @@ def test_the_by_reference_table_puts_old_beside_new_with_the_difference(match_re
     even = [r for r in rows if r["food_id"] == "1"][0]          # scorable on both sets
     assert float(even["difference_pp_old_minus_new"]) == pytest.approx(
         float(even["match_old_percent"]) - float(even["match_new_percent"]), abs=2e-4)
-    pea = [r for r in rows if r["food_id"] == "Pea"][0]          # the sheet's foods carry no tryptophan
+    pea = [r for r in rows if r["description"] == "Pea"][0]     # the sheet's foods carry no tryptophan
     assert pea["match_old_percent"] and pea["match_new_percent"] == "" and pea["difference_pp_old_minus_new"] == ""
 
 

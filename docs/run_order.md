@@ -94,7 +94,15 @@ prevents — not a reason to rebuild the whole tree for a one-file patch.
 | 12 | `python run.py comparison` | `gorissen_2018_comparison.ini`, the standard tables, the manifest | `outputs/comparison/` |
 | 13 | `python run.py match` | `config/match_rate.ini`, the standard tables, the composite, `outputs/usda/` | `outputs/match/` and `match/<reference>/` |
 
-`python run.py test` runs the tests alone. `python run.py excerpt` is tooling, not a stage.
+`python run.py test` runs the tests alone. `python run.py excerpt` and `python run.py score` are
+tooling, not stages: neither is in `common.COMMAND_ORDER`, neither writes under `outputs/`, and
+nothing in the table above reads what they write.
+
+**`python run.py score`** (M7, D130) scores the workbooks in `scoring/` against whatever
+`config/match_rate.ini [formula] summary_reference` names, and writes `<name>_scored.xlsx` beside
+each one. It reads the standard table that reference points at, so it wants a tree that has been
+built — but it forces no rerun of anything and nothing goes stale when it runs. Run it whenever
+you like, in any state of the tree, as often as you like.
 
 `--offline` skips the stages that touch the network. Only `protein-set`, `composition` and
 `blood-protein-set` have any: nothing else in the pipeline downloads (D80).
@@ -118,11 +126,12 @@ above.** "Rerun from" means from that number to the end of the list, not that nu
 | `tissue_mass_fractions.ini` | 10 |
 | `usda_food_data.ini` or a USDA archive | 11, then 13 |
 | `gorissen_2018_comparison.ini` | 12 |
-| `match_rate.ini` | 13 |
+| `match_rate.ini` | 13 (a new reference, or a new `summary_reference`, also changes what `run.py score` scores against) |
 | a stage's code | that stage's command, then everything after it |
 | shared code (`pipeline/common.py`, `run.py`, a stage more than one command runs) | 1 |
 | a test file only | the command the test belongs to, for its test run |
 | documents only (`docs/`, `README.md`, `PROVENANCE.md`) | nothing |
+| a workbook in `scoring/` | nothing — `python run.py score` on its own (M7) |
 
 **The chain that catches people: 5 → 10 → 12 → 13, and 9 → 10 → 13.** `composite`,
 `comparison` and `match` all record the hashes of the standard tables in their headers, so any

@@ -24,6 +24,8 @@
     python run.py blood-standard           the blood standard (offline): profiles per pool, the split, the
                                            dominant-protein and per-donor sensitivities, uncertainty, histidine drivers, plots
     python run.py test                     tests only
+    python run.py score                    tooling: Match Rate for the workbooks in scoring/ ->
+                                           <name>_scored.xlsx beside each (M7; not a pipeline stage)
 
 The run order is `common.COMMAND_ORDER` (docs/run_order.md): fetch-literature, protein-set,
 composition, mass-fractions, standard, the four blood commands, composite, usda, comparison, match.
@@ -175,6 +177,7 @@ def main() -> int:
         cp.add_argument("--stop-after", choices=network + offline)
     sub.add_parser("test")
     sub.add_parser("excerpt")
+    sub.add_parser("score")
     args = ap.parse_args()
 
     import datetime as _dt
@@ -189,6 +192,9 @@ def main() -> int:
         return run_tests()
     if args.cmd == "excerpt":
         return run_stage("excerpt")
+    if args.cmd == "score":
+        # Tooling, not a stage: not in COMMAND_ORDER, writes nothing under outputs/, runs no tests.
+        return run_stage("score")
 
     network, offline = COMMANDS[args.cmd]
     stages = (offline if args.offline else network + offline)

@@ -208,7 +208,6 @@ flowchart TB
     r1[match]
   end
   mri[config/match_rate.ini] --> r1
-  oth[config/food_amino_acids_other_sources.csv] --> r1
   gor --> r1
   std --> r1
   bp --> r1
@@ -370,11 +369,25 @@ term, and no path that writes back into the standard.
 
 | # | Stage | Reads | Writes |
 |---|---|---|---|
-| 1 | `match` | `config/match_rate.ini` (hand-written: references, scored sets, food tables, version label; D86–D88); `config/fao_2013_indispensable_amino_acids.ini` (the nine headings, D62); `config/gorissen_2018_comparison.ini` (the original reference and its own essential rows); `data/iupac/amino_acid_symbols.ini`; every standard table a `[reference.*]` names (the two muscle tables, the blood standard, the composite; D82, D124); `outputs/usda/amino_acids_per_food.tsv`; `config/food_amino_acids_other_sources.csv` (hand-maintained) | `outputs/match/match_rate_per_food.tsv` (the summary: one row per food, primary reference only — score, limiting amino acid, ΣEAA, ΣEAA as % of protein, the Step 7 ratio per amino acid); `match_rate_by_reference.tsv` (one row per food, references side by side, differences in pp); `match_rate_steps.tsv` (one row per food × reference: the spreadsheet's walk — Step 3, Step 7 and its MIN, Step 10b, total need, wasted, utilized); `match_rate_ranked_<reference>.tsv` (best first, one per reference); `limiting_amino_acid_counts.tsv`; `foods_not_scored.tsv`; `match_summary.ini` |
+| 1 | `match` | `config/match_rate.ini` (hand-written: references, scored sets, the food table, version label; D86–D88); `config/fao_2013_indispensable_amino_acids.ini` (the nine headings, D62); `config/gorissen_2018_comparison.ini` (the original reference and its own essential rows); `data/iupac/amino_acid_symbols.ini`; every standard table a `[reference.*]` names (the two muscle tables, the blood standard, the composite; D82, D124); `outputs/usda/amino_acids_per_food.tsv` | `outputs/match/match_rate_per_food.tsv` (the summary: one row per food, primary reference only — score, limiting amino acid, ΣEAA, ΣEAA as % of protein, the Step 7 ratio per amino acid); `match_rate_by_reference.tsv` (one row per food, references side by side, differences in pp); `match_rate_steps.tsv` (one row per food × reference: the spreadsheet's walk — Step 3, Step 7 and its MIN, Step 10b, total need, wasted, utilized); `match_rate_ranked_<reference>.tsv` (best first, one per reference); `limiting_amino_acid_counts.tsv`; `foods_not_scored.tsv`; `match_summary.ini` |
 
 Rules M1–M6 in `docs/conventions.md`; the calculation by hand in `docs/formula.md`, "Match Rate".
 The score is the smallest of (food share / reference share) over the scored set (D87). It is the
 public single-food scorer; the blend / fortification script is separate and imports it (D88).
+
+## `python run.py score` — Match Rate for a workbook of your own foods (tooling, not a stage)
+
+| # | Tool | Reads | Writes |
+|---|---|---|---|
+| — | `score` | `scoring/*.xlsx` (the author's own workbooks, gitignored; `_scored` files skipped); `config/match_rate.ini` for the reference `[formula] summary_reference` names and its scored set; `config/fao_2013_indispensable_amino_acids.ini`; `data/iupac/amino_acid_symbols.ini`; the standard table that reference points at | `scoring/<name>_scored.xlsx` — sheet `match_rate` (the author's rows verbatim, the calculation columns appended), sheet `steps` (the spreadsheet's walk per product), sheet `reference` (provenance and the reference's values). When `scoring/` holds no workbook: `scoring/blank_scoring_sheet.xlsx`, headers only |
+
+Rules M7–M10 in `docs/conventions.md` (D129, D130). **Not a pipeline stage:** absent from
+`common.COMMAND_ORDER`, no currency test, nothing written under `outputs/`, `config/` or `data/`,
+and nothing downstream reads it — so a proprietary formulation is scored without entering the
+repository's record. It calls `match.match_rate()` (M6), so the arithmetic is the pipeline's. The
+one rule it does not share is M8: a scored amino acid a row leaves blank is imputed at the
+reference's own share and named on the row, where `match.py` lists an incomplete USDA food
+unscored (M3).
 
 ## Tooling (not a stage, not the record)
 

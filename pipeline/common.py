@@ -254,9 +254,18 @@ GORISSEN_COMPARISON_INI = CONFIG_DIR / "gorissen_2018_comparison.ini"   # hand-w
 COMPARISON_OUT_DIR = OUTPUTS_DIR / "comparison"
 
 # --- Match Rate (D86-D88) ---
-MATCH_RATE_INI = CONFIG_DIR / "match_rate.ini"                                   # hand-written: references, scored sets, food tables
-FOOD_OTHER_SOURCES_CSV = CONFIG_DIR / "food_amino_acids_other_sources.csv"      # hand-maintained: foods USDA does not carry
+MATCH_RATE_INI = CONFIG_DIR / "match_rate.ini"                                   # hand-written: references, scored sets, the food table
 MATCH_OUT_DIR = OUTPUTS_DIR / "match"
+
+
+def scoring_dir() -> Path:
+    """Where the author's own workbooks go in and their scored twins come out (M7).
+
+    Gitignored, outside config/, data/ and outputs/: nothing here is part of the repository's
+    record and nothing downstream reads it. A function, not a constant, so it follows a
+    redirected REPO_ROOT (D91).
+    """
+    return REPO_ROOT / "scoring"
 
 # --- the composite (Layer C, D67 / D121): the category standards mixed by protein mass ---
 TISSUE_MASS_FRACTIONS_INI = CONFIG_DIR / "tissue_mass_fractions.ini"            # hand-written: one section per category, its protein mass in the reference person

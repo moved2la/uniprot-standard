@@ -26,7 +26,6 @@ Reads
   data/iupac/amino_acid_symbols.ini                     three-letter / trivial name -> letter: nothing is named in code
   outputs/standard/_calculated_amino_acid_standard*.tsv the calculated references (one column each)
   outputs/usda/amino_acids_per_food.tsv                 the USDA foods (grams per 100 g food, as published)
-  config/food_amino_acids_other_sources.csv             the author's hand-maintained foods (M4)
 
 Writes (outputs/match/)
   match_rate_per_food.tsv           the summary: one row per food, the SUMMARY reference only (D127, D128) — the score,
@@ -48,12 +47,14 @@ Rules (docs/conventions.md, "Match Rate rules")
   M2 Every reference names its scored set; a scored set is resolved to letters through config, never in code.
   M3 A food missing a scored amino acid is listed, not scored (U5 carried). A published zero is scored as
      published: the ratio is zero, the score is zero, and the limiting amino acid is named.
-  M4 Foods come from the USDA table and from the author's other-sources file; no food is dropped or
-     preferred across sources (U6 carried), and every row names its source.
+  M4 Foods come from the USDA table; no food is dropped or preferred across archives (U6 carried),
+     and every row names its source. A food entered by hand is scored by `python run.py score` (M7),
+     which never writes here.
   M5 The spreadsheet's walk is written per food and reference (match_rate_steps.tsv) so that any score can
      be rebuilt by hand; it is the same number as the minimum ratio, not a second score.
-  M6 This is the public single-food scorer. The blend / fortification script is separate (D88) and
-     calls match_rate() from here, so the arithmetic lives in one place.
+  M6 This is the public single-food scorer. The blend / fortification script is separate (D88), and
+     pipeline/score.py is the workbook scorer (M7); both call match_rate() from here, so the
+     arithmetic lives in one place.
 
 Usage
   python pipeline/match.py            # build
@@ -63,7 +64,6 @@ Usage
 from __future__ import annotations
 
 import argparse
-import csv
 import statistics
 import sys
 from pathlib import Path
@@ -311,42 +311,6 @@ def read_usda_foods(path: Path) -> list[dict]:
     return foods
 
 
-OTHER_REQUIRED = ["label", "source", "location", "note", "protein_g_per_100g"] + [f"{a}_g_per_100g" for a in AA]
-
-
-def read_other_foods(path: Path) -> list[dict]:
-    """The author's hand-maintained foods (M4). A header-only file is an empty list, not an error."""
-    if not path.exists():
-        raise Stop(f"{_rel(path)} not found (the hand-maintained other-sources file; it may be header-only)")
-    with open(path, encoding="utf-8-sig", newline="") as fh:
-        reader = csv.DictReader(fh)
-        cols = reader.fieldnames or []
-        absent = [c for c in OTHER_REQUIRED if c not in cols]
-        if absent:
-            raise Stop(f"{_rel(path)} lacks the column(s) {', '.join(absent)}")
-        foods, seen = [], set()
-        for i, r in enumerate(reader, 2):
-            label = (r.get("label") or "").strip()
-            if not label:
-                continue
-            if label in seen:
-                raise Stop(f"{_rel(path)} line {i}: label {label!r} appears twice; labels are the food's identity here")
-            seen.add(label)
-            if not (r.get("source") or "").strip():
-                raise Stop(f"{_rel(path)} line {i} ({label}): source is empty; every hand-entered food cites where its values come from")
-            try:
-                values = {a: _num(r[f"{a}_g_per_100g"]) for a in AA}
-                protein = _num(r["protein_g_per_100g"])
-            except ValueError as e:
-                raise Stop(f"{_rel(path)} line {i} ({label}): {e}")
-            foods.append({"source": "other", "source_detail": (r.get("source") or "").strip(), "food_id": label,
-                          "description": label, "category": "", "protein": protein, "min_data_points": "",
-                          "values": values,
-                          "citation": "; ".join(x for x in ((r.get("source") or "").strip(),
-                                                           (r.get("location") or "").strip()) if x)})
-    return foods
-
-
 # --------------------------------------------------------------------------- build
 
 def _pct(x: float, d: int) -> str:
@@ -407,11 +371,10 @@ def build(log) -> dict[str, str]:
     for sec in cp.sections():
         if sec.startswith("foods."):
             food_paths[sec[len("foods."):]] = _path(cp[sec]["file"])
-    if "usda" not in food_paths or "other_sources" not in food_paths:
-        raise Stop(f"{CONFIG_INI.name} must name [foods.usda] and [foods.other_sources]")
-    foods = read_usda_foods(food_paths["usda"]) + read_other_foods(food_paths["other_sources"])
-    log.info("%d foods (%d USDA, %d other sources); %d references",
-             len(foods), sum(f["source"] == "usda" for f in foods), sum(f["source"] == "other" for f in foods), len(refs))
+    if "usda" not in food_paths:
+        raise Stop(f"{CONFIG_INI.name} must name [foods.usda]")
+    foods = read_usda_foods(food_paths["usda"])
+    log.info("%d foods; %d references", len(foods), len(refs))
 
     # ---- score everything once. Columns follow the primary reference's scored-set order (the spreadsheet's
     #      row order for the FAO nine: H I L K M F T W V), then any letter only another reference scores.
@@ -429,7 +392,7 @@ def build(log) -> dict[str, str]:
 
     # ---- provenance header: what was read, hashed; the references with their values (the spreadsheet's column A)
     inputs = {"config": CONFIG_INI, "symbols": common.AMINO_ACID_SYMBOLS_INI,
-              "usda_foods": food_paths["usda"], "other_sources": food_paths["other_sources"]}
+              "usda_foods": food_paths["usda"]}
     for r in refs:
         inputs[f"reference.{r['name']}"] = r["path"]
     for ss in [s for s in cp.sections() if s.startswith("scored_set.")]:
@@ -588,7 +551,6 @@ def build(log) -> dict[str, str]:
     s["run"]["primary_reference"] = primary
     s["run"]["foods_read"] = str(len(foods))
     s["run"]["foods_usda"] = str(sum(f["source"] == "usda" for f in foods))
-    s["run"]["foods_other_sources"] = str(sum(f["source"] == "other" for f in foods))
     s["run"]["references"] = ", ".join(ref_names)
     for ss_name, ss in scored_sets.items():
         s.add_section(f"scored_set.{ss_name}")

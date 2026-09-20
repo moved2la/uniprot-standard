@@ -33,6 +33,18 @@ other command touches the network.
 
 `python run.py test` runs the tests alone.
 
+To score foods of your own — a label you transcribed, a supplier's analysis, a finished blend —
+put a workbook in `scoring/` and run:
+
+```
+python run.py score
+```
+
+It writes `scoring/<name>_scored.xlsx` beside each input: your rows exactly as you entered them
+with the Match Rate and its working appended. `scoring/` is gitignored and nothing under
+`outputs/` is touched, so scoring a formulation never puts it in the repository's record. Run it
+on an empty folder to get a sheet with the column headers. Rules M7–M10 in `docs/conventions.md`.
+
 ## Where to look
 
 | | |
