@@ -3,8 +3,8 @@
 The transcription test lives here too: the four foods of the author's spreadsheet
 (Base_Match_Rate_Formula.xlsx, 2026-09-17, cells G156:J156) must come back out of a workbook with
 the scores Excel cached, since this is the path a hand-entered food now takes (D129). The formula
-itself is tested in tests/test_match.py; what is tested here is the workbook in, the workbook out,
-and the imputation of an amino acid a label does not print (M8).
+itself is tested in tests/test_match.py; what is tested here is the transposed workbook in, the
+workbook out, and the imputation of an amino acid a label does not print (M8).
 
 Nothing here reads a real standard, a real archive, or the author's own scoring/ folder.
 """
@@ -109,14 +109,14 @@ def repo(tmp_path, monkeypatch):
     return tmp_path
 
 
-def write_workbook(path, header, rows, sheet="foods"):
+def write_workbook(path, fields, products, sheet="foods"):
+    """A transposed sheet (M9): `fields` are the column-A names, `products` one dict per column."""
     from openpyxl import Workbook
     wb = Workbook()
     ws = wb.active
     ws.title = sheet
-    ws.append(list(header))
-    for r in rows:
-        ws.append(list(r))
+    for name in fields:
+        ws.append([name] + [p.get(name) for p in products])
     wb.save(path)
 
 
@@ -130,19 +130,28 @@ def read_sheet(path, name):
 
 
 def by_label(path, name="match_rate"):
+    """(the column-A names in order, {product label: {field: value}}) from a transposed sheet."""
     _, rows = read_sheet(path, name)
-    header = [c for c in rows[0] if c is not None]
-    return header, {r[0]: dict(zip(header, r)) for r in rows[1:] if r and r[0] is not None}
+    names = [(r[0] if r else None) for r in rows]
+    labels = rows[names.index("label")]
+    out = {}
+    for j, label in enumerate(labels[1:], 1):
+        if label is None or str(label).strip() == "":
+            continue
+        out[label] = {n: r[j] for n, r in zip(names, rows) if n}
+    return [n for n in names if n], out
 
 
-def sheet_foods_workbook(path, ref_letters="HILKMFTV", extra_columns=()):
-    header = ["label", "source", "basis", "grams_basis", "protein_g"] + \
-             [SYMBOLS[a][1] for a in ref_letters] + list(extra_columns)
-    rows = [[n, "the author's spreadsheet, 2026-09-17", "product", 100, None]
-            + [SHEET_FOODS[n][a] for a in ref_letters] + [""] * len(extra_columns)
-            for n in SHEET_FOODS]
-    write_workbook(path, header, rows)
-    return header
+def sheet_foods_workbook(path, ref_letters="HILKMFTV", extra_fields=()):
+    """The spreadsheet's four foods as four columns, the way the author lays a sheet out."""
+    fields = ["label", "source", "basis", "grams_basis", "protein_g"] + \
+             [SYMBOLS[a][1] for a in ref_letters] + list(extra_fields)
+    products = [{"label": n, "source": "the author's spreadsheet, 2026-09-17",
+                 "basis": "product", "grams_basis": 100,
+                 **{SYMBOLS[a][1]: SHEET_FOODS[n][a] for a in ref_letters}}
+                for n in SHEET_FOODS]
+    write_workbook(path, fields, products)
+    return fields
 
 
 # --------------------------------------------------------------------------- the transcription (D87, D129)
@@ -162,8 +171,8 @@ def test_the_steps_sheet_reproduces_the_spreadsheets_cells(repo):
     """Pea, column I: I22 = 30.99, I23 = 0.97453, I153 = 61.98, I155 = 0.48693, I156 = 0.51307."""
     sheet_foods_workbook(repo / "scoring" / "my_foods.xlsx")
     out = score.run(_Log())
-    _, rows = by_label(out[0], "steps")
-    pea = rows["Pea"]
+    _, products = by_label(out[0], "steps")
+    pea = products["Pea"]
     assert pea["eaa_total"] == pytest.approx(30.99, abs=1e-3)
     assert pea["reference_eaa_total"] == pytest.approx(31.8, abs=1e-3)
     assert pea["percent_of_reference_total"] == pytest.approx(30.99 / 31.8, abs=1e-4)
@@ -177,15 +186,16 @@ def test_the_steps_sheet_reproduces_the_spreadsheets_cells(repo):
 # --------------------------------------------------------------------------- M9: the author's rows, untouched
 
 def test_the_input_rows_come_back_verbatim_with_the_calculations_appended(repo):
-    header = sheet_foods_workbook(repo / "scoring" / "my_foods.xlsx", extra_columns=("note",))
+    """M9: the author's grid untouched, the calculations appended as rows at the bottom."""
+    fields = sheet_foods_workbook(repo / "scoring" / "my_foods.xlsx", extra_fields=("note",))
     out = score.run(_Log())
-    cols, rows = by_label(out[0])
-    assert cols[:len(header)] == header, "the author's columns moved or changed"
-    assert cols[len(header):] == score.CALC_COLUMNS
+    names, products = by_label(out[0])
+    assert names[:len(fields)] == fields, "the author's rows moved or changed"
+    assert names[len(fields):] == score.CALC_ROWS, "the calculations are not the rows at the bottom"
     for name, food in SHEET_FOODS.items():
-        assert rows[name]["source"] == "the author's spreadsheet, 2026-09-17"
+        assert products[name]["source"] == "the author's spreadsheet, 2026-09-17"
         for letter, value in food.items():
-            assert rows[name][SYMBOLS[letter][1]] == pytest.approx(value), (name, letter)
+            assert products[name][SYMBOLS[letter][1]] == pytest.approx(value), (name, letter)
 
 
 def test_the_input_workbook_is_not_written_to(repo):
@@ -218,7 +228,7 @@ def test_the_reference_sheet_carries_the_provenance_and_the_values(repo):
     assert len(str(fields["input_workbook_sha256"])) == 64
     assert "sha256" in str(fields["config"])
     assert fields["scored_amino_acids"] == ", ".join(SYMBOLS[a][1] for a in EIGHT)
-    table = [r for r in rows if r and r[0] in common.AMINO_ACIDS]
+    table = [r for r in rows if r and isinstance(r[0], str) and r[0] in common.AMINO_ACIDS]
     assert len(table) == 20, "every amino acid is listed, scored or not"
     scored = [r[1] for r in table if r[4] == "yes"]
     assert set(scored) == {SYMBOLS[a][1] for a in EIGHT}
@@ -266,10 +276,12 @@ def test_a_blank_is_imputed_and_a_zero_is_scored(repo):
     """M3 and M8 are different rules: blank means the source did not report it; 0 means it measured zero."""
     _write_config(repo / "config" / "match_rate.ini", summary="nine_reference")
     ref = score.load_summary_reference()
-    header = ["label", "basis", "grams_basis"] + [SYMBOLS[a][1] for a in ref["letters"]]
-    write_workbook(repo / "scoring" / "two.xlsx", header, [
-        ["blank lysine", "product", 100] + [None if a == "K" else 1.0 for a in ref["letters"]],
-        ["zero lysine", "product", 100] + [0.0 if a == "K" else 1.0 for a in ref["letters"]],
+    fields = ["label", "basis", "grams_basis"] + [SYMBOLS[a][1] for a in ref["letters"]]
+    write_workbook(repo / "scoring" / "two.xlsx", fields, [
+        {"label": "blank lysine", "basis": "product", "grams_basis": 100,
+         **{SYMBOLS[a][1]: (None if a == "K" else 1.0) for a in ref["letters"]}},
+        {"label": "zero lysine", "basis": "product", "grams_basis": 100,
+         **{SYMBOLS[a][1]: (0.0 if a == "K" else 1.0) for a in ref["letters"]}},
     ])
     out = score.run(_Log())
     _, rows = by_label(out[0])
@@ -280,19 +292,19 @@ def test_a_blank_is_imputed_and_a_zero_is_scored(repo):
 
 
 def test_a_row_that_reports_nothing_is_not_scored_and_says_why(repo):
-    header = ["label", "basis", "grams_basis", "Lys", "Leu"]
-    write_workbook(repo / "scoring" / "thin.xlsx", header, [
-        ["two of eight", "product", 100, 2.0, 3.0],
-        ["reports none", "product", 100, None, None],
-        ["all zero", "product", 100, 0, 0],
+    fields = ["label", "basis", "grams_basis", "Lys", "Leu"]
+    write_workbook(repo / "scoring" / "thin.xlsx", fields, [
+        {"label": "two of eight", "basis": "product", "grams_basis": 100, "Lys": 2.0, "Leu": 3.0},
+        {"label": "reports none", "basis": "product", "grams_basis": 100},
+        {"label": "all zero", "basis": "product", "grams_basis": 100, "Lys": 0, "Leu": 0},
     ])
     out = score.run(_Log())
-    _, rows = by_label(out[0])
-    assert rows["two of eight"]["match_rate_percent"] is not None
-    assert rows["reports none"]["match_rate_percent"] is None
-    assert "none of the scored" in rows["reports none"]["not_scored_reason"]
-    assert rows["all zero"]["match_rate_percent"] is None
-    assert rows["all zero"]["not_scored_reason"]
+    _, products = by_label(out[0])
+    assert products["two of eight"]["match_rate_percent"] is not None
+    assert products["reports none"]["match_rate_percent"] is None
+    assert "none of the scored" in products["reports none"]["not_scored_reason"]
+    assert products["all zero"]["match_rate_percent"] is None
+    assert products["all zero"]["not_scored_reason"]
     _, steps = by_label(out[0], "steps")
     assert list(steps) == ["two of eight"], "the steps sheet carries only what was scored"
 
@@ -301,63 +313,90 @@ def test_a_row_that_reports_nothing_is_not_scored_and_says_why(repo):
 
 def test_the_basis_changes_the_density_columns_and_never_the_score(repo):
     ref = score.load_summary_reference()
-    header = ["label", "basis", "grams_basis", "protein_g"] + [SYMBOLS[a][1] for a in ref["letters"]]
     n = len(ref["letters"])
-    write_workbook(repo / "scoring" / "basis.xlsx", header, [
-        ["per product", "product", 250, 60] + [2.0] * n,
-        ["per protein", "protein", 100, 100] + [2.0] * n,
+    fields = ["label", "basis", "grams_basis", "protein_g"] + [SYMBOLS[a][1] for a in ref["letters"]]
+    amounts = {SYMBOLS[a][1]: 2.0 for a in ref["letters"]}
+    write_workbook(repo / "scoring" / "basis.xlsx", fields, [
+        {"label": "per product", "basis": "product", "grams_basis": 250, "protein_g": 60, **amounts},
+        {"label": "per protein", "basis": "protein", "grams_basis": 100, "protein_g": 100, **amounts},
+        {"label": "per eaa", "basis": "eaa", "grams_basis": 2.0 * n, "protein_g": None, **amounts},
     ])
     out = score.run(_Log())
-    _, rows = by_label(out[0])
-    assert rows["per product"]["match_rate_percent"] == pytest.approx(rows["per protein"]["match_rate_percent"])
-    assert rows["per product"]["eaa_g_per_100g_product"] == pytest.approx(100 * 2.0 * n / 250)
-    assert rows["per product"]["protein_percent_of_product"] == pytest.approx(100 * 60 / 250)
-    assert rows["per protein"]["eaa_g_per_100g_product"] is None
-    assert rows["per protein"]["protein_percent_of_product"] is None
-    assert rows["per protein"]["eaa_percent_of_protein"] == pytest.approx(2.0 * n)
+    _, products = by_label(out[0])
+    scores = {k: products[k]["match_rate_percent"] for k in ("per product", "per protein", "per eaa")}
+    assert scores["per product"] == pytest.approx(scores["per protein"])
+    assert scores["per product"] == pytest.approx(scores["per eaa"]), "the basis never enters the score"
+    assert products["per product"]["eaa_g_per_100g_product"] == pytest.approx(100 * 2.0 * n / 250)
+    assert products["per product"]["protein_percent_of_product"] == pytest.approx(100 * 60 / 250)
+    for other in ("per protein", "per eaa"):
+        assert products[other]["eaa_g_per_100g_product"] is None, other
+        assert products[other]["protein_percent_of_product"] is None, other
+    assert products["per protein"]["eaa_percent_of_protein"] == pytest.approx(2.0 * n)
+    assert products["per eaa"]["eaa_total"] == pytest.approx(2.0 * n)
 
 
 def test_protein_is_optional(repo):
-    header = ["label", "basis", "grams_basis", "Lys", "Leu"]
-    write_workbook(repo / "scoring" / "noprotein.xlsx", header, [["x", "product", 100, 2.0, 3.0]])
+    write_workbook(repo / "scoring" / "noprotein.xlsx", ["label", "basis", "grams_basis", "Lys", "Leu"],
+                   [{"label": "x", "basis": "product", "grams_basis": 100, "Lys": 2.0, "Leu": 3.0}])
     out = score.run(_Log())
-    _, rows = by_label(out[0])
-    assert rows["x"]["match_rate_percent"] is not None
-    assert rows["x"]["eaa_percent_of_protein"] is None
+    _, products = by_label(out[0])
+    assert products["x"]["match_rate_percent"] is not None
+    assert products["x"]["eaa_percent_of_protein"] is None
 
 
 # --------------------------------------------------------------------------- what stops
 
-@pytest.mark.parametrize("row, message", [
-    (["x", "per serving", 100, 1.0], "basis"),
-    (["x", "product", 0, 1.0], "grams_basis"),
-    (["x", "product", "many", 1.0], "grams_basis"),
-    (["", "product", 100, 1.0], "label"),
+@pytest.mark.parametrize("product, message", [
+    ({"label": "x", "basis": "per serving", "grams_basis": 100, "Lys": 1.0}, "basis"),
+    ({"label": "x", "basis": "product", "grams_basis": 0, "Lys": 1.0}, "grams_basis"),
+    ({"label": "x", "basis": "product", "grams_basis": "many", "Lys": 1.0}, "grams_basis"),
+    ({"label": "x", "basis": "product", "grams_basis": 100, "Lys": "lots"}, "Lys"),
 ])
-def test_a_row_the_tool_cannot_read_stops_it(repo, row, message):
-    write_workbook(repo / "scoring" / "bad.xlsx", ["label", "basis", "grams_basis", "Lys"], [row])
+def test_a_product_the_tool_cannot_read_stops_it(repo, product, message):
+    write_workbook(repo / "scoring" / "bad.xlsx", ["label", "basis", "grams_basis", "Lys"], [product])
     with pytest.raises(SystemExit, match=message):
         score.run(_Log())
 
 
-def test_a_sheet_without_the_required_columns_stops(repo):
-    write_workbook(repo / "scoring" / "bad.xlsx", ["label", "Lys"], [["x", 1.0]])
+def test_a_column_without_a_label_is_carried_but_not_scored(repo):
+    write_workbook(repo / "scoring" / "unlabelled.xlsx", ["label", "basis", "grams_basis", "Lys", "Leu"],
+                   [{"label": "named", "basis": "product", "grams_basis": 100, "Lys": 2.0, "Leu": 3.0},
+                    {"basis": "product", "grams_basis": 100, "Lys": 9.0, "Leu": 9.0}])
+    out = score.run(_Log())
+    _, products = by_label(out[0])
+    assert list(products) == ["named"], "an unlabelled column is not a product"
+    _, rows = read_sheet(out[0], "match_rate")
+    lys = [r for r in rows if r and r[0] == "Lys"][0]
+    assert lys[2] == 9.0, "the unlabelled column is still carried through"
+
+
+def test_a_sheet_without_the_required_rows_stops(repo):
+    write_workbook(repo / "scoring" / "bad.xlsx", ["label", "Lys"], [{"label": "x", "Lys": 1.0}])
     with pytest.raises(SystemExit, match="grams_basis"):
         score.run(_Log())
 
 
-def test_a_sheet_with_no_amino_acid_column_stops(repo):
+def test_a_sheet_with_no_amino_acid_row_stops(repo):
     write_workbook(repo / "scoring" / "bad.xlsx", ["label", "basis", "grams_basis", "protein_g"],
-                   [["x", "product", 100, 20]])
-    with pytest.raises(SystemExit, match="no column is an amino acid"):
+                   [{"label": "x", "basis": "product", "grams_basis": 100, "protein_g": 20}])
+    with pytest.raises(SystemExit, match="no row of column A is an amino acid"):
         score.run(_Log())
 
 
-def test_the_same_amino_acid_in_two_columns_stops(repo):
-    write_workbook(repo / "scoring" / "bad.xlsx",
-                   ["label", "basis", "grams_basis", "Lys", "Lysine"], [["x", "product", 100, 1.0, 1.0]])
+def test_the_same_amino_acid_in_two_rows_stops(repo):
+    write_workbook(repo / "scoring" / "bad.xlsx", ["label", "basis", "grams_basis", "Lys", "Lysine"],
+                   [{"label": "x", "basis": "product", "grams_basis": 100, "Lys": 1.0, "Lysine": 1.0}])
     with pytest.raises(SystemExit, match="Lys"):
         score.run(_Log())
+
+
+def test_a_sheet_with_no_product_column_is_skipped_not_fatal(repo):
+    """The unfilled blank sheet is this case. One template must not block the folder."""
+    write_workbook(repo / "scoring" / "empty_template.xlsx", ["label", "basis", "grams_basis", "Lys"], [])
+    sheet_foods_workbook(repo / "scoring" / "my_foods.xlsx")
+    out = score.run(_Log())
+    assert [p.name for p in out] == ["my_foods_scored.xlsx"]
+    assert not (repo / "scoring" / "empty_template_scored.xlsx").exists()
 
 
 def test_a_summary_reference_that_is_not_a_reference_stops(repo):
@@ -386,22 +425,22 @@ def test_a_scored_workbook_is_never_taken_as_an_input(repo):
 
 def test_a_workbook_the_tool_did_not_write_is_not_overwritten(repo):
     sheet_foods_workbook(repo / "scoring" / "my_foods.xlsx")
-    write_workbook(repo / "scoring" / "my_foods_scored.xlsx", ["mine"], [["not the tool's"]])
+    write_workbook(repo / "scoring" / "my_foods_scored.xlsx", ["mine"], [{"mine": "not the tool's"}])
     with pytest.raises(SystemExit, match="will not overwrite"):
         score.run(_Log())
 
 
-def test_an_empty_folder_gets_a_sheet_with_the_column_headers(repo):
+def test_an_empty_folder_gets_a_sheet_with_the_field_names_down_column_a(repo):
     out = score.run(_Log())
     assert out == []
     blank = repo / "scoring" / "blank_scoring_sheet.xlsx"
     assert blank.exists()
     _, rows = read_sheet(blank, "foods")
-    header = [c for c in rows[0] if c is not None]
-    assert header[:3] == score.REQUIRED_COLUMNS
-    assert header[-20:] == [SYMBOLS[a][1] for a in
-                            sorted(common.AMINO_ACIDS, key=lambda x: SYMBOLS[x][0].lower())]
-    assert score.run(_Log()) == [], "a sheet with no rows below the header produces nothing"
+    names = [r[0] for r in rows if r]
+    assert names[:3] == score.REQUIRED_FIELDS
+    assert names[-20:] == [SYMBOLS[a][1] for a in
+                           sorted(common.AMINO_ACIDS, key=lambda x: SYMBOLS[x][0].lower())]
+    assert score.run(_Log()) == [], "a sheet with no product column produces nothing"
 
 
 def test_the_scoring_folder_follows_a_redirected_repo_root(tmp_path, monkeypatch):

@@ -40,10 +40,15 @@ put a workbook in `scoring/` and run:
 python run.py score
 ```
 
-It writes `scoring/<name>_scored.xlsx` beside each input: your rows exactly as you entered them
-with the Match Rate and its working appended. `scoring/` is gitignored and nothing under
-`outputs/` is touched, so scoring a formulation never puts it in the repository's record. Run it
-on an empty folder to get a sheet with the column headers. Rules M7–M10 in `docs/conventions.md`.
+The sheet is transposed, the way the Match Rate spreadsheet is: the field names (`label`, `basis`,
+`grams_basis`, `protein_g`, then the amino acids by three-letter symbol) run down column A, and
+each column from B rightwards is one product.
+
+It writes `scoring/<name>_scored.xlsx` beside each input: your grid exactly as you entered it, with
+the Match Rate and its working appended as rows at the bottom. `scoring/` is gitignored and nothing
+under `outputs/` is touched, so scoring a formulation never puts it in the repository's record. Run
+it on an empty folder to get a sheet with the field names down column A. Rules M7–M10 in
+`docs/conventions.md`.
 
 ## Where to look
 

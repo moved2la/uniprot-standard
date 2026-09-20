@@ -379,9 +379,9 @@ public single-food scorer; the blend / fortification script is separate and impo
 
 | # | Tool | Reads | Writes |
 |---|---|---|---|
-| — | `score` | `scoring/*.xlsx` (the author's own workbooks, gitignored; `_scored` files skipped); `config/match_rate.ini` for the reference `[formula] summary_reference` names and its scored set; `config/fao_2013_indispensable_amino_acids.ini`; `data/iupac/amino_acid_symbols.ini`; the standard table that reference points at | `scoring/<name>_scored.xlsx` — sheet `match_rate` (the author's rows verbatim, the calculation columns appended), sheet `steps` (the spreadsheet's walk per product), sheet `reference` (provenance and the reference's values). When `scoring/` holds no workbook: `scoring/blank_scoring_sheet.xlsx`, headers only |
+| — | `score` | `scoring/*.xlsx` (the author's own workbooks, transposed — field names down column A, one product per column — gitignored; `_scored` files skipped); `config/match_rate.ini` for the reference `[formula] summary_reference` names and its scored set; `config/fao_2013_indispensable_amino_acids.ini`; `data/iupac/amino_acid_symbols.ini`; the standard table that reference points at | `scoring/<name>_scored.xlsx` — sheet `match_rate` (the author's grid verbatim, the calculation rows appended at the bottom), sheet `steps` (the spreadsheet's walk, transposed), sheet `reference` (provenance and the reference's values). When `scoring/` holds no workbook: `scoring/blank_scoring_sheet.xlsx`, column A only |
 
-Rules M7–M10 in `docs/conventions.md` (D129, D130). **Not a pipeline stage:** absent from
+Rules M7–M10 in `docs/conventions.md` (D129, D130, D131). **Not a pipeline stage:** absent from
 `common.COMMAND_ORDER`, no currency test, nothing written under `outputs/`, `config/` or `data/`,
 and nothing downstream reads it — so a proprietary formulation is scored without entering the
 repository's record. It calls `match.match_rate()` (M6), so the arithmetic is the pipeline's. The
