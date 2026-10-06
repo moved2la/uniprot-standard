@@ -149,6 +149,7 @@ reproduce the pin. **F3, F4, F4b and F6 retired with the download code** in Step
 | **F7b Extension** | the file's magic bytes | When the URL basename has no extension, the one the bytes imply is appended (`%PDF` → `.pdf`, `PK` → `.zip`, `Rar!` → `.rar`, gzip → `.gz`), so every stored file opens in the program a person would use; the file is found under the bare name or under the name with any of those extensions. |
 | **F8 Cited, not stored** | the absence of `file.<n>.*` | A source with no files is cited but not stored — a method citation, a provenance reference, a paywalled article whose values were never transcribed. It appears in the map and the README and is never flagged for a missing file. |
 | **F9 Used for** | `used_for` | Names what the source is used for, comma-separated, from the columns declared in `[categories]`. A value not in that list is a flag, so a typo cannot quietly drop a source out of the map. A source that feeds no calculation carries the `unused_marker`, which prints in the `other` column — a row of blanks would read as an unfilled line. |
+| **F10 Prior art** (D135) | `role = prior_art`, `used_for` | A source whose `used_for` is only `paper`. Hashed and manifested as any other; read by no stage; its id appearing in any calculation config is a flag. |
 
 ### Digest rules (`pipeline/digest.py`)
 
